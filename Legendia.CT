@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Stats"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Senel HP"</Description>
+          <LastState Value="270" RealAddress="204A7EC6"/>
+          <VariableType>2 Bytes</VariableType>
+          <Address>204A7EC6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Will HP"</Description>
+          <LastState Value="180" RealAddress="204A7F1A"/>
+          <VariableType>2 Bytes</VariableType>
+          <Address>204A7F1A</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"Battle Modes"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"P1 mode (menu)"</Description>
+          <DropDownList DisplayValueAsItem="1">0:Manual
+1:Semi-Auto
+2:Auto
+</DropDownList>
+          <LastState Value="0" RealAddress="204A7E41"/>
+          <VariableType>Byte</VariableType>
+          <Address>204A7E41</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Party Formation"</Description>
+      <Options moHideChildren="1"/>
+      <DropDownList DisplayValueAsItem="1">1:Senel
+2:Will
+3:Chloe
+4:Norma
+5:Moses
+6:Jay
+7:Grune
+8:Shirley
+</DropDownList>
+      <LastState Value="" RealAddress="204A7E42"/>
+      <GroupHeader>1</GroupHeader>
+      <Address>204A7E42</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"Party Size"</Description>
+          <DropDownList>1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+</DropDownList>
+          <LastState Value="4" RealAddress="204A7E40"/>
+          <VariableType>Byte</VariableType>
+          <Address>-2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Slot 1"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="1" RealAddress="204A7E42"/>
+          <VariableType>Byte</VariableType>
+          <Address>+0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"Slot 2"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="2" RealAddress="204A7E43"/>
+          <VariableType>Byte</VariableType>
+          <Address>+1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Slot 3"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="3" RealAddress="204A7E44"/>
+          <VariableType>Byte</VariableType>
+          <Address>+2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"Slot 4"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="4" RealAddress="204A7E45"/>
+          <VariableType>Byte</VariableType>
+          <Address>+3</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"Slot 5"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="204A7E46"/>
+          <VariableType>Byte</VariableType>
+          <Address>+4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"Slot 6"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="204A7E47"/>
+          <VariableType>Byte</VariableType>
+          <Address>+5</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"Slot 7"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="204A7E48"/>
+          <VariableType>Byte</VariableType>
+          <Address>+6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"Slot 8"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="204A7E49"/>
+          <VariableType>Byte</VariableType>
+          <Address>+7</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="80000008">
+      <Description>Code :mov [ecx],edx</Description>
+      <AddressString>3075E681</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>9F</Byte>
+        <Byte>FA</Byte>
+        <Byte>FF</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>11</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>90</Byte>
+        <Byte>A7</Byte>
+        <Byte>D1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="80000008">
+      <Description>Code :mov [ecx],edx</Description>
+      <AddressString>307BA9DB</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>45</Byte>
+        <Byte>37</Byte>
+        <Byte>FA</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>11</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>50</Byte>
+        <Byte>A7</Byte>
+        <Byte>D1</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"Party Formation"</Description>
+      <Options moHideChildren="1"/>
+      <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Luke
+2:Tear
+3:Jade
+4:Anise
+5:Guy
+6:Natalia
+7:Asch
+</DropDownList>
+      <LastState Value="" RealAddress="206D2EC1"/>
+      <GroupHeader>1</GroupHeader>
+      <Address>206D2EC1</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Slot 1"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>Byte</VariableType>
+          <Address>+0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Slot 2"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>Byte</VariableType>
+          <Address>+1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Slot 3"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>Byte</VariableType>
+          <Address>+2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Slot 4"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>Byte</VariableType>
+          <Address>+3</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Slot 5"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>Byte</VariableType>
+          <Address>+4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Slot 6"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>Byte</VariableType>
+          <Address>+5</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>21</ID>
+      <Description>"Title &amp; Costume"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="206D2F01"/>
+      <GroupHeader>1</GroupHeader>
+      <Address>206D2F01</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"Luke"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D2F01"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+0</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>23</ID>
+              <Description>"Costume"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Tear"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D3251"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+350</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>26</ID>
+              <Description>"Costume"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>43</ID>
+          <Description>"Jade"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D35A1"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+350*2</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>44</ID>
+              <Description>"Costume"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>45</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>40</ID>
+          <Description>"Anise"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D38F1"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+350*3</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>41</ID>
+              <Description>"Costume"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>42</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"Guy"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D3C41"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+350*4</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>38</ID>
+              <Description>"Costume"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"Natalia"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D3F91"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+350*5</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>35</ID>
+              <Description>"Costume"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"Asch"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="206D42E1"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>+350*6</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Costume"</Description>
+              <DropDownList DisplayValueAsItem="1">0:God-General
+1:Loving Son
+</DropDownList>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>33</ID>
+              <Description>"Title"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>56</ID>
+      <Description>"Current Area"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>4</ByteLength>
+      <Address>206D2C24</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>61</ID>
+      <Description>"Luke Hair"</Description>
+      <DropDownList DisplayValueAsItem="1">00 00 00 80:Long
+00 00 00 A0:Short
+</DropDownList>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>4</ByteLength>
+      <Address>206D29B2</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>3054BE44</Address>
+      <Comment>get title eax
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>
