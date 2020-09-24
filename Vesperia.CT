@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Party Formation"</Description>
+      <Options moHideChildren="1"/>
+      <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Yuri
+2:Estelle
+3:Karol
+4:Rita
+5:Raven
+6:Judith
+7:Repede
+8:Flynn
+9:Patty
+10:Estelle(Unknown)
+</DropDownList>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <Address>TOV_DE.exe+1181FE8</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Slot 1"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"Slot 2"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"Slot 3"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"Slot 4"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Slot 5"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+10</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"Slot 6"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+14</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Slot 7"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+18</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Slot 8"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+1C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Slot 9"</Description>
+          <DropDownListLink>Party Formation</DropDownListLink>
+          <VariableType>4 Bytes</VariableType>
+          <Address>+20</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>63627</ID>
+      <Description>"Notes"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Yuri Title"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1186A14</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Yuri Model"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>TOV_DE.exe+118A9EF</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63465</ID>
+          <Description>"Duke Stats Fight Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(DukeFight, 24 5F 04 00 A0 0F 00 00 FA 02 00 00 EE 02 00 00) // should be unique
+label(_DukeFight)
+registersymbol(_DukeFight)
+
+DukeFight:
+_DukeFight:
+
+[DISABLE]
+unregistersymbol(_DukeFight)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63501</ID>
+              <Description>"Enemy Name/Picture"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight-28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63481</ID>
+              <Description>"Enemy (Monster Book)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight-10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63477</ID>
+              <Description>"Level"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight-4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63266</ID>
+              <Description>"HP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63474</ID>
+              <Description>"TP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63473</ID>
+              <Description>"P. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63472</ID>
+              <Description>"P. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63471</ID>
+              <Description>"M. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63470</ID>
+              <Description>"M. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63500</ID>
+              <Description>"????"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+18</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63468</ID>
+              <Description>"AGL"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63475</ID>
+              <Description>"EXP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+64</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63479</ID>
+              <Description>"LP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63478</ID>
+              <Description>"GALD"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63574</ID>
+              <Description>"Enemy Name/Picture (Monster Book)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+C8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63482</ID>
+          <Description>"Duke 2 Stats Fight Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(Duke2Fight, 2C 22 07 00 70 17 00 00 28 03 00 00 70 03 00 00) // should be unique
+label(_Duke2Fight)
+registersymbol(_Duke2Fight)
+
+Duke2Fight:
+_Duke2Fight:
+
+[DISABLE]
+unregistersymbol(_Duke2Fight)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63483</ID>
+              <Description>"Enemy Name/Picture"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight-28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63484</ID>
+              <Description>"Enemy (Monster Book)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight-10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63485</ID>
+              <Description>"Level"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight-4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63486</ID>
+              <Description>"HP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63487</ID>
+              <Description>"TP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63488</ID>
+              <Description>"P. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63489</ID>
+              <Description>"P. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63490</ID>
+              <Description>"M. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63491</ID>
+              <Description>"M. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63492</ID>
+              <Description>"AGL"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63493</ID>
+              <Description>"EXP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+64</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63494</ID>
+              <Description>"LP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63495</ID>
+              <Description>"GALD"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63573</ID>
+              <Description>"Enemy Name/Title (Monster Book) (duke 2?)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+C8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63569</ID>
+          <Description>"No description"</Description>
+          <VariableType>String</VariableType>
+          <Length>8</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>21E4142F300</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63575</ID>
+          <Description>"No description"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>TOV_DE.exe+1181E99</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63619</ID>
+          <Description>"Encounter Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(Encounter, F5 00 00 00 F6 00 00 00 F6 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF) // should be unique
+label(_Encounter)
+registersymbol(_Encounter)
+
+Encounter:
+_Encounter:
+
+[DISABLE]
+unregistersymbol(_Encounter)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63626</ID>
+              <Description>"Gattuso fight"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>_Encounter</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63621</ID>
+                  <Description>"Gattuso"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63622</ID>
+                  <Description>"Gattuso Cub 1"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63623</ID>
+                  <Description>"Gattuso Cub 2"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63624</ID>
+              <Description>"Duke 1st fight"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Encounter+219F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63625</ID>
+              <Description>"Duke 2nd fight"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Encounter+21AD4</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63582</ID>
+          <Description>"Yuri HP"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1186A04</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63583</ID>
+          <Description>"Yuri TP"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1186A08</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63584</ID>
+          <Description>"Rita HP"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1192BFC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63585</ID>
+          <Description>"Rita TP"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1192C00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63617</ID>
+          <Description>"Paste enemy HP address here to get values"</Description>
+          <LastState Value="" RealAddress="277B034A4DC"/>
+          <GroupHeader>1</GroupHeader>
+          <Address>277B034A4DC</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63615</ID>
+              <Description>"HP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63616</ID>
+              <Description>"Enemy"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>-8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63618</ID>
+              <Description>"Name"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>-48</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>randomvalue</Name>
+      <Address>0B3D0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_CancelX</Name>
+      <Address>14194956B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_CancelX2</Name>
+      <Address>141949599</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MOEquipmentAOB</Name>
+      <Address>1413EDEE1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>eraseModelWhenDefeat</Name>
+      <Address>1412CC62D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullHair_Eleanor</Name>
+      <Address>531A010C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullHair_Roku</Name>
+      <Address>45B500EC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InitExceptionFalsePositive</Name>
+      <Address>1412D137F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive</Name>
+      <Address>1415B28E2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive2</Name>
+      <Address>14130DA13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive3</Name>
+      <Address>141434E56</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive4</Name>
+      <Address>141538107</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>override_fixedStringError1</Name>
+      <Address>14128861B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>override_fixedStringError2</Name>
+      <Address>141288623</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>alwaysActive_chestsOnField</Name>
+      <Address>1415B2824</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>set_allCharArtes</Name>
+      <Address>1416499A1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enm_BookData</Name>
+      <Address>1415E27C2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ae2</Name>
+      <Address>004A26A9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>model_change</Name>
+      <Address>00716D62</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>edit_knkbckType</Name>
+      <Address>109C56B8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>sSTAFFbST</Name>
+      <Address>3BEB9C37</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>risingPhoenix_fireEff</Name>
+      <Address>3D26C6D9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cutChainArteTime</Name>
+      <Address>0099A219</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enm_statMult</Name>
+      <Address>004F8A4A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>inf_Stagger</Name>
+      <Address>0049FC6E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>inf_Stag</Name>
+      <Address>0049FC9E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>encounterTable</Name>
+      <Address>16790800</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>soph_SRA_anim</Name>
+      <Address>150006B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fire_stanceROS</Name>
+      <Address>14D3DB7C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>earth_stanceROS</Name>
+      <Address>1531DB7C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteStructA</Name>
+      <Address>006C8E88</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_BattlesAsChar_AOB</Name>
+      <Address>0048B885</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_DIFF</Name>
+      <Address>004F8A4A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fusion_AOB</Name>
+      <Address>00538983</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>baseCHR_anim</Name>
+      <Address>364BD9B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enemy_Data</Name>
+      <Address>004E71DB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fire_stanceSRA</Name>
+      <Address>0F08F92C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_NGP_Grade_AOB</Name>
+      <Address>008715BF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Titles_AOB</Name>
+      <Address>00522EAB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>max_Boon</Name>
+      <Address>004F5CCC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>voice_SRA_ROS_Kamui</Name>
+      <Address>00555EC0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>instcast</Name>
+      <Address>004BCA2C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>health</Name>
+      <Address>0051E0D5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>min_Dmg2</Name>
+      <Address>004ADC10</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_EnemyBook_AOB</Name>
+      <Address>006D8916</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pre_descrpt_r</Name>
+      <Address>0055B412</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>descript_replace</Name>
+      <Address>0055B4C2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>zaveid_noHat</Name>
+      <Address>27AD7ADC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enm_BkData</Name>
+      <Address>11080170</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_OverwriteShadowStatChk</Name>
+      <Address>004C1239</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_UsedArte_AOB</Name>
+      <Address>00716CD0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>no_artePause</Name>
+      <Address>004AB7CE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>qStep_dist</Name>
+      <Address>004A93D5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>char_generalData</Name>
+      <Address>004E71EF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>charge_nextArte</Name>
+      <Address>0049E8F8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_MaxUsedArte_AOB</Name>
+      <Address>00716CAE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>equip1</Name>
+      <Address>0054B906</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>equip_ptr</Name>
+      <Address>558C0011</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>toz_Party</Name>
+      <Address>00538280</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Tales_of_Symphonia_DotNW</Name>
+      <Address>13A20000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToSDotNW_RAM</Name>
+      <Address>FFFF0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Arth</Name>
+      <Address>35541890</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Zav</Name>
+      <Address>35333390</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>replaceWpnModel_Eizen</Name>
+      <Address>34271C68</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Jude</Name>
+      <Address>33833D50</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Artorius</Name>
+      <Address>33811890</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>always_validSomething</Name>
+      <Address>14135B4B1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>jumpforshit</Name>
+      <Address>14134CA17</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteCanceller</Name>
+      <Address>14193CE8A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullCoat_Teresa</Name>
+      <Address>6ACC390C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullHair_Magilou</Name>
+      <Address>4F1E0120</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>chronological_derivativeArte2</Name>
+      <Address>14136758A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arena</Name>
+      <Address>351FB370</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>prev_statusEffect</Name>
+      <Address>141352CC9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>prev_statusEffects2</Name>
+      <Address>141352D0F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_SG</Name>
+      <Address>14134CDBC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_SG_outOfMenu</Name>
+      <Address>14140A1EF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_CC</Name>
+      <Address>14131007D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_Souls</Name>
+      <Address>14130FFCB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dKnell_alter</Name>
+      <Address>4F79A85E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bSphere_alter</Name>
+      <Address>5103A248</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ovDrive_alter</Name>
+      <Address>504701CC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>keep_aerialHgt1</Name>
+      <Address>1412A7F2D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>keep_aerialHgt2</Name>
+      <Address>1413478F2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>show_BSBA</Name>
+      <Address>1414C4426</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_cmpToBrkSoulInstrc</Name>
+      <Address>14134CA66</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_swBlCmboCheck</Name>
+      <Address>14134E2AB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>inf_BG</Name>
+      <Address>14130F9E8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SurgLand_alter</Name>
+      <Address>33CFE628</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>motionChg_IBloomAni</Name>
+      <Address>5ED11760</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cast_time</Name>
+      <Address>14136D607</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_usage_count</Name>
+      <Address>141649A3D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dKnell_staggerType</Name>
+      <Address>50A2029E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dKnell_xyzVar</Name>
+      <Address>50A11B70</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bSphere_staggerType</Name>
+      <Address>50A449C8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>sigSpr_staggerType</Name>
+      <Address>509F4A56</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bTorrnt_staggerType</Name>
+      <Address>509502F2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ovDrive_staggerType</Name>
+      <Address>50A5408C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_hairLaphi</Name>
+      <Address>512500EC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_Param</Name>
+      <Address>14140B6E3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enemyIdleTime</Name>
+      <Address>141365C39</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>partyFormation</Name>
+      <Address>14163FD3B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MBlitz_alter</Name>
+      <Address>51098D08</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PPlung_alter</Name>
+      <Address>4C7A39F8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>WSnap_alter</Name>
+      <Address>4C783248</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SVortx_alter</Name>
+      <Address>4C7BA118</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>motionChgJud</Name>
+      <Address>5085F9D8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PPlung_chainArte</Name>
+      <Address>4C790A98</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_editor</Name>
+      <Address>141649B1F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>set_charBS</Name>
+      <Address>34867740</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>diff_eQuant</Name>
+      <Address>0EF6179F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Inv</Name>
+      <Address>00550CA0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Boons_AOB</Name>
+      <Address>00A5761E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Shop_AOB</Name>
+      <Address>0073391F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>spirit</Name>
+      <Address>0045346E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Insane</Name>
+      <Address>00517DE0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Gald</Name>
+      <Address>005167A0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_AP_AOB</Name>
+      <Address>005170E3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Title_AOB</Name>
+      <Address>005385B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Boon_AOB</Name>
+      <Address>004F5BBA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Battle_AOB</Name>
+      <Address>004AE735</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Grade_AOB</Name>
+      <Address>00488281</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Foes_Defeated_AOB</Name>
+      <Address>00498854</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Lv_AoB</Name>
+      <Address>004C096E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MONSTERKILLS</Name>
+      <Address>004AEE8B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SpeedCheckAOB</Name>
+      <Address>00683AFF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MaxSpeedAOB</Name>
+      <Address>00683B40</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>RunSpeedData</Name>
+      <Address>55680016</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MaxBase</Name>
+      <Address>00D51B64</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Enm_Stat_AoB</Name>
+      <Address>004C096E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Outfit_AOB</Name>
+      <Address>00716A13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bossEnc</Name>
+      <Address>0F103ED0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Party_Members_AOB</Name>
+      <Address>00513E85</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Arte_Menu_AOB</Name>
+      <Address>00717D13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Arte_Menu_AOB2</Name>
+      <Address>00717C73</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>unlimited_base_arte</Name>
+      <Address>306FC525</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Unfinished enemy list (in decimal)
+Note that using enemies not in their fight will crash the game
+Coli 200 hundred man enemies
+21:Bandido
+18:Knight Halberd
+68:Hawk
+44:Witch
+76:Black Bat
+52:Filihelia
+143:Wirbel
+370:Adecor (Coliseum)
+371:Boccos (Coliseum)
+183:Jet Balloon
+129:Predafish
+171:Square Shoulder
+367:Nan (Coliseum)
+304:Soya
+178:Cockatrice
+26:Jun
+194:Fire Spirit
+188:Snow Spirit
+80:Firebat
+87:Ice Bat
+180:Skunky
+366:Tison (Coliseum)
+(unfinished)
+
+Other general enemies
+243:Goliath
+244:Poseidon
+245:Gattuso
+246:Gattuso Cub
+247:Fenrir
+248:Dreaded Giant
+249:Gusios
+250:Gigalarva
+251:Hermit Drill
+252:Pteropus
+254:Belius
+255:Baitojoh
+256:Khroma Dragon
+257:Griffin
+258:Chimera Butterfly
+259:Brutal
+261:Brutal
+262:Brucia
+265:Duke
+266:Duke 2
+267:Radiant Winged One
+268:Alexei
+269:Barbos
+270:Zagi
+271:Zagi
+272:Zagi
+273:Zagi
+274:Zagi (long hair)
+275:Yeager
+276:Gauche
+277:Droite
+278:Tison
+279:Nan
+280:Yuri
+281:Estellize
+282:Karol
+283:Rita
+284:Raven
+285:Judith
+286:Repede
+287:Flynn
+288:Adecor
+289:Boccos
+290:Adecor
+291:Boccos
+292:Traitor to Heaven
+293:Killer of Heroes
+294:Time Traveller
+295:Sorrowful Queen of Darkness</Comments>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>
