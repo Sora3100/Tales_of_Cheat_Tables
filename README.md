@@ -134,7 +134,7 @@ Features:
  - Change Camera Zoom
  - Change Camera Height
 
-** Legendia (PS2) **
+ ## Legendia (PS2)
 
 Features:
  - Party Editor
