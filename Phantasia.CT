@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="31">
+<CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
       <ID>9</ID>
@@ -12,6 +12,7 @@
 4:Claus
 5:Chester
 6:Suzu
+7:Rhea (NPC)
 </DropDownList>
       <LastState Value="" RealAddress="400873F8"/>
       <GroupHeader>1</GroupHeader>
@@ -21,6 +22,7 @@
           <ID>10</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="1" RealAddress="400873F8"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -28,6 +30,7 @@
           <ID>26</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="2" RealAddress="400873FA"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+2</Address>
         </CheatEntry>
@@ -35,6 +38,7 @@
           <ID>27</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="4" RealAddress="400873FC"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -42,6 +46,7 @@
           <ID>30</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="400873FE"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+6</Address>
         </CheatEntry>
@@ -49,6 +54,7 @@
           <ID>29</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="40087400"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+8</Address>
         </CheatEntry>
@@ -56,6 +62,7 @@
           <ID>28</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="40087402"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+A</Address>
         </CheatEntry>
@@ -80,126 +87,147 @@
             <CheatEntry>
               <ID>105</ID>
               <Description>"Level"</Description>
+              <LastState Value="14" RealAddress="40086EFA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>124</ID>
               <Description>"EXP"</Description>
+              <LastState Value="4681" RealAddress="40086EFC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>123</ID>
               <Description>"Next level"</Description>
+              <LastState Value="1098" RealAddress="40086F00"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>122</ID>
               <Description>"Base HP"</Description>
+              <LastState Value="1264" RealAddress="40086F0C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>107</ID>
               <Description>"Max HP"</Description>
+              <LastState Value="1264" RealAddress="40086F0E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>106</ID>
               <Description>"Current HP"</Description>
+              <LastState Value="856" RealAddress="40086F10"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>108</ID>
               <Description>"Base TP"</Description>
+              <LastState Value="114" RealAddress="40086F12"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>110</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="114" RealAddress="40086F14"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>109</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="5" RealAddress="40086F16"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>111</ID>
               <Description>"Strength"</Description>
+              <LastState Value="30" RealAddress="40086F18"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>119</ID>
               <Description>"Stamina"</Description>
+              <LastState Value="11" RealAddress="40086F1C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>125</ID>
               <Description>"Base Stamina"</Description>
+              <LastState Value="1" RealAddress="40086F1E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>126</ID>
               <Description>"Base Agility"</Description>
+              <LastState Value="29" RealAddress="40086F20"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>118</ID>
               <Description>"Agility"</Description>
+              <LastState Value="29" RealAddress="40086F24"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>120</ID>
               <Description>"Base Luck"</Description>
+              <LastState Value="53" RealAddress="40086F26"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>117</ID>
               <Description>"Luck"</Description>
+              <LastState Value="53" RealAddress="40086F28"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>116</ID>
               <Description>"Slash"</Description>
+              <LastState Value="71" RealAddress="40086F2A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>115</ID>
               <Description>"Thrust"</Description>
+              <LastState Value="35" RealAddress="40086F2C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>114</ID>
               <Description>"Defense"</Description>
+              <LastState Value="19" RealAddress="40086F2E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>113</ID>
               <Description>"Accuracy"</Description>
+              <LastState Value="139" RealAddress="40086F30"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>112</ID>
               <Description>"Evasion"</Description>
+              <LastState Value="66" RealAddress="40086F32"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -216,126 +244,147 @@
             <CheatEntry>
               <ID>216</ID>
               <Description>"Level"</Description>
+              <LastState Value="14" RealAddress="40086F9A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>217</ID>
               <Description>"EXP"</Description>
+              <LastState Value="5134" RealAddress="40086F9C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>218</ID>
               <Description>"Next level"</Description>
+              <LastState Value="645" RealAddress="40086FA0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>219</ID>
               <Description>"Base HP"</Description>
+              <LastState Value="985" RealAddress="40086FAC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>220</ID>
               <Description>"Max HP"</Description>
+              <LastState Value="985" RealAddress="40086FAE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>221</ID>
               <Description>"Current HP"</Description>
+              <LastState Value="985" RealAddress="40086FB0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>222</ID>
               <Description>"Base TP"</Description>
+              <LastState Value="145" RealAddress="40086FB2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>223</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="145" RealAddress="40086FB4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>224</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="106" RealAddress="40086FB6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>225</ID>
               <Description>"Strength"</Description>
+              <LastState Value="18" RealAddress="40086FB8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>226</ID>
               <Description>"Stamina"</Description>
+              <LastState Value="8" RealAddress="40086FBC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>227</ID>
               <Description>"Base Stamina"</Description>
+              <LastState Value="5" RealAddress="40086FBE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>228</ID>
               <Description>"Base Agility"</Description>
+              <LastState Value="19" RealAddress="40086FC0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>229</ID>
               <Description>"Agility"</Description>
+              <LastState Value="19" RealAddress="40086FC4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>230</ID>
               <Description>"Base Luck"</Description>
+              <LastState Value="57" RealAddress="40086FC6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>231</ID>
               <Description>"Luck"</Description>
+              <LastState Value="62" RealAddress="40086FC8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>232</ID>
               <Description>"Attack (Slash?)"</Description>
+              <LastState Value="33" RealAddress="40086FCA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>233</ID>
               <Description>"Thrust?"</Description>
+              <LastState Value="33" RealAddress="40086FCC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>234</ID>
               <Description>"Defense"</Description>
+              <LastState Value="19" RealAddress="40086FCE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>235</ID>
               <Description>"Accuracy"</Description>
+              <LastState Value="129" RealAddress="40086FD0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>236</ID>
               <Description>"Evasion"</Description>
+              <LastState Value="54" RealAddress="40086FD2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -352,126 +401,147 @@
             <CheatEntry>
               <ID>194</ID>
               <Description>"Level"</Description>
+              <LastState Value="12" RealAddress="4008703A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>195</ID>
               <Description>"EXP"</Description>
+              <LastState Value="2707" RealAddress="4008703C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>196</ID>
               <Description>"Next level"</Description>
+              <LastState Value="870" RealAddress="40087040"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>197</ID>
               <Description>"Base HP"</Description>
+              <LastState Value="660" RealAddress="4008704C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>198</ID>
               <Description>"Max HP"</Description>
+              <LastState Value="660" RealAddress="4008704E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>199</ID>
               <Description>"Current HP"</Description>
+              <LastState Value="660" RealAddress="40087050"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>200</ID>
               <Description>"Base TP"</Description>
+              <LastState Value="133" RealAddress="40087052"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>201</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="133" RealAddress="40087054"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>202</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="133" RealAddress="40087056"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>203</ID>
               <Description>"Strength"</Description>
+              <LastState Value="20" RealAddress="40087058"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>204</ID>
               <Description>"Stamina"</Description>
+              <LastState Value="10" RealAddress="4008705C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>205</ID>
               <Description>"Base Stamina"</Description>
+              <LastState Value="0" RealAddress="4008705E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>206</ID>
               <Description>"Base Agility"</Description>
+              <LastState Value="20" RealAddress="40087060"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>207</ID>
               <Description>"Agility"</Description>
+              <LastState Value="20" RealAddress="40087064"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>208</ID>
               <Description>"Base Luck"</Description>
+              <LastState Value="50" RealAddress="40087066"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>209</ID>
               <Description>"Luck"</Description>
+              <LastState Value="50" RealAddress="40087068"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>210</ID>
               <Description>"Attack (Slash?)"</Description>
+              <LastState Value="40" RealAddress="4008706A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>211</ID>
               <Description>"Thrust?"</Description>
+              <LastState Value="40" RealAddress="4008706C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>212</ID>
               <Description>"Defense"</Description>
+              <LastState Value="15" RealAddress="4008706E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>213</ID>
               <Description>"Accuracy"</Description>
+              <LastState Value="130" RealAddress="40087070"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>214</ID>
               <Description>"Evasion"</Description>
+              <LastState Value="50" RealAddress="40087072"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -488,126 +558,147 @@
             <CheatEntry>
               <ID>172</ID>
               <Description>"Level"</Description>
+              <LastState Value="13" RealAddress="400870DA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>173</ID>
               <Description>"EXP"</Description>
+              <LastState Value="4385" RealAddress="400870DC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>174</ID>
               <Description>"Next level"</Description>
+              <LastState Value="212" RealAddress="400870E0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>175</ID>
               <Description>"Base HP"</Description>
+              <LastState Value="856" RealAddress="400870EC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>176</ID>
               <Description>"Max HP"</Description>
+              <LastState Value="856" RealAddress="400870EE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>177</ID>
               <Description>"Current HP"</Description>
+              <LastState Value="0" RealAddress="400870F0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>178</ID>
               <Description>"Base TP"</Description>
+              <LastState Value="125" RealAddress="400870F2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>179</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="125" RealAddress="400870F4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>180</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="8" RealAddress="400870F6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>181</ID>
               <Description>"Strength"</Description>
+              <LastState Value="23" RealAddress="400870F8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>182</ID>
               <Description>"Stamina"</Description>
+              <LastState Value="10" RealAddress="400870FC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>183</ID>
               <Description>"Base Stamina"</Description>
+              <LastState Value="4" RealAddress="400870FE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>184</ID>
               <Description>"Base Agility"</Description>
+              <LastState Value="19" RealAddress="40087100"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>185</ID>
               <Description>"Agility"</Description>
+              <LastState Value="19" RealAddress="40087104"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>186</ID>
               <Description>"Base Luck"</Description>
+              <LastState Value="42" RealAddress="40087106"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>187</ID>
               <Description>"Luck"</Description>
+              <LastState Value="42" RealAddress="40087108"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>188</ID>
               <Description>"Attack (Slash?)"</Description>
+              <LastState Value="43" RealAddress="4008710A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>189</ID>
               <Description>"Thrust?"</Description>
+              <LastState Value="43" RealAddress="4008710C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>190</ID>
               <Description>"Defense"</Description>
+              <LastState Value="17" RealAddress="4008710E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>191</ID>
               <Description>"Accuracy"</Description>
+              <LastState Value="129" RealAddress="40087110"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>192</ID>
               <Description>"Evasion"</Description>
+              <LastState Value="54" RealAddress="40087112"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -624,126 +715,147 @@
             <CheatEntry>
               <ID>150</ID>
               <Description>"Level"</Description>
+              <LastState Value="9" RealAddress="4008717A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>151</ID>
               <Description>"EXP"</Description>
+              <LastState Value="1426" RealAddress="4008717C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>152</ID>
               <Description>"Next level"</Description>
+              <LastState Value="44" RealAddress="40087180"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>153</ID>
               <Description>"Base HP"</Description>
+              <LastState Value="787" RealAddress="4008718C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>154</ID>
               <Description>"Max HP"</Description>
+              <LastState Value="787" RealAddress="4008718E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>155</ID>
               <Description>"Current HP"</Description>
+              <LastState Value="787" RealAddress="40087190"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>156</ID>
               <Description>"Base TP"</Description>
+              <LastState Value="68" RealAddress="40087192"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>157</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="68" RealAddress="40087194"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>158</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="68" RealAddress="40087196"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>159</ID>
               <Description>"Strength"</Description>
+              <LastState Value="19" RealAddress="40087198"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>160</ID>
               <Description>"Stamina"</Description>
+              <LastState Value="8" RealAddress="4008719C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>161</ID>
               <Description>"Base Stamina"</Description>
+              <LastState Value="6" RealAddress="4008719E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>162</ID>
               <Description>"Base Agility"</Description>
+              <LastState Value="25" RealAddress="400871A0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>163</ID>
               <Description>"Agility"</Description>
+              <LastState Value="25" RealAddress="400871A4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>164</ID>
               <Description>"Base Luck"</Description>
+              <LastState Value="27" RealAddress="400871A6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>165</ID>
               <Description>"Luck"</Description>
+              <LastState Value="27" RealAddress="400871A8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>166</ID>
               <Description>"Attack (Slash?)"</Description>
+              <LastState Value="27" RealAddress="400871AA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>167</ID>
               <Description>"Thrust?"</Description>
+              <LastState Value="27" RealAddress="400871AC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>168</ID>
               <Description>"Defense"</Description>
+              <LastState Value="12" RealAddress="400871AE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>169</ID>
               <Description>"Accuracy"</Description>
+              <LastState Value="135" RealAddress="400871B0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>170</ID>
               <Description>"Evasion"</Description>
+              <LastState Value="55" RealAddress="400871B2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -760,126 +872,147 @@
             <CheatEntry>
               <ID>128</ID>
               <Description>"Level"</Description>
+              <LastState Value="31" RealAddress="4008721A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>129</ID>
               <Description>"EXP"</Description>
+              <LastState Value="63853" RealAddress="4008721C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>130</ID>
               <Description>"Next level"</Description>
+              <LastState Value="6953" RealAddress="40087220"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>131</ID>
               <Description>"Base HP"</Description>
+              <LastState Value="1699" RealAddress="4008722C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>132</ID>
               <Description>"Max HP"</Description>
+              <LastState Value="1699" RealAddress="4008722E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>133</ID>
               <Description>"Current HP"</Description>
+              <LastState Value="1699" RealAddress="40087230"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>134</ID>
               <Description>"Base TP"</Description>
+              <LastState Value="221" RealAddress="40087232"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>135</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="221" RealAddress="40087234"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>136</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="221" RealAddress="40087236"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>137</ID>
               <Description>"Strength"</Description>
+              <LastState Value="42" RealAddress="40087238"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>138</ID>
               <Description>"Stamina"</Description>
+              <LastState Value="21" RealAddress="4008723C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>139</ID>
               <Description>"Base Stamina"</Description>
+              <LastState Value="0" RealAddress="4008723E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>140</ID>
               <Description>"Base Agility"</Description>
+              <LastState Value="39" RealAddress="40087240"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>141</ID>
               <Description>"Agility"</Description>
+              <LastState Value="39" RealAddress="40087244"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>142</ID>
               <Description>"Base Luck"</Description>
+              <LastState Value="50" RealAddress="40087246"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>143</ID>
               <Description>"Luck"</Description>
+              <LastState Value="50" RealAddress="40087248"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>144</ID>
               <Description>"Attack (Slash?)"</Description>
+              <LastState Value="42" RealAddress="4008724A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>145</ID>
               <Description>"Thrust?"</Description>
+              <LastState Value="42" RealAddress="4008724C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>146</ID>
               <Description>"Defense"</Description>
+              <LastState Value="21" RealAddress="4008724E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>147</ID>
               <Description>"Accuracy"</Description>
+              <LastState Value="139" RealAddress="40087250"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>148</ID>
               <Description>"Evasion"</Description>
+              <LastState Value="69" RealAddress="40087252"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -906,18 +1039,21 @@
             <CheatEntry>
               <ID>249</ID>
               <Description>"HP"</Description>
+              <LastState Value="316" RealAddress="40138E2C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>250</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="114" RealAddress="40138E30"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>251</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="1" RealAddress="40138E38"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -934,18 +1070,21 @@
             <CheatEntry>
               <ID>261</ID>
               <Description>"HP"</Description>
+              <LastState Value="999" RealAddress="40139064"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>262</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="145" RealAddress="40139068"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>263</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="106" RealAddress="40139070"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -962,18 +1101,21 @@
             <CheatEntry>
               <ID>257</ID>
               <Description>"HP"</Description>
+              <LastState Value="0" RealAddress="4013929C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>258</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="125" RealAddress="401392A0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>259</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="8" RealAddress="401392A8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -990,18 +1132,21 @@
             <CheatEntry>
               <ID>253</ID>
               <Description>"HP"</Description>
+              <LastState Value="0" RealAddress="401394D4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>254</ID>
               <Description>"Max TP"</Description>
+              <LastState Value="0" RealAddress="401394D8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>255</ID>
               <Description>"Current TP"</Description>
+              <LastState Value="0" RealAddress="401394E0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -1514,6 +1659,7 @@
               <ID>36</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00C5" RealAddress="40086F34"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1522,6 +1668,7 @@
               <ID>39</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00FC" RealAddress="40086F36"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1530,6 +1677,7 @@
               <ID>43</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0115" RealAddress="40086F38"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1538,6 +1686,7 @@
               <ID>42</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40086F3A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1546,6 +1695,7 @@
               <ID>41</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40086F3C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1554,6 +1704,7 @@
               <ID>40</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0176" RealAddress="40086F3E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1562,6 +1713,7 @@
               <ID>34</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0151" RealAddress="40086F40"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1580,6 +1732,7 @@
               <ID>45</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00DD" RealAddress="40086FD4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1588,6 +1741,7 @@
               <ID>46</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0109" RealAddress="40086FD6"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1596,6 +1750,7 @@
               <ID>47</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40086FD8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1604,6 +1759,7 @@
               <ID>48</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40086FDA"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1612,6 +1768,7 @@
               <ID>49</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="013A" RealAddress="40086FDC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1620,6 +1777,7 @@
               <ID>50</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0144" RealAddress="40086FDE"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1628,6 +1786,7 @@
               <ID>51</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40086FE0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1646,6 +1805,7 @@
               <ID>77</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00EF" RealAddress="40087074"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1654,6 +1814,7 @@
               <ID>78</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0108" RealAddress="40087076"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1662,6 +1823,7 @@
               <ID>79</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40087078"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1670,6 +1832,7 @@
               <ID>80</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="012D" RealAddress="4008707A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1678,6 +1841,7 @@
               <ID>81</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="4008707C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1686,6 +1850,7 @@
               <ID>82</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="4008707E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1694,6 +1859,7 @@
               <ID>83</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40087080"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1712,6 +1878,7 @@
               <ID>69</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00E6" RealAddress="40087114"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1720,6 +1887,7 @@
               <ID>70</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0108" RealAddress="40087116"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1728,6 +1896,7 @@
               <ID>71</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40087118"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1736,6 +1905,7 @@
               <ID>72</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="4008711A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1744,6 +1914,7 @@
               <ID>73</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="4008711C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1752,6 +1923,7 @@
               <ID>74</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0159" RealAddress="4008711E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1760,6 +1932,7 @@
               <ID>75</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0152" RealAddress="40087120"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1778,6 +1951,7 @@
               <ID>61</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00CF" RealAddress="400871B4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1786,6 +1960,7 @@
               <ID>62</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="00FD" RealAddress="400871B6"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1794,6 +1969,7 @@
               <ID>63</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="400871B8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1802,6 +1978,7 @@
               <ID>64</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="400871BA"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1810,6 +1987,7 @@
               <ID>65</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="400871BC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1818,6 +1996,7 @@
               <ID>66</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="400871BE"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1826,6 +2005,7 @@
               <ID>67</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="016C" RealAddress="400871C0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1844,6 +2024,7 @@
               <ID>53</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40087254"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1852,6 +2033,7 @@
               <ID>54</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40087256"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1860,6 +2042,7 @@
               <ID>55</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="40087258"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1868,6 +2051,7 @@
               <ID>56</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="4008725A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1876,6 +2060,7 @@
               <ID>57</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="0000" RealAddress="4008725C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1884,6 +2069,7 @@
               <ID>58</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="016A" RealAddress="4008725E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1892,6 +2078,7 @@
               <ID>59</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
+              <LastState Value="016C" RealAddress="40087260"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1937,6 +2124,8 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>84</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="2" RealAddress="40138F26"/>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
             </CheatEntry>
@@ -1944,6 +2133,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>85</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="4013915E"/>
               <VariableType>Byte</VariableType>
               <Address>+238</Address>
             </CheatEntry>
@@ -1951,6 +2141,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>90</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="40139396"/>
               <VariableType>Byte</VariableType>
               <Address>+238*2</Address>
             </CheatEntry>
@@ -1958,6 +2149,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>89</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="401395CE"/>
               <VariableType>Byte</VariableType>
               <Address>+238*3</Address>
             </CheatEntry>
@@ -1975,6 +2167,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63049</ID>
               <Description>"Cress"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="1" RealAddress="40086F46"/>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
             </CheatEntry>
@@ -1982,6 +2175,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63050</ID>
               <Description>"Mint"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="40086FE6"/>
               <VariableType>Byte</VariableType>
               <Address>+A0</Address>
             </CheatEntry>
@@ -1989,6 +2183,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63054</ID>
               <Description>"Arche"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="40087086"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*2</Address>
             </CheatEntry>
@@ -1996,6 +2191,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63053</ID>
               <Description>"Claus"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="40087126"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*3</Address>
             </CheatEntry>
@@ -2003,6 +2199,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63057</ID>
               <Description>"Chester"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="0" RealAddress="400871C6"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*4</Address>
             </CheatEntry>
@@ -2010,6 +2207,7 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63056</ID>
               <Description>"Suzu"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
+              <LastState Value="2" RealAddress="40087266"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*5</Address>
             </CheatEntry>
@@ -2045,28 +2243,33 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>86</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="1" RealAddress="40138F1B"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>87</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="1" RealAddress="40139153"/>
+          <VariableType>2 Bytes</VariableType>
           <Address>+238</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>95</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="1" RealAddress="4013938B"/>
+          <VariableType>2 Bytes</VariableType>
           <Address>+238*2</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>94</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="1" RealAddress="401395C3"/>
+          <VariableType>2 Bytes</VariableType>
           <Address>+238*3</Address>
         </CheatEntry>
       </CheatEntries>
@@ -2099,28 +2302,35 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>97</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="0" RealAddress="40138F1D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>98</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="0" RealAddress="40139155"/>
+          <VariableType>2 Bytes</VariableType>
           <Address>+238</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>100</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="0" RealAddress="4013938D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
           <Address>+238*2</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>99</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <VariableType>Byte</VariableType>
+          <LastState Value="0" RealAddress="401395C5"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
           <Address>+238*3</Address>
         </CheatEntry>
       </CheatEntries>
@@ -2134,90 +2344,1015 @@ Freezing the values outside of battles has a high chance of crashing the game.
 3:Unknown
 4:God
 </DropDownList>
-      <VariableType>Byte</VariableType>
+      <LastState Value="1" RealAddress="400882BA"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>2 Bytes</VariableType>
       <Address>400882BA</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>63058</ID>
-      <Description>"DON'T USE"</Description>
+      <Description>"EXPERIMENTAL"</Description>
       <Options moHideChildren="1"/>
       <LastState Value="" RealAddress="00000000"/>
-      <Color>C0C0C0</Color>
+      <Color>400080</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>63048</ID>
-          <Description>"autoManual"</Description>
+          <ID>63062</ID>
+          <Description>"READ THIS"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>/*
+You may experience crashes and/or unintended behaviour when using
+this script. You have been warned.
+
+This is mainly for quality of life purposes in multiplayer settings.
+
+These scripts let you enable Dash/Combo Command Modes and configure your
+Control Modes while in a battle.
+
+You will not be able to use the Control/Dash Modes and Combo Command Modes
+part of the table after activating one of the scripts.
+However, you can edit them directly under the script.
+
+Use the Toggles to control what gets enabled.
+
+Auto Death Cam automatically changes Control Modes to Auto on death,
+then returns to original Control Mode after getting brought back to life.
+Can be configured on a per-player basis.
+Don't be on Auto if you're not dead, otherwise it will break.
+In case you did not heed this warning, if using Automatic Control Modes,
+you can set the current Control Method in the "Active" section
+under "Control Modes" (or you can just press Select),
+otherwise set it under the "Automatic Control Enabler" section.
+*/
+[ENABLE]
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63106</ID>
+          <Description>"Automatic Control Enabler"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
           <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : retroarch.exe
-  Version: 
-  Date   : 2020-08-24
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
+          <AssemblerScript>[ENABLE]
 
 aobscanmodule(autoManual,mednafen_psx_hw_libretro.dll,41 88 10 0F B6 D2) // should be unique
 alloc(newmem,$1000,"mednafen_psx_hw_libretro.dll"+10D74)
 
 label(code)
-label(code2)
-label(code3)
-label(code4)
+label(partyCress)
+label(partyMint)
+label(partyArche)
+label(partyClaus)
+label(partyChester)
+label(partySuzu)
+label(controlEnabled)
+label(dashEnabled)
+label(comboEnabled)
+label(controlSlot1)
+label(controlSlot2)
+label(controlSlot3)
+label(controlSlot4)
+label(dashSlot1)
+label(dashSlot2)
+label(dashSlot3)
+label(dashSlot4)
+label(comboSlot1)
+label(comboSlot2)
+label(comboSlot3)
+label(comboSlot4)
+label(activate)
+label(controlActivate)
+label(dashActivate)
+label(comboActivate)
+label(backtoGame)
+label(return)
+
+newmem:
+
+//Check who is in the first slot is, and then,
+//moves to their respective party blocks.
+code:
+  push eax
+  cmp word [400873F8],1
+  je partyCress
+  cmp word [400873F8],2
+  je partyMint
+  cmp word [400873F8],3
+  je partyArche
+  cmp word [400873F8],4
+  je partyClaus
+  cmp word [400873F8],5
+  je partyChester
+  cmp word [400873F8],6
+  je partySuzu
+  jmp backtoGame
+
+//Compare Character Max HP/TP to Slot 1 Max HP/TP, if same, go to activate
+//Basically, just a way to check if you are in battle,
+//as setting it all the time would break the game.
+//An ugly hack, but it works nonetheless.
+partyCress:
+  movzx eax, word [40086F0E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086F14] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyMint:
+  movzx eax, word [40086FAE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086FB4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyArche:
+  movzx eax, word [4008704E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087054] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyClaus:
+  movzx eax, word [400870EE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [400870F4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyChester:
+  movzx eax, word [4008718E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087194] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partySuzu:
+  movzx eax, word [4008722E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087234] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+activate:
+  cmp byte [controlEnabled],1
+  je controlActivate
+  cmp byte [dashEnabled],1
+  je dashActivate
+  cmp byte [comboEnabled],1
+  je comboActivate
+  jmp backtoGame
+
+//This is where you control what values get set in battles.
+controlActivate:
+  mov ah, [controlSlot1]
+  mov byte [40138F26],ah //Slot 1 Control Mode
+  mov ah, [controlSlot2]
+  mov byte [4013915E],ah //Slot 2 Control Mode
+  mov ah, [controlSlot3]
+  mov byte [40139396],ah //Slot 3 Control Mode
+  mov ah, [controlSlot4]
+  mov byte [401395CE],ah //Slot 4 Control Mode
+  cmp [dashEnabled],1
+  je dashActivate
+  cmp [comboEnabled],1
+  je comboActivate
+  jmp backtoGame
+
+dashActivate:
+  mov ax, [dashSlot1]
+  mov word [40138F1B],ax //Slot 1 Dash Mode
+  mov ax, [dashSlot2]
+  mov word [40139153],ax //Slot 2 Dash Mode
+  mov ax, [dashSlot3]
+  mov word [4013938B],ax //Slot 3 Dash Mode
+  mov ax, [dashSlot4]
+  mov word [401395C3],ax //Slot 4 Dash Mode
+  mov ax, [comboSlot1]
+  cmp [comboEnabled],1
+  je comboActivate
+  jmp backtoGame
+
+comboActivate:
+  mov word [40138F1D],ax //Slot 1 Combo Command Mode
+  mov ax, [comboSlot2]
+  mov word [40139155],ax //Slot 2 Combo Command Mode
+  mov ax, [comboSlot3]
+  mov word [4013938D],ax //Slot 3 Combo Command Mode
+  mov ax, [comboSlot4]
+  mov word [401395C5],ax //Slot 4 Combo Command Mode
+  jmp backtoGame
+
+backtoGame:
+  pop eax
+  mov [r8],dl
+  movzx edx,dl
+  jmp return
+
+controlEnabled:
+ dd 1
+
+dashEnabled:
+ dd 1
+
+comboEnabled:
+ dd 1
+
+controlSlot1:
+ dd 2
+
+controlSlot2:
+ dd 0
+
+controlSlot3:
+ dd 0
+
+controlSlot4:
+ dd 0
+
+dashSlot1:
+ dd 1
+
+dashSlot2:
+ dd 1
+
+dashSlot3:
+ dd 1
+
+dashSlot4:
+ dd 1
+
+comboSlot1:
+ dd 0
+
+comboSlot2:
+ dd 0
+
+comboSlot3:
+ dd 0
+
+comboSlot4:
+ dd 0
+
+autoManual:
+  jmp newmem
+  nop
+
+return:
+registersymbol(autoManual)
+registersymbol(controlEnabled)
+registersymbol(dashEnabled)
+registersymbol(comboEnabled)
+registersymbol(controlSlot1)
+registersymbol(controlSlot2)
+registersymbol(controlSlot3)
+registersymbol(controlSlot4)
+registersymbol(dashSlot1)
+registersymbol(dashSlot2)
+registersymbol(dashSlot3)
+registersymbol(dashSlot4)
+registersymbol(comboSlot1)
+registersymbol(comboSlot2)
+registersymbol(comboSlot3)
+registersymbol(comboSlot4)
+
+
+[DISABLE]
+
+autoManual:
+  db 41 88 10 0F B6 D2
+
+unregistersymbol(autoManual)
+unregistersymbol(controlEnabled)
+unregistersymbol(dashEnabled)
+unregistersymbol(comboEnabled)
+unregistersymbol(controlSlot1)
+unregistersymbol(controlSlot2)
+unregistersymbol(controlSlot3)
+unregistersymbol(controlSlot4)
+unregistersymbol(dashSlot1)
+unregistersymbol(dashSlot2)
+unregistersymbol(dashSlot3)
+unregistersymbol(dashSlot4)
+unregistersymbol(comboSlot1)
+unregistersymbol(comboSlot2)
+unregistersymbol(comboSlot3)
+unregistersymbol(comboSlot4)
+dealloc(newmem)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63107</ID>
+              <Description>"Toggles"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63108</ID>
+                  <Description>"Control Mode"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>controlEnabled</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63109</ID>
+                  <Description>"Dash Mode"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>dashEnabled</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63110</ID>
+                  <Description>"Combo Command Mode"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>comboEnabled</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63157</ID>
+                  <Description>"Auto Death Cam"</Description>
+                  <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+
+aobscan(statusInject,41 88 10 0F B6 D2) // should be unique
+alloc(newmem,$1000,statusInject)
+
+label(code)
+label(backtoGame2)
+label(deathCamTemp1)
+label(deathCamTemp2)
+label(deathCamTemp3)
+label(deathCamTemp4)
+label(deathCamEnabled1)
+label(deathCamEnabled2)
+label(deathCamEnabled3)
+label(deathCamEnabled4)
 label(return)
 
 newmem:
 
 code:
-  cmp r8,40138F26 //P1 Control Mode
-  je code2
-  cmp r8,4013915E //P2
-  je code2
-  cmp r8,40139396 //P3
-  je code2
-  cmp r8,401395CE //P4
-  je code2
-  cmp r8,40138F1B //P1 Dash Mode
-  je code3
-  cmp r8,40139153 //P2
-  je code3
-  cmp r8,4013938B //P3
-  je code3
-  cmp r8,401395C3 //P4
-  je code3
-  cmp r8,40138F1D //P1 Combo Command Mode
-  je code4
-  cmp r8,40139155 //P2
-  je code3
-  cmp r8,4013938D //P3
-  je code3
-  cmp r8,401395C5 //P4
-  je code3
+  push eax
+  cmp word [400873F8],1
+  je partyCress
+  cmp word [400873F8],2
+  je partyMint
+  cmp word [400873F8],3
+  je partyArche
+  cmp word [400873F8],4
+  je partyClaus
+  cmp word [400873F8],5
+  je partyChester
+  cmp word [400873F8],6
+  je partySuzu
+  jmp backtoGame2
+
+partyCress:
+  movzx eax, word [40086F0E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086F14] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyMint:
+  movzx eax, word [40086FAE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086FB4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyArche:
+  movzx eax, word [4008704E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087054] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyClaus:
+  movzx eax, word [400870EE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [400870F4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyChester:
+  movzx eax, word [4008718E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087194] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partySuzu:
+  movzx eax, word [4008722E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087234] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+activate:
+  cmp r8,40138F16 //Slot 1 Death State
+  je deathCamActivateSlot1
+  cmp r8,4013914E //Slot 2 Death State
+  je deathCamActivateSlot2
+  cmp r8,40139386 //Slot 3 Death State
+  je deathCamActivateSlot3
+  cmp r8,401395BE //Slot 4 Death State
+  je deathCamActivateSlot4
+  jmp backtoGame2
+
+deathCamActivateSlot1:
+  cmp [controlEnabled], 1
+  je deathCamAutoCheckOnSlot1
+  cmp [controlEnabled], 0
+  je deathCamAutoCheckOffSlot1
+  jmp backtoGame2
+
+deathCamActivateSlot2:
+  cmp [controlEnabled], 1
+  je deathCamAutoCheckOnSlot2
+  cmp [controlEnabled], 0
+  je deathCamAutoCheckOffSlot2
+  jmp backtoGame2
+
+deathCamActivateSlot3:
+  cmp [controlEnabled], 1
+  je deathCamAutoCheckOnSlot3
+  cmp [controlEnabled], 0
+  je deathCamAutoCheckOffSlot3
+  jmp backtoGame2
+
+deathCamActivateSlot4:
+  cmp [controlEnabled], 1
+  je deathCamAutoCheckOnSlot4
+  cmp [controlEnabled], 0
+  je deathCamAutoCheckOffSlot4
+  jmp backtoGame2
+
+//Automatic Control Mode turned off
+deathCamAutoCheckOffSlot1:
+  cmp [deathCamEnabled1], 1
+  je deathCamAutoOffSlot1
+  jmp backtoGame2
+
+deathCamAutoCheckOffSlot2:
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOffSlot2
+  jmp backtoGame2
+
+deathCamAutoCheckOffSlot3:
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOffSlot3
+  jmp backtoGame2
+
+deathCamAutoCheckOffSlot4:
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffSlot1:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40138F16],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate1
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp1]
+  mov byte [40138F26], ah
+  jmp backtoGame2
+
+deathCamAutoOffActivate1:
+  mov ah, [40138F26]
+  mov byte [deathCamTemp1],ah
+  mov byte [40138F26],0
+  cmp [deathCamEnabled2], 1
+  jmp backtoGame2
+
+deathCamAutoOffSlot2:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [4013914E],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate2
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp2]
+  mov byte [4013915E], ah
+  jmp backtoGame2
+
+deathCamAutoOffActivate2:
+  mov ah, [4013915E]
+  mov byte [deathCamTemp2],ah
+  mov byte [4013915E],0
+  jmp backtoGame2
+
+  deathCamAutoOffSlot3:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40139386],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate3
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp3]
+  mov byte [40139396], ah
+  jmp backtoGame2
+
+deathCamAutoOffActivate3:
+  mov ah, [40139396]
+  mov byte [deathCamTemp3],ah
+  mov byte [40139396],0
+  jmp backtoGame2
+
+deathCamAutoOffSlot4:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [401395BE],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate4
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp4]
+  mov byte [401395CE], ah
+  jmp backtoGame2
+
+deathCamAutoOffActivate4:
+  mov ah, [401395CE]
+  mov byte [deathCamTemp4],ah
+  mov byte [401395CE],0
+  jmp backtoGame2
+
+//Automatic Control Mode turned on
+deathCamAutoCheckOnSlot1:
+  cmp [deathCamEnabled1], 1
+  je deathCamAutoOnSlot1
+  jmp backtoGame2
+
+deathCamAutoCheckOnSlot2:
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOnSlot2
+  jmp backtoGame2
+
+deathCamAutoCheckOnSlot3:
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOnSlot3
+  jmp backtoGame2
+
+deathCamAutoCheckOnSlot4:
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnSlot1:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40138F16],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate1
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp1]
+  mov byte [controlSlot1], ah
+  jmp backtoGame2
+
+deathCamAutoOnActivate1:
+  mov ah, [controlSlot1]
+  mov byte [deathCamTemp1],ah
+  mov byte [controlSlot1],0
+  jmp backtoGame2
+
+deathCamAutoOnSlot2:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [4013914E],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate2
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp2]
+  mov byte [controlSlot2], ah
+  jmp backtoGame2
+
+deathCamAutoOnActivate2:
+  mov ah, [controlSlot2]
+  mov byte [deathCamTemp2],ah
+  mov byte [controlSlot2],0
+  jmp backtoGame2
+
+deathCamAutoOnSlot3:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40139386],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate3
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp3]
+  mov byte [controlSlot3], ah
+  jmp backtoGame2
+
+deathCamAutoOnActivate3:
+  mov ah, [controlSlot3]
+  mov byte [deathCamTemp3],ah
+  mov byte [controlSlot3],0
+  jmp backtoGame2
+
+deathCamAutoOnSlot4:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [401395BE],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate4
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp4]
+  mov byte [controlSlot4], ah
+  jmp backtoGame2
+
+deathCamAutoOnActivate4:
+  mov ah, [controlSlot4]
+  mov byte [deathCamTemp4],ah
+  mov byte [controlSlot4],0
+  jmp backtoGame2
+
+backtoGame2:
+  pop eax
   mov [r8],dl
   movzx edx,dl
   jmp return
 
-code2: //Manual
-  mov [r8],2
-  movzx edx,dl
-  jmp return
+deathCamTemp1:
+dd 0
 
-code3: //Enable
-  mov [r8],1
-  movzx edx,dl
-  jmp return
+deathCamTemp2:
+dd 0
 
-code4: //Disable
-  mov [r8],0
+deathCamTemp3:
+dd 0
+
+deathCamTemp4:
+dd 0
+
+deathCamEnabled1:
+dd 1
+
+deathCamEnabled2:
+dd 1
+
+deathCamEnabled3:
+dd 1
+
+deathCamEnabled4:
+dd 1
+
+statusInject:
+  jmp newmem
+  nop
+
+return:
+registersymbol(statusInject)
+registersymbol(deathCamTemp1)
+registersymbol(deathCamTemp2)
+registersymbol(deathCamTemp3)
+registersymbol(deathCamTemp4)
+registersymbol(deathCamEnabled1)
+registersymbol(deathCamEnabled2)
+registersymbol(deathCamEnabled3)
+registersymbol(deathCamEnabled4)
+
+[DISABLE]
+
+statusInject:
+  db 41 88 10 0F B6 D2
+
+unregistersymbol(statusInject)
+unregistersymbol(deathCamTemp1)
+unregistersymbol(deathCamTemp2)
+unregistersymbol(deathCamTemp3)
+unregistersymbol(deathCamTemp4)
+unregistersymbol(deathCamEnabled1)
+unregistersymbol(deathCamEnabled2)
+unregistersymbol(deathCamEnabled3)
+unregistersymbol(deathCamEnabled4)
+dealloc(newmem)
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63183</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>deathCamEnabled1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63184</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>deathCamEnabled2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63185</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>deathCamEnabled3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63186</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>deathCamEnabled4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63111</ID>
+              <Description>"Control Modes"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Auto
+1:Semi-Auto
+2:Manual
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63112</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>controlSlot1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63113</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>controlSlot2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63114</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>controlSlot3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63115</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>controlSlot4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63116</ID>
+              <Description>"Dash Modes"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63117</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>dashSlot1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63118</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>dashSlot2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63119</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>dashSlot3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63120</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>dashSlot4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63121</ID>
+              <Description>"Combo Command Modes"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63122</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>comboSlot1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63123</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>comboSlot2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63124</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>comboSlot3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63125</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Dash Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>comboSlot4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63063</ID>
+          <Description>"DON'T USE"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63048</ID>
+              <Description>"Automatic Control Enabler (old)"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(autoManual,mednafen_psx_hw_libretro.dll,41 88 10 0F B6 D2) // should be unique
+alloc(newmem,$1000,"mednafen_psx_hw_libretro.dll"+10D74)
+
+label(code)
+label(partyCress)
+label(partyMint)
+label(partyArche)
+label(partyClaus)
+label(partyChester)
+label(partySuzu)
+label(activate)
+label(backtoGame)
+label(return)
+
+newmem:
+
+//Check who is in the first slot is, and then,
+//moves to their respective party blocks.
+code:
+  push eax
+  cmp word [400873F8],1
+  je partyCress
+  cmp word [400873F8],2
+  je partyMint
+  cmp word [400873F8],3
+  je partyArche
+  cmp word [400873F8],4
+  je partyClaus
+  cmp word [400873F8],5
+  je partyChester
+  cmp word [400873F8],6
+  je partySuzu
+  jmp backtoGame
+
+//Compare Character Max HP/TP to Slot 1 Max HP/TP, if same, go to activate
+//Basically, just a way to check if you are in battle,
+//as setting it all the time would break the game.
+//An ugly hack, but it works nonetheless.
+partyCress:
+  movzx eax, word [40086F0E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086F14] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyMint:
+  movzx eax, word [40086FAE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086FB4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyArche:
+  movzx eax, word [4008704E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087054] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyClaus:
+  movzx eax, word [400870EE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [400870F4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyChester:
+  movzx eax, word [4008718E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087194] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partySuzu:
+  movzx eax, word [4008722E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087234] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+//This is where you control what values get set in battles.
+activate:
+  mov byte [40138F26],2 //Slot 1 Control Mode
+//  mov byte [4013915E],2 //Slot 2 Control Mode
+//  mov byte [40139396],2 //Slot 3 Control Mode
+//  mov byte [401395CE],2 //Slot 4 Control Mode
+  mov word [40138F1B],1 //Slot 1 Dash Mode
+  mov word [40139153],1 //Slot 2 Dash Mode
+  mov word [4013938B],1 //Slot 3 Dash Mode
+  mov word [401395C3],1 //Slot 4 Dash Mode
+  mov word [40138F1D],0 //Slot 1 Combo Command Mode
+  mov word [40139155],0 //Slot 2 Combo Command Mode
+  mov word [4013938D],0 //Slot 3 Combo Command Mode
+  mov word [401395C5],0 //Slot 4 Combo Command Mode
+  jmp backtoGame
+
+backtoGame:
+  pop eax
+  mov [r8],dl
   movzx edx,dl
   jmp return
 
 autoManual:
   jmp newmem
   nop
+
 return:
 registersymbol(autoManual)
 
@@ -2228,40 +3363,1659 @@ autoManual:
 
 unregistersymbol(autoManual)
 dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: "mednafen_psx_hw_libretro.dll"+10D74
-
-"mednafen_psx_hw_libretro.dll"+10D55: EB 84                       -  jmp mednafen_psx_hw_libretro.dll+10CDB
-"mednafen_psx_hw_libretro.dll"+10D57: 90                          -  nop 
-"mednafen_psx_hw_libretro.dll"+10D58: 0F 1F 84 00 00 00 00 00     -  nop dword ptr [rax+rax+00000000]
-"mednafen_psx_hw_libretro.dll"+10D60: 41 55                       -  push r13
-"mednafen_psx_hw_libretro.dll"+10D62: 41 54                       -  push r12
-"mednafen_psx_hw_libretro.dll"+10D64: 48 83 EC 28                 -  sub rsp,28
-"mednafen_psx_hw_libretro.dll"+10D68: 49 89 CD                    -  mov r13,rcx
-"mednafen_psx_hw_libretro.dll"+10D6B: 89 D1                       -  mov ecx,edx
-"mednafen_psx_hw_libretro.dll"+10D6D: 8B 54 24 60                 -  mov edx,[rsp+60]
-"mednafen_psx_hw_libretro.dll"+10D71: 45 89 CC                    -  mov r12d,r9d
-// ---------- INJECTING HERE ----------
-"mednafen_psx_hw_libretro.dll"+10D74: 41 88 10                    -  mov [r8],dl
-"mednafen_psx_hw_libretro.dll"+10D77: 0F B6 D2                    -  movzx edx,dl
-// ---------- DONE INJECTING  ----------
-"mednafen_psx_hw_libretro.dll"+10D7A: 45 89 C8                    -  mov r8d,r9d
-"mednafen_psx_hw_libretro.dll"+10D7D: E8 5E FD 5B 00              -  call mednafen_psx_hw_libretro.dll+5D0AE0
-"mednafen_psx_hw_libretro.dll"+10D82: 48 8B 05 E7 E9 8B 00        -  mov rax,[mednafen_psx_hw_libretro.dll+8CF770]
-"mednafen_psx_hw_libretro.dll"+10D89: 80 38 00                    -  cmp byte ptr [rax],00
-"mednafen_psx_hw_libretro.dll"+10D8C: 74 12                       -  je mednafen_psx_hw_libretro.dll+10DA0
-"mednafen_psx_hw_libretro.dll"+10D8E: 48 83 C4 28                 -  add rsp,28
-"mednafen_psx_hw_libretro.dll"+10D92: 41 5C                       -  pop r12
-"mednafen_psx_hw_libretro.dll"+10D94: 41 5D                       -  pop r13
-"mednafen_psx_hw_libretro.dll"+10D96: C3                          -  ret 
-"mednafen_psx_hw_libretro.dll"+10D97: 66 0F 1F 84 00 00 00 00 00  -  nop word ptr [rax+rax+00000000]
-}
 </AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63137</ID>
+              <Description>"Automatic Control Enabler BACKUP"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(autoManual,mednafen_psx_hw_libretro.dll,41 88 10 0F B6 D2) // should be unique
+alloc(newmem,$1000,"mednafen_psx_hw_libretro.dll"+10D74)
+
+label(code)
+label(partyCress)
+label(partyMint)
+label(partyArche)
+label(partyClaus)
+label(partyChester)
+label(partySuzu)
+label(controlEnabled)
+label(dashEnabled)
+label(comboEnabled)
+label(controlSlot1)
+label(controlSlot2)
+label(controlSlot3)
+label(controlSlot4)
+label(dashSlot1)
+label(dashSlot2)
+label(dashSlot3)
+label(dashSlot4)
+label(comboSlot1)
+label(comboSlot2)
+label(comboSlot3)
+label(comboSlot4)
+label(activate)
+label(controlActivate)
+label(dashActivate)
+label(comboActivate)
+label(backtoGame)
+label(return)
+
+newmem:
+
+//Check who is in the first slot is, and then,
+//moves to their respective party blocks.
+code:
+  push eax
+  cmp word [400873F8],1
+  je partyCress
+  cmp word [400873F8],2
+  je partyMint
+  cmp word [400873F8],3
+  je partyArche
+  cmp word [400873F8],4
+  je partyClaus
+  cmp word [400873F8],5
+  je partyChester
+  cmp word [400873F8],6
+  je partySuzu
+  jmp backtoGame
+
+//Compare Character Max HP/TP to Slot 1 Max HP/TP, if same, go to activate
+//Basically, just a way to check if you are in battle,
+//as setting it all the time would break the game.
+//An ugly hack, but it works nonetheless.
+partyCress:
+  movzx eax, word [40086F0E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086F14] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyMint:
+  movzx eax, word [40086FAE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086FB4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyArche:
+  movzx eax, word [4008704E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087054] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyClaus:
+  movzx eax, word [400870EE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [400870F4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyChester:
+  movzx eax, word [4008718E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087194] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partySuzu:
+  movzx eax, word [4008722E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087234] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+activate:
+  cmp byte [controlEnabled],1
+  je controlActivate
+  cmp byte [dashEnabled],1
+  je dashActivate
+  cmp byte [comboEnabled],1
+  je comboActivate
+  jmp backtoGame
+
+//This is where you control what values get set in battles.
+controlActivate:
+  mov ah, [controlSlot1]
+  mov byte [40138F26],ah //Slot 1 Control Mode
+  mov ah, [controlSlot2]
+  mov byte [4013915E],ah //Slot 2 Control Mode
+  mov ah, [controlSlot3]
+  mov byte [40139396],ah //Slot 3 Control Mode
+  mov ah, [controlSlot4]
+  mov byte [401395CE],ah //Slot 4 Control Mode
+  cmp [dashEnabled],1
+  je dashActivate
+  cmp [comboEnabled],1
+  je comboActivate
+  jmp backtoGame
+
+dashActivate:
+  mov ax, [dashSlot1]
+  mov word [40138F1B],ax //Slot 1 Dash Mode
+  mov ax, [dashSlot2]
+  mov word [40139153],ax //Slot 2 Dash Mode
+  mov ax, [dashSlot3]
+  mov word [4013938B],ax //Slot 3 Dash Mode
+  mov ax, [dashSlot4]
+  mov word [401395C3],ax //Slot 4 Dash Mode
+  mov ax, [comboSlot1]
+  cmp [comboEnabled],1
+  je comboActivate
+  jmp backtoGame
+
+comboActivate:
+  mov word [40138F1D],ax //Slot 1 Combo Command Mode
+  mov ax, [comboSlot2]
+  mov word [40139155],ax //Slot 2 Combo Command Mode
+  mov ax, [comboSlot3]
+  mov word [4013938D],ax //Slot 3 Combo Command Mode
+  mov ax, [comboSlot4]
+  mov word [401395C5],ax //Slot 4 Combo Command Mode
+  jmp backtoGame
+
+backtoGame:
+  pop eax
+  mov [r8],dl
+  movzx edx,dl
+  jmp return
+
+controlEnabled:
+ dd 1
+
+dashEnabled:
+ dd 1
+
+comboEnabled:
+ dd 1
+
+controlSlot1:
+ dd 2
+
+controlSlot2:
+ dd 0
+
+controlSlot3:
+ dd 0
+
+controlSlot4:
+ dd 0
+
+dashSlot1:
+ dd 1
+
+dashSlot2:
+ dd 1
+
+dashSlot3:
+ dd 1
+
+dashSlot4:
+ dd 1
+
+comboSlot1:
+ dd 0
+
+comboSlot2:
+ dd 0
+
+comboSlot3:
+ dd 0
+
+comboSlot4:
+ dd 0
+
+autoManual:
+  jmp newmem
+  nop
+
+return:
+registersymbol(autoManual)
+registersymbol(controlEnabled)
+registersymbol(dashEnabled)
+registersymbol(comboEnabled)
+registersymbol(controlSlot1)
+registersymbol(controlSlot2)
+registersymbol(controlSlot3)
+registersymbol(controlSlot4)
+registersymbol(dashSlot1)
+registersymbol(dashSlot2)
+registersymbol(dashSlot3)
+registersymbol(dashSlot4)
+registersymbol(comboSlot1)
+registersymbol(comboSlot2)
+registersymbol(comboSlot3)
+registersymbol(comboSlot4)
+
+
+[DISABLE]
+
+autoManual:
+  db 41 88 10 0F B6 D2
+
+unregistersymbol(autoManual)
+unregistersymbol(controlEnabled)
+unregistersymbol(dashEnabled)
+unregistersymbol(comboEnabled)
+unregistersymbol(controlSlot1)
+unregistersymbol(controlSlot2)
+unregistersymbol(controlSlot3)
+unregistersymbol(controlSlot4)
+unregistersymbol(dashSlot1)
+unregistersymbol(dashSlot2)
+unregistersymbol(dashSlot3)
+unregistersymbol(dashSlot4)
+unregistersymbol(comboSlot1)
+unregistersymbol(comboSlot2)
+unregistersymbol(comboSlot3)
+unregistersymbol(comboSlot4)
+dealloc(newmem)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63138</ID>
+                  <Description>"Toggles"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63139</ID>
+                      <Description>"Control Mode"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlEnabled</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63140</ID>
+                      <Description>"Dash Mode"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>dashEnabled</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63141</ID>
+                      <Description>"Combo Command Mode"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>comboEnabled</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63142</ID>
+                  <Description>"Control Modes"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Auto
+1:Semi-Auto
+2:Manual
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63143</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63144</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63145</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63146</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63147</ID>
+                  <Description>"Dash Modes"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63148</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63149</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63150</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63151</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63152</ID>
+                  <Description>"Combo Command Modes"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63153</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63154</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63155</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63156</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63060</ID>
+              <Description>"Jumping back to game (TESTING)"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(autoManual,mednafen_psx_hw_libretro.dll,41 88 10 0F B6 D2) // should be unique
+alloc(newmem,$1000,"mednafen_psx_hw_libretro.dll"+10D74)
+
+label(code)
+label(test)
+label(return)
+
+newmem:
+
+code:
+jmp test
+
+test:
+    mov [r8],dl
+    movzx edx,dl
+    jmp return
+
+autoManual:
+  jmp newmem
+  nop
+
+return:
+registersymbol(autoManual)
+
+[DISABLE]
+
+autoManual:
+  db 41 88 10 0F B6 D2
+
+unregistersymbol(autoManual)
+dealloc(newmem)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63061</ID>
+              <Description>""Better" workaround for checking for battle (TESTING)"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(autoManual,mednafen_psx_hw_libretro.dll,41 88 10 0F B6 D2) // should be unique
+alloc(newmem,$1000,"mednafen_psx_hw_libretro.dll"+10D74)
+
+label(code)
+label(test)
+label(return)
+
+newmem:
+
+code:
+jmp test
+
+test:
+     push eax
+     push ebx
+     mov eax,238
+     mul [400873F8]
+     mov ebx,[eax]
+     mov ebx,[ebx]-238
+     mov ebx,[ebx]+40138F1B
+     mov ebx,1
+     pop eax
+     pop ebx
+    // mov r8,[400873F8]
+    // mov dl,[238]
+    // mov r8,dl*r8
+    // mov r8,r8-dl
+    // mov (40138F1B+[r8]),1
+    mov [r8],dl
+    movzx edx,dl
+    jmp return
+
+autoManual:
+  jmp newmem
+  nop
+
+return:
+registersymbol(autoManual)
+
+[DISABLE]
+
+autoManual:
+  db 41 88 10 0F B6 D2
+
+unregistersymbol(autoManual)
+dealloc(newmem)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63064</ID>
+              <Description>"Automatic Control Enabler (unfinished auto Death Cam feature)"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(autoManual,mednafen_psx_hw_libretro.dll,41 88 10 0F B6 D2) // should be unique
+alloc(newmem,$1000,"mednafen_psx_hw_libretro.dll"+10D74)
+
+label(code)
+label(partyCress)
+label(partyMint)
+label(partyArche)
+label(partyClaus)
+label(partyChester)
+label(partySuzu)
+label(controlEnabled)
+label(dashEnabled)
+label(comboEnabled)
+label(deathCamEnabled)
+label(controlSlot1)
+label(controlSlot2)
+label(controlSlot3)
+label(controlSlot4)
+label(dashSlot1)
+label(dashSlot2)
+label(dashSlot3)
+label(dashSlot4)
+label(comboSlot1)
+label(comboSlot2)
+label(comboSlot3)
+label(comboSlot4)
+label(deathCamTemp1)
+label(deathCamTemp2)
+label(deathCamTemp3)
+label(deathCamTemp4)
+label(activate)
+label(controlActivate)
+label(dashActivate)
+label(comboActivate)
+label(deathCamActivate)
+label(backtoGame)
+label(return)
+
+newmem:
+
+//Check who is in the first slot is, and then,
+//moves to their respective party blocks.
+code:
+  push eax
+  cmp word [400873F8],1
+  je partyCress
+  cmp word [400873F8],2
+  je partyMint
+  cmp word [400873F8],3
+  je partyArche
+  cmp word [400873F8],4
+  je partyClaus
+  cmp word [400873F8],5
+  je partyChester
+  cmp word [400873F8],6
+  je partySuzu
+  jmp backtoGame
+
+//Compare Character Max HP/TP to Slot 1 Max HP/TP, if same, go to activate
+//Basically, just a way to check if you are in battle,
+//as setting it all the time would break the game.
+//An ugly hack, but it works nonetheless.
+partyCress:
+  movzx eax, word [40086F0E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086F14] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyMint:
+  movzx eax, word [40086FAE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086FB4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyArche:
+  movzx eax, word [4008704E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087054] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyClaus:
+  movzx eax, word [400870EE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [400870F4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partyChester:
+  movzx eax, word [4008718E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087194] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+partySuzu:
+  movzx eax, word [4008722E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087234] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame
+
+activate:
+  cmp byte [controlEnabled],1
+  je controlActivate
+  cmp byte [dashEnabled],1
+  je dashActivate
+  cmp byte [comboEnabled],1
+  je comboActivate
+  cmp byte [deathCamEnabled],1
+  je deathCamActivate
+  jmp backtoGame
+
+//This is where you control what values get set in battles.
+controlActivate:
+  mov ah, [controlSlot1]
+  mov byte [40138F26],ah //Slot 1 Control Mode
+  mov ah, [controlSlot2]
+  mov byte [4013915E],ah //Slot 2 Control Mode
+  mov ah, [controlSlot3]
+  mov byte [40139396],ah //Slot 3 Control Mode
+  mov ah, [controlSlot4]
+  mov byte [401395CE],ah //Slot 4 Control Mode
+  cmp [dashEnabled],1
+  je dashActivate
+  cmp [comboEnabled],1
+  je comboActivate
+  cmp byte [deathCamEnabled],1
+  je deathCamActivate
+  jmp backtoGame
+
+dashActivate:
+  mov ax, [dashSlot1]
+  mov word [40138F1B],ax //Slot 1 Dash Mode
+  mov ax, [dashSlot2]
+  mov word [40139153],ax //Slot 2 Dash Mode
+  mov ax, [dashSlot3]
+  mov word [4013938B],ax //Slot 3 Dash Mode
+  mov ax, [dashSlot4]
+  mov word [401395C3],ax //Slot 4 Dash Mode
+  mov ax, [comboSlot1]
+  cmp [comboEnabled],1
+  je comboActivate
+  cmp byte [deathCamEnabled],1
+  je deathCamActivate
+  jmp backtoGame
+
+comboActivate:
+  mov word [40138F1D],ax //Slot 1 Combo Command Mode
+  mov ax, [comboSlot2]
+  mov word [40139155],ax //Slot 2 Combo Command Mode
+  mov ax, [comboSlot3]
+  mov word [4013938D],ax //Slot 3 Combo Command Mode
+  mov ax, [comboSlot4]
+  mov word [401395C5],ax //Slot 4 Combo Command Mode
+  cmp byte [deathCamEnabled],1
+  je deathCamActivate
+  jmp backtoGame
+
+deathCamActivate:
+  cmp [controlEnabled], 1
+  je deathCamAuto2
+  cmp [controlEnabled], 0
+  je deathCamAuto
+  jmp backtoGame
+
+//If dead, move to Auto Control Mode
+//If alive, move current control method to deathCamTemp1
+//Automatic Control Mode turned off
+deathCamAuto:
+  cmp byte [40138F16],1
+  je deathCamAutoActivate
+  mov byte [deathCamTemp1],40138F26
+  mov byte [40138F26],0
+  jmp backtoGame
+
+deathCamAutoActivate:
+  mov ah, [deathCamTemp1]
+  mov byte [40138F26],ah
+  jmp backtoGame
+
+//Automatic Control Mode turned on
+deathCamAuto2:
+  cmp byte [40138F16],1
+  je deathCamAutoActivate2
+  mov ah, [deathCamTemp1]
+  mov byte [controlSlot1], ah
+  mov ah, [controlSlot1]
+  mov byte [deathCamTemp1],ah
+  jmp backtoGame
+
+deathCamAutoActivate2:
+  mov byte [controlSlot1],0
+  jmp backtoGame
+
+backtoGame:
+  pop eax
+  mov [r8],dl
+  movzx edx,dl
+  jmp return
+
+controlEnabled:
+ dd 1
+
+dashEnabled:
+ dd 1
+
+comboEnabled:
+ dd 1
+
+deathCamEnabled:
+ dd 1
+
+controlSlot1:
+ dd 2
+
+controlSlot2:
+ dd 0
+
+controlSlot3:
+ dd 0
+
+controlSlot4:
+ dd 0
+
+dashSlot1:
+ dd 1
+
+dashSlot2:
+ dd 1
+
+dashSlot3:
+ dd 1
+
+dashSlot4:
+ dd 1
+
+comboSlot1:
+ dd 0
+
+comboSlot2:
+ dd 0
+
+comboSlot3:
+ dd 0
+
+comboSlot4:
+ dd 0
+
+deathCamTemp1:
+deathCamTemp2:
+deathCamTemp3:
+deathCamTemp4:
+
+autoManual:
+  jmp newmem
+  nop
+
+return:
+registersymbol(autoManual)
+registersymbol(controlEnabled)
+registersymbol(dashEnabled)
+registersymbol(comboEnabled)
+registersymbol(deathCamEnabled)
+registersymbol(controlSlot1)
+registersymbol(controlSlot2)
+registersymbol(controlSlot3)
+registersymbol(controlSlot4)
+registersymbol(dashSlot1)
+registersymbol(dashSlot2)
+registersymbol(dashSlot3)
+registersymbol(dashSlot4)
+registersymbol(comboSlot1)
+registersymbol(comboSlot2)
+registersymbol(comboSlot3)
+registersymbol(comboSlot4)
+registersymbol(deathCamTemp1)
+registersymbol(deathCamTemp2)
+registersymbol(deathCamTemp3)
+registersymbol(deathCamTemp4)
+
+[DISABLE]
+
+autoManual:
+  db 41 88 10 0F B6 D2
+
+unregistersymbol(autoManual)
+unregistersymbol(controlEnabled)
+unregistersymbol(dashEnabled)
+unregistersymbol(comboEnabled)
+unregistersymbol(deathCamEnabled)
+unregistersymbol(controlSlot1)
+unregistersymbol(controlSlot2)
+unregistersymbol(controlSlot3)
+unregistersymbol(controlSlot4)
+unregistersymbol(dashSlot1)
+unregistersymbol(dashSlot2)
+unregistersymbol(dashSlot3)
+unregistersymbol(dashSlot4)
+unregistersymbol(comboSlot1)
+unregistersymbol(comboSlot2)
+unregistersymbol(comboSlot3)
+unregistersymbol(comboSlot4)
+unregistersymbol(deathCamTemp1)
+unregistersymbol(deathCamTemp2)
+unregistersymbol(deathCamTemp3)
+unregistersymbol(deathCamTemp4)
+dealloc(newmem)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63098</ID>
+                  <Description>"Toggles"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63099</ID>
+                      <Description>"Control Mode"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlEnabled</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63100</ID>
+                      <Description>"Dash Mode"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>dashEnabled</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63101</ID>
+                      <Description>"Combo Command Mode"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>comboEnabled</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63126</ID>
+                      <Description>"Death Camera"</Description>
+                      <DropDownListLink>Toggles</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>deathCamEnabled</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63091</ID>
+                  <Description>"Control Modes"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Auto
+1:Semi-Auto
+2:Manual
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63068</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63069</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63070</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63071</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>controlSlot4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63092</ID>
+                  <Description>"Dash Modes"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63081</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63082</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63083</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63084</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>dashSlot4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63093</ID>
+                  <Description>"Combo Command Modes"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63094</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63095</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63096</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>63097</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Dash Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>comboSlot4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63136</ID>
+                  <Description>"Slot 1 death state?"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Alive
+1:Dead
+</DropDownList>
+                  <LastState Value="0" RealAddress="40138F16"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>40138F16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63192</ID>
+                  <Description>"Slot 2 death state?"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Alive
+1:Dead
+</DropDownList>
+                  <LastState Value="0" RealAddress="4013914E"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>40138F16+238</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63105</ID>
+                  <Description>"Slot 1 status effects"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Alive
+8:Dead
+</DropDownList>
+                  <LastState Value="0" RealAddress="40138E8C"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>40138E8C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63193</ID>
+                  <Description>"Slot 2 status effects"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Alive
+8:Dead
+</DropDownList>
+                  <LastState Value="0" RealAddress="401390C4"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>40138E8C+238</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63127</ID>
+                  <Description>"temp1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63130</ID>
+                  <Description>"temp2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63129</ID>
+                  <Description>"temp3"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63128</ID>
+                  <Description>"temp4"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63187</ID>
+              <Description>"Death Cam TEMP values"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63188</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63189</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63190</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63191</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Control Modes</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63194</ID>
+              <Description>"Death Cam BACKUP (old)"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(statusInject,mednafen_psx_hw_libretro.dll,66 41 89 10 0F B7 D2) // should be unique
+alloc(newmem,$1000,statusInject)
+
+label(code)
+label(partyCress)
+label(partyMint)
+label(partyArche)
+label(partyClaus)
+label(partyChester)
+label(partySuzu)
+label(backtoGame2)
+label(activate)
+label(deathCamTemp1)
+label(deathCamTemp2)
+label(deathCamTemp3)
+label(deathCamTemp4)
+label(deathCamEnabled1)
+label(deathCamEnabled2)
+label(deathCamEnabled3)
+label(deathCamEnabled4)
+label(return)
+
+newmem:
+
+code:
+  push eax
+  cmp word [400873F8],1
+  je partyCress
+  cmp word [400873F8],2
+  je partyMint
+  cmp word [400873F8],3
+  je partyArche
+  cmp word [400873F8],4
+  je partyClaus
+  cmp word [400873F8],5
+  je partyChester
+  cmp word [400873F8],6
+  je partySuzu
+  jmp backtoGame2
+
+partyCress:
+  movzx eax, word [40086F0E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086F14] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyMint:
+  movzx eax, word [40086FAE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40086FB4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyArche:
+  movzx eax, word [4008704E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087054] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyClaus:
+  movzx eax, word [400870EE] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [400870F4] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partyChester:
+  movzx eax, word [4008718E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087194] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+partySuzu:
+  movzx eax, word [4008722E] //Character Max HP
+  cmp eax,[40138E24] //Slot 1 Max HP
+  je activate
+  movzx eax, word [40087234] //Character Max TP
+  cmp eax,[40138E30] //Slot 1 Max TP
+  je activate
+  jmp backtoGame2
+
+activate:
+  cmp r8,40138E8C //Slot 1 status effect
+  je deathCamActivate
+  cmp r8,401390C4 //Slot 2 status effect
+  je deathCamActivate
+  cmp r8,401392FC //Slot 3 status effect
+  je deathCamActivate
+  cmp r8,40139534 //Slot 4 status effect
+  je deathCamActivate
+  jmp backtoGame2
+
+deathCamActivate:
+  cmp [controlEnabled], 1
+  je deathCamAuto2
+  cmp [controlEnabled], 0
+  je deathCamAuto
+  jmp backtoGame2
+
+//Automatic Control Mode turned off
+deathCamAuto:
+  cmp [deathCamEnabled1], 1
+  je deathCamAutoOffSlot1
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOffSlot2
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOffSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffSlot1:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40138F16],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate1
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp1]
+  mov byte [40138F26], ah
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOffSlot2
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOffSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffActivate1:
+  mov ah, [40138F26]
+  mov byte [deathCamTemp1],ah
+  mov byte [40138F26],0
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOffSlot2
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOffSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffSlot2:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [4013914E],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate2
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp2]
+  mov byte [4013915E], ah
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOffSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffActivate2:
+  mov ah, [4013915E]
+  mov byte [deathCamTemp2],ah
+  mov byte [4013915E],0
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOffSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+  deathCamAutoOffSlot3:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40139386],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate3
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp3]
+  mov byte [40139396], ah
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffActivate3:
+  mov ah, [40139396]
+  mov byte [deathCamTemp3],ah
+  mov byte [40139396],0
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOffSlot4
+  jmp backtoGame2
+
+deathCamAutoOffSlot4:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [401395BE],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOffActivate4
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp4]
+  mov byte [401395CE], ah
+  jmp backtoGame2
+
+deathCamAutoOffActivate4:
+  mov ah, [401395CE]
+  mov byte [deathCamTemp4],ah
+  mov byte [401395CE],0
+  jmp backtoGame2
+
+//Automatic Control Mode turned on
+deathCamAuto2:
+  cmp [deathCamEnabled1], 1
+  je deathCamAutoOnSlot1
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOnSlot2
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOnSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnSlot1:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40138F16],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate1
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp1]
+  mov byte [controlSlot1], ah
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOnSlot2
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOnSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnActivate1:
+  mov ah, [controlSlot1]
+  mov byte [deathCamTemp1],ah
+  mov byte [controlSlot1],0
+  cmp [deathCamEnabled2], 1
+  je deathCamAutoOnSlot2
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOnSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnSlot2:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [4013914E],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate2
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp2]
+  mov byte [controlSlot2], ah
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOnSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnActivate2:
+  mov ah, [controlSlot2]
+  mov byte [deathCamTemp2],ah
+  mov byte [controlSlot2],0
+  cmp [deathCamEnabled3], 1
+  je deathCamAutoOnSlot3
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnSlot3:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [40139386],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate3
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp3]
+  mov byte [controlSlot3], ah
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnActivate3:
+  mov ah, [controlSlot3]
+  mov byte [deathCamTemp3],ah
+  mov byte [controlSlot3],0
+  cmp [deathCamEnabled4], 1
+  je deathCamAutoOnSlot4
+  jmp backtoGame2
+
+deathCamAutoOnSlot4:
+//On Death, move Control Mode to Temp, then set it to Auto
+  cmp byte [401395BE],0 //Character State (0 = Alive, 1 = Dead)
+  je deathCamAutoOnActivate4
+//Else, move Temp to Control Mode
+  mov ah, [deathCamTemp4]
+  mov byte [controlSlot4], ah
+  jmp backtoGame2
+
+deathCamAutoOnActivate4:
+  mov ah, [controlSlot4]
+  mov byte [deathCamTemp4],ah
+  mov byte [controlSlot4],0
+  jmp backtoGame2
+
+backtoGame2:
+  pop eax
+  mov [r8],dx
+  movzx edx,dx
+  jmp return
+
+deathCamTemp1:
+dd 0
+
+deathCamTemp2:
+dd 0
+
+deathCamTemp3:
+dd 0
+
+deathCamTemp4:
+dd 0
+
+deathCamEnabled1:
+dd 1
+
+deathCamEnabled2:
+dd 1
+
+deathCamEnabled3:
+dd 1
+
+deathCamEnabled4:
+dd 1
+
+statusInject:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(statusInject)
+registersymbol(deathCamTemp1)
+registersymbol(deathCamTemp2)
+registersymbol(deathCamTemp3)
+registersymbol(deathCamTemp4)
+registersymbol(deathCamEnabled1)
+registersymbol(deathCamEnabled2)
+registersymbol(deathCamEnabled3)
+registersymbol(deathCamEnabled4)
+
+[DISABLE]
+
+statusInject:
+  db 66 41 89 10 0F B7 D2
+
+unregistersymbol(statusInject)
+unregistersymbol(deathCamTemp1)
+unregistersymbol(deathCamTemp2)
+unregistersymbol(deathCamTemp3)
+unregistersymbol(deathCamTemp4)
+unregistersymbol(deathCamEnabled1)
+unregistersymbol(deathCamEnabled2)
+unregistersymbol(deathCamEnabled3)
+unregistersymbol(deathCamEnabled4)
+dealloc(newmem)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63195</ID>
+                  <Description>"temp1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63196</ID>
+                  <Description>"temp2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63197</ID>
+                  <Description>"temp3"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63198</ID>
+                  <Description>"temp4"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>deathCamTemp4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63199</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>deathCamEnabled1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63200</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>deathCamEnabled2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63201</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>deathCamEnabled3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63202</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Toggles</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>deathCamEnabled4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63182</ID>
+              <Description>"Life Bottles in Inventory"</Description>
+              <LastState Value="15" Activated="1" RealAddress="4008749C"/>
+              <VariableType>Byte</VariableType>
+              <Address>4008749C</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Code :mov [r8],dl</Description>
+      <AddressString>mednafen_psx_hw_libretro.dll+10D74</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+        <Byte>45</Byte>
+        <Byte>89</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>88</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>D2</Byte>
+        <Byte>45</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>status effect</Description>
+      <AddressString>mednafen_psx_hw_libretro.dll+10DD4</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+        <Byte>45</Byte>
+        <Byte>89</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>D2</Byte>
+        <Byte>45</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>randomvalue</Name>

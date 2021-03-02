@@ -17,6 +17,7 @@ Emulators used for their respective platforms and their versions:
  - **Xillia**: *NPUB31136*
  - **Xillia 2**: *BLUS31397*
  - **Zestiria**: *1.4*
+ - **Legendia**: *SLUS-21201*
 
 ## Abyss (PS2)
 
@@ -132,3 +133,8 @@ Features:
 Features: 
  - Change Camera Zoom
  - Change Camera Height
+
+** Legendia (PS2) **
+
+Features:
+ - Party Editor
