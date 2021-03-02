@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="31">
+<CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
       <ID>62873</ID>
@@ -7777,13 +7777,16 @@ code:
   je partyMember
   cmp rax,23730160+6FE0*8 //Ludger
   je partyMember
+  bswap edx
   mov [rax+r8+000053A0],edx
   jmp return
 
 partyMember:
+  push edx
   mov edx,1
   bswap edx
   mov [rax+r8+000053A0],edx
+  pop edx
   jmp return
 
 LinkControl:
@@ -7887,9 +7890,11 @@ code:
   jmp return
 
 partyMember:
+  push edx
   mov edx,1
   bswap edx
   mov [rax+r8+000053A0],edx
+  pop edx
   jmp return
 
 LinkControl:

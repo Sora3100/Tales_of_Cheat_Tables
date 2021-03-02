@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="31">
+<CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
       <ID>62874</ID>
@@ -48,7 +48,6 @@ crash, you can recover by making the party entirely different characters.
           <ID>62875</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="322E60028"/>
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>+0</Address>
@@ -57,7 +56,6 @@ crash, you can recover by making the party entirely different characters.
           <ID>62883</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="322E6002C"/>
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>+4</Address>
@@ -66,7 +64,6 @@ crash, you can recover by making the party entirely different characters.
           <ID>62882</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="17282640" RealAddress="322E60030"/>
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>+8</Address>
@@ -75,7 +72,6 @@ crash, you can recover by making the party entirely different characters.
           <ID>62881</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="691241292" RealAddress="322E60034"/>
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>+C</Address>
@@ -84,7 +80,6 @@ crash, you can recover by making the party entirely different characters.
           <ID>62880</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="322E60038"/>
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>+10</Address>
@@ -93,7 +88,6 @@ crash, you can recover by making the party entirely different characters.
           <ID>62879</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="322E6003C"/>
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>+14</Address>
@@ -1292,7 +1286,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62889</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E60154"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1302,7 +1295,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62890</ID>
               <Description>"Headgear"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="45 F1 1A 14" RealAddress="322E6015C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1312,7 +1304,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62891</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="26 C9 D5 D0" RealAddress="322E60158"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1322,7 +1313,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62896</ID>
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E60160"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1332,7 +1322,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62893</ID>
               <Description>"Attachment 1"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6263C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1342,7 +1331,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62895</ID>
               <Description>"Attachment 2"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E62640"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1352,7 +1340,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62894</ID>
               <Description>"Attachment 3"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E62644"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1362,7 +1349,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62892</ID>
               <Description>"Hair"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="01 07 BB B0" RealAddress="322E62638"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1372,7 +1358,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>62897</ID>
               <Description>"Costume"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="27 AF 47 4C" RealAddress="322E62634"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1392,7 +1377,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63705</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E644E4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1402,7 +1386,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63706</ID>
               <Description>"Headgear"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="27 10 4F 3C" RealAddress="322E644EC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1412,7 +1395,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63707</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E644E8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1422,7 +1404,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63708</ID>
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="01 07 CB 60" RealAddress="322E644F0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1432,7 +1413,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63709</ID>
               <Description>"Attachment 1"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E669CC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1442,7 +1422,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63710</ID>
               <Description>"Attachment 2"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E669D0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1452,7 +1431,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63711</ID>
               <Description>"Attachment 3"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E669D4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1462,7 +1440,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63712</ID>
               <Description>"Hair"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E669C8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1472,7 +1449,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63713</ID>
               <Description>"Costume"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="3F 80 00 00" RealAddress="322E669C4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1492,7 +1468,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63715</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="26 CC 8A 30" RealAddress="322E68874"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1502,7 +1477,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63716</ID>
               <Description>"Headgear"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="26 CF F2 20" RealAddress="322E6887C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1512,7 +1486,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63717</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 01" RealAddress="322E68878"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1522,7 +1495,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63718</ID>
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="22 E6 88 60" RealAddress="322E68880"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1532,7 +1504,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63719</ID>
               <Description>"Attachment 1"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6AD5C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1542,7 +1513,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63720</ID>
               <Description>"Attachment 2"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6AD60"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1552,7 +1522,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63721</ID>
               <Description>"Attachment 3"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6AD64"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1562,7 +1531,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63722</ID>
               <Description>"Hair"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6AD58"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1572,7 +1540,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63723</ID>
               <Description>"Costume"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6AD54"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1592,7 +1559,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63745</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="27 AF DD 9C" RealAddress="322E6CC04"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1602,7 +1568,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63746</ID>
               <Description>"Headgear"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="27 AF DD 94" RealAddress="322E6CC0C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1612,7 +1577,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63747</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="01 07 CB 60" RealAddress="322E6CC08"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1622,7 +1586,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63748</ID>
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="01 07 BB B0" RealAddress="322E6CC10"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1632,7 +1595,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63749</ID>
               <Description>"Attachment 1"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6F0EC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1642,7 +1604,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63750</ID>
               <Description>"Attachment 2"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6F0F0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1652,7 +1613,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63751</ID>
               <Description>"Attachment 3"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6F0F4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1662,7 +1622,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63752</ID>
               <Description>"Hair"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E6F0E8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1672,7 +1631,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63753</ID>
               <Description>"Costume"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="34 00 00 00" RealAddress="322E6F0E4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1692,7 +1650,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63735</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="22 E7 0F A8" RealAddress="322E70F94"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1702,7 +1659,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63736</ID>
               <Description>"Headgear"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E70F9C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1712,7 +1668,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63737</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E70F98"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1722,7 +1677,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63738</ID>
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E70FA0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1732,7 +1686,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63739</ID>
               <Description>"Attachment 1"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E7347C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1742,7 +1695,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63740</ID>
               <Description>"Attachment 2"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E73480"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1752,7 +1704,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63741</ID>
               <Description>"Attachment 3"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E73484"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1762,7 +1713,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63742</ID>
               <Description>"Hair"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E73478"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1772,7 +1722,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63743</ID>
               <Description>"Costume"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="22 E7 34 88" RealAddress="322E73474"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1792,7 +1741,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63725</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E75324"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1802,7 +1750,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63726</ID>
               <Description>"Headgear"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E7532C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1812,7 +1759,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63727</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="22 E7 53 3C" RealAddress="322E75328"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1822,7 +1768,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63728</ID>
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E75330"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1832,7 +1777,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63729</ID>
               <Description>"Attachment 1"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E7780C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1842,7 +1786,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63730</ID>
               <Description>"Attachment 2"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E77810"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1852,7 +1795,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63731</ID>
               <Description>"Attachment 3"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E77814"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1862,7 +1804,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63732</ID>
               <Description>"Hair"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="22 E7 78 1C" RealAddress="322E77808"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -1872,7 +1813,6 @@ DLC items may crash the game if you don't have them installed.
               <ID>63733</ID>
               <Description>"Costume"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="322E77804"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
@@ -4001,7 +3941,6 @@ artes will crash the game.
               <ID>11283</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="10517" RealAddress="322E62464"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -4010,7 +3949,6 @@ artes will crash the game.
               <ID>11284</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E62468"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -4019,7 +3957,6 @@ artes will crash the game.
               <ID>11298</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6246C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -4028,7 +3965,6 @@ artes will crash the game.
               <ID>11297</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E62470"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+C</Address>
@@ -4037,7 +3973,6 @@ artes will crash the game.
               <ID>11291</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="651157088" RealAddress="322E624A4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+40</Address>
@@ -4046,7 +3981,6 @@ artes will crash the game.
                   <ID>61823</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="17284016" RealAddress="322E62484"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4057,7 +3991,6 @@ artes will crash the game.
               <ID>11290</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="112" RealAddress="322E624A8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+44</Address>
@@ -4066,7 +3999,6 @@ artes will crash the game.
                   <ID>61824</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="607577840" RealAddress="322E62488"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4077,7 +4009,6 @@ artes will crash the game.
               <ID>11289</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="651265744" RealAddress="322E624AC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+48</Address>
@@ -4086,7 +4017,6 @@ artes will crash the game.
                   <ID>61825</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="16777216" RealAddress="322E6248C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4097,7 +4027,6 @@ artes will crash the game.
               <ID>11296</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E624B0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4C</Address>
@@ -4106,7 +4035,6 @@ artes will crash the game.
                   <ID>61826</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="48" RealAddress="322E62490"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4117,7 +4045,6 @@ artes will crash the game.
               <ID>11295</ID>
               <Description>"Slot 9"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E62474"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+10</Address>
@@ -4126,7 +4053,6 @@ artes will crash the game.
               <ID>11294</ID>
               <Description>"Slot 10"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E62478"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -4135,7 +4061,6 @@ artes will crash the game.
               <ID>11293</ID>
               <Description>"Slot 11"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6247C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -4144,7 +4069,6 @@ artes will crash the game.
               <ID>11292</ID>
               <Description>"Slot 12"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="16842752" RealAddress="322E62480"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -4153,7 +4077,6 @@ artes will crash the game.
               <ID>11288</ID>
               <Description>"Slot 13"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="651005008" RealAddress="322E624B4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+50</Address>
@@ -4162,7 +4085,6 @@ artes will crash the game.
                   <ID>61827</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="644084760" RealAddress="322E62494"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4173,7 +4095,6 @@ artes will crash the game.
               <ID>11287</ID>
               <Description>"Slot 14"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="1" RealAddress="322E624B8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+54</Address>
@@ -4182,7 +4103,6 @@ artes will crash the game.
                   <ID>61828</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="607577840" RealAddress="322E62498"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4193,7 +4113,6 @@ artes will crash the game.
               <ID>11286</ID>
               <Description>"Slot 15"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="651163424" RealAddress="322E624BC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+58</Address>
@@ -4202,7 +4121,6 @@ artes will crash the game.
                   <ID>61829</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6249C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4213,7 +4131,6 @@ artes will crash the game.
               <ID>11285</ID>
               <Description>"Slot 16"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585508000" RealAddress="322E624C0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+5C</Address>
@@ -4222,7 +4139,6 @@ artes will crash the game.
                   <ID>61830</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="665794772" RealAddress="322E624A0"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4243,7 +4159,6 @@ artes will crash the game.
               <ID>11300</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E667F4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -4252,7 +4167,6 @@ artes will crash the game.
               <ID>11301</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E667F8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -4261,7 +4175,6 @@ artes will crash the game.
               <ID>11302</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="691254372" RealAddress="322E667FC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -4270,7 +4183,6 @@ artes will crash the game.
               <ID>11303</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17288032" RealAddress="322E66800"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+C</Address>
@@ -4279,7 +4191,6 @@ artes will crash the game.
               <ID>11304</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E66834"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+40</Address>
@@ -4288,7 +4199,6 @@ artes will crash the game.
                   <ID>61815</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E66814"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4299,7 +4209,6 @@ artes will crash the game.
               <ID>11305</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E66838"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+44</Address>
@@ -4308,7 +4217,6 @@ artes will crash the game.
                   <ID>61818</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E66818"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4319,7 +4227,6 @@ artes will crash the game.
               <ID>11306</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6683C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+48</Address>
@@ -4328,7 +4235,6 @@ artes will crash the game.
                   <ID>61817</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6681C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4339,7 +4245,6 @@ artes will crash the game.
               <ID>11307</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E66840"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4C</Address>
@@ -4348,7 +4253,6 @@ artes will crash the game.
                   <ID>61816</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E66820"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4359,7 +4263,6 @@ artes will crash the game.
               <ID>11308</ID>
               <Description>"Slot 9"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="691254380" RealAddress="322E66804"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+10</Address>
@@ -4368,7 +4271,6 @@ artes will crash the game.
               <ID>11309</ID>
               <Description>"Slot 10"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17284016" RealAddress="322E66808"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -4377,7 +4279,6 @@ artes will crash the game.
               <ID>11310</ID>
               <Description>"Slot 11"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6680C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -4386,7 +4287,6 @@ artes will crash the game.
               <ID>11311</ID>
               <Description>"Slot 12"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E66810"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -4395,7 +4295,6 @@ artes will crash the game.
               <ID>11312</ID>
               <Description>"Slot 13"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="691254388" RealAddress="322E66844"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+50</Address>
@@ -4404,7 +4303,6 @@ artes will crash the game.
                   <ID>61819</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E66824"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4415,7 +4313,6 @@ artes will crash the game.
               <ID>11313</ID>
               <Description>"Slot 14"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17288032" RealAddress="322E66848"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+54</Address>
@@ -4424,7 +4321,6 @@ artes will crash the game.
                   <ID>61820</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E66828"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4435,7 +4331,6 @@ artes will crash the game.
               <ID>11314</ID>
               <Description>"Slot 15"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="665790380" RealAddress="322E6684C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+58</Address>
@@ -4444,7 +4339,6 @@ artes will crash the game.
                   <ID>61821</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6682C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4455,7 +4349,6 @@ artes will crash the game.
               <ID>11315</ID>
               <Description>"Slot 16"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17284016" RealAddress="322E66850"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+5C</Address>
@@ -4464,7 +4357,6 @@ artes will crash the game.
                   <ID>61822</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E66830"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4485,7 +4377,6 @@ artes will crash the game.
               <ID>11318</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="1598770761" RealAddress="322E6AB84"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -4494,7 +4385,6 @@ artes will crash the game.
               <ID>11319</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="1596993584" RealAddress="322E6AB88"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -4503,7 +4393,6 @@ artes will crash the game.
               <ID>11320</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="1598835012" RealAddress="322E6AB8C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -4512,7 +4401,6 @@ artes will crash the game.
               <ID>11321</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="1597321265" RealAddress="322E6AB90"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+C</Address>
@@ -4521,7 +4409,6 @@ artes will crash the game.
               <ID>11322</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="10516" RealAddress="322E6ABC4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+40</Address>
@@ -4530,7 +4417,6 @@ artes will crash the game.
                   <ID>61831</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABA4"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4541,7 +4427,6 @@ artes will crash the game.
               <ID>11323</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABC8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+44</Address>
@@ -4550,7 +4435,6 @@ artes will crash the game.
                   <ID>61832</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABA8"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4561,7 +4445,6 @@ artes will crash the game.
               <ID>11324</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABCC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+48</Address>
@@ -4570,7 +4453,6 @@ artes will crash the game.
                   <ID>61833</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABAC"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4581,7 +4463,6 @@ artes will crash the game.
               <ID>11325</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABD0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4C</Address>
@@ -4590,7 +4471,6 @@ artes will crash the game.
                   <ID>61834</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABB0"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4601,7 +4481,6 @@ artes will crash the game.
               <ID>11326</ID>
               <Description>"Slot 9"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6AB94"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+10</Address>
@@ -4610,7 +4489,6 @@ artes will crash the game.
               <ID>11327</ID>
               <Description>"Slot 10"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6AB98"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -4619,7 +4497,6 @@ artes will crash the game.
               <ID>11328</ID>
               <Description>"Slot 11"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6AB9C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -4628,7 +4505,6 @@ artes will crash the game.
               <ID>11329</ID>
               <Description>"Slot 12"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABA0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -4637,7 +4513,6 @@ artes will crash the game.
               <ID>11330</ID>
               <Description>"Slot 13"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABD4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+50</Address>
@@ -4646,7 +4521,6 @@ artes will crash the game.
                   <ID>61835</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABB4"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4657,7 +4531,6 @@ artes will crash the game.
               <ID>11331</ID>
               <Description>"Slot 14"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABD8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+54</Address>
@@ -4666,7 +4539,6 @@ artes will crash the game.
                   <ID>61836</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABB8"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4677,7 +4549,6 @@ artes will crash the game.
               <ID>11332</ID>
               <Description>"Slot 15"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6ABDC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+58</Address>
@@ -4686,7 +4557,6 @@ artes will crash the game.
                   <ID>61837</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6ABBC"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4697,7 +4567,6 @@ artes will crash the game.
               <ID>11333</ID>
               <Description>"Slot 16"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="16842752" RealAddress="322E6ABE0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+5C</Address>
@@ -4706,7 +4575,6 @@ artes will crash the game.
                   <ID>61838</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="1245184" RealAddress="322E6ABC0"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4727,7 +4595,6 @@ artes will crash the game.
               <ID>61839</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF14"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -4736,7 +4603,6 @@ artes will crash the game.
               <ID>61840</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17254168" RealAddress="322E6EF18"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -4745,7 +4611,6 @@ artes will crash the game.
               <ID>61841</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF1C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -4754,7 +4619,6 @@ artes will crash the game.
               <ID>61842</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17284016" RealAddress="322E6EF20"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+C</Address>
@@ -4763,7 +4627,6 @@ artes will crash the game.
               <ID>61843</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF54"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+40</Address>
@@ -4772,7 +4635,6 @@ artes will crash the game.
                   <ID>61844</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF34"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4783,7 +4645,6 @@ artes will crash the game.
               <ID>61845</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF58"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+44</Address>
@@ -4792,7 +4653,6 @@ artes will crash the game.
                   <ID>61846</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF38"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4803,7 +4663,6 @@ artes will crash the game.
               <ID>61847</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF5C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+48</Address>
@@ -4812,7 +4671,6 @@ artes will crash the game.
                   <ID>61848</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF3C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4823,7 +4681,6 @@ artes will crash the game.
               <ID>61849</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17254168" RealAddress="322E6EF60"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4C</Address>
@@ -4832,7 +4689,6 @@ artes will crash the game.
                   <ID>61850</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF40"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4843,7 +4699,6 @@ artes will crash the game.
               <ID>61851</ID>
               <Description>"Slot 9"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF24"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+10</Address>
@@ -4852,7 +4707,6 @@ artes will crash the game.
               <ID>61852</ID>
               <Description>"Slot 10"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF28"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -4861,7 +4715,6 @@ artes will crash the game.
               <ID>61853</ID>
               <Description>"Slot 11"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF2C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -4870,7 +4723,6 @@ artes will crash the game.
               <ID>61854</ID>
               <Description>"Slot 12"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF30"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -4879,7 +4731,6 @@ artes will crash the game.
               <ID>61855</ID>
               <Description>"Slot 13"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF64"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+50</Address>
@@ -4888,7 +4739,6 @@ artes will crash the game.
                   <ID>61856</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF44"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4899,7 +4749,6 @@ artes will crash the game.
               <ID>61857</ID>
               <Description>"Slot 14"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="17284016" RealAddress="322E6EF68"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+54</Address>
@@ -4908,7 +4757,6 @@ artes will crash the game.
                   <ID>61858</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF48"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4919,7 +4767,6 @@ artes will crash the game.
               <ID>61859</ID>
               <Description>"Slot 15"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF6C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+58</Address>
@@ -4928,7 +4775,6 @@ artes will crash the game.
                   <ID>61860</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF4C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4939,7 +4785,6 @@ artes will crash the game.
               <ID>61861</ID>
               <Description>"Slot 16"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6EF70"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+5C</Address>
@@ -4948,7 +4793,6 @@ artes will crash the game.
                   <ID>61862</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E6EF50"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -4969,7 +4813,6 @@ artes will crash the game.
               <ID>61863</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732A4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -4978,7 +4821,6 @@ artes will crash the game.
               <ID>61864</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585577148" RealAddress="322E732A8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -4987,7 +4829,6 @@ artes will crash the game.
               <ID>61865</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732AC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -4996,7 +4837,6 @@ artes will crash the game.
               <ID>61866</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732B0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+C</Address>
@@ -5005,7 +4845,6 @@ artes will crash the game.
               <ID>61867</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585577208" RealAddress="322E732E4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+40</Address>
@@ -5014,7 +4853,6 @@ artes will crash the game.
                   <ID>61868</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732C4"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5025,7 +4863,6 @@ artes will crash the game.
               <ID>61869</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732E8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+44</Address>
@@ -5034,7 +4871,6 @@ artes will crash the game.
                   <ID>61870</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732C8"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5045,7 +4881,6 @@ artes will crash the game.
               <ID>61871</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732EC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+48</Address>
@@ -5054,7 +4889,6 @@ artes will crash the game.
                   <ID>61872</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732CC"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5065,7 +4899,6 @@ artes will crash the game.
               <ID>61873</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732F0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4C</Address>
@@ -5074,7 +4907,6 @@ artes will crash the game.
                   <ID>61874</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="585577188" RealAddress="322E732D0"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5085,7 +4917,6 @@ artes will crash the game.
               <ID>61875</ID>
               <Description>"Slot 9"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732B4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+10</Address>
@@ -5094,7 +4925,6 @@ artes will crash the game.
               <ID>61876</ID>
               <Description>"Slot 10"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732B8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -5103,7 +4933,6 @@ artes will crash the game.
               <ID>61877</ID>
               <Description>"Slot 11"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585577168" RealAddress="322E732BC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -5112,7 +4941,6 @@ artes will crash the game.
               <ID>61878</ID>
               <Description>"Slot 12"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732C0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -5121,7 +4949,6 @@ artes will crash the game.
               <ID>61879</ID>
               <Description>"Slot 13"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732F4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+50</Address>
@@ -5130,7 +4957,6 @@ artes will crash the game.
                   <ID>61880</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732D4"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5141,7 +4967,6 @@ artes will crash the game.
               <ID>61881</ID>
               <Description>"Slot 14"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585577228" RealAddress="322E732F8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+54</Address>
@@ -5150,7 +4975,6 @@ artes will crash the game.
                   <ID>61882</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732D8"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5161,7 +4985,6 @@ artes will crash the game.
               <ID>61883</ID>
               <Description>"Slot 15"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E732FC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+58</Address>
@@ -5170,7 +4993,6 @@ artes will crash the game.
                   <ID>61884</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732DC"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5181,7 +5003,6 @@ artes will crash the game.
               <ID>61885</ID>
               <Description>"Slot 16"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E73300"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+5C</Address>
@@ -5190,7 +5011,6 @@ artes will crash the game.
                   <ID>61886</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E732E0"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5211,7 +5031,6 @@ artes will crash the game.
               <ID>61887</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77634"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -5220,7 +5039,6 @@ artes will crash the game.
               <ID>61888</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77638"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -5229,7 +5047,6 @@ artes will crash the game.
               <ID>61889</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585594448" RealAddress="322E7763C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -5238,7 +5055,6 @@ artes will crash the game.
               <ID>61890</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77640"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+C</Address>
@@ -5247,7 +5063,6 @@ artes will crash the game.
               <ID>61891</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77674"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+40</Address>
@@ -5256,7 +5071,6 @@ artes will crash the game.
                   <ID>61892</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E77654"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5267,7 +5081,6 @@ artes will crash the game.
               <ID>61893</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585594508" RealAddress="322E77678"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+44</Address>
@@ -5276,7 +5089,6 @@ artes will crash the game.
                   <ID>61894</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E77658"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5287,7 +5099,6 @@ artes will crash the game.
               <ID>61895</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E7767C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+48</Address>
@@ -5296,7 +5107,6 @@ artes will crash the game.
                   <ID>61896</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E7765C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5307,7 +5117,6 @@ artes will crash the game.
               <ID>61897</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77680"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4C</Address>
@@ -5316,7 +5125,6 @@ artes will crash the game.
                   <ID>61898</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E77660"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5327,7 +5135,6 @@ artes will crash the game.
               <ID>61899</ID>
               <Description>"Slot 9"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77644"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+10</Address>
@@ -5336,7 +5143,6 @@ artes will crash the game.
               <ID>61900</ID>
               <Description>"Slot 10"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77648"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -5345,7 +5151,6 @@ artes will crash the game.
               <ID>61901</ID>
               <Description>"Slot 11"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E7764C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -5354,7 +5159,6 @@ artes will crash the game.
               <ID>61902</ID>
               <Description>"Slot 12"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585594468" RealAddress="322E77650"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -5363,7 +5167,6 @@ artes will crash the game.
               <ID>61903</ID>
               <Description>"Slot 13"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77684"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+50</Address>
@@ -5372,7 +5175,6 @@ artes will crash the game.
                   <ID>61904</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="585594488" RealAddress="322E77664"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5383,7 +5185,6 @@ artes will crash the game.
               <ID>61905</ID>
               <Description>"Slot 14"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77688"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+54</Address>
@@ -5392,7 +5193,6 @@ artes will crash the game.
                   <ID>61906</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E77668"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5403,7 +5203,6 @@ artes will crash the game.
               <ID>61907</ID>
               <Description>"Slot 15"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="585594528" RealAddress="322E7768C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+58</Address>
@@ -5412,7 +5211,6 @@ artes will crash the game.
                   <ID>61908</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E7766C"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5423,7 +5221,6 @@ artes will crash the game.
               <ID>61909</ID>
               <Description>"Slot 16"</Description>
               <DropDownListLink>Arte List</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77690"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+5C</Address>
@@ -5432,7 +5229,6 @@ artes will crash the game.
                   <ID>61910</ID>
                   <Description>"Character"</Description>
                   <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="322E77670"/>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>-20</Address>
@@ -5477,7 +5273,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63522</ID>
               <Description>"Level"</Description>
-              <LastState Value="597786464" RealAddress="322E600F8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>-4</Address>
@@ -5485,7 +5280,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>432</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="322E600FC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -5493,7 +5287,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>433</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="691241300" RealAddress="322E60100"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -5501,7 +5294,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>434</ID>
               <Description>"Current AC"</Description>
-              <LastState Value="651033776" RealAddress="322E60104"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -5509,7 +5301,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>436</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="0" RealAddress="322E60110"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -5517,7 +5308,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>437</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="650772432" RealAddress="322E60114"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -5525,7 +5315,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>438</ID>
               <Description>"Base AC"</Description>
-              <LastState Value="1" RealAddress="322E60118"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -5533,7 +5322,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>439</ID>
               <Description>"Max SP"</Description>
-              <LastState Value="651072848" RealAddress="322E6011C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+20</Address>
@@ -5541,7 +5329,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>440</ID>
               <Description>"Base STR"</Description>
-              <LastState Value="585498880" RealAddress="322E60120"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+24</Address>
@@ -5549,7 +5336,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>441</ID>
               <Description>"Base INT"</Description>
-              <LastState Value="691241308" RealAddress="322E60124"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+28</Address>
@@ -5557,7 +5343,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>442</ID>
               <Description>"Base VIT"</Description>
-              <LastState Value="17288032" RealAddress="322E60128"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2C</Address>
@@ -5565,7 +5350,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>443</ID>
               <Description>"Base DEX"</Description>
-              <LastState Value="691241316" RealAddress="322E6012C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+30</Address>
@@ -5573,7 +5357,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>444</ID>
               <Description>"Base AGI"</Description>
-              <LastState Value="17284016" RealAddress="322E60130"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+34</Address>
@@ -5581,7 +5364,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>445</ID>
               <Description>"Base PSY"</Description>
-              <LastState Value="577267072" RealAddress="322E60134"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+38</Address>
@@ -5589,7 +5371,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63603</ID>
               <Description>"Total EXP"</Description>
-              <LastState Value="655397252" RealAddress="322E6274C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2650</Address>
@@ -5597,7 +5378,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63763</ID>
               <Description>"GP"</Description>
-              <LastState Value="17288032" RealAddress="322E62750"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2654</Address>
@@ -5615,7 +5395,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63521</ID>
               <Description>"Level"</Description>
-              <LastState Value="0" RealAddress="322E64488"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>-4</Address>
@@ -5623,7 +5402,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>450</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="322E6448C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -5631,7 +5409,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>451</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="0" RealAddress="322E64490"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -5639,7 +5416,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>452</ID>
               <Description>"Current AC"</Description>
-              <LastState Value="0" RealAddress="322E64494"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -5647,7 +5423,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>455</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="0" RealAddress="322E644A0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -5655,7 +5430,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>456</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="655413244" RealAddress="322E644A4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -5663,7 +5437,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>457</ID>
               <Description>"Base AC"</Description>
-              <LastState Value="17288032" RealAddress="322E644A8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -5671,7 +5444,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>458</ID>
               <Description>"Max SP"</Description>
-              <LastState Value="626853828" RealAddress="322E644AC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+20</Address>
@@ -5679,7 +5451,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>459</ID>
               <Description>"Base STR"</Description>
-              <LastState Value="17284016" RealAddress="322E644B0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+24</Address>
@@ -5687,7 +5458,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>460</ID>
               <Description>"Base INT"</Description>
-              <LastState Value="0" RealAddress="322E644B4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+28</Address>
@@ -5695,7 +5465,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>461</ID>
               <Description>"Base VIT"</Description>
-              <LastState Value="0" RealAddress="322E644B8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2C</Address>
@@ -5703,7 +5472,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>462</ID>
               <Description>"Base DEX"</Description>
-              <LastState Value="0" RealAddress="322E644BC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+30</Address>
@@ -5711,7 +5479,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>463</ID>
               <Description>"Base AGI"</Description>
-              <LastState Value="0" RealAddress="322E644C0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+34</Address>
@@ -5719,7 +5486,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>464</ID>
               <Description>"Base PSY"</Description>
-              <LastState Value="0" RealAddress="322E644C4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+38</Address>
@@ -5727,7 +5493,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63604</ID>
               <Description>"Total EXP"</Description>
-              <LastState Value="0" RealAddress="322E66ADC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2650</Address>
@@ -5735,7 +5500,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63762</ID>
               <Description>"GP"</Description>
-              <LastState Value="0" RealAddress="322E66AE0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2654</Address>
@@ -5753,7 +5517,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63671</ID>
               <Description>"Level"</Description>
-              <LastState Value="0" RealAddress="322E68818"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>-4</Address>
@@ -5761,7 +5524,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63672</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="322E6881C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -5769,7 +5531,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63673</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="983040" RealAddress="322E68820"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -5777,7 +5538,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63674</ID>
               <Description>"Current AC"</Description>
-              <LastState Value="10517" RealAddress="322E68824"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -5785,7 +5545,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63675</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="0" RealAddress="322E68830"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -5793,7 +5552,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63676</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="0" RealAddress="322E68834"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -5801,7 +5559,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63677</ID>
               <Description>"Base AC"</Description>
-              <LastState Value="0" RealAddress="322E68838"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -5809,7 +5566,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63678</ID>
               <Description>"Max SP"</Description>
-              <LastState Value="0" RealAddress="322E6883C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+20</Address>
@@ -5817,7 +5573,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63679</ID>
               <Description>"Base STR"</Description>
-              <LastState Value="16842752" RealAddress="322E68840"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+24</Address>
@@ -5825,7 +5580,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63680</ID>
               <Description>"Base INT"</Description>
-              <LastState Value="17284016" RealAddress="322E68844"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+28</Address>
@@ -5833,7 +5587,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63681</ID>
               <Description>"Base VIT"</Description>
-              <LastState Value="607577744" RealAddress="322E68848"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2C</Address>
@@ -5841,7 +5594,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63682</ID>
               <Description>"Base DEX"</Description>
-              <LastState Value="16777216" RealAddress="322E6884C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+30</Address>
@@ -5849,7 +5601,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63683</ID>
               <Description>"Base AGI"</Description>
-              <LastState Value="32" RealAddress="322E68850"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+34</Address>
@@ -5857,7 +5608,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63684</ID>
               <Description>"Base PSY"</Description>
-              <LastState Value="644061672" RealAddress="322E68854"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+38</Address>
@@ -5865,7 +5615,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63685</ID>
               <Description>"Total EXP"</Description>
-              <LastState Value="691247372" RealAddress="322E6AE6C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2650</Address>
@@ -5873,7 +5622,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63761</ID>
               <Description>"GP"</Description>
-              <LastState Value="17284016" RealAddress="322E6AE70"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2654</Address>
@@ -5891,7 +5639,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63655</ID>
               <Description>"Level"</Description>
-              <LastState Value="0" RealAddress="322E6CBA8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>-4</Address>
@@ -5899,7 +5646,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63656</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="322E6CBAC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -5907,7 +5653,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63657</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="0" RealAddress="322E6CBB0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -5915,7 +5660,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63658</ID>
               <Description>"Current AC"</Description>
-              <LastState Value="0" RealAddress="322E6CBB4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -5923,7 +5667,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63659</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="17288032" RealAddress="322E6CBC0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -5931,7 +5674,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63660</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="665836964" RealAddress="322E6CBC4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -5939,7 +5681,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63661</ID>
               <Description>"Base AC"</Description>
-              <LastState Value="17284016" RealAddress="322E6CBC8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -5947,7 +5688,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63662</ID>
               <Description>"Max SP"</Description>
-              <LastState Value="0" RealAddress="322E6CBCC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+20</Address>
@@ -5955,7 +5695,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63663</ID>
               <Description>"Base STR"</Description>
-              <LastState Value="0" RealAddress="322E6CBD0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+24</Address>
@@ -5963,7 +5702,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63664</ID>
               <Description>"Base INT"</Description>
-              <LastState Value="0" RealAddress="322E6CBD4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+28</Address>
@@ -5971,7 +5709,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63665</ID>
               <Description>"Base VIT"</Description>
-              <LastState Value="0" RealAddress="322E6CBD8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2C</Address>
@@ -5979,7 +5716,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63666</ID>
               <Description>"Base DEX"</Description>
-              <LastState Value="0" RealAddress="322E6CBDC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+30</Address>
@@ -5987,7 +5723,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63667</ID>
               <Description>"Base AGI"</Description>
-              <LastState Value="0" RealAddress="322E6CBE0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+34</Address>
@@ -5995,7 +5730,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63668</ID>
               <Description>"Base PSY"</Description>
-              <LastState Value="0" RealAddress="322E6CBE4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+38</Address>
@@ -6003,7 +5737,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63669</ID>
               <Description>"Total EXP"</Description>
-              <LastState Value="0" RealAddress="322E6F1FC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2650</Address>
@@ -6011,7 +5744,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63758</ID>
               <Description>"GP"</Description>
-              <LastState Value="0" RealAddress="322E6F200"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2654</Address>
@@ -6029,7 +5761,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63639</ID>
               <Description>"Level"</Description>
-              <LastState Value="0" RealAddress="322E70F38"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>-4</Address>
@@ -6037,7 +5768,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63640</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="322E70F3C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -6045,7 +5775,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63641</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="0" RealAddress="322E70F40"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -6053,7 +5782,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63642</ID>
               <Description>"Current AC"</Description>
-              <LastState Value="585568088" RealAddress="322E70F44"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -6061,7 +5789,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63643</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="0" RealAddress="322E70F50"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -6069,7 +5796,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63644</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="0" RealAddress="322E70F54"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -6077,7 +5803,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63645</ID>
               <Description>"Base AC"</Description>
-              <LastState Value="585568108" RealAddress="322E70F58"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -6085,7 +5810,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63646</ID>
               <Description>"Max SP"</Description>
-              <LastState Value="0" RealAddress="322E70F5C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+20</Address>
@@ -6093,7 +5817,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63647</ID>
               <Description>"Base STR"</Description>
-              <LastState Value="0" RealAddress="322E70F60"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+24</Address>
@@ -6101,7 +5824,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63648</ID>
               <Description>"Base INT"</Description>
-              <LastState Value="0" RealAddress="322E70F64"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+28</Address>
@@ -6109,7 +5831,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63649</ID>
               <Description>"Base VIT"</Description>
-              <LastState Value="0" RealAddress="322E70F68"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2C</Address>
@@ -6117,7 +5838,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63650</ID>
               <Description>"Base DEX"</Description>
-              <LastState Value="585568128" RealAddress="322E70F6C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+30</Address>
@@ -6125,7 +5845,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63651</ID>
               <Description>"Base AGI"</Description>
-              <LastState Value="0" RealAddress="322E70F70"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+34</Address>
@@ -6133,7 +5852,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63652</ID>
               <Description>"Base PSY"</Description>
-              <LastState Value="0" RealAddress="322E70F74"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+38</Address>
@@ -6141,7 +5859,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63653</ID>
               <Description>"Total EXP"</Description>
-              <LastState Value="585577888" RealAddress="322E7358C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2650</Address>
@@ -6149,7 +5866,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63759</ID>
               <Description>"GP"</Description>
-              <LastState Value="0" RealAddress="322E73590"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2654</Address>
@@ -6167,7 +5883,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63623</ID>
               <Description>"Level"</Description>
-              <LastState Value="0" RealAddress="322E752C8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>-4</Address>
@@ -6175,7 +5890,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63624</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="322E752CC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -6183,7 +5897,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63625</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="0" RealAddress="322E752D0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4</Address>
@@ -6191,7 +5904,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63626</ID>
               <Description>"Current AC"</Description>
-              <LastState Value="0" RealAddress="322E752D4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+8</Address>
@@ -6199,7 +5911,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63627</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="0" RealAddress="322E752E0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+14</Address>
@@ -6207,7 +5918,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63628</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="0" RealAddress="322E752E4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+18</Address>
@@ -6215,7 +5925,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63629</ID>
               <Description>"Base AC"</Description>
-              <LastState Value="0" RealAddress="322E752E8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+1C</Address>
@@ -6223,7 +5932,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63630</ID>
               <Description>"Max SP"</Description>
-              <LastState Value="585585408" RealAddress="322E752EC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+20</Address>
@@ -6231,7 +5939,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63631</ID>
               <Description>"Base STR"</Description>
-              <LastState Value="0" RealAddress="322E752F0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+24</Address>
@@ -6239,7 +5946,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63632</ID>
               <Description>"Base INT"</Description>
-              <LastState Value="0" RealAddress="322E752F4"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+28</Address>
@@ -6247,7 +5953,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63633</ID>
               <Description>"Base VIT"</Description>
-              <LastState Value="0" RealAddress="322E752F8"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2C</Address>
@@ -6255,7 +5960,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63634</ID>
               <Description>"Base DEX"</Description>
-              <LastState Value="0" RealAddress="322E752FC"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+30</Address>
@@ -6263,7 +5967,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63635</ID>
               <Description>"Base AGI"</Description>
-              <LastState Value="585585428" RealAddress="322E75300"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+34</Address>
@@ -6271,7 +5974,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63636</ID>
               <Description>"Base PSY"</Description>
-              <LastState Value="0" RealAddress="322E75304"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+38</Address>
@@ -6279,7 +5981,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63637</ID>
               <Description>"Total EXP"</Description>
-              <LastState Value="0" RealAddress="322E7791C"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2650</Address>
@@ -6287,7 +5988,6 @@ go to the title screen and freeze all characters values.
             <CheatEntry>
               <ID>63760</ID>
               <Description>"GP"</Description>
-              <LastState Value="585595188" RealAddress="322E77920"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+2654</Address>
@@ -6424,7 +6124,6 @@ F - STR Up + VIT Up + INT Up + PSY Up
         <CheatEntry>
           <ID>62101</ID>
           <Description>"Jude"</Description>
-          <LastState Value="00 00 02 60" RealAddress="322E624DC"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>4</ByteLength>
@@ -6433,7 +6132,6 @@ F - STR Up + VIT Up + INT Up + PSY Up
         <CheatEntry>
           <ID>63699</ID>
           <Description>"Milla"</Description>
-          <LastState Value="00 00 00 00" RealAddress="322E6686C"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>4</ByteLength>
@@ -6442,7 +6140,6 @@ F - STR Up + VIT Up + INT Up + PSY Up
         <CheatEntry>
           <ID>63703</ID>
           <Description>"Alvin"</Description>
-          <LastState Value="00 00 00 00" RealAddress="322E6ABFC"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>4</ByteLength>
@@ -6451,7 +6148,6 @@ F - STR Up + VIT Up + INT Up + PSY Up
         <CheatEntry>
           <ID>63702</ID>
           <Description>"Elize"</Description>
-          <LastState Value="00 00 00 00" RealAddress="322E6EF8C"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>4</ByteLength>
@@ -6460,7 +6156,6 @@ F - STR Up + VIT Up + INT Up + PSY Up
         <CheatEntry>
           <ID>63701</ID>
           <Description>"Rowen"</Description>
-          <LastState Value="00 00 00 00" RealAddress="322E7331C"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>4</ByteLength>
@@ -6469,7 +6164,6 @@ F - STR Up + VIT Up + INT Up + PSY Up
         <CheatEntry>
           <ID>63700</ID>
           <Description>"Leia"</Description>
-          <LastState Value="00 00 00 00" RealAddress="322E776AC"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>4</ByteLength>
@@ -6655,7 +6349,6 @@ Oh, and the second column, second number also changes Milla's voice.
         <CheatEntry>
           <ID>63769</ID>
           <Description>"Menu functions"</Description>
-          <LastState Value="02 00 D8 02 08 00 00 01" RealAddress="300E3EBE0"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>8</ByteLength>
@@ -6664,14 +6357,12 @@ Oh, and the second column, second number also changes Milla's voice.
         <CheatEntry>
           <ID>63772</ID>
           <Description>"Overlimit Gauge"</Description>
-          <LastState Value="0" RealAddress="300E3EBE8"/>
           <VariableType>Byte</VariableType>
           <Address>300E3EBE8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63771</ID>
           <Description>"World Map version"</Description>
-          <LastState Value="48" RealAddress="300E3EBB4"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Array of byte</VariableType>
           <ByteLength>1</ByteLength>
@@ -6737,13 +6428,16 @@ code:
   je partyMember
   cmp rax,22E600F0+4390*5 //Leia
   je partyMember
+  bswap edx
   mov [rax+r8+00002770],edx
   jmp return
 
 partyMember:
+  push edx
   mov edx,1
   bswap edx
   mov [rax+r8+00002770],edx
+  pop edx
   jmp return
 
 LinkControl:
@@ -6825,9 +6519,11 @@ code:
   jmp return
 
 partyMember:
+  push edx
   mov edx,1
   bswap edx
   mov [rax+r8+00002770],edx
+  pop edx
   jmp return
 
 LinkControl:
@@ -6882,10 +6578,10 @@ Set the Leader character's value to "Linked, Player controlled"
 Set the Following character's value to "Linked, AI controlled"
 
 If both scripts failed, then follow this:
-Set the values of the used characters (or just all) to 1.
-(OPTIONAL) Freeze the values. This makes it convenient by not needing to manually set it every time a fight starts.
-(Alternate to freezing) Set a hotkey.
+Set a hotkey (preferably seperate for each) for every character
+with the value of 1.
 Link to a character normally in-game.
+Press hotkey to switch mid-fight.
 
 Note, that when using this method, linking to a
 character will lose control for a second.
@@ -6898,7 +6594,6 @@ character will lose control for a second.
               <ID>62788</ID>
               <Description>"Jude"</Description>
               <DropDownListLink>Multiplayer</DropDownListLink>
-              <LastState Value="0" RealAddress="322E62860"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+0</Address>
@@ -6907,7 +6602,6 @@ character will lose control for a second.
               <ID>62798</ID>
               <Description>"Milla"</Description>
               <DropDownListLink>Multiplayer</DropDownListLink>
-              <LastState Value="0" RealAddress="322E66BF0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4390</Address>
@@ -6916,7 +6610,6 @@ character will lose control for a second.
               <ID>62797</ID>
               <Description>"Alvin"</Description>
               <DropDownListLink>Multiplayer</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6AF80"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4390*2</Address>
@@ -6925,7 +6618,6 @@ character will lose control for a second.
               <ID>62796</ID>
               <Description>"Elize"</Description>
               <DropDownListLink>Multiplayer</DropDownListLink>
-              <LastState Value="0" RealAddress="322E6F310"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4390*3</Address>
@@ -6934,7 +6626,6 @@ character will lose control for a second.
               <ID>62795</ID>
               <Description>"Rowen"</Description>
               <DropDownListLink>Multiplayer</DropDownListLink>
-              <LastState Value="0" RealAddress="322E736A0"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4390*4</Address>
@@ -6943,7 +6634,6 @@ character will lose control for a second.
               <ID>62794</ID>
               <Description>"Leia"</Description>
               <DropDownListLink>Multiplayer</DropDownListLink>
-              <LastState Value="0" RealAddress="322E77A30"/>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
               <Address>+4390*5</Address>
