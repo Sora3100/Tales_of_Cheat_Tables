@@ -1,0 +1,4229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>135</ID>
+      <Description>"Enable"</Description>
+      <Options moHideChildren="1"/>
+      <DropDownList DisplayValueAsItem="1">0:Dio
+1:Mell
+2:Couleur
+3:Cress
+4:Mint
+5:Chester
+6:Arche
+7:Klarth
+8:Suzu
+9:Rondoline
+</DropDownList>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscan(DataStart,A6 09 0B 68 98 08 04 3C)
+registersymbol(DataStart)
+[DISABLE]
+unregistersymbol(DataStart)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>139</ID>
+          <Description>"Party Formation"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Dio
+2:Mell
+3:Couleur
+4:Cress
+5:Mint
+6:Chester
+7:Arche
+8:Klarth
+9:Suzu
+10:Rondoline
+11:Monster
+</DropDownList>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>DataStart+2EF0CE</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>141</ID>
+              <Description>"Slot 1"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>140</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>142</ID>
+              <Description>"Slot 2"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>143</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>144</ID>
+              <Description>"Slot 3"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>145</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>154</ID>
+              <Description>"Slot 4"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>155</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>152</ID>
+              <Description>"Slot 5"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>153</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>150</ID>
+              <Description>"Slot 6"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>151</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>148</ID>
+              <Description>"Slot 7"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>149</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>146</ID>
+              <Description>"Slot 8"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>147</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>156</ID>
+              <Description>"Slot 9"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>157</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>158</ID>
+              <Description>"Slot 10"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+4*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>159</ID>
+                  <Description>"Loadout"</Description>
+                  <DropDownListLink>ELF</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>160</ID>
+          <Description>"Stats"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>DataStart+2EF118</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>162</ID>
+              <Description>"Dio"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>182</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>184</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>161</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>163</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>167</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>166</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>165</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>164</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>168</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>172</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>171</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>170</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>169</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>179</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>178</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>185</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>188</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>187</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>186</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>190</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>189</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>191</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>307</ID>
+              <Description>"Mell"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000002D8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>308</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>309</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>310</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>311</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>312</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>313</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>314</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>315</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>316</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>317</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>318</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>319</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>320</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>321</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>322</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>323</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>324</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>325</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>326</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>327</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>328</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>329</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>284</ID>
+              <Description>"Couleur"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000005B0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>285</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>286</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>287</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>288</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>289</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>290</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>291</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>292</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>293</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>294</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>295</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>296</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>297</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>298</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>299</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>300</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>301</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>302</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>303</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>304</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>305</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>306</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>491</ID>
+              <Description>"Cress"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000888"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>492</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>493</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>494</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>495</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>496</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>497</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>498</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>499</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>500</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>501</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>502</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>503</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>504</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>505</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>506</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>507</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>508</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>509</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>510</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>511</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>512</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>513</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>468</ID>
+              <Description>"Mint"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000B60"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>469</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>470</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>471</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>472</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>473</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>474</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>475</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>476</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>477</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>478</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>479</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>480</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>481</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>482</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>483</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>484</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>485</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>486</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>487</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>488</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>489</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>490</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>445</ID>
+              <Description>"Chester"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000E38"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>446</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>447</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>448</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>449</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>450</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>451</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>452</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>453</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>454</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>455</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>456</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>457</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>458</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>459</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>460</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>461</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>462</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>463</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>464</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>465</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>466</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>467</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>422</ID>
+              <Description>"Arche"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001110"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>423</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>424</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>425</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>426</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>427</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>428</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>429</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>430</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>431</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>432</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>433</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>434</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>435</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>436</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>437</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>438</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>439</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>440</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>441</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>442</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>443</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>444</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>399</ID>
+              <Description>"Klarth"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000013E8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>400</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>401</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>402</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>403</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>404</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>405</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>406</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>407</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>408</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>409</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>410</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>411</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>412</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>413</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>414</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>415</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>416</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>417</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>418</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>419</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>420</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>421</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>376</ID>
+              <Description>"Suzu"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000016C0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>377</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>378</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>379</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>380</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>381</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>382</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>383</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>384</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>385</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>386</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>387</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>388</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>389</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>390</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>391</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>392</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>393</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>394</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>395</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>396</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>397</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>398</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>353</ID>
+              <Description>"Rondoline"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001998"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>354</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>355</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>356</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>357</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>358</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>359</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>360</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>361</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>362</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>363</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>364</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>365</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>366</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>367</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>368</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>369</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>370</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>371</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>372</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>373</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>374</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>375</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>330</ID>
+              <Description>"Monster"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001C70"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*A</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>331</ID>
+                  <Description>"Monster Type"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>780</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>332</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>333</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>334</ID>
+                  <Description>"Current Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>335</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>336</ID>
+                  <Description>"Current EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>337</ID>
+                  <Description>"Current Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>338</ID>
+                  <Description>"Base Max EBG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>339</ID>
+                  <Description>"Current Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>340</ID>
+                  <Description>"Current Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>341</ID>
+                  <Description>"Current Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>342</ID>
+                  <Description>"Current Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>343</ID>
+                  <Description>"Current Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>344</ID>
+                  <Description>"Current Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>345</ID>
+                  <Description>"Current Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>346</ID>
+                  <Description>"Base Atk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>347</ID>
+                  <Description>"Base Def"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>348</ID>
+                  <Description>"Base Matk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>349</ID>
+                  <Description>"Base Mdef"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>350</ID>
+                  <Description>"Base Cast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>351</ID>
+                  <Description>"Base Agi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>352</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*13</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>514</ID>
+          <Description>"Equipment Editor"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
+</DropDownList>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>DataStart+2EF140</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>515</ID>
+              <Description>"Dio"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>516</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>517</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>521</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>520</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>519</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>518</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>543</ID>
+              <Description>"Mell"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000002D8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>544</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>545</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>546</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>547</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>548</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>549</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>536</ID>
+              <Description>"Couleur"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000005B0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>537</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>538</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>539</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>540</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>541</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>542</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>599</ID>
+              <Description>"Cress"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000888"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>600</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>601</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>602</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>603</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>604</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>605</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>592</ID>
+              <Description>"Mint"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000B60"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>593</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>594</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>595</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>596</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>597</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>598</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>585</ID>
+              <Description>"Chester"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000E38"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>586</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>587</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>588</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>589</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>590</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>591</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>578</ID>
+              <Description>"Arche"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001110"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>579</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>580</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>581</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>582</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>583</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>584</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>571</ID>
+              <Description>"Klarth"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000013E8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>572</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>573</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>574</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>575</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>576</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>577</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>564</ID>
+              <Description>"Suzu"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000016C0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>565</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>566</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>567</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>568</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>569</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>570</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>557</ID>
+              <Description>"Rondoline"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001998"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>558</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>559</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>560</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>561</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>562</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>563</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>550</ID>
+              <Description>"Monster"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001C70"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*A</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>551</ID>
+                  <Description>"Weapon"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>552</ID>
+                  <Description>"Body"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>553</ID>
+                  <Description>"Headgear"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>554</ID>
+                  <Description>"Arm"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>555</ID>
+                  <Description>"Etc"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>556</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>607</ID>
+          <Description>"Arte List"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
+</DropDownList>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>DataStart+2EF38C</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>608</ID>
+              <Description>"Dio"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>609</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>612</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>611</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>610</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>616</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>619</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>615</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>622</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>614</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>621</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>613</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>620</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>623</ID>
+              <Description>"Mell"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000002D8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>624</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>625</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>626</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>627</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>628</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>629</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>630</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>631</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>632</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>633</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>634</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>635</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>636</ID>
+              <Description>"Couleur"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000005B0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>637</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>638</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>639</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>640</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>641</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>642</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>643</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>644</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>645</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>646</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>647</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>648</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>766</ID>
+              <Description>"Cress"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000888"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>767</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>768</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>769</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>770</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>771</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>772</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>773</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>774</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>775</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>776</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>777</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>778</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>753</ID>
+              <Description>"Mint"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000B60"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>754</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>755</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>756</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>757</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>758</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>759</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>760</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>761</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>762</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>763</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>764</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>765</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>740</ID>
+              <Description>"Chester"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000E38"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>741</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>742</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>743</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>744</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>745</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>746</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>747</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>748</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>749</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>750</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>751</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>752</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>727</ID>
+              <Description>"Arche"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001110"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>728</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>729</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>730</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>731</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>732</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>733</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>734</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>735</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>736</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>737</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>738</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>739</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>714</ID>
+              <Description>"Klarth"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000013E8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>715</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>716</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>717</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>718</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>719</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>720</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>721</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>722</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>723</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>724</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>725</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>726</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>701</ID>
+              <Description>"Suzu"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="000016C0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>702</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>703</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>704</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>705</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>706</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>707</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>708</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>709</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>710</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>711</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>712</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>713</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>688</ID>
+              <Description>"Rondoline"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001998"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>689</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>690</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>691</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>692</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>693</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>694</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>695</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>696</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>697</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>698</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>699</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>700</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>675</ID>
+              <Description>"Monster"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00001C70"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2D8*A</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>676</ID>
+                  <Description>"Neutral"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>677</ID>
+                  <Description>"Up"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>678</ID>
+                  <Description>"Down"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>679</ID>
+                  <Description>"Side"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2*3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>680</ID>
+                  <Description>"Up Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>681</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>682</ID>
+                  <Description>"Right Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>683</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>684</ID>
+                  <Description>"Down Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>685</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>686</ID>
+                  <Description>"Left Analog"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10+2*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>687</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>782</ID>
+          <Description>"Control Modes"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Auto
+1:Semi-Auto
+2:Manual
+</DropDownList>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>DataStart+7A7DC5</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63062</ID>
+              <Description>"READ THIS"</Description>
+              <LastState/>
+              <Color>0000FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>/*
+Don't open the menu while controlling enemies, otherwise the game will
+hard crash.
+*/
+[ENABLE]
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>799</ID>
+              <Description>"Currently Controlling Slot"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Slot 1
+1:Slot 2
+2:Slot 3
+3:Slot 4
+4:Slot 5
+5:Slot 6
+6:Slot 7
+7:Slot 8
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>DataStart+2EE528</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>781</ID>
+              <Description>"Slot 1"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>791</ID>
+              <Description>"Slot 2"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>798</ID>
+              <Description>"Slot 3"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340*2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>797</ID>
+              <Description>"Slot 4"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340*3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>796</ID>
+              <Description>"Slot 5"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340*4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>795</ID>
+              <Description>"Slot 6"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340*5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>794</ID>
+              <Description>"Slot 7"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340*6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>793</ID>
+              <Description>"Slot 8"</Description>
+              <DropDownListLink>Control Modes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+1340*7</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63063</ID>
+          <Description>"Other"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1017</ID>
+              <Description>"Anim"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>DataStart+7A90D0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1019</ID>
+              <Description>"Ctrl"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>DataStart+7A90DF</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>68</Key>
+                  </Keys>
+                  <Value>7</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>65</Key>
+                  </Keys>
+                  <Value>8</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>6</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Change of movsx edi,word ptr [rbx+rsi+00000298]</Description>
+      <AddressString>7FF676E83F2E</AddressString>
+      <Before>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>09</Byte>
+        <Byte>73</Byte>
+        <Byte>0D</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+        <Byte>BC</Byte>
+        <Byte>33</Byte>
+        <Byte>98</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>1E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov word ptr [rbx+rsi+00000298],0000</Description>
+      <AddressString>7FF6770204F2</AddressString>
+      <Before>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>09</Byte>
+        <Byte>73</Byte>
+        <Byte>0F</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>C7</Byte>
+        <Byte>84</Byte>
+        <Byte>33</Byte>
+        <Byte>98</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>20</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
