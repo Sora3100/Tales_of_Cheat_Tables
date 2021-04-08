@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="31">
+<CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
       <ID>1</ID>
@@ -17,7 +17,7 @@
 9:Patty
 10:Estelle(Unknown)
 </DropDownList>
-      <LastState Value="" RealAddress="00000000"/>
+      <LastState Value="" RealAddress="7FF6EB7C1FE8"/>
       <GroupHeader>1</GroupHeader>
       <Address>TOV_DE.exe+1181FE8</Address>
       <CheatEntries>
@@ -25,6 +25,7 @@
           <ID>2</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="7" RealAddress="7FF6EB7C1FE8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -32,6 +33,7 @@
           <ID>9</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="8" RealAddress="7FF6EB7C1FEC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -39,6 +41,7 @@
           <ID>8</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="1" RealAddress="7FF6EB7C1FF0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+8</Address>
         </CheatEntry>
@@ -46,6 +49,7 @@
           <ID>7</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="5" RealAddress="7FF6EB7C1FF4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+C</Address>
         </CheatEntry>
@@ -53,6 +57,7 @@
           <ID>6</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="6" RealAddress="7FF6EB7C1FF8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+10</Address>
         </CheatEntry>
@@ -60,6 +65,7 @@
           <ID>5</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="9" RealAddress="7FF6EB7C1FFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+14</Address>
         </CheatEntry>
@@ -67,6 +73,7 @@
           <ID>4</ID>
           <Description>"Slot 7"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="4" RealAddress="7FF6EB7C2000"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+18</Address>
         </CheatEntry>
@@ -74,6 +81,7 @@
           <ID>3</ID>
           <Description>"Slot 8"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="3" RealAddress="7FF6EB7C2004"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+1C</Address>
         </CheatEntry>
@@ -81,6 +89,7 @@
           <ID>10</ID>
           <Description>"Slot 9"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="2" RealAddress="7FF6EB7C2008"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+20</Address>
         </CheatEntry>
@@ -97,12 +106,14 @@
         <CheatEntry>
           <ID>0</ID>
           <Description>"Yuri Title"</Description>
+          <LastState Value="25" RealAddress="7FF6EB7C6A14"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A14</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>32</ID>
           <Description>"Yuri Model"</Description>
+          <LastState Value="48" RealAddress="7FF6EB7CA9EF"/>
           <VariableType>Byte</VariableType>
           <Address>TOV_DE.exe+118A9EF</Address>
         </CheatEntry>
@@ -333,6 +344,7 @@ unregistersymbol(_Duke2Fight)
         <CheatEntry>
           <ID>63575</ID>
           <Description>"No description"</Description>
+          <LastState Value="1" RealAddress="7FF6EB7C1E99"/>
           <VariableType>Byte</VariableType>
           <Address>TOV_DE.exe+1181E99</Address>
         </CheatEntry>
@@ -399,24 +411,28 @@ unregistersymbol(_Encounter)
         <CheatEntry>
           <ID>63582</ID>
           <Description>"Yuri HP"</Description>
+          <LastState Value="9999" RealAddress="7FF6EB7C6A04"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A04</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63583</ID>
           <Description>"Yuri TP"</Description>
+          <LastState Value="999" RealAddress="7FF6EB7C6A08"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A08</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63584</ID>
           <Description>"Rita HP"</Description>
+          <LastState Value="9999" RealAddress="7FF6EB7D2BFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1192BFC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63585</ID>
           <Description>"Rita TP"</Description>
+          <LastState Value="999" RealAddress="7FF6EB7D2C00"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1192C00</Address>
         </CheatEntry>
@@ -444,6 +460,619 @@ unregistersymbol(_Encounter)
               <Description>"Name"</Description>
               <VariableType>4 Bytes</VariableType>
               <Address>-48</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>63628</ID>
+      <Description>"UNSUPPORTED"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF00FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3957</ID>
+          <Description>"Original table by aanpsx"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>4082</ID>
+              <Description>"character pointer (view character details)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(PSX_CharacterDetails,TOV_DE.exe+400000,TOV_DE.exe+4100000,89 5C 24 78 38)
+aobscanmodule(PSX_CharacterDetails_2,TOV_DE.exe,90 38 18 75 05 44 8B C3)
+aobscanmodule(PSX_CharacterDetails_3,TOV_DE.exe,8B 4B 60 44 8B 84 90 F4 1F 00 00)
+alloc(PSX_1,$1000,PSX_CharacterDetails)
+alloc(PSX_2,$1000,PSX_CharacterDetails_2)
+alloc(PSX_3,$1000,PSX_CharacterDetails_3)
+label(Code_1)
+label(Code_2)
+label(Code_3)
+label(Return_1)
+label(Return_2)
+label(Return_3)
+label(_StatusChar)
+label(_StatusChar_2)
+label(_StatusChar_3)
+registersymbol(_StatusChar)
+registersymbol(_StatusChar_2)
+registersymbol(_StatusChar_3)
+registersymbol(PSX_CharacterDetails)
+registersymbol(PSX_CharacterDetails_2)
+registersymbol(PSX_CharacterDetails_3)
+//====================================
+PSX_1:
+  mov [_StatusChar],rdx
+Code_1:
+  cmp [rdx],bl
+  jne TOV_DE.exe+401007
+  xor r14d,r14d
+  jmp Return_1
+_StatusChar:
+PSX_CharacterDetails:
+  mov [rsp+78],ebx
+  jmp PSX_1
+  nop
+  nop
+Return_1:
+//====================================
+PSX_2:
+mov [_StatusChar_2],rax
+Code_2:
+  cmp [rax],bl
+  jne TOV_DE.exe+3EB0A3
+  mov r8d,ebx
+  jmp Return_2
+_StatusChar_2:
+PSX_CharacterDetails_2+01:
+  jmp PSX_2
+  nop
+  nop
+Return_2:
+//====================================
+PSX_3:
+mov [_StatusChar_3],rbx
+Code_3:
+  mov ecx,[rbx+60]
+  mov r8d,[rax+rdx*4+00001FF4]
+  jmp Return_3
+_StatusChar_3:
+PSX_CharacterDetails_3:
+  jmp PSX_3
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+Return_3:
+//====================================
+[DISABLE]
+PSX_CharacterDetails:
+  db 89 5C 24 78 38 1A 75 05 45 33 F6
+PSX_CharacterDetails_2+01:
+  db 38 18 75 05 44 8B C3
+PSX_CharacterDetails_3:
+  db 8B 4B 60 44 8B 84 90 F4 1F 00 00
+unregistersymbol(_StatusChar)
+unregistersymbol(_StatusChar_2)
+unregistersymbol(_StatusChar_3)
+unregistersymbol(PSX_CharacterDetails)
+unregistersymbol(PSX_CharacterDetails_2)
+unregistersymbol(PSX_CharacterDetails_3)
+dealloc(PSX_1)
+dealloc(PSX_2)
+dealloc(PSX_3)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4083</ID>
+                  <Description>" Name [WIP]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>4084</ID>
+                      <Description>"Base_1"</Description>
+                      <Options moHideChildren="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>4085</ID>
+                          <Description>"First Name_0"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>-34</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4086</ID>
+                          <Description>"First Name_1"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>-28</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4087</ID>
+                          <Description>"First Name_1a"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>-1c</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4088</ID>
+                          <Description>"First Name_2"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>24</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4089</ID>
+                          <Description>"Last Name_1"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4090</ID>
+                          <Description>"Last Name_2"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>40</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4091</ID>
+                          <Description>"Last Name_3"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar</Address>
+                          <Offsets>
+                            <Offset>50</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4092</ID>
+                      <Description>"Base_2"</Description>
+                      <Options moHideChildren="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>4093</ID>
+                          <Description>"First Name_0"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>-24</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4094</ID>
+                          <Description>"First Name_1"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>-10</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4095</ID>
+                          <Description>"First Name_1a"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4096</ID>
+                          <Description>"First Name_2"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4097</ID>
+                          <Description>"Last Name_1"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>14</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4098</ID>
+                          <Description>"Last Name_2"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>1C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4099</ID>
+                          <Description>"Last Name_3"</Description>
+                          <VariableType>String</VariableType>
+                          <Length>64</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>_StatusChar_2</Address>
+                          <Offsets>
+                            <Offset>2C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4100</ID>
+                      <Description>"=========================================================="</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>808000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4101</ID>
+                  <Description>"Character"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>4102</ID>
+                      <Description>"base"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <VariableType>8 Bytes</VariableType>
+                      <Address>_StatusChar_3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4103</ID>
+                      <Description>"=========================================================="</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>808000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4104</ID>
+                      <Description>"Name"</Description>
+                      <VariableType>String</VariableType>
+                      <Length>64</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>_StatusChar_3</Address>
+                      <Offsets>
+                        <Offset>4010</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4105</ID>
+                      <Description>"Exp"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>_StatusChar_3</Address>
+                      <Offsets>
+                        <Offset>60</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4106</ID>
+                      <Description>"Lv"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>_StatusChar_3</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4107</ID>
+                      <Description>"Current HP"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>_StatusChar_3</Address>
+                      <Offsets>
+                        <Offset>4C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4108</ID>
+                      <Description>"Current TP"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>_StatusChar_3</Address>
+                      <Offsets>
+                        <Offset>50</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4109</ID>
+                      <Description>"=========================================================="</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>808000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4110</ID>
+                      <Description>"Attribute"</Description>
+                      <Options moHideChildren="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>4111</ID>
+                          <Description>"Maximum HP"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>64</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4112</ID>
+                          <Description>"Maximum TP"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>68</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4113</ID>
+                          <Description>"Phy Atk"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>6C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4114</ID>
+                          <Description>"Mag Atk"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>70</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4115</ID>
+                          <Description>"Phy Def"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>74</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4116</ID>
+                          <Description>"Mag Def"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>78</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4117</ID>
+                          <Description>"Agility"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>80</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4118</ID>
+                          <Description>"Luck"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>84</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4119</ID>
+                          <Description>"=========================================================="</Description>
+                          <LastState Value="" RealAddress="00000000"/>
+                          <Color>808000</Color>
+                          <GroupHeader>1</GroupHeader>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>4120</ID>
+                      <Description>"Attribute Readonly"</Description>
+                      <Options moHideChildren="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>4121</ID>
+                          <Description>"Maximum HP [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>54</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4122</ID>
+                          <Description>"Maximum TP [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>58</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4123</ID>
+                          <Description>"Phy Atk [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>138</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4124</ID>
+                          <Description>"Mag Atk [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>13c</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4125</ID>
+                          <Description>"Phy Def [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>140</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4126</ID>
+                          <Description>"Mag Def [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>144</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4127</ID>
+                          <Description>"Agility [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>14c</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>4128</ID>
+                          <Description>"Luck [Readonly]"</Description>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>_StatusChar_3</Address>
+                          <Offsets>
+                            <Offset>150</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4129</ID>
+                  <Description>"=========================================================="</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>808000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>3956</ID>
+              <Description>"Character Model"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Yuri
+2:Estelle
+3:Karol
+4:Rita
+5:Raven
+6:Judith
+7:Repede
+8:Flynn
+9:Patty
+10:Soldier 1 (Static move)
+11:Soldier 2 (Just fool around)CTD
+12:CTD
+=== your turn to make a complete list ===
+13:
+14:
+15:
+16:
+......
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_StatusChar_3</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -1022,7 +1651,6 @@ Coli 200 hundred man enemies
 180:Skunky
 366:Tison (Coliseum)
 (unfinished)
-
 Other general enemies
 243:Goliath
 244:Poseidon
@@ -1072,7 +1700,8 @@ Other general enemies
 292:Traitor to Heaven
 293:Killer of Heroes
 294:Time Traveller
-295:Sorrowful Queen of Darkness</Comments>
+295:Sorrowful Queen of Darkness
+</Comments>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>

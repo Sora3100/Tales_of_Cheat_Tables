@@ -1,3 +1,4 @@
+
  # Tales of Cheat Engine tables
 
 These tables were originally meant to be for myself, but I am releasing all of them here. Not all of them are usable tables, and only contain notes, perhaps someone wants to look at them. Below I will list each table's features. Note that unless you use the exact version of the game I posted, things might not work.
@@ -7,6 +8,7 @@ Emulators used for their respective platforms and their versions:
  - **PS1**: *Beetle PSX HW 0.9.44.1 9f126e5*
  - **PS2**: *PCSX2 v.1.7.0-dev-18-g5a5dc7f67*
  - **PS3**: *rpcs3 0.0.12-10883-92d65ff3 Alpha*
+ - **PSP**: *PPSSPP v1.11.2-366-g4d02d64fd*
  - **Abyss**: *SLUS-21386*
  - **Destiny 2**: *SLPS-25172*
  - **Destiny Director's Cut**: *SLPS-25842*
@@ -18,6 +20,7 @@ Emulators used for their respective platforms and their versions:
  - **Xillia 2**: *BLUS31397*
  - **Zestiria**: *1.4*
  - **Legendia**: *SLUS-21201*
+ - **Phantasia: Narikiri Dungeon X**: *ULJS00293*
 
 ## Abyss (PS2)
 
@@ -38,7 +41,7 @@ Features:
 
 Features: 
  - Party Editor
- - Stats Editor (including unlocking using more than 3 bars)
+ - Stats Editor
  - Battle Stats Editor
  - Equipment Editor
  - Arte Editor (including Narikiri Dolls)
@@ -47,6 +50,8 @@ Features:
  - Change each character's Blast Calibers
  - Changing encounters
  - Changing BGM
+ - Changing Stage
+ - Arena Editor
 
 ## Graces F (PS3)
 
@@ -80,6 +85,7 @@ Features:
 ## Vesperia (PC)
 Features: 
  - Party Editor
+ - aanpsx's character pointer table ported to 1.2
  
  This table has some notes regarding changing encounters that I never figured out.
  
@@ -124,9 +130,9 @@ Features:
  - Enable or Disable Ludger's Dual Blades or Sledgehammer or Dual Pistols
  - Change maximum level of Chromatus
  - Enable or Disable Eternal Waltz in level 4 Chromatus
- - **Change Rideaux & Ivar Encounter**
- - **Change Chronos Encounter**
- - **Change Elite Tag and Party Encounter**
+ - **Change Chronos (Canaan) Encounter**
+ - Change Rideaux & Ivar Encounter
+ - Change Elite Tag and Party Encounter
 
  ## Zestiria (PC)
 
@@ -138,3 +144,14 @@ Features:
 
 Features:
  - Party Editor
+
+## Phantasia: Narikiri Dungeon X (PSP)
+
+Features:
+- Party Editor
+- Stats Editor
+- Equipment Editor
+- Arte List Editor
+- Control Enemies
+- Control Monsters
+- Turn off Ally/Enemy AI
