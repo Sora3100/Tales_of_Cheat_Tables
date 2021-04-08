@@ -9627,6 +9627,410 @@ _JudeMA:
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>64501</ID>
+              <Description>"Enemy stat stuff"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64499</ID>
+                  <Description>"Offsets? (edit this to move level)"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="3232C2F38"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>3232C22C0+18*85</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>64494</ID>
+                      <Description>"Level (DON'T EDIT)"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64495</ID>
+                      <Description>"???"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64497</ID>
+                      <Description>"???"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64496</ID>
+                      <Description>"???"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64498</ID>
+                      <Description>"???"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64500</ID>
+                      <Description>"???"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64175</ID>
+                  <Description>"Multipliers? (edit this to move level)"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="3232C5084"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>3232C3580+34*85</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>64195</ID>
+                      <Description>"Level (DON'T EDIT)"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64204</ID>
+                      <Description>"HP? (STR/VIT/INT/PSY also get changed?)"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64213</ID>
+                      <Description>"Padding?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64212</ID>
+                      <Description>"Padding?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64211</ID>
+                      <Description>"STR/VIT divide?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64210</ID>
+                      <Description>"STR/VIT?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64209</ID>
+                      <Description>"INT/PSY divide?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64208</ID>
+                      <Description>"INT/PSY?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64207</ID>
+                      <Description>"AGI"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64206</ID>
+                      <Description>"DEX"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+24</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64205</ID>
+                      <Description>"EXP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+28</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64214</ID>
+                      <Description>"Gald"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64215</ID>
+                      <Description>"EC"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65501</ID>
+                  <Description>"Name"</Description>
+                  <VariableType>String</VariableType>
+                  <Length>14</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>3229EB940</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65523</ID>
+                  <Description>"Leviadragon EX level (might change, but it's somewhere around this place, search for 134 in 4 byte big endian)"</Description>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>322ECE21C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64303</ID>
+                  <Description>"Leviadragon ex model enemy book?"</Description>
+                  <DropDownList DisplayValueAsItem="1">00 03 92 50:Default
+00 03 92 98:Bright?
+</DropDownList>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>3236D9EA4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64393</ID>
+                  <Description>"Leviadragon ex entry?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3236D9F8C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64544</ID>
+                  <Description>"Leviadragon ex Weakness"</Description>
+                  <DropDownList DisplayValueAsItem="1">00 03 92 14:Default
+</DropDownList>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>3236D9FB4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65499</ID>
+                  <Description>"Leviadragon EX Dropped Items"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>3236D9FD0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65484</ID>
+                  <Description>"Leviadragon EX Dropped Items quantity?"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>3236D9FD4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65483</ID>
+                  <Description>"Leviadragon EX stealable item"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>3236D9FD8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65498</ID>
+                  <Description>"Leviadragon EX stealable item chance?"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>3236D9FDC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64529</ID>
+                  <Description>"Leviadragon EX stats"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="3232C9DDC"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>3232C9DDC</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>64530</ID>
+                      <Description>"Entry (DON'T EDIT)"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64531</ID>
+                      <Description>"Padding?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64532</ID>
+                      <Description>"HP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64533</ID>
+                      <Description>"???"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64534</ID>
+                      <Description>"STR?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64535</ID>
+                      <Description>"VIT?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64536</ID>
+                      <Description>"INT? divide?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64537</ID>
+                      <Description>"PSY?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64538</ID>
+                      <Description>"AGI"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64539</ID>
+                      <Description>"DEX"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+24</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64540</ID>
+                      <Description>"EXP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+28</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64541</ID>
+                      <Description>"Gald"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64542</ID>
+                      <Description>"EC"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>Float Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65511</ID>
+                  <Description>"Leviadragon EX HP? (5 max value)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3236D9F90</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65512</ID>
+                  <Description>"??? (2 max value?)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3236D9F94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64564</ID>
+                  <Description>"Enemy Book? can change stats"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>3010D3B3C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
