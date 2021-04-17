@@ -1,5 +1,12 @@
 
+  
 #### Changelog:
+
+##### 2021/04/17
+ - New features: Phantasia: Narikiri Dungeon X
+	 - Expanded on Arte List and Control Modes
+	 - Added Arena Editor
+	 - Fixed Party Formation Loadouts labels
 ##### 2021/04/08
 - New table: Phantasia: Narikiri Dungeon X
 	- Features:

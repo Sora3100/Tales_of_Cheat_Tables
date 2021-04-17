@@ -17,7 +17,7 @@
 9:Patty
 10:Estelle(Unknown)
 </DropDownList>
-      <LastState Value="" RealAddress="7FF6EB7C1FE8"/>
+      <LastState Value="" RealAddress="7FF630861FE8"/>
       <GroupHeader>1</GroupHeader>
       <Address>TOV_DE.exe+1181FE8</Address>
       <CheatEntries>
@@ -25,7 +25,7 @@
           <ID>2</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="7" RealAddress="7FF6EB7C1FE8"/>
+          <LastState Value="1" RealAddress="7FF630861FE8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -33,7 +33,7 @@
           <ID>9</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="8" RealAddress="7FF6EB7C1FEC"/>
+          <LastState Value="0" RealAddress="7FF630861FEC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -41,7 +41,7 @@
           <ID>8</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="1" RealAddress="7FF6EB7C1FF0"/>
+          <LastState Value="0" RealAddress="7FF630861FF0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+8</Address>
         </CheatEntry>
@@ -49,7 +49,7 @@
           <ID>7</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="5" RealAddress="7FF6EB7C1FF4"/>
+          <LastState Value="0" RealAddress="7FF630861FF4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+C</Address>
         </CheatEntry>
@@ -57,7 +57,7 @@
           <ID>6</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="6" RealAddress="7FF6EB7C1FF8"/>
+          <LastState Value="0" RealAddress="7FF630861FF8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+10</Address>
         </CheatEntry>
@@ -65,7 +65,7 @@
           <ID>5</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="9" RealAddress="7FF6EB7C1FFC"/>
+          <LastState Value="0" RealAddress="7FF630861FFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+14</Address>
         </CheatEntry>
@@ -73,7 +73,7 @@
           <ID>4</ID>
           <Description>"Slot 7"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="4" RealAddress="7FF6EB7C2000"/>
+          <LastState Value="0" RealAddress="7FF630862000"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+18</Address>
         </CheatEntry>
@@ -81,7 +81,7 @@
           <ID>3</ID>
           <Description>"Slot 8"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="3" RealAddress="7FF6EB7C2004"/>
+          <LastState Value="0" RealAddress="7FF630862004"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+1C</Address>
         </CheatEntry>
@@ -89,7 +89,7 @@
           <ID>10</ID>
           <Description>"Slot 9"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="2" RealAddress="7FF6EB7C2008"/>
+          <LastState Value="0" RealAddress="7FF630862008"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+20</Address>
         </CheatEntry>
@@ -106,14 +106,14 @@
         <CheatEntry>
           <ID>0</ID>
           <Description>"Yuri Title"</Description>
-          <LastState Value="25" RealAddress="7FF6EB7C6A14"/>
+          <LastState Value="1" RealAddress="7FF630866A14"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A14</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>32</ID>
           <Description>"Yuri Model"</Description>
-          <LastState Value="48" RealAddress="7FF6EB7CA9EF"/>
+          <LastState Value="48" RealAddress="7FF63086A9EF"/>
           <VariableType>Byte</VariableType>
           <Address>TOV_DE.exe+118A9EF</Address>
         </CheatEntry>
@@ -332,6 +332,131 @@ unregistersymbol(_Duke2Fight)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>63656</ID>
+          <Description>"Gattuso Stats Fight Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(GattFight, AF 67 00 00 7C 01 00 00 20 01 00 00 F5 00 00 00 8D 00 00 00 7A 00 00 00) // should be unique
+label(_GattFight)
+registersymbol(_GattFight)
+
+GattFight:
+_GattFight:
+
+[DISABLE]
+unregistersymbol(_GattFight)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63657</ID>
+              <Description>"Enemy Name/Picture"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight-28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63658</ID>
+              <Description>"Enemy (Monster Book)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight-10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63659</ID>
+              <Description>"Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight-4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63660</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63661</ID>
+              <Description>"TP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63662</ID>
+              <Description>"P. ATK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63663</ID>
+              <Description>"P. DEF"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63664</ID>
+              <Description>"M. ATK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63665</ID>
+              <Description>"M. DEF"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63666</ID>
+              <Description>"????"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+18</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63667</ID>
+              <Description>"AGL"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63668</ID>
+              <Description>"EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+64</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63669</ID>
+              <Description>"LP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63670</ID>
+              <Description>"GALD"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63671</ID>
+              <Description>"Enemy Name/Picture (Monster Book)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+C8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>63569</ID>
           <Description>"No description"</Description>
           <VariableType>String</VariableType>
@@ -344,7 +469,7 @@ unregistersymbol(_Duke2Fight)
         <CheatEntry>
           <ID>63575</ID>
           <Description>"No description"</Description>
-          <LastState Value="1" RealAddress="7FF6EB7C1E99"/>
+          <LastState Value="1" RealAddress="7FF630861E99"/>
           <VariableType>Byte</VariableType>
           <Address>TOV_DE.exe+1181E99</Address>
         </CheatEntry>
@@ -370,7 +495,7 @@ unregistersymbol(_Encounter)
               <ID>63626</ID>
               <Description>"Gattuso fight"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
+              <LastState Value="" Activated="1" RealAddress="29F0F808F54"/>
               <GroupHeader>1</GroupHeader>
               <Address>_Encounter</Address>
               <CheatEntries>
@@ -411,37 +536,38 @@ unregistersymbol(_Encounter)
         <CheatEntry>
           <ID>63582</ID>
           <Description>"Yuri HP"</Description>
-          <LastState Value="9999" RealAddress="7FF6EB7C6A04"/>
+          <LastState Value="300" RealAddress="7FF630866A04"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A04</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63583</ID>
           <Description>"Yuri TP"</Description>
-          <LastState Value="999" RealAddress="7FF6EB7C6A08"/>
+          <LastState Value="40" RealAddress="7FF630866A08"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A08</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63584</ID>
           <Description>"Rita HP"</Description>
-          <LastState Value="9999" RealAddress="7FF6EB7D2BFC"/>
+          <LastState Value="210" RealAddress="7FF630872BFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1192BFC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63585</ID>
           <Description>"Rita TP"</Description>
-          <LastState Value="999" RealAddress="7FF6EB7D2C00"/>
+          <LastState Value="80" RealAddress="7FF630872C00"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1192C00</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63617</ID>
           <Description>"Paste enemy HP address here to get values"</Description>
-          <LastState Value="" RealAddress="277B034A4DC"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>277B034A4DC</Address>
+          <Address>0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>63615</ID>
@@ -458,8 +584,98 @@ unregistersymbol(_Encounter)
             <CheatEntry>
               <ID>63618</ID>
               <Description>"Name"</Description>
-              <VariableType>4 Bytes</VariableType>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>40</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
               <Address>-48</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63634</ID>
+          <Description>"HP values"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2021-04-14
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,TOV_DE.exe,6B 41 4C 64 99) // should be unique
+alloc(newmem,$1000,INJECT)
+globalalloc(autoHP,4)
+label(code)
+label(return)
+
+newmem:
+push rax
+lea rax,[rcx+4C]
+mov [autoHP],rax
+pop rax
+code:
+  imul eax,[rcx+4C],64
+  cdq 
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 6B 41 4C 64 99
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+dealloc(autoHP)
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF62FCA7229
+
+7FF62FCA7219: CC           - int 3 
+7FF62FCA721A: CC           - int 3 
+7FF62FCA721B: CC           - int 3 
+7FF62FCA721C: CC           - int 3 
+7FF62FCA721D: CC           - int 3 
+7FF62FCA721E: CC           - int 3 
+7FF62FCA721F: CC           - int 3 
+7FF62FCA7220: 44 8B 41 54  - mov r8d,[rcx+54]
+7FF62FCA7224: 45 85 C0     - test r8d,r8d
+7FF62FCA7227: 74 09        - je 7FF62FCA7232
+// ---------- INJECTING HERE ----------
+7FF62FCA7229: 6B 41 4C 64  - imul eax,[rcx+4C],64
+// ---------- DONE INJECTING  ----------
+7FF62FCA722D: 99           - cdq 
+7FF62FCA722E: 41 F7 F8     - idiv r8d
+7FF62FCA7231: C3           - ret 
+7FF62FCA7232: 33 C0        - xor eax,eax
+7FF62FCA7234: C3           - ret 
+7FF62FCA7235: CC           - int 3 
+7FF62FCA7236: CC           - int 3 
+7FF62FCA7237: CC           - int 3 
+7FF62FCA7238: CC           - int 3 
+7FF62FCA7239: CC           - int 3 
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63635</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>autoHP</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -1079,6 +1295,146 @@ dealloc(PSX_3)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="000000FF">
+      <Description>RED = HP spawn</Description>
+      <AddressString>TOV_DE.exe+5C59CE</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>58</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>0F</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="000000FF">
+      <Description>Code :mov [rsi+4C],eax</Description>
+      <AddressString>TOV_DE.exe+5CA54D</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>0F</Byte>
+        <Byte>48</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>46</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>6E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="000000FF">
+      <Description>Code :mov [rdi+4C],eax</Description>
+      <AddressString>TOV_DE.exe+5C5F9E</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>C6</Byte>
+        <Byte>8B</Byte>
+        <Byte>5F</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+        <Byte>7E</Byte>
+        <Byte>74</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="000000FF">
+      <Description>Code :mov [rsi+4C],ecx</Description>
+      <AddressString>TOV_DE.exe+5CA595</AddressString>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>48</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>58</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="000000FF">
+      <Description>Code :mov [rdi+4C],eax</Description>
+      <AddressString>TOV_DE.exe+5CC095</AddressString>
+      <Before>
+        <Byte>CB</Byte>
+        <Byte>3B</Byte>
+        <Byte>C8</Byte>
+        <Byte>7E</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>C3</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="000000FF">
+      <Description>Code :mov [rsi+4C],eax</Description>
+      <AddressString>TOV_DE.exe+5CA612</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>C6</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>98</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>58</Byte>
+        <Byte>3B</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>randomvalue</Name>
@@ -1624,6 +1980,10 @@ dealloc(PSX_3)
       <Name>unlimited_base_arte</Name>
       <Address>306FC525</Address>
     </SymbolEntry>
+    <SymbolEntry>
+      <Name>autoHP</Name>
+      <Address>13F42B20000</Address>
+    </SymbolEntry>
   </UserdefinedSymbols>
   <Comments>Unfinished enemy list (in decimal)
 Note that using enemies not in their fight will crash the game
@@ -1690,6 +2050,13 @@ Other general enemies
 282:Karol
 283:Rita
 284:Raven
+18:Knight Halberd
+21:Bandido (2x spawn)
+
+370:Adecorlol
+371:Boccorlol
+
+
 285:Judith
 286:Repede
 287:Flynn
