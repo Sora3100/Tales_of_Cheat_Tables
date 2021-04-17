@@ -6433,6 +6433,115 @@ but note that it may break fights.
       <Address>202C4A46</Address>
     </CheatEntry>
     <CheatEntry>
+      <ID>4553</ID>
+      <Description>"Inventory"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="202C2E9D"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <GroupHeader>1</GroupHeader>
+      <Address>202C2E9D</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4552</ID>
+          <Description>"Apple Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4555</ID>
+          <Description>"Peach Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4554</ID>
+          <Description>"Grape Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4565</ID>
+          <Description>"Durian Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+3</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4564</ID>
+          <Description>"Dragon Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4563</ID>
+          <Description>"Gambler Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+5</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4562</ID>
+          <Description>"Bocchari Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4561</ID>
+          <Description>"Gessori Gel"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+7</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4560</ID>
+          <Description>"Panacea Bottle"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4559</ID>
+          <Description>"Liquer Bottle"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+9</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4558</ID>
+          <Description>"Life Bottle"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+A</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4557</ID>
+          <Description>"Elixir"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+B</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4556</ID>
+          <Description>"All-Divide"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4566</ID>
+          <Description>"Hourglass"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>+D</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>959</ID>
       <Description>"Arena Editor"</Description>
       <Options moHideChildren="1"/>
@@ -6479,7 +6588,14 @@ but note that it may break fights.
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
-Spawn Location works based off of the center of the stage.
+"Spawn Location" works based off of the center of the stage.
+
+"Spawn after enemy" lets you spawn multiple enemies at once.
+1 will make the second enemy not spawn until the first enemy dies, while
+2 will make the second enemy spawn immedietly.
+You will have to increment based on the enemy number.
+
+Use the Inventory if you want more items.
 */
 [ENABLE]
 [DISABLE]
@@ -16699,6 +16815,10 @@ Spawn Location works based off of the center of the stage.
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>autoHP</Name>
+      <Address>13F42B20000</Address>
+    </SymbolEntry>
     <SymbolEntry>
       <Name>randomvalue</Name>
       <Address>0B3D0000</Address>
