@@ -11,17 +11,17 @@ Emulators used for their respective platforms and their versions:
  - **PS3**: *rpcs3 0.0.12-10883-92d65ff3 Alpha*
  - **PSP**: *PPSSPP v1.11.2-366-g4d02d64fd*
  - **Abyss**: *SLUS-21386*
- - **Destiny 2**: *SLPS-25172*
+ - **Destiny 2**: *SLPS-25172 with english menu patch*
  - **Destiny Director's Cut**: *SLPS-25842*
  - **Graces F**: *BLUS30903*
- - **Phantasia**: *SLPS-91210*
+ - **Phantasia**: *SLPS-91210 with Absolute Zero english patch*
  - **Symphonia - Dawn of the New World**: *BLUS31172*
  - **Vesperia**: *1.2*
  - **Xillia**: *NPUB31136*
  - **Xillia 2**: *BLUS31397*
  - **Zestiria**: *1.4*
  - **Legendia**: *SLUS-21201*
- - **Phantasia: Narikiri Dungeon X**: *ULJS00293*
+ - **Phantasia: Narikiri Dungeon X**: *ULJS00293 with english menu patch*
 
 ## Abyss (PS2)
 
