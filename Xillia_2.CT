@@ -2401,6 +2401,7 @@ DLC items may crash the game if you don't have them installed.
               <Description>"Accessory"</Description>
               <DropDownListLink>Equipment Editor</DropDownListLink>
               <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
               <Address>+C</Address>
@@ -5563,6 +5564,443 @@ F - STR Up + VIT Up + INT Up + PSY Up
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
+      <ID>64025</ID>
+      <Description>"Chronos (Canaan) Fight Editor"</Description>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanregion(chronosFight, 300000000, 400000000, 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 32 39 30 5F 4E 41 4D 45) // should be unique
+aobscanregion(chronosStage, 300000000, 400000000, 00 4D 41 50 5F 42 54 4C 5F 4B 4E 4E 5F 30 30 31 00)
+aobscanregion(chronosBGM,300000000, 400000000, 30 5F 30 31 30 00 4D 55 53 5F 54 4F 58 32 5F 42 54 4C 5F 42 4F 53 5F 4B 52 4F 00)
+label(_chronosFight)
+registersymbol(_chronosFight)
+label(_chronosStage)
+registersymbol(_chronosStage)
+label(_chronosBGM)
+registersymbol(_chronosBGM)
+
+chronosFight:
+_chronosFight:
+chronosStage:
+_chronosStage:
+chronosBGM:
+_chronosBGM:
+
+[DISABLE]
+_chronosFight-8:
+db 00 00 01 AE 00 00 00 00
+
+_chronosStage:
+db 00 4D 41 50 5F 42 54 4C 5F 4B 4E 4E 5F 30 30 31 00
+
+_chronosBGM:
+db 30 5F 30 31 30 00 4D 55 53 5F 54 4F 58 32 5F 42 54 4C 5F 42 4F 53 5F 4B 52 4F 00
+
+unregistersymbol(_chronosFight)
+unregistersymbol(_chronosStage)
+unregistersymbol(_chronosBGM)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>64036</ID>
+          <Description>"READ THIS"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>/*
+Using entries with (For Debug Use)/(Debug) or (For F Chat)
+in the name will crash the game. In the BLES01962 version of the game,
+debug enemies do not crash the game.
+
+Activating the More Enemies script will make the Bisley fight crash,
+so be sure to return to the title screen after you finish the fight!
+
+Group lets you specify what team that enemy is on.
+Leave them in the same group to not make them attack each other.
+
+The same rules apply here as the Arena Editor ones.
+
+Have fun!
+*/
+[ENABLE]
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63868</ID>
+          <Description>"Enemy"</Description>
+          <DropDownListLink>Arena Editor</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>_chronosFight-8</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>64071</ID>
+              <Description>"Group"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>+4</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65545</ID>
+          <Description>"Stage"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>15</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>_chronosStage+1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65549</ID>
+          <Description>"Music"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>20</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>_chronosBGM+6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64069</ID>
+          <Description>"More Enemies"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanregion(enemyNumberChronos, 300000000, 400000000, 00 00 00 00 00 00 C6 14 00 00 00 01 00 00 C6 14 00 00 00 24 00 00 C6 28) // should be unique
+label(_enemyNumberChronos)
+registersymbol(_enemyNumberChronos)
+
+enemyNumberChronos:
+_enemyNumberChronos:
+
+_chronosFight-4:
+db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 32 39 30 5F 4E 41 4D 45 00
+
+[DISABLE]
+_chronosFight-4:
+db 00 00 00 00 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 32 39 30 5F 4E 41 4D 45 00 E3 83 93 E3 82 BA E3 83 AA E3 83 BC E6 88 A6 E5 89 8D E5 8D 8A E6 88 A6 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 33 30 30 00 00 00 00 01 D1 00 00 00 00 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 33
+
+_enemyNumberChronos:
+db 00 00 00 00 00 00 C6 14 00 00 00 01 00 00 C6 14 00 00 00 24 00 00 C6 28
+
+unregistersymbol(_enemyNumberChronos)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>64070</ID>
+              <Description>"Number of enemies"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No enemy
+1:1 enemy
+2:2 enemies
+3:3 enemies
+4:4 enemies
+5:5 enemies
+6:6 enemies
+7:7 enemies
+8:8 enemies
+9:9 enemies
+10:10 enemies
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_enemyNumberChronos+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64049</ID>
+              <Description>"2nd Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64072</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64061</ID>
+              <Description>"3rd Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64077</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64062</ID>
+              <Description>"4th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+10</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64076</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64064</ID>
+              <Description>"5th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+18</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64075</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64063</ID>
+              <Description>"6th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+20</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64073</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64065</ID>
+              <Description>"7th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+28</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64074</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64066</ID>
+              <Description>"8th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+30</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64078</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64067</ID>
+              <Description>"9th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+38</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64079</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64068</ID>
+              <Description>"10th Enemy"</Description>
+              <DropDownListLink>Arena Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>_chronosFight+40</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64080</ID>
+                  <Description>"Group"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Group 1
+1:Group 2
+2:Group 3
+3:Group 4
+4:Group 5
+5:Group 6
+6:Group 7
+7:Group 8
+8:Group 9
+9:Group 10
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>64027</ID>
       <Description>"Rideaux &amp; Ivar Fight Editor"</Description>
       <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
@@ -5590,8 +6028,11 @@ unregistersymbol(_rideaux_ivarFight)
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
-Using entries with (For Debug Use) or (For F Chat)
-in the name will crash the game.
+LEGACY. Please use "Chronos (Canaan) Fight Editor" instead.
+
+Using entries with (For Debug Use)/(Debug) or (For F Chat)
+in the name will crash the game. In the BLES01962 version of the game,
+debug enemies do not crash the game.
 
 Using 5 enemies that don't despawn (non-coliseum bosses)
 after death will cause a softlock.
@@ -5649,53 +6090,6 @@ Have fun!
           <VariableType>Custom</VariableType>
           <CustomType>4 Byte Big Endian</CustomType>
           <Address>_rideaux_ivarFight-8</Address>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>64025</ID>
-      <Description>"Chronos (Canaan) Fight Editor"</Description>
-      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-aobscanregion(chronosFight, 300000000, 400000000, 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 32 39 30 5F 4E 41 4D 45) // should be unique
-label(_chronosFight)
-registersymbol(_chronosFight)
-
-chronosFight:
-_chronosFight:
-
-[DISABLE]
-_chronosFight-8:
-db 00 00 01 AE
-
-unregistersymbol(_chronosFight)
-</AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>64036</ID>
-          <Description>"READ THIS"</Description>
-          <LastState/>
-          <Color>0000FF</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>/*
-Using entries with (For Debug Use) or (For F Chat)
-in the name will crash the game.
-
-Have fun!
-*/
-[ENABLE]
-[DISABLE]
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63868</ID>
-          <Description>"Enemy"</Description>
-          <DropDownListLink>Arena Editor</DropDownListLink>
-          <VariableType>Custom</VariableType>
-          <CustomType>4 Byte Big Endian</CustomType>
-          <Address>_chronosFight-8</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -6299,6 +6693,8 @@ unregistersymbol(_arenaPartyStart)
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
+LEGACY. Please use "Chronos (Canaan) Fight Editor" instead.
+
 WARNING: Only Elite Party and Tag modes work, entering a lower tier
          will not let you edit the enemies outside of the Starting Enemies.
 
@@ -6306,8 +6702,9 @@ You can edit the "Starting Enemy" entries anytime you wish.
 However, for enemies that enter the battle mid-way,
 you will have to edit them after you get into the fight.
 
-Using entries with (For Debug Use) or (For F Chat)
-in the name will crash the game.
+Using entries with (For Debug Use)/(Debug) or (For F Chat)
+in the name will crash the game. In the BLES01962 version of the game,
+debug enemies do not crash the game.
 
 Using 5 enemies that don't despawn (non-coliseum bosses)
 after death will cause a softlock.
@@ -7179,9 +7576,10 @@ unregistersymbol(_Difficulty)
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
-Opening the Options menu resets the Difficulty.
+Opening the Options menu resets the Difficulty if it's set on "???".
 
-The ??? difficulty will corrupt your game due to broken EXP scaling.
+The "???" difficulty can corrupt your game due to broken EXP scaling.
+It also sets Victor's AI to Easy.
 */
 [ENABLE]
 [DISABLE]
@@ -9336,9 +9734,9 @@ _JudeMA:
             <CheatEntry>
               <ID>62774</ID>
               <Description>"Jude voice"</Description>
-              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>String</VariableType>
-              <Length>16</Length>
+              <Length>30</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
@@ -9412,8 +9810,9 @@ _JudeMA:
             <CheatEntry>
               <ID>62346</ID>
               <Description>"Ludger (Color Variation) model"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>String</VariableType>
-              <Length>19</Length>
+              <Length>30</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
@@ -9423,7 +9822,7 @@ _JudeMA:
               <ID>62347</ID>
               <Description>"Ludger Active Model"</Description>
               <VariableType>String</VariableType>
-              <Length>19</Length>
+              <Length>30</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
@@ -9459,8 +9858,9 @@ _JudeMA:
             <CheatEntry>
               <ID>62416</ID>
               <Description>"Milla Normal Attacks location"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>String</VariableType>
-              <Length>17</Length>
+              <Length>30</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
@@ -9469,8 +9869,9 @@ _JudeMA:
             <CheatEntry>
               <ID>63264</ID>
               <Description>"Save Load map manipulation"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>String</VariableType>
-              <Length>11</Length>
+              <Length>30</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
@@ -9480,7 +9881,7 @@ _JudeMA:
               <ID>63512</ID>
               <Description>"Area Load shenanigans"</Description>
               <VariableType>String</VariableType>
-              <Length>13</Length>
+              <Length>30</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
@@ -9532,8 +9933,48 @@ _JudeMA:
                 <CheatEntry>
                   <ID>63783</ID>
                   <Description>"Wings of Destruction element"</Description>
-                  <VariableType>Byte</VariableType>
+                  <DropDownList DisplayValueAsItem="1">00:Nothing
+01:Fire
+02:Ice
+03:Wind
+04:Earth
+05:Light
+06:Dark
+07:Fire/Wind
+08:Ice/Earth
+09:Fire/Ice/Wind/Earth
+</DropDownList>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>1</ByteLength>
                   <Address>3234D9B27</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64217</ID>
+                  <Description>"Wings of Destruction element 2"</Description>
+                  <DropDownList DisplayValueAsItem="1">00:Nothing
+01:Gun
+</DropDownList>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>1</ByteLength>
+                  <Address>3234D9B2A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64218</ID>
+                  <Description>"Wings of Destruction element 3"</Description>
+                  <DropDownList DisplayValueAsItem="1">00:Nothing
+50:Sword
+80:Hammer
+C0:Sword/Hammer
+</DropDownList>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>1</ByteLength>
+                  <Address>3234D9B2B</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>63785</ID>
@@ -9624,6 +10065,51 @@ _JudeMA:
                   <Options moAllowManualCollapseAndExpand="1"/>
                   <VariableType>Byte</VariableType>
                   <Address>3234D09C7</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64060</ID>
+              <Description>"Chronos (Canaan) fight values"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64055</ID>
+                  <Description>"???"</Description>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3233C0630</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64054</ID>
+                  <Description>"Offset?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3233C0634</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64053</ID>
+                  <Description>"Number of enemies"</Description>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3233C0638</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64058</ID>
+                  <Description>"??? (crash if edited?)"</Description>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3233C83D4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64059</ID>
+                  <Description>"???"</Description>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>3233C83D8</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -10030,6 +10516,56 @@ _JudeMA:
                   <Address>3010D3B3C</Address>
                 </CheatEntry>
               </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>65527</ID>
+              <Description>"Framerate (BLUS31397)"</Description>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>3010F7690</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>65528</ID>
+              <Description>"Game Speed (BLUS31397)"</Description>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>3010F7694</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>65531</ID>
+              <Description>"Framerate (BLJS10188)"</Description>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>3010D6A10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>65532</ID>
+              <Description>"Game Speed (BLJS10188)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>3010D6A14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>65551</ID>
+              <Description>"Current field music"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>30111C4A4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>65546</ID>
+              <Description>"Current battle music"</Description>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>30111C4D4</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -15033,6 +15569,203 @@ artes will crash the game.
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Code :mov eax,[rdx+rax+04]</Description>
+      <AddressString>60589CC5</AddressString>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>08</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>02</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Code :mov edx,[r8+rdx]</Description>
+      <AddressString>60589D24</AddressString>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>08</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>14</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>CA</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>91</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Code :movzx eax,byte ptr [rax+r8+18]</Description>
+      <AddressString>6057B161</AddressString>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>08</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>44</Byte>
+        <Byte>00</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Code :mov eax,[rdx+rax+04]</Description>
+      <AddressString>6057B1D5</AddressString>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>02</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Code :mov edx,[r8+rdx]</Description>
+      <AddressString>6057B243</AddressString>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>14</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>CA</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>91</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>FIRST</Description>
+      <AddressString>620DF665</AddressString>
+      <Before>
+        <Byte>D2</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>02</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>SECOND</Description>
+      <AddressString>620DF6C4</AddressString>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>18</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>43</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>C8</Byte>
+        <Byte>8B</Byte>
+        <Byte>91</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>AGI stat</Description>
+      <AddressString>60FB78EB</AddressString>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>46</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>02</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>C8</Byte>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>randomvalue</Name>

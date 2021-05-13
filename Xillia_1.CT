@@ -6640,6 +6640,135 @@ character will lose control for a second.
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>63778</ID>
+          <Description>"Area Load shenanigans (BLJS10120)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>11</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>300E39430</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64112</ID>
+          <Description>"Area Load shenanigans (NPUB31136)"</Description>
+          <VariableType>String</VariableType>
+          <Length>11</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>300E39C48</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63784</ID>
+          <Description>"Framerate (BLJS10120)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>300E2F3FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64105</ID>
+          <Description>"Framerate (NPUB31136)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>300E2F3FC+800</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63785</ID>
+          <Description>"Game Speed (BLJS10120)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>300E2F400</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64106</ID>
+          <Description>"Game Speed (NPUB31136)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>300E2F400+800</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64119</ID>
+          <Description>"Jude normal outfit"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>30</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>3231D1DDC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64123</ID>
+          <Description>"Leia air normal"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>3230E6DDC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64127</ID>
+          <Description>"Put enemy HP address here to get values"</Description>
+          <LastState Value="" RealAddress="3254D3A4C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>3254D3A4C</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>64128</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64129</ID>
+              <Description>"Enemy"</Description>
+              <DropDownListLink>Final Boss Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>-8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64131</ID>
+          <Description>"Final Boss Editor"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
+257:Gaius (final battle)
+260:Muzét (final battle)
+</DropDownList>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>64130</ID>
+              <Description>"Gaius"</Description>
+              <DropDownListLink>Final Boss Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>322F6D7B4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64132</ID>
+              <Description>"Muzét"</Description>
+              <DropDownListLink>Final Boss Editor</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
+              <Address>322F6D7BC</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>

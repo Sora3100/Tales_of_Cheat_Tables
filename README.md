@@ -157,3 +157,4 @@ Features:
 - Control Monsters
 - Turn off Ally/Enemy AI
 - Arena Editor
+- Lock/Unlock any and all costumes for Dio and Mell

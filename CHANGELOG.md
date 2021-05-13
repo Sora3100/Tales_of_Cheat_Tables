@@ -1,6 +1,13 @@
 
   
+  
 #### Changelog:
+
+##### 2021/05/13
+-	New feature: Xillia 2
+	-	Expanded on Chronos (Canaan) Fight Editor: You can now change the background music and the stage of the fight.
+-	New feature: Phantasia: Narikiri Dungeon X
+	- You can now lock/unlock any and all costumes for Dio and Mell.
 
 ##### 2021/04/17
  - New features: Phantasia: Narikiri Dungeon X
