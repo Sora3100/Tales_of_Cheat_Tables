@@ -3,6 +3,14 @@
   
 #### Changelog:
 
+##### 2021/05/22
+-	The Xillia 1 and Xillia 2 tables are now mostly region free. (Notes may not work on other versions)
+	Legacy versions will be stored in case something went/goes wrong.
+-	New feature: Xillia 1
+	-	WIP Milla to Muzét character changer by Just_Samu
+-	New feature: Xillia 2
+	-	Arte Usage by Cultevel81
+
 ##### 2021/05/13
 -	New feature: Xillia 2
 	-	Expanded on Chronos (Canaan) Fight Editor: You can now change the background music and the stage of the fight.
