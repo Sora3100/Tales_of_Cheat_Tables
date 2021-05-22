@@ -16339,6 +16339,16 @@ Use the Inventory if you want more items.
               <Description>"P1"</Description>
               <VariableType>Byte</VariableType>
               <Address>204141FA</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
             </CheatEntry>
             <CheatEntry>
               <ID>3882</ID>
@@ -16478,8 +16488,7 @@ Use the Inventory if you want more items.
               <ID>4498</ID>
               <Description>"Alternative name"</Description>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Array of byte</VariableType>
-              <ByteLength>3</ByteLength>
+              <VariableType>4 Bytes</VariableType>
               <Address>+6</Address>
             </CheatEntry>
             <CheatEntry>
@@ -16810,6 +16819,483 @@ Use the Inventory if you want more items.
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
           <Address>204145A6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16409</ID>
+          <Description>"enemy stuff"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>4579</ID>
+              <Description>"Stahn"</Description>
+              <LastState Value="" RealAddress="213C749F"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>213C749F</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4580</ID>
+                  <Description>"SPRITE/EFFECT"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4581</ID>
+                  <Description>"ANIMATION"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-1F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4582</ID>
+                  <Description>"Positioning?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4583</ID>
+                  <Description>"Name of arte"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4578</ID>
+              <Description>"Dymlos"</Description>
+              <LastState Value="" RealAddress="21451A7B"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>21451A7B</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16410</ID>
+                  <Description>"Dymlos HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>204148D4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4573</ID>
+                  <Description>"SPRITE/EFFECT"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4574</ID>
+                  <Description>"ANIMATION"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-1F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4575</ID>
+                  <Description>"Positioning?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>-1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4577</ID>
+                  <Description>"Name of arte"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16411</ID>
+                  <Description>"explode -&gt;"</Description>
+                  <DropDownList DisplayValueAsItem="1">6:explode
+8:ice wall
+</DropDownList>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>21451926</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16412</ID>
+              <Description>"leon"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16381</ID>
+                  <Description>"majin senretsushou voice (476)"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>2145DC40</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16408</ID>
+          <Description>"Attack stuff"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16467</ID>
+              <Description>"Phantom Edge"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>20282577-20</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16482</ID>
+                  <Description>"power"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>2028257E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16468</ID>
+                  <Description>"arte"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>20282577</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16469</ID>
+                  <Description>"voice"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20280982</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16470</ID>
+                  <Description>"effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20E7C83C-2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16471</ID>
+                  <Description>"animation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20E7C83C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16389</ID>
+              <Description>"Moon Glare"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>20282597</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16390</ID>
+                  <Description>"???"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16473</ID>
+                  <Description>"arte"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>202825B7</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16394</ID>
+              <Description>"Ground Dasher"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>202833D7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16474</ID>
+                  <Description>"???"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16395</ID>
+                  <Description>"arte"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>202833D7-20</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16466</ID>
+              <Description>"Shikou Bakuenjin"</Description>
+              <LastState Value="" RealAddress="20282237"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>20282257-20</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16399</ID>
+                  <Description>"arte"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16400</ID>
+                  <Description>"effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20E7C786</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16481</ID>
+                  <Description>"animation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20E7C786+2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16483</ID>
+              <Description>"Demonic Tiger Blade"</Description>
+              <VariableType>2 Bytes</VariableType>
+              <Address>20E7C75E</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16484</ID>
+                  <Description>"Name"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>16</ByteLength>
+                  <Address>2029FC7D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4597</ID>
+                  <Description>"Alt name"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>8</ByteLength>
+                  <Address>2029FC60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16485</ID>
+                  <Description>"arte"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>20282117</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16413</ID>
+                  <Description>"effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16475</ID>
+                  <Description>"animation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20E7C75E+2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4603</ID>
+              <Description>"Omega Tempest"</Description>
+              <VariableType>2 Bytes</VariableType>
+              <Address>20E7C74E</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4604</ID>
+                  <Description>"effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16476</ID>
+                  <Description>"animation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>20E7C750</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4615</ID>
+              <Description>"Tiger Blade (Leon)"</Description>
+              <VariableType>2 Bytes</VariableType>
+              <Address>20E7C830</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16477</ID>
+                  <Description>"effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16478</ID>
+                  <Description>"animation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4616</ID>
+              <Description>"Kizame"</Description>
+              <VariableType>2 Bytes</VariableType>
+              <Address>20E7C848</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16480</ID>
+                  <Description>"effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16479</ID>
+                  <Description>"animation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16404</ID>
+              <Description>"Demon Fang frame properties?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>212AC0C2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4584</ID>
+              <Description>"Something related to normals"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>20287C17</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4585</ID>
+              <Description>"Stahn normal attack"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>2040BE57</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16407</ID>
+          <Description>"this place changes demon fang or something"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>20E7CDF6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16405</ID>
+          <Description>"Stahn slash color place"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>20287940</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16406</ID>
+          <Description>"More Stahn color place"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>20E7ABFC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4648</ID>
+          <Description>"Stahn pitch"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>20294694</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16330</ID>
+          <Description>"Stahn voice"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>20280E0C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4595</ID>
+          <Description>"stahn name"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>202C1E02</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16454</ID>
+          <Description>"HIDE UI"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>2044B77F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16455</ID>
+          <Description>"Spawn more enemy/ally"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>2044B80F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16459</ID>
+          <Description>"stage brightness"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>2031FD40</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16460</ID>
+          <Description>"stage color rgb"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>2031FD9F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16463</ID>
+          <Description>"ex dungeon encounter multiplier?"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>20320D00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16465</ID>
+          <Description>"End battle? set all to ff"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>4</ByteLength>
+          <Address>20287BCB</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16489</ID>
+          <Description>"penetrate"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>2041473E</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>

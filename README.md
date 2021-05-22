@@ -17,8 +17,8 @@ Emulators used for their respective platforms and their versions:
  - **Phantasia**: *SLPS-91210 with Absolute Zero english patch*
  - **Symphonia - Dawn of the New World**: *BLUS31172*
  - **Vesperia**: *1.2*
- - **Xillia**: *NPUB31136*
- - **Xillia 2**: *BLUS31397*
+ - **Xillia**: Based on *NPUB31136*, but the main features should work regardless of region.
+ - **Xillia 2**: Based on *BLUS31397*, but the main features should work regardless of region.
  - **Zestiria**: *1.4*
  - **Legendia**: *SLUS-21201*
  - **Phantasia: Narikiri Dungeon X**: *ULJS00293 with english menu patch*
@@ -134,6 +134,7 @@ Features:
  - **Change Chronos (Canaan) Encounter**
  - Change Rideaux & Ivar Encounter
  - Change Elite Tag and Party Encounter
+ - Change Arte Usage by Cultevel81
 
  ## Zestiria (PC)
 
