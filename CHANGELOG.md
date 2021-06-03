@@ -3,11 +3,18 @@
   
 #### Changelog:
 
+##### 2021/06/03
+-	New features: Xillia 1
+	-	WIP Jude to Gaius character modifier by Just_Samu.
+	-	Updated Muzét character modifier with more features.
+-	Minor typo fixes in the Xillia 1 and Xillia 2 tables.
+-	Added missing Bonds of Shadow item in the Equipment Editor list.
+
 ##### 2021/05/22
 -	The Xillia 1 and Xillia 2 tables are now mostly region free. (Notes may not work on other versions)
 	Legacy versions will be stored in case something went/goes wrong.
 -	New feature: Xillia 1
-	-	WIP Milla to Muzét character changer by Just_Samu
+	-	WIP Milla to Muzét character modifier by Just_Samu
 -	New feature: Xillia 2
 	-	Arte Usage by Cultevel81
 

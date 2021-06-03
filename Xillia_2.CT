@@ -1862,6 +1862,7 @@ crash, you can recover by making the party entirely different characters.
 03 00 00 52:Hallowed Doll
 03 00 00 53:Monocle
 03 00 00 54:Hunter's Monocle
+03 00 00 6C:Bonds of Shadow
 ::
 ::Capes
 03 00 00 55:Cape
@@ -10708,6 +10709,92 @@ character will lose control for a second.
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>67284</ID>
+              <Description>"Party locks"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Not locked
+1:Locked in active party
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>_regionCheckEquip-E3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>67277</ID>
+                  <Description>"Jude"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67290</ID>
+                  <Description>"Milla"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67289</ID>
+                  <Description>"Alvin"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67288</ID>
+                  <Description>"Elize"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67287</ID>
+                  <Description>"Rowen"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67286</ID>
+                  <Description>"Leia"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67285</ID>
+                  <Description>"Gaius"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67292</ID>
+                  <Description>"Muzét"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67291</ID>
+                  <Description>"Ludger"</Description>
+                  <DropDownListLink>Party locks</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
@@ -13282,7 +13369,7 @@ unregistersymbol(Infinite_Max_Link_Gauge)
 1636:Sweet Light
 1228:Resurrection
 1047:Stun Blitz
-1046:Illusionary Carge
+1046:Illusionary Charge
 1052:Fire Whip
 1053:Wind Tussle
 1054:Sharpemed Petals
