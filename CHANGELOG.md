@@ -3,6 +3,17 @@
   
 #### Changelog:
 
+##### 2021/06/17
+-	New features: Xillia 1
+	-	Arte Editor
+	-	Arte List is no longer based off of Xillia 2
+	-	Backend changes
+-	New features: Xillia 2
+	-	Arte Editor
+	-	Change Grade Shop options at any time
+	-	You can now change the Event of the Chronos (Canaan) fight
+	-	Backend changes
+
 ##### 2021/06/03
 -	New features: Xillia 1
 	-	WIP Jude to Gaius character modifier by Just_Samu.
