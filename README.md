@@ -96,13 +96,14 @@ Features:
  - Party Editor
  - Stats Editor
  - Equipment Editor *(the values here were copy pasted from Xillia 2 and may not work/crash or be the same.)*
- - Arte Editor
+ - Arte List Editor
  - Gald Editor
  - Difficulty Changer
  - Enable or Disable Overlimit
  - Enable or Disable menu functions
  - Change World Map (fast travel menu) version
  - **Multiplayer Linking**
+ - Arte Editor
 
  ## Xillia 2 (PS3)
 
@@ -111,7 +112,7 @@ Features:
  - Stats Editor
  - Battle Stats Editor
  - Equipment Editor (including Chromatus)
- - Arte Editor (including Chromatus)
+ - Arte List Editor (including Chromatus)
  - Gald Editor
  - Difficulty Changer
  - Change Extractors and/or Elemental Points
@@ -135,6 +136,8 @@ Features:
  - Change Rideaux & Ivar Encounter
  - Change Elite Tag and Party Encounter
  - Change Arte Usage by Cultevel81
+ - Turn on/off Grade Shop options at any time
+ - Arte Editor
 
  ## Zestiria (PC)
 
