@@ -3,6 +3,14 @@
   
 #### Changelog:
 
+##### 2021/07/15
+-	New feature: Xillia 1
+	-	You can now edit the Gaius/Muzét Final Boss encounter.
+The Gaius and Muzét playable boss scripts have been mostly merged into 1 script.
+-	Bug fixes:
+	-	You can now use Gaius' upper strong attack.
+	-	Fixed the Xillia 2 table still using old symbol names.
+
 ##### 2021/06/17
 -	New features: Xillia 1
 	-	Arte Editor

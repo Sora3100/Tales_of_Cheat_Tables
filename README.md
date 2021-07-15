@@ -104,6 +104,7 @@ Features:
  - Change World Map (fast travel menu) version
  - **Multiplayer Linking**
  - Arte Editor
+ - **Change Gaius/Muzét Final Boss Encounter**
 
  ## Xillia 2 (PS3)
 
