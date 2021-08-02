@@ -16,12 +16,13 @@ Emulators used for their respective platforms and their versions:
  - **Graces F**: *BLUS30903*
  - **Phantasia**: *SLPS-91210 with Absolute Zero english patch*
  - **Symphonia - Dawn of the New World**: *BLUS31172*
- - **Vesperia**: *1.2*
+ - **Vesperia**: *2019/03/06* (*1.2*)
  - **Xillia**: Based on *NPUB31136*, but the main features should work regardless of region.
  - **Xillia 2**: Based on *BLUS31397*, but the main features should work regardless of region.
- - **Zestiria**: *1.4*
+ - **Zestiria**: *2015/12/04* (*1.4*)
  - **Legendia**: *SLUS-21201*
  - **Phantasia: Narikiri Dungeon X**: *ULJS00293 with english menu patch*
+ - **Symphonia**: *2016/09/27*
 
 ## Abyss (PS2)
 
@@ -163,3 +164,9 @@ Features:
 - Turn off Ally/Enemy AI
 - Arena Editor
 - Lock/Unlock any and all costumes for Dio and Mell
+
+## Symphonia (PC)
+
+Features:
+- Party Editor
+- Use different character's EX Skills

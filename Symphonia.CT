@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"Enable"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="243ED0D8"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <GroupHeader>1</GroupHeader>
+      <Address>"TOS.exe"+0071B120</Address>
+      <Offsets>
+        <Offset>378</Offset>
+        <Offset>4</Offset>
+        <Offset>4</Offset>
+        <Offset>40</Offset>
+        <Offset>D0</Offset>
+        <Offset>4</Offset>
+        <Offset>2C</Offset>
+      </Offsets>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>149</ID>
+          <Description>"Party Formation"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Lloyd
+2:Colette
+3:Genis
+4:Raine
+5:Sheena
+6:Zelos
+7:Presea
+8:Regal
+9:Kratos
+</DropDownList>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2021-07-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+aobscanmodule(partyFormationAOB,TOS.exe,8A 06 84 C0 74 34) // should be unique
+alloc(newmem,$1000)
+alloc(partyFormation,4)
+fullAccess(partyFormationAOB,6)
+
+label(code)
+label(return)
+
+newmem:
+push rax
+lea rax,[esi]
+mov [partyFormation],rax
+pop rax
+code:
+  mov al,[esi]
+  test al,al
+  je TOS.exe+CF43A
+  jmp return
+
+partyFormationAOB:
+  jmp newmem
+  nop
+return:
+
+registersymbol(partyFormation)
+registersymbol(partyFormationAOB)
+[DISABLE]
+
+partyFormationAOB:
+  db 8A 06 84 C0 74 34
+
+unregistersymbol(partyFormation)
+unregistersymbol(partyFormationAOB)
+dealloc(newmem)
+dealloc(partyFormation)
+
+{
+// ORIGINAL CODE - INJECTION POINT: partyFormationAOB
+
+TOS.exe+CF3CF: 8B 0D 68 3F AD 00        - mov ecx,[TOS.exe+6D3F68]
+TOS.exe+CF3D5: DC 05 B8 29 88 00        - fadd qword ptr [TOS.exe+4829B8]
+TOS.exe+CF3DB: D9 5E 48                 - fstp dword ptr [esi+48]
+TOS.exe+CF3DE: C6 44 24 1B 00           - mov byte ptr [esp+1B],00
+TOS.exe+CF3E3: C6 44 24 1A 00           - mov byte ptr [esp+1A],00
+TOS.exe+CF3E8: C6 44 24 19 00           - mov byte ptr [esp+19],00
+TOS.exe+CF3ED: 8D B1 4D 0F 00 00        - lea esi,[ecx+00000F4D]
+TOS.exe+CF3F3: C7 44 24 38 09 00 00 00  - mov [esp+38],00000009
+TOS.exe+CF3FB: EB 03                    - jmp partyFormationAOB
+TOS.exe+CF3FD: 8D 49 00                 - lea ecx,[ecx+00]
+// ---------- INJECTING HERE ----------
+partyFormationAOB: 8A 06                    - mov al,[esi]
+// ---------- DONE INJECTING  ----------
+TOS.exe+CF402: 84 C0                    - test al,al
+TOS.exe+CF404: 74 34                    - je TOS.exe+CF43A
+TOS.exe+CF406: 0F BE C0                 - movsx eax,al
+TOS.exe+CF409: 69 C0 18 01 00 00        - imul eax,eax,00000118
+TOS.exe+CF40F: 8B 84 08 6C 02 00 00     - mov eax,[eax+ecx+0000026C]
+TOS.exe+CF416: A9 00 01 00 80           - test eax,80000100
+TOS.exe+CF41B: 75 1D                    - jne TOS.exe+CF43A
+TOS.exe+CF41D: A8 40                    - test al,40
+TOS.exe+CF41F: 74 07                    - je TOS.exe+CF428
+TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>151</ID>
+              <Description>"Slot 1"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>152</ID>
+              <Description>"Slot 2"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-7</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>153</ID>
+              <Description>"Slot 3"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-6</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>154</ID>
+              <Description>"Slot 4"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-5</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>155</ID>
+              <Description>"Slot 5"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>156</ID>
+              <Description>"Slot 6"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-3</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>157</ID>
+              <Description>"Slot 7"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-2</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>158</ID>
+              <Description>"Slot 8"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>partyFormation</Address>
+              <Offsets>
+                <Offset>-1</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"EX Skill"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="243ED1C2"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>+EA</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"Lloyd"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED1C2"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>34</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED1C2"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>28</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C2"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>40</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C3"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>39</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C4"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>38</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C5"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>41</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED1C6"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>42</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C6"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>45</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C7"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>44</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C8"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>43</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED1C9"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>68</ID>
+              <Description>"Colette"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED2DA"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>69</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED2DA"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>70</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2DA"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>71</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2DB"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>72</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2DC"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>73</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2DD"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>74</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED2DE"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>75</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2DE"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>76</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2DF"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>77</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2E0"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>78</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED2E1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>57</ID>
+              <Description>"Genis"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED3F2"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>58</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED3F2"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>59</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F2"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>60</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F3"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>61</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F4"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>62</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F5"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED3F6"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>64</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F6"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>65</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F7"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>66</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F8"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED3F9"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>46</ID>
+              <Description>"Raine"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED50A"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>47</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED50A"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>48</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED50A"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>49</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED50B"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>50</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED50C"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>51</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED50D"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>52</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED50E"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>53</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED50E"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>54</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED50F"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>55</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED510"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>56</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED511"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>112</ID>
+              <Description>"Sheena"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED622"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>113</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED622"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>114</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED622"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>115</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED623"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>116</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED624"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>117</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED625"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>118</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED626"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>119</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED626"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>120</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED627"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>121</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED628"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>122</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED629"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>101</ID>
+              <Description>"Zelos"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED73A"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>102</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED73A"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>103</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED73A"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>104</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED73B"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>105</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED73C"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>106</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED73D"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>107</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED73E"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>108</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED73E"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>109</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED73F"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>110</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED740"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>111</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED741"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>90</ID>
+              <Description>"Presea"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED852"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>91</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED852"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>92</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED852"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>93</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED853"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>94</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED854"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>95</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED855"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>96</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED856"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>97</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED856"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>98</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED857"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>99</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED858"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>100</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED859"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79</ID>
+              <Description>"Regal"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243ED96A"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>80</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED96A"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>81</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED96A"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>82</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED96B"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED96C"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED96D"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>85</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243ED96E"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>86</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED96E"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED96F"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>88</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED970"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243ED971"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>159</ID>
+              <Description>"Kratos"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="243EDA82"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+118*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>160</ID>
+                  <Description>"Jewels"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243EDA82"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>161</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA82"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>162</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA83"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>163</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA84"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>164</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: Jewels</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA85"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>165</ID>
+                  <Description>"Skills"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="243EDA86"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>166</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA86"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>167</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA87"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>168</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA88"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>169</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>dropdown: EX Skills</DropDownListLink>
+                      <LastState Value="0" RealAddress="243EDA89"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Memory Records (DON'T DELETE)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"dropdown: Jewels"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Lv -
+1:Lv 1
+2:Lv 2
+3:Lv 3
+4:Lv 4
+5:Lv M
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"dropdown: EX Skills"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Empty
+1:Strong
+2:Tough
+3:Taunt
+4:Sharp-eyed
+5:Dodge
+6:Dash
+7:Vitality
+8:Personal (Mobility Speed)
+9:Eternal
+10:Spirit
+11:Add Combo
+12:Guard Plus
+13:Immunity
+14:Sky Combo
+15:Ability Plus
+16:Follow-up
+18:Personal (Holy Bottle)
+19:Lucky
+20:Resurrect
+21:Stat Boost
+22:Angel Song
+23:Magical
+24:Personal (Cooking)
+25:Rhythm
+26:E. Guard
+27:Speed Cast
+28:Spell Save
+29:Spell Charge
+30:Neutralizer
+31:Personal (TP consumption)
+32:Item Pro
+33:Happiness
+34:Personal (Enemy reaction time)
+35:Prolong
+40:Personal (Zelos)
+41:Slasher
+42:Super Chain
+43:Rear Guard
+44:Personal (Food)
+45:Endure
+46:P. Charge
+47:Heavy Hit
+48:Savior
+49:Revive
+50:Personal (Shop)
+51:Guilt
+52:Flash
+53:Personal (HP Recover)
+54:EX Attack
+55:EX Defend
+56:L. Unison
+57:Counter
+58:Phys. Status
+59:Over Limit
+60:R. Arts
+61:T. Guard
+62:Life Up
+63:Spirit Up
+64:T. Cancel
+65:Quick Turn
+66:B. Guard
+67:Unison Force
+68:Relax
+69:Critical Up
+70:Sky Cancel
+71:Run Away!
+72:Exp Plus
+73:Jump Combo
+74:Aerial Guard
+75:Technical
+76:C. Combo
+77:Self Cure
+79:Regenerate
+81:Item Finder
+82:Gald Finder
+83:Super Guard
+84:Reflect
+85:Nullify
+87:Life Thief
+88:Spirit Thief
+89:Pow Hammer
+90:C. Counter
+91:Battle Cry
+92:Exp Plus A
+93:Angel's Tear
+94:S. Guard
+95:Resilience
+96:Item Getter
+97:Magic Boost
+98:E. Block
+99:Mag. Status
+100:Hard Hit
+101:Lucky Soul
+102:Air Brake
+103:Reducer
+104:Randomizer
+106:Nimble Mage
+107:Roll
+108:Spell Defense
+109:Blood Spirit
+110:Spell Revenge
+111:Concentrate
+113:Auto Aid
+114:Anti-Element
+116:Lucky Magic
+117:Quick Spell
+118:Item Master
+120:M. Guardian
+122:Spirit Healer
+129:E. Plus
+132:Life Drain
+133:Spirit Drain
+134:Skill Boost
+135:Solid Guard
+136:Reprise
+137:Landing
+138:Super Blast
+139:Chivalry
+140:Healing
+142:Combo Force
+143:Dash Guard
+145:Aerial Spell
+146:Over Charge
+147:P. Defense
+148:Hot Shot
+149:Variable
+150:G. Breaker
+151:Pain Suppress
+152:Exp Plus ST
+153:Power Dash
+154:Glory
+155:Survivor
+156:Armor
+157:HP Recover
+159:Healer Taunt
+160:Aerial Jump
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Code :mov al,[esi]</Description>
+      <AddressString>TOS.exe+CF400</AddressString>
+      <Before>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>8D</Byte>
+        <Byte>49</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8A</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>34</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
