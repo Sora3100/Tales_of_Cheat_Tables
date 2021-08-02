@@ -30,6 +30,7 @@
 7:
 8:
 </DropDownList>
+          <LastState Value="7" RealAddress="204A7E40"/>
           <VariableType>Byte</VariableType>
           <Address>-2</Address>
         </CheatEntry>
@@ -37,6 +38,7 @@
           <ID>15</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="1" RealAddress="204A7E42"/>
           <VariableType>Byte</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -44,6 +46,7 @@
           <ID>16</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="2" RealAddress="204A7E43"/>
           <VariableType>Byte</VariableType>
           <Address>+1</Address>
         </CheatEntry>
@@ -51,6 +54,7 @@
           <ID>25</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="3" RealAddress="204A7E44"/>
           <VariableType>Byte</VariableType>
           <Address>+2</Address>
         </CheatEntry>
@@ -58,6 +62,7 @@
           <ID>24</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="4" RealAddress="204A7E45"/>
           <VariableType>Byte</VariableType>
           <Address>+3</Address>
         </CheatEntry>
@@ -65,6 +70,7 @@
           <ID>23</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="5" RealAddress="204A7E46"/>
           <VariableType>Byte</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -72,6 +78,7 @@
           <ID>22</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="6" RealAddress="204A7E47"/>
           <VariableType>Byte</VariableType>
           <Address>+5</Address>
         </CheatEntry>
@@ -79,6 +86,7 @@
           <ID>21</ID>
           <Description>"Slot 7"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="7" RealAddress="204A7E48"/>
           <VariableType>Byte</VariableType>
           <Address>+6</Address>
         </CheatEntry>
@@ -86,6 +94,7 @@
           <ID>20</ID>
           <Description>"Slot 8"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
+          <LastState Value="0" RealAddress="204A7E49"/>
           <VariableType>Byte</VariableType>
           <Address>+7</Address>
         </CheatEntry>
@@ -109,12 +118,14 @@
             <CheatEntry>
               <ID>3</ID>
               <Description>"Senel HP"</Description>
+              <LastState Value="1096" RealAddress="204A7EC6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>204A7EC6</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>4</ID>
               <Description>"Will HP"</Description>
+              <LastState Value="2692" RealAddress="204A7F1A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>204A7F1A</Address>
             </CheatEntry>
@@ -134,8 +145,148 @@
 1:Semi-Auto
 2:Auto
 </DropDownList>
+              <LastState Value="0" RealAddress="204A7E41"/>
               <VariableType>Byte</VariableType>
               <Address>204A7E41</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"Arte properties"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"Blizzard TP Cost"</Description>
+              <LastState Value="45" RealAddress="2157162E"/>
+              <VariableType>2 Bytes</VariableType>
+              <Address>2157162E</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>30</ID>
+              <Description>"Wyrm Rush"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="2156E56C"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>2156E56C</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>31</ID>
+                  <Description>"Arte?"</Description>
+                  <LastState Value="2" RealAddress="2156E56C"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>32</ID>
+                  <Description>"Type?"</Description>
+                  <LastState Value="4" RealAddress="2156E56D"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>33</ID>
+                  <Description>"TP Cost"</Description>
+                  <LastState Value="3" RealAddress="2156E56E"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>42</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="100" RealAddress="2156E570"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>41</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="0" RealAddress="2156E572"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="8888" RealAddress="2156E574"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>39</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="1" RealAddress="2156E576"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>38</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="1" RealAddress="2156E578"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>37</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="0" RealAddress="2156E57C"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>36</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="0" RealAddress="2156E57E"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>35</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="1" RealAddress="2156E580"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>34</ID>
+                  <Description>"???"</Description>
+                  <LastState Value="1" RealAddress="2156E582"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>44</ID>
+                  <Description>"Other"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>43</ID>
+                      <Description>"???"</Description>
+                      <LastState Value="0" RealAddress="2156E962"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+8+3EE</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
