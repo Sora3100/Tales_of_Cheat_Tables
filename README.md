@@ -46,7 +46,7 @@ Features:
  - Stats Editor
  - Battle Stats Editor
  - Equipment Editor
- - Arte Editor (including Narikiri Dolls)
+ - Arte List Editor (including Narikiri Dolls)
  - Gald & EX Point editor
  - Unlock any and all artes
  - Change each character's Blast Calibers
@@ -79,7 +79,7 @@ Features:
  - Stats Editor
  - Battle Stats Editor
  - Equipment Editor
- - Arte Editor
+ - Arte List Editor
  - Change Control Modes (to control Monsters)
  - Gald Editor
  - Difficulty Changer
@@ -87,6 +87,7 @@ Features:
 ## Vesperia (PC)
 Features: 
  - Party Editor
+ - Change Field Run Speed
  - aanpsx's character pointer table ported to 1.2
  
  This table has some notes regarding changing encounters that I never figured out.
