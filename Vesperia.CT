@@ -17,7 +17,7 @@
 9:Patty
 10:Estelle(Unknown)
 </DropDownList>
-      <LastState Value="" RealAddress="7FF78FD01FE8"/>
+      <LastState Value="" RealAddress="7FF73B0B1FE8"/>
       <GroupHeader>1</GroupHeader>
       <Address>TOV_DE.exe+1181FE8</Address>
       <CheatEntries>
@@ -25,7 +25,7 @@
           <ID>2</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="1" RealAddress="7FF78FD01FE8"/>
+          <LastState Value="1" RealAddress="7FF73B0B1FE8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -33,7 +33,7 @@
           <ID>9</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD01FEC"/>
+          <LastState Value="5" RealAddress="7FF73B0B1FEC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -41,7 +41,7 @@
           <ID>8</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD01FF0"/>
+          <LastState Value="4" RealAddress="7FF73B0B1FF0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+8</Address>
         </CheatEntry>
@@ -49,7 +49,7 @@
           <ID>7</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD01FF4"/>
+          <LastState Value="3" RealAddress="7FF73B0B1FF4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+C</Address>
         </CheatEntry>
@@ -57,7 +57,7 @@
           <ID>6</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD01FF8"/>
+          <LastState Value="0" RealAddress="7FF73B0B1FF8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+10</Address>
         </CheatEntry>
@@ -65,7 +65,7 @@
           <ID>5</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD01FFC"/>
+          <LastState Value="0" RealAddress="7FF73B0B1FFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+14</Address>
         </CheatEntry>
@@ -73,7 +73,7 @@
           <ID>4</ID>
           <Description>"Slot 7"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD02000"/>
+          <LastState Value="0" RealAddress="7FF73B0B2000"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+18</Address>
         </CheatEntry>
@@ -81,7 +81,7 @@
           <ID>3</ID>
           <Description>"Slot 8"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD02004"/>
+          <LastState Value="0" RealAddress="7FF73B0B2004"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+1C</Address>
         </CheatEntry>
@@ -89,9 +89,32 @@
           <ID>10</ID>
           <Description>"Slot 9"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF78FD02008"/>
+          <LastState Value="0" RealAddress="7FF73B0B2008"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+20</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>78896</ID>
+      <Description>"Run Speed"</Description>
+      <LastState Value="2000" RealAddress="7FF73A93EBF8"/>
+      <VariableType>Float</VariableType>
+      <Address>7FF73A93EBF8</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>78900</ID>
+          <Description>"You have to disable Winged Boots for it to work!"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78897</ID>
+          <Description>"Winged Boots"</Description>
+          <LastState Value="0" RealAddress="7FF73B0B2A84"/>
+          <VariableType>Byte</VariableType>
+          <Address>TOV_DE.exe+91E0+1178E3C+a68</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -99,21 +122,21 @@
       <ID>63627</ID>
       <Description>"Notes"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <LastState Value="" RealAddress="00000000"/>
       <Color>C0C0C0</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>0</ID>
           <Description>"Yuri Title"</Description>
-          <LastState Value="1" RealAddress="7FF78FD06A14"/>
+          <LastState Value="1" RealAddress="7FF73B0B6A14"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A14</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>32</ID>
           <Description>"Yuri Model"</Description>
-          <LastState Value="48" RealAddress="7FF78FD0A9EF"/>
+          <LastState Value="48" RealAddress="7FF73B0BA9EF"/>
           <VariableType>Byte</VariableType>
           <Address>TOV_DE.exe+118A9EF</Address>
         </CheatEntry>
@@ -469,7 +492,7 @@ unregistersymbol(_GattFight)
         <CheatEntry>
           <ID>63575</ID>
           <Description>"No description"</Description>
-          <LastState Value="1" RealAddress="7FF78FD01E99"/>
+          <LastState Value="1" RealAddress="7FF73B0B1E99"/>
           <VariableType>Byte</VariableType>
           <Address>TOV_DE.exe+1181E99</Address>
         </CheatEntry>
@@ -536,28 +559,28 @@ unregistersymbol(_Encounter)
         <CheatEntry>
           <ID>63582</ID>
           <Description>"Yuri HP"</Description>
-          <LastState Value="533" RealAddress="7FF78FD06A04"/>
+          <LastState Value="509" RealAddress="7FF73B0B6A04"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A04</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63583</ID>
           <Description>"Yuri TP"</Description>
-          <LastState Value="67" RealAddress="7FF78FD06A08"/>
+          <LastState Value="57" RealAddress="7FF73B0B6A08"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A08</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63584</ID>
           <Description>"Rita HP"</Description>
-          <LastState Value="210" RealAddress="7FF78FD12BFC"/>
+          <LastState Value="210" RealAddress="7FF73B0C2BFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1192BFC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63585</ID>
           <Description>"Rita TP"</Description>
-          <LastState Value="80" RealAddress="7FF78FD12C00"/>
+          <LastState Value="80" RealAddress="7FF73B0C2C00"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1192C00</Address>
         </CheatEntry>
@@ -682,7 +705,7 @@ dealloc(autoHP)
         <CheatEntry>
           <ID>78281</ID>
           <Description>"Yuri Up Arte"</Description>
-          <LastState Value="1625" RealAddress="7FF78FD0A900"/>
+          <LastState Value="0" RealAddress="7FF73B0BA900"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+118A900</Address>
         </CheatEntry>

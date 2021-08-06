@@ -1,11 +1,17 @@
 #### Changelog:
 
+#### 2021/08/06
+-	New feature: Vesperia
+	-	Change Field Run Speed
+-	Bug fix:
+	-	Fixed an issue where sometimes the Chromatus Gauge Finder would fail in certain cases.
+
 #### 2021/08/02
 -	New table: Symphonia
 	-	Features:
 		- Party Editor
 		- Use different character's EX Skills
-- Bug fix:
+-	Bug fix:
 	-	Fixed an issue where sometimes the Region Check would fail on Quick Loads in Xillia 1
 
 ##### 2021/07/15
