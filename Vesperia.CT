@@ -25,7 +25,7 @@
           <ID>2</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="1" RealAddress="7FF73B0B1FE8"/>
+          <LastState Value="4" RealAddress="7FF73B0B1FE8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -33,7 +33,7 @@
           <ID>9</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="5" RealAddress="7FF73B0B1FEC"/>
+          <LastState Value="2" RealAddress="7FF73B0B1FEC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -41,7 +41,7 @@
           <ID>8</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="4" RealAddress="7FF73B0B1FF0"/>
+          <LastState Value="1" RealAddress="7FF73B0B1FF0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+8</Address>
         </CheatEntry>
@@ -49,7 +49,7 @@
           <ID>7</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="3" RealAddress="7FF73B0B1FF4"/>
+          <LastState Value="9" RealAddress="7FF73B0B1FF4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+C</Address>
         </CheatEntry>
@@ -57,7 +57,7 @@
           <ID>6</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF73B0B1FF8"/>
+          <LastState Value="6" RealAddress="7FF73B0B1FF8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+10</Address>
         </CheatEntry>
@@ -65,7 +65,7 @@
           <ID>5</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF73B0B1FFC"/>
+          <LastState Value="3" RealAddress="7FF73B0B1FFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+14</Address>
         </CheatEntry>
@@ -73,7 +73,7 @@
           <ID>4</ID>
           <Description>"Slot 7"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF73B0B2000"/>
+          <LastState Value="5" RealAddress="7FF73B0B2000"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+18</Address>
         </CheatEntry>
@@ -81,7 +81,7 @@
           <ID>3</ID>
           <Description>"Slot 8"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF73B0B2004"/>
+          <LastState Value="7" RealAddress="7FF73B0B2004"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+1C</Address>
         </CheatEntry>
@@ -89,7 +89,7 @@
           <ID>10</ID>
           <Description>"Slot 9"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="7FF73B0B2008"/>
+          <LastState Value="8" RealAddress="7FF73B0B2008"/>
           <VariableType>4 Bytes</VariableType>
           <Address>+20</Address>
         </CheatEntry>
@@ -97,11 +97,20 @@
     </CheatEntry>
     <CheatEntry>
       <ID>78896</ID>
-      <Description>"Run Speed"</Description>
+      <Description>"Field Run Speed"</Description>
       <LastState Value="2000" RealAddress="7FF73A93EBF8"/>
+      <ShowAsSigned>0</ShowAsSigned>
       <VariableType>Float</VariableType>
-      <Address>7FF73A93EBF8</Address>
+      <Address>TOV_DE.exe+A0EBF8</Address>
       <CheatEntries>
+        <CheatEntry>
+          <ID>78901</ID>
+          <Description>"World Map Run Speed"</Description>
+          <LastState Value="0" RealAddress="7FF73A93EC04"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>+C</Address>
+        </CheatEntry>
         <CheatEntry>
           <ID>78900</ID>
           <Description>"You have to disable Winged Boots for it to work!"</Description>
@@ -113,624 +122,9 @@
           <ID>78897</ID>
           <Description>"Winged Boots"</Description>
           <LastState Value="0" RealAddress="7FF73B0B2A84"/>
-          <VariableType>Byte</VariableType>
-          <Address>TOV_DE.exe+91E0+1178E3C+a68</Address>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>63627</ID>
-      <Description>"Notes"</Description>
-      <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>C0C0C0</Color>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>0</ID>
-          <Description>"Yuri Title"</Description>
-          <LastState Value="1" RealAddress="7FF73B0B6A14"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+1186A14</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>32</ID>
-          <Description>"Yuri Model"</Description>
-          <LastState Value="48" RealAddress="7FF73B0BA9EF"/>
-          <VariableType>Byte</VariableType>
-          <Address>TOV_DE.exe+118A9EF</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63465</ID>
-          <Description>"Duke Stats Fight Finder"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-aobscan(DukeFight, 24 5F 04 00 A0 0F 00 00 FA 02 00 00 EE 02 00 00) // should be unique
-label(_DukeFight)
-registersymbol(_DukeFight)
-
-DukeFight:
-_DukeFight:
-
-[DISABLE]
-unregistersymbol(_DukeFight)
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63501</ID>
-              <Description>"Enemy Name/Picture"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight-28</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63481</ID>
-              <Description>"Enemy (Monster Book)"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight-10</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63477</ID>
-              <Description>"Level"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight-4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63266</ID>
-              <Description>"HP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63474</ID>
-              <Description>"TP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63473</ID>
-              <Description>"P. ATK"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63472</ID>
-              <Description>"P. DEF"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63471</ID>
-              <Description>"M. ATK"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+10</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63470</ID>
-              <Description>"M. DEF"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+14</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63500</ID>
-              <Description>"????"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+18</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63468</ID>
-              <Description>"AGL"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+1C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63475</ID>
-              <Description>"EXP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+64</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63479</ID>
-              <Description>"LP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+6C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63478</ID>
-              <Description>"GALD"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+68</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63574</ID>
-              <Description>"Enemy Name/Picture (Monster Book)"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_DukeFight+C8</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63482</ID>
-          <Description>"Duke 2 Stats Fight Finder"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-aobscan(Duke2Fight, 2C 22 07 00 70 17 00 00 28 03 00 00 70 03 00 00) // should be unique
-label(_Duke2Fight)
-registersymbol(_Duke2Fight)
-
-Duke2Fight:
-_Duke2Fight:
-
-[DISABLE]
-unregistersymbol(_Duke2Fight)
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63483</ID>
-              <Description>"Enemy Name/Picture"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight-28</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63484</ID>
-              <Description>"Enemy (Monster Book)"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight-10</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63485</ID>
-              <Description>"Level"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight-4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63486</ID>
-              <Description>"HP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63487</ID>
-              <Description>"TP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63488</ID>
-              <Description>"P. ATK"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63489</ID>
-              <Description>"P. DEF"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63490</ID>
-              <Description>"M. ATK"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+10</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63491</ID>
-              <Description>"M. DEF"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+14</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63492</ID>
-              <Description>"AGL"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+1C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63493</ID>
-              <Description>"EXP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+64</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63494</ID>
-              <Description>"LP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+6C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63495</ID>
-              <Description>"GALD"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+68</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63573</ID>
-              <Description>"Enemy Name/Title (Monster Book) (duke 2?)"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Duke2Fight+C8</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63656</ID>
-          <Description>"Gattuso Stats Fight Finder"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-aobscan(GattFight, AF 67 00 00 7C 01 00 00 20 01 00 00 F5 00 00 00 8D 00 00 00 7A 00 00 00) // should be unique
-label(_GattFight)
-registersymbol(_GattFight)
-
-GattFight:
-_GattFight:
-
-[DISABLE]
-unregistersymbol(_GattFight)
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63657</ID>
-              <Description>"Enemy Name/Picture"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight-28</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63658</ID>
-              <Description>"Enemy (Monster Book)"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight-10</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63659</ID>
-              <Description>"Level"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight-4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63660</ID>
-              <Description>"HP"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63661</ID>
-              <Description>"TP"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63662</ID>
-              <Description>"P. ATK"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63663</ID>
-              <Description>"P. DEF"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63664</ID>
-              <Description>"M. ATK"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+10</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63665</ID>
-              <Description>"M. DEF"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+14</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63666</ID>
-              <Description>"????"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+18</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63667</ID>
-              <Description>"AGL"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+1C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63668</ID>
-              <Description>"EXP"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+64</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63669</ID>
-              <Description>"LP"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+6C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63670</ID>
-              <Description>"GALD"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+68</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63671</ID>
-              <Description>"Enemy Name/Picture (Monster Book)"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_GattFight+C8</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63569</ID>
-          <Description>"No description"</Description>
-          <VariableType>String</VariableType>
-          <Length>8</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>21E4142F300</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63575</ID>
-          <Description>"No description"</Description>
-          <LastState Value="1" RealAddress="7FF73B0B1E99"/>
-          <VariableType>Byte</VariableType>
-          <Address>TOV_DE.exe+1181E99</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63619</ID>
-          <Description>"Encounter Finder"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-aobscan(Encounter, F5 00 00 00 F6 00 00 00 F6 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF) // should be unique
-label(_Encounter)
-registersymbol(_Encounter)
-
-Encounter:
-_Encounter:
-
-[DISABLE]
-unregistersymbol(_Encounter)
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63626</ID>
-              <Description>"Gattuso fight"</Description>
-              <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
-              <GroupHeader>1</GroupHeader>
-              <Address>_Encounter</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>63621</ID>
-                  <Description>"Gattuso"</Description>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>+0</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63622</ID>
-                  <Description>"Gattuso Cub 1"</Description>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>+4</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63623</ID>
-                  <Description>"Gattuso Cub 2"</Description>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>+8</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63624</ID>
-              <Description>"Duke 1st fight"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Encounter+219F8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63625</ID>
-              <Description>"Duke 2nd fight"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Encounter+21AD4</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63582</ID>
-          <Description>"Yuri HP"</Description>
-          <LastState Value="509" RealAddress="7FF73B0B6A04"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+1186A04</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63583</ID>
-          <Description>"Yuri TP"</Description>
-          <LastState Value="57" RealAddress="7FF73B0B6A08"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+1186A08</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63584</ID>
-          <Description>"Rita HP"</Description>
-          <LastState Value="210" RealAddress="7FF73B0C2BFC"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+1192BFC</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63585</ID>
-          <Description>"Rita TP"</Description>
-          <LastState Value="80" RealAddress="7FF73B0C2C00"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+1192C00</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63617</ID>
-          <Description>"Paste enemy HP address here to get values"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <ShowAsSigned>0</ShowAsSigned>
-          <GroupHeader>1</GroupHeader>
-          <Address>0</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63615</ID>
-              <Description>"HP"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>+0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63616</ID>
-              <Description>"Enemy"</Description>
-              <VariableType>4 Bytes</VariableType>
-              <Address>-8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63618</ID>
-              <Description>"Name"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>40</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>-48</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>63634</ID>
-          <Description>"HP values"</Description>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : TOV_DE.exe
-  Version: 
-  Date   : 2021-04-14
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,TOV_DE.exe,6B 41 4C 64 99) // should be unique
-alloc(newmem,$1000,INJECT)
-globalalloc(autoHP,4)
-label(code)
-label(return)
-
-newmem:
-push rax
-lea rax,[rcx+4C]
-mov [autoHP],rax
-pop rax
-code:
-  imul eax,[rcx+4C],64
-  cdq 
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 6B 41 4C 64 99
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-dealloc(autoHP)
-{
-// ORIGINAL CODE - INJECTION POINT: 7FF62FCA7229
-
-7FF62FCA7219: CC           - int 3 
-7FF62FCA721A: CC           - int 3 
-7FF62FCA721B: CC           - int 3 
-7FF62FCA721C: CC           - int 3 
-7FF62FCA721D: CC           - int 3 
-7FF62FCA721E: CC           - int 3 
-7FF62FCA721F: CC           - int 3 
-7FF62FCA7220: 44 8B 41 54  - mov r8d,[rcx+54]
-7FF62FCA7224: 45 85 C0     - test r8d,r8d
-7FF62FCA7227: 74 09        - je 7FF62FCA7232
-// ---------- INJECTING HERE ----------
-7FF62FCA7229: 6B 41 4C 64  - imul eax,[rcx+4C],64
-// ---------- DONE INJECTING  ----------
-7FF62FCA722D: 99           - cdq 
-7FF62FCA722E: 41 F7 F8     - idiv r8d
-7FF62FCA7231: C3           - ret 
-7FF62FCA7232: 33 C0        - xor eax,eax
-7FF62FCA7234: C3           - ret 
-7FF62FCA7235: CC           - int 3 
-7FF62FCA7236: CC           - int 3 
-7FF62FCA7237: CC           - int 3 
-7FF62FCA7238: CC           - int 3 
-7FF62FCA7239: CC           - int 3 
-}
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63635</ID>
-              <Description>"HP"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>autoHP</Address>
-              <Offsets>
-                <Offset>0</Offset>
-              </Offsets>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>78281</ID>
-          <Description>"Yuri Up Arte"</Description>
-          <LastState Value="0" RealAddress="7FF73B0BA900"/>
           <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+118A900</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>78312</ID>
-          <Description>"Yuri Arte Whitelist"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-aobscan(yuriArteWhitelist,64 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 8C 01 00 00 33 00 00 00 59 06 00 00)
-
-registersymbol(yuriArteWhitelist)
-[DISABLE]
-unregistersymbol(yuriArteWhitelist)
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>78313</ID>
-              <Description>"Demon Attack"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>yuriArteWhitelist+20</Address>
-            </CheatEntry>
-          </CheatEntries>
+          <Address>TOV_DE.exe+91E0+1178E3C+A68</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -1342,6 +736,622 @@ dealloc(PSX_3)
               <Offsets>
                 <Offset>44</Offset>
               </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>63627</ID>
+      <Description>"Notes"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Yuri Title"</Description>
+          <LastState Value="48" RealAddress="7FF73B0B6A14"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1186A14</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Yuri Model"</Description>
+          <LastState Value="53" RealAddress="7FF73B0BA9EF"/>
+          <VariableType>Byte</VariableType>
+          <Address>TOV_DE.exe+118A9EF</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63465</ID>
+          <Description>"Duke Stats Fight Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(DukeFight, 24 5F 04 00 A0 0F 00 00 FA 02 00 00 EE 02 00 00) // should be unique
+label(_DukeFight)
+registersymbol(_DukeFight)
+
+DukeFight:
+_DukeFight:
+
+[DISABLE]
+unregistersymbol(_DukeFight)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63501</ID>
+              <Description>"Enemy Name/Picture"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight-28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63481</ID>
+              <Description>"Enemy (Monster Book)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight-10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63477</ID>
+              <Description>"Level"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight-4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63266</ID>
+              <Description>"HP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63474</ID>
+              <Description>"TP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63473</ID>
+              <Description>"P. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63472</ID>
+              <Description>"P. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63471</ID>
+              <Description>"M. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63470</ID>
+              <Description>"M. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63500</ID>
+              <Description>"????"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+18</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63468</ID>
+              <Description>"AGL"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63475</ID>
+              <Description>"EXP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+64</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63479</ID>
+              <Description>"LP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63478</ID>
+              <Description>"GALD"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63574</ID>
+              <Description>"Enemy Name/Picture (Monster Book)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_DukeFight+C8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63482</ID>
+          <Description>"Duke 2 Stats Fight Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(Duke2Fight, 2C 22 07 00 70 17 00 00 28 03 00 00 70 03 00 00) // should be unique
+label(_Duke2Fight)
+registersymbol(_Duke2Fight)
+
+Duke2Fight:
+_Duke2Fight:
+
+[DISABLE]
+unregistersymbol(_Duke2Fight)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63483</ID>
+              <Description>"Enemy Name/Picture"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight-28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63484</ID>
+              <Description>"Enemy (Monster Book)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight-10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63485</ID>
+              <Description>"Level"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight-4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63486</ID>
+              <Description>"HP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63487</ID>
+              <Description>"TP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63488</ID>
+              <Description>"P. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63489</ID>
+              <Description>"P. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63490</ID>
+              <Description>"M. ATK"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63491</ID>
+              <Description>"M. DEF"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63492</ID>
+              <Description>"AGL"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63493</ID>
+              <Description>"EXP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+64</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63494</ID>
+              <Description>"LP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63495</ID>
+              <Description>"GALD"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63573</ID>
+              <Description>"Enemy Name/Title (Monster Book) (duke 2?)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Duke2Fight+C8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63656</ID>
+          <Description>"Gattuso Stats Fight Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(GattFight, AF 67 00 00 7C 01 00 00 20 01 00 00 F5 00 00 00 8D 00 00 00 7A 00 00 00) // should be unique
+label(_GattFight)
+registersymbol(_GattFight)
+
+GattFight:
+_GattFight:
+
+[DISABLE]
+unregistersymbol(_GattFight)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63657</ID>
+              <Description>"Enemy Name/Picture"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight-28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63658</ID>
+              <Description>"Enemy (Monster Book)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight-10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63659</ID>
+              <Description>"Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight-4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63660</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63661</ID>
+              <Description>"TP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63662</ID>
+              <Description>"P. ATK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63663</ID>
+              <Description>"P. DEF"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63664</ID>
+              <Description>"M. ATK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63665</ID>
+              <Description>"M. DEF"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+14</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63666</ID>
+              <Description>"????"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+18</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63667</ID>
+              <Description>"AGL"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63668</ID>
+              <Description>"EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+64</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63669</ID>
+              <Description>"LP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63670</ID>
+              <Description>"GALD"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63671</ID>
+              <Description>"Enemy Name/Picture (Monster Book)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_GattFight+C8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63569</ID>
+          <Description>"No description"</Description>
+          <VariableType>String</VariableType>
+          <Length>8</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>21E4142F300</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63575</ID>
+          <Description>"No description"</Description>
+          <LastState Value="1" RealAddress="7FF73B0B1E99"/>
+          <VariableType>Byte</VariableType>
+          <Address>TOV_DE.exe+1181E99</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63619</ID>
+          <Description>"Encounter Finder"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(Encounter, F5 00 00 00 F6 00 00 00 F6 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF) // should be unique
+label(_Encounter)
+registersymbol(_Encounter)
+
+Encounter:
+_Encounter:
+
+[DISABLE]
+unregistersymbol(_Encounter)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63626</ID>
+              <Description>"Gattuso fight"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>_Encounter</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63621</ID>
+                  <Description>"Gattuso"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63622</ID>
+                  <Description>"Gattuso Cub 1"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63623</ID>
+                  <Description>"Gattuso Cub 2"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63624</ID>
+              <Description>"Duke 1st fight"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Encounter+219F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63625</ID>
+              <Description>"Duke 2nd fight"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_Encounter+21AD4</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63582</ID>
+          <Description>"Yuri HP"</Description>
+          <LastState Value="4775" RealAddress="7FF73B0B6A04"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1186A04</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63583</ID>
+          <Description>"Yuri TP"</Description>
+          <LastState Value="466" RealAddress="7FF73B0B6A08"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1186A08</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63584</ID>
+          <Description>"Rita HP"</Description>
+          <LastState Value="4496" RealAddress="7FF73B0C2BFC"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1192BFC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63585</ID>
+          <Description>"Rita TP"</Description>
+          <LastState Value="751" RealAddress="7FF73B0C2C00"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+1192C00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63617</ID>
+          <Description>"Paste enemy HP address here to get values"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>0</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63615</ID>
+              <Description>"HP"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63616</ID>
+              <Description>"Enemy"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>-8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63618</ID>
+              <Description>"Name"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>40</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>-48</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63634</ID>
+          <Description>"HP values"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2021-04-14
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,TOV_DE.exe,6B 41 4C 64 99) // should be unique
+alloc(newmem,$1000,INJECT)
+globalalloc(autoHP,4)
+label(code)
+label(return)
+
+newmem:
+push rax
+lea rax,[rcx+4C]
+mov [autoHP],rax
+pop rax
+code:
+  imul eax,[rcx+4C],64
+  cdq 
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 6B 41 4C 64 99
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+dealloc(autoHP)
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF62FCA7229
+
+7FF62FCA7219: CC           - int 3 
+7FF62FCA721A: CC           - int 3 
+7FF62FCA721B: CC           - int 3 
+7FF62FCA721C: CC           - int 3 
+7FF62FCA721D: CC           - int 3 
+7FF62FCA721E: CC           - int 3 
+7FF62FCA721F: CC           - int 3 
+7FF62FCA7220: 44 8B 41 54  - mov r8d,[rcx+54]
+7FF62FCA7224: 45 85 C0     - test r8d,r8d
+7FF62FCA7227: 74 09        - je 7FF62FCA7232
+// ---------- INJECTING HERE ----------
+7FF62FCA7229: 6B 41 4C 64  - imul eax,[rcx+4C],64
+// ---------- DONE INJECTING  ----------
+7FF62FCA722D: 99           - cdq 
+7FF62FCA722E: 41 F7 F8     - idiv r8d
+7FF62FCA7231: C3           - ret 
+7FF62FCA7232: 33 C0        - xor eax,eax
+7FF62FCA7234: C3           - ret 
+7FF62FCA7235: CC           - int 3 
+7FF62FCA7236: CC           - int 3 
+7FF62FCA7237: CC           - int 3 
+7FF62FCA7238: CC           - int 3 
+7FF62FCA7239: CC           - int 3 
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63635</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>autoHP</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78281</ID>
+          <Description>"Yuri Up Arte"</Description>
+          <LastState Value="38" RealAddress="7FF73B0BA900"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+118A900</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78312</ID>
+          <Description>"Yuri Arte Whitelist"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(yuriArteWhitelist,64 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 8C 01 00 00 33 00 00 00 59 06 00 00)
+
+registersymbol(yuriArteWhitelist)
+[DISABLE]
+unregistersymbol(yuriArteWhitelist)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>78313</ID>
+              <Description>"Demon Attack"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>yuriArteWhitelist+20</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
