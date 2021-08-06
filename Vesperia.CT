@@ -96,35 +96,68 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>78896</ID>
-      <Description>"Field Run Speed"</Description>
-      <LastState Value="2000" RealAddress="7FF73A93EBF8"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <VariableType>Float</VariableType>
-      <Address>TOV_DE.exe+A0EBF8</Address>
+      <ID>78906</ID>
+      <Description>"Run Speed"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry>
-          <ID>78901</ID>
-          <Description>"World Map Run Speed"</Description>
-          <LastState Value="0" RealAddress="7FF73A93EC04"/>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>+C</Address>
-        </CheatEntry>
         <CheatEntry>
           <ID>78900</ID>
           <Description>"You have to disable Winged Boots for it to work!"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <Color>0000FF</Color>
           <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>78897</ID>
+              <Description>"Winged Boots"</Description>
+              <LastState Value="0" RealAddress="7FF73B0B2A84"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TOV_DE.exe+91E0+1178E3C+A68</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>78897</ID>
-          <Description>"Winged Boots"</Description>
-          <LastState Value="0" RealAddress="7FF73B0B2A84"/>
+          <ID>78908</ID>
+          <Description>"Walk"</Description>
+          <LastState Value="1000" RealAddress="7FF73A93EBF4"/>
           <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
-          <Address>TOV_DE.exe+91E0+1178E3C+A68</Address>
+          <VariableType>Float</VariableType>
+          <Address>TOV_DE.exe+A0EBF4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78907</ID>
+          <Description>"Field"</Description>
+          <LastState Value="2000" RealAddress="7FF73A93EBF8"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>TOV_DE.exe+A0EBF8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78911</ID>
+          <Description>"???"</Description>
+          <LastState Value="0" RealAddress="7FF73A93EBFC"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>TOV_DE.exe+A0EBFC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78909</ID>
+          <Description>"???"</Description>
+          <LastState Value="0" RealAddress="7FF73A93EC00"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>TOV_DE.exe+A0EC00</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78910</ID>
+          <Description>"World Map"</Description>
+          <LastState Value="2000" RealAddress="7FF73A93EC04"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>TOV_DE.exe+A0EC04</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -1182,14 +1215,14 @@ unregistersymbol(_Encounter)
         <CheatEntry>
           <ID>63582</ID>
           <Description>"Yuri HP"</Description>
-          <LastState Value="4775" RealAddress="7FF73B0B6A04"/>
+          <LastState Value="4720" RealAddress="7FF73B0B6A04"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A04</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>63583</ID>
           <Description>"Yuri TP"</Description>
-          <LastState Value="466" RealAddress="7FF73B0B6A08"/>
+          <LastState Value="451" RealAddress="7FF73B0B6A08"/>
           <VariableType>4 Bytes</VariableType>
           <Address>TOV_DE.exe+1186A08</Address>
         </CheatEntry>
