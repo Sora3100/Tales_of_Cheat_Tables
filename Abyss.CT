@@ -2,10 +2,24 @@
 <CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
-      <ID>8</ID>
-      <Description>"Party Formation"</Description>
+      <ID>69</ID>
+      <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
-      <DropDownList DisplayValueAsItem="1">0:Nothing
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(baseElfAddr, 00 00 19 04 00 00 80 44 00 08 80 44 00 10 80 44 00 18 80 44)
+
+registersymbol(baseElfAddr)
+[DISABLE]
+unregistersymbol(baseElfAddr)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>70</ID>
+          <Description>"Party Formation"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
 1:Luke
 2:Tear
 3:Jade
@@ -14,832 +28,316 @@
 6:Natalia
 7:Asch
 </DropDownList>
-      <LastState Value="" RealAddress="206D2EC1"/>
-      <GroupHeader>1</GroupHeader>
-      <Address>206D2EC1</Address>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>6</ID>
-          <Description>"Slot 1"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <VariableType>Byte</VariableType>
-          <Address>+0</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>15</ID>
-          <Description>"Slot 2"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <VariableType>Byte</VariableType>
-          <Address>+1</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>14</ID>
-          <Description>"Slot 3"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <VariableType>Byte</VariableType>
-          <Address>+2</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13</ID>
-          <Description>"Slot 4"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <VariableType>Byte</VariableType>
-          <Address>+3</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>12</ID>
-          <Description>"Slot 5"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <VariableType>Byte</VariableType>
-          <Address>+4</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>11</ID>
-          <Description>"Slot 6"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <VariableType>Byte</VariableType>
-          <Address>+5</Address>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>21</ID>
-      <Description>"Title &amp; Costume"</Description>
-      <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="206D2F01"/>
-      <GroupHeader>1</GroupHeader>
-      <Address>206D2F01</Address>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>22</ID>
-          <Description>"Luke"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D2F01"/>
+          <LastState Value="" RealAddress="406D2EC1"/>
+          <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>+0</Address>
+          <Address>baseElfAddr+5D2E35</Address>
           <CheatEntries>
             <CheatEntry>
-              <ID>23</ID>
-              <Description>"Costume"</Description>
+              <ID>71</ID>
+              <Description>"Slot 1"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <LastState Value="1" RealAddress="406D2EC1"/>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>24</ID>
-              <Description>"Title"</Description>
+              <ID>72</ID>
+              <Description>"Slot 2"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <LastState Value="2" RealAddress="406D2EC2"/>
+              <VariableType>Byte</VariableType>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>73</ID>
+              <Description>"Slot 3"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <LastState Value="5" RealAddress="406D2EC3"/>
               <VariableType>Byte</VariableType>
               <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>74</ID>
+              <Description>"Slot 4"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <LastState Value="3" RealAddress="406D2EC4"/>
+              <VariableType>Byte</VariableType>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>75</ID>
+              <Description>"Slot 5"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <LastState Value="4" RealAddress="406D2EC5"/>
+              <VariableType>Byte</VariableType>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>76</ID>
+              <Description>"Slot 6"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <LastState Value="6" RealAddress="406D2EC6"/>
+              <VariableType>Byte</VariableType>
+              <Address>+5</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>25</ID>
-          <Description>"Tear"</Description>
+          <ID>77</ID>
+          <Description>"Title &amp; Costume"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D3251"/>
+          <LastState Value="" RealAddress="406D2F01"/>
+          <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>+350</Address>
+          <Address>baseElfAddr+5D2E75</Address>
           <CheatEntries>
             <CheatEntry>
-              <ID>26</ID>
-              <Description>"Costume"</Description>
-              <VariableType>Byte</VariableType>
+              <ID>78</ID>
+              <Description>"Luke"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D2F01"/>
+              <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>79</ID>
+                  <Description>"Costume"</Description>
+                  <LastState Value="8" RealAddress="406D2F01"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>80</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="18" RealAddress="406D2F03"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>27</ID>
-              <Description>"Title"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>43</ID>
-          <Description>"Jade"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D35A1"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>+350*2</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>44</ID>
-              <Description>"Costume"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>45</ID>
-              <Description>"Title"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>40</ID>
-          <Description>"Anise"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D38F1"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>+350*3</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>41</ID>
-              <Description>"Costume"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
+              <ID>81</ID>
+              <Description>"Tear"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D3251"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+350</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>82</ID>
+                  <Description>"Costume"</Description>
+                  <LastState Value="0" RealAddress="406D3251"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="1" RealAddress="406D3253"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>42</ID>
-              <Description>"Title"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>37</ID>
-          <Description>"Guy"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D3C41"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>+350*4</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>38</ID>
-              <Description>"Costume"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>39</ID>
-              <Description>"Title"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>34</ID>
-          <Description>"Natalia"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D3F91"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>+350*5</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>35</ID>
-              <Description>"Costume"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
+              <ID>84</ID>
+              <Description>"Jade"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D35A1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+350*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>85</ID>
+                  <Description>"Costume"</Description>
+                  <LastState Value="0" RealAddress="406D35A1"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="1" RealAddress="406D35A3"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>36</ID>
-              <Description>"Title"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
+              <ID>87</ID>
+              <Description>"Anise"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D38F1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+350*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>88</ID>
+                  <Description>"Costume"</Description>
+                  <LastState Value="0" RealAddress="406D38F1"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="1" RealAddress="406D38F3"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>31</ID>
-          <Description>"Asch"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="206D42E1"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>+350*6</Address>
-          <CheatEntries>
             <CheatEntry>
-              <ID>32</ID>
-              <Description>"Costume"</Description>
-              <DropDownList DisplayValueAsItem="1">0:God-General
+              <ID>90</ID>
+              <Description>"Guy"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D3C41"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+350*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>91</ID>
+                  <Description>"Costume"</Description>
+                  <LastState Value="0" RealAddress="406D3C41"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>92</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="1" RealAddress="406D3C43"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93</ID>
+              <Description>"Natalia"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D3F91"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+350*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>94</ID>
+                  <Description>"Costume"</Description>
+                  <LastState Value="0" RealAddress="406D3F91"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>95</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="1" RealAddress="406D3F93"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>96</ID>
+              <Description>"Asch"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="406D42E1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+350*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>97</ID>
+                  <Description>"Costume"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:God-General
 1:Loving Son
 </DropDownList>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>33</ID>
-              <Description>"Title"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
+                  <LastState Value="0" RealAddress="406D42E1"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>98</ID>
+                  <Description>"Title"</Description>
+                  <LastState Value="1" RealAddress="406D42E3"/>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>56</ID>
-      <Description>"Current Area"</Description>
-      <ShowAsHex>1</ShowAsHex>
-      <VariableType>Array of byte</VariableType>
-      <ByteLength>4</ByteLength>
-      <Address>206D2C24</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>61</ID>
-      <Description>"Luke Hair"</Description>
-      <DropDownList DisplayValueAsItem="1">00 00 00 80:Long
+        <CheatEntry>
+          <ID>99</ID>
+          <Description>"Current Area"</Description>
+          <LastState Value="1 1 0 0" RealAddress="406D2C24"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>4</ByteLength>
+          <Address>baseElfAddr+5D2B98</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>100</ID>
+          <Description>"Luke Hair"</Description>
+          <DropDownList DisplayValueAsItem="1">00 00 00 80:Long
 00 00 00 A0:Short
 </DropDownList>
-      <ShowAsHex>1</ShowAsHex>
-      <VariableType>Array of byte</VariableType>
-      <ByteLength>4</ByteLength>
-      <Address>206D29B2</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>67</ID>
-      <Description>"Other"</Description>
-      <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>C0C0C0</Color>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>63</ID>
-          <Description>"On Battle End 1st Slot"</Description>
-          <VariableType>Byte</VariableType>
-          <Address>20BD0CB8</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>64</ID>
-          <Description>"On Battle Start 1st Slot"</Description>
-          <VariableType>Byte</VariableType>
-          <Address>20BD0CC0</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>65</ID>
-          <Description>"Battle Anims"</Description>
+          <LastState Value="161 163 2 128" RealAddress="406D29B2"/>
           <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Byte</VariableType>
-          <Address>206C5B78</Address>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>4</ByteLength>
+          <Address>baseElfAddr+5D2926</Address>
         </CheatEntry>
         <CheatEntry>
-          <ID>66</ID>
-          <Description>"BGM"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Byte</VariableType>
-          <Address>205B8460</Address>
+          <ID>101</ID>
+          <Description>"Notes"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>102</ID>
+              <Description>"On Battle End 1st Slot"</Description>
+              <LastState Value="0" RealAddress="40BD0CB8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+AD0C2C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>103</ID>
+              <Description>"On Battle Start 1st Slot"</Description>
+              <LastState Value="0" RealAddress="40BD0CC0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+AD0C34</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>104</ID>
+              <Description>"Battle Anims"</Description>
+              <LastState Value="0" RealAddress="406C5B78"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+5C5AEC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>105</ID>
+              <Description>"BGM"</Description>
+              <LastState Value="98" RealAddress="405B8460"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+4B83D4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>106</ID>
+              <Description>"Base ELF Address"</Description>
+              <LastState Value="68747264" RealAddress="4010008C"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>baseElfAddr</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>randomvalue</Name>
-      <Address>0B3D0000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arte_CancelX</Name>
-      <Address>14194956B</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arte_CancelX2</Name>
-      <Address>141949599</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>MOEquipmentAOB</Name>
-      <Address>1413EDEE1</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>eraseModelWhenDefeat</Name>
-      <Address>1412CC62D</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>nullHair_Eleanor</Name>
-      <Address>531A010C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>nullHair_Roku</Name>
-      <Address>45B500EC</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>InitExceptionFalsePositive</Name>
-      <Address>1412D137F</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>deInitExceptionFalsePositive</Name>
-      <Address>1415B28E2</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>deInitExceptionFalsePositive2</Name>
-      <Address>14130DA13</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>deInitExceptionFalsePositive3</Name>
-      <Address>141434E56</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>deInitExceptionFalsePositive4</Name>
-      <Address>141538107</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>override_fixedStringError1</Name>
-      <Address>14128861B</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>override_fixedStringError2</Name>
-      <Address>141288623</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>alwaysActive_chestsOnField</Name>
-      <Address>1415B2824</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>set_allCharArtes</Name>
-      <Address>1416499A1</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>enm_BookData</Name>
-      <Address>1415E27C2</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ae2</Name>
-      <Address>004A26A9</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>model_change</Name>
-      <Address>00716D62</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>edit_knkbckType</Name>
-      <Address>109C56B8</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>sSTAFFbST</Name>
-      <Address>3BEB9C37</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>risingPhoenix_fireEff</Name>
-      <Address>3D26C6D9</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>cutChainArteTime</Name>
-      <Address>0099A219</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>enm_statMult</Name>
-      <Address>004F8A4A</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>inf_Stagger</Name>
-      <Address>0049FC6E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>inf_Stag</Name>
-      <Address>0049FC9E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>encounterTable</Name>
-      <Address>16790800</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>soph_SRA_anim</Name>
-      <Address>150006B4</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>fire_stanceROS</Name>
-      <Address>14D3DB7C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>earth_stanceROS</Name>
-      <Address>1531DB7C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteStructA</Name>
-      <Address>006C8E88</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_BattlesAsChar_AOB</Name>
-      <Address>0048B885</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_DIFF</Name>
-      <Address>004F8A4A</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>fusion_AOB</Name>
-      <Address>00538983</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>baseCHR_anim</Name>
-      <Address>364BD9B4</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>enemy_Data</Name>
-      <Address>004E71DB</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>fire_stanceSRA</Name>
-      <Address>0F08F92C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_NGP_Grade_AOB</Name>
-      <Address>008715BF</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Titles_AOB</Name>
-      <Address>00522EAB</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>max_Boon</Name>
-      <Address>004F5CCC</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>voice_SRA_ROS_Kamui</Name>
-      <Address>00555EC0</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>instcast</Name>
-      <Address>004BCA2C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>health</Name>
-      <Address>0051E0D5</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>min_Dmg2</Name>
-      <Address>004ADC10</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_EnemyBook_AOB</Name>
-      <Address>006D8916</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>pre_descrpt_r</Name>
-      <Address>0055B412</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>descript_replace</Name>
-      <Address>0055B4C2</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>zaveid_noHat</Name>
-      <Address>27AD7ADC</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>enm_BkData</Name>
-      <Address>11080170</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>null_OverwriteShadowStatChk</Name>
-      <Address>004C1239</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_UsedArte_AOB</Name>
-      <Address>00716CD0</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>no_artePause</Name>
-      <Address>004AB7CE</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>qStep_dist</Name>
-      <Address>004A93D5</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>char_generalData</Name>
-      <Address>004E71EF</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>charge_nextArte</Name>
-      <Address>0049E8F8</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_MaxUsedArte_AOB</Name>
-      <Address>00716CAE</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>equip1</Name>
-      <Address>0054B906</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>equip_ptr</Name>
-      <Address>558C0011</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>toz_Party</Name>
-      <Address>00538280</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>Tales_of_Symphonia_DotNW</Name>
-      <Address>13A20000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToSDotNW_RAM</Name>
-      <Address>FFFF0000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteParams_Arth</Name>
-      <Address>35541890</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteParams_Zav</Name>
-      <Address>35333390</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>replaceWpnModel_Eizen</Name>
-      <Address>34271C68</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteParams_Jude</Name>
-      <Address>33833D50</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteParams_Artorius</Name>
-      <Address>33811890</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>always_validSomething</Name>
-      <Address>14135B4B1</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>jumpforshit</Name>
-      <Address>14134CA17</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteCanceller</Name>
-      <Address>14193CE8A</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>nullCoat_Teresa</Name>
-      <Address>6ACC390C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>nullHair_Magilou</Name>
-      <Address>4F1E0120</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>chronological_derivativeArte2</Name>
-      <Address>14136758A</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arena</Name>
-      <Address>351FB370</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>prev_statusEffect</Name>
-      <Address>141352CC9</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>prev_statusEffects2</Name>
-      <Address>141352D0F</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>infinite_SG</Name>
-      <Address>14134CDBC</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>infinite_SG_outOfMenu</Name>
-      <Address>14140A1EF</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>infinite_CC</Name>
-      <Address>14131007D</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>infinite_Souls</Name>
-      <Address>14130FFCB</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>dKnell_alter</Name>
-      <Address>4F79A85E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>bSphere_alter</Name>
-      <Address>5103A248</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ovDrive_alter</Name>
-      <Address>504701CC</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>keep_aerialHgt1</Name>
-      <Address>1412A7F2D</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>keep_aerialHgt2</Name>
-      <Address>1413478F2</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>show_BSBA</Name>
-      <Address>1414C4426</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>null_cmpToBrkSoulInstrc</Name>
-      <Address>14134CA66</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>null_swBlCmboCheck</Name>
-      <Address>14134E2AB</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>inf_BG</Name>
-      <Address>14130F9E8</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>SurgLand_alter</Name>
-      <Address>33CFE628</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>motionChg_IBloomAni</Name>
-      <Address>5ED11760</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>cast_time</Name>
-      <Address>14136D607</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arte_usage_count</Name>
-      <Address>141649A3D</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>dKnell_staggerType</Name>
-      <Address>50A2029E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>dKnell_xyzVar</Name>
-      <Address>50A11B70</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>bSphere_staggerType</Name>
-      <Address>50A449C8</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>sigSpr_staggerType</Name>
-      <Address>509F4A56</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>bTorrnt_staggerType</Name>
-      <Address>509502F2</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ovDrive_staggerType</Name>
-      <Address>50A5408C</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>null_hairLaphi</Name>
-      <Address>512500EC</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arte_Param</Name>
-      <Address>14140B6E3</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>enemyIdleTime</Name>
-      <Address>141365C39</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>partyFormation</Name>
-      <Address>14163FD3B</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>MBlitz_alter</Name>
-      <Address>51098D08</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>PPlung_alter</Name>
-      <Address>4C7A39F8</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>WSnap_alter</Name>
-      <Address>4C783248</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>SVortx_alter</Name>
-      <Address>4C7BA118</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>motionChgJud</Name>
-      <Address>5085F9D8</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>PPlung_chainArte</Name>
-      <Address>4C790A98</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arte_editor</Name>
-      <Address>141649B1F</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>set_charBS</Name>
-      <Address>34867740</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>diff_eQuant</Name>
-      <Address>0EF6179F</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Inv</Name>
-      <Address>00550CA0</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Boons_AOB</Name>
-      <Address>00A5761E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Shop_AOB</Name>
-      <Address>0073391F</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>spirit</Name>
-      <Address>0045346E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Insane</Name>
-      <Address>00517DE0</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Gald</Name>
-      <Address>005167A0</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_AP_AOB</Name>
-      <Address>005170E3</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Title_AOB</Name>
-      <Address>005385B4</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Boon_AOB</Name>
-      <Address>004F5BBA</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Battle_AOB</Name>
-      <Address>004AE735</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Grade_AOB</Name>
-      <Address>00488281</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Foes_Defeated_AOB</Name>
-      <Address>00498854</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Lv_AoB</Name>
-      <Address>004C096E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>MONSTERKILLS</Name>
-      <Address>004AEE8B</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>SpeedCheckAOB</Name>
-      <Address>00683AFF</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>MaxSpeedAOB</Name>
-      <Address>00683B40</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>RunSpeedData</Name>
-      <Address>55680016</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>MaxBase</Name>
-      <Address>00D51B64</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Enm_Stat_AoB</Name>
-      <Address>004C096E</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Outfit_AOB</Name>
-      <Address>00716A13</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>bossEnc</Name>
-      <Address>0F103ED0</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Party_Members_AOB</Name>
-      <Address>00513E85</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Arte_Menu_AOB</Name>
-      <Address>00717D13</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ToZ_Arte_Menu_AOB2</Name>
-      <Address>00717C73</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>unlimited_base_arte</Name>
-      <Address>306FC525</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>autoHP</Name>
-      <Address>13F42B20000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
-  <DisassemblerComments>
-    <DisassemblerComment>
-      <Address>3054BE44</Address>
-      <Comment>get title eax
-</Comment>
-    </DisassemblerComment>
-  </DisassemblerComments>
+  <UserdefinedSymbols/>
 </CheatTable>

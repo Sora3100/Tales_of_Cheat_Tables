@@ -4,10 +4,10 @@
 
 These tables were originally meant to be for myself, but I am releasing all of them here. Not all of them are usable tables, and only contain notes, perhaps someone wants to look at them. Below I will list each table's features. Note that unless you use the exact version of the game I posted, things might not work.
 
-Emulators used for their respective platforms and their versions:
+Emulators used for their respective platforms and their versions, unless stated otherwise in the features section:
 
- - **PS1**: *Beetle PSX HW 0.9.44.1 9f126e5*
- - **PS2**: *PCSX2 v.1.7.0-dev-18-g5a5dc7f67*
+ - **PS1**: *DuckStation 0.1-4599-ga542fa85 (dev)*
+ - **PS2**: *PCSX2 v.1.7.0-dev-1612-g1180de51f*
  - **PS3**: *rpcs3 0.0.12-10883-92d65ff3 Alpha*
  - **PSP**: *PPSSPP v1.11.2-366-g4d02d64fd*
  - **Abyss**: *SLUS-21386*
@@ -23,6 +23,8 @@ Emulators used for their respective platforms and their versions:
  - **Legendia**: *SLUS-21201*
  - **Phantasia: Narikiri Dungeon X**: *ULJS00293 with english menu patch*
  - **Symphonia**: *2016/09/27*
+ - **Rebirth**: *SLPS-25450*
+ - **Eternia**: *SLUS-01355*, *SLUS-01367*, *SLUS-01368*
 
 ## Abyss (PS2)
 
@@ -37,17 +39,17 @@ Features:
 Features: 
  - Party Editor
  - Stats Editor
- - Battle Stats Editor
+ - In-Battle Stats Editor
 
 ## Destiny Director's Cut (PS2)
 
 Features: 
  - Party Editor
  - Stats Editor
- - Battle Stats Editor
+ - In-Battle Stats Editor
  - Equipment Editor
  - Arte List Editor (including Narikiri Dolls)
- - Gald & EX Point editor
+ - Gald & EX Point Editor
  - Unlock any and all artes
  - Change each character's Blast Calibers
  - Changing encounters
@@ -60,29 +62,29 @@ Features:
 Features: 
  - Party Editor
 
-## Phantasia (PS1)
+## Phantasia (PS1, *Beetle PSX HW 0.9.44.1 9f126e5*)
 
 Features: 
  - Party Editor
  - Stats Editor
- - Battle Stats Editor
+ - In-Battle Stats Editor
  - Equipment Editor
  - Change Control Modes in and outside of battle
  - Enable or Disable Dash Modes
  - Enable or Disable Combo Command Modes
- - Difficulty Changer
+ - Difficulty Modifier
 
 ## Symphonia - Dawn of the New World (PS3)
 
 Features: 
  - Party Editor
  - Stats Editor
- - Battle Stats Editor
+ - In-Battle Stats Editor
  - Equipment Editor
  - Arte List Editor
  - Change Control Modes (to control Monsters)
  - Gald Editor
- - Difficulty Changer
+ - Difficulty Modifier
 
 ## Vesperia (PC)
 Features: 
@@ -100,7 +102,7 @@ Features:
  - Equipment Editor *(the values here were copy pasted from Xillia 2 and may not work/crash or be the same.)*
  - Arte List Editor
  - Gald Editor
- - Difficulty Changer
+ - Difficulty Modifier
  - Enable or Disable Overlimit
  - Enable or Disable menu functions
  - Change World Map (fast travel menu) version
@@ -117,7 +119,7 @@ Features:
  - Equipment Editor (including Chromatus)
  - Arte List Editor (including Chromatus)
  - Gald Editor
- - Difficulty Changer
+ - Difficulty Modifier
  - Change Extractors and/or Elemental Points
  - View/Change Training Facility Code anywhere (still needs to be 8 digits to get accepted)
  - Unlock every character's own artes (including Twin Lotus)
@@ -171,3 +173,29 @@ Features:
 Features:
 - Party Editor
 - Use different character's EX Skills
+- Advanced Encounter Modifier ported over from GameCube version
+
+## Rebirth (PS2)
+
+Features:
+- Party Editor
+- Stats Editor
+- In-Battle Stats Editor
+- Arte List Editor
+- Equipment Editor
+- Gem Editor
+- Encounter Editor
+- Difficulty Modifier
+- Gald Editor
+
+## Eternia (PS1)
+
+Features:
+- Party Editor
+- Stats Editor
+- In-Battle Stats Editor
+- Equipment Editor
+- Arte List Editor
+- Gald Editor
+- Battle camera zoom Editor (useful for co-op)
+- Unlock Hardcore difficulty
