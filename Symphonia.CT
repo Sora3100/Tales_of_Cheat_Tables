@@ -5,7 +5,7 @@
       <ID>25</ID>
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="243ED0D8"/>
+      <LastState Value="" RealAddress="00000000"/>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
       <Address>"TOS.exe"+0071B120</Address>
@@ -20,7 +20,7 @@
       </Offsets>
       <CheatEntries>
         <CheatEntry>
-          <ID>149</ID>
+          <ID>1028</ID>
           <Description>"Party Formation"</Description>
           <Options moHideChildren="1"/>
           <DropDownList DisplayValueAsItem="1">0:Nothing
@@ -34,169 +34,74 @@
 8:Regal
 9:Kratos
 </DropDownList>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : TOS.exe
-  Version: 
-  Date   : 2021-07-30
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-aobscanmodule(partyFormationAOB,TOS.exe,8A 06 84 C0 74 34) // should be unique
-alloc(newmem,$1000)
-alloc(partyFormation,4)
-fullAccess(partyFormationAOB,6)
-
-label(code)
-label(return)
-
-newmem:
-push rax
-lea rax,[esi]
-mov [partyFormation],rax
-pop rax
-code:
-  mov al,[esi]
-  test al,al
-  je TOS.exe+CF43A
-  jmp return
-
-partyFormationAOB:
-  jmp newmem
-  nop
-return:
-
-registersymbol(partyFormation)
-registersymbol(partyFormationAOB)
-[DISABLE]
-
-partyFormationAOB:
-  db 8A 06 84 C0 74 34
-
-unregistersymbol(partyFormation)
-unregistersymbol(partyFormationAOB)
-dealloc(newmem)
-dealloc(partyFormation)
-
-{
-// ORIGINAL CODE - INJECTION POINT: partyFormationAOB
-
-TOS.exe+CF3CF: 8B 0D 68 3F AD 00        - mov ecx,[TOS.exe+6D3F68]
-TOS.exe+CF3D5: DC 05 B8 29 88 00        - fadd qword ptr [TOS.exe+4829B8]
-TOS.exe+CF3DB: D9 5E 48                 - fstp dword ptr [esi+48]
-TOS.exe+CF3DE: C6 44 24 1B 00           - mov byte ptr [esp+1B],00
-TOS.exe+CF3E3: C6 44 24 1A 00           - mov byte ptr [esp+1A],00
-TOS.exe+CF3E8: C6 44 24 19 00           - mov byte ptr [esp+19],00
-TOS.exe+CF3ED: 8D B1 4D 0F 00 00        - lea esi,[ecx+00000F4D]
-TOS.exe+CF3F3: C7 44 24 38 09 00 00 00  - mov [esp+38],00000009
-TOS.exe+CF3FB: EB 03                    - jmp partyFormationAOB
-TOS.exe+CF3FD: 8D 49 00                 - lea ecx,[ecx+00]
-// ---------- INJECTING HERE ----------
-partyFormationAOB: 8A 06                    - mov al,[esi]
-// ---------- DONE INJECTING  ----------
-TOS.exe+CF402: 84 C0                    - test al,al
-TOS.exe+CF404: 74 34                    - je TOS.exe+CF43A
-TOS.exe+CF406: 0F BE C0                 - movsx eax,al
-TOS.exe+CF409: 69 C0 18 01 00 00        - imul eax,eax,00000118
-TOS.exe+CF40F: 8B 84 08 6C 02 00 00     - mov eax,[eax+ecx+0000026C]
-TOS.exe+CF416: A9 00 01 00 80           - test eax,80000100
-TOS.exe+CF41B: 75 1D                    - jne TOS.exe+CF43A
-TOS.exe+CF41D: A8 40                    - test al,40
-TOS.exe+CF41F: 74 07                    - je TOS.exe+CF428
-TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
-}
-</AssemblerScript>
+          <LastState Value="" RealAddress="00000BE5"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>+BE5</Address>
           <CheatEntries>
             <CheatEntry>
-              <ID>151</ID>
+              <ID>1029</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-8</Offset>
-              </Offsets>
+              <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>152</ID>
+              <ID>1030</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-7</Offset>
-              </Offsets>
+              <Address>+1</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>153</ID>
+              <ID>1031</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-6</Offset>
-              </Offsets>
+              <Address>+2</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>154</ID>
+              <ID>1032</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-5</Offset>
-              </Offsets>
+              <Address>+3</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>155</ID>
+              <ID>1033</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-4</Offset>
-              </Offsets>
+              <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>156</ID>
+              <ID>1034</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-3</Offset>
-              </Offsets>
+              <Address>+5</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>157</ID>
+              <ID>1035</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-2</Offset>
-              </Offsets>
+              <Address>+6</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>158</ID>
+              <ID>1036</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>partyFormation</Address>
-              <Offsets>
-                <Offset>-1</Offset>
-              </Offsets>
+              <Address>+7</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -204,7 +109,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
           <ID>26</ID>
           <Description>"EX Skill"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="243ED1C2"/>
+          <LastState Value="" RealAddress="000000EA"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>+EA</Address>
@@ -213,25 +118,24 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>27</ID>
               <Description>"Lloyd"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED1C2"/>
+              <LastState Value="" RealAddress="000000EA"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>34</ID>
+                  <ID>159</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED1C2"/>
+                  <LastState Value="" RealAddress="000000EA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>28</ID>
+                      <ID>160</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C2"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -240,7 +144,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>40</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C3"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -249,16 +152,14 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>39</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C4"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>38</ID>
+                      <ID>161</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C5"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -269,7 +170,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>41</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED1C6"/>
+                  <LastState Value="" RealAddress="000000EE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -278,7 +179,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>42</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C6"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -287,7 +187,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>45</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C7"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -296,7 +195,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>44</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C8"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -305,7 +203,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>43</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED1C9"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -318,7 +215,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>68</ID>
               <Description>"Colette"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED2DA"/>
+              <LastState Value="" RealAddress="00000202"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118</Address>
@@ -327,7 +224,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>69</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED2DA"/>
+                  <LastState Value="" RealAddress="00000202"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -336,7 +233,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>70</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2DA"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -345,7 +241,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>71</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2DB"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -354,7 +249,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>72</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2DC"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -363,7 +257,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>73</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2DD"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -374,7 +267,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>74</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED2DE"/>
+                  <LastState Value="" RealAddress="00000206"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -383,7 +276,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>75</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2DE"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -392,7 +284,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>76</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2DF"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -401,7 +292,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>77</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2E0"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -410,7 +300,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>78</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED2E1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -423,7 +312,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>57</ID>
               <Description>"Genis"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED3F2"/>
+              <LastState Value="" RealAddress="0000031A"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*2</Address>
@@ -432,7 +321,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>58</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED3F2"/>
+                  <LastState Value="" RealAddress="0000031A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -441,7 +330,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>59</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F2"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -450,7 +338,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>60</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F3"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -459,7 +346,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>61</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F4"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -468,7 +354,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>62</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F5"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -479,7 +364,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>63</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED3F6"/>
+                  <LastState Value="" RealAddress="0000031E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -488,7 +373,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>64</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F6"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -497,7 +381,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>65</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F7"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -506,7 +389,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>66</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F8"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -515,7 +397,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>67</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED3F9"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -528,7 +409,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>46</ID>
               <Description>"Raine"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED50A"/>
+              <LastState Value="" RealAddress="00000432"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*3</Address>
@@ -537,7 +418,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>47</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED50A"/>
+                  <LastState Value="" RealAddress="00000432"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -546,7 +427,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>48</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED50A"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -555,7 +435,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>49</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED50B"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -564,7 +443,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>50</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED50C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -573,7 +451,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>51</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED50D"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -584,7 +461,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>52</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED50E"/>
+                  <LastState Value="" RealAddress="00000436"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -593,7 +470,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>53</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED50E"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -602,7 +478,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>54</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED50F"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -611,7 +486,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>55</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED510"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -620,7 +494,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>56</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED511"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -633,7 +506,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>112</ID>
               <Description>"Sheena"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED622"/>
+              <LastState Value="" RealAddress="0000054A"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*4</Address>
@@ -642,7 +515,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>113</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED622"/>
+                  <LastState Value="" RealAddress="0000054A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -651,7 +524,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>114</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED622"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -660,7 +532,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>115</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED623"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -669,7 +540,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>116</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED624"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -678,7 +548,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>117</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED625"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -689,7 +558,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>118</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED626"/>
+                  <LastState Value="" RealAddress="0000054E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -698,7 +567,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>119</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED626"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -707,7 +575,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>120</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED627"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -716,7 +583,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>121</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED628"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -725,7 +591,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>122</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED629"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -738,7 +603,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>101</ID>
               <Description>"Zelos"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED73A"/>
+              <LastState Value="" RealAddress="00000662"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*5</Address>
@@ -747,7 +612,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>102</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED73A"/>
+                  <LastState Value="" RealAddress="00000662"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -756,7 +621,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>103</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED73A"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -765,7 +629,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>104</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED73B"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -774,7 +637,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>105</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED73C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -783,7 +645,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>106</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED73D"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -794,7 +655,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>107</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED73E"/>
+                  <LastState Value="" RealAddress="00000666"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -803,7 +664,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>108</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED73E"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -812,7 +672,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>109</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED73F"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -821,7 +680,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>110</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED740"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -830,7 +688,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>111</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED741"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -843,7 +700,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>90</ID>
               <Description>"Presea"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED852"/>
+              <LastState Value="" RealAddress="0000077A"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*6</Address>
@@ -852,7 +709,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>91</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED852"/>
+                  <LastState Value="" RealAddress="0000077A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -861,7 +718,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>92</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED852"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -870,7 +726,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>93</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED853"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -879,7 +734,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>94</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED854"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -888,7 +742,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>95</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED855"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -899,7 +752,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>96</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED856"/>
+                  <LastState Value="" RealAddress="0000077E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -908,7 +761,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>97</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED856"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -917,7 +769,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>98</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED857"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -926,7 +777,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>99</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED858"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -935,7 +785,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>100</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED859"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -948,7 +797,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <ID>79</ID>
               <Description>"Regal"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243ED96A"/>
+              <LastState Value="" RealAddress="00000892"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*7</Address>
@@ -957,7 +806,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>80</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED96A"/>
+                  <LastState Value="" RealAddress="00000892"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
@@ -966,7 +815,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>81</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED96A"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -975,7 +823,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>82</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED96B"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -984,7 +831,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>83</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED96C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -993,7 +839,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>84</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED96D"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -1004,7 +849,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   <ID>85</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243ED96E"/>
+                  <LastState Value="" RealAddress="00000896"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
@@ -1013,7 +858,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>86</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED96E"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
@@ -1022,7 +866,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>87</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED96F"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
@@ -1031,7 +874,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>88</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED970"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
@@ -1040,7 +882,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                       <ID>89</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243ED971"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -1050,55 +891,51 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>159</ID>
+              <ID>162</ID>
               <Description>"Kratos"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="243EDA82"/>
+              <LastState Value="" RealAddress="000009AA"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+118*8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>160</ID>
+                  <ID>163</ID>
                   <Description>"Jewels"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243EDA82"/>
+                  <LastState Value="" RealAddress="000009AA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>161</ID>
+                      <ID>164</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA82"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>162</ID>
+                      <ID>165</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA83"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>163</ID>
+                      <ID>166</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA84"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>164</ID>
+                      <ID>167</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: Jewels</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA85"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -1106,46 +943,42 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>165</ID>
+                  <ID>168</ID>
                   <Description>"Skills"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="243EDA86"/>
+                  <LastState Value="" RealAddress="000009AE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
                   <Address>+4</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>166</ID>
+                      <ID>169</ID>
                       <Description>"Slot 1"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA86"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+0</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>167</ID>
+                      <ID>170</ID>
                       <Description>"Slot 2"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA87"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+1</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>168</ID>
+                      <ID>171</ID>
                       <Description>"Slot 3"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA88"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+2</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>169</ID>
+                      <ID>172</ID>
                       <Description>"Slot 4"</Description>
                       <DropDownListLink>dropdown: EX Skills</DropDownListLink>
-                      <LastState Value="0" RealAddress="243EDA89"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+3</Address>
@@ -1157,15 +990,646 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>35</ID>
-          <Description>"Memory Records (DON'T DELETE)"</Description>
+          <ID>180</ID>
+          <Description>"Encounter"</Description>
+          <DropDownListLink>dropdown: Encounter</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>TOS.exe+6D3F40</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1026</ID>
+          <Description>"Background"</Description>
+          <DropDownListLink>dropdown: Background</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>TOS.exe+6D3F44</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1076</ID>
+          <Description>"Encounter modifier"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Torent
+1:Orcrot
+2:Marcroid
+3:Minicoid
+4:Tentacle Plant
+5:Mocking Plant
+6:Mandragora
+7:Airaune
+8:Insect Plant
+9:Carnivorous Plant
+10:Bomb Plant
+11:Bomb Seedling
+12:Pumpkin Tree
+13:Bellpepper Head
+14:Boxer Iris
+15:Evil Orchid
+16:Poison Lily
+17:Wolf
+18:Night Raid
+19:Bear
+20:Egg Bear
+21:Rabbit
+22:Hare
+23:Bigfoot
+24:Sidewinder
+25:Violent Viper
+26:Manticore
+27:Chimaera
+28:Lobo
+29:Sasquatch
+30:Boar
+31:Baby Boar
+32:Basilisk
+33:Sewer Rat
+34:Giant Rat
+35:Armaboar
+36:Zombie
+37:Ghoul
+38:Demon
+39:Arch Demon
+40:Skeleton
+41:Gold Skeleton
+42:Undertaker
+43:Coffinmaster
+44:Living Armor
+45:Specter
+46:Phantasm
+47:Death
+48:Grim Reaper
+49:Ghost
+50:Phantom
+51:Lamia
+52:Medusa
+53:Doom Guard
+54:Phantom Knight
+55:Hell Knight
+56:Samael
+57:Pharoah Knight
+58:Golem
+59:Rock Golem
+60:Clay Golem
+61:Gentleman
+62:Living Doll
+63:Evil Teddy
+64:Living Sword
+65:Melting Pot
+66:Brown Pot
+67:Fire Element
+68:Gargoyle
+69:Neviros
+70:Ice Warrior
+71:Fire Warrior
+72:Thunder Sword
+73:Fake
+74:Water Element
+75:Wind Element
+76:Earth Element
+77:Hammer Knuckle
+78:Murder
+79:Perfect Murder
+80:Raybit
+81:Cybit
+82:Thief
+83:Rogue
+84:Soldier
+85:Duelist
+86:Warrior
+87:Heavy Armor
+88:Dragon Rider
+89:Archer
+90:Ranger
+91:Witch
+92:Sorceress
+93:Sorcerer
+94:Druid
+95:Ogre
+96:Beast Ogre
+97:Whip Master
+98:Bowman
+99:Spearman
+100:Foot Soldier
+101:Commander
+102:Cardinal Knight
+103:Commander Knight
+104:Evil Warrior
+105:Convict
+106:Evil Sorcerer
+107:Angel Spearman
+108:Angel Swordian
+109:Angel Commander
+110:Angel Archer
+111:Hawk
+112:Storm Claw
+113:Axe Beak
+114:Dodo
+115:Harpy
+116:Feather Magic
+117:Fire Bird
+118:Lightning Bird
+119:Penguinist
+120:Penguiner
+121:Black Bat
+122:Cockatrice
+123:Red Bat
+124:Giant Bee
+125:Killer Bee
+126:Scorpion
+127:Scarlet Needle
+128:Woods Worm
+129:Tropical Worm
+130:Sand Worm
+131:Sliver
+132:Mantis
+133:Red Mantis
+134:Spider
+135:Arachnid
+136:Giant Beetle
+137:Gold Beetle
+138:Grasshopper
+139:Ice Spider
+140:Deathseeker
+141:Starfish
+142:Super Star
+143:Tortoise
+144:Crush Tortoise
+145:Octoslime
+146:Kraaken
+147:Fish
+148:Seaspin
+149:Float Dragon
+150:Seahorse
+151:Jellyfish
+152:Sea Jelly
+153:Mermaid
+154:Evil Jelly
+155:Sea Dragon
+156:Sea Horror
+157:Slime
+158:Gold Slime
+159:Giant Leech
+160:Giant Slug
+161:Roller Snail
+162:Giant Snail
+163:Green Roper
+164:Red Roper
+165:Bacura
+166:Cutlass
+167:Cave Worm
+168:Man-eater
+169:Sheldra
+170:Spiked Snail
+171:Wyvern
+172:Drake
+173:Dragon
+174:Gold Dragon
+175:Dark Dragon
+176:Dragon Knight
+177:Velocidragon
+178:Exbelua
+179:Windmaster
+180:Ktugach
+181:Ktugachling
+182:Adulocia
+183:Amphitra
+184:Iapyx
+185:Iubaris
+186:Kilia
+187:Winged Dragon
+188:Baby Dragon
+189:Guardian: Wind
+190:Guardian: Lightning
+191:Sword Dancer
+192:Fenrir
+193:Idun
+194:Rodyle
+195:Undine
+196:Gnome
+197:Efreet
+198:Volt
+199:Celsius
+200:Luna
+201:Aska
+202:Shadow
+203:Maxwell
+204:Origin
+205:Sephie
+206:Yutis
+207:Fairess
+208:The Fugitive
+209:The Neglected
+210:The Judged
+211:Defense System
+212:Orbit
+213:Guard Arm
+214:Auto Repair Unit
+215:Kratos Aurion
+216:Magnius
+217:Kvar
+218:Energy Stone
+219:Vidarr
+220:Forcystus
+221:Exbone
+222:Pronyma
+223:Pronyma
+224:Clumsy Assassin
+225:Resolute Assassin
+226:Convict
+227:Kuchinawa
+228:Botta
+229:Botta
+230:Seles
+231:Garr
+232:Farah Oersted
+233:Meredy
+234:Abyssion
+235:Zelos Wilder
+236:Yggdrasill
+237:Yggdrasill
+238:Yggdrasill
+239:Mithos
+240:Mithos
+241:Kratos Aurion
+242:Kratos Aurion
+243:Yuan
+244:Remiel
+245:Gatekeeper
+246:Plantix
+247:Dark Spear
+248:Dark Sword
+249:Dark Commander
+250:Dark Archer
+251:Shadow Magnius
+252:Shadow Forcystus
+253:Shadow Pronyma
+254:Yuan the Hero
+255:Kratos the Hero
+256:Mithos the Hero
+</DropDownList>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2021-08-09
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(encounter507,67 70 33 00 03 03 02 00 7C 00 9D 00 86 00 00 00 00 01 02 00 00 00 00 00) // should be unique
+
+registersymbol(encounter507)
+[DISABLE]
+encounter507:
+db 67 70 33 00 03 03 02 00 7C 00 9D 00 86 00 00 00 00 01 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+encounter507-D600:
+db 67 70 33 00 01 01 53 00 EF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+unregistersymbol(encounter507)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1093</ID>
+              <Description>"Encounter 507"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1089</ID>
+                  <Description>"Force Encounter 507 to use this!"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1077</ID>
+                  <Description>"Number of enemies"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounter507+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1078</ID>
+                  <Description>"Number of species"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounter507+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1079</ID>
+                  <Description>"Escape available?"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:No
+2:Yes
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounter507+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1080</ID>
+                  <Description>"1st enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1083</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1086</ID>
+                  <Description>"2nd enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+A</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1087</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1081</ID>
+                  <Description>"3rd enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1084</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1082</ID>
+                  <Description>"4th enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+E</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1085</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1094</ID>
+              <Description>"Mithos (Final Boss 1st phase, Encounter 79)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1095</ID>
+                  <Description>"Number of enemies"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounter507+4-D600</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1096</ID>
+                  <Description>"Number of species"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounter507+5-D600</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1097</ID>
+                  <Description>"Escape available?"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:No
+2:Yes
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounter507+6-D600</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1098</ID>
+                  <Description>"1st enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+8-D600</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1099</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1100</ID>
+                  <Description>"2nd enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+A-D600</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1101</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1102</ID>
+                  <Description>"3rd enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+C-D600</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1103</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1104</ID>
+                  <Description>"4th enemy type"</Description>
+                  <DropDownListLink>Encounter modifier</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>encounter507+E-D600</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1105</ID>
+                      <Description>"Species"</Description>
+                      <DropDownListLink>dropdown: Species</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1107</ID>
+          <Description>"TSFix Background/Encounter"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2021-08-09
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(TSFixBGAOB,TOS.exe,8A 41 08 88 86 EA 90 00 00) // should be unique
+alloc(newmem,$1000)
+globalalloc(TSFixBG,4)
+
+label(code)
+label(return)
+
+fullaccess(TSFixBGAOB,6)
+
+newmem:
+push rax
+lea rax,[ecx+08]
+mov [TSFixBG],rax
+pop rax
+code:
+  mov al,[ecx+08]
+  mov [esi+000090EA],al
+  jmp return
+
+TSFixBGAOB:
+  jmp newmem
+  nop 4
+return:
+registersymbol(TSFixBGAOB)
+[DISABLE]
+
+TSFixBGAOB:
+  db 8A 41 08 88 86 EA 90 00 00
+
+unregistersymbol(TSFixBGAOB)
+dealloc(newmem)
+dealloc(TSFixBG)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 0045B638
+
+0045B605: 81 78 40 78 68 15 00     - cmp [eax+40],00156878
+0045B60C: 7D 07                    - jnl 0045B615
+0045B60E: 80 A6 CB 93 00 00 FD     - and byte ptr [esi+000093CB],-03
+0045B615: F6 82 04 1B 00 00 03     - test byte ptr [edx+00001B04],03
+0045B61C: 74 07                    - je 0045B625
+0045B61E: 80 A6 CB 93 00 00 DF     - and byte ptr [esi+000093CB],-21
+0045B625: F6 82 04 1B 00 00 02     - test byte ptr [edx+00001B04],02
+0045B62C: 74 07                    - je 0045B635
+0045B62E: 80 A6 CB 93 00 00 EF     - and byte ptr [esi+000093CB],-11
+0045B635: 8B 4D 08                 - mov ecx,[ebp+08]
+// ---------- INJECTING HERE ----------
+0045B638: 8A 41 08                 - mov al,[ecx+08]
+// ---------- DONE INJECTING  ----------
+0045B63B: 88 86 EA 90 00 00        - mov [esi+000090EA],al
+0045B641: 33 C0                    - xor eax,eax
+0045B643: 80 BC 02 4D 0F 00 00 00  - cmp byte ptr [edx+eax+00000F4D],00
+0045B64B: 74 06                    - je 0045B653
+0045B64D: 40                       - inc eax
+0045B64E: 83 F8 04                 - cmp eax,04
+0045B651: 7C F0                    - jl 0045B643
+0045B653: 8B 96 40 93 00 00        - mov edx,[esi+00009340]
+0045B659: 88 86 4C 93 00 00        - mov [esi+0000934C],al
+0045B65F: 8A 42 04                 - mov al,[edx+04]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1110</ID>
+              <Description>"Enter a fight to get everything populated!"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1108</ID>
+              <Description>"Encounter"</Description>
+              <DropDownListLink>dropdown: Encounter</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TSFixBG</Address>
+              <Offsets>
+                <Offset>-4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1111</ID>
+              <Description>"Background"</Description>
+              <DropDownListLink>dropdown: Background</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TSFixBG</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>173</ID>
+          <Description>"Memory Records/Other (DON'T DELETE)"</Description>
           <Options moHideChildren="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
-              <ID>36</ID>
+              <ID>174</ID>
               <Description>"dropdown: Jewels"</Description>
               <DropDownList DisplayValueAsItem="1">0:Lv -
 1:Lv 1
@@ -1178,7 +1642,7 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <GroupHeader>1</GroupHeader>
             </CheatEntry>
             <CheatEntry>
-              <ID>37</ID>
+              <ID>175</ID>
               <Description>"dropdown: EX Skills"</Description>
               <DropDownList DisplayValueAsItem="1">0:Empty
 1:Strong
@@ -1321,12 +1785,1298 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
             </CheatEntry>
+            <CheatEntry>
+              <ID>1088</ID>
+              <Description>"dropdown: Species"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Species 1
+1:Species 2
+2:Species 3
+3:Species 4
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1112</ID>
+              <Description>"dropdown: Encounter"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Zombie x1
+1:Zombie x1
+2:Ghost x1 Zombie x1
+3:Foot Soldier x2
+4:Vidarr x1
+5:Golem x1
+6:Whip Master x2
+7:Whip Master x1 Bowman x1
+8:Exbelua x1
+9:Whip Master x2 Bowman x1
+10:Foot Soldier x2
+11:Botta x1 Foot Soldier x2
+12:Ktugach x1 Ktugachling x2
+13:Adulocia x1 Amphitra x2
+14:Lapyx x1
+15:Lubaris x1
+16:Clumsy Assassin x1 (Sheena) Guardian-Wind x1
+17:Resolute Assassin x1 (Sheena) Guardian-Lightning x1
+18:Whip Master x2 Evil Sorcerer x1
+19:Kilia x1
+20:Whip Master x2 Bowman x1 Evil Sorcerer x1
+21:Whip Master x1 Bowman x2 Evil Sorcerer x1
+22:Magnius x1 Whip Master x1 Bowman x1
+23:Efreet x1
+24:Undine x1
+25:Sephie x1 Yutis x1 Fairess x1 (Sylph)
+26:Windmaster x1
+27:Spearwoman x2 Evil Sorcerer x1
+28:Yuan x1
+29:Whip Master x1 Spearman x2 Evil Sorcerer x1
+30:Evil Sorcerer x2
+31:Kvar x1 Energy Stone x3
+32:Remiel x1
+33:Kratos Aurion x1 (Fight 1)
+34:Yggdrasill x1 (Fight 1)
+35:Fire Element x2
+36:Sephie x1 Yutis x1 Fairess x1 (Sylph)
+37:Cardinal Knight x3
+38:Pronyma x1
+39:Efreet x1
+40:Convict x3
+41:Cardinal Knight x3
+42:Convict x1 (Regal)
+43:Toze Valley Mine Defense System x1
+44:Commander Knight x1 Cardinal Knight x2
+45:Zombie x1
+46:Volt x1
+47:Botta x1 Yuan x1
+48:Winged Dragon x1 Baby Dragon x2
+49:Gnome x1
+50:Celsius x1 Fenrir x1
+51:Shadow x1
+52:Commander Knight x1 Cardinal Knight x2
+53:Rodyle x1
+54:Baby Dragon x3
+55:Baby Dragon x2
+56:Duelist x2 Sorceress x1
+57:Zombie x1
+58:Luna x1 Aska x1
+59:Whip Master x2 Spearwoman x1 Evil Sorcerer x1
+60:Forcystus x1 Exbone x2
+61:Zombie x1 Commander x2
+62:Zombie x1
+63:Kuchinawa x1
+64:Plantix x1
+65:Kratos Aurion x1 (Fight 2)
+66:Yggdrasill x1 (Fight 2)
+67:Angel Commander x1 Angel Swordian x2
+68:Angel Swordian x2 Angel Commander x1
+69:Angel Commander x1 Angel Swordian x2 Angel Spearman x1
+70:Gatekeeper x1 Angel Swordian x2
+71:Zelos Wilder x1
+72:Pronyma x1 Idun x2 (Tower of Salvation)
+73:Yggdrasill x1 (Fight 3)
+74:Kratos Aurion x1 (Fight 3)
+75:Origin x1
+76:The Neglected x1
+77:The Fugitive x1
+78:The Judged x1
+79:Mithos x1
+80:Mithos x1
+81:Mithos x1 (Second form)
+82:Seles x1
+83:Garr x1 Farah Oersted x1 Meredy x1
+84:Maxwell x1
+85:Zombie x1
+86:Abyssion x1
+87:Sword Dancer x1 (Fight 1)
+88:Sword Dancer x1 (Fight 2)
+89:Sword Dancer x1 (Fight 3)
+90:Sword Dancer x1
+91:Zombie x2
+92:Cave Worm x2
+93:Bacura x1
+94:Zombie x1
+95:Duelist x2 Heavy Armor x1
+96:Sand Worm x1
+97:Cutlass x3
+98:Hell Night x1
+99:Living Armor x1
+100:Minicoid x2
+101:Spider x1 Giant Bee x1
+102:Rabbit x1 Spider x1
+103:Rabbit x1 Giant Bee x1
+104:Spider x1 Minicoid x2
+105:Giant Bee x3
+106:Giant Bee x2
+107:Rabbit x1 Slime x1
+108:Spider x1 Slime x1 Minicoid x1
+109:Minicoid x2
+110:Minicoid x1 Slime x2
+111:Zombie x2 Ghost x1
+112:Zombie x1 Spider x1 Slime x1
+113:Zombie x1 Ghost x1 Slime x2
+114:Zombie x2 Ghost x1 Slime x1
+115:Slime x2 Ghost x1
+116:Slime x2 Zombie x1 Ghost x1
+117:Spider x2 Slime x2
+118:Spider x1 Ghost x1 Slime x1
+119:Zombie x1 Ghost x2 Spider x1
+120:Golem x1
+121:Whip Master x1
+122:Whip Master x2
+123:Whip Master x3
+124:Whip Master x4
+125:Zombie x1
+126:Zombie x1
+127:Zombie x1
+128:Zombie x1
+129:Whip Master x2 Hawk x2
+130:Zombie x1
+131:Foot Soldier x1
+132:Foot Soldier x2
+133:Foot Soldier x1 Raybit x1
+134:Raybit x1
+135:Raybit x2
+136:Whip Master x2
+137:Whip Master x1 Bowman x1
+138:Bowman x2
+139:Mithos x1 (Second form)
+140:Mithos x1 (Second form)
+141:Fire Bird x1 Brown Pot x2
+142:Fire Bird x2 Fire Element x1
+143:Fire Bird x2 Fire Warrior x1
+144:Scorpion x3
+145:Scropioin x2 Brown Pot x1 Fire Element x1
+146:Scorpion x2 Fire Bird x1 Fire Warrior x1
+147:Fire Warrior x2 Fire Element x1
+148:Fire Warrior x2 Fire Element x2
+149:Fire Warrior x2 Brown Pot x1 Fire Element x1
+150:Fire Warrior x2 Fire Bird x1 Fire Element x1
+151:Thief x1 Archer x2
+152:Thief x2 Archer x1 Witch x1
+153:Axe Beak x2 Bear x1
+154:Axe Beak x1 Hawk x1 Bear x1
+155:Axe Beak x2 Hawk x1 Mandragora x1
+156:Axe Beak x1 Hawk x1 Mandragora x2
+157:Bear x2
+158:Axe Beak x1 Bear x2
+159:Mandragora x2 Bear x1
+160:Mandragora x2 Bear x1 Axe Beak x1
+161:Whip Master x1 Bowman x1 Evil Sorcerer x1
+162:Whip Master x1 Bowman x1
+163:Whip Master x2 Bowman x1
+164:Whip Master x1 Bowman x2
+165:Whip Master x2
+166:Whip Master x2 Bowman x1 Evil Sorcerer x1
+167:Whip Master x1 Bowman x2 Evil Sorcerer x1
+168:Raybit x2 Whip Master x1
+169:Raybit x2 Whip Master x2
+170:Raybit x2
+171:Starfish x4
+172:Starfish x2 Float Dragon x1
+173:Starfish x2 Octoslime x1
+174:Float Dragon x2 Green Roper x1 Starfish x1
+175:Starfish x1 Float Dragon x1 Octoslime x1
+176:Green Roper x2 Float Dragon x1
+177:Green Roper x2 Octoslime x1
+178:Starfish x1 Green Roper x2 Water Element x1
+179:Starfish x1 Float Dragon x1 Water Element x2
+180:Green Roper x1 Float Dragon x1 Water Element x2
+181:Arachnid x2 Skeleton x1
+182:Arachnid x2 Gargoyle x1 Harpy x1
+183:Arachnid x3 Melting Pot x1
+184:Arachnid x1 Skeleton x1 Wind Element x1
+185:Skeleton x2 Harpy x1 Wind Element x1
+186:Arachnid x1 Skeleton x1 Harpy x2
+187:Gargoyle x1 Wind Element x1 Harpy x2
+188:Gargoyle x2 Arachnid x1 Wind Element x1
+189:Gargoyle x1 Melting Pot x1 Skeleton x2
+190:Melting Pot x2 Gargoyle x1 Harpy x1
+191:Whip Master x1 Spearwoman x1
+192:Spearwoman x1 Evil Scorcerer x1
+193:Whip Master x1 Evil Sorcerer x1
+194:Whip Master x1 Spearwoman x1 Evil Sorcerer x1
+195:Raybit x1 Whip Master x1
+196:Raybit x1 Spearwoman x1
+197:Raybit x1 Evil Sorcerer x1
+198:Raybit x1
+199:Raybit x1
+200:Raybit x2
+201:Living Sword x2
+202:Living Sword x2 Grim Reaper x1
+203:Living Sword x1 Grim Reaper x2
+204:Specter x1 Grim Reaper x2
+205:Living Sword x1 Specter x1 Grim Reaper x1
+206:Living Sword x1 Specter x2
+207:Specter x2
+208:Specter x1 Grim Reaper x1
+209:Living Sword x1 Living Doll x1
+210:Living Sword x1 Living Doll x1 Grim Reaper x1
+211:Foot Soldier x1 Raybit x1
+212:Foot Soldier x1 Raybit x2
+213:Foot Soldier x2 Raybit x2
+214:Foot Soldier x2 Evil Warrior x1
+215:Foot Soldier x1 Evil Warrior x2
+216:Foot Soldier x2 Evil Warrior x2
+217:Raybit x2 Evil Warrior x2
+218:Raybit x1 Foot Soldier x2 Evil Warrior x1
+219:Raybit x2 Foot Soldier x1 Evil Warrior x2
+220:Zombie x1
+221:Zombie x1
+222:Zombie x1
+223:Zombie x1
+224:Zombie x1
+225:Zombie x1
+226:Zombie x1
+227:Zombie x1
+228:Zombie x1
+229:Zombie x1
+230:Zombie x1
+231:Night Raid x1 Hare x1 Egg Bear x1
+232:Night Raid x1 Egg Bear x1
+233:Hare x1 Night Raid x1
+234:Night Raid x2
+235:Black Bat x2
+236:Black Bat x2 Night Raid x1
+237:Black Bat x2 Hare x1
+238:Black Bat x2 Egg Bear x1
+239:Hare x2
+240:Torrent x1
+241:Zombie x2 Ghost x1 Slime x1
+242:Zombie x1 Ghost x1 Slime x2
+243:Zombie x2 Ghost x2
+244:Zombie x1 Ghost x1 Demon x1
+245:Zombie x2 Ghost x1 Chimaera x1
+246:Zombie x2 Chimaera x2
+247:Chimaera x1 Demon x2
+248:Chimaera x2 Zombie x1 Slime x1
+249:Chimaera x2 Zombie x1 Ghost x1
+250:Chimaera x1 Demon x1
+251:Giant Rat x1
+252:Giant Rat x2
+253:Giant Rat x3
+254:Sewer Rat x1 Violent Viper x2 Giant Leech x1
+255:Violent Viper x2 Giant Leech x2
+256:Sewer Rat x1 Violent Viper x1 Jellyfish x2
+257:Violent Viper x3 Giant Leech x1 Jellyfish x1
+258:Sewer Rat x3 Giant Leech x1 Jellyfish x1
+259:Sewer Rat x1 Violent Viper x2 Jellyfish x2
+260:Sewer Rat x6
+261:Tropical Worm x2 Pumpkin Tree x1 Boxer Iris x1
+262:Tropical Worm x2 Ghoul x1 Phantom x1
+263:Tropical Worm x3 Undertaker x1
+264:Pumpkin Tree x2 Boxer Iris x1 Tropical Worm x1
+265:Boxer Iris x2 Ghoul x1 Pumpkin Tree x1
+266:Ghoul x1 Phantom x1 Pumpkin Tree x1
+267:Ghoul x2 Phantom x1 Pumpkin Tree x1
+268:Undertaker X2 Tropical Worm x1
+269:Ghoul x2 Undertaker x1 Phantom x1
+270:Undertaker x2 Phantom x1 Ghoul x1
+271:Fake x1 (Triet Ruins)
+272:Fake x1 (Underground Sewer)
+273:Fake x1 (Latheon Gorge)
+274:Fake x1
+275:Bacura x1
+276:Zombie x1
+277:Zombie x1
+278:Zomibe x1
+279:Zombie x1
+280:Zombie x1
+281:Red Bat x3 Red Roper x2
+282:Red Bat x3 Rock Golem x1
+283:Red Bat x2 Basilisk x1 Red Roper x1
+284:Basilisk x2 Red Bat x2
+285:Basilisk x2 Rock Golem x1
+286:Red Roper x2 Roller Snail x2
+287:Red Roper x2 Roller Snail x1 Basilisk x1
+288:Red Roper x1 Roller Snail x2 Red Bat x1
+289:Rock Golem x2 Basilisk x1
+290:Rock Golem x2 Roller Snail x1
+291:Foot Soldier x2 Evil Warrior x1
+292:Foot Soldier x1 Evil Warrior x2
+293:Foot Soldier x3 Evil Warrior x1
+294:Foot Soldier x2 Evil Warrior x2
+295:Foot Soldier x1 Evil Warrior x2 Commander x1
+296:Raybit x2 Foot Soldier x1
+297:Raybit x2 Evil Warrior x1
+298:Foot Soldier x2 Commander x1
+299:Raybit x2 Commander x1
+300:Evil Warrior x2 Commander x1
+301:Thunder Sword x2 Lamia x1
+302:Thunder Sword x3 Lamia x1
+303:Thunder Sword x1 Gold Slime x2 Lamia x1
+304:Thunder Sword x2 Gold Slime x1 Thunder Bird x1
+305:Gold Skeleton x2 Thunder Sword x1
+306:Gold Skeleton x2 Gold Slime x1 Lamia x1
+307:Gold Skeleton x2 Lightning Bird x1 Lamia x1
+308:Lightning Bird x2 Thunder Sword x1
+309:Lightning Bird x2 Gold Slime x1 Thunder Sword x1
+310:Lightning Bird x1 Gold Slime x2 Lamia x1
+311:Ice Spider x2 Penguinist x1
+312:Ice Spider x3 Penguinist x1
+313:Ice Spider x2 Ice Warrior x1 Feather Magic x1
+314:Bigfoot x1 Penguinist x1 Ice Spider x1
+315:Lobo x1 Ice Spider x1 Penguinist x1
+316:Lobo x2
+317:Ice Warrior x2 Feather Magic x1 Penguinist x1
+318:Ice Warrior x1 Penguinist x1 Feather Magic x2
+319:Penguinist x2 Feather Magic x2
+320:Penguinist x4
+321:Giant Snail x2 Clay Golem x1
+322:Giant Snail x2 Earth Element x1
+323:Giant Snail x1 Clay Golem x1 Earth Element x1
+324:Giant Snail x1 Neviros x2 Earth Element x1
+325:Neviros x2 Earth Element x2
+326:Clay Golem x1 Neviros x2
+327:Clay Golem x1 Neviros x1 Earth Element x1
+328:Clay Golem x1 Earth Element x2
+329:Clay Golem x2 Earth Element x1
+330:Dragon x1
+331:Pharaoh Knight x2 Manticore x1
+332:Pharaoh Knight x2 Manticore x2
+333:Manticore x2 Coffinmaster x1
+334:Manticore x2 Coffinmaster x1 Druid x1
+335:Manticore x2 Pharaoh Knight x1 Druid x1
+336:Coffinmaster x2 Druid x1
+337:Coffinmaster x1 Pharaoh Knight x1 Druid x2
+338:Pharaoh Knight x3 Druid x1
+339:Pharaoh Knight x1 Coffinmaster x2 Druid x1
+340:Zombie x1
+341:Whip Master x1 Spearwoman x2 Bowman x1
+342:Whip Master x1 Spearwoman x1 Bowman x2
+343:Whip Master x2 Spearwoman x1 Evil Sorcerer x1
+344:Whip Master x1 Bowman x2 Evil Sorcerer x1
+345:Sea Horror x2 Evil Jelly x1
+346:Giant Slug x2 Evil Jelly x1
+347:Evil Jelly x1 Giant Slug x2
+348:Zombie x1
+349:Zombie x1
+350:Zombie x1
+351:Doom Guard x2 Phantasm x1 Death x1
+352:Phantasam x2 Death x1 Samael x1
+353:Doom Guard x1 Death x2 Samael x1
+354:Phantom Knight x1 Death x2 Samael x1
+355:Phantom Knight x1 Samael x2
+356:Dark Dragon x1
+357:Zombie x1
+358:Zombie x1
+359:Zombie x1
+360:Zombie x1
+361:Whip Master x1 Spearwoman x2 Bowman x1
+362:Whip Master x1 Spearwoman x1 Bowman x2
+363:Whip Master x2 Spearwoman x1 Evil Sorcerer x1
+364:Whip Master x1 Bowman x2 Evil Sorcerer x1
+365:Whip Master x2 Spearwoman x1 Evil Sorcerer x1
+366:Whip Master x2 Bowman x1 Evil Sorcerer x1
+367:Whip Master x1 Spearwoman x1 Evil Sorcerer x2
+368:Raybit x2 Whip Master x1
+369:Raybit x2 Whip Master x1 Spearwoman x1
+370:Raybit x2 Bowman x1 Evil Sorcerer x1
+371:Armaboar x2
+372:Boar x2 Baby Boar x2
+373:Boar x2 Baby Boar x2 Storm Claw x1
+374:Boar x2 Baby Boar x3
+375:Killer Bee x2 Orcrot x1 Storm Claw x1
+376:Killer Bee x3 Orcrot x2
+377:Killer Bee x5
+378:Storm Claw x2 Dodo x2 Boar x1
+379:Storm Claw x2 Boar x2 Baby Boar x1
+380:Storm Claw x1 Dodo x2 Orcrot x1
+381:Zombie x1
+382:Zombie x1
+383:Zombie x1
+384:Zombie x1
+385:Zombie x1
+386:Zombie x1
+387:Zombie x1
+388:Zombie x1
+389:Zombie x1
+390:Zombie x1
+391:Poison Lily x2 Deathseeker x1
+392:Poison Lily x2 Deathseeker x1 Sea Dragon x1
+393:Poison Lily x2 Spiked Snail x1
+394:Spiked Snail x1 Sea Dragon x1 Death Seeker x1
+395:Spiked Snail x2 Poison Lily x1
+396:Spiked Snail x2 Sea Dragon x2
+397:Deathseeker x2 Sheldra x1
+398:Sheldra x2 Sea Dragon x1
+399:Crush Tortoise x1
+400:Crush Tortoise x1 Sea Dragon x1
+401:Cybit x2 Hammer Knuckle x1
+402:Cybit x3 Hammer Knuckle x1
+403:Cybit x2 Hammer Knuckle x2
+404:Cybit x2 Murder x1
+405:Cybit x3 Murder x1
+406:Murder x2
+407:Hammer Knuckle x1 Murder x1
+408:Cybit x2 Perfect Murder x1
+409:Cybit x3 Perfect Murder x1
+410:Perfect Murder x1
+411:Angel Swordian x2 Angel Archer x1
+412:Angel Spearman x2 Angel Swordian x1
+413:Angel Spearman x1 Angel Archer x2
+414:Angel Archer x1 Angel Commander x1
+415:Angel Swordian x1 Angel Commander x1
+416:Angel Spearman x1 Angel Commander x1
+417:Angel Swordian x1
+418:Angel Spearman x1
+419:Angel Commander x1
+420:Bomb Plant x1 Bomb Seedling x4
+421:Evil Orchid x2 Mocking Plant x2
+422:Evil Orchid x1 Mocking Plant x1
+423:Mocking Plant x2
+424:Evil Orchid x1
+425:Mocking Plant x1
+426:Angel Swordian x2
+427:Zombie x1
+428:Zombie x1
+429:Zombie x1
+430:Zombie x1
+431:Alraune x2 Torent x1
+432:Alrune x1 Torent x2 Bellpepper Head x1
+433:Cutlass x1 Alraune x2
+434:Alraune x1 Torent x1 Man-Eater x2
+435:Carnivorous Plant x1
+436:Cutlass x2 Araune x1
+437:Man-Eater x2 Arune x1 Bellpepper Head x1
+438:Man-Eater x2 Cutlass x1
+439:Cutlass x1 Man Eater x2 Bellpepper Head x1
+440:Gold Dragon x1
+441:Dark Sword x2 Dark Archer x1
+442:Dark Spear x2 Dark Sword x1
+443:Dark Sword x2 Dark Archer x1
+444:Dark Spear x2 Dark Archer x2
+445:Dark Sword x2 Dark Commander x1
+446:Dark Sword x1 Dark Spear x1 Dark Commander x1
+447:Dark Spear x2 Dark Archer x1 Dark Commander x1
+448:Zombie x1
+449:Zombie x1
+450:Zombie x1
+451:Rogue x1
+452:Duelist x1
+453:Heavy Armor x1
+454:Boxer Iris x1
+455:Coffin Master x1
+456:Feather Magic x1
+457:Sasquatch x1
+458:Velocidragon x1 Dragon Rider x1
+459:Crush Tortoise x1
+460:Drake x1
+461:Ice Warrior x1
+462:Dragon Knight x1
+463:Rouge x2 Ranger x1 Sorcereress x1
+464:Duelist x2 Ranger x1 Sorcereress x1
+465:Super Star x2 Seahorse x1 Kraaken x1
+466:Specter x2 Grim Reaper x2
+467:Pharoah Knight x3 Coffinmaster x1
+468:Beast Ogre x1 Druid x2
+469:Boar x2 Baby Boar x3
+470:Red Mantis x2 Feather Magic x2
+471:Cutlass x2 Evil Teddy x2
+472:Dragon Knight x1 Druid x2
+473:Zombie x1
+474:Zombie x1
+475:Wolf x2 Bear x1 Rabbit x1
+476:Tentacle Plant x2 Mandragora x2
+477:Zombie x2 Ghost x2
+478:Brown Pot x2 Living Sword x2
+479:Black Bat x2 Cockatrice x2
+480:Boxer Iris x2 Red Mantis x1
+481:Kraaken x1 Feather Magic x2
+482:Ghoul x2 Coffinmaster x2
+483:Ghoul x2 Coffinmaster x2
+484:Ghoul x2 Coffinmaster x2
+485:Doom Guard x2 Medusa x1
+486:Doom Guard x2 Medusa x1 Samael x1
+487:Doom Guard x1 Medusa x2 Samael x1
+488:Arch Demon x1 Medusa x2
+489:Arch Demon x1 Medusa x1
+490:Zombie x1
+491:Thief x1 Archer x2 Witch x1
+492:Zombie x1
+493:Zombie x1
+494:Torent x1 Tentacle Plant x2
+495:Insect Plant x1
+496:Zombie x1
+497:Zombie x1
+498:Zombie x1
+499:Zombie x1
+500:Bacura x1
+501:Wolf x2 Hawk x1
+502:Wolf x1 Rabbit x1 Hawk x1
+503:Hawk x1 Giant Bee x1 Hawk x1
+504:Rabbit x1 Wolf x1
+505:Hawk x1 Rabbit x1
+506:Wolf x2 Hawk x1
+507:Giant Bee x1 Spider x1 Slime x1
+508:Zombie x1 Ghost x2 Spider x1
+509:Minicoid x1 Tentacle Plant x1
+510:Giant Bee x1 Spider x1
+511:Zombie x1
+512:Zombie x1
+513:Zombie x1
+514:Zombie x1
+515:Zombie x1
+516:Hawk x2 Sidewinder x1
+517:Hawk x1 Wolf x2 Sidewinder x1
+518:Hawk x1 Sidewinder x1
+519:Rabbit x1 Sidewinder x1
+520:Thief x2
+521:Scorpion x2 Sidewinder x1
+522:Sidewinder x2 Scorpion x1
+523:Sidewinder x2
+524:Sidewinder x1 Scorpion x1
+525:Scorpion x2
+526:Thief x1
+527:Zombie x1
+528:Zombie x1
+529:Zombie x1
+530:Zombie x1
+531:Wolf x1 Axe Beak x2 Rabbit x1
+532:Thief x2 Archer x1 Witch x1
+533:Sidewinder x1 Axe Beak x1 Wolf x2
+534:Thief x2 Archer x1
+535:Wolf x2 Sidewinder x1
+536:Minicoid x1 Tentacle Plant x1 Mandragora x2
+537:Woods Worm x1 Sidewinder x1 Mandragora x1
+538:Woods Worm x1 Sidewinder x1 Mandragora x2
+539:Woods Worm x1 Tentacle Plant x1 Killer Bee x2
+540:Zombie x2 Ghost x1 Slime x2
+541:Fish x2 Sea Jelly x2
+542:Fish x3 Sea Jelly x1
+543:Fish x1 Sea Jelly x3
+544:Fish x2
+545:Fish x1 Sea Jelly x1
+546:Zombie x1
+547:Zombie x1
+548:Zombie x1
+549:Zombie x1
+550:Zombie x1
+551:Grasshopper x2 Giant Beetle x2
+552:Giant Beetle x4
+553:Giant Beetle x2
+554:Soldier x1 Archer x1
+555:Soldier x2 Witch x1 Archer x1
+556:Soldier x1 Archer x2 Witch x1
+557:Soldier x1 Thief x1 Witch x1
+558:Soldier x1 Archer x1 Witch x1
+559:Grasshopper x2 Woods Worm x2
+560:Grasshoper x1 Woods Worm x1 Giant Beetle x2
+561:Woods Worm x2 Giant Beetle x1
+562:Giant Beetle x2 Woods Worm x1
+563:Zombie x1
+564:Zombie x1
+565:Zombie x1
+566:Wyvern x1
+567:Starfish x2 Fish x2 Sea Jelly x2
+568:Starfish x2 Fish x2 Sea Jelly x1
+569:Zombie x1
+570:Zombie x1
+571:Zombie x1
+572:Zombie x1
+573:Zombie x1
+574:Zombie x1
+575:Zombie x1
+576:Zombie x1
+577:Zombie x1
+578:Zombie x1
+579:Zombie x1
+580:Zombie x1
+581:Grasshoper x2 Giant Beetle x1 Harpy x1
+582:Velocidragon x1 Dragon Rider x1
+583:Grasshoper x1 Giant Beetle x1
+584:Giant Beetle x3
+585:Warrior x1 Soldier x1 Sorcerer x2
+586:Warrior X1 Soldier X1 Archer x2
+587:Marcroid x1 Minicoid x4
+588:Insect Plant x1
+589:Zombie x1
+590:Zombie x1
+591:Zombie x1
+592:Zombie x1
+593:Zombie x1
+594:Zombie x1
+595:Zombie x1
+596:Ogre x2 Grasshoper x1
+597:Velocidragon x1 Dragon Rider x1
+598:Cockatrice x1 Grasshoper x1 Giant Beetle x2
+599:Cockatrice x1 Grasshoper x1
+600:Velocidragon x1 Dragon Rider x1
+601:Warrior x2 Sorcerer x2
+602:Warrior x2 Archer x1 Sorcerer x2
+603:Warrior x1 Soldier x1 Sorcerer x1
+604:Soldier x1 Archer x1 Sorcerer x1
+605:Cockatrice x2 Woods Worm x1 Grasshopper x1
+606:Woods Worm x1 Grasshopper x1 Giant Beetle x2
+607:Cockatrice x1 Woods Worm x1
+608:Tortoise x2
+609:Tortoise x1 Starfish x3
+610:Tortoise x1
+611:Starfish x2 Sea Jelly x1
+612:Starfish x1 Sea Jelly x2
+613:Grasshopper x3
+614:Grasshopper x1 Giant Beetle x2
+615:Zombie x1
+616:Zombie x1
+617:Zombie x1
+618:Zombie x1
+619:Zombie x1
+620:Zombie x1
+621:Zombie x1
+622:Zombie x1
+623:Zombie x1
+624:Zombie x1
+625:Zombie x1
+626:Zombie x1
+627:Zombie x1
+628:Zombie x1
+629:Zombie x1
+630:Zombie x1
+631:Night Raid x2 Rogue x1
+632:Rogue x2
+633:Seaspin x2 Super Star x2
+634:Super Star x2 Seaspin X2
+635:Seaspin x1 Super Star x1
+636:Seaspin x2
+637:Zombie x1
+638:Zombie x1
+639:Zombie x1
+640:Zombie x1
+641:Zombie x1
+642:Zombie x1
+643:Zombie x1
+644:Zombie x1
+645:Zombie x1
+646:Night Raid x2 Zombie x1 Ghost x2
+647:Night Raid Grasshopper x2 Zombie x1
+648:Zombie x1 Ghost x1
+649:Zombie x1 Night Raid x1
+650:Rogue x2 Sorceress x2
+651:Rogue x3 Sorceress x1
+652:Night Raid x2 Rogue x1 Sorceress x1
+653:Rogue x1 Sorceress x1
+654:Night Raid x1 Rogue x1
+655:Tortoise x1 Super Star x1 Seaspin x1
+656:Zombie x1
+657:Zombie x1
+658:Zombie x1
+659:Zombie x1
+660:Zombie x1
+661:Mantis x2 Giant Snail x2
+662:Giant Snail x2 Mantis x1 Gold Beetle x1
+663:Giant Snail x1 Mantis x2
+664:Mantis x1 Gold Beetle x2
+665:Mantis x2 Red Bat x2
+666:Giant Snail x2 Killer Bee x2
+667:Mantis x1 Red Bat x1
+668:Giant Snail x1 Killer Bee x1
+669:Zombie x1
+670:Zombie x1
+671:Zombie x1
+672:Zombie x1
+673:Zombie x1
+674:Zombie x1
+675:Zombie x1
+676:Zombie x1
+677:Zombie x1
+678:Zombie x1
+679:Zombie x1
+680:Zombie x1
+681:Zombie x1
+682:Zombie x1
+683:Zombie x1
+684:Zombie x1
+685:Zombie x1
+686:Tropical Worm x2 Egg Bear x1
+687:Tropical Worm x1 Gold Beetle x3
+688:Zombie x1
+689:Tropical Worm x1 Gold Beetle x1
+690:Gold Beetle x2
+691:Zombie x1
+692:Zombie x1
+693:Zombie x1
+694:Zombie x1
+695:Zombie x1
+696:Mantis x2 Gold Beetle x2
+697:Boxer Iris x2 Mantis x1 Gold Beetle x1
+698:Drake x1
+699:Mantis x1 Gold Beetle x1
+700:Gold Beetle x2
+701:Rogue x1 Ranger x2 Sorceress x1
+702:Rogue x2 Ranger x1 Sorceress x1
+703:Rogue x1 Ranger x1
+704:Ranger x1 Sorceress x1
+705:Beast Ogre x1 Mantis x1 Gold Beetle x1
+706:Beast ogre x1 Ghoul x2
+707:Tropical Worm x1 Boxer Iris x2 Pumpkin Tree x1
+708:Mantis x1 Boxer Iris x1
+709:Tropical Worm x1 Gold Beetle x2
+710:Zombie x1
+711:Zombie x1
+712:Zombie x1
+713:Zombie x1
+714:Zombie x1
+715:Zombie x1
+716:Zombie x1
+717:Zombie x1
+718:Zombie x1
+719:Zombie x1
+720:Zombie x1
+721:Penguinist x2 Ice Spider x2
+722:Ice Spider x2 Penguinist x2
+723:Penguinist x1 Ice Spider x1
+724:Penguinist x2
+725:Ice Spider x2
+726:Sliver x1
+727:Zombie x1
+728:Zombie x1
+729:Zombie x1
+730:Zombie x1
+731:Gentleman x1
+732:Seahorse x2 Seaspin x1 Super Star x1
+733:Seahorse x2 Seaspin x2
+734:Seahorse x1 Super Star x3
+735:Seahorse x1 Super Star x1 Mermaid x2
+736:Seahorse x1 Super Star x1
+737:Seahorse x1 Seaspin x1
+738:Seaspin x1 Super Star x1
+739:Zombie x1
+740:Zombie x1
+741:Red Mantis x2 Scarlet Needle x2
+742:Basilisk x2 Red Mantis x1 Scarlet Needle x1
+743:Red Mantis x1 Scarlet Needle x1
+744:Basilisk x1 Scarlet Needle x1
+745:Basilisk x2 Red Bat x2
+746:Scarlet Needle x2 Red Bat x1 Red Mantis x1
+747:Basilisk x2 Red Bat x1
+748:Scarlet Needle x1 Red Bat x2
+749:Zombie x1
+750:Zombie x1
+751:Zombie x1
+752:Zombie x1
+753:Zombie x1
+754:Zombie x1
+755:Zombie x1
+756:Red Mantis x1 Storm Claw x1
+757:Heavy Armor x2 Ranger x2
+758:Heavy Armor x1 Duelist x2 Ranger x1
+759:Duelist x1 Ranger x1
+760:Heavy Armor x1 Ranger x1
+761:Killer Bee x2 Red Mantis x2
+762:Killer Bee x1 Red Mantis x1 Killer Storm Claw x2
+763:Killer Bee x1 Red Mantis x1
+764:Red Mantis x1 Storm Claw x1
+765:Kraaken x2 Seahorse x1 Super Star x1
+766:Kraaken x1 Seahorse x3
+767:Kraaken x1 Seahorse x1
+768:Seahorse x2
+769:Zombie x1
+770:Zombie x2
+771:Penguiner x4
+772:Penguiner x2
+:Everything inbetween weren't checked
+801:Shadow Pronyma x1 Shadow Forcystus x1 Shadow Magnius x1
+802:Mithos the Hero x1 Kratos the Hero x1 Yuan the Hero x1
+:The rest weren't checked
+</DropDownList>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1113</ID>
+              <Description>"dropdown: Background"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>149</ID>
+              <Description>"Party Formation (backup)"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Lloyd
+2:Colette
+3:Genis
+4:Raine
+5:Sheena
+6:Zelos
+7:Presea
+8:Regal
+9:Kratos
+</DropDownList>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2021-07-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+aobscanmodule(partyFormationAOB,TOS.exe,8A 06 84 C0 74 34) // should be unique
+alloc(newmem,$1000)
+alloc(partyFormation,4)
+fullAccess(partyFormationAOB,6)
+
+label(code)
+label(return)
+
+newmem:
+push rax
+lea rax,[esi]
+mov [partyFormation],rax
+pop rax
+code:
+  mov al,[esi]
+  test al,al
+  je TOS.exe+CF43A
+  jmp return
+
+partyFormationAOB:
+  jmp newmem
+  nop
+return:
+
+registersymbol(partyFormation)
+registersymbol(partyFormationAOB)
+[DISABLE]
+
+partyFormationAOB:
+  db 8A 06 84 C0 74 34
+
+unregistersymbol(partyFormation)
+unregistersymbol(partyFormationAOB)
+dealloc(newmem)
+dealloc(partyFormation)
+
+{
+// ORIGINAL CODE - INJECTION POINT: partyFormationAOB
+
+TOS.exe+CF3CF: 8B 0D 68 3F AD 00        - mov ecx,[TOS.exe+6D3F68]
+TOS.exe+CF3D5: DC 05 B8 29 88 00        - fadd qword ptr [TOS.exe+4829B8]
+TOS.exe+CF3DB: D9 5E 48                 - fstp dword ptr [esi+48]
+TOS.exe+CF3DE: C6 44 24 1B 00           - mov byte ptr [esp+1B],00
+TOS.exe+CF3E3: C6 44 24 1A 00           - mov byte ptr [esp+1A],00
+TOS.exe+CF3E8: C6 44 24 19 00           - mov byte ptr [esp+19],00
+TOS.exe+CF3ED: 8D B1 4D 0F 00 00        - lea esi,[ecx+00000F4D]
+TOS.exe+CF3F3: C7 44 24 38 09 00 00 00  - mov [esp+38],00000009
+TOS.exe+CF3FB: EB 03                    - jmp partyFormationAOB
+TOS.exe+CF3FD: 8D 49 00                 - lea ecx,[ecx+00]
+// ---------- INJECTING HERE ----------
+partyFormationAOB: 8A 06                    - mov al,[esi]
+// ---------- DONE INJECTING  ----------
+TOS.exe+CF402: 84 C0                    - test al,al
+TOS.exe+CF404: 74 34                    - je TOS.exe+CF43A
+TOS.exe+CF406: 0F BE C0                 - movsx eax,al
+TOS.exe+CF409: 69 C0 18 01 00 00        - imul eax,eax,00000118
+TOS.exe+CF40F: 8B 84 08 6C 02 00 00     - mov eax,[eax+ecx+0000026C]
+TOS.exe+CF416: A9 00 01 00 80           - test eax,80000100
+TOS.exe+CF41B: 75 1D                    - jne TOS.exe+CF43A
+TOS.exe+CF41D: A8 40                    - test al,40
+TOS.exe+CF41F: 74 07                    - je TOS.exe+CF428
+TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>151</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>152</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-7</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>153</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-6</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>154</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-5</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>155</ID>
+                  <Description>"Slot 5"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>156</ID>
+                  <Description>"Slot 6"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-3</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>157</ID>
+                  <Description>"Slot 7"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-2</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>158</ID>
+                  <Description>"Slot 8"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>partyFormation</Address>
+                  <Offsets>
+                    <Offset>-1</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1067</ID>
+              <Description>"Auto Encounter test"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2021-08-09
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+{$lua}
+if syntaxcheck then return end
+autoAssemble([[
+aobscanmodule(encounterAddr,TOS.exe,8B 35 DC 2E AD 00 0F B7 86 F2) // should be unique
+
+registersymbol(encounterAddr)
+]])
+local address = getAddress("encounterAddr") + 2
+
+address = readInteger(address)
+
+address = readInteger(address) + 0x933C
+
+--address = address + 0x933C
+
+address = readInteger(address)
+
+address = getAddress(address)
+
+registerSymbol("encounterArea", address, true)
+{$asm}
+[DISABLE]
+{$lua}
+unregisterSymbol("encounterAddr")
+unregisterSymbol("encounterArea")
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1068</ID>
+                  <Description>"Number of enemies"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounterArea+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1069</ID>
+                  <Description>"Number of species"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>encounterArea+5</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1106</ID>
+              <Description>"Figure out Encounter with this (edit this) (enable encounter editor)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>10</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>encounter507-FD80+80*4E</Address>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
   <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r12d,[r10]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+927CAE</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>22</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>BD</Byte>
+        <Byte>84</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r12d,[r10]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8CB9B8</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>22</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>BD</Byte>
+        <Byte>84</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov di,[rsi]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8B6D8D</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>8B</Byte>
+        <Byte>3E</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+        <Byte>FF</Byte>
+        <Byte>89</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r11d,[r12]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8CAA90</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>1C</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>C1</Byte>
+        <Byte>E3</Byte>
+        <Byte>00</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r12d,[r13+00]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8CAAA9</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>65</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>C1</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r12d,[r10]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+927CAE</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>22</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>BD</Byte>
+        <Byte>84</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r12d,[r10]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8CB9B8</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>22</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>BD</Byte>
+        <Byte>84</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov di,[rsi]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8B6D8D</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>8B</Byte>
+        <Byte>3E</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+        <Byte>FF</Byte>
+        <Byte>89</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r11d,[r12]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8CAA90</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>1C</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>C1</Byte>
+        <Byte>E3</Byte>
+        <Byte>00</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r12d,[r13+00]</Description>
+      <AddressString>duckstation-qt-x64-ReleaseLTCG.exe+8CAAA9</AddressString>
+      <Before>
+        <Byte>69</Byte>
+        <Byte>AE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>8B</Byte>
+        <Byte>65</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>C1</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
     <CodeEntry Color="20000000">
       <Description>Code :mov al,[esi]</Description>
       <AddressString>TOS.exe+CF400</AddressString>
@@ -1350,5 +3100,4 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
 </CheatTable>
