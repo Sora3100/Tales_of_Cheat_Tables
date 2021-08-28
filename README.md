@@ -33,6 +33,9 @@ Features:
  - Title and Costume Editor (it requires you to disable the instruction writing to it)
  - Change the loaded map
  - Change Luke's hair to short or long
+ - Stats Editor
+ - Equipment Editor
+ - Arte List Editor
 
 ## Destiny 2 (PS2)
 
@@ -56,6 +59,8 @@ Features:
  - Changing BGM
  - Changing Stage
  - Arena Editor
+ - Change difficulty values
+ - Unlock, max and use Swordian skills anytime
 
 ## Graces F (PS3)
 
@@ -199,3 +204,5 @@ Features:
 - Gald Editor
 - Battle camera zoom Editor (useful for co-op)
 - Unlock Hardcore difficulty
+- Disable encounters
+- Change Arte Usage
