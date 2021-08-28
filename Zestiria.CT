@@ -5,7 +5,7 @@
       <ID>95</ID>
       <Description>"Camera"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="000000D2"/>
+      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <Address>"Tales of Zestiria.exe"+01D32490</Address>
       <Offsets>
@@ -19,14 +19,14 @@
           <ID>115</ID>
           <Description>"idk lmao"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="000000D2"/>
+          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <Address>+0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>134</ID>
               <Description>"Pos"</Description>
-              <LastState Value="" RealAddress="000000D2"/>
+              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
               <CheatEntries>
@@ -53,7 +53,7 @@
             <CheatEntry>
               <ID>137</ID>
               <Description>"Pos2?"</Description>
-              <LastState Value="" RealAddress="000000D2"/>
+              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
               <CheatEntries>
@@ -159,10 +159,21 @@
         <CheatEntry>
           <ID>196</ID>
           <Description>"Fight end byte"</Description>
-          <LastState Value="1" Activated="1" RealAddress="021302B1"/>
+          <LastState Value="0" RealAddress="021302B1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>"Tales of Zestiria.exe"+1D302B1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>206</ID>
+          <Description>"Map load shenanigans"</Description>
+          <LastState RealAddress="0213C9E4"/>
+          <VariableType>String</VariableType>
+          <Length>30</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>"Tales of Zestiria.exe"+1D3C9E4</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
