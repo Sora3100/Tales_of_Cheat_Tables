@@ -1,5 +1,20 @@
 #### Changelog:
 
+#### 2021/08/28
+
+-	New features: Destiny DC
+	-	You can now immediately unlock/max swordian skills and use them!
+	-	Ability to change difficulty values
+
+-	New features: Abyss
+	-	Stats Editor
+	-	Equipment Editor
+	-	Arte List Editor
+		
+-	New features: Eternia
+	-	Ability to disable encounters
+	-	Arte Usage Editor
+
 #### 2021/08/20
 
 -	New table: Rebirth
