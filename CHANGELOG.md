@@ -1,5 +1,12 @@
 #### Changelog:
 
+#### 2021/09/07
+
+-	New feature: Destiny DC
+	-	You can now change the amount of Lens you have in your inventory.
+	
+-	Made the Symphonia 2 table more future-proof.
+
 #### 2021/08/28
 
 -	New features: Destiny DC
