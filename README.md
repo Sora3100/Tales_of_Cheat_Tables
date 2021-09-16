@@ -25,6 +25,7 @@ Emulators used for their respective platforms and their versions, unless stated 
  - **Symphonia**: *2016/09/27*
  - **Rebirth**: *SLPS-25450*
  - **Eternia**: *SLUS-01355*, *SLUS-01367*, *SLUS-01368*
+ - **Arise**: *2021/09/10* (*1.0*)
 
 ## Abyss (PS2)
 
@@ -206,3 +207,11 @@ Features:
 - Unlock Hardcore difficulty
 - Disable encounters
 - Change Arte Usage
+
+## Arise (PC)
+
+Features:
+- Party Editor
+- Stats Editor
+- Arte Proficiency Editor
+- Fell Arm kill Editor
