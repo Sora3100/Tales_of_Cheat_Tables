@@ -1,5 +1,14 @@
 #### Changelog:
 
+#### 2021/09/16
+
+-	New table: Arise
+	-	Features:
+		-	Party Editor
+		-	Stats Editor
+		-	Arte Proficiency Editor
+		-	Fell Arm kill Editor
+
 #### 2021/09/07
 
 -	New feature: Destiny DC
