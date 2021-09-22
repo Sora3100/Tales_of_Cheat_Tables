@@ -1,5 +1,11 @@
 #### Changelog:
 
+#### 2021/09/22
+
+-	New features: Arise
+	-	Arte List Editor
+	-	Unlock/lock any title
+
 #### 2021/09/16
 
 -	New table: Arise
@@ -7,7 +13,7 @@
 		-	Party Editor
 		-	Stats Editor
 		-	Arte Proficiency Editor
-		-	Fell Arm kill Editor
+		-	Devil's Arms kill Editor
 
 #### 2021/09/07
 
