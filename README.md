@@ -214,4 +214,6 @@ Features:
 - Party Editor
 - Stats Editor
 - Arte Proficiency Editor
-- Fell Arm kill Editor
+- Devil's Arms kill Editor
+- Arte List Editor
+- Unlock/Lock any title
