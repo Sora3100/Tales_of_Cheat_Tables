@@ -217,3 +217,5 @@ Features:
 - Devil's Arms kill Editor
 - Arte List Editor
 - Unlock/Lock any title
+- Arte Usage/Unlock Editor
+- Change Run/Swim Speed

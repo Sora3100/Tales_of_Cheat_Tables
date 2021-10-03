@@ -1,5 +1,12 @@
 #### Changelog:
 
+#### 2021/10/03
+
+-	New features: Arise
+	-	Arte Usage/Unlock Editor
+	-	Change Run/Swim Speed
+-	Fixed Arte List Editor not working for every arte.
+
 #### 2021/09/22
 
 -	New features: Arise
