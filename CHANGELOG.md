@@ -1,5 +1,10 @@
 #### Changelog:
 
+#### 2021/10/05
+
+-	New features: Xillia 2
+	-	Play as bosses scripts for Cless and Stahn!  (WIP, By Just_Samu)
+
 #### 2021/10/03
 
 -	New features: Arise
