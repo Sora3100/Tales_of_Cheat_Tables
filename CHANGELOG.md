@@ -1,5 +1,9 @@
 #### Changelog:
 
+#### 2021/10/29
+
+-	Expanded Arte Unlocks/Usage with Cosmic Ensemble
+
 #### 2021/10/05
 
 -	New features: Xillia 2
