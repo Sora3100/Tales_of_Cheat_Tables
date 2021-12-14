@@ -1,5 +1,9 @@
 #### Changelog:
 
+#### 2021/12/14
+
+-	Updated Arise table to Update 2
+
 #### 2021/10/29
 
 -	Expanded Arte Unlocks/Usage with Cosmic Ensemble
