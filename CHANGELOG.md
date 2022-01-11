@@ -1,5 +1,12 @@
 #### Changelog:
 
+#### 2022/01/11
+
+-	Updated Graces table to be more future proof.
+-	New features: Graces
+	-	Change field movement speed
+	-	Change difficulty values
+
 #### 2021/12/14
 
 -	Updated Arise table to Update 2

@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="34">
+<CheatTable CheatEngineTableVersion="38">
   <CheatEntries>
     <CheatEntry>
-      <ID>12</ID>
-      <Description>"Party Formation"</Description>
-      <Options moHideChildren="1"/>
-      <DropDownList DisplayValueAsItem="1">0:Nothing
+      <ID>351</ID>
+      <Description>"Region Check"</Description>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanregion(regionCheckMovSpeed, 300000000, 400000000, 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00 00 15 F3 C4 00 60 B4 F0) // should be unique
+
+registersymbol(regionCheckMovSpeed)
+[DISABLE]
+
+unregistersymbol(regionCheckMovSpeed)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>352</ID>
+          <Description>"Party Formation"</Description>
+          <Options moHideChildren="1"/>
+          <DropDownList DisplayValueAsItem="1">0:Nothing
 1:Asbel
 2:Sophie
 3:Hubert
@@ -17,83 +33,76 @@
 9:Hubert (kid)
 10:Richard (kid)
 </DropDownList>
-      <LastState Value="" RealAddress="300915F40"/>
-      <GroupHeader>1</GroupHeader>
-      <Address>300915F40</Address>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>27</ID>
-          <Description>"Active Party Members"</Description>
-          <DropDownList DisplayValueAsItem="1">1:Solo
+          <LastState Value="" RealAddress="300915F40"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckMovSpeed+136784</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>353</ID>
+              <Description>"Active Party Members"</Description>
+              <DropDownList DisplayValueAsItem="1">1:Solo
 2:Duo
 3:Trio
 4:Quad
 </DropDownList>
-          <LastState Value="4" RealAddress="300915F5C"/>
-          <VariableType>Byte</VariableType>
-          <Address>+1C</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13</ID>
-          <Description>"Slot 1"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="1" RealAddress="300915F40"/>
-          <VariableType>Byte</VariableType>
-          <Address>+0</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>19</ID>
-          <Description>"Slot 2"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="300915F41"/>
-          <VariableType>Byte</VariableType>
-          <Address>+1</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>18</ID>
-          <Description>"Slot 3"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="300915F42"/>
-          <VariableType>Byte</VariableType>
-          <Address>+2</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>17</ID>
-          <Description>"Slot 4"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="300915F43"/>
-          <VariableType>Byte</VariableType>
-          <Address>+3</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>16</ID>
-          <Description>"Slot 5"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="300915F44"/>
-          <VariableType>Byte</VariableType>
-          <Address>+4</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>15</ID>
-          <Description>"Slot 6"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="300915F45"/>
-          <VariableType>Byte</VariableType>
-          <Address>+5</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>14</ID>
-          <Description>"Slot 7"</Description>
-          <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="300915F46"/>
-          <VariableType>Byte</VariableType>
-          <Address>+6</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>24</ID>
-          <Description>"Unplayable"</Description>
-          <Options moHideChildren="1"/>
-          <DropDownList DisplayValueAsItem="1">0:Nothing
+              <VariableType>Byte</VariableType>
+              <Address>+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>354</ID>
+              <Description>"Slot 1"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>355</ID>
+              <Description>"Slot 2"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>356</ID>
+              <Description>"Slot 3"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>357</ID>
+              <Description>"Slot 4"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>358</ID>
+              <Description>"Slot 5"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>359</ID>
+              <Description>"Slot 6"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>360</ID>
+              <Description>"Slot 7"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>+6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>361</ID>
+              <Description>"Unplayable"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
 1:Asbel
 2:Sophie
 3:Hubert
@@ -107,716 +116,1144 @@
 11:Cheria (kid)
 12:Emeraude
 </DropDownList>
-          <LastState Value="" RealAddress="300915F48"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>+8</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>23</ID>
-              <Description>"Slot 1"</Description>
-              <DropDownListLink>Unplayable</DropDownListLink>
-              <LastState Value="0" RealAddress="300915F48"/>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>25</ID>
-              <Description>"Slot 2"</Description>
-              <DropDownListLink>Unplayable</DropDownListLink>
-              <LastState Value="0" RealAddress="300915F49"/>
-              <VariableType>Byte</VariableType>
-              <Address>+1</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>103</ID>
-      <Description>"DON'T USE"</Description>
-      <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>C0C0C0</Color>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>28</ID>
-          <Description>"Hubert weapon"</Description>
-          <LastState Value="3" RealAddress="3009177CB"/>
-          <VariableType>Byte</VariableType>
-          <Address>3009177CB</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>74</ID>
-          <Description>"Model test"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="300915F60"/>
-          <GroupHeader>1</GroupHeader>
-          <Address>300915F60</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>75</ID>
-              <Description>"Asbel"</Description>
-              <LastState Value="1" RealAddress="300915F60"/>
-              <VariableType>Byte</VariableType>
-              <Address>+0</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>233</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="1" RealAddress="3009218AC"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>81</ID>
-              <Description>"Sophie"</Description>
-              <LastState Value="21" RealAddress="300915F61"/>
-              <VariableType>Byte</VariableType>
-              <Address>+1</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>240</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="21" RealAddress="3009218AD"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>80</ID>
-              <Description>"Hubert"</Description>
-              <LastState Value="41" RealAddress="300915F62"/>
-              <VariableType>Byte</VariableType>
-              <Address>+2</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>239</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="41" RealAddress="3009218AE"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>79</ID>
-              <Description>"Cheria"</Description>
-              <LastState Value="61" RealAddress="300915F63"/>
-              <VariableType>Byte</VariableType>
-              <Address>+3</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>235</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="61" RealAddress="3009218AF"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>78</ID>
-              <Description>"Malik"</Description>
-              <LastState Value="81" RealAddress="300915F64"/>
-              <VariableType>Byte</VariableType>
-              <Address>+4</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>237</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="81" RealAddress="3009218B0"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>77</ID>
-              <Description>"Pascal"</Description>
-              <LastState Value="101" RealAddress="300915F65"/>
-              <VariableType>Byte</VariableType>
-              <Address>+5</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>236</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="101" RealAddress="3009218B1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>76</ID>
-              <Description>"Richard"</Description>
-              <LastState Value="121" RealAddress="300915F66"/>
-              <VariableType>Byte</VariableType>
-              <Address>+6</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>238</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="121" RealAddress="3009218B2"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>84</ID>
-              <Description>"Asbel (kid)"</Description>
-              <LastState Value="137" RealAddress="300915F67"/>
-              <VariableType>Byte</VariableType>
-              <Address>+7</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>234</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="137" RealAddress="3009218B3"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83</ID>
-              <Description>"Hubert (kid)"</Description>
-              <LastState Value="140" RealAddress="300915F68"/>
-              <VariableType>Byte</VariableType>
+              <LastState Value="" RealAddress="300915F48"/>
+              <GroupHeader>1</GroupHeader>
               <Address>+8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>242</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="140" RealAddress="3009218B4"/>
-                  <ShowAsSigned>0</ShowAsSigned>
+                  <ID>362</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Unplayable</DropDownListLink>
                   <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>363</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Unplayable</DropDownListLink>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>476</ID>
+          <Description>"Movement Speed"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+[DISABLE]
+regionCheckMovSpeed:
+db 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00 00 15 F3 C4 00 60 B4 F0
+regionCheckMovSpeed+AE4:
+db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>477</ID>
+              <Description>"Normal"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>Float Big Endian</CustomType>
+              <Address>regionCheckMovSpeed</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>478</ID>
+              <Description>"Swift Spellbook"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>Float Big Endian</CustomType>
+              <Address>regionCheckMovSpeed+AE4</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>367</ID>
+          <Description>"Difficulty values"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="300830AFC"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckMovSpeed+51340</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>368</ID>
+              <Description>"Easy"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300830AFC"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>369</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>370</ID>
+                  <Description>"P./C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>371</ID>
+                  <Description>"ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>372</ID>
+                  <Description>"EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>373</ID>
+                  <Description>"HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+10</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>82</ID>
-              <Description>"Richard (kid)"</Description>
-              <LastState Value="143" RealAddress="300915F69"/>
+              <ID>374</ID>
+              <Description>"Normal"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300830B28"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2C</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>375</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>376</ID>
+                  <Description>"P./C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>377</ID>
+                  <Description>"ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>378</ID>
+                  <Description>"EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>379</ID>
+                  <Description>"HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>380</ID>
+              <Description>"Moderate"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300830B54"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2C*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>381</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>382</ID>
+                  <Description>"P./C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>383</ID>
+                  <Description>"ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>384</ID>
+                  <Description>"EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>385</ID>
+                  <Description>"HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>386</ID>
+              <Description>"Hard"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300830B80"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2C*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>387</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>388</ID>
+                  <Description>"P./C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>389</ID>
+                  <Description>"ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>390</ID>
+                  <Description>"EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>391</ID>
+                  <Description>"HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>392</ID>
+              <Description>"Evil"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300830BAC"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2C*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>393</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>394</ID>
+                  <Description>"P./C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>395</ID>
+                  <Description>"ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>396</ID>
+                  <Description>"EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>397</ID>
+                  <Description>"HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>398</ID>
+              <Description>"Chaos"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300830BD8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+2C*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>399</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>400</ID>
+                  <Description>"P./C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>401</ID>
+                  <Description>"ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>402</ID>
+                  <Description>"EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>403</ID>
+                  <Description>"HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>483</ID>
+          <Description>"BGM"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="30096D794"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckMovSpeed+18DFD8</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>482</ID>
+              <Description>"Battle"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>484</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>490</ID>
+              <Description>"Victory"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>489</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>488</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>496</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>495</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>494</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*7</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>493</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>492</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*9</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>491</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*A</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>497</ID>
+              <Description>"???"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>30</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>+30*B</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>404</ID>
+          <Description>"DON'T USE"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>405</ID>
+              <Description>"Hubert weapon"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+9</Address>
+              <Address>regionCheckMovSpeed+13800F</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>406</ID>
+              <Description>"Model test"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300915F60"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>regionCheckMovSpeed+1367A4</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>241</ID>
-                  <Description>"Part 2"</Description>
-                  <LastState Value="143" RealAddress="3009218B5"/>
-                  <ShowAsSigned>0</ShowAsSigned>
+                  <ID>407</ID>
+                  <Description>"Asbel"</Description>
                   <VariableType>Byte</VariableType>
-                  <Address>+B94C</Address>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>408</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>409</ID>
+                  <Description>"Sophie"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>410</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>411</ID>
+                  <Description>"Hubert"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>412</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>413</ID>
+                  <Description>"Cheria"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>414</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>415</ID>
+                  <Description>"Malik"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>416</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>417</ID>
+                  <Description>"Pascal"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>418</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>419</ID>
+                  <Description>"Richard"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>420</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>421</ID>
+                  <Description>"Asbel (kid)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>422</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>423</ID>
+                  <Description>"Hubert (kid)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>424</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>425</ID>
+                  <Description>"Richard (kid)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>426</ID>
+                      <Description>"Part 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B94C</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>147</ID>
-          <Description>"Model (via Title/Narikiri) test"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="300915F74"/>
-          <ShowAsSigned>0</ShowAsSigned>
-          <GroupHeader>1</GroupHeader>
-          <Address>300915F74</Address>
-          <CheatEntries>
             <CheatEntry>
-              <ID>135</ID>
-              <Description>"Asbel"</Description>
-              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="300915F74"/>
+              <ID>427</ID>
+              <Description>"Model (via Title/Narikiri) test"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300915F74"/>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+0</Address>
+              <GroupHeader>1</GroupHeader>
+              <Address>regionCheckMovSpeed+1367B8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>145</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="1" RealAddress="300915FA0"/>
+                  <ID>428</ID>
+                  <Description>"Asbel"</Description>
+                  <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>429</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>430</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>431</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>146</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="300915FA4"/>
+                  <ID>432</ID>
+                  <Description>"Sophie"</Description>
+                  <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>433</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>434</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>435</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>134</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="300915FA8"/>
+                  <ID>436</ID>
+                  <Description>"Hubert"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>437</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>438</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>439</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>440</ID>
+                  <Description>"Cheria"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>441</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>442</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>443</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>444</ID>
+                  <Description>"Malik"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>445</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>446</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>447</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>448</ID>
+                  <Description>"Pascal"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*5</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>449</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>450</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>451</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>452</ID>
+                  <Description>"Richard"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*6</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>453</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>454</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>455</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>456</ID>
+                  <Description>"Asbel (kid)"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*7</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>457</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>458</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>459</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>460</ID>
+                  <Description>"Hubert (kid)"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>461</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>462</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>463</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>464</ID>
+                  <Description>"Richard (kid)"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>10</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+BD8*9</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>465</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>466</ID>
+                      <Description>"Narikiri"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>467</ID>
+                      <Description>"Title"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>136</ID>
-              <Description>"Sophie"</Description>
-              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
-              <LastState RealAddress="300916B4C"/>
+              <ID>468</ID>
+              <Description>"Coordinates &amp; Map shenanigans"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="300957484"/>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8</Address>
+              <GroupHeader>1</GroupHeader>
+              <Address>regionCheckMovSpeed+177CC8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>140</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="2" RealAddress="300916B78"/>
+                  <ID>469</ID>
+                  <Description>"X"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>144</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="300916B7C"/>
+                  <ID>470</ID>
+                  <Description>"Y"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>141</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="300916B80"/>
+                  <ID>471</ID>
+                  <Description>"Z"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>164</ID>
-              <Description>"Hubert"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="300917724"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*2</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>165</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="3" RealAddress="300917750"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>166</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="300917754"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>167</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="300917758"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>160</ID>
-              <Description>"Cheria"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="3009182FC"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*3</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>161</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="4" RealAddress="300918328"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>162</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="30091832C"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>163</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="300918330"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>156</ID>
-              <Description>"Malik"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="300918ED4"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*4</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>157</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="5" RealAddress="300918F00"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>158</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="300918F04"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>159</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="300918F08"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>152</ID>
-              <Description>"Pascal"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="300919AAC"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*5</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>153</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="6" RealAddress="300919AD8"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>154</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="300919ADC"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>155</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="300919AE0"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>148</ID>
-              <Description>"Richard"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="30091A684"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*6</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>149</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="7" RealAddress="30091A6B0"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>150</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="30091A6B4"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>151</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="30091A6B8"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>176</ID>
-              <Description>"Asbel (kid)"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="30091B25C"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*7</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>177</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="8" RealAddress="30091B288"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>178</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="30091B28C"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>179</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="30091B290"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>172</ID>
-              <Description>"Hubert (kid)"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="30091BE34"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*8</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>173</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="9" RealAddress="30091BE60"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>174</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="30091BE64"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>175</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="30091BE68"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>168</ID>
-              <Description>"Richard (kid)"</Description>
-              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <LastState RealAddress="30091CA0C"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>10</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>+BD8*9</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>169</ID>
-                  <Description>"Character"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="10" RealAddress="30091CA38"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+2C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>170</ID>
-                  <Description>"Narikiri"</Description>
-                  <DropDownListLink>Party Formation</DropDownListLink>
-                  <LastState Value="0" RealAddress="30091CA3C"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+30</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>171</ID>
-                  <Description>"Title"</Description>
-                  <LastState Value="0" RealAddress="30091CA40"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+34</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>180</ID>
-          <Description>"Coordinates &amp; Map shenanigans"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="300957484"/>
-          <ShowAsSigned>0</ShowAsSigned>
-          <GroupHeader>1</GroupHeader>
-          <Address>300957484</Address>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>181</ID>
-              <Description>"X"</Description>
-              <LastState Value="0" RealAddress="300957484"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>Float Big Endian</CustomType>
-              <Address>+0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>182</ID>
-              <Description>"Y"</Description>
-              <LastState Value="0" RealAddress="300957488"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>Float Big Endian</CustomType>
-              <Address>+4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>183</ID>
-              <Description>"Z"</Description>
-              <LastState Value="0" RealAddress="30095748C"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>Float Big Endian</CustomType>
-              <Address>+8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>184</ID>
-              <Description>"On-Save-Load Map"</Description>
-              <DropDownList DisplayValueAsItem="1">00 30 00 00:Lhant Hill
+                  <ID>472</ID>
+                  <Description>"On-Save-Load Map"</Description>
+                  <DropDownList DisplayValueAsItem="1">00 30 00 00:Lhant Hill
 00 41 01 00:Zhonecage
 00 08 00 00:Lhant Road
 00 30 01 00:Lhant Hill Meadow
@@ -828,85 +1265,42 @@
 00 1D 05 00:Lhant Manor top left room
 00 05 00 00:Lhant Highroad
 </DropDownList>
-              <LastState Value="00 00 00 00" RealAddress="300957498"/>
-              <ShowAsHex>1</ShowAsHex>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Array of byte</VariableType>
-              <ByteLength>4</ByteLength>
-              <Address>+14</Address>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>473</ID>
+                  <Description>"Next Map Load"</Description>
+                  <DropDownListLink>On-Save-Load Map</DropDownListLink>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>-5F4A8</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>130</ID>
-              <Description>"Next Map Load"</Description>
-              <DropDownListLink>On-Save-Load Map</DropDownListLink>
-              <LastState Value="00 00 00 00" RealAddress="3008F7FDC"/>
-              <ShowAsHex>1</ShowAsHex>
-              <VariableType>Array of byte</VariableType>
-              <ByteLength>4</ByteLength>
-              <Address>3008F7FDC</Address>
+              <ID>474</ID>
+              <Description>"Asbel equipped att 1"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>regionCheckMovSpeed+B51DB</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>475</ID>
+              <Description>"Asbel att name 1"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>regionCheckMovSpeed+142C4B</Address>
             </CheatEntry>
           </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>189</ID>
-          <Description>"Character Offsets?"</Description>
-          <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
-          <GroupHeader>1</GroupHeader>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>185</ID>
-              <Description>"Asbel"</Description>
-              <LastState Value="9527156" RealAddress="3008A392C"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>3008A392C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>186</ID>
-              <Description>"Sophie"</Description>
-              <LastState Value="00916B4C" RealAddress="3008A3984"/>
-              <ShowAsHex>1</ShowAsHex>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>3008A3984</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>187</ID>
-              <Description>"Hubert"</Description>
-              <LastState Value="00917724" RealAddress="3008A39DC"/>
-              <ShowAsHex>1</ShowAsHex>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>3008A39DC</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>188</ID>
-              <Description>"Cheria"</Description>
-              <LastState Value="9536252" RealAddress="3008A3A34"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>3008A3A34</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>191</ID>
-          <Description>"Asbel equipped att 1"</Description>
-          <LastState Value="0" RealAddress="300894997"/>
-          <VariableType>Byte</VariableType>
-          <Address>300894997</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>193</ID>
-          <Description>"Asbel att name 1"</Description>
-          <LastState Value="0" RealAddress="300922407"/>
-          <VariableType>Byte</VariableType>
-          <Address>300922407</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <UserdefinedSymbols/>
 </CheatTable>
