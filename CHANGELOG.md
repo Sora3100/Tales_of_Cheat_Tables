@@ -1,11 +1,32 @@
 #### Changelog:
 
+#### 2022/01/25
+
+-	New features: Xillia 1
+	-	Added the ability to enable/disable any artes.
+	-	Added the ability to enable/disable any skills.
+	-	Added the ability to enable/disable Grade Shop options anytime.
+	-	Revised the Status Effects part of the table to be less confusing.
+	-	Revised the game functions part of the table to be less confusing.
+
+-	New features: Xillia 2
+	-	Added the ability to enable/disable any artes.
+	-	Added the ability to enable/disable any skills.
+	-	Revised the Status Effects part of the table to be less confusing.
+	-	Revised the Unlocks part of the table to be less confusing.
+	
+-	New feature: Vesperia
+	-	Added a Save Anywhere script
+	
+-	Added a dropdown list to Graces F battle BGM changer
+
 #### 2022/01/11
 
 -	Updated Graces table to be more future proof.
 -	New features: Graces
 	-	Change field movement speed
-	-	Change difficulty values
+	-	Change difficulty values	
+	-	Change battle BGM
 
 #### 2021/12/14
 
