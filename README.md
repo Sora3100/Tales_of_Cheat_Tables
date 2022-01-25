@@ -69,6 +69,7 @@ Features:
  - Party Editor
  - Change field movement speed
  - Change difficulty values
+ - Change battle BGM
 
 ## Phantasia (PS1, *Beetle PSX HW 0.9.44.1 9f126e5*)
 
@@ -99,6 +100,7 @@ Features:
  - Party Editor
  - Change Field Run Speed
  - aanpsx's character pointer table ported to 1.2
+ - Save Anywhere script
  
  This table has some notes regarding changing encounters that I never figured out.
  
@@ -117,6 +119,9 @@ Features:
  - **Multiplayer Linking**
  - Arte Editor
  - **Change Gaius/Muzét Final Boss Encounter**
+ - Enable or Disable any arte/spell
+ - Enable or Disable any skill
+ - Turn on/off Grade Shop options at any time
 
  ## Xillia 2 (PS3)
 
@@ -151,6 +156,8 @@ Features:
  - Change Arte Usage by Cultevel81
  - Turn on/off Grade Shop options at any time
  - Arte Editor
+ - Enable or Disable any arte/spell
+ - Enable or Disable any skill
 
  ## Zestiria (PC)
 
