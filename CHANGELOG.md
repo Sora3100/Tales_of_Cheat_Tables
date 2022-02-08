@@ -1,5 +1,22 @@
 #### Changelog:
 
+#### 2022/02/08
+
+-	New feature: Xillia 2
+	-	Added a new version of the linking script. This version will change the link 
+		depending on your character's control mode. Unfortunately, this still
+		only works for the listed RPCS3 version in the readme.
+-	Removed Sandy Bridge support. This should make the script section more
+	user friendly.
+
+-	New features: Graces
+	-	Added a rudimentary stats editor
+	-	Added In-Battle Stats editor
+	
+-	New feature: Destiny 2
+	-	Added an Arte Usage editor.
+-	Revised Stats a bit
+
 #### 2022/01/25
 
 -	New features: Xillia 1
