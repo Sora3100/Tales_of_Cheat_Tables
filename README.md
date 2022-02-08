@@ -67,6 +67,8 @@ Features:
 
 Features: 
  - Party Editor
+ - Stats Editor
+ - In-Battle Stats Editor
  - Change field movement speed
  - Change difficulty values
  - Change battle BGM

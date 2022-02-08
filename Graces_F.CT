@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="38">
+<CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
       <ID>351</ID>
       <Description>"Region Check"</Description>
       <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 
@@ -33,7 +32,6 @@ unregistersymbol(regionCheckMovSpeed)
 9:Hubert (kid)
 10:Richard (kid)
 </DropDownList>
-          <LastState Value="" RealAddress="00000000"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>regionCheckMovSpeed+136784</Address>
@@ -116,7 +114,6 @@ unregistersymbol(regionCheckMovSpeed)
 11:Cheria (kid)
 12:Emeraude
 </DropDownList>
-              <LastState Value="" RealAddress="00000008"/>
               <GroupHeader>1</GroupHeader>
               <Address>+8</Address>
               <CheatEntries>
@@ -139,10 +136,1143 @@ unregistersymbol(regionCheckMovSpeed)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>499</ID>
+          <Description>"Stats"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckMovSpeed+1367E2</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>504</ID>
+              <Description>"Asbel"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>505</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>524</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>525</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>516</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>521</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>520</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>519</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>518</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>517</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>659</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>526</ID>
+              <Description>"Sophie"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>527</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>528</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>529</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>530</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>531</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>532</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>533</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>534</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>535</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>660</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>536</ID>
+              <Description>"Hubert"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>537</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>538</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>539</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>540</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>541</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>542</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>543</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>544</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>545</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>661</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>636</ID>
+              <Description>"Cheria"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>637</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>638</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>639</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>640</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>641</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>642</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>643</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>644</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>645</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>662</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>626</ID>
+              <Description>"Malik"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>627</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>628</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>629</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>630</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>631</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>632</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>633</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>634</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>635</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>663</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>616</ID>
+              <Description>"Pascal"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>617</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>618</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>619</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>620</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>621</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>622</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>623</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>624</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>625</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>668</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>606</ID>
+              <Description>"Richard"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>607</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>608</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>609</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>610</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>611</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>612</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>613</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>614</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>615</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>667</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>596</ID>
+              <Description>"Asbel (kid)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>597</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>598</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>599</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>600</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>601</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>602</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>603</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>604</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>605</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>666</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>586</ID>
+              <Description>"Hubert (kid)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>587</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>588</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>589</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>590</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>591</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>592</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>593</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>594</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>595</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>665</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>576</ID>
+              <Description>"Richard (kid)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BD8*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>577</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>578</ID>
+                  <Description>"Lv."</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>579</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>580</ID>
+                  <Description>"Base P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>581</ID>
+                  <Description>"Base C. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>582</ID>
+                  <Description>"Base ACC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>583</ID>
+                  <Description>"Base P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+42</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>584</ID>
+                  <Description>"Base C. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+46</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>585</ID>
+                  <Description>"Base EVA"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>664</ID>
+                  <Description>"Accel Gauge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>Float Big Endian</CustomType>
+                  <Address>+B6E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>647</ID>
+          <Description>"In-Battle Stats"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckMovSpeed+259AC780</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>648</ID>
+              <Description>"Slot 1"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>649</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>650</ID>
+                  <Description>"Current CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>651</ID>
+                  <Description>"Max CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+A</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>669</ID>
+              <Description>"Slot 2"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BC60</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>670</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>671</ID>
+                  <Description>"Current CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>672</ID>
+                  <Description>"Max CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+A</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>673</ID>
+              <Description>"Slot 3"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BC60*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>674</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>675</ID>
+                  <Description>"Current CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>676</ID>
+                  <Description>"Max CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+A</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>677</ID>
+              <Description>"Slot 4"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+BC60*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>678</ID>
+                  <Description>"Current HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>679</ID>
+                  <Description>"Current CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>680</ID>
+                  <Description>"Max CC"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>2 Byte Big Endian</CustomType>
+                  <Address>+A</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>692</ID>
+              <Description>"Eleth Gauge"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Empty
+10000:Full
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>regionCheckMovSpeed+142308</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>691</ID>
+                  <Description>"Ally"</Description>
+                  <DropDownListLink>Eleth Gauge</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>694</ID>
+                  <Description>"Enemy"</Description>
+                  <DropDownListLink>Eleth Gauge</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>696</ID>
+                  <Description>"Burst State"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Off
+1:On
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>regionCheckMovSpeed+259A0918</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>702</ID>
+                  <Description>"Burst Type"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Player
+1:Enemy
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>regionCheckMovSpeed+259A091C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>701</ID>
+                  <Description>"Burst Timer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>regionCheckMovSpeed+259A0920</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>700</ID>
+                  <Description>"Mystic Arte Gauge"</Description>
+                  <DropDownListLink>Eleth Gauge</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>regionCheckMovSpeed+259A0940</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>699</ID>
+                  <Description>"Mystic Arte Number"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>regionCheckMovSpeed+259A0948</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>476</ID>
           <Description>"Movement Speed"</Description>
           <Options moHideChildren="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 [DISABLE]
@@ -174,7 +1304,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
           <ID>367</ID>
           <Description>"Difficulty values"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>regionCheckMovSpeed+51340</Address>
@@ -183,7 +1312,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
               <ID>368</ID>
               <Description>"Easy"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
@@ -234,7 +1362,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
               <ID>374</ID>
               <Description>"Normal"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="0000002C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+2C</Address>
@@ -285,7 +1412,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
               <ID>380</ID>
               <Description>"Moderate"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000058"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+2C*2</Address>
@@ -336,7 +1462,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
               <ID>386</ID>
               <Description>"Hard"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000084"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+2C*3</Address>
@@ -387,7 +1512,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
               <ID>392</ID>
               <Description>"Evil"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="000000B0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+2C*4</Address>
@@ -438,7 +1562,6 @@ db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
               <ID>398</ID>
               <Description>"Chaos"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="000000DC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+2C*5</Address>
@@ -675,7 +1798,6 @@ ADMUS_V_RIT_B0:
 ADMUS_V_YUR_B0:
 ADMUS_V_YUR_R0:
 </DropDownList>
-          <LastState Value="" RealAddress="00000000"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>regionCheckMovSpeed+18DFD8</Address>
@@ -830,7 +1952,6 @@ ADMUS_V_YUR_R0:
           <ID>404</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
@@ -845,7 +1966,6 @@ ADMUS_V_YUR_R0:
               <ID>406</ID>
               <Description>"Model test"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>regionCheckMovSpeed+1367A4</Address>
@@ -1006,7 +2126,6 @@ ADMUS_V_YUR_R0:
               <ID>427</ID>
               <Description>"Model (via Title/Narikiri) test"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>regionCheckMovSpeed+1367B8</Address>
@@ -1417,7 +2536,6 @@ ADMUS_V_YUR_R0:
               <ID>468</ID>
               <Description>"Coordinates &amp; Map shenanigans"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>regionCheckMovSpeed+177CC8</Address>
