@@ -1,5 +1,20 @@
 #### Changelog:
 
+#### 2022/02/22
+
+-	New features: Xillia 1
+	-	Added the ability to force on Overlimit for any character.
+	-	Added the ability to change field movement speed.
+
+-	New features: Xillia 2
+	-	Added the ability to force on Overlimit for any character.
+	-	Added the ability to change field movement speed.
+	
+-	New features: Symphonia
+	-	Added the ability to enable/disable Union Attacks.
+	-	Added the ability to enable/disable the Devil Arm's power.
+	-	Added the ability to change Colette's Angel state
+
 #### 2022/02/08
 
 -	New feature: Xillia 2

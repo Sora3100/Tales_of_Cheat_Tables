@@ -124,6 +124,7 @@ Features:
  - Enable or Disable any arte/spell
  - Enable or Disable any skill
  - Turn on/off Grade Shop options at any time
+ - Change field movement speed
 
  ## Xillia 2 (PS3)
 
@@ -160,6 +161,7 @@ Features:
  - Arte Editor
  - Enable or Disable any arte/spell
  - Enable or Disable any skill
+ - Change field movement speed
 
  ## Zestiria (PC)
 
