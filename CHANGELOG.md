@@ -1,5 +1,14 @@
 #### Changelog:
 
+#### 2022/03/08
+
+-	New feature: Xillia 1
+	-	Added an inventory editor.
+		-	As an added bonus, the equipment editor is no longer based on Xillia 2!
+
+-	New feature: Xillia 2
+	-	Added an inventory editor.
+
 #### 2022/02/22
 
 -	New features: Xillia 1
