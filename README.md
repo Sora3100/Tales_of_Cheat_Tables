@@ -111,7 +111,7 @@ Features:
 Features: 
  - Party Editor
  - Stats Editor
- - Equipment Editor *(the values here were copy pasted from Xillia 2 and may not work/crash or be the same.)*
+ - Equipment Editor
  - Arte List Editor
  - Gald Editor
  - Difficulty Modifier
@@ -125,6 +125,7 @@ Features:
  - Enable or Disable any skill
  - Turn on/off Grade Shop options at any time
  - Change field movement speed
+ - Inventory Editor
 
  ## Xillia 2 (PS3)
 
@@ -162,6 +163,7 @@ Features:
  - Enable or Disable any arte/spell
  - Enable or Disable any skill
  - Change field movement speed
+ - Inventory Editor
 
  ## Zestiria (PC)
 
