@@ -1,5 +1,12 @@
 #### Changelog:
 
+#### 2022/03/22
+
+-	New feature: Graces f
+	-	Added an Arte List Editor
+
+-	Fixed Vesperia's Save Anywhere script requiring you to touch save points, now it should work from the moment you activate it!
+
 #### 2022/03/08
 
 -	New feature: Xillia 1
