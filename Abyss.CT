@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="34">
+<CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
       <ID>69</ID>
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 aobscan(baseElfAddr, 00 00 19 04 00 00 80 44 00 08 80 44 00 10 80 44 00 18 80 44)
@@ -28,7 +27,6 @@ unregistersymbol(baseElfAddr)
 6:Natalia
 7:Asch
 </DropDownList>
-          <LastState Value="" RealAddress="406D2EC1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+5D2E35</Address>
@@ -37,7 +35,6 @@ unregistersymbol(baseElfAddr)
               <ID>71</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
-              <LastState Value="1" RealAddress="406D2EC1"/>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
             </CheatEntry>
@@ -45,7 +42,6 @@ unregistersymbol(baseElfAddr)
               <ID>72</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
-              <LastState Value="2" RealAddress="406D2EC2"/>
               <VariableType>Byte</VariableType>
               <Address>+1</Address>
             </CheatEntry>
@@ -53,7 +49,6 @@ unregistersymbol(baseElfAddr)
               <ID>73</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
-              <LastState Value="5" RealAddress="406D2EC3"/>
               <VariableType>Byte</VariableType>
               <Address>+2</Address>
             </CheatEntry>
@@ -61,7 +56,6 @@ unregistersymbol(baseElfAddr)
               <ID>74</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
-              <LastState Value="3" RealAddress="406D2EC4"/>
               <VariableType>Byte</VariableType>
               <Address>+3</Address>
             </CheatEntry>
@@ -69,7 +63,6 @@ unregistersymbol(baseElfAddr)
               <ID>75</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
-              <LastState Value="4" RealAddress="406D2EC5"/>
               <VariableType>Byte</VariableType>
               <Address>+4</Address>
             </CheatEntry>
@@ -77,7 +70,6 @@ unregistersymbol(baseElfAddr)
               <ID>76</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Party Formation</DropDownListLink>
-              <LastState Value="6" RealAddress="406D2EC6"/>
               <VariableType>Byte</VariableType>
               <Address>+5</Address>
             </CheatEntry>
@@ -87,7 +79,6 @@ unregistersymbol(baseElfAddr)
           <ID>109</ID>
           <Description>"Stats"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="406D2F0C"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+5D2E80</Address>
@@ -96,7 +87,6 @@ unregistersymbol(baseElfAddr)
               <ID>110</ID>
               <Description>"Luke"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D2F0C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
@@ -104,7 +94,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>111</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="69" RealAddress="406D2F00"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -112,7 +101,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>113</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="748481" RealAddress="406D2F08"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -120,7 +108,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>108</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="4870" RealAddress="406D2F0C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -128,7 +115,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>115</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="385" RealAddress="406D2F10"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -136,7 +122,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>123</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="4870" RealAddress="406D2F54"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -144,7 +129,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>124</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="385" RealAddress="406D2F58"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -152,7 +136,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>126</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="1451" RealAddress="406D2F5C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -160,7 +143,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>125</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="449" RealAddress="406D2F60"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -168,7 +150,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>129</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="633" RealAddress="406D2F64"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -176,7 +157,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>128</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="445" RealAddress="406D2F68"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -184,7 +164,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>127</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="500" RealAddress="406D2F6C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -192,7 +171,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>132</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="57" RealAddress="406D2F70"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -200,7 +178,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>131</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="88" RealAddress="406D2F8C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -211,7 +188,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="197608" RealAddress="406D3210"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -222,7 +198,6 @@ unregistersymbol(baseElfAddr)
               <ID>133</ID>
               <Description>"Tear"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D325C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350</Address>
@@ -230,7 +205,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>134</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="68" RealAddress="406D3250"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -238,7 +212,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>135</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="681649" RealAddress="406D3258"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -246,7 +219,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>136</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="3990" RealAddress="406D325C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -254,7 +226,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>137</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="452" RealAddress="406D3260"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -262,7 +233,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>138</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="3990" RealAddress="406D32A4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -270,7 +240,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>139</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="452" RealAddress="406D32A8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -278,7 +247,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>140</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="1068" RealAddress="406D32AC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -286,7 +254,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>141</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="1313" RealAddress="406D32B0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -294,7 +261,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>142</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="537" RealAddress="406D32B4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -302,7 +268,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>143</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="540" RealAddress="406D32B8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -310,7 +275,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>144</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="472" RealAddress="406D32BC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -318,7 +282,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>145</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="68" RealAddress="406D32C0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -326,7 +289,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>146</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="46" RealAddress="406D32DC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -337,7 +299,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="522" RealAddress="406D3560"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -348,7 +309,6 @@ unregistersymbol(baseElfAddr)
               <ID>189</ID>
               <Description>"Jade"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D35AC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*2</Address>
@@ -356,7 +316,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>190</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="67" RealAddress="406D35A0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -364,7 +323,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>191</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="660707" RealAddress="406D35A8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -372,7 +330,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>192</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="4190" RealAddress="406D35AC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -380,7 +337,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>193</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="456" RealAddress="406D35B0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -388,7 +344,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>194</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="4190" RealAddress="406D35F4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -396,7 +351,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>195</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="456" RealAddress="406D35F8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -404,7 +358,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>196</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="1198" RealAddress="406D35FC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -412,7 +365,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>197</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="1387" RealAddress="406D3600"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -420,7 +372,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>198</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="503" RealAddress="406D3604"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -428,7 +379,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>199</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="606" RealAddress="406D3608"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -436,7 +386,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>200</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="406" RealAddress="406D360C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -444,7 +393,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>201</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="68" RealAddress="406D3610"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -452,7 +400,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>202</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="38" RealAddress="406D362C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -463,7 +410,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="732" RealAddress="406D38B0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -474,7 +420,6 @@ unregistersymbol(baseElfAddr)
               <ID>175</ID>
               <Description>"Anise"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D38FC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*3</Address>
@@ -482,7 +427,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>176</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="66" RealAddress="406D38F0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -490,7 +434,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>177</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="625348" RealAddress="406D38F8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -498,7 +441,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>178</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="4791" RealAddress="406D38FC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -506,7 +448,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>179</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="365" RealAddress="406D3900"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -514,7 +455,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>180</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="4791" RealAddress="406D3944"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -522,7 +462,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>181</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="365" RealAddress="406D3948"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -530,7 +469,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>182</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="1223" RealAddress="406D394C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -538,7 +476,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>183</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="1107" RealAddress="406D3950"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -546,7 +483,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>184</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="562" RealAddress="406D3954"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -554,7 +490,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>185</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="524" RealAddress="406D3958"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -562,7 +497,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>186</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="351" RealAddress="406D395C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -570,7 +504,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>187</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="69" RealAddress="406D3960"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -578,7 +511,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>188</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="59" RealAddress="406D397C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -589,7 +521,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="545" RealAddress="406D3C00"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -600,7 +531,6 @@ unregistersymbol(baseElfAddr)
               <ID>161</ID>
               <Description>"Guy"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3C4C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*4</Address>
@@ -608,7 +538,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>162</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="67" RealAddress="406D3C40"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -616,7 +545,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>163</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="676345" RealAddress="406D3C48"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -624,7 +552,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>164</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="4155" RealAddress="406D3C4C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -632,7 +559,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>165</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="426" RealAddress="406D3C50"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -640,7 +566,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>166</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="4155" RealAddress="406D3C94"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -648,7 +573,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>167</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="426" RealAddress="406D3C98"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -656,7 +580,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>168</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="1337" RealAddress="406D3C9C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -664,7 +587,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>169</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="344" RealAddress="406D3CA0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -672,7 +594,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>170</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="495" RealAddress="406D3CA4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -680,7 +601,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>171</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="434" RealAddress="406D3CA8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -688,7 +608,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>172</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="654" RealAddress="406D3CAC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -696,7 +615,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>173</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="79" RealAddress="406D3CB0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -704,7 +622,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>174</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="46" RealAddress="406D3CCC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -715,7 +632,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="733" RealAddress="406D3F50"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -726,7 +642,6 @@ unregistersymbol(baseElfAddr)
               <ID>147</ID>
               <Description>"Natalia"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3F9C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*5</Address>
@@ -734,7 +649,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>148</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="67" RealAddress="406D3F90"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -742,7 +656,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>149</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="652766" RealAddress="406D3F98"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -750,7 +663,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>150</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="3947" RealAddress="406D3F9C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -758,7 +670,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>151</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="355" RealAddress="406D3FA0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -766,7 +677,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>152</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="3947" RealAddress="406D3FE4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -774,7 +684,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>153</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="355" RealAddress="406D3FE8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -782,7 +691,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>154</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="1225" RealAddress="406D3FEC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -790,7 +698,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>155</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="453" RealAddress="406D3FF0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -798,7 +705,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>156</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="611" RealAddress="406D3FF4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -806,7 +712,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>157</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="606" RealAddress="406D3FF8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -814,7 +719,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>158</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="464" RealAddress="406D3FFC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -822,7 +726,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>159</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="92" RealAddress="406D4000"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -830,7 +733,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>160</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="46" RealAddress="406D401C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -841,7 +743,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="996" RealAddress="406D42A0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -852,7 +753,6 @@ unregistersymbol(baseElfAddr)
               <ID>203</ID>
               <Description>"Asch"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D42EC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*6</Address>
@@ -860,7 +760,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>204</ID>
                   <Description>"LV"</Description>
-                  <LastState Value="57" RealAddress="406D42E0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-C</Address>
@@ -868,7 +767,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>205</ID>
                   <Description>"EXP"</Description>
-                  <LastState Value="362085" RealAddress="406D42E8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
@@ -876,7 +774,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>206</ID>
                   <Description>"Current HP"</Description>
-                  <LastState Value="3666" RealAddress="406D42EC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
@@ -884,7 +781,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>207</ID>
                   <Description>"Current TP"</Description>
-                  <LastState Value="300" RealAddress="406D42F0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
@@ -892,7 +788,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>208</ID>
                   <Description>"Max HP"</Description>
-                  <LastState Value="3666" RealAddress="406D4334"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
@@ -900,7 +795,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>209</ID>
                   <Description>"Max TP"</Description>
-                  <LastState Value="300" RealAddress="406D4338"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
@@ -908,7 +802,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>210</ID>
                   <Description>"Physical Attack"</Description>
-                  <LastState Value="636" RealAddress="406D433C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
@@ -916,7 +809,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>211</ID>
                   <Description>"Fonic Attack"</Description>
-                  <LastState Value="288" RealAddress="406D4340"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
@@ -924,7 +816,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>212</ID>
                   <Description>"Physical Defense"</Description>
-                  <LastState Value="349" RealAddress="406D4344"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
@@ -932,7 +823,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>213</ID>
                   <Description>"Fonic Defense"</Description>
-                  <LastState Value="336" RealAddress="406D4348"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+5C</Address>
@@ -940,7 +830,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>214</ID>
                   <Description>"Agility"</Description>
-                  <LastState Value="344" RealAddress="406D434C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+60</Address>
@@ -948,7 +837,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>215</ID>
                   <Description>"Luck"</Description>
-                  <LastState Value="76" RealAddress="406D4350"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+64</Address>
@@ -956,7 +844,6 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>216</ID>
                   <Description>"Enhancement"</Description>
-                  <LastState Value="0" RealAddress="406D436C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+80</Address>
@@ -967,7 +854,6 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:Empty
 1000:Full
 </DropDownList>
-                  <LastState Value="262144" RealAddress="406D45F0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+304</Address>
@@ -1236,7 +1122,6 @@ unregistersymbol(baseElfAddr)
 253:Fortune's Ark (Nebilim)
 254:Indignation (Nebilim)
 </DropDownList>
-          <LastState Value="" Activated="1" RealAddress="406D2F90"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+5D2F04</Address>
@@ -1245,7 +1130,6 @@ unregistersymbol(baseElfAddr)
               <ID>268</ID>
               <Description>"Luke"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D2F90"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
@@ -1254,7 +1138,6 @@ unregistersymbol(baseElfAddr)
                   <ID>269</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="29" RealAddress="406D2F90"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -1263,7 +1146,6 @@ unregistersymbol(baseElfAddr)
                   <ID>273</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="27" RealAddress="406D2F92"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -1272,7 +1154,6 @@ unregistersymbol(baseElfAddr)
                   <ID>272</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="28" RealAddress="406D2F94"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -1281,7 +1162,6 @@ unregistersymbol(baseElfAddr)
                   <ID>271</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="14" RealAddress="406D2F96"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -1290,7 +1170,6 @@ unregistersymbol(baseElfAddr)
                   <ID>275</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="198" RealAddress="406D2FEE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -1299,7 +1178,6 @@ unregistersymbol(baseElfAddr)
                       <ID>274</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="6" RealAddress="406D2FEC"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1310,7 +1188,6 @@ unregistersymbol(baseElfAddr)
                   <ID>280</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D2FF2"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -1319,7 +1196,6 @@ unregistersymbol(baseElfAddr)
                       <ID>281</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D2FF0"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1330,7 +1206,6 @@ unregistersymbol(baseElfAddr)
                   <ID>278</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D2FF6"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -1339,7 +1214,6 @@ unregistersymbol(baseElfAddr)
                       <ID>279</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D2FF4"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1350,7 +1224,6 @@ unregistersymbol(baseElfAddr)
                   <ID>276</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D2FFA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -1359,7 +1232,6 @@ unregistersymbol(baseElfAddr)
                       <ID>277</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D2FF8"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1372,7 +1244,6 @@ unregistersymbol(baseElfAddr)
               <ID>282</ID>
               <Description>"Tear"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D32E0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350</Address>
@@ -1381,7 +1252,6 @@ unregistersymbol(baseElfAddr)
                   <ID>283</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="60" RealAddress="406D32E0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -1390,7 +1260,6 @@ unregistersymbol(baseElfAddr)
                   <ID>284</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="48" RealAddress="406D32E2"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -1399,7 +1268,6 @@ unregistersymbol(baseElfAddr)
                   <ID>285</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D32E4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -1408,7 +1276,6 @@ unregistersymbol(baseElfAddr)
                   <ID>286</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D32E6"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -1417,7 +1284,6 @@ unregistersymbol(baseElfAddr)
                   <ID>287</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D333E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -1426,7 +1292,6 @@ unregistersymbol(baseElfAddr)
                       <ID>288</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D333C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1437,7 +1302,6 @@ unregistersymbol(baseElfAddr)
                   <ID>289</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3342"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -1446,7 +1310,6 @@ unregistersymbol(baseElfAddr)
                       <ID>290</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3340"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1457,7 +1320,6 @@ unregistersymbol(baseElfAddr)
                   <ID>291</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3346"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -1466,7 +1328,6 @@ unregistersymbol(baseElfAddr)
                       <ID>292</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3344"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1477,7 +1338,6 @@ unregistersymbol(baseElfAddr)
                   <ID>293</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D334A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -1486,7 +1346,6 @@ unregistersymbol(baseElfAddr)
                       <ID>294</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3348"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1499,7 +1358,6 @@ unregistersymbol(baseElfAddr)
               <ID>295</ID>
               <Description>"Jade"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3630"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*2</Address>
@@ -1508,7 +1366,6 @@ unregistersymbol(baseElfAddr)
                   <ID>296</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="72" RealAddress="406D3630"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -1517,7 +1374,6 @@ unregistersymbol(baseElfAddr)
                   <ID>297</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="78" RealAddress="406D3632"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -1526,7 +1382,6 @@ unregistersymbol(baseElfAddr)
                   <ID>298</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3634"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -1535,7 +1390,6 @@ unregistersymbol(baseElfAddr)
                   <ID>299</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3636"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -1544,7 +1398,6 @@ unregistersymbol(baseElfAddr)
                   <ID>300</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D368E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -1553,7 +1406,6 @@ unregistersymbol(baseElfAddr)
                       <ID>301</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D368C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1564,7 +1416,6 @@ unregistersymbol(baseElfAddr)
                   <ID>302</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3692"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -1573,7 +1424,6 @@ unregistersymbol(baseElfAddr)
                       <ID>303</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3690"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1584,7 +1434,6 @@ unregistersymbol(baseElfAddr)
                   <ID>304</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3696"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -1593,7 +1442,6 @@ unregistersymbol(baseElfAddr)
                       <ID>305</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3694"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1604,7 +1452,6 @@ unregistersymbol(baseElfAddr)
                   <ID>306</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D369A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -1613,7 +1460,6 @@ unregistersymbol(baseElfAddr)
                       <ID>307</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3698"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1626,7 +1472,6 @@ unregistersymbol(baseElfAddr)
               <ID>308</ID>
               <Description>"Anise"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3980"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*3</Address>
@@ -1635,7 +1480,6 @@ unregistersymbol(baseElfAddr)
                   <ID>309</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="239" RealAddress="406D3980"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -1644,7 +1488,6 @@ unregistersymbol(baseElfAddr)
                   <ID>310</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="119" RealAddress="406D3982"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -1653,7 +1496,6 @@ unregistersymbol(baseElfAddr)
                   <ID>311</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="121" RealAddress="406D3984"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -1662,7 +1504,6 @@ unregistersymbol(baseElfAddr)
                   <ID>312</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="120" RealAddress="406D3986"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -1671,7 +1512,6 @@ unregistersymbol(baseElfAddr)
                   <ID>313</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D39DE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -1680,7 +1520,6 @@ unregistersymbol(baseElfAddr)
                       <ID>314</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D39DC"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1691,7 +1530,6 @@ unregistersymbol(baseElfAddr)
                   <ID>315</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D39E2"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -1700,7 +1538,6 @@ unregistersymbol(baseElfAddr)
                       <ID>316</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D39E0"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1711,7 +1548,6 @@ unregistersymbol(baseElfAddr)
                   <ID>317</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D39E6"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -1720,7 +1556,6 @@ unregistersymbol(baseElfAddr)
                       <ID>318</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D39E4"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1731,7 +1566,6 @@ unregistersymbol(baseElfAddr)
                   <ID>319</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D39EA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -1740,7 +1574,6 @@ unregistersymbol(baseElfAddr)
                       <ID>320</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D39E8"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1753,7 +1586,6 @@ unregistersymbol(baseElfAddr)
               <ID>321</ID>
               <Description>"Guy"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3CD0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*4</Address>
@@ -1762,7 +1594,6 @@ unregistersymbol(baseElfAddr)
                   <ID>322</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="136" RealAddress="406D3CD0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -1771,7 +1602,6 @@ unregistersymbol(baseElfAddr)
                   <ID>323</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3CD2"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -1780,7 +1610,6 @@ unregistersymbol(baseElfAddr)
                   <ID>324</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3CD4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -1789,7 +1618,6 @@ unregistersymbol(baseElfAddr)
                   <ID>325</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3CD6"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -1798,7 +1626,6 @@ unregistersymbol(baseElfAddr)
                   <ID>326</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3D2E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -1807,7 +1634,6 @@ unregistersymbol(baseElfAddr)
                       <ID>327</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3D2C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1818,7 +1644,6 @@ unregistersymbol(baseElfAddr)
                   <ID>328</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3D32"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -1827,7 +1652,6 @@ unregistersymbol(baseElfAddr)
                       <ID>329</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3D30"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1838,7 +1662,6 @@ unregistersymbol(baseElfAddr)
                   <ID>330</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3D36"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -1847,7 +1670,6 @@ unregistersymbol(baseElfAddr)
                       <ID>331</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3D34"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1858,7 +1680,6 @@ unregistersymbol(baseElfAddr)
                   <ID>332</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D3D3A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -1867,7 +1688,6 @@ unregistersymbol(baseElfAddr)
                       <ID>333</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D3D38"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1880,7 +1700,6 @@ unregistersymbol(baseElfAddr)
               <ID>334</ID>
               <Description>"Natalia"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D4020"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*5</Address>
@@ -1889,7 +1708,6 @@ unregistersymbol(baseElfAddr)
                   <ID>335</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="166" RealAddress="406D4020"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -1898,7 +1716,6 @@ unregistersymbol(baseElfAddr)
                   <ID>336</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="178" RealAddress="406D4022"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -1907,7 +1724,6 @@ unregistersymbol(baseElfAddr)
                   <ID>337</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D4024"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -1916,7 +1732,6 @@ unregistersymbol(baseElfAddr)
                   <ID>338</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D4026"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -1925,7 +1740,6 @@ unregistersymbol(baseElfAddr)
                   <ID>339</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D407E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -1934,7 +1748,6 @@ unregistersymbol(baseElfAddr)
                       <ID>340</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D407C"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1945,7 +1758,6 @@ unregistersymbol(baseElfAddr)
                   <ID>341</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D4082"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -1954,7 +1766,6 @@ unregistersymbol(baseElfAddr)
                       <ID>342</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D4080"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1965,7 +1776,6 @@ unregistersymbol(baseElfAddr)
                   <ID>343</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D4086"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -1974,7 +1784,6 @@ unregistersymbol(baseElfAddr)
                       <ID>344</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D4084"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -1985,7 +1794,6 @@ unregistersymbol(baseElfAddr)
                   <ID>345</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D408A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -1994,7 +1802,6 @@ unregistersymbol(baseElfAddr)
                       <ID>346</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D4088"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -2007,7 +1814,6 @@ unregistersymbol(baseElfAddr)
               <ID>347</ID>
               <Description>"Asch"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D4370"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*6</Address>
@@ -2016,7 +1822,6 @@ unregistersymbol(baseElfAddr)
                   <ID>348</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="4" RealAddress="406D4370"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2025,7 +1830,6 @@ unregistersymbol(baseElfAddr)
                   <ID>349</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="225" RealAddress="406D4372"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2034,7 +1838,6 @@ unregistersymbol(baseElfAddr)
                   <ID>350</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="226" RealAddress="406D4374"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2043,7 +1846,6 @@ unregistersymbol(baseElfAddr)
                   <ID>351</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="227" RealAddress="406D4376"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2052,7 +1854,6 @@ unregistersymbol(baseElfAddr)
                   <ID>352</ID>
                   <Description>"Slot 5"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D43CE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
@@ -2061,7 +1862,6 @@ unregistersymbol(baseElfAddr)
                       <ID>353</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D43CC"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -2072,7 +1872,6 @@ unregistersymbol(baseElfAddr)
                   <ID>354</ID>
                   <Description>"Slot 6"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D43D2"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
@@ -2081,7 +1880,6 @@ unregistersymbol(baseElfAddr)
                       <ID>355</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D43D0"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -2092,7 +1890,6 @@ unregistersymbol(baseElfAddr)
                   <ID>356</ID>
                   <Description>"Slot 7"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D43D6"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
@@ -2101,7 +1898,6 @@ unregistersymbol(baseElfAddr)
                       <ID>357</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D43D4"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -2112,7 +1908,6 @@ unregistersymbol(baseElfAddr)
                   <ID>358</ID>
                   <Description>"Slot 8"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D43DA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
@@ -2121,7 +1916,6 @@ unregistersymbol(baseElfAddr)
                       <ID>359</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
-                      <LastState Value="0" RealAddress="406D43D8"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
@@ -2551,7 +2345,6 @@ unregistersymbol(baseElfAddr)
 558:Blue Dice
 559:Rebirth Doll
 </DropDownList>
-          <LastState Value="" RealAddress="406D2F78"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+5D2EEC</Address>
@@ -2560,7 +2353,6 @@ unregistersymbol(baseElfAddr)
               <ID>233</ID>
               <Description>"Luke"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D2F78"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
@@ -2569,7 +2361,6 @@ unregistersymbol(baseElfAddr)
                   <ID>231</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="215" RealAddress="406D2F78"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2578,7 +2369,6 @@ unregistersymbol(baseElfAddr)
                   <ID>236</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="357" RealAddress="406D2F7A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2587,7 +2377,6 @@ unregistersymbol(baseElfAddr)
                   <ID>235</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="425" RealAddress="406D2F7C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2596,7 +2385,6 @@ unregistersymbol(baseElfAddr)
                   <ID>234</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="528" RealAddress="406D2F7E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2607,7 +2395,6 @@ unregistersymbol(baseElfAddr)
               <ID>237</ID>
               <Description>"Tear"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D32C8"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350</Address>
@@ -2616,7 +2403,6 @@ unregistersymbol(baseElfAddr)
                   <ID>238</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="258" RealAddress="406D32C8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2625,7 +2411,6 @@ unregistersymbol(baseElfAddr)
                   <ID>239</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="377" RealAddress="406D32CA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2634,7 +2419,6 @@ unregistersymbol(baseElfAddr)
                   <ID>240</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="440" RealAddress="406D32CC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2643,7 +2427,6 @@ unregistersymbol(baseElfAddr)
                   <ID>241</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="528" RealAddress="406D32CE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2654,7 +2437,6 @@ unregistersymbol(baseElfAddr)
               <ID>242</ID>
               <Description>"Jade"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3618"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*2</Address>
@@ -2663,7 +2445,6 @@ unregistersymbol(baseElfAddr)
                   <ID>243</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="295" RealAddress="406D3618"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2672,7 +2453,6 @@ unregistersymbol(baseElfAddr)
                   <ID>244</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="408" RealAddress="406D361A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2681,7 +2461,6 @@ unregistersymbol(baseElfAddr)
                   <ID>245</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="425" RealAddress="406D361C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2690,7 +2469,6 @@ unregistersymbol(baseElfAddr)
                   <ID>246</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="528" RealAddress="406D361E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2701,7 +2479,6 @@ unregistersymbol(baseElfAddr)
               <ID>262</ID>
               <Description>"Anise"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3968"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*3</Address>
@@ -2710,7 +2487,6 @@ unregistersymbol(baseElfAddr)
                   <ID>263</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="254" RealAddress="406D3968"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2719,7 +2495,6 @@ unregistersymbol(baseElfAddr)
                   <ID>264</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="393" RealAddress="406D396A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2728,7 +2503,6 @@ unregistersymbol(baseElfAddr)
                   <ID>265</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="440" RealAddress="406D396C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2737,7 +2511,6 @@ unregistersymbol(baseElfAddr)
                   <ID>266</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="528" RealAddress="406D396E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2748,7 +2521,6 @@ unregistersymbol(baseElfAddr)
               <ID>257</ID>
               <Description>"Guy"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3CB8"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*4</Address>
@@ -2757,7 +2529,6 @@ unregistersymbol(baseElfAddr)
                   <ID>258</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="214" RealAddress="406D3CB8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2766,7 +2537,6 @@ unregistersymbol(baseElfAddr)
                   <ID>259</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="356" RealAddress="406D3CBA"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2775,7 +2545,6 @@ unregistersymbol(baseElfAddr)
                   <ID>260</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="425" RealAddress="406D3CBC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2784,7 +2553,6 @@ unregistersymbol(baseElfAddr)
                   <ID>261</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="528" RealAddress="406D3CBE"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2795,7 +2563,6 @@ unregistersymbol(baseElfAddr)
               <ID>252</ID>
               <Description>"Natalia"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D4008"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*5</Address>
@@ -2804,7 +2571,6 @@ unregistersymbol(baseElfAddr)
                   <ID>253</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="319" RealAddress="406D4008"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2813,7 +2579,6 @@ unregistersymbol(baseElfAddr)
                   <ID>254</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="377" RealAddress="406D400A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2822,7 +2587,6 @@ unregistersymbol(baseElfAddr)
                   <ID>255</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="440" RealAddress="406D400C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2831,7 +2595,6 @@ unregistersymbol(baseElfAddr)
                   <ID>256</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="528" RealAddress="406D400E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2842,7 +2605,6 @@ unregistersymbol(baseElfAddr)
               <ID>247</ID>
               <Description>"Asch"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D4358"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>+350*6</Address>
@@ -2851,7 +2613,6 @@ unregistersymbol(baseElfAddr)
                   <ID>248</ID>
                   <Description>"WEAP"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="218" RealAddress="406D4358"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
@@ -2860,7 +2621,6 @@ unregistersymbol(baseElfAddr)
                   <ID>249</ID>
                   <Description>"BODY"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="409" RealAddress="406D435A"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
@@ -2869,7 +2629,6 @@ unregistersymbol(baseElfAddr)
                   <ID>250</ID>
                   <Description>"HAND"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="0" RealAddress="406D435C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
@@ -2878,7 +2637,6 @@ unregistersymbol(baseElfAddr)
                   <ID>251</ID>
                   <Description>"OTHER"</Description>
                   <DropDownListLink>Equipment Editor</DropDownListLink>
-                  <LastState Value="530" RealAddress="406D435E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
@@ -2891,7 +2649,6 @@ unregistersymbol(baseElfAddr)
           <ID>77</ID>
           <Description>"Title &amp; Costume"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="406D2F01"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+5D2E75</Address>
@@ -2900,21 +2657,18 @@ unregistersymbol(baseElfAddr)
               <ID>78</ID>
               <Description>"Luke"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D2F01"/>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>79</ID>
                   <Description>"Costume"</Description>
-                  <LastState Value="0" RealAddress="406D2F01"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>80</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D2F03"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -2924,21 +2678,18 @@ unregistersymbol(baseElfAddr)
               <ID>81</ID>
               <Description>"Tear"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3251"/>
               <GroupHeader>1</GroupHeader>
               <Address>+350</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>82</ID>
                   <Description>"Costume"</Description>
-                  <LastState Value="0" RealAddress="406D3251"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D3253"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -2948,21 +2699,18 @@ unregistersymbol(baseElfAddr)
               <ID>84</ID>
               <Description>"Jade"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D35A1"/>
               <GroupHeader>1</GroupHeader>
               <Address>+350*2</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>85</ID>
                   <Description>"Costume"</Description>
-                  <LastState Value="0" RealAddress="406D35A1"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>86</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D35A3"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -2972,21 +2720,18 @@ unregistersymbol(baseElfAddr)
               <ID>87</ID>
               <Description>"Anise"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D38F1"/>
               <GroupHeader>1</GroupHeader>
               <Address>+350*3</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>88</ID>
                   <Description>"Costume"</Description>
-                  <LastState Value="0" RealAddress="406D38F1"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>89</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D38F3"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -2996,21 +2741,18 @@ unregistersymbol(baseElfAddr)
               <ID>90</ID>
               <Description>"Guy"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3C41"/>
               <GroupHeader>1</GroupHeader>
               <Address>+350*4</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>91</ID>
                   <Description>"Costume"</Description>
-                  <LastState Value="0" RealAddress="406D3C41"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>92</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D3C43"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -3020,21 +2762,18 @@ unregistersymbol(baseElfAddr)
               <ID>93</ID>
               <Description>"Natalia"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D3F91"/>
               <GroupHeader>1</GroupHeader>
               <Address>+350*5</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>94</ID>
                   <Description>"Costume"</Description>
-                  <LastState Value="0" RealAddress="406D3F91"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>95</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D3F93"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -3044,7 +2783,6 @@ unregistersymbol(baseElfAddr)
               <ID>96</ID>
               <Description>"Asch"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="406D42E1"/>
               <GroupHeader>1</GroupHeader>
               <Address>+350*6</Address>
               <CheatEntries>
@@ -3054,14 +2792,12 @@ unregistersymbol(baseElfAddr)
                   <DropDownList DisplayValueAsItem="1">0:God-General
 1:Loving Son
 </DropDownList>
-                  <LastState Value="0" RealAddress="406D42E1"/>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>98</ID>
                   <Description>"Title"</Description>
-                  <LastState Value="1" RealAddress="406D42E3"/>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
@@ -3176,7 +2912,6 @@ unregistersymbol(baseElfAddr)
 101:Dragon Buster Guardian
 102:Dragon Buster Ending
 </DropDownList>
-          <LastState Value="0" RealAddress="406AD4FC"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>baseElfAddr+5AD470</Address>
@@ -3184,7 +2919,6 @@ unregistersymbol(baseElfAddr)
         <CheatEntry>
           <ID>99</ID>
           <Description>"Current Area"</Description>
-          <LastState Value="70 01 00 00" RealAddress="406D2C24"/>
           <ShowAsHex>1</ShowAsHex>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Array of byte</VariableType>
@@ -3197,7 +2931,6 @@ unregistersymbol(baseElfAddr)
           <DropDownList DisplayValueAsItem="1">00 00 00 80:Long
 00 00 00 A0:Short
 </DropDownList>
-          <LastState Value="A1 A3 02 80" RealAddress="406D29B2"/>
           <ShowAsHex>1</ShowAsHex>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Array of byte</VariableType>
@@ -3208,14 +2941,12 @@ unregistersymbol(baseElfAddr)
           <ID>101</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" Activated="1" RealAddress="00000000"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>102</ID>
               <Description>"On Battle End 1st Slot"</Description>
-              <LastState Value="0" RealAddress="40BD0CB8"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+AD0C2C</Address>
@@ -3223,7 +2954,6 @@ unregistersymbol(baseElfAddr)
             <CheatEntry>
               <ID>103</ID>
               <Description>"On Battle Start 1st Slot"</Description>
-              <LastState Value="0" RealAddress="40BD0CC0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+AD0C34</Address>
@@ -3231,7 +2961,6 @@ unregistersymbol(baseElfAddr)
             <CheatEntry>
               <ID>104</ID>
               <Description>"Battle Anims"</Description>
-              <LastState Value="0" RealAddress="406C5B78"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+5C5AEC</Address>
@@ -3239,7 +2968,6 @@ unregistersymbol(baseElfAddr)
             <CheatEntry>
               <ID>105</ID>
               <Description>"BGM"</Description>
-              <LastState Value="98" RealAddress="405B8460"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+4B83D4</Address>
@@ -3247,7 +2975,6 @@ unregistersymbol(baseElfAddr)
             <CheatEntry>
               <ID>106</ID>
               <Description>"Base ELF Address"</Description>
-              <LastState Value="68747264" RealAddress="4010008C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>baseElfAddr</Address>
@@ -3255,7 +2982,6 @@ unregistersymbol(baseElfAddr)
             <CheatEntry>
               <ID>362</ID>
               <Description>"Guy Demon Fang TP Cost"</Description>
-              <LastState Value="5" RealAddress="40E687E0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+D68754</Address>
@@ -3263,10 +2989,27 @@ unregistersymbol(baseElfAddr)
             <CheatEntry>
               <ID>365</ID>
               <Description>"Jade Drain Magic Type"</Description>
-              <LastState Value="134" RealAddress="40E67ACC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+D67A40</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1462</ID>
+              <Description>"Luke/Asch portrait in battle (save, then load to apply)"</Description>
+              <DropDownList DisplayValueAsItem="1">41857:Luke short-hair portrait
+41881:Asch portrait
+41889:Luke long-hair portrait
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>baseElfAddr+5D2926</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1465</ID>
+              <Description>"Run Speed"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>baseElfAddr+11C750</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -3274,4 +3017,11 @@ unregistersymbol(baseElfAddr)
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"DMCVTrainer.exe"+10E70</Address>
+      <Comment>Jump if unsupported version
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
 </CheatTable>
