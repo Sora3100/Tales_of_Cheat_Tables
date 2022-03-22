@@ -72,6 +72,7 @@ Features:
  - Change field movement speed
  - Change difficulty values
  - Change battle BGM
+ - Arte List Editor
 
 ## Phantasia (PS1, *Beetle PSX HW 0.9.44.1 9f126e5*)
 

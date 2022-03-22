@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="38">
+<CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
       <ID>1</ID>
@@ -17,7 +17,6 @@
 9:Patty
 10:Estelle(Unknown)
 </DropDownList>
-      <LastState Value="" RealAddress="7FF6F2B31FE8"/>
       <GroupHeader>1</GroupHeader>
       <Address>TOV_DE.exe+1181FE8</Address>
       <CheatEntries>
@@ -90,13 +89,11 @@
       <ID>78906</ID>
       <Description>"Run Speed"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>78900</ID>
           <Description>"You have to disable Winged Boots for it to work!"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <Color>0000FF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
@@ -149,7 +146,6 @@
     <CheatEntry>
       <ID>78965</ID>
       <Description>"Bots don't attack (affects friends and foe alike)"</Description>
-      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
@@ -215,13 +211,12 @@ dealloc(newmem)
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
-      <ID>78966</ID>
+      <ID>78973</ID>
       <Description>"Save Anywhere"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
-  Date   : 2022-01-24
+  Date   : 2022-03-15
   Author : thing
 
   This script does blah blah blah
@@ -229,138 +224,55 @@ dealloc(newmem)
 
 [ENABLE]
 
-aobscanmodule(saveAnywhere,TOV_DE.exe,C6 46 14 00 48 85 C0) // should be unique
-aobscanmodule(saveAnywhere2,TOV_DE.exe,C6 47 14 00 C7 47 18 FF FF FF FF) // should be unique
+aobscanmodule(saveAnywhere,TOV_DE.exe,80 38 00 75 11 FF C1 48 83 C0 20) // should be unique
 aobscanmodule(saveAnywhereCheck,TOV_DE.exe,85 D2 7E 1D 48 8D 05 DB 06 45 01) // should be unique
 
-alloc(newmem,$1000,saveAnywhere)
-alloc(newmem2,$1000,saveAnywhere2)
-alloc(newmem3,$1000,saveAnywhereCheck)
+saveAnywhere+3:
+  db EB
 
-
-label(code)
-label(code2)
-label(code3)
-label(return)
-label(return2)
-label(return3)
-
-newmem:
-
-code:
-  mov byte ptr [rsi+14],01
-  test rax,rax
-  jmp return
-
-saveAnywhere:
-  jmp newmem
-  nop 2
-
-return:
-
-newmem2:
-
-code2:
-  mov byte ptr [rdi+14],01
-  mov [rdi+18],FFFFFFFF
-  jmp return2
-
-saveAnywhere2:
-  jmp newmem2
-  nop 6
-
-return2:
-
-newmem3:
-
-code3:
-  test edx,edx
-//  jle TOV_DE.exe+6A209F
-  lea rax,[TOV_DE.exe+1AF2764]
-  jmp return3
-
-saveAnywhereCheck:
-  jmp newmem3
-  nop 6
-
-return3:
+saveAnywhereCheck+2:
+  db 90 90
 
 registersymbol(saveAnywhere)
-registersymbol(saveAnywhere2)
 registersymbol(saveAnywhereCheck)
 
 [DISABLE]
 
 saveAnywhere:
-  db C6 46 14 00 48 85 C0
-
-saveAnywhere2:
-  db C6 47 14 00 C7 47 18 FF FF FF FF
+  db 80 38 00 75 11
 
 saveAnywhereCheck:
   db 85 D2 7E 1D 48 8D 05 DB 06 45 01
 
 unregistersymbol(saveAnywhere)
-dealloc(newmem)
-unregistersymbol(saveAnywhere2)
-dealloc(newmem2)
 unregistersymbol(saveAnywhereCheck)
-dealloc(newmem3)
 
 {
-// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+6A27B2
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+6A2090
 
-TOV_DE.exe+6A278F: 45 33 C9                 - xor r9d,r9d
-TOV_DE.exe+6A2792: 48 8B 8C 2B 50 D7 DE 00  - mov rcx,[rbx+rbp+00DED750]
-TOV_DE.exe+6A279A: E8 31 54 02 00           - call TOV_DE.exe+6C7BD0
-TOV_DE.exe+6A279F: 48 8B 6C 24 60           - mov rbp,[rsp+60]
-TOV_DE.exe+6A27A4: B0 01                    - mov al,01
-TOV_DE.exe+6A27A6: 48 8B 7C 24 30           - mov rdi,[rsp+30]
-TOV_DE.exe+6A27AB: 48 83 C4 38              - add rsp,38
-TOV_DE.exe+6A27AF: 5E                       - pop rsi
-TOV_DE.exe+6A27B0: 5B                       - pop rbx
-TOV_DE.exe+6A27B1: C3                       - ret 
+TOV_DE.exe+6A206B: 74 32                 - je TOV_DE.exe+6A209F
+TOV_DE.exe+6A206D: E8 6E 49 F1 FF        - call TOV_DE.exe+5B69E0
+TOV_DE.exe+6A2072: 84 C0                 - test al,al
+TOV_DE.exe+6A2074: 74 29                 - je TOV_DE.exe+6A209F
+TOV_DE.exe+6A2076: 8B 15 C4 04 45 01     - mov edx,[TOV_DE.exe+1AF2540]
+TOV_DE.exe+6A207C: 33 C9                 - xor ecx,ecx
+TOV_DE.exe+6A207E: 85 D2                 - test edx,edx
+TOV_DE.exe+6A2080: 7E 1D                 - jle TOV_DE.exe+6A209F
+TOV_DE.exe+6A2082: 48 8D 05 DB 06 45 01  - lea rax,[TOV_DE.exe+1AF2764]
+TOV_DE.exe+6A2089: 0F 1F 80 00 00 00 00  - nop dword ptr [rax+00000000]
 // ---------- INJECTING HERE ----------
-TOV_DE.exe+6A27B2: C6 46 14 00              - mov byte ptr [rsi+14],00
+TOV_DE.exe+6A2090: 80 38 00              - cmp byte ptr [rax],00
 // ---------- DONE INJECTING  ----------
-TOV_DE.exe+6A27B6: 48 85 C0                 - test rax,rax
-TOV_DE.exe+6A27B9: 74 08                    - je TOV_DE.exe+6A27C3
-TOV_DE.exe+6A27BB: 33 DB                    - xor ebx,ebx
-TOV_DE.exe+6A27BD: 89 98 80 00 00 00        - mov [rax+00000080],ebx
-TOV_DE.exe+6A27C3: B0 01                    - mov al,01
-TOV_DE.exe+6A27C5: 48 83 C4 38              - add rsp,38
-TOV_DE.exe+6A27C9: 5E                       - pop rsi
-TOV_DE.exe+6A27CA: 5B                       - pop rbx
-TOV_DE.exe+6A27CB: C3                       - ret 
-TOV_DE.exe+6A27CC: CC                       - int 3 
-}
-
-{
-// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+6A2236
-
-TOV_DE.exe+6A220A: BA 01 00 00 00           - mov edx,00000001
-TOV_DE.exe+6A220F: E8 7C 03 FA FF           - call TOV_DE.exe+642590
-TOV_DE.exe+6A2214: 48 8D 15 D5 03 00 00     - lea rdx,[TOV_DE.exe+6A25F0]
-TOV_DE.exe+6A221B: 48 8D 4F 08              - lea rcx,[rdi+08]
-TOV_DE.exe+6A221F: E8 3C 0D FA FF           - call TOV_DE.exe+642F60
-TOV_DE.exe+6A2224: 48 8B D7                 - mov rdx,rdi
-TOV_DE.exe+6A2227: 48 8D 4F 08              - lea rcx,[rdi+08]
-TOV_DE.exe+6A222B: E8 C0 0D FA FF           - call TOV_DE.exe+642FF0
-TOV_DE.exe+6A2230: B0 01                    - mov al,01
-TOV_DE.exe+6A2232: 44 89 77 10              - mov [rdi+10],r14d
-// ---------- INJECTING HERE ----------
-TOV_DE.exe+6A2236: C6 47 14 00              - mov byte ptr [rdi+14],00
-// ---------- DONE INJECTING  ----------
-TOV_DE.exe+6A223A: C7 47 18 FF FF FF FF     - mov [rdi+18],FFFFFFFF
-TOV_DE.exe+6A2241: 48 8B 8C 24 20 01 00 00  - mov rcx,[rsp+00000120]
-TOV_DE.exe+6A2249: 48 33 CC                 - xor rcx,rsp
-TOV_DE.exe+6A224C: E8 CF F3 0E 00           - call TOV_DE.exe+791620
-TOV_DE.exe+6A2251: 48 81 C4 30 01 00 00     - add rsp,00000130
-TOV_DE.exe+6A2258: 41 5F                    - pop r15
-TOV_DE.exe+6A225A: 41 5E                    - pop r14
-TOV_DE.exe+6A225C: 41 5C                    - pop r12
-TOV_DE.exe+6A225E: 5F                       - pop rdi
-TOV_DE.exe+6A225F: 5E                       - pop rsi
+TOV_DE.exe+6A2093: 75 11                 - jne TOV_DE.exe+6A20A6
+TOV_DE.exe+6A2095: FF C1                 - inc ecx
+TOV_DE.exe+6A2097: 48 83 C0 20           - add rax,20
+TOV_DE.exe+6A209B: 3B CA                 - cmp ecx,edx
+TOV_DE.exe+6A209D: 7C F1                 - jl TOV_DE.exe+6A2090
+TOV_DE.exe+6A209F: 32 C0                 - xor al,al
+TOV_DE.exe+6A20A1: 48 83 C4 28           - add rsp,28
+TOV_DE.exe+6A20A5: C3                    - ret 
+TOV_DE.exe+6A20A6: B0 01                 - mov al,01
+TOV_DE.exe+6A20A8: 48 83 C4 28           - add rsp,28
 }
 
 {
@@ -396,21 +308,18 @@ TOV_DE.exe+6A209F: 32 C0                 - xor al,al
       <ID>63628</ID>
       <Description>"UNSUPPORTED"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>FF00FF</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>3957</ID>
           <Description>"Original table by aanpsx"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>4082</ID>
               <Description>"character pointer (view character details)"</Description>
               <Options moHideChildren="1"/>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 aobscanregion(PSX_CharacterDetails,TOV_DE.exe+400000,TOV_DE.exe+4100000,89 5C 24 78 38)
@@ -503,14 +412,12 @@ dealloc(PSX_3)
                   <ID>4083</ID>
                   <Description>" Name [WIP]"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
                       <ID>4084</ID>
                       <Description>"Base_1"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState Value="" RealAddress="00000000"/>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
                         <CheatEntry>
@@ -610,7 +517,6 @@ dealloc(PSX_3)
                       <ID>4092</ID>
                       <Description>"Base_2"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState Value="" RealAddress="00000000"/>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
                         <CheatEntry>
@@ -709,7 +615,6 @@ dealloc(PSX_3)
                     <CheatEntry>
                       <ID>4100</ID>
                       <Description>"=========================================================="</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <Color>808000</Color>
                       <GroupHeader>1</GroupHeader>
                     </CheatEntry>
@@ -719,7 +624,6 @@ dealloc(PSX_3)
                   <ID>4101</ID>
                   <Description>"Character"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -732,7 +636,6 @@ dealloc(PSX_3)
                     <CheatEntry>
                       <ID>4103</ID>
                       <Description>"=========================================================="</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <Color>808000</Color>
                       <GroupHeader>1</GroupHeader>
                     </CheatEntry>
@@ -788,7 +691,6 @@ dealloc(PSX_3)
                     <CheatEntry>
                       <ID>4109</ID>
                       <Description>"=========================================================="</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <Color>808000</Color>
                       <GroupHeader>1</GroupHeader>
                     </CheatEntry>
@@ -796,7 +698,6 @@ dealloc(PSX_3)
                       <ID>4110</ID>
                       <Description>"Attribute"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState Value="" RealAddress="00000000"/>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
                         <CheatEntry>
@@ -874,7 +775,6 @@ dealloc(PSX_3)
                         <CheatEntry>
                           <ID>4119</ID>
                           <Description>"=========================================================="</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <Color>808000</Color>
                           <GroupHeader>1</GroupHeader>
                         </CheatEntry>
@@ -884,7 +784,6 @@ dealloc(PSX_3)
                       <ID>4120</ID>
                       <Description>"Attribute Readonly"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState Value="" RealAddress="00000000"/>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
                         <CheatEntry>
@@ -966,7 +865,6 @@ dealloc(PSX_3)
                 <CheatEntry>
                   <ID>4129</ID>
                   <Description>"=========================================================="</Description>
-                  <LastState Value="" RealAddress="00000000"/>
                   <Color>808000</Color>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
@@ -1009,7 +907,6 @@ dealloc(PSX_3)
       <ID>63627</ID>
       <Description>"Notes"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>C0C0C0</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
@@ -1029,7 +926,6 @@ dealloc(PSX_3)
           <ID>63465</ID>
           <Description>"Duke Stats Fight Finder"</Description>
           <Options moHideChildren="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscan(DukeFight, 24 5F 04 00 A0 0F 00 00 FA 02 00 00 EE 02 00 00) // should be unique
@@ -1139,7 +1035,6 @@ unregistersymbol(_DukeFight)
           <ID>63482</ID>
           <Description>"Duke 2 Stats Fight Finder"</Description>
           <Options moHideChildren="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscan(Duke2Fight, 2C 22 07 00 70 17 00 00 28 03 00 00 70 03 00 00) // should be unique
@@ -1243,7 +1138,6 @@ unregistersymbol(_Duke2Fight)
           <ID>63656</ID>
           <Description>"Gattuso Stats Fight Finder"</Description>
           <Options moHideChildren="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscan(GattFight, AF 67 00 00 7C 01 00 00 20 01 00 00 F5 00 00 00 8D 00 00 00 7A 00 00 00) // should be unique
@@ -1374,7 +1268,6 @@ unregistersymbol(_GattFight)
           <ID>63619</ID>
           <Description>"Encounter Finder"</Description>
           <Options moHideChildren="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscan(Encounter, F5 00 00 00 F6 00 00 00 F6 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF) // should be unique
@@ -1392,7 +1285,6 @@ unregistersymbol(_Encounter)
               <ID>63626</ID>
               <Description>"Gattuso fight"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <Address>_Encounter</Address>
               <CheatEntries>
@@ -1573,7 +1465,6 @@ unregistersymbol(_Encounter)
         <CheatEntry>
           <ID>63617</ID>
           <Description>"Paste enemy HP address here to get values"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>0</Address>
@@ -1606,7 +1497,6 @@ unregistersymbol(_Encounter)
         <CheatEntry>
           <ID>63634</ID>
           <Description>"HP values"</Description>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
@@ -1698,7 +1588,6 @@ dealloc(autoHP)
           <ID>78312</ID>
           <Description>"Yuri Arte Whitelist"</Description>
           <Options moHideChildren="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscan(yuriArteWhitelist,64 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 8C 01 00 00 33 00 00 00 59 06 00 00)
@@ -1721,7 +1610,6 @@ unregistersymbol(yuriArteWhitelist)
           <ID>78915</ID>
           <Description>"All artes unlock script RE"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
@@ -1811,7 +1699,6 @@ unregistersymbol(yuriArteWhitelist)
         <CheatEntry>
           <ID>78954</ID>
           <Description>"Instruction fix attempt"</Description>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
