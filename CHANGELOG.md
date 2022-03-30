@@ -1,5 +1,9 @@
 #### Changelog:
 
+#### 2022/03/30
+
+-	Updated Arise table to Update 3 (2022/03/30)
+
 #### 2022/03/22
 
 -	New feature: Graces f
