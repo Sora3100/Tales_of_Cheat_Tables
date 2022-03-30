@@ -25,7 +25,7 @@ Emulators used for their respective platforms and their versions, unless stated 
  - **Symphonia**: *2016/09/27*
  - **Rebirth**: *SLPS-25450*
  - **Eternia**: *SLUS-01355*, *SLUS-01367*, *SLUS-01368*
- - **Arise**: *2021/12/14* (*1.1*)
+ - **Arise**: *2022/03/03* (*1.3*)
 
 ## Abyss (PS2)
 
