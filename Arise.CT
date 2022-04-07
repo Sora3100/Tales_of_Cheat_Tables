@@ -16498,13 +16498,13 @@ Tales of Arise.exe+9A9E22: 49 FF C8              - dec r8
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
-      <ID>40260</ID>
+      <ID>40620</ID>
       <Description>"Run Speed"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Tales of Arise.exe
   Version: 
-  Date   : 2021-09-27
+  Date   : 2022-04-07
   Author : thing
 
   This script does blah blah blah
@@ -16512,63 +16512,64 @@ Tales of Arise.exe+9A9E22: 49 FF C8              - dec r8
 
 [ENABLE]
 
-aobscanmodule(runSpeed,Tales of Arise.exe,F3 0F 10 B3 F8 00 00 00 0F) // should be unique
+aobscanmodule(runSpeed,Tales of Arise.exe,0F 2F 93 F8 00 00 00) // should be unique
 alloc(newmem,$1000,runSpeed)
-globalalloc(speedAddr,4)
+globalalloc(speedAddr,8)
 
 label(code)
 label(return)
 
 newmem:
-push rax
-lea rax,[rbx+FC]
-mov [speedAddr],rax
-pop rax
+  push rax
+  lea rax,[rbx+FC]
+  mov [speedAddr],rax
+  pop rax
 code:
-  movss xmm6,[rbx+000000F8]
+  comiss xmm2,[rbx+000000F8]
   jmp return
 
 runSpeed:
   jmp newmem
-  nop 3
+  nop
+  nop
 return:
 registersymbol(runSpeed)
 
 [DISABLE]
 
 runSpeed:
-  db F3 0F 10 B3 F8 00 00 00
+  db 0F 2F 93 F8 00 00 00
 
 unregistersymbol(runSpeed)
 dealloc(newmem)
 dealloc(speedAddr)
 
 {
-// ORIGINAL CODE - INJECTION POINT: Tales of Arise.exe+721244
+// ORIGINAL CODE - INJECTION POINT: Tales of Arise.exe+722BDB
 
-Tales of Arise.exe+72121C: 45 84 E4                 - test r12l,r12l
-Tales of Arise.exe+72121F: 74 0A                    - je "Tales of Arise.exe"+72122B
-Tales of Arise.exe+721221: F3 0F 10 B3 70 04 00 00  - movss xmm6,[rbx+00000470]
-Tales of Arise.exe+721229: EB 21                    - jmp "Tales of Arise.exe"+72124C
-Tales of Arise.exe+72122B: F3 0F 10 B3 FC 00 00 00  - movss xmm6,[rbx+000000FC]
-Tales of Arise.exe+721233: EB 17                    - jmp "Tales of Arise.exe"+72124C
-Tales of Arise.exe+721235: 45 84 E4                 - test r12l,r12l
-Tales of Arise.exe+721238: 74 0A                    - je "Tales of Arise.exe"+721244
-Tales of Arise.exe+72123A: F3 0F 10 B3 70 04 00 00  - movss xmm6,[rbx+00000470]
-Tales of Arise.exe+721242: EB 08                    - jmp "Tales of Arise.exe"+72124C
+Tales of Arise.exe+722BAE: 48 8B CF                 - mov rcx,rdi
+Tales of Arise.exe+722BB1: FF 90 D0 02 00 00        - call qword ptr [rax+000002D0]
+Tales of Arise.exe+722BB7: 0F 57 D2                 - xorps xmm2,xmm2
+Tales of Arise.exe+722BBA: F3 0F 10 40 04           - movss xmm0,[rax+04]
+Tales of Arise.exe+722BBF: F3 0F 10 08              - movss xmm1,[rax]
+Tales of Arise.exe+722BC3: F3 0F 59 C9              - mulss xmm1,xmm1
+Tales of Arise.exe+722BC7: F3 0F 59 C0              - mulss xmm0,xmm0
+Tales of Arise.exe+722BCB: F3 0F 58 C8              - addss xmm1,xmm0
+Tales of Arise.exe+722BCF: F3 0F 51 D1              - sqrtss xmm2,xmm1
+Tales of Arise.exe+722BD3: F3 0F 5C 15 8D 78 22 02  - subss xmm2,["Tales of Arise.exe"+294A468]
 // ---------- INJECTING HERE ----------
-Tales of Arise.exe+721244: F3 0F 10 B3 F8 00 00 00  - movss xmm6,[rbx+000000F8]
+Tales of Arise.exe+722BDB: 0F 2F 93 F8 00 00 00     - comiss xmm2,[rbx+000000F8]
 // ---------- DONE INJECTING  ----------
-Tales of Arise.exe+72124C: 0F B6 83 F8 02 00 00     - movzx eax,byte ptr [rbx+000002F8]
-Tales of Arise.exe+721253: 3B C7                    - cmp eax,edi
-Tales of Arise.exe+721255: 74 26                    - je "Tales of Arise.exe"+72127D
-Tales of Arise.exe+721257: E8 34 89 87 00           - call "Tales of Arise.exe"+F99B90
-Tales of Arise.exe+72125C: 45 33 C9                 - xor r9d,r9d
-Tales of Arise.exe+72125F: 4C 8D 05 7A 2F 3E 02     - lea r8,["Tales of Arise.exe"+2B041E0]
-Tales of Arise.exe+721266: 48 8B C8                 - mov rcx,rax
-Tales of Arise.exe+721269: 49 8D 51 FF              - lea rdx,[r9-01]
-Tales of Arise.exe+72126D: E8 AE FD 8E 00           - call "Tales of Arise.exe"+1011020
-Tales of Arise.exe+721272: 40 0F B6 C7              - movzx eax,dil
+Tales of Arise.exe+722BE2: 77 10                    - ja "Tales of Arise.exe"+722BF4
+Tales of Arise.exe+722BE4: B8 01 00 00 00           - mov eax,00000001
+Tales of Arise.exe+722BE9: 48 8B 5C 24 40           - mov rbx,[rsp+40]
+Tales of Arise.exe+722BEE: 48 83 C4 30              - add rsp,30
+Tales of Arise.exe+722BF2: 5F                       - pop rdi
+Tales of Arise.exe+722BF3: C3                       - ret 
+Tales of Arise.exe+722BF4: 33 C0                    - xor eax,eax
+Tales of Arise.exe+722BF6: 0F 2F 93 FC 00 00 00     - comiss xmm2,[rbx+000000FC]
+Tales of Arise.exe+722BFD: 0F 97 C0                 - seta al
+Tales of Arise.exe+722C00: 83 C0 02                 - add eax,02
 }
 </AssemblerScript>
       <CheatEntries>
@@ -16796,11 +16797,12 @@ Tales of Arise.exe+721272: 40 0F B6 C7              - movzx eax,dil
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>speedAddr</Name>
-      <Address>1CC07AC0000</Address>
+      <Address>21034AF0030</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
   <Comments>Update 1 -&gt; 2 offset:
 +13570
 Update 2 -&gt; 3 offset:
--C45400</Comments>
+-C45400
+</Comments>
 </CheatTable>

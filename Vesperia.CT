@@ -911,6 +911,1827 @@ dealloc(PSX_3)
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
+          <ID>79066</ID>
+          <Description>"Dropdowns"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>79067</ID>
+              <Description>"dropdown: Disabled/Enabled"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79168</ID>
+              <Description>"dropdown: No/Yes"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79169</ID>
+              <Description>"dropdown: Disabled/3Enabled"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Disabled
+3:Enabled
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>79048</ID>
+          <Description>"Arte Properties (Hover over the Arte) very unfinished"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version:
+  Date   : 2022-04-06
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(artePropDescPTR,TOV_DE.exe,8B 48 20 48 83 C4 28) // should be unique
+alloc(newmem,$1000)
+globalalloc(artePropPTR,8)
+
+label(code)
+label(return)
+
+newmem:
+  mov [artePropPTR],rax
+code:
+  mov ecx,[rax+20]
+  add rsp,28
+  jmp TOV_DE.exe+486AF0
+  jmp return
+
+artePropDescPTR:
+  jmp newmem
+  nop 2
+return:
+registersymbol(artePropDescPTR)
+
+[DISABLE]
+
+artePropDescPTR:
+  db 8B 48 20 48 83 C4 28 E9 9B 44 0C 00 CC CC CC CC
+
+unregistersymbol(artePropDescPTR)
+dealloc(newmem)
+dealloc(artePropDescPTR)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+3C2649
+
+TOV_DE.exe+3C262D: CC                    - int 3
+TOV_DE.exe+3C262E: CC                    - int 3
+TOV_DE.exe+3C262F: CC                    - int 3
+TOV_DE.exe+3C2630: 48 83 EC 28           - sub rsp,28
+TOV_DE.exe+3C2634: 85 C9                 - test ecx,ecx
+TOV_DE.exe+3C2636: 75 0C                 - jne TOV_DE.exe+3C2644
+TOV_DE.exe+3C2638: 48 8D 05 60 CD 5C 00  - lea rax,[TOV_DE.exe+98F39F]
+TOV_DE.exe+3C263F: 48 83 C4 28           - add rsp,28
+TOV_DE.exe+3C2643: C3                    - ret
+TOV_DE.exe+3C2644: E8 E7 3F 11 00        - call TOV_DE.exe+4D6630
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+3C2649: 8B 48 20              - mov ecx,[rax+20]
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+3C264C: 48 83 C4 28           - add rsp,28
+TOV_DE.exe+3C2650: E9 9B 44 0C 00        - jmp TOV_DE.exe+486AF0
+TOV_DE.exe+3C2655: CC                    - int 3
+TOV_DE.exe+3C2656: CC                    - int 3
+TOV_DE.exe+3C2657: CC                    - int 3
+TOV_DE.exe+3C2658: CC                    - int 3
+TOV_DE.exe+3C2659: CC                    - int 3
+TOV_DE.exe+3C265A: CC                    - int 3
+TOV_DE.exe+3C265B: CC                    - int 3
+TOV_DE.exe+3C265C: CC                    - int 3
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>79028</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79059</ID>
+              <Description>"Entry"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79058</ID>
+              <Description>"Arte ID"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
+1299:System Text
+:
+::Yuri
+1:Regular Attack - O
+2:Regular Attack - ^O
+3:Regular Attack - &lt;&gt;O
+4:Regular Attack - vO
+5:Regular Attack - Jumping - O
+6:Regular Attack - Jumping - vO
+7:Regular Secondary Attack - O
+8:Regular Secondary Attack - ^O
+9:Regular Secondary Attack - &lt;&gt;O
+10:Regular Secondary Attack - vO
+11:Regular Secondary Attack - Jumping - O
+12:Regular Secondary Attack - Jumping - vO
+13:Free Run Attack
+14:Indigo Fatal Strike
+15:Crimson Fatal Strike
+16:Viridian Fatal Strike
+17:Azure Edge
+21:Cerberus Strike
+20:Fang Strike
+23:Wolf Strike
+25:Destruction Field
+1342:Dhaos Blast
+27:Shining Fang
+24:Tiger Blade
+1369:Draconian Slash
+26:Ghost Wolf
+37:Azure Wolf Strike
+915:Crushing Eagle
+30:Dragon Swarm
+1522:Concealed Wave
+29:Severing Fang
+355:Shining Eagle
+38:Shining Dragon Swarm
+31:Raging Blast
+32:Brutal Flang
+33:Wailing Havoc
+35:Lone Wolf Charge
+41:Final Gale
+39:Wailing Blast
+40:Rending Wolf Charge
+18:Azure Storm
+19:Azure Blast
+22:Cerberus Blast
+28:Shining Fang Drop
+1257:Guardian Field
+1370:Shredding Palm
+34:Pyre Havoc
+36:Lone Wolf Storm
+42:Frigid Blast
+1625:Demon Attack
+43:Divine Wolf
+46:Divine Wolf - Blaze
+44:Divine Wolf - Crush
+45:Divine Wolf - Storm
+910:Divine Wolf - Flood
+47:Savage Wolf Fury
+1344:Heavenly Bladewing
+1666:Twin Wave
+1114:Step Combo
+:
+::Estellise
+52:Regular Attack - O
+53:Regular Attack - ^O
+54:Regular Attack - &lt;&gt;O
+55:Regular Attack - vO
+56:Regular Attack - Jumping - O
+57:Regular Attack - Jumping - vO
+58:Regular Secondary Attack - O
+59:Regular Secondary Attack - ^O
+60:Regular Secondary Attack - &lt;&gt;O
+61:Regular Secondary Attack - vO
+62:Regular Secondary Attack - Jumping - O
+63:Regular Secondary Attack - Jumping - vO
+64:Free Run Attack
+65:Indigo Fatal Strike
+66:Crimson Fatal Strike
+67:Viridian Fatal Strike
+74:Pow Hammer
+68:Star Stroke
+69:Pierce Cluster
+397:Cavalry
+71:Dividing Edge
+73:Marche Waltz
+398:Delight Roll
+1371:Tri Slash
+70:Ray Sting
+1372:Blazing Pillar
+1374:Amenes Sorbe
+72:Air Divide
+1373:Sylphy Roll
+1626:Phantom Blade
+75:First Aid
+79:Recover
+76:Sharpness
+77:Barrier
+89:Astion
+80:Resist
+82:Photon
+84:Healing Circle
+85:Resurrection
+88:Dispel
+90:Angel Ring
+91:Nurse
+94:Holy Lance
+96:Revitalize
+93:Force Field
+78:Variable Hex
+81:Resist Field
+83:Grand Chariot
+86:Revive
+87:Regenerate
+92:Nightingale
+95:Holy Rain
+669:Extreme Stars
+916:Star Sign - Flame
+917:Star Sign - Geo
+918:Star Sign - Gale
+919:Star Sign - Aqua
+920:Sacred Penance
+1302:Sacred Penance
+1345:Ultima Elementia
+1346:Spirit Boom (Efreet)
+1347:Spirit Boom (Gnome)
+1348:Spirit Boom (Sylph)
+1349:Spirit Boom (Undine)
+1115:Pow Hammer Revenge
+1116:Auto Medicine
+1505:Auto Medicine 2
+:
+::Karol
+97:Regular Attack - O
+98:Regular Attack - ^O
+99:Regular Attack - &lt;&gt;O
+100:Regular Attack - vO
+101:Regular Attack - Jumping - O
+102:Regular Attack - Jumping - vO
+103:Regular Secondary Attack - O
+104:Regular Secondary Attack - ^O
+105:Regular Secondary Attack - &lt;&gt;O
+106:Regular Secondary Attack - vO
+107:Regular Secondary Attack - Jumping - O
+108:Regular Secondary Attack - Jumping - vO
+109:Free Run Attack
+110:Indigo Fatal Strike
+111:Crimson Fatal Strike
+112:Viridian Fatal Strike
+113:Dragon Upper
+114:Destroying Rock
+125:Nice Aid Smash
+129:Destructo Pain Shot
+116:Lightning Wave
+1336:Nice Recovery Smash
+123:Bug Breath
+117:Punishhng Smash
+122:Gaia Bug
+130:Destructo Spider Web
+119:Havoc Break
+121:Coil Breat
+124:Roaring Revolution
+128:Destructo Booing
+358:Hammer Flow Upper
+137:Punishing Aid Smash
+132:Reaper Knock
+133:Punishing Beast Flash
+138:Roaring Dragon Blow
+134:Devil Rage Rise
+131:Rending Drop
+135:Ultimate Divine Destruction
+115:Destruction Street
+126:Nice Healing Smash
+127:Nice Curing Smash
+1376:Destructo Pain Carnival
+1375:Hellfire Breath
+118:Twin Punishing Smash
+120:Havoc Thunder
+1378:Hurricane Revolution
+1377:Destructo Booing Festival
+1379:Diablo Hyper Buster
+136:Death Quake Spark
+1627:Blazing Tempest
+674:Ultra Punishing Swing
+908:Ultra Punishing Heat
+909:Ultra Punishing Crush
+907:Ultra Punishing Typhoon
+1340:Ultra Punishing Typhoon
+906:Ultra Punishing Soul
+921:Overlord Reign Impact
+1350:Mega Flashbang Ultra X Bomber
+:
+::Rita
+139:Regular Attack - O
+140:Regular Attack - ^O
+141:Regular Attack - &lt;&gt;O
+142:Regular Attack - vO
+143:Regular Attack - Jumping - O
+144:Regular Attack - Jumping - vO
+145:Regular Secondary Attack - O
+146:Regular Secondary Attack - ^O
+147:Regular Secondary Attack - &lt;&gt;O
+148:Regular Secondary Attack - vO
+149:Regular Secondary Attack - Jumping - O
+150:Regular Secondary Attack - Jumping - vO
+151:Free Run Attack
+152:Indigo Fatal Strike
+153:Crimson Fatal Strike
+154:Viridian Fatal Strike
+155:β×ψ＝√
+156:ζ×ψ＝φ
+157:∠＝（x,y,z）
+914:ζ＝δτ（ωρ）
+158:∠＝∞
+913:（δ/χ）λ＝ι
+1298:（δ/χ）λ＝ι
+1381:∫∇＝Σ（ωπ）
+1382:∠＝（r,θ,φ）
+1380:Ａ＝Ｉｋ｛λ∈Λ｝
+159:Fire Ball
+162:Stone Blast
+161:Champagne
+164:Spread Zero
+168:Splash
+171:Stalagmite
+179:Tractor Beam
+173:Negative Gate
+166:Spiral Flare
+176:Tidal Wave
+174:Violent Pain
+181:Blade Roll
+177:Ground Dasher
+175:Crimson Flare
+183:Meteor Storm
+160:Eruption
+163:Ivy Rush
+165:Demon's Lance
+169:Aqua Laser
+170:Freeze Lancer
+172:Riot Horn
+180:Gold Cat
+167:Flame Dragon
+178:Bloody Howling
+182:Thunder Blade
+1630:Burning Strike
+911:Mystic Drive
+905:Raging Drive
+922:Ruinous Drive
+923:Fleeting Drive
+924:Diffusional Drive
+925:Ancient Catastrophe
+1351:Indignation
+1708:Indignation (Dhaos)
+1117:Spell Revenge/Fire Ball
+1118:Spell Revenge/Champagne
+1119:Spell Revenge/Stone Blast
+1120:Spell Revenge/Spread Zero
+:
+::Raven
+184:Regular Attack - O
+185:Regular Attack - ^O
+186:Regular Attack - &lt;&gt;O
+187:Regular Attack - vO
+188:Regular Attack - Jumping - O
+189:Regular Attack - Jumping - vO
+190:Regular Secondary Attack - O
+191:Regular Secondary Attack - ^O
+192:Regular Secondary Attack - &lt;&gt;O
+193:Regular Secondary Attack - vO
+194:Regular Secondary Attack - Jumping - O
+195:Regular Secondary Attack - Jumping - vO
+196:Free Run Attack
+197:Indigo Fatal Strike
+198:Crimson Fatal Strike
+199:Viridian Fatal Strike
+200:Rain
+202:Bouquet
+203:Serpent
+204:Glimmer of Hesven
+207:Around
+1307:Love Shot
+205:Dark Chase
+209:Violet Snake
+214:Just Like Dancing
+206:Cyan Instant
+211:Heaven's Tear
+220:Falling
+1126:Azure Heavens
+215:Falling Stars
+218:Crime
+223:The Wind's Howl
+201:Rainsong
+1383:Firefly
+1127:Rain Down
+208:Around and Around
+1385:Crimson Helix
+212:Rain of Heaven's Tears
+213:Cloud of Heaven's Tears
+221:Falling Further
+216:The Growing World
+210:Violet Weasel
+217:Punishment
+219:Flying
+222:The Wind's Rage
+1631:Elemental Master
+1634:Elemental Master (Fire)
+1635:Elemental Master (Earth)
+1636:Elemental Master (Wind)
+1637:Elemental Master (Water)
+1638:Elemental Master (Light)
+1639:Elemental Master (Dark)
+224:Wind Blade
+225:Arrivederci
+229:Havoc Gale
+227:Vanji Lost
+1384:Air Thrust
+226:Inverno
+230:Tempest
+228:Stop Flow
+672:Fury Blast
+926:Chaotic Fury
+927:Garnet Chaos
+928:Kamikaze Fury
+929:Storm of Chaos
+930:Blast Heart
+1352:Crisis Rain
+1305:Arrow Revenge
+:
+::Judith
+231:Wide slice
+232:High thrust
+233:Middle thrust
+234:Leg sweep
+235:Jump cut
+236:Jump thrust
+237:Spin kick
+238:Moonsault
+239:Wide swing
+240:Hit
+241:Jump slice
+242:Jump heel
+243:Free Run Attack
+244:Spinning jump cut
+245:Jump kick
+246:Indigo Fatal Strike
+247:Crimson Fatal Strike
+248:Viridian Fatal Strike
+249:Crescent Moon
+253:Luna Fang
+255:Moonlight Havoc
+258:New Moon Blade
+250:Crescent Strike
+261:Luna Rise
+251:Moonlight Talon
+256:Dawn Moon
+1390:Crescent Moon Blade
+257:Moonlight Blast
+259:Luna Storm
+262:Piercing Moon
+263:Luna Gale
+272:Luna Ascendent
+266:Luna Rondo
+273:Rising Moonlight Havoc
+265:Moonbeam
+270:Luna Crush
+274:Thunder Moon Rising
+268:Luna Havoc
+275:Sundering Moon
+271:Moon Glare
+254:Luna Talon
+1387:Guiding Moon
+1388:Moonlit Knife
+252:Moonlight Drop
+1389:Dawn Moon Falcon
+260:Raging Luna Storm
+267:Rising Luna Rondo
+1386:Moonbean - Bird
+264:Thunder Moon
+269:Luna Storm
+1632:Bloody Rose
+931:Ashen Moonlight
+932:Conflagration Blast
+935:Crushing Grave
+933:Quasi Seal
+934:Midnight Flood
+936:Radiant Moonlight
+1353:Dragon's Moon Spear
+1306:Touchdown
+:
+::Repede
+276:Regular Attack - O
+277:Regular Attack - ^O
+278:Regular Attack - &lt;&gt;O
+279:Regular Attack - vO
+280:Regular Attack - Jumping - O
+281:Regular Attack - Jumping - vO
+282:Regular Secondary Attack - O
+283:Regular Secondary Attack - ^O
+284:Regular Secondary Attack - &lt;&gt;O
+285:Regular Secondary Attack - vO
+286:Regular Secondary Attack - Jumping - O
+287:Regular Secondary Attack - Jumping - vO
+288:Free Run Attack
+289:Indigo Fatal Strike
+290:Crimson Fatal Strike
+291:Viridian Fatal Strike
+292:Sonic Dog
+294:Crescent Fang
+295:Punishing Fang
+298:Thievery
+296:Falling Leaf
+297:Shadow Fang
+300:Demon Dog
+299:Gale Dog
+302:Shining Dog
+303:Sonic Return
+306:Light Spear
+315:Shadow Fang Punishment
+310:Phantom Fang
+308:Hell Hound
+313:Demon Spear
+309:Cyclone Shot
+314:Hell Hound Return
+305:Shining Fang
+312:Ghost Wolf
+293:Lightning Dog
+1397:Punishing Air Fang
+1393:Snatch Item
+1396:Swirling Nature
+301:Demon Dog Rush
+1395:Dense Demon Dog
+1392:Illusory Dog
+304:Sonic Fang
+307:Victory Light Spear
+1394:Shadow Fang Wave
+311:Phantom Glacier
+1628:Beastly Blow
+316:Divine Dog
+317:Divine Dog - Blaze
+318:Divine Dog - Tremble
+937:Divine Dog - Savage
+938:Divine Dog - Whirlpool
+939:Slash!!
+1354:Lightning Flash
+:
+::Flynn
+319:Regular Attack - O
+320:Regular Attack - ^O
+321:Regular Attack - &lt;&gt;O
+322:Regular Attack - vO
+323:Regular Attack - Jumping - O
+324:Regular Attack - Jumping - vO
+325:Regular Secondary Attack - O
+326:Regular Secondary Attack - ^O
+327:Regular Secondary Attack - &lt;&gt;O
+328:Regular Secondary Attack - vO
+329:Regular Secondary Attack - Jumping - O
+330:Regular Secondary Attack - Jumping - vO
+331:Free Run Attack
+332:Indigo Fatal Strike
+333:Crimson Fatal Strike
+334:Viridian Fatal Strike
+1103:Demon Fang
+1106:Sonic Thrust
+1104:Tiger Blade
+1398:Shining Falcon
+1403:Rising Falcon
+1399:Severing Blade
+1400:Sword Rain
+1443:Demonic Chaos
+1401:Hell Fire Blade
+1105:Beast
+1446:Dragon Swarm
+1402:Dazzling Spin
+1444:Demonic Circle
+1445:Guardian Field
+1447:Tiger Rage
+1405:Rising Phoenix
+1710:Burning Phoenix
+1404:Fierce Hell Fire Blade
+1407:Shining Falcon - Dispersion
+1406:Rending Quake
+1107:Sword Rain: Alpha
+1540:Distortion Blade
+1108:First Aid
+1409:Luminant Scythe
+1411:Divine Streak
+1448:Holy Lance
+1408:Cure
+1410:Mistral Soul
+1500:Blazing Pillar Smash
+1501:Blazing Pillar Smash - Fiery Lion
+1502:Blazing Pillar Smash - Earthquaker
+1503:Blazing Pillar Smash - Tornado Cutter
+1504:Blazing Pillar Smash - Bubble Bomber
+1355:Radiant Dragon Fang
+1356:Firebird Flight
+1671:Twin Wave
+:
+::Patty
+335:Regular Attack - O
+336:Regular Attack - ^O
+337:Regular Attack - &lt;&gt;O
+338:Regular Attack - vO
+339:Regular Attack - Jumping - O
+340:Regular Attack - Jumping - vO
+341:Regular Secondary Attack - O
+342:Regular Secondary Attack - ^O
+343:Regular Secondary Attack - &lt;&gt;O
+344:Regular Secondary Attack - vO
+345:Regular Secondary Attack - Jumping - O
+346:Regular Secondary Attack - Jumping - vO
+347:Free Run Attack
+348:Indigo Fatal Strike
+349:Crimson Fatal Strike
+350:Viridian Fatal Strike
+1412:Form Change
+1715:Form Change
+1716:Form Change
+1414:Variable Trigger
+1416:Trick Trick
+1413:Clunky Bomb
+1640:Clunky Bomb
+1641:Clunky Bomb
+1418:Random Fall
+1420:Search Gald
+1428:Little Big Chef
+1672:Little Big Chef (Looks Tasty...)
+1673:Little Big Chef (Ice Shavings)
+1674:Little Big Chef (Not a Fan?)
+1423:Risky Bet
+1620:Risky Bet (Star)
+1621:Risky Bet (Star)
+1622:Risky Bet (Bomb)
+1623:Risky Bet (Bomb)
+1624:Risky Bet (Stone)
+1424:Severed Fate
+1548:Severed Fate (Fail)
+1422:Welcome Dish
+1543:Welcome Dish (Oden)
+1545:Welcome Dish (Brochette)
+1546:Welcome Dish (Brochette) - Gambler's Soul
+1547:Welcome Dish (Failed Dish)
+1549:Welcome Dish (Strange Smoke)
+1427:Dangerous Ladder
+1629:Dangerous Ladder (Fail)
+1426:Dream Star
+1581:Dream Star (Shooting Oden)
+1582:Dream Star (Shooting Oden)
+1415:Trigger Tune
+1417:Trick or Treat
+1669:Trick or Treat (Explosion)
+1670:Trick or Treat (Explosion)
+1419:Falling Ice
+1541:Falling Ice
+1421:Gald Steal
+1429:Fire Big Chef
+1675:Fire Big Chef (My Mouth's Watering!)
+1676:Fire Big Chef (What's This Mess?!)
+1425:Fatal Triangle
+1642:Fatal Triangle (Fail)
+1633:Happy Light
+1649:Happy Light (Luck)
+1654:Happy Light (Luck)
+1650:Happy Light (P. ATK)
+1651:Happy Light (P. DEF)
+1652:Happy Light (M. ATK)
+1653:Happy Light (M. DEF)
+1430:Risky Cast
+1436:Fancy Elements
+1550:Fancy Elements (Fire)
+1551:Fancy Elements (Earth)
+1552:Fancy Elements (Wind)
+1553:Fancy Elements (Water)
+1554:Fancy Elements (Light)
+1555:Fancy Elements (Dark)
+1432:Gamble Cast
+1556:Marvelous Fountain
+1557:Marvelous Fountain
+1433:Card Gamble
+1435:Critical Moment
+1677:Critical Moment (Pow Hammer Shower)
+1678:Critical Moment (All Down)
+1679:Critical Moment (Ally Stat Boost 1)
+1680:Critical Moment (Ally Stat Boost 2)
+1681:Critical Moment (Ally Stat Decrease)
+1682:Critical Moment (Recover Ally HP 50%)
+1683:Critical Moment (Recover Ally TP 50%)
+1684:Critical Moment (Enemy Stat Boost)
+1686:Critical Moment (Enemy Stat Decrease)
+1687:Critical Moment (Wipe Out Enemy)
+1688:Critical Moment (Empty Enemy FS Gauge)
+1431:Big Risk
+1434:Mahjong
+1437:Glittery Rain
+1644:Glittery Rain (Fail)
+1438:Volcanic Blast
+1645:Volcanic Blast (Fail)
+1441:Grand Blow
+1643:Grand Blow (Fail)
+1440:Windy Rage
+1647:Windy Rage (Fail)
+1439:Hydraulic Raid
+1648:Hydraulic Raid (Recovery)
+1646:Hydraulic Raid (Fail)
+1442:Summon Friends
+1701:Summon Friends (Rappigs)
+1706:Summon Friends (Stall)
+1707:Summon Friends (Stall)
+1705:Summon Friends (Seagulls)
+1702:Summon Friends (Octopi)
+1695:Summon Friends (Mieu)
+1703:Summon Friends (Penguins)
+1704:Summon Friends (Penguins)
+1699:Summon Friends (Nurses)
+1696:Summon Friends (Quickie)
+1700:Summon Friends (Angels)
+1697:Summon Friends (Barbatos)
+1709:Summon Friends (Barbatos)
+1698:Summon Friends (Seifer)
+:
+::The rest
+668:Over Limit
+1667:Over Limit
+1121:Over Limit
+1668:Over Limit
+912:(No name)
+49:(No name)
+50:(No name)
+51:(No name)
+357:(No name)
+351:(No name)
+352:(No name)
+353:(No name)
+354:(No name)
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79057</ID>
+              <Description>"Arte pointer?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79056</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79055</ID>
+              <Description>"Arte pointer"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79054</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79053</ID>
+              <Description>"Arte name ID"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79052</ID>
+              <Description>"Arte description ID"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79051</ID>
+              <Description>"Arte type"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Normal attack
+1:Novice Spell
+2:Intermediate Spell
+3:Advanced Spell
+4:Base Arte
+5:Arcane Arte
+6:Burst Spell
+7:Burst Arte
+8:Altered Spell
+9:Altered Arte
+10:Altered Burst Spell
+11:Altered Burst Arte
+12:Fatal Strike
+13:Mystic Arte
+14:Overlimit
+15:Skill
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79050</ID>
+              <Description>"TP Cost"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79060</ID>
+              <Description>"Power"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79065</ID>
+              <Description>"Fire attribute"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79064</ID>
+              <Description>"Earth attribute"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79063</ID>
+              <Description>"Wind attribute"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79062</ID>
+              <Description>"Water attribute"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79061</ID>
+              <Description>"Light attribute"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79068</ID>
+              <Description>"Dark attribute"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79069</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79070</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79071</ID>
+              <Description>"Semi-Auto max use range"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>50</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79075</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79074</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>58</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79073</ID>
+              <Description>"Cast Time"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>5C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79072</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>60</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79086</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79087</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79088</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79089</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>70</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79090</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>74</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79081</ID>
+              <Description>"Level required to learn?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79082</ID>
+              <Description>"Arte required to learn 1"</Description>
+              <DropDownListLink>Arte ID</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>7C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79083</ID>
+              <Description>"Arte required to learn 2"</Description>
+              <DropDownListLink>Arte ID</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79084</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>84</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79085</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>88</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79076</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>8C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79077</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79078</ID>
+              <Description>"Arte Usage required to learn 1"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>94</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79079</ID>
+              <Description>"Arte Usage required to learn 2"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>98</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79080</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79091</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79096</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>A4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79097</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79098</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79099</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79100</ID>
+              <Description>"Casting Circle type"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Fire
+1:Earth
+2:Wind
+3:Water
+4:Light
+5:Dark
+6:Rainbow
+7:None
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79121</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79122</ID>
+              <Description>"Targeting type"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Enemy, single target
+1:Enemy, multi target
+2:Player, single target
+3:Player, multi target
+4:All enemies?
+5:All players?
+6:All players?
+7:Everyone?
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79123</ID>
+              <Description>"Power multiplier against human type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79124</ID>
+              <Description>"Power multiplier against beast type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>C4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79125</ID>
+              <Description>"Power multiplier against bird type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79116</ID>
+              <Description>"Power multiplier against magic type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79117</ID>
+              <Description>"Power multiplier against plant type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79118</ID>
+              <Description>"Power multiplier against aquatic type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>D4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79119</ID>
+              <Description>"Power multiplier against insect type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>D8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79120</ID>
+              <Description>"Power multiplier against inorganic type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>DC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79111</ID>
+              <Description>"Power multiplier against scale type"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79112</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79113</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79114</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79115</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79106</ID>
+              <Description>"Status Effect 1"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:HP Recovery
+2:KO Recovery
+3:Cure Physical Ailments
+4:P. ATK Up
+5:M. ATK Up
+6:P. DEF Up
+7:M. DEF Up
+8:Revive
+9:?
+10:Invulnerability
+11:Cure Magical Ailments
+12:Imbue element?
+13:TP Recovery
+14:?
+15:Luck Up?
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79107</ID>
+              <Description>"Status Effect 2"</Description>
+              <DropDownListLink>Status Effect 1</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>F8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79108</ID>
+              <Description>"Status Effect 3"</Description>
+              <DropDownListLink>Status Effect 1</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79109</ID>
+              <Description>"Status Effect 1 parameter"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>100</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79110</ID>
+              <Description>"Status Effect 2 parameter"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>104</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79101</ID>
+              <Description>"Status Effect 3 parameter"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>108</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79162</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79163</ID>
+              <Description>"Aerial enabled after this many uses"</Description>
+              <DropDownList DisplayValueAsItem="1">-1:Disabled
+</DropDownList>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>110</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79164</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>114</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79165</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>118</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79166</ID>
+              <Description>"Can evolve?"</Description>
+              <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>11C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79157</ID>
+              <Description>"Require Condition enabled? 1"</Description>
+              <DropDownListLink>dropdown: Disabled/3Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>120</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79158</ID>
+              <Description>"Require Condition enabled? 2"</Description>
+              <DropDownListLink>dropdown: Disabled/3Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>124</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79159</ID>
+              <Description>"Require Condition enabled? 3"</Description>
+              <DropDownListLink>dropdown: Disabled/3Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>128</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79160</ID>
+              <Description>"Require Condition enabled? 4"</Description>
+              <DropDownListLink>dropdown: Disabled/3Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>12C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79161</ID>
+              <Description>"Evolves from"</Description>
+              <DropDownListLink>Arte ID</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>130</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79152</ID>
+              <Description>"Required condition costume/skill 1"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>134</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79153</ID>
+              <Description>"Required condition costume/skill 2"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>138</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79154</ID>
+              <Description>"Required condition costume/skill 3"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>13C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79155</ID>
+              <Description>"Required condition costume/skill 4"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>140</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79156</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>144</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79147</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>148</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79148</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>14C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79149</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>150</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79150</ID>
+              <Description>"Fatal Strike"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Blue (Up)
+1:Red (Down)
+2:Green (Right)
+3:None
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>154</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79151</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>158</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79142</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>15C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79143</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>160</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79144</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>164</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79145</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>168</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79146</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>16C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79137</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>170</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79138</ID>
+              <Description>"Power multiplier based on something"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>174</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79139</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>178</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79140</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>17C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79141</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>180</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79132</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>184</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79133</ID>
+              <Description>"Character?"</Description>
+              <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>188</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79126</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>artePropPTR</Address>
+              <Offsets>
+                <Offset>18C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>0</ID>
           <Description>"Yuri Title"</Description>
           <VariableType>4 Bytes</VariableType>
@@ -1439,6 +3260,96 @@ unregistersymbol(_Encounter)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>79167</ID>
+          <Description>"Unlock All artes"</Description>
+          <Options moDeactivateChildrenAsWell="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+autoAssemble([[
+aobscanmodule(Access_Artes_Area,TOV_DE.exe,89 83 * * * * 89 BB * * * * E8 * * * * 48 8B 4B * 4C)
+registersymbol(Access_Artes_Area)
+]])
+local address = getAddress("Access_Artes_Area") + 13
+address = address + readInteger(address) + 4
+unregisterSymbol("Access_Artes_Area")
+registerSymbol("Access_Artes_Area", address, true)
+autoAssemble([[
+aobscanmodule(Access_All_Artes_Battle_Area,TOV_DE.exe,40 55 57 41 57 48 83 EC * 48 8D B9 * * * * 48)
+registersymbol(Access_All_Artes_Battle_Area)
+]])
+{$asm}
+
+aobscanregion(Access_All_Artes,Access_Artes_Area,Access_Artes_Area+1000,85 C0 0F 8E)
+
+Access_All_Artes:
+  db EB 06
+
+registersymbol(Access_All_Artes)
+
+aobscanregion(Access_All_Artes_Initial,Access_Artes_Area,Access_Artes_Area+1000,84 C0 0F 84)
+
+Access_All_Artes_Initial:
+  db EB 06
+
+registersymbol(Access_All_Artes_Initial)
+
+aobscanregion(Access_All_Artes_Battle,Access_All_Artes_Battle_Area,Access_All_Artes_Battle_Area+1000,84 C0 75 * 48 8B CF E8 * * * * 48 8B C8 BA 20)
+
+Access_All_Artes_Battle+02:
+  db EB
+
+registersymbol(Access_All_Artes_Battle)
+
+aobscanregion(Access_All_Artes_Battle_2,Access_All_Artes_Battle_Area,Access_All_Artes_Battle_Area+1000,84 C0 74 * 48 8B CF)
+
+Access_All_Artes_Battle_2:
+  db EB 02
+
+registersymbol(Access_All_Artes_Battle_2)
+
+aobscanmodule(Access_All_Artes_Selectable,TOV_DE.exe,41 3B C6 77 * 84 C9 75 * B9)
+
+Access_All_Artes_Selectable+03:
+  db EB
+
+registersymbol(Access_All_Artes_Selectable)
+
+unregistersymbol(Access_All_Artes_Battle_Area)
+
+unregistersymbol(Access_Artes_Area)
+
+[DISABLE]
+
+Access_All_Artes:
+  db 85 C0
+
+unregistersymbol(Access_All_Artes)
+
+Access_All_Artes_Initial:
+  db 84 C0
+
+unregistersymbol(Access_All_Artes_Initial)
+
+Access_All_Artes_Battle+02:
+  db 75
+
+unregistersymbol(Access_All_Artes_Battle)
+
+Access_All_Artes_Battle_2:
+  db 84 C0
+
+unregistersymbol(Access_All_Artes_Battle_2)
+
+Access_All_Artes_Selectable+03:
+  db 77
+
+unregistersymbol(Access_All_Artes_Selectable)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
           <ID>63582</ID>
           <Description>"Yuri HP"</Description>
           <VariableType>4 Bytes</VariableType>
@@ -1696,77 +3607,6 @@ unregistersymbol(yuriArteWhitelist)
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry>
-          <ID>78954</ID>
-          <Description>"Instruction fix attempt"</Description>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : TOV_DE.exe
-  Version: 
-  Date   : 2021-08-09
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(encounterFix,TOV_DE.exe,41 0F 10 4A 10 C7) // should be unique
-alloc(newmem,$1000,encounterFix)
-
-label(return)
-
-newmem:
-  push rbp
-  mov rbp, rsp
-  movss dword ptr [rbp-4], xmm1
-  movss xmm1, dword ptr [rbp-4]
-  movups xmm1,[r10+10]
-  mulss xmm1, xmm1
-  pop rbp
-  jmp return
-
-encounterFix:
-  jmp newmem
-return:
-registersymbol(encounterFix)
-
-[DISABLE]
-
-encounterFix:
-  db 41 0F 10 4A 10
-
-unregistersymbol(encounterFix)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 7FF78246D8A8
-
-7FF78246D86C: F3 0F 11 55 6C           - movss [rbp+6C],xmm2
-7FF78246D871: F3 0F 10 50 04           - movss xmm2,[rax+04]
-7FF78246D876: 48 8B 85 F0 01 00 00     - mov rax,[rbp+000001F0]
-7FF78246D87D: F3 0F 11 55 78           - movss [rbp+78],xmm2
-7FF78246D882: F3 0F 11 95 9C 00 00 00  - movss [rbp+0000009C],xmm2
-7FF78246D88A: 48 89 54 24 30           - mov [rsp+30],rdx
-7FF78246D88F: F3 0F 10 48 04           - movss xmm1,[rax+04]
-7FF78246D894: F3 0F 10 00              - movss xmm0,[rax]
-7FF78246D898: F3 0F 11 8D 84 00 00 00  - movss [rbp+00000084],xmm1
-7FF78246D8A0: F3 0F 11 8D 90 00 00 00  - movss [rbp+00000090],xmm1
-// ---------- INJECTING HERE ----------
-7FF78246D8A8: 41 0F 10 4A 10           - movups xmm1,[r10+10]
-// ---------- DONE INJECTING  ----------
-7FF78246D8AD: C7 45 44 00 00 00 00     - mov [rbp+44],00000000
-7FF78246D8B4: F3 0F 11 85 88 00 00 00  - movss [rbp+00000088],xmm0
-7FF78246D8BC: F3 0F 11 85 94 00 00 00  - movss [rbp+00000094],xmm0
-7FF78246D8C4: 41 0F 10 02              - movups xmm0,[r10]
-7FF78246D8C8: C7 45 50 00 00 00 00     - mov [rbp+50],00000000
-7FF78246D8CF: 0F 29 4C 24 50           - movaps [rsp+50],xmm1
-7FF78246D8D4: 41 0F 10 4A 30           - movups xmm1,[r10+30]
-7FF78246D8D9: C7 45 5C 00 00 00 00     - mov [rbp+5C],00000000
-7FF78246D8E0: 0F 29 44 24 40           - movaps [rsp+40],xmm0
-7FF78246D8E5: 41 0F 10 42 20           - movups xmm0,[r10+20]
-}
-</AssemblerScript>
-        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
@@ -1935,7 +3775,580 @@ dealloc(newmem)
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>regionCheckEquipScript</Name>
+      <Address>04880030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>randomvalue</Name>
+      <Address>0B3D0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_CancelX</Name>
+      <Address>14194956B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_CancelX2</Name>
+      <Address>141949599</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MOEquipmentAOB</Name>
+      <Address>1413EDEE1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>eraseModelWhenDefeat</Name>
+      <Address>1412CC62D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullHair_Eleanor</Name>
+      <Address>531A010C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullHair_Roku</Name>
+      <Address>45B500EC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InitExceptionFalsePositive</Name>
+      <Address>1412D137F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive</Name>
+      <Address>1415B28E2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive2</Name>
+      <Address>14130DA13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive3</Name>
+      <Address>141434E56</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>deInitExceptionFalsePositive4</Name>
+      <Address>141538107</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>override_fixedStringError1</Name>
+      <Address>14128861B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>override_fixedStringError2</Name>
+      <Address>141288623</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>alwaysActive_chestsOnField</Name>
+      <Address>1415B2824</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>set_allCharArtes</Name>
+      <Address>1416499A1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enm_BookData</Name>
+      <Address>1415E27C2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ae2</Name>
+      <Address>004A26A9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>model_change</Name>
+      <Address>00716D62</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>edit_knkbckType</Name>
+      <Address>109C56B8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>sSTAFFbST</Name>
+      <Address>3BEB9C37</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>risingPhoenix_fireEff</Name>
+      <Address>3D26C6D9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cutChainArteTime</Name>
+      <Address>0099A219</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enm_statMult</Name>
+      <Address>004F8A4A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>inf_Stagger</Name>
+      <Address>0049FC6E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>inf_Stag</Name>
+      <Address>0049FC9E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>encounterTable</Name>
+      <Address>16790800</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>soph_SRA_anim</Name>
+      <Address>150006B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fire_stanceROS</Name>
+      <Address>14D3DB7C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>earth_stanceROS</Name>
+      <Address>1531DB7C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteStructA</Name>
+      <Address>006C8E88</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_BattlesAsChar_AOB</Name>
+      <Address>0048B885</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_DIFF</Name>
+      <Address>004F8A4A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fusion_AOB</Name>
+      <Address>00538983</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>baseCHR_anim</Name>
+      <Address>364BD9B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enemy_Data</Name>
+      <Address>004E71DB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fire_stanceSRA</Name>
+      <Address>0F08F92C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_NGP_Grade_AOB</Name>
+      <Address>008715BF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Titles_AOB</Name>
+      <Address>00522EAB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>max_Boon</Name>
+      <Address>004F5CCC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>voice_SRA_ROS_Kamui</Name>
+      <Address>00555EC0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>instcast</Name>
+      <Address>004BCA2C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>health</Name>
+      <Address>0051E0D5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>min_Dmg2</Name>
+      <Address>004ADC10</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_EnemyBook_AOB</Name>
+      <Address>006D8916</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pre_descrpt_r</Name>
+      <Address>0055B412</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>descript_replace</Name>
+      <Address>0055B4C2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>zaveid_noHat</Name>
+      <Address>27AD7ADC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enm_BkData</Name>
+      <Address>11080170</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_OverwriteShadowStatChk</Name>
+      <Address>004C1239</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_UsedArte_AOB</Name>
+      <Address>00716CD0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>no_artePause</Name>
+      <Address>004AB7CE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>qStep_dist</Name>
+      <Address>004A93D5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>char_generalData</Name>
+      <Address>004E71EF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>charge_nextArte</Name>
+      <Address>0049E8F8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_MaxUsedArte_AOB</Name>
+      <Address>00716CAE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>equip1</Name>
+      <Address>0054B906</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>equip_ptr</Name>
+      <Address>558C0011</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>toz_Party</Name>
+      <Address>00538280</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Tales_of_Symphonia_DotNW</Name>
+      <Address>13A20000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToSDotNW_RAM</Name>
+      <Address>FFFF0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Arth</Name>
+      <Address>35541890</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Zav</Name>
+      <Address>35333390</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>replaceWpnModel_Eizen</Name>
+      <Address>34271C68</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Jude</Name>
+      <Address>33833D50</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteParams_Artorius</Name>
+      <Address>33811890</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>always_validSomething</Name>
+      <Address>14135B4B1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>jumpforshit</Name>
+      <Address>14134CA17</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteCanceller</Name>
+      <Address>14193CE8A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullCoat_Teresa</Name>
+      <Address>6ACC390C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nullHair_Magilou</Name>
+      <Address>4F1E0120</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>chronological_derivativeArte2</Name>
+      <Address>14136758A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arena</Name>
+      <Address>351FB370</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>prev_statusEffect</Name>
+      <Address>141352CC9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>prev_statusEffects2</Name>
+      <Address>141352D0F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_SG</Name>
+      <Address>14134CDBC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_SG_outOfMenu</Name>
+      <Address>14140A1EF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_CC</Name>
+      <Address>14131007D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infinite_Souls</Name>
+      <Address>14130FFCB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dKnell_alter</Name>
+      <Address>4F79A85E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bSphere_alter</Name>
+      <Address>5103A248</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ovDrive_alter</Name>
+      <Address>504701CC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>keep_aerialHgt1</Name>
+      <Address>1412A7F2D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>keep_aerialHgt2</Name>
+      <Address>1413478F2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>show_BSBA</Name>
+      <Address>1414C4426</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_cmpToBrkSoulInstrc</Name>
+      <Address>14134CA66</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_swBlCmboCheck</Name>
+      <Address>14134E2AB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>inf_BG</Name>
+      <Address>14130F9E8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SurgLand_alter</Name>
+      <Address>33CFE628</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>motionChg_IBloomAni</Name>
+      <Address>5ED11760</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cast_time</Name>
+      <Address>14136D607</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_usage_count</Name>
+      <Address>141649A3D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dKnell_staggerType</Name>
+      <Address>50A2029E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dKnell_xyzVar</Name>
+      <Address>50A11B70</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bSphere_staggerType</Name>
+      <Address>50A449C8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>sigSpr_staggerType</Name>
+      <Address>509F4A56</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bTorrnt_staggerType</Name>
+      <Address>509502F2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ovDrive_staggerType</Name>
+      <Address>50A5408C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>null_hairLaphi</Name>
+      <Address>512500EC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_Param</Name>
+      <Address>14140B6E3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enemyIdleTime</Name>
+      <Address>141365C39</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>partyFormation</Name>
+      <Address>14163FD3B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MBlitz_alter</Name>
+      <Address>51098D08</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PPlung_alter</Name>
+      <Address>4C7A39F8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>WSnap_alter</Name>
+      <Address>4C783248</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SVortx_alter</Name>
+      <Address>4C7BA118</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>motionChgJud</Name>
+      <Address>5085F9D8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>PPlung_chainArte</Name>
+      <Address>4C790A98</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arte_editor</Name>
+      <Address>141649B1F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>set_charBS</Name>
+      <Address>34867740</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>diff_eQuant</Name>
+      <Address>0EF6179F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Inv</Name>
+      <Address>00550CA0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Boons_AOB</Name>
+      <Address>00A5761E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Shop_AOB</Name>
+      <Address>0073391F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>spirit</Name>
+      <Address>0045346E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Insane</Name>
+      <Address>00517DE0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Gald</Name>
+      <Address>005167A0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_AP_AOB</Name>
+      <Address>005170E3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Title_AOB</Name>
+      <Address>005385B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Boon_AOB</Name>
+      <Address>004F5BBA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Battle_AOB</Name>
+      <Address>004AE735</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Grade_AOB</Name>
+      <Address>00488281</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Foes_Defeated_AOB</Name>
+      <Address>00498854</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Lv_AoB</Name>
+      <Address>004C096E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MONSTERKILLS</Name>
+      <Address>004AEE8B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SpeedCheckAOB</Name>
+      <Address>00683AFF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MaxSpeedAOB</Name>
+      <Address>00683B40</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>RunSpeedData</Name>
+      <Address>55680016</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MaxBase</Name>
+      <Address>00D51B64</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Enm_Stat_AoB</Name>
+      <Address>004C096E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Outfit_AOB</Name>
+      <Address>00716A13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bossEnc</Name>
+      <Address>0F103ED0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Party_Members_AOB</Name>
+      <Address>00513E85</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Arte_Menu_AOB</Name>
+      <Address>00717D13</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ToZ_Arte_Menu_AOB2</Name>
+      <Address>00717C73</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>unlimited_base_arte</Name>
+      <Address>306FC525</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>currArte</Name>
+      <Address>0BEE0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteNum</Name>
+      <Address>05A80000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillEdit</Name>
+      <Address>05A50000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillPropNum</Name>
+      <Address>042F03F0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>artePropPTR</Name>
+      <Address>29F87080000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>00000000</Name>
+      <Address>14D51310010</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <Comments>Unfinished enemy list (in decimal)
 Note that using enemies not in their fight will crash the game
 Coli 200 hundred man enemies
@@ -2017,4 +4430,21 @@ Other general enemies
 294:Time Traveller
 295:Sorrowful Queen of Darkness
 </Comments>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
 </CheatTable>

@@ -1,5 +1,18 @@
 #### Changelog:
 
+#### 2022/04/07
+
+-	New feature/table: Destiny 2
+	-	Added an Equipment Editor
+	-	In addition, there is now a table for the PSP version! It has all the same features!
+	
+-	New table: Innocence
+	-	Features:
+		-	Party Formation Editor
+		-	Stats Editor	
+
+-	Fixed an issue in the Arise table's Run Speed script where running with keyboard wouldn't make the values show up.
+
 #### 2022/03/30
 
 -	Updated Arise table to Update 3 (2022/03/30)
@@ -110,7 +123,7 @@
 
 -	New table: Arise
 	-	Features:
-		-	Party Editor
+		-	Party Formation Editor
 		-	Stats Editor
 		-	Arte Proficiency Editor
 		-	Devil's Arms kill Editor
@@ -141,7 +154,7 @@
 
 -	New table: Rebirth
 	-	Features:
-		- Party Editor
+		- Party Formation Editor
 		- Stats Editor
 		- In-Battle Stats Editor
 		- Arte List Editor
@@ -153,7 +166,7 @@
 
 -	New table: Eternia
 	-	Features:
-		- Party Editor
+		- Party Formation Editor
 		- Stats Editor
 		- In-Battle Stats Editor
 		- Equipment Editor
@@ -180,7 +193,7 @@
 
 -	New table: Symphonia
 	-	Features:
-		- Party Editor
+		- Party Formation Editor
 		- Use different character's EX Skills
 		
 -	Bug fix:
@@ -247,7 +260,7 @@ The Gaius and Muzét playable boss scripts have been mostly merged into 1 script
 
 - New table: Phantasia: Narikiri Dungeon X
 	- Features:
-		- Party Editor
+		- Party Formation Editor
 		- Stats Editor
 		- Equipment Editor
 		- Arte List Editor
@@ -271,7 +284,7 @@ The Gaius and Muzét playable boss scripts have been mostly merged into 1 script
 ##### 2021/03/02
 
 - New table: Legendia 
-   - Features: Party Editor
+   - Features: Party Formation Editor
   
  - New feature: Phantasia
 	 - Automatic Control Enabler
