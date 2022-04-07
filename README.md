@@ -10,8 +10,10 @@ Emulators used for their respective platforms and their versions, unless stated 
  - **PS2**: *PCSX2 v.1.7.0-dev-1612-g1180de51f*
  - **PS3**: *rpcs3 0.0.12-10883-92d65ff3 Alpha*
  - **PSP**: *PPSSPP v1.11.2-366-g4d02d64fd*
+ - **NDS**: *melonDS 0.9.4*
  - **Abyss**: *SLUS-21386*
- - **Destiny 2**: *SLPS-25172 with english menu patch*
+ - **Destiny 2 (PS2)**: *SLPS-25172 with english menu patch*
+ - **Destiny 2 (PSP)**: *ULJS00097*
  - **Destiny Director's Cut**: *SLPS-25842*
  - **Graces F**: *BLUS30903*
  - **Phantasia**: *SLPS-91210 with Absolute Zero english patch*
@@ -25,12 +27,13 @@ Emulators used for their respective platforms and their versions, unless stated 
  - **Symphonia**: *2016/09/27*
  - **Rebirth**: *SLPS-25450*
  - **Eternia**: *SLUS-01355*, *SLUS-01367*, *SLUS-01368*
- - **Arise**: *2022/03/03* (*1.3*)
+ - **Arise**: *2022/04/07* (*1.07*)
+ - **Innocence**: *NTR-AYTJ-JPN*
 
 ## Abyss (PS2)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Title and Costume Editor (it requires you to disable the instruction writing to it)
  - Change the loaded map
  - Change Luke's hair to short or long
@@ -38,17 +41,19 @@ Features:
  - Equipment Editor
  - Arte List Editor
 
-## Destiny 2 (PS2)
+## Destiny 2 (PS2, PSP)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - In-Battle Stats Editor
+ - Arte Usage Editor
+ - Equipment Editor
 
 ## Destiny Director's Cut (PS2)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - In-Battle Stats Editor
  - Equipment Editor
@@ -66,7 +71,7 @@ Features:
 ## Graces F (PS3)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - In-Battle Stats Editor
  - Change field movement speed
@@ -77,7 +82,7 @@ Features:
 ## Phantasia (PS1, *Beetle PSX HW 0.9.44.1 9f126e5*)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - In-Battle Stats Editor
  - Equipment Editor
@@ -89,7 +94,7 @@ Features:
 ## Symphonia - Dawn of the New World (PS3)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - In-Battle Stats Editor
  - Equipment Editor
@@ -100,7 +105,7 @@ Features:
 
 ## Vesperia (PC)
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Change Field Run Speed
  - aanpsx's character pointer table ported to 1.2
  - Save Anywhere script
@@ -110,7 +115,7 @@ Features:
  ## Xillia (PS3)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - Equipment Editor
  - Arte List Editor
@@ -131,7 +136,7 @@ Features:
  ## Xillia 2 (PS3)
 
 Features: 
- - Party Editor
+ - Party Formation Editor
  - Stats Editor
  - Battle Stats Editor
  - Equipment Editor (including Chromatus)
@@ -175,63 +180,69 @@ Features:
  ## Legendia (PS2)
 
 Features:
- - Party Editor
+ - Party Formation Editor
 
-## Phantasia: Narikiri Dungeon X (PSP)
-
-Features:
-- Party Editor
-- Stats Editor
-- Equipment Editor
-- Arte List Editor
-- Control Enemies
-- Control Monsters
-- Turn off Ally/Enemy AI
-- Arena Editor
-- Lock/Unlock any and all costumes for Dio and Mell
-
-## Symphonia (PC)
+ ## Phantasia: Narikiri Dungeon X (PSP)
 
 Features:
-- Party Editor
-- Use different character's EX Skills
-- Advanced Encounter Modifier ported over from GameCube version
+ - Party Formation Editor
+ - Stats Editor
+ - Equipment Editor
+ - Arte List Editor
+ - Control Enemies
+ - Control Monsters
+ - Turn off Ally/Enemy AI
+ - Arena Editor
+ - Lock/Unlock any and all costumes for Dio and Mell
 
-## Rebirth (PS2)
-
-Features:
-- Party Editor
-- Stats Editor
-- In-Battle Stats Editor
-- Arte List Editor
-- Equipment Editor
-- Gem Editor
-- Encounter Editor
-- Difficulty Modifier
-- Gald Editor
-
-## Eternia (PS1)
+ ## Symphonia (PC)
 
 Features:
-- Party Editor
-- Stats Editor
-- In-Battle Stats Editor
-- Equipment Editor
-- Arte List Editor
-- Gald Editor
-- Battle camera zoom Editor (useful for co-op)
-- Unlock Hardcore difficulty
-- Disable encounters
-- Change Arte Usage
+ - Party Formation Editor
+ - Use different character's EX Skills
+ - Advanced Encounter Modifier ported over from GameCube version
 
-## Arise (PC)
+ ## Rebirth (PS2)
 
 Features:
-- Party Editor
-- Stats Editor
-- Arte Proficiency Editor
-- Devil's Arms kill Editor
-- Arte List Editor
-- Unlock/Lock any title
-- Arte Usage/Unlock Editor
-- Change Run/Swim Speed
+ - Party Formation Editor
+ - Stats Editor
+ - In-Battle Stats Editor
+ - Arte List Editor
+ - Equipment Editor
+ - Gem Editor
+ - Encounter Editor
+ - Difficulty Modifier
+ - Gald Editor
+
+ ## Eternia (PS1)
+
+Features:
+ - Party Formation Editor
+ - Stats Editor
+ - In-Battle Stats Editor
+ - Equipment Editor
+ - Arte List Editor
+ - Gald Editor
+ - Battle camera zoom Editor (useful for co-op)
+ - Unlock Hardcore difficulty
+ - Disable encounters
+ - Change Arte Usage
+
+ ## Arise (PC)
+
+Features:
+ - Party Formation Editor
+ - Stats Editor
+ - Arte Proficiency Editor
+ - Devil's Arms kill Editor
+ - Arte List Editor
+ - Unlock/Lock any title
+ - Arte Usage/Unlock Editor
+ - Change Run/Swim Speed
+
+ ## Innocence (NDS)
+ 
+Features:
+ - Party Formation Editor
+ - Stats Editor
