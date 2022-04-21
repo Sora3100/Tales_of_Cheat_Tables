@@ -1,5 +1,29 @@
 #### Changelog:
 
+#### 2022/04/21
+
+-	New table: Rebirth (PSP)
+	-	Has all the same features as the PS2 version!
+	
+-	New features: Vesperia
+	-	Added an Enemy Data Editor
+		-	In addition, a script that allows you to view hidden entries.
+	-	Added an Arte Properties Editor
+	
+-	New features: Legendia
+	-	Added a Stats Editor
+	-	Added an In-Battle Stats Editor
+	-	Added an Equipment Editor
+	
+-	New feature: Xillia 1
+	-	Added an Arte Usage Editor
+	
+-	Updated Xillia 1's Enemy List dropdown to be more convenient.
+-	Updated Xillia 2's Arte List dropdown to be more convenient.
+-	Updated Xillia 2's Enemy List dropdown to be more convenient.
+
+-	Ported over some features from frubam's Abyss and Legendia table to work with newer PCSX2 versions.
+
 #### 2022/04/07
 
 -	New feature/table: Destiny 2
