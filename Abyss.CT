@@ -2945,6 +2945,378 @@ unregistersymbol(baseElfAddr)
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
+              <ID>1466</ID>
+              <Description>"Dropdowns"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1468</ID>
+                  <Description>"dropdown: Quantity of Enemies"</Description>
+                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">1:1 enemy
+2:2 enemies
+3:3 enemies
+4:4 enemies
+5:5 enemies
+6:6 enemies
+7:7 enemies
+8:8 enemies
+9:9 enemies
+10:10 enemies
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1469</ID>
+                  <Description>"dropdown: Number of Different Enemies"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:1 Type of Enemy
+2:2 Different Types of Enemies
+3:3 Different Types of Enemies
+4:4 Different Types of Enemies
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1470</ID>
+                  <Description>"dropdown: Enemy List"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Lesser Goblin
+1:Lesser Pan
+2:Boarlet
+3:Lesser Fiendling
+4:Goblin
+5:Pan
+6:Elder Boar
+7:Fiendlin
+8:Great Goblin
+9:Great Pan
+10:Boarrig
+11:Great Fiendlin
+12:Ogre
+13:Yeti
+14:Grimza
+15:Ogre Replica
+16:Behemoth
+17:???(no name; Behemoth-type; diff look)
+18:Jabberwock
+19:Oryiel
+20:Behemoth(same as 0x10)
+21:Zombie
+22:Phantom
+23:Dark(Slime-type)
+24:Ghoul
+25:Skeleton
+26:Skeleton Warrior
+27:Fonic Golem(sword+shield)
+28:Fonic Golem(double-sword)
+29:Fonic Golem(sword_shield;unsturdy)
+30:Thief
+31:Hooligan
+32:Sand Thief
+33:Assassin
+34:Two-Handed Master
+35:Kimlascan Pawn
+36:Kimlascan Knight
+37:Malkuth Pawn
+38:Malkuth Knight
+39:Malkuth Pawn
+40:Malkuth Rune
+41:Oracle Knight
+42:Knight Replica
+43:Oracle Knight
+44:Oracle Knight(weak)
+45:Oracle Knight(mid)
+46:Oracle Knight(strong)
+47:Knight Replica
+48:High Oracle Knight
+49:High Knight Replica
+50:High Oracle Knight
+51:High Knight Replica
+52:Oracle Guard
+53:Guard Replica
+54:Kimlascan Rune
+55:Oracle Rune
+56:Rune Replica
+57:Oracle Rune
+58:Rune Replica
+59:Oracle Brass
+60:Brass Replica
+61:Burglar
+62:Savage Helm
+63:Sand Burglar
+64:Full Plate Warrior
+65:???(no name; Full Plate Warrior-type; diff look)
+66:Magitrix
+67:Bersertrix
+68:Sand Shaman
+69:Coliseum Queen
+70:Guardian(Eldrant golem)
+71:Mandragora
+72:Dryad
+73:Alraune
+74:Raffiesian
+75:Cactus
+76:Cactossus
+77:Imitation Mieu
+78:Mandractus
+79:Treant
+80:Snow Treant
+81:Rotting Treant
+82:Chareant
+83:Filifolia
+84:Microcalyx(Filifolia-type)
+85:Hilaris
+86:Minutissima
+87:Veitchii
+88:Musclpula
+89:Heterodoxa
+90:Caerurea
+91:Bat
+92:Flame Bat
+93:Water Bat
+94:Earth Bat
+95:Wind Bat
+96:Thunder Bat
+97:Ice Bat
+98:Poison Bat
+99:Golden Bat
+100:Big Bat
+101:Black Bat
+102:Griffin
+103:Hippogriff
+104:Chimera
+105:Manticore
+106:Garuda
+107:Glasruda
+108:Eggruda
+109:Night Owl
+110:Unicondor
+111:Woodruda
+112:Chirpee
+113:Cawcaw
+114:Peepit
+115:Rustlet
+116:Drencher
+117:Clangette
+118:Blazeit
+119:Howler
+120:Bangette
+121:Flitter
+122:Screechit
+123:Wyvern
+124:Vouivre
+125:Drake
+126:Fafnir
+127:Ribbit
+128:Rebbit
+129:Purbit
+130:Giltbit
+131:Polwigle
+132:Bluwigle
+133:Purwigle
+134:Grewigle
+135:Rewigle
+136:Metawigle
+137:Glitwigle
+138:Piwigle
+139:Tortoise
+140:Charge Tortoise
+141:Storm Tortoise
+142:Tyrantoise
+143:Sludge Tortoise
+144:Mercat
+145:Merfish
+146:Mershark
+147:Merstone
+148:Water Spirit
+149:Mercrity
+150:Golden Slime
+151:Coal Tar
+152:Earth Spirit
+153:Volcano Clown
+154:Rock Spirit
+155:Meltrock
+156:Mirror Spirit
+157:Fire Spirit
+158:Flame Spirit
+159:Ice Spirit
+160:Wind Spirit
+161:Breeze Spirit
+162:Gale Spirit
+163:Storm Spirit
+164:Coryntis
+165:Erythrotis
+166:Streontis
+167:Puseustis
+168:Basilisk
+169:Salamader
+170:Ice Lizard
+171:Sand Fang
+172:Deathseeker
+173:Wolf
+174:Garm Wolf
+175:White Wolf
+176:Treant Wolf
+177:Ice Wolf
+178:Camo Wolf
+179:Night Raid
+180:Gold Wolf
+181:Watcher Wolf
+182:Axe Beak
+183:Hatchet Beak
+184:Tomahawk Beak
+185:Blade Beak
+186:Dragon
+187:Grosbelva
+188:Graelhorn
+189:Gordion
+190:Rhinossus
+191:Rhinoboar
+192:Armaboar
+193:Elephossus
+194:Ligar
+195:Ligan
+196:Ligarre
+197:Ligust
+198:Gremlins
+199:Furies
+200:Sharkliers
+201:Camofliers
+202:Empts
+203:Castle Golem
+204:Stone Golem
+205:Lava Golem
+206:Wood Golem
+207:Gremlin(1 "Gremlins")
+208:Fury
+209:Sharkflier
+210:Camoflier
+211:Empt
+212:???(no name; Mimic-type)
+213:???(no name; Mimic-type)
+214:Crab
+215:Iron Crab
+216:Balmung Crab
+217:Caliburn Crab
+218:Giant Bee
+219:Killer Bee
+220:Worker Bee
+221:Death Bee
+222:Bee Knight
+223:Death Bee Knight
+224:Poltergeist
+225:Apparition
+226:Turned Fork
+227:Broken Fork
+228:Rusty Fork
+229:Sand Worm
+230:Rock Worm
+231:Leviathan
+232:Desgoyle
+233:Gargoyle
+234:Mirror Goyle
+235:Broken Goyle
+236:Fonic Goyle
+237:Absorb Goyle
+238:Mossy Goyle
+239:Caster(Desgolye bottom half)
+240:Pedestal(Gargolye bottom half)
+241:Dressing Table(Mirror Golye bottom half)
+242:Broken Chair(Broken Golye bottom half)
+243:Fonic Chair(Fonic Golye bottom half)
+244:Absorb Chest(Absorb Goyle bottom half)
+245:Mossy Chest(Mossy Goyle bottom half)
+246:Sting Roper
+247:Red Roper
+248:Green Roper
+249:Spear Roper
+250:Tape Roper
+251:Block Roper
+252:Medusa Roper
+253:Fossail
+254:Flarrail
+255:Green Stonail
+256:Stonail
+257:Tostail
+258:Linail
+259:Xi(Y-letter-shaped enemy)
+260:Chi(X-letter-shaped enemy)
+261:Omega(W-letter-shaped enemy)
+262:Vita(V-letter-shaped enemy)
+263:Hammer Cannon
+264:Pile Cannon
+265:Scissor Cannon
+266:Gear Saw Cannon
+267:Asch(Yulia City)
+268:Asch(Eldrant)
+269:Sync(Zao Ruins)
+270:Sync(The Core)
+271:Sync(Eldrant)
+272:Legretta(Deo Pass)
+273:Legretta(Mt. Roneal)
+274:Legretta(Eldrant)
+275:Largo(Zao Ruins)
+276:Largo(Mt. Roneal)
+277:Largo(Absorption Gate)
+278:Arietta(Choral Castle)
+279:Arietta(Mt. Roneal)
+280:Arietta(Cheagle Woods)
+281:Van(Absorption Gate)
+282:Van(Eldrant)
+283:Van Lorelei(Eldrant)
+284:Liger Queen
+285:Abaddon
+286:Ancylopolyp
+287:Blade Rex
+289:Uniceros
+290:Repair Fonbot
+291:Fyr Bronc
+292:Hresvelgr(Choral Castle)
+293:Hresvelgr(Cheagle Woods)
+294:Liger(Choral Castle)
+295:Liger(Cheagle Woods)
+296:Kaiser Dist R
+297:Kaiser Dist RX
+298:Kaiser Dist XX
+299:Gigant Mohs
+300:Replicantis
+301:Reid Hershel
+302:Nanaly Fletch
+303:Philia Philis
+304:Nebilim
+305:Sword Dancer I
+306:Sword Dancer II
+307:Sword Dancer III
+308:Mint Adnade
+309:Balloon(mini-game?)
+310:Training Dummy(invulnerable)
+311:Sync Replica
+312:Legretta Replica
+313:Largo Replica
+314:Arietta Replica
+315:Polyp(Ancylopolyp child)
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1510</ID>
+                  <Description>"dropdown: Additional Enemy Queue"</Description>
+                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:First Enemy/No Enemy
+1:Second Enemy
+2:Third Enemy
+3:Fourth Enemy
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>106</ID>
+              <Description>"Base ELF Address"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>baseElfAddr</Address>
+            </CheatEntry>
+            <CheatEntry>
               <ID>102</ID>
               <Description>"On Battle End 1st Slot"</Description>
               <ShowAsSigned>0</ShowAsSigned>
@@ -2971,13 +3343,6 @@ unregistersymbol(baseElfAddr)
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>baseElfAddr+4B83D4</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>106</ID>
-              <Description>"Base ELF Address"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>baseElfAddr</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>362</ID>
@@ -3010,6 +3375,665 @@ unregistersymbol(baseElfAddr)
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>2 Bytes</VariableType>
               <Address>baseElfAddr+11C750</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1467</ID>
+          <Description>"By frubam"</Description>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1471</ID>
+              <Description>"Van altered final battle"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moDeactivateChildrenAsWell="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam, updated for newer PCSX2 versions by Sora3100
+
+  This script; Fight Van, Sync(Eldrant), Legretta(El), Asch(El), for 1st final battle.
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ baseElfAddr+B77314:
+   db 42 54 45 47 01 01 A4 00 00 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00 1A 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1472</ID>
+                  <Description>"Quantity of enemies"</Description>
+                  <DropDownListLink>dropdown: Quantity of Enemies</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+B77318</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1473</ID>
+                  <Description>"Number of Different Enemies"</Description>
+                  <DropDownListLink>dropdown: Number of Different Enemies</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+B77319</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1474</ID>
+                  <Description>"First Enemy"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7732C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1475</ID>
+                  <Description>"Second Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7732E</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1476</ID>
+                      <Description>"Order queue #2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C773A9:
+    db 01
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C773A9:
+    db 00
+ 20C773BA:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1477</ID>
+                  <Description>"Third Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B77330</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1478</ID>
+                      <Description>"Order queue #3"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C773AA:
+    db 02
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C773AA:
+    db 00
+ 20C773BC:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1479</ID>
+                  <Description>"Fourth Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B77332</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1480</ID>
+                      <Description>"Order queue #4"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C773AB:
+    db 03
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C773AB:
+    db 00
+ 20C773BE:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1481</ID>
+              <Description>"Coliseum - Advanced Singles 1st battle"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moDeactivateChildrenAsWell="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam, updated for newer PCSX2 versions by Sora3100
+
+  This script; Fight Van, Sync(Eldrant), Legretta(El), Asch(El), for 1st final battle.
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ baseElfAddr+B7DD94:
+   db 42 54 45 47 01 01 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 22 00 00 00 00 00 00 00
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1482</ID>
+                  <Description>"Quantity of enemies"</Description>
+                  <DropDownListLink>dropdown: Quantity of Enemies</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+B7DD98</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1483</ID>
+                  <Description>"Number of Different Enemies"</Description>
+                  <DropDownListLink>dropdown: Number of Different Enemies</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+B7DD99</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1484</ID>
+                  <Description>"First Enemy"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7DDAC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1485</ID>
+                  <Description>"Second Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7DDAE</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1486</ID>
+                      <Description>"Order queue #2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C7DE29:
+    db 01
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C7DE29:
+    db 00
+ 20C7DE3A:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1487</ID>
+                  <Description>"Third Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7DDB0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1488</ID>
+                      <Description>"Order queue #3"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C7DE2A:
+    db 02
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C7DE2A:
+    db 00
+ 20C7DE3C:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1489</ID>
+                  <Description>"Fourth Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7DDB2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1490</ID>
+                      <Description>"Order queue #4"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C7DE2B:
+    db 03
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C7DE2B:
+    db 00
+ 20C7DE3E:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1491</ID>
+              <Description>"Coliseum - Advanced Team 1st battle"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moDeactivateChildrenAsWell="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam, updated for newer PCSX2 versions by Sora3100
+
+  This script; Fight Van, Sync(Eldrant), Legretta(El), Asch(El), for 1st final battle.
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+//did frubam make a mistake?
+// baseElfAddr+B76614:
+//   db 42 54 45 47 04 03 01 00 00 00 01 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 08 00 00 00
+//fixed version
+ baseElfAddr+B7E014:
+   db 42 54 45 47 04 03 01 00 00 00 01 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 08 00 00 00
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1492</ID>
+                  <Description>"Quantity of enemies"</Description>
+                  <DropDownListLink>dropdown: Quantity of Enemies</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+B7E018</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1493</ID>
+                  <Description>"Number of Different Enemies"</Description>
+                  <DropDownListLink>dropdown: Number of Different Enemies</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+B7E019</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1494</ID>
+                  <Description>"First Enemy"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7E02C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1495</ID>
+                  <Description>"Second Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7E02E</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1496</ID>
+                      <Description>"Order queue #2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C7E0A9:
+    db 01
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C7E0A9:
+    db 00
+ 20C7E0BA:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1497</ID>
+                  <Description>"Third Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7E030</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1498</ID>
+                      <Description>"Order queue #3"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C7E0AA:
+    db 02
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C7E0AA:
+    db 00
+ 20C7E0BC:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1499</ID>
+                  <Description>"Fourth Enemy"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+B7E032</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1500</ID>
+                      <Description>"Order queue #4"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : pcsx2.exe
+  Version:
+  Date   : 2016-08-01
+  Author : frubam
+
+}
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 20C7E0AB:
+    db 03
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ 20C7E0AB:
+    db 00
+ 20C7E0BE:
+    db 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1501</ID>
+                  <Description>"Additional Enemy Queues"</Description>
+                  <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ baseElfAddr+B7E020:
+    db 00 00 00 00 00 00
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1502</ID>
+                      <Description>"Additional Enemy queue #5"</Description>
+                      <DropDownListLink>dropdown: Additional Enemy Queue</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr+B7E020</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1503</ID>
+                      <Description>"Additional Enemy queue #6"</Description>
+                      <DropDownListLink>dropdown: Additional Enemy Queue</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr+B7E021</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1504</ID>
+                      <Description>"Additional Enemy queue #7"</Description>
+                      <DropDownListLink>dropdown: Additional Enemy Queue</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr+B7E022</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1505</ID>
+                      <Description>"Additional Enemy queue #8"</Description>
+                      <DropDownListLink>dropdown: Additional Enemy Queue</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr+B7E023</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>230</ID>
+                      <Description>"Additional Enemy queue #9"</Description>
+                      <DropDownListLink>dropdown: Additional Enemy Queue</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr+B7E024</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1506</ID>
+                      <Description>"Additional Enemy queue #10"</Description>
+                      <DropDownListLink>dropdown: Additional Enemy Queue</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr+B7E025</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1518</ID>
+              <Description>"BTSK"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscan(BTSK, 42 54 53 4B 00)
+
+registersymbol(BTSK)
+[DISABLE]
+unregistersymbol(BTSK)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1512</ID>
+                  <Description>"Luke"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>BTSK</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1513</ID>
+                      <Description>"Aerial Normal (air-to-ground)"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+454</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>730</ID>
+                          <Description>"Frame to end animation"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>732</ID>
+                          <Description>"Cooldown time (in frames)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>733</ID>
+                          <Description>"Frame to interrupt for next attack"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+6</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1514</ID>
+                      <Description>"Fang Blade"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+6B20</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1515</ID>
+                          <Description>"Frame to end animation"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+404</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1516</ID>
+                          <Description>"Cooldown time (in frames)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+406</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1517</ID>
+                          <Description>"Frame to interrupt for next attack"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+40A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1519</ID>
+                          <Description>"Hit-Stun"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+458</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1520</ID>
+                      <Description>"Rending Thrust"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+8C20</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1524</ID>
+                          <Description>"Hit-Stun"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+47C</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
