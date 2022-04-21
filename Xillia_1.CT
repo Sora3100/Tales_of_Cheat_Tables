@@ -9851,15 +9851,15 @@ dealloc(currArte)
           <Description>"Gaius/Muzét Final Boss Encounter editor"</Description>
           <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
           <DropDownList DisplayValueAsItem="1">0:Nothing
-1:Jude
-2:Milla
-3:Alvin
-4:Elize
-5:Rowen
-6:Leia
+1:Jude (party)
+2:Milla (party)
+3:Alvin (party)
+4:Elize (party)
+5:Rowen (party)
+6:Leia (party)
 13:Teepo
 14:Gaius (Fezebel Marsh)
-15:Muzét (Ship)
+15:Muzét (Fennmont)
 16:Nachtigal
 17:Gilland
 18:Wingul (Kanbalar)
@@ -9872,12 +9872,12 @@ dealloc(currArte)
 25:Volt
 26:Greater Demon
 27:Nameless Anomaly
-28:Hammerzamm (36.000 HP)
+28:Hammerzamm (9000 HP)
 29:Fire Teagle
 30:Aquadragon 1
 31:Aquadragon 2
-32:Gandala Golem 1
-33:Gandala Golem 2
+32:Gandala Defense Golem 1
+33:Gandala Defense Golem 2
 34:Brutaur
 35:Pterobronc
 36:Dranzort
@@ -9940,7 +9940,7 @@ dealloc(currArte)
 93:Fleet Mare
 94:Guardian Mare
 95:Sylvan Mare
-96:Sylphid
+96:Sylphid (9000 HP)
 97:Unicorn
 99:Sol Cat
 100:Floral Cat
@@ -9952,7 +9952,7 @@ dealloc(currArte)
 106:Snowmelt Merfish
 107:Quag Merfish
 108:Lizardman
-109:Lizitar
+109:Lizitar (6900 HP)
 110:Tortoise
 111:Angry Tortoise
 112:Snow Tortoise
@@ -9961,7 +9961,7 @@ dealloc(currArte)
 115:Crab Man
 116:Tree Crab
 117:Sylvan Crab
-118:Runed Crab
+118:Runed Crab (6792 HP)
 119:Ribbit
 120:Grass Ribbit
 121:Terra Ribbit
@@ -9981,7 +9981,7 @@ dealloc(currArte)
 135:Penguinist
 136:Fire Hawk
 137:Vulture
-138:Azure Hawk
+138:Azure Hawk (6900 HP)
 140:Bat
 141:Dusk Bat
 142:Fire Bat
@@ -10013,7 +10013,7 @@ dealloc(currArte)
 168:Leafy Mandragora
 169:Ice Mandragora
 170:Terra Mandragora
-171:Megistus Mandragora
+171:Megistus Mandragora (6400 HP)
 172:Insect Plant
 173:Mighty Plant
 174:Bog Plant
@@ -10026,7 +10026,7 @@ dealloc(currArte)
 181:Filihelia
 182:Filifreet
 183:Filignome
-184:Filisyplh
+184:Filisylph
 185:Filindine
 186:Golem
 187:Fire Golem
@@ -10043,7 +10043,7 @@ dealloc(currArte)
 198:Rock Djinn
 199:Water Djinn
 200:Fire Djinn
-201:Tetra Djinn
+201:Tetra Djinn (5700 HP)
 202:Thunder Djinn
 203:Skeleton
 204:Shaft Skeleton
@@ -10054,7 +10054,7 @@ dealloc(currArte)
 209:Ice Harpy
 210:Floral Harpy
 211:Wind Element
-212:Megistus Harpy
+212:Megistus Harpy (7400 HP)
 213:Gentleman
 214:Gentlefreet
 215:Gentlegnome
@@ -10067,14 +10067,14 @@ dealloc(currArte)
 222:King Cockatrice
 223:Snow Dragon
 224:Fire Dragon
-225:Temporal Sentinel
+225:Temporal Sentinel (17400 HP)
 226:Twilight Sentinel
 227:Crime and Punishment
 233:Spyrix Sentry 1.0
 234:Spyrix Sentry 2.0
 235:Meniphto
 236:Undinette
-237:Meniphto Mk IV
+237:Meniphto Mk IV (10500 HP)
 238:Bacura
 239:Bronze Bacura
 240:Silver Bacura
@@ -10084,20 +10084,20 @@ dealloc(currArte)
 244:Graddic Claw
 245:Crimson Servant
 246:Azure Servant
-247:Golden Mage Knight - Scholar
-248:Golden Mage Knight - Creator
-249:Golden Mage Knight - Mercenary
-250:Golden Mage Knight - Duelist
-251:Golden Mage Knight - Puppeteer
-252:Golden Mage Knight - Conductor
+247:Golden Mage Knight - Scholar (80000 HP)
+248:Golden Mage Knight - Creator (76000 HP)
+249:Golden Mage Knight - Mercenary (90000 HP)
+250:Golden Mage Knight - Duelist (78000 HP)
+251:Golden Mage Knight - Puppeteer (64000 HP)
+252:Golden Mage Knight - Conductor (69000 HP)
 253:Fire Element
 254:Fire Element Ultra
 255:Vortex Scorpion
 256:Gaius (Temporal Crossroads)
-257:Gaius (Final Boss)
+257:Gaius (Temporal Terminus)
 258:Muzét (Milla's Shrine)
 259:Muzét (Temporal Crossroads)
-260:Muzét (Final Boss)
+260:Muzét (Temporal Terminus)
 261:Wingul (Fezebel Marsh)
 262:Wingul (Temporal Crossroads)
 263:Wingul (Coliseum)
@@ -10149,7 +10149,7 @@ dealloc(currArte)
 310:Rashugal Battlecorps Veteran
 311:Rashugal Bladecorps Veteran
 312:Rashugal Battlecorps Elite
-313:Driselle (Crash)
+313:Driselle
 314:Jude (Coliseum)
 315:Milla (Coliseum)
 316:Alvin (Coliseum)
@@ -10158,7 +10158,7 @@ dealloc(currArte)
 319:Leia (Coliseum)
 320:Insurgent Battlemaster
 321:Rashugar Bladecorps Cadet
-322:Hammerzamm (88.000 HP)
+322:Hammerzamm (22000 HP)
 323:Greater Demon (Coliseum)
 324:Nameless Anomaly (Coliseum)
 325:Hammerzamm (Coliseum)
@@ -10170,36 +10170,36 @@ dealloc(currArte)
 331:Wyvern (Coliseum)
 332:Veywind Eye (Coliseum)
 333:Graddic Claw (Coliseum)
-334:Golden Mage Knight - Scholar (stronger than ID 247)
-335:Golden Mage Knight - Creator (stronger than ID 248)
-336:Golden Mage Knight - Mercenary (stronger than ID 249)
-337:Golden Mage Knight - Duelist (stronger than ID 250)
-338:Golden Mage Knight - Puppeteer (stronger than ID 251)
-339:Golden Mage Knight - Conductor (stronger than ID 252)
-340:Golden Mage Knight - Scholar (stronger than ID 334)
-341:Golden Mage Knight - Creator (stronger than ID 335)
-342:Golden Mage Knight - Mercenary (stronger than ID 336)
-343:Golden Mage Knight - Duelist (stronger than ID 337)
-344:Golden Mage Knight - Puppeteer (stronger than ID 338)
-345:Golden Mage Knight - Conductor (stronger than ID 339)
-350:Lizitar (stronger than ID 109)
-351:Lizitar (stronger than ID 350)
-354:Sylphid (stronger than ID 96)
-355:Sylphid (stronger than ID 354)
-356:Azure Hawk (stronger than ID 138)
-357:Azure Hawk (stronger than ID 356)
-358:Runed Crab (stronger than ID 118)
-359:Runed Crab (stronger than ID 359)
-362:Temporal Sentinel (stronger than ID 225, doesn't have a habitat)
-363:Temporal Sentinel (stronger than ID 363, doesn't have a habitat)
-366:Meniphto Mk IV (stronger than ID 237)
-367:Meniphto Mk IV (stronger than ID 367)
-368:Tetra Djinn (stronger than ID 201)
-369:Tetra Djinn (stronger than ID 369)
-370:Megistus Harpy (stronger than ID 212)
-371:Megistus Harpy (stronger than ID 371)
-374:Megistus Mandragora (stronger than ID 171)
-375:Megistus Mandragora (stronger than ID 374)
+334:Golden Mage Knight - Scholar (120000 HP)
+335:Golden Mage Knight - Creator (114000 HP)
+336:Golden Mage Knight - Mercenary (135000 HP)
+337:Golden Mage Knight - Duelist (117000 HP)
+338:Golden Mage Knight - Puppeteer (96000 HP)
+339:Golden Mage Knight - Conductor (103500 HP)
+340:Golden Mage Knight - Scholar (160000 HP)
+341:Golden Mage Knight - Creator (152000 HP)
+342:Golden Mage Knight - Mercenary (180000 HP)
+343:Golden Mage Knight - Duelist (156000 HP)
+344:Golden Mage Knight - Puppeteer (128000 HP)
+345:Golden Mage Knight - Conductor (138000 HP)
+350:Lizitar (10350 HP)
+351:Lizitar (13800 HP)
+354:Sylphid (13500 HP)
+355:Sylphid (18000 HP)
+356:Azure Hawk (10350 HP)
+357:Azure Hawk (13800 HP)
+358:Runed Crab (10188 HP)
+359:Runed Crab (13584 HP)
+362:Temporal Sentinel (24000 HP)
+363:Temporal Sentinel (32000 HP)
+366:Meniphto Mk IV (15750 HP)
+367:Meniphto Mk IV (21000 HP)
+368:Tetra Djinn (8550 HP)
+369:Tetra Djinn (11400 HP)
+370:Megistus Harpy (11100 HP)
+371:Megistus Harpy (14800 HP)
+374:Megistus Mandragora (9600 HP)
+375:Megistus Mandragora (12800 HP)
 376:Technician Veteran
 </DropDownList>
           <VariableType>Auto Assembler Script</VariableType>
@@ -21469,12 +21469,1066 @@ unregistersymbol(inventory)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>86781</ID>
+          <Description>"Arte Usage"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckEquip+220</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>86782</ID>
+              <Description>"Jude"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+34</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87065</ID>
+                  <Description>"Demon Fist"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86785</ID>
+                  <Description>"Cerberus Strike"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86783</ID>
+                  <Description>"Healer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86790</ID>
+                  <Description>"Steel"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86804</ID>
+                  <Description>"Palm Strike"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86801</ID>
+                  <Description>"Swallow Dance"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86796</ID>
+                  <Description>"Talon Storm"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86793</ID>
+                  <Description>"Cyclonic Surge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86797</ID>
+                  <Description>"Beast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86800</ID>
+                  <Description>"Whirlwind Snap"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86799</ID>
+                  <Description>"Rising Falcon"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86786</ID>
+                  <Description>"Soaring Vortex"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87066</ID>
+                  <Description>"Mirage Blitz"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86802</ID>
+                  <Description>"Recovery Ring"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87067</ID>
+                  <Description>"Raging Blast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86805</ID>
+                  <Description>"Aqua Sweep"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86792</ID>
+                  <Description>"Blunt Fang"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86803</ID>
+                  <Description>"Dragon Shot"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87068</ID>
+                  <Description>"Sun Spark"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87071</ID>
+                  <Description>"Phoenix Plunge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86807</ID>
+                  <Description>"Savage Roar"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+11B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86810</ID>
+                  <Description>"Muzét"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+12D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86809</ID>
+                  <Description>"Shattering Demon Fist"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+1308</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>86811</ID>
+              <Description>"Milla"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+4484</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>86813</ID>
+                  <Description>"Shimmer Spin"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87079</ID>
+                  <Description>"Whirling Assault"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87078</ID>
+                  <Description>"Sigil Spear"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87077</ID>
+                  <Description>"Blade Torrent"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87076</ID>
+                  <Description>"Binding Sphere"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87075</ID>
+                  <Description>"Condemnation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87074</ID>
+                  <Description>"Death Knell"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87084</ID>
+                  <Description>"Efreet"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87083</ID>
+                  <Description>"Gnome"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87082</ID>
+                  <Description>"Sylph"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87081</ID>
+                  <Description>"Undine"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87073</ID>
+                  <Description>"Fireball"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86821</ID>
+                  <Description>"Flame Ring"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86814</ID>
+                  <Description>"Sunburst"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86818</ID>
+                  <Description>"Rock Trine"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86820</ID>
+                  <Description>"Wind Lance"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86815</ID>
+                  <Description>"Arrivederci"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86817</ID>
+                  <Description>"Cyclone"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86825</ID>
+                  <Description>"Splash"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86826</ID>
+                  <Description>"Shining Prism"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86828</ID>
+                  <Description>"Bolt Strike"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86832</ID>
+                  <Description>"Thunder Blade"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87085</ID>
+                  <Description>"Cloud Pierce"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+10F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87072</ID>
+                  <Description>"Divine Streak"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+120C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87086</ID>
+                  <Description>"Overdrive"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+1250</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>86845</ID>
+              <Description>"Alvin"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+4484*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>86847</ID>
+                  <Description>"Demon Fang"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86852</ID>
+                  <Description>"Tiger Blade"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-90</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86848</ID>
+                  <Description>"Sonic Thrust"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-8C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86857</ID>
+                  <Description>"Tornado Drive"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-88</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86846</ID>
+                  <Description>"Guardian Field"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-84</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86853</ID>
+                  <Description>"Punishing Shot"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86849</ID>
+                  <Description>"Variable Trigger"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86856</ID>
+                  <Description>"Squall Shot"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86860</ID>
+                  <Description>"Moonlight Cleft"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86854</ID>
+                  <Description>"Terra Rupture"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86863</ID>
+                  <Description>"Dragon Swarm"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86851</ID>
+                  <Description>"Homing Shot"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86859</ID>
+                  <Description>"Pulse Shot"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86864</ID>
+                  <Description>"Dark Radiance"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86862</ID>
+                  <Description>"Demon Inferno"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86858</ID>
+                  <Description>"Arc Fire"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86865</ID>
+                  <Description>"Cross Cleave"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86867</ID>
+                  <Description>"Hell Fryer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+100C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>86869</ID>
+              <Description>"Elize"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+4484*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>86881</ID>
+                  <Description>"Pow Hammer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-11C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86882</ID>
+                  <Description>"Teepo Spray"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-118</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86883</ID>
+                  <Description>"Teepo Roar"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-114</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86884</ID>
+                  <Description>"Teepo Copter"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-110</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86885</ID>
+                  <Description>"Teepo Squash"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-10C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86886</ID>
+                  <Description>"Teepo Quake"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-108</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86877</ID>
+                  <Description>"Negative Gate"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-104</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86878</ID>
+                  <Description>"Dark Visitor"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-100</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86879</ID>
+                  <Description>"Dread Wings"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-FC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86870</ID>
+                  <Description>"Pixie Circle"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86871</ID>
+                  <Description>"Healing Circle"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-F4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86872</ID>
+                  <Description>"Nurse"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-F0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86873</ID>
+                  <Description>"Recover"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-EC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86874</ID>
+                  <Description>"Dispel"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-E8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86876</ID>
+                  <Description>"Resurrection"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-E0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86887</ID>
+                  <Description>"Teepo Vacuum"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86880</ID>
+                  <Description>"Revive"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+C28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86888</ID>
+                  <Description>"Ignite Terror"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+F20</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>86894</ID>
+              <Description>"Rowen"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+4484*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>86908</ID>
+                  <Description>"Severed Fate"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1A0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86909</ID>
+                  <Description>"Marche Waltz"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-19C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86910</ID>
+                  <Description>"Meteoric Waltz"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-198</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86911</ID>
+                  <Description>"Spectral Purge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-194</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86895</ID>
+                  <Description>"Fireball"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-190</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86896</ID>
+                  <Description>"Rock Trine"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-18C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86897</ID>
+                  <Description>"Air Pressure"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-188</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86898</ID>
+                  <Description>"Roche Waltz"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-184</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86899</ID>
+                  <Description>"Wind Lance"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-180</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86900</ID>
+                  <Description>"Splash"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-17C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86901</ID>
+                  <Description>"Blue Sphere"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-178</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86902</ID>
+                  <Description>"Diffusional Drive"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-174</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86903</ID>
+                  <Description>"Freeze Lancer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-170</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86904</ID>
+                  <Description>"Glacial Core"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-16C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86905</ID>
+                  <Description>"Shimmering Toll"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-168</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86906</ID>
+                  <Description>"Divine Streak"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-164</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86907</ID>
+                  <Description>"Tightening Chains"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-160</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86912</ID>
+                  <Description>"Tidal Wave"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+E34</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>86918</ID>
+              <Description>"Leia"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+4484*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>86936</ID>
+                  <Description>"Darting Claw"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-21C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86935</ID>
+                  <Description>"Spiral Strike"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-218</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86934</ID>
+                  <Description>"Swallow Flight"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-214</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86933</ID>
+                  <Description>"Cerberus Strike"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-210</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86932</ID>
+                  <Description>"Soaring Blast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-20C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86931</ID>
+                  <Description>"Crescent Flash"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-208</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86930</ID>
+                  <Description>"Rabid Lunge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-204</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86929</ID>
+                  <Description>"Soaring Vortex"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-200</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86928</ID>
+                  <Description>"Staff Rain"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1FC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86919</ID>
+                  <Description>"First Aid"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1F4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86920</ID>
+                  <Description>"Heal"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1F0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86921</ID>
+                  <Description>"Cure"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1EC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86922</ID>
+                  <Description>"Sharpness"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1E8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86923</ID>
+                  <Description>"Barrier"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1E4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86924</ID>
+                  <Description>"Quickness"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1E0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86925</ID>
+                  <Description>"Elemental Impulse"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1DC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86926</ID>
+                  <Description>"Resurrection"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>-1D8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86941</ID>
+                  <Description>"Soulstoke Spin"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>+D48</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>602</ID>
           <Description>"Notes/Outdated/Useless/Other"</Description>
           <Options moHideChildren="1"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
+            <CheatEntry>
+              <ID>87093</ID>
+              <Description>"Dropdowns"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87094</ID>
+                  <Description>"dropdown: Yes/No"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Yes
+1:No
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87095</ID>
+                  <Description>"dropdown: No/Yes"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
             <CheatEntry>
               <ID>62787</ID>
               <Description>"Multiplayer"</Description>
@@ -23144,108 +24198,951 @@ dealloc(arteNum)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>71189</ID>
-                  <Description>"Enemy stats (edit this to move level)"</Description>
+                  <ID>82544</ID>
+                  <Description>"Enemy Data"</Description>
                   <Options moHideChildren="1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
-                  <Address>regionCheckEquip+2D014C+1AC*0</Address>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanregion(enmData, 300000000, 400000000, 00 02 49 D0 00 00 00 06 3F 80 00 00 00 00 00 00 00 02 49 D8) // should be unique
+
+enmData:
+
+registersymbol(enmData)
+[DISABLE]
+unregistersymbol(enmData)
+</AssemblerScript>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>71188</ID>
-                      <Description>"Lv."</Description>
+                      <ID>82403</ID>
+                      <Description>"Edit the address of this to move level"</Description>
+                      <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71200</ID>
-                      <Description>"EXP"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71199</ID>
-                      <Description>"gald"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71198</ID>
-                      <Description>"HP"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71190</ID>
-                      <Description>"TP"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71191</ID>
-                      <Description>"AC"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71192</ID>
-                      <Description>"STR"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71197</ID>
-                      <Description>"INT"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+10</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71196</ID>
-                      <Description>"VIT"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71195</ID>
-                      <Description>"DEX"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+18</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71194</ID>
-                      <Description>"AGI"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+1C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>71193</ID>
-                      <Description>"PSY"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+20</Address>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>enmData-104+1AC*0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>82404</ID>
+                          <Description>"Enemy ID"</Description>
+                          <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82405</ID>
+                          <Description>"Player ID"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82406</ID>
+                          <Description>"BTL Unit offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82407</ID>
+                          <Description>"Model offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82408</ID>
+                          <Description>"Attachment offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82409</ID>
+                          <Description>"PRE offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82410</ID>
+                          <Description>"Animation offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+18</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82411</ID>
+                          <Description>"MDF RES offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+1C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82412</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82413</ID>
+                          <Description>"Slash effect offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82414</ID>
+                          <Description>"LDF offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82415</ID>
+                          <Description>"GA offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+2C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82416</ID>
+                          <Description>"AI offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82417</ID>
+                          <Description>"Icon offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82418</ID>
+                          <Description>"GUI FCT offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+38</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82419</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+3C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82420</ID>
+                          <Description>"Size"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+40</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82421</ID>
+                          <Description>"Grabbing limit"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+44</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82422</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+48</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82423</ID>
+                          <Description>"Combat Style"</Description>
+                          <DropDownList DisplayValueAsItem="1">0:Power
+1:Speed
+2:Guard
+3:Technical
+4:Magic
+5:Strange
+6:Boss
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82424</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+50</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82425</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+51</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82426</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+52</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82427</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+53</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82428</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+54</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82429</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+58</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82433</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+5C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82434</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+60</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87089</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+61</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87088</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+62</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87087</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+63</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82435</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+64</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82439</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+68</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82440</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+6C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82441</ID>
+                          <Description>"Run speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+70</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82442</ID>
+                          <Description>"Back walk speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+74</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82446</ID>
+                          <Description>"Turn speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+78</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82450</ID>
+                          <Description>"Jump height"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+7C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82451</ID>
+                          <Description>"Backstep ???"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+80</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82452</ID>
+                          <Description>"Backstep speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+84</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82453</ID>
+                          <Description>"Forward step ???"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+88</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82454</ID>
+                          <Description>"Forward step length"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+8C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82455</ID>
+                          <Description>"Forward step speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+90</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82456</ID>
+                          <Description>"Backstep length"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+94</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82457</ID>
+                          <Description>"Backstep height"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+98</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82458</ID>
+                          <Description>"Backstep ???"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+9C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82459</ID>
+                          <Description>"How long to stay in knockdown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+A0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82460</ID>
+                          <Description>"Range to attack from"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+A4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82461</ID>
+                          <Description>"Lv."</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+A8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82462</ID>
+                          <Description>"EXP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+AC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82463</ID>
+                          <Description>"gald"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+B0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82464</ID>
+                          <Description>"HP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+B4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82465</ID>
+                          <Description>"TP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+B8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82466</ID>
+                          <Description>"AC"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+BC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82467</ID>
+                          <Description>"STR"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+C0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82468</ID>
+                          <Description>"INT"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+C4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82469</ID>
+                          <Description>"VIT"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+C8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82470</ID>
+                          <Description>"DEX"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+CC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82471</ID>
+                          <Description>"AGI"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+D0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82472</ID>
+                          <Description>"PSY"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+D4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82473</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+D8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82474</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+DC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82475</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+E0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82476</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+E4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82477</ID>
+                          <Description>"gets read on fight start?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+E8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82478</ID>
+                          <Description>"Guarding related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+EC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82479</ID>
+                          <Description>"Guard break retaliation?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+F0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82480</ID>
+                          <Description>"Iron Stance?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+F4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82481</ID>
+                          <Description>"Iron Stance?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+F8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82482</ID>
+                          <Description>"Iron Stance?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+FC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82483</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+100</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82484</ID>
+                          <Description>"Weakness offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+104</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82486</ID>
+                          <Description>"How often to get status inflicted"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+10C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82487</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+110</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82488</ID>
+                          <Description>"Dropped Item offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+114</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82489</ID>
+                          <Description>"Amount of dropped items"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+118</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82490</ID>
+                          <Description>"Stealable Item"</Description>
+                          <DropDownListLink>Equipment Editor</DropDownListLink>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Array of byte</VariableType>
+                          <ByteLength>4</ByteLength>
+                          <Address>+11C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82491</ID>
+                          <Description>"Stealable Item Chance"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+120</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82492</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+124</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82493</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+128</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82494</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+12C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82495</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+130</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82496</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+134</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82497</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+138</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82498</ID>
+                          <Description>"read on fight start linking related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+13C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82499</ID>
+                          <Description>"Idle time"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+140</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82500</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+144</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82501</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+148</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82502</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+14C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82503</ID>
+                          <Description>"How often to backstep after an attack"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+150</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82504</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+154</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82505</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+158</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82506</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+15C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82507</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+160</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82508</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+164</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82509</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+168</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82510</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+16C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82511</ID>
+                          <Description>"Counter variance?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+170</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82512</ID>
+                          <Description>"Counter ???"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+174</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82513</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+178</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82514</ID>
+                          <Description>"Appear in enemy book?"</Description>
+                          <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+17C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87090</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+17D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87091</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+17E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87092</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+17F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82515</ID>
+                          <Description>"Habitat offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+180</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82516</ID>
+                          <Description>"Model offset (Enemy Book)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+184</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82517</ID>
+                          <Description>"Weapon model offset (Enemy Book)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+188</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82518</ID>
+                          <Description>"Size (Enemy Book)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+18C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82519</ID>
+                          <Description>"Enlarged size"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>+190</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82520</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+194</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82521</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+198</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82522</ID>
+                          <Description>"??? offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+19C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82523</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+1A0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82524</ID>
+                          <Description>"Name offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+1A4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>82525</ID>
+                          <Description>"Description offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+1A8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -25631,6 +27528,10 @@ unregistersymbol(gequipanim)
   </CheatEntries>
   <UserdefinedSymbols>
     <SymbolEntry>
+      <Name>enemyTEMP</Name>
+      <Address>04880000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
       <Name>regionCheckEquipScript</Name>
       <Address>04880030</Address>
     </SymbolEntry>
@@ -26192,7 +28093,7 @@ unregistersymbol(gequipanim)
     </SymbolEntry>
     <SymbolEntry>
       <Name>skillEdit</Name>
-      <Address>0C3A0000</Address>
+      <Address>04260000</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
   <DisassemblerComments>
