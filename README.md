@@ -23,14 +23,15 @@ Emulators used for their respective platforms and their versions, unless stated 
  - **Xillia 2**: Based on *BLUS31397*, but the main features should work regardless of region.
  - **Zestiria**: *2015/12/04* (*1.4*)
  - **Legendia**: *SLUS-21201*
- - **Phantasia: Narikiri Dungeon X**: *ULJS00293 with english menu patch*
+ - **Phantasia: Narikiri Dungeon X**: *ULJS00293 with english menu patch* (*1.01*)
  - **Symphonia**: *2016/09/27*
- - **Rebirth**: *SLPS-25450*
+ - **Rebirth (PS2)**: *SLPS-25450*
+ - **Rebirth (PSP)**: *ULJS00132* (*1.02*)
  - **Eternia**: *SLUS-01355*, *SLUS-01367*, *SLUS-01368*
  - **Arise**: *2022/04/07* (*1.07*)
  - **Innocence**: *NTR-AYTJ-JPN*
 
-## Abyss (PS2)
+ ## Abyss (PS2)
 
 Features: 
  - Party Formation Editor
@@ -41,7 +42,7 @@ Features:
  - Equipment Editor
  - Arte List Editor
 
-## Destiny 2 (PS2, PSP)
+ ## Destiny 2 (PS2, PSP)
 
 Features: 
  - Party Formation Editor
@@ -50,7 +51,7 @@ Features:
  - Arte Usage Editor
  - Equipment Editor
 
-## Destiny Director's Cut (PS2)
+ ## Destiny Director's Cut (PS2)
 
 Features: 
  - Party Formation Editor
@@ -68,7 +69,7 @@ Features:
  - Change difficulty values
  - Unlock, max and use Swordian skills anytime
 
-## Graces F (PS3)
+ ## Graces F (PS3)
 
 Features: 
  - Party Formation Editor
@@ -79,7 +80,7 @@ Features:
  - Change battle BGM
  - Arte List Editor
 
-## Phantasia (PS1, *Beetle PSX HW 0.9.44.1 9f126e5*)
+ ## Phantasia (PS1, *Beetle PSX HW 0.9.44.1 9f126e5*)
 
 Features: 
  - Party Formation Editor
@@ -91,7 +92,7 @@ Features:
  - Enable or Disable Combo Command Modes
  - Difficulty Modifier
 
-## Symphonia - Dawn of the New World (PS3)
+ ## Symphonia - Dawn of the New World (PS3)
 
 Features: 
  - Party Formation Editor
@@ -103,12 +104,15 @@ Features:
  - Gald Editor
  - Difficulty Modifier
 
-## Vesperia (PC)
+ ## Vesperia (PC)
+
 Features: 
  - Party Formation Editor
  - Change Field Run Speed
  - aanpsx's character pointer table ported to 1.2
  - Save Anywhere script
+ - Arte Properties Editor
+ - Enemy Data Editor
  
  This table has some notes regarding changing encounters that I never figured out.
  
@@ -132,6 +136,7 @@ Features:
  - Turn on/off Grade Shop options at any time
  - Change field movement speed
  - Inventory Editor
+ - Change Arte Usage
 
  ## Xillia 2 (PS3)
 
@@ -181,6 +186,9 @@ Features:
 
 Features:
  - Party Formation Editor
+ - Stats Editor
+ - In-Battle Stats Editor
+ - Equipment Editor
 
  ## Phantasia: Narikiri Dungeon X (PSP)
 
@@ -202,7 +210,7 @@ Features:
  - Use different character's EX Skills
  - Advanced Encounter Modifier ported over from GameCube version
 
- ## Rebirth (PS2)
+ ## Rebirth (PS2, PSP)
 
 Features:
  - Party Formation Editor
