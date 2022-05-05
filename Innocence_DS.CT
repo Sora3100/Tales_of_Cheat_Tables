@@ -3,15 +3,15 @@
   <CheatEntries>
     <CheatEntry>
       <ID>53</ID>
-      <Description>"Activate on title screen"</Description>
+      <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
-aobscan(lucaStats, FF 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1E 00 00 00 00 00 00 00 00 00 5E FF FF FF) // should be unique
+aobscan(baseElfAddr, FF DE FF E7 FF DE FF E7 FF DE FF E7 FF DE 38 BD) // should be unique
 
-registersymbol(lucaStats)
+registersymbol(baseElfAddr)
 [DISABLE]
-unregistersymbol(lucaStats)
+unregistersymbol(baseElfAddr)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -28,7 +28,7 @@ unregistersymbol(lucaStats)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>lucaStats+A</Address>
+          <Address>baseElfAddr+FF47E</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>14</ID>
@@ -202,7 +202,7 @@ unregistersymbol(lucaStats)
               <CheatEntries>
                 <CheatEntry>
                   <ID>42</ID>
-                  <Description>"Luca"</Description>
+                  <Description>"Slot 1"</Description>
                   <DropDownListLink>dropdown: Inactive/Active</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -213,7 +213,7 @@ unregistersymbol(lucaStats)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>43</ID>
-                  <Description>"Iria"</Description>
+                  <Description>"Slot 2"</Description>
                   <DropDownListLink>dropdown: Inactive/Active</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -224,7 +224,7 @@ unregistersymbol(lucaStats)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>48</ID>
-                  <Description>"Spada"</Description>
+                  <Description>"Slot 3"</Description>
                   <DropDownListLink>dropdown: Inactive/Active</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -235,7 +235,7 @@ unregistersymbol(lucaStats)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>47</ID>
-                  <Description>"Ange"</Description>
+                  <Description>"Slot 4"</Description>
                   <DropDownListLink>dropdown: Inactive/Active</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -246,7 +246,7 @@ unregistersymbol(lucaStats)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>46</ID>
-                  <Description>"Ricardo"</Description>
+                  <Description>"Slot 5"</Description>
                   <DropDownListLink>dropdown: Inactive/Active</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -257,7 +257,7 @@ unregistersymbol(lucaStats)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>45</ID>
-                  <Description>"Hermana"</Description>
+                  <Description>"Slot 6"</Description>
                   <DropDownListLink>dropdown: Inactive/Active</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -276,7 +276,7 @@ unregistersymbol(lucaStats)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>lucaStats+A</Address>
+          <Address>baseElfAddr+FF47E</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>71</ID>
@@ -852,6 +852,13 @@ unregistersymbol(lucaStats)
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
+              <ID>162</ID>
+              <Description>"baseElfAddr"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>baseElfAddr</Address>
+            </CheatEntry>
+            <CheatEntry>
               <ID>24</ID>
               <Description>"Dropdowns"</Description>
               <Options moHideChildren="1"/>
@@ -902,7 +909,7 @@ unregistersymbol(lucaStats)
 </DropDownList>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
-              <Address>lucaStats+106760</Address>
+              <Address>baseElfAddr+FF47E+106760-A</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>56</ID>
@@ -976,7 +983,7 @@ unregistersymbol(lucaStats)
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
-              <Address>lucaStats+1067BC</Address>
+              <Address>baseElfAddr+FF47E+1067BC-A</Address>
               <CheatEntries>
                 <CheatEntry>
                   <ID>159</ID>
