@@ -1,4 +1,27 @@
-#### Changelog:
+### Changelog
+
+#### 2022/05/05
+
+-	New table: Hearts (DS)
+	-	Features:
+		-	Stats Editor
+		-	Party Formation Editor
+
+-	New table: Hearts R
+	-	Features:
+		-	Stats Editor
+		-	Party Formation Editor
+
+-	New table: Innocence R
+	-	Features:
+		-	Stats Editor
+		-	Party Formation Editor
+	
+-	New table: Tempest
+	-	Features:
+		-	Stats Editor
+		-	In-Battle Stats Editor
+		-	Party Formation Editor
 
 #### 2022/04/21
 
