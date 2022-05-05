@@ -2147,6 +2147,7 @@ crash, you can recover by making the party entirely different characters.
 01 00 01 1F:Monk's Paintbrush
 01 00 00 7C:Gravity Rod
 01 00 01 20:Water Lily
+01 00 01 21:Yama-raja Pole
 01 00 00 7D:Gale Rod
 01 00 00 81:Solreina, Rod of the Heavens
 01 00 00 7F:Black Brush
@@ -35714,7 +35715,7 @@ unregistersymbol(enmData)
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>enmData-1E8+1E8*1</Address>
+                      <Address>enmData-1E8+1E8*0</Address>
                       <CheatEntries>
                         <CheatEntry>
                           <ID>82404</ID>
@@ -35784,7 +35785,7 @@ unregistersymbol(enmData)
                         </CheatEntry>
                         <CheatEntry>
                           <ID>82412</ID>
-                          <Description>"?"</Description>
+                          <Description>"MDF BTL Face offset"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
@@ -44208,6 +44209,8 @@ unregistersymbol(Infinite_Max_Link_Gauge)
 1900:Searing Gale
 1901:Thunder Beast (actually Fiery Beast)
 2213:Final Fury
+1889:Overhead Swing 2 (crash)
+1891:Airborne Slash 2 (crash)
 :
 ::Cress
 1902:Overhead Swing 1
@@ -44239,6 +44242,8 @@ unregistersymbol(Infinite_Max_Link_Gauge)
 1928:Dispel
 1929:Resurrection
 1930:Tidal Wave
+1917:Overhead Swing 2 (non-functional)
+1919:Airborne Slash 2 (non-functional)
 :
 ::Mint
 1924:Downward Swing
@@ -45353,10 +45358,6 @@ unregistersymbol(Infinite_Max_Link_Gauge)
 1885:Elemental Hymn (Muzét boss ver.)
 1886:Gravity Well (Muzét boss ver.)
 1887:Event Horizon
-1889:Overhead Swing 2
-1891:Airborne Slash 2
-1917:Overhead Swing 2
-1919:Airborne Slash 2
 1926:Debilitator
 1938:Rock Trine
 1940:Dark Laser
@@ -49215,7 +49216,7 @@ artes will crash the game.
     </SymbolEntry>
     <SymbolEntry>
       <Name>currArte</Name>
-      <Address>0A310010</Address>
+      <Address>04270000</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>arteNum</Name>
