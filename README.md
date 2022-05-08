@@ -15,6 +15,7 @@ Below is a listing of features for each table.
 
  ## Abyss (PS2)
  Based on the SLUS21386 version of the game.
+
  Emulator used: PCSX2 v.1.7.0-dev-1612-g1180de51f
 
 Features: 
@@ -41,6 +42,7 @@ Features:
 
  ## Destiny Director's Cut (PS2)
 Based on the SLPS25842 version of the game.
+
 Emulator used: PCSX2 v.1.7.0-dev-1612-g1180de51f
 
 Features: 
@@ -61,8 +63,11 @@ Features:
 
  ## Destiny 2 (PS2, PSP)
 Based on the SLPS25172 and ULJS00097 versions, respectively.
+
 Emulators used:
+
 PS2: PCSX2 v.1.7.0-dev-1612-g1180de51f
+
 PSP: PPSSPP v1.11.2-366-g4d02d64fd
 
 Features: 
@@ -74,6 +79,7 @@ Features:
 
  ## Eternia (PS1)
  Based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
+
  Emulator used: DuckStation 0.1-4599-ga542fa85 (dev)
 
 Features:
@@ -90,6 +96,7 @@ Features:
 
  ## Graces F (PS3)
 Based on the BLUS30903 version of the game.
+
 Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
 
 Features: 
@@ -103,6 +110,7 @@ Features:
 
  ## Hearts (NDS)
 Based on the NTR-CTUJ-JPN version of the game.
+
 Emulator used: melonDS 0.9.4
 
 Features:
@@ -111,6 +119,7 @@ Features:
 
  ## Hearts R (PSV)
  Based on the PCSE00429 version of the game.
+
  Emulator used: Vita3K
  
 Features:
@@ -119,6 +128,7 @@ Features:
 
  ## Innocence (NDS)
  Based on the NTR-AYTJ-JPN version of the game.
+
  Emulator used: melonDS 0.9.4
  
 Features:
@@ -127,6 +137,7 @@ Features:
  
  ## Innocence R (PSV)
 Based on the PCSG00009 version of the game.
+
 Emulator used: Vita3K
 
 Features:
@@ -135,6 +146,7 @@ Features:
 
  ## Legendia (PS2)
 Based on the SLUS-21201 version of the game.
+
 Emulator used: PCSX2 v.1.7.0-dev-1612-g1180de51f
 
 Features:
@@ -145,6 +157,7 @@ Features:
 
  ## Phantasia (PS1)
 Based on the SLPS91210 version of the game.
+
 Emulator used: Beetle PSX HW 0.9.44.1 9f126e5
 
 Features: 
@@ -159,6 +172,7 @@ Features:
 
  ## Phantasia: Narikiri Dungeon X (PSP)
 Based on the ULJS00293 (1.01) version of the game.
+
 Emulator used: PPSSPP v1.11.2-366-g4d02d64fd
 
 Features:
@@ -174,8 +188,11 @@ Features:
 
  ## Rebirth (PS2, PSP)
 Based on the  SLPS25450 and ULJS00132 (1.02) versions, respectively.
+
 Emulators used: 
+
 PS2: PCSX2 v.1.7.0-dev-1612-g1180de51f
+
 PSP: PPSSPP v1.11.2-366-g4d02d64fd
 
 Features:
@@ -199,6 +216,7 @@ Features:
 
  ## Symphonia - Dawn of the New World (PS3)
 Based on the BLUS31172 version of the game.
+
 Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
 
 Features: 
@@ -213,6 +231,7 @@ Features:
 
  ## Tempest (NDS)
 Based on the NTR-ALEJ-JPN version of the game.
+
 Emulator used: melonDS 0.9.4 
 
 Features:
@@ -235,6 +254,7 @@ Features:
  
  ## Xillia (PS3)
 Based on the NPUB31136 version of the game.
+
 Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
 
 Features: 
@@ -259,6 +279,7 @@ Features:
 
  ## Xillia 2 (PS3)
 Based on the BLUS31397 version of the game.
+
 Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
 
 Features: 
