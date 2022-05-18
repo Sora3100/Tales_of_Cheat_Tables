@@ -1,5 +1,34 @@
 ### Changelog
 
+#### 2022/05/??
+
+-	New feature: Xillia 2
+	-	You can now play as bosses! This took some time to make.
+		Please read the readme inside the script.
+		Mystic Artes are not supported, don't use them, or you'll softlock your character.
+		Supported characters:
+			-	Wingul
+			-	Agria
+			-	Presa
+			-	Jiao
+			-	Ivar
+			-	Nachtigal
+			-	Celsius
+			-	Maxwell
+			-	Volt
+			-	Rideaux
+			-	Chronos
+			-	Bisley
+			-	Stahn
+			-	Cress
+			-	Rutee
+			-	Mint
+	
+-	New features: Vesperia
+	-	Added a Skill Properties Editor
+	-	Added an Item Properties Editor
+	-	In addition, expanded on Arte Properties and Enemy Book Data.
+
 #### 2022/05/05
 
 -	New table: Hearts (DS)
