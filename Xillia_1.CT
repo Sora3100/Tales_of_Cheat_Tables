@@ -27521,6 +27521,538 @@ unregistersymbol(gequipanim)
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>87097</ID>
+              <Description>"Skill Properties Editor"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(skillPropEdit, 300000000, 400000000, 00 00 00 08 00 00 00 C7 00 00 00 00 00 00 5D 44 00 00 5D 57) // should be unique
+registersymbol(skillPropEdit)
+globalAlloc(skillPropNum,4)
+
+[DISABLE]
+unregistersymbol(skillPropEdit)
+dealloc(skillPropNum)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87098</ID>
+                  <Description>"Skill Number (edit this)"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Strength
+2:Strength 2
+3:Strength 3
+4:Vitality
+5:Vitality 2
+6:Vitality 3
+7:Agility
+8:Agility 2
+9:Agility 3
+10:Intelligence
+11:Intelligence 2
+12:Intelligence 3
+13:Psyche
+14:Psyche 2
+15:Psyche 3
+16:Dexterity
+17:Dexterity 2
+18:Dexterity 3
+19:Stamina
+20:Stamina 2
+21:Stamina 3
+22:Spirit
+23:Spirit 2
+24:Spirit 3
+25:Assault
+26:Assault 2
+27:Assault 3
+28:Linked Action
+29:Magic Guard
+30:Solid Guard
+31:Earth Guard
+32:Water Guard
+33:Fire Guard
+34:Wind Guard
+35:Light Guard
+36:Dark Guard
+37:All Guard
+38:HP Gain
+39:TP Gain
+40:HP Gain 2
+41:TP Gain 2
+42:Minimum Damage
+43:Immunity
+44:Limit Fever
+45:Mirage Step
+46:Over Extension
+47:Over Extension 2
+48:Over Extension 3
+49:Combo Siphon
+50:HP Surge
+51:TP Surge
+52:Life Up
+53:Mind Up
+54:Happiness
+55:EXP Share
+56:TP Combo Support
+57:TP Guard Support
+58:Advantageous Assault
+59:Level Restore
+60:Momentary Gain
+61:Fury Stoke
+62:HP Bench Warmer
+63:TP Bench Warmer
+64:Link Brigade
+65:Mirage Assault
+66:Flash Guard
+67:Heal Share Plus (ID: 193)
+68:Mind Share Plus (ID: 194)
+69:Sustained Limit (ID: 198)
+70:Impregnable Guard (ID: 107)
+71:HP Restoration Guard (ID: 67)
+72:TP Restoration Guard (ID: 68)
+73:Life Reversal (ID: 69)
+74:Mind Reversal (ID: 70)
+75:Extended Window (ID: 196)
+76:Casting Window (ID: 195)
+77:Down Burst (ID: 71)
+78:Cross Counter (ID: 72)
+79:Step Guard (ID: 73)
+80:Grounded Stance (ID: 80)
+81:Long Step (ID: 75)
+82:Shining Hand (ID: 197)
+83:Feign Death (ID: 77)
+84:Dash (ID: 78)
+85:Assault Step (ID: 79)
+86:Combo Voltage (ID: 80)
+87:Snap Pivot (ID: 81)
+88:Snap Pivot 2 (ID: 82)
+89:Snap Pivot 3 (ID: 83)
+90:Quick Recover (ID: 84)
+91:Milla Sync (ID: 85)
+92:Adrenaline Rush (ID: 86)
+93:Restore Plus (ID: 87)
+94:Invigorating Taunt (ID: 88)
+95:Second Artes (ID: 89)
+96:Second Artes 2 (ID: 90)
+97:Aerial Force (ID: 91)
+98:Aerial Guard (ID: 92)
+99:Aerial Jump (ID: 93)
+100:Aerial Jump 2 (ID: 94)
+101:Aerial Backstep (ID: 95)
+102:Aerial Dash (ID: 96)
+103:Aerial Armor (ID: 97)
+104:Aerial Voltage (ID: 98)
+105:Aerial Spell (ID: 99)
+106:Quick Drop (ID: 100)
+107:Safe Landing (ID: 101)
+108:Mobile Casting (ID: 102)
+109:Temptation (ID: 103)
+110:Jump Cancel (ID: 104)
+111:Elemental Armor (ID: 105)
+112:Temporary Stability (ID: 106)
+113:Energy Barrier (ID: 108)
+114:Jude Sync (ID: 109)
+115:Free Shift (ID: 110)
+116:Stable Shift (ID: 111)
+117:Conserative Shift (ID: 199)
+118:Blunt Force (ID: 112)
+119:Critical (ID: 113)
+120:Sustained Critical (ID: 114)
+121:Disorienting Strike (ID: 115)
+122:Safety Net (ID: 116)
+123:Attack Conversion (ID: 117)
+124:Defense Conversion (ID: 118)
+125:Chivalry (ID: 119)
+126:Natural Recovery (ID: 120)
+127:Medical Meditation (ID: 121)
+128:Charge Plus (ID: 122)
+129:Charge Plus 2 (ID: 123)
+130:Charge Plus 3 (ID: 124)
+131:Charge Breaker (ID: 125)
+132:Charge Breaker 2 (ID: 126)
+133:SUStained Charge (ID: 127)
+134:Speed Charge (ID: 128)
+135:Mind Charge (ID: 129)
+136:Charge Armor (ID: 130)
+137:Fatal Opening (ID: 131)
+138:Reflective Guard (ID: 132)
+139:Heal Guard (ID: 133)
+140:Melee Gamble (ID: 134)
+141:Spell Gamble (ID: 135)
+142:Back Support (ID: 136)
+143:Chicken Run (ID: 137)
+144:Survive (ID: 138)
+145:Pow Hammer (ID: 139)
+146:Healer's Reward (ID: 140)
+147:Morale Support (ID: 141)
+148:Auto Medicine (ID: 142)
+149:Auto Medicine 2 (ID: 143)
+150:Recall (ID: 144)
+151:Angel's Cry (ID: 145)
+152:Warrior (ID: 146)
+153:Wizard (ID: 147)
+154:Warrior 2 (ID: 148)
+155:Wizard 2 (ID: 149)
+156:Teepo Master (ID: 150)
+157:Linked Minds (ID: 151)
+158:Renewed Confidence (ID: 152)
+159:Mage Stun (ID: 153)
+160:Strong Arm (ID: 154)
+161:Queued Spellcasting (ID: 155)
+162:Reduction (ID: 156)
+163:Absolute Reduction (ID: 157)
+164:Overclocked (ID: 158)
+165:Conservation (ID: 159)
+166:Continued Channeling (ID: 160)
+167:Grace (ID: 161)
+168:Anti-Magic (ID: 162)
+169:Speed Cast (ID: 163)
+170:Abrupt Cast (ID: 164)
+171:Knife Revenge (ID: 165)
+172:Point Conversion (ID: 166)
+173:Conductor (ID: 167)
+174:Conductor 2 (ID: 168)
+175:Conductor 3 (ID: 169)
+176:Charismatic Stance (ID: 170)
+177:Opportune Moment (ID: 171)
+178:Tetra Spell (ID: 172)
+179:Last Stand (ID: 173)
+180:Lottery (ID: 174)
+181:Steal Plus (ID: 175)
+182:Mobile Armor (ID: 176)
+183:Immediate Consumption (ID: 177)
+184:Chain Consumption (ID: 178)
+185:Item Knowledge (ID: 179)
+186:Item Spawn (ID: 180)
+187:Health Jog (ID: 181)
+188:Mental Jog (ID: 182)
+189:Bottled Efficiency (ID: 183)
+190:Self Sacrifice (ID: 184)
+191:Lucky Item (ID: 185)
+192:Multi-Item (ID: 186)
+193:Treasure Fang (ID: 187)
+194:Bonus Extension (ID: 188)
+195:Bonus Extension 2 (ID: 189)
+196:Steal Psyche (ID: 190)
+197:EXP Reward (ID: 191)
+198:Sky Soldier (ID: 192)
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>skillPropNum</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>87135</ID>
+                      <Description>"ID (DON'T EDIT)"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87101</ID>
+                      <Description>"Skill Name Offset"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*1+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87139</ID>
+                      <Description>"Skill Description Offset"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*2+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87102</ID>
+                      <Description>"SP Cost"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*3+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87103</ID>
+                      <Description>"Type of Skill"</Description>
+                      <DropDownList DisplayValueAsItem="1">1:Parameter
+2:Action
+3:Partner Action/Linked?
+4:Support
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*4+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87109</ID>
+                      <Description>"1st parameter"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*5+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87108</ID>
+                      <Description>"2nd parameter"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*6+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87107</ID>
+                      <Description>"3rd parameter"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*7+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87106</ID>
+                      <Description>"4th parameter"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*8+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87105</ID>
+                      <Description>"Something to do with Jude"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*9+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87110</ID>
+                      <Description>"Something to do with Jude"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*A+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87111</ID>
+                      <Description>"Something to do with Jude"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*B+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87112</ID>
+                      <Description>"Something to do with Milla"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*C+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87113</ID>
+                      <Description>"Something to do with Milla"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*D+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87114</ID>
+                      <Description>"Something to do with Milla"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*E+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87115</ID>
+                      <Description>"Something to do with Alvin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*F+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87104</ID>
+                      <Description>"Something to do with Alvin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*10+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87116</ID>
+                      <Description>"Something to do with Alvin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*11+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87124</ID>
+                      <Description>"Something to do with Elize"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*12+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87123</ID>
+                      <Description>"Something to do with Elize"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*13+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87122</ID>
+                      <Description>"Something to do with Elize"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*14+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87121</ID>
+                      <Description>"Something to do with Rowen"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*15+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87120</ID>
+                      <Description>"Something to do with Rowen"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*16+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87119</ID>
+                      <Description>"Something to do with Rowen"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*17+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87118</ID>
+                      <Description>"Something to do with Leia"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*18+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87117</ID>
+                      <Description>"Something to do with Leia"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*19+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87125</ID>
+                      <Description>"Something to do with Leia"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>skillPropEdit+8+4*1A+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87126</ID>
+                      <Description>"Something to do with Jude"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87129</ID>
+                      <Description>"Something to do with Milla"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+1+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87128</ID>
+                      <Description>"Something to do with Alvin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+2+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87127</ID>
+                      <Description>"Something to do with Elize"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+3+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87131</ID>
+                      <Description>"Something to do with Rowen"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+4+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87130</ID>
+                      <Description>"Something to do with Leia"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+5+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87132</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+6+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87133</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+7+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87134</ID>
+                      <Description>"Shared?"</Description>
+                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+8+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87138</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+9+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87137</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+A+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87136</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>skillPropEdit+8+4*1B+B+78*[skillPropNum]</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
@@ -28085,11 +28617,11 @@ unregistersymbol(gequipanim)
     </SymbolEntry>
     <SymbolEntry>
       <Name>arteNum</Name>
-      <Address>05A80000</Address>
+      <Address>0F030000</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>skillPropNum</Name>
-      <Address>0D320000</Address>
+      <Address>0F030010</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>skillEdit</Name>
