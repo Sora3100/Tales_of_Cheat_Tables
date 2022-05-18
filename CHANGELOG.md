@@ -1,6 +1,6 @@
 ### Changelog
 
-#### 2022/05/??
+#### 2022/05/18
 
 -	New feature: Xillia 2
 	-	You can now play as bosses! This took some time to make.
