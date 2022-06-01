@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="34">
+<CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
       <ID>9</ID>
@@ -14,7 +14,6 @@
 6:Suzu
 7:Rhea (NPC)
 </DropDownList>
-      <LastState Value="" RealAddress="400873F8"/>
       <GroupHeader>1</GroupHeader>
       <Address>400873F8</Address>
       <CheatEntries>
@@ -22,7 +21,6 @@
           <ID>10</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="1" RealAddress="400873F8"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+0</Address>
         </CheatEntry>
@@ -30,7 +28,6 @@
           <ID>26</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="2" RealAddress="400873FA"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+2</Address>
         </CheatEntry>
@@ -38,7 +35,6 @@
           <ID>27</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="4" RealAddress="400873FC"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+4</Address>
         </CheatEntry>
@@ -46,7 +42,6 @@
           <ID>30</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="400873FE"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+6</Address>
         </CheatEntry>
@@ -54,7 +49,6 @@
           <ID>29</ID>
           <Description>"Slot 5"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="40087400"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+8</Address>
         </CheatEntry>
@@ -62,7 +56,6 @@
           <ID>28</ID>
           <Description>"Slot 6"</Description>
           <DropDownListLink>Party Formation</DropDownListLink>
-          <LastState Value="0" RealAddress="40087402"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+A</Address>
         </CheatEntry>
@@ -72,7 +65,6 @@
       <ID>102</ID>
       <Description>"Stats"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="40086F04"/>
       <GroupHeader>1</GroupHeader>
       <Address>40086F04</Address>
       <CheatEntries>
@@ -80,154 +72,132 @@
           <ID>103</ID>
           <Description>"Cress"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40086F04"/>
           <GroupHeader>1</GroupHeader>
           <Address>+0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>105</ID>
               <Description>"Level"</Description>
-              <LastState Value="14" RealAddress="40086EFA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>124</ID>
               <Description>"EXP"</Description>
-              <LastState Value="4681" RealAddress="40086EFC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>123</ID>
               <Description>"Next level"</Description>
-              <LastState Value="1098" RealAddress="40086F00"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>122</ID>
               <Description>"Base HP"</Description>
-              <LastState Value="1264" RealAddress="40086F0C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>107</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="1264" RealAddress="40086F0E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>106</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="856" RealAddress="40086F10"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>108</ID>
               <Description>"Base TP"</Description>
-              <LastState Value="114" RealAddress="40086F12"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>110</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="114" RealAddress="40086F14"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>109</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="5" RealAddress="40086F16"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>111</ID>
               <Description>"Strength"</Description>
-              <LastState Value="30" RealAddress="40086F18"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>119</ID>
               <Description>"Stamina"</Description>
-              <LastState Value="11" RealAddress="40086F1C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>125</ID>
               <Description>"Base Stamina"</Description>
-              <LastState Value="1" RealAddress="40086F1E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>126</ID>
               <Description>"Base Agility"</Description>
-              <LastState Value="29" RealAddress="40086F20"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>118</ID>
               <Description>"Agility"</Description>
-              <LastState Value="29" RealAddress="40086F24"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>120</ID>
               <Description>"Base Luck"</Description>
-              <LastState Value="53" RealAddress="40086F26"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>117</ID>
               <Description>"Luck"</Description>
-              <LastState Value="53" RealAddress="40086F28"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>116</ID>
               <Description>"Slash"</Description>
-              <LastState Value="71" RealAddress="40086F2A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>115</ID>
               <Description>"Thrust"</Description>
-              <LastState Value="35" RealAddress="40086F2C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>114</ID>
               <Description>"Defense"</Description>
-              <LastState Value="19" RealAddress="40086F2E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>113</ID>
               <Description>"Accuracy"</Description>
-              <LastState Value="139" RealAddress="40086F30"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>112</ID>
               <Description>"Evasion"</Description>
-              <LastState Value="66" RealAddress="40086F32"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -237,154 +207,132 @@
           <ID>215</ID>
           <Description>"Mint"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40086FA4"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>216</ID>
               <Description>"Level"</Description>
-              <LastState Value="14" RealAddress="40086F9A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>217</ID>
               <Description>"EXP"</Description>
-              <LastState Value="5134" RealAddress="40086F9C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>218</ID>
               <Description>"Next level"</Description>
-              <LastState Value="645" RealAddress="40086FA0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>219</ID>
               <Description>"Base HP"</Description>
-              <LastState Value="985" RealAddress="40086FAC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>220</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="985" RealAddress="40086FAE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>221</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="985" RealAddress="40086FB0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>222</ID>
               <Description>"Base TP"</Description>
-              <LastState Value="145" RealAddress="40086FB2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>223</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="145" RealAddress="40086FB4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>224</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="106" RealAddress="40086FB6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>225</ID>
               <Description>"Strength"</Description>
-              <LastState Value="18" RealAddress="40086FB8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>226</ID>
               <Description>"Stamina"</Description>
-              <LastState Value="8" RealAddress="40086FBC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>227</ID>
               <Description>"Base Stamina"</Description>
-              <LastState Value="5" RealAddress="40086FBE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>228</ID>
               <Description>"Base Agility"</Description>
-              <LastState Value="19" RealAddress="40086FC0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>229</ID>
               <Description>"Agility"</Description>
-              <LastState Value="19" RealAddress="40086FC4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>230</ID>
               <Description>"Base Luck"</Description>
-              <LastState Value="57" RealAddress="40086FC6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>231</ID>
               <Description>"Luck"</Description>
-              <LastState Value="62" RealAddress="40086FC8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>232</ID>
               <Description>"Attack (Slash?)"</Description>
-              <LastState Value="33" RealAddress="40086FCA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>233</ID>
               <Description>"Thrust?"</Description>
-              <LastState Value="33" RealAddress="40086FCC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>234</ID>
               <Description>"Defense"</Description>
-              <LastState Value="19" RealAddress="40086FCE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>235</ID>
               <Description>"Accuracy"</Description>
-              <LastState Value="129" RealAddress="40086FD0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>236</ID>
               <Description>"Evasion"</Description>
-              <LastState Value="54" RealAddress="40086FD2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -394,154 +342,132 @@
           <ID>193</ID>
           <Description>"Arche"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40087044"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*2</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>194</ID>
               <Description>"Level"</Description>
-              <LastState Value="12" RealAddress="4008703A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>195</ID>
               <Description>"EXP"</Description>
-              <LastState Value="2707" RealAddress="4008703C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>196</ID>
               <Description>"Next level"</Description>
-              <LastState Value="870" RealAddress="40087040"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>197</ID>
               <Description>"Base HP"</Description>
-              <LastState Value="660" RealAddress="4008704C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>198</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="660" RealAddress="4008704E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>199</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="660" RealAddress="40087050"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>200</ID>
               <Description>"Base TP"</Description>
-              <LastState Value="133" RealAddress="40087052"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>201</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="133" RealAddress="40087054"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>202</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="133" RealAddress="40087056"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>203</ID>
               <Description>"Strength"</Description>
-              <LastState Value="20" RealAddress="40087058"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>204</ID>
               <Description>"Stamina"</Description>
-              <LastState Value="10" RealAddress="4008705C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>205</ID>
               <Description>"Base Stamina"</Description>
-              <LastState Value="0" RealAddress="4008705E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>206</ID>
               <Description>"Base Agility"</Description>
-              <LastState Value="20" RealAddress="40087060"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>207</ID>
               <Description>"Agility"</Description>
-              <LastState Value="20" RealAddress="40087064"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>208</ID>
               <Description>"Base Luck"</Description>
-              <LastState Value="50" RealAddress="40087066"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>209</ID>
               <Description>"Luck"</Description>
-              <LastState Value="50" RealAddress="40087068"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>210</ID>
               <Description>"Attack (Slash?)"</Description>
-              <LastState Value="40" RealAddress="4008706A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>211</ID>
               <Description>"Thrust?"</Description>
-              <LastState Value="40" RealAddress="4008706C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>212</ID>
               <Description>"Defense"</Description>
-              <LastState Value="15" RealAddress="4008706E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>213</ID>
               <Description>"Accuracy"</Description>
-              <LastState Value="130" RealAddress="40087070"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>214</ID>
               <Description>"Evasion"</Description>
-              <LastState Value="50" RealAddress="40087072"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -551,154 +477,132 @@
           <ID>171</ID>
           <Description>"Claus"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="400870E4"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*3</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>172</ID>
               <Description>"Level"</Description>
-              <LastState Value="13" RealAddress="400870DA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>173</ID>
               <Description>"EXP"</Description>
-              <LastState Value="4385" RealAddress="400870DC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>174</ID>
               <Description>"Next level"</Description>
-              <LastState Value="212" RealAddress="400870E0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>175</ID>
               <Description>"Base HP"</Description>
-              <LastState Value="856" RealAddress="400870EC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>176</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="856" RealAddress="400870EE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>177</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="0" RealAddress="400870F0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>178</ID>
               <Description>"Base TP"</Description>
-              <LastState Value="125" RealAddress="400870F2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>179</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="125" RealAddress="400870F4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>180</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="8" RealAddress="400870F6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>181</ID>
               <Description>"Strength"</Description>
-              <LastState Value="23" RealAddress="400870F8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>182</ID>
               <Description>"Stamina"</Description>
-              <LastState Value="10" RealAddress="400870FC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>183</ID>
               <Description>"Base Stamina"</Description>
-              <LastState Value="4" RealAddress="400870FE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>184</ID>
               <Description>"Base Agility"</Description>
-              <LastState Value="19" RealAddress="40087100"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>185</ID>
               <Description>"Agility"</Description>
-              <LastState Value="19" RealAddress="40087104"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>186</ID>
               <Description>"Base Luck"</Description>
-              <LastState Value="42" RealAddress="40087106"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>187</ID>
               <Description>"Luck"</Description>
-              <LastState Value="42" RealAddress="40087108"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>188</ID>
               <Description>"Attack (Slash?)"</Description>
-              <LastState Value="43" RealAddress="4008710A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>189</ID>
               <Description>"Thrust?"</Description>
-              <LastState Value="43" RealAddress="4008710C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>190</ID>
               <Description>"Defense"</Description>
-              <LastState Value="17" RealAddress="4008710E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>191</ID>
               <Description>"Accuracy"</Description>
-              <LastState Value="129" RealAddress="40087110"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>192</ID>
               <Description>"Evasion"</Description>
-              <LastState Value="54" RealAddress="40087112"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -708,154 +612,132 @@
           <ID>149</ID>
           <Description>"Chester"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40087184"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*4</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>150</ID>
               <Description>"Level"</Description>
-              <LastState Value="9" RealAddress="4008717A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>151</ID>
               <Description>"EXP"</Description>
-              <LastState Value="1426" RealAddress="4008717C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>152</ID>
               <Description>"Next level"</Description>
-              <LastState Value="44" RealAddress="40087180"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>153</ID>
               <Description>"Base HP"</Description>
-              <LastState Value="787" RealAddress="4008718C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>154</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="787" RealAddress="4008718E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>155</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="787" RealAddress="40087190"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>156</ID>
               <Description>"Base TP"</Description>
-              <LastState Value="68" RealAddress="40087192"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>157</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="68" RealAddress="40087194"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>158</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="68" RealAddress="40087196"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>159</ID>
               <Description>"Strength"</Description>
-              <LastState Value="19" RealAddress="40087198"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>160</ID>
               <Description>"Stamina"</Description>
-              <LastState Value="8" RealAddress="4008719C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>161</ID>
               <Description>"Base Stamina"</Description>
-              <LastState Value="6" RealAddress="4008719E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>162</ID>
               <Description>"Base Agility"</Description>
-              <LastState Value="25" RealAddress="400871A0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>163</ID>
               <Description>"Agility"</Description>
-              <LastState Value="25" RealAddress="400871A4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>164</ID>
               <Description>"Base Luck"</Description>
-              <LastState Value="27" RealAddress="400871A6"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>165</ID>
               <Description>"Luck"</Description>
-              <LastState Value="27" RealAddress="400871A8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>166</ID>
               <Description>"Attack (Slash?)"</Description>
-              <LastState Value="27" RealAddress="400871AA"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>167</ID>
               <Description>"Thrust?"</Description>
-              <LastState Value="27" RealAddress="400871AC"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>168</ID>
               <Description>"Defense"</Description>
-              <LastState Value="12" RealAddress="400871AE"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>169</ID>
               <Description>"Accuracy"</Description>
-              <LastState Value="135" RealAddress="400871B0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>170</ID>
               <Description>"Evasion"</Description>
-              <LastState Value="55" RealAddress="400871B2"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -865,154 +747,132 @@
           <ID>127</ID>
           <Description>"Suzu"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40087224"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*5</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>128</ID>
               <Description>"Level"</Description>
-              <LastState Value="31" RealAddress="4008721A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>129</ID>
               <Description>"EXP"</Description>
-              <LastState Value="63853" RealAddress="4008721C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>-8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>130</ID>
               <Description>"Next level"</Description>
-              <LastState Value="6953" RealAddress="40087220"/>
               <VariableType>2 Bytes</VariableType>
               <Address>-4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>131</ID>
               <Description>"Base HP"</Description>
-              <LastState Value="1699" RealAddress="4008722C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>132</ID>
               <Description>"Max HP"</Description>
-              <LastState Value="1699" RealAddress="4008722E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>133</ID>
               <Description>"Current HP"</Description>
-              <LastState Value="1699" RealAddress="40087230"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>134</ID>
               <Description>"Base TP"</Description>
-              <LastState Value="221" RealAddress="40087232"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+E</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>135</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="221" RealAddress="40087234"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>136</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="221" RealAddress="40087236"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+12</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>137</ID>
               <Description>"Strength"</Description>
-              <LastState Value="42" RealAddress="40087238"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+14</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>138</ID>
               <Description>"Stamina"</Description>
-              <LastState Value="21" RealAddress="4008723C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+18</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>139</ID>
               <Description>"Base Stamina"</Description>
-              <LastState Value="0" RealAddress="4008723E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>140</ID>
               <Description>"Base Agility"</Description>
-              <LastState Value="39" RealAddress="40087240"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+1C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>141</ID>
               <Description>"Agility"</Description>
-              <LastState Value="39" RealAddress="40087244"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>142</ID>
               <Description>"Base Luck"</Description>
-              <LastState Value="50" RealAddress="40087246"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+22</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>143</ID>
               <Description>"Luck"</Description>
-              <LastState Value="50" RealAddress="40087248"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+24</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>144</ID>
               <Description>"Attack (Slash?)"</Description>
-              <LastState Value="42" RealAddress="4008724A"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+26</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>145</ID>
               <Description>"Thrust?"</Description>
-              <LastState Value="42" RealAddress="4008724C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+28</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>146</ID>
               <Description>"Defense"</Description>
-              <LastState Value="21" RealAddress="4008724E"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>147</ID>
               <Description>"Accuracy"</Description>
-              <LastState Value="139" RealAddress="40087250"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>148</ID>
               <Description>"Evasion"</Description>
-              <LastState Value="69" RealAddress="40087252"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+2E</Address>
             </CheatEntry>
@@ -1024,7 +884,6 @@
       <ID>247</ID>
       <Description>"In-Battle Stats"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="40138E2C"/>
       <GroupHeader>1</GroupHeader>
       <Address>40138E2C</Address>
       <CheatEntries>
@@ -1032,28 +891,24 @@
           <ID>248</ID>
           <Description>"Slot 1"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40138E2C"/>
           <GroupHeader>1</GroupHeader>
           <Address>+0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>249</ID>
               <Description>"HP"</Description>
-              <LastState Value="316" RealAddress="40138E2C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>250</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="114" RealAddress="40138E30"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>251</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="1" RealAddress="40138E38"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -1063,28 +918,24 @@
           <ID>260</ID>
           <Description>"Slot 2"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40139064"/>
           <GroupHeader>1</GroupHeader>
           <Address>+238</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>261</ID>
               <Description>"HP"</Description>
-              <LastState Value="999" RealAddress="40139064"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>262</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="145" RealAddress="40139068"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>263</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="106" RealAddress="40139070"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -1094,28 +945,24 @@
           <ID>256</ID>
           <Description>"Slot 3"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="4013929C"/>
           <GroupHeader>1</GroupHeader>
           <Address>+238*2</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>257</ID>
               <Description>"HP"</Description>
-              <LastState Value="0" RealAddress="4013929C"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>258</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="125" RealAddress="401392A0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>259</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="8" RealAddress="401392A8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -1125,28 +972,24 @@
           <ID>252</ID>
           <Description>"Slot 4"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="401394D4"/>
           <GroupHeader>1</GroupHeader>
           <Address>+238*3</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>253</ID>
               <Description>"HP"</Description>
-              <LastState Value="0" RealAddress="401394D4"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>254</ID>
               <Description>"Max TP"</Description>
-              <LastState Value="0" RealAddress="401394D8"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>255</ID>
               <Description>"Current TP"</Description>
-              <LastState Value="0" RealAddress="401394E0"/>
               <VariableType>2 Bytes</VariableType>
               <Address>+C</Address>
             </CheatEntry>
@@ -1643,7 +1486,6 @@
 :GARBAGE
 :0190-XXX
 </DropDownList>
-      <LastState Value="" RealAddress="40086F04"/>
       <GroupHeader>1</GroupHeader>
       <Address>40086F04</Address>
       <CheatEntries>
@@ -1651,7 +1493,6 @@
           <ID>35</ID>
           <Description>"Cress"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40086F04"/>
           <GroupHeader>1</GroupHeader>
           <Address>+0</Address>
           <CheatEntries>
@@ -1659,7 +1500,6 @@
               <ID>36</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00C5" RealAddress="40086F34"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1668,7 +1508,6 @@
               <ID>39</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00FC" RealAddress="40086F36"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1677,7 +1516,6 @@
               <ID>43</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0115" RealAddress="40086F38"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1686,7 +1524,6 @@
               <ID>42</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40086F3A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1695,7 +1532,6 @@
               <ID>41</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40086F3C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1704,7 +1540,6 @@
               <ID>40</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0176" RealAddress="40086F3E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1713,7 +1548,6 @@
               <ID>34</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0151" RealAddress="40086F40"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1724,7 +1558,6 @@
           <ID>44</ID>
           <Description>"Mint"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40086FA4"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0</Address>
           <CheatEntries>
@@ -1732,7 +1565,6 @@
               <ID>45</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00DD" RealAddress="40086FD4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1741,7 +1573,6 @@
               <ID>46</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0109" RealAddress="40086FD6"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1750,7 +1581,6 @@
               <ID>47</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40086FD8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1759,7 +1589,6 @@
               <ID>48</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40086FDA"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1768,7 +1597,6 @@
               <ID>49</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="013A" RealAddress="40086FDC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1777,7 +1605,6 @@
               <ID>50</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0144" RealAddress="40086FDE"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1786,7 +1613,6 @@
               <ID>51</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40086FE0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1797,7 +1623,6 @@
           <ID>76</ID>
           <Description>"Arche"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40087044"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*2</Address>
           <CheatEntries>
@@ -1805,7 +1630,6 @@
               <ID>77</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00EF" RealAddress="40087074"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1814,7 +1638,6 @@
               <ID>78</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0108" RealAddress="40087076"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1823,7 +1646,6 @@
               <ID>79</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40087078"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1832,7 +1654,6 @@
               <ID>80</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="012D" RealAddress="4008707A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1841,7 +1662,6 @@
               <ID>81</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="4008707C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1850,7 +1670,6 @@
               <ID>82</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="4008707E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1859,7 +1678,6 @@
               <ID>83</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40087080"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1870,7 +1688,6 @@
           <ID>68</ID>
           <Description>"Claus"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="400870E4"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*3</Address>
           <CheatEntries>
@@ -1878,7 +1695,6 @@
               <ID>69</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00E6" RealAddress="40087114"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1887,7 +1703,6 @@
               <ID>70</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0108" RealAddress="40087116"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1896,7 +1711,6 @@
               <ID>71</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40087118"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1905,7 +1719,6 @@
               <ID>72</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="4008711A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1914,7 +1727,6 @@
               <ID>73</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="4008711C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1923,7 +1735,6 @@
               <ID>74</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0159" RealAddress="4008711E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -1932,7 +1743,6 @@
               <ID>75</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0152" RealAddress="40087120"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -1943,7 +1753,6 @@
           <ID>60</ID>
           <Description>"Chester"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40087184"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*4</Address>
           <CheatEntries>
@@ -1951,7 +1760,6 @@
               <ID>61</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00CF" RealAddress="400871B4"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -1960,7 +1768,6 @@
               <ID>62</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="00FD" RealAddress="400871B6"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -1969,7 +1776,6 @@
               <ID>63</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="400871B8"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -1978,7 +1784,6 @@
               <ID>64</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="400871BA"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -1987,7 +1792,6 @@
               <ID>65</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="400871BC"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -1996,7 +1800,6 @@
               <ID>66</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="400871BE"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -2005,7 +1808,6 @@
               <ID>67</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="016C" RealAddress="400871C0"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -2016,7 +1818,6 @@
           <ID>52</ID>
           <Description>"Suzu"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40087224"/>
           <GroupHeader>1</GroupHeader>
           <Address>+A0*5</Address>
           <CheatEntries>
@@ -2024,7 +1825,6 @@
               <ID>53</ID>
               <Description>"Weapon"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40087254"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+30</Address>
@@ -2033,7 +1833,6 @@
               <ID>54</ID>
               <Description>"Armor"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40087256"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+32</Address>
@@ -2042,7 +1841,6 @@
               <ID>55</ID>
               <Description>"Shield"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="40087258"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+34</Address>
@@ -2051,7 +1849,6 @@
               <ID>56</ID>
               <Description>"Head"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="4008725A"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+36</Address>
@@ -2060,7 +1857,6 @@
               <ID>57</ID>
               <Description>"Hand"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="0000" RealAddress="4008725C"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+38</Address>
@@ -2069,7 +1865,6 @@
               <ID>58</ID>
               <Description>"Acc. 1"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="016A" RealAddress="4008725E"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3A</Address>
@@ -2078,7 +1873,6 @@
               <ID>59</ID>
               <Description>"Acc. 2"</Description>
               <DropDownListLink>Equipment</DropDownListLink>
-              <LastState Value="016C" RealAddress="40087260"/>
               <ShowAsHex>1</ShowAsHex>
               <VariableType>2 Bytes</VariableType>
               <Address>+3C</Address>
@@ -2095,14 +1889,12 @@
 1:Semi-Auto
 2:Manual
 </DropDownList>
-      <LastState Value="" RealAddress="40138F26"/>
       <GroupHeader>1</GroupHeader>
       <Address>40138F26</Address>
       <CheatEntries>
         <CheatEntry>
           <ID>63045</ID>
           <Description>"READ THIS"</Description>
-          <LastState/>
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
@@ -2116,7 +1908,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>63051</ID>
           <Description>"Active"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40138F26"/>
           <GroupHeader>1</GroupHeader>
           <Address>+0</Address>
           <CheatEntries>
@@ -2124,7 +1915,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>84</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="2" RealAddress="40138F26"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
@@ -2133,7 +1923,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>85</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="4013915E"/>
               <VariableType>Byte</VariableType>
               <Address>+238</Address>
             </CheatEntry>
@@ -2141,7 +1930,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>90</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="40139396"/>
               <VariableType>Byte</VariableType>
               <Address>+238*2</Address>
             </CheatEntry>
@@ -2149,7 +1937,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>89</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="401395CE"/>
               <VariableType>Byte</VariableType>
               <Address>+238*3</Address>
             </CheatEntry>
@@ -2159,7 +1946,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>63052</ID>
           <Description>"Menu"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="40086F46"/>
           <GroupHeader>1</GroupHeader>
           <Address>40086F46</Address>
           <CheatEntries>
@@ -2167,7 +1953,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63049</ID>
               <Description>"Cress"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="1" RealAddress="40086F46"/>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
             </CheatEntry>
@@ -2175,7 +1960,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63050</ID>
               <Description>"Mint"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="40086FE6"/>
               <VariableType>Byte</VariableType>
               <Address>+A0</Address>
             </CheatEntry>
@@ -2183,7 +1967,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63054</ID>
               <Description>"Arche"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="40087086"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*2</Address>
             </CheatEntry>
@@ -2191,7 +1974,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63053</ID>
               <Description>"Claus"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="40087126"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*3</Address>
             </CheatEntry>
@@ -2199,7 +1981,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63057</ID>
               <Description>"Chester"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="0" RealAddress="400871C6"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*4</Address>
             </CheatEntry>
@@ -2207,7 +1988,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
               <ID>63056</ID>
               <Description>"Suzu"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
-              <LastState Value="2" RealAddress="40087266"/>
               <VariableType>Byte</VariableType>
               <Address>+A0*5</Address>
             </CheatEntry>
@@ -2222,14 +2002,12 @@ Freezing the values outside of battles has a high chance of crashing the game.
       <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-      <LastState Value="" RealAddress="40138F1B"/>
       <GroupHeader>1</GroupHeader>
       <Address>40138F1B</Address>
       <CheatEntries>
         <CheatEntry>
           <ID>63047</ID>
           <Description>"READ THIS"</Description>
-          <LastState/>
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
@@ -2243,7 +2021,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>86</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <LastState Value="1" RealAddress="40138F1B"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
           <Address>+0</Address>
@@ -2252,7 +2029,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>87</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <LastState Value="1" RealAddress="40139153"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+238</Address>
         </CheatEntry>
@@ -2260,7 +2036,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>95</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <LastState Value="1" RealAddress="4013938B"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+238*2</Address>
         </CheatEntry>
@@ -2268,7 +2043,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>94</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Dash Modes</DropDownListLink>
-          <LastState Value="1" RealAddress="401395C3"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+238*3</Address>
         </CheatEntry>
@@ -2281,14 +2055,12 @@ Freezing the values outside of battles has a high chance of crashing the game.
       <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-      <LastState Value="" RealAddress="40138F1D"/>
       <GroupHeader>1</GroupHeader>
       <Address>40138F1D</Address>
       <CheatEntries>
         <CheatEntry>
           <ID>63046</ID>
           <Description>"READ THIS"</Description>
-          <LastState/>
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
@@ -2302,7 +2074,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>97</ID>
           <Description>"Slot 1"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <LastState Value="0" RealAddress="40138F1D"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
           <Address>+0</Address>
@@ -2311,7 +2082,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>98</ID>
           <Description>"Slot 2"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <LastState Value="0" RealAddress="40139155"/>
           <VariableType>2 Bytes</VariableType>
           <Address>+238</Address>
         </CheatEntry>
@@ -2319,7 +2089,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>100</ID>
           <Description>"Slot 3"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <LastState Value="0" RealAddress="4013938D"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
           <Address>+238*2</Address>
@@ -2328,7 +2097,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
           <ID>99</ID>
           <Description>"Slot 4"</Description>
           <DropDownListLink>Combo Command Modes</DropDownListLink>
-          <LastState Value="0" RealAddress="401395C5"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
           <Address>+238*3</Address>
@@ -2344,7 +2112,6 @@ Freezing the values outside of battles has a high chance of crashing the game.
 3:Unknown
 4:God
 </DropDownList>
-      <LastState Value="1" RealAddress="400882BA"/>
       <ShowAsSigned>0</ShowAsSigned>
       <VariableType>2 Bytes</VariableType>
       <Address>400882BA</Address>
@@ -2353,14 +2120,12 @@ Freezing the values outside of battles has a high chance of crashing the game.
       <ID>63058</ID>
       <Description>"EXPERIMENTAL"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>400080</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>63062</ID>
           <Description>"READ THIS"</Description>
-          <LastState/>
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/*
@@ -2395,7 +2160,6 @@ otherwise set it under the "Automatic Control Enabler" section.
           <ID>63106</ID>
           <Description>"Automatic Control Enabler"</Description>
           <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 
@@ -2663,7 +2427,6 @@ dealloc(newmem)
               <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -2694,7 +2457,6 @@ dealloc(newmem)
                   <ID>63157</ID>
                   <Description>"Auto Death Cam"</Description>
                   <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 
@@ -3093,7 +2855,6 @@ dealloc(newmem)
 1:Semi-Auto
 2:Manual
 </DropDownList>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -3137,7 +2898,6 @@ dealloc(newmem)
               <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -3181,7 +2941,6 @@ dealloc(newmem)
               <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -3224,14 +2983,12 @@ dealloc(newmem)
           <ID>63063</ID>
           <Description>"DON'T USE"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>63048</ID>
               <Description>"Automatic Control Enabler (old)"</Description>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -3369,7 +3126,6 @@ dealloc(newmem)
               <ID>63137</ID>
               <Description>"Automatic Control Enabler BACKUP"</Description>
               <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -3637,7 +3393,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -3674,7 +3429,6 @@ dealloc(newmem)
 1:Semi-Auto
 2:Manual
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -3718,7 +3472,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -3762,7 +3515,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -3804,7 +3556,6 @@ dealloc(newmem)
             <CheatEntry>
               <ID>63060</ID>
               <Description>"Jumping back to game (TESTING)"</Description>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -3844,7 +3595,6 @@ dealloc(newmem)
             <CheatEntry>
               <ID>63061</ID>
               <Description>""Better" workaround for checking for battle (TESTING)"</Description>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -3900,7 +3650,6 @@ dealloc(newmem)
               <ID>63064</ID>
               <Description>"Automatic Control Enabler (unfinished auto Death Cam feature)"</Description>
               <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -4235,7 +3984,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -4280,7 +4028,6 @@ dealloc(newmem)
 1:Semi-Auto
 2:Manual
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -4324,7 +4071,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -4368,7 +4114,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -4411,7 +4156,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Alive
 1:Dead
 </DropDownList>
-                  <LastState Value="0" RealAddress="40138F16"/>
                   <VariableType>Byte</VariableType>
                   <Address>40138F16</Address>
                 </CheatEntry>
@@ -4421,7 +4165,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Alive
 1:Dead
 </DropDownList>
-                  <LastState Value="0" RealAddress="4013914E"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>40138F16+238</Address>
@@ -4432,7 +4175,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Alive
 8:Dead
 </DropDownList>
-                  <LastState Value="0" RealAddress="40138E8C"/>
                   <VariableType>Byte</VariableType>
                   <Address>40138E8C</Address>
                 </CheatEntry>
@@ -4442,7 +4184,6 @@ dealloc(newmem)
                   <DropDownList DisplayValueAsItem="1">0:Alive
 8:Dead
 </DropDownList>
-                  <LastState Value="0" RealAddress="401390C4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>40138E8C+238</Address>
@@ -4481,7 +4222,6 @@ dealloc(newmem)
               <ID>63187</ID>
               <Description>"Death Cam TEMP values"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -4522,7 +4262,6 @@ dealloc(newmem)
               <ID>63194</ID>
               <Description>"Death Cam BACKUP (old)"</Description>
               <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -4958,7 +4697,6 @@ dealloc(newmem)
             <CheatEntry>
               <ID>63182</ID>
               <Description>"Life Bottles in Inventory"</Description>
-              <LastState Value="15" Activated="1" RealAddress="4008749C"/>
               <VariableType>Byte</VariableType>
               <Address>4008749C</Address>
             </CheatEntry>
@@ -4967,53 +4705,22 @@ dealloc(newmem)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <CheatCodes>
-    <CodeEntry Color="20000000">
-      <Description>Code :mov [r8],dl</Description>
-      <AddressString>mednafen_psx_hw_libretro.dll+10D74</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>60</Byte>
-        <Byte>45</Byte>
-        <Byte>89</Byte>
-        <Byte>CC</Byte>
-      </Before>
-      <Actual>
-        <Byte>41</Byte>
-        <Byte>88</Byte>
-        <Byte>10</Byte>
-      </Actual>
-      <After>
-        <Byte>0F</Byte>
-        <Byte>B6</Byte>
-        <Byte>D2</Byte>
-        <Byte>45</Byte>
-        <Byte>89</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>status effect</Description>
-      <AddressString>mednafen_psx_hw_libretro.dll+10DD4</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>60</Byte>
-        <Byte>45</Byte>
-        <Byte>89</Byte>
-        <Byte>CC</Byte>
-      </Before>
-      <Actual>
-        <Byte>66</Byte>
-        <Byte>41</Byte>
-        <Byte>89</Byte>
-        <Byte>10</Byte>
-      </Actual>
-      <After>
-        <Byte>0F</Byte>
-        <Byte>B7</Byte>
-        <Byte>D2</Byte>
-        <Byte>45</Byte>
-        <Byte>89</Byte>
-      </After>
-    </CodeEntry>
-  </CheatCodes>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
 </CheatTable>

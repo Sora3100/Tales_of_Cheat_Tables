@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="34">
+<CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
       <ID>95</ID>
       <Description>"Camera"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <Address>"Tales of Zestiria.exe"+01D32490</Address>
       <Offsets>
@@ -19,14 +18,12 @@
           <ID>115</ID>
           <Description>"idk lmao"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <Address>+0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>134</ID>
               <Description>"Pos"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
               <CheatEntries>
@@ -53,7 +50,6 @@
             <CheatEntry>
               <ID>137</ID>
               <Description>"Pos2?"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <Address>+0</Address>
               <CheatEntries>
@@ -80,7 +76,6 @@
             <CheatEntry>
               <ID>144</ID>
               <Description>"Rotation? not correct"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <Address/>
               <CheatEntries>
@@ -133,17 +128,305 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
+      <ID>9963</ID>
+      <Description>"Show all entries in enemy book"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2022-05-26
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(enmBookCheck,Tales of Zestiria.exe,80 B8 D0 00 00 00 00 74 58) // should be unique
+
+enmBookCheck+7:
+  db 90 90
+
+enmBookCheck+51:
+  db 90 90
+
+registersymbol(enmBookCheck)
+
+[DISABLE]
+
+enmBookCheck:
+  db 80 B8 D0 00 00 00 00 74 58
+
+enmBookCheck+51:
+  db 74 0E
+
+unregistersymbol(enmBookCheck)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Zestiria.Kaim::Waitable::IsSignaled+C053
+
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C038: 8B 5D 08              - mov ebx,[ebp+08]
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C03B: 56                    - push esi
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C03C: 8B 75 18              - mov esi,[ebp+18]
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C03F: 57                    - push edi
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C040: 3B 45 10              - cmp eax,[ebp+10]
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C043: 74 7F                 - je "Tales of Zestiria.Kaim::Waitable::IsSignaled"+C0C4
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C045: EB 09                 - jmp "Tales of Zestiria.Kaim::Waitable::IsSignaled"+C050
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C047: 8D A4 24 00 00 00 00  - lea esp,[esp+00000000]
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C04E: 8B FF                 - mov edi,edi
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C050: 83 E0 FE              - and eax,-02
+// ---------- INJECTING HERE ----------
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C053: 80 B8 D0 00 00 00 00  - cmp byte ptr [eax+000000D0],00
+// ---------- DONE INJECTING  ----------
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C05A: 74 58                 - je "Tales of Zestiria.Kaim::Waitable::IsSignaled"+C0B4
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C05C: 83 FE FF              - cmp esi,-01
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C05F: 74 1C                 - je "Tales of Zestiria.Kaim::Waitable::IsSignaled"+C07D
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C061: 8B 88 B4 00 00 00     - mov ecx,[eax+000000B4]
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C067: 8D 90 B4 00 00 00     - lea edx,[eax+000000B4]
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C06D: F6 C1 01              - test cl,01
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C070: 74 05                 - je "Tales of Zestiria.Kaim::Waitable::IsSignaled"+C077
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C072: 83 E1 FE              - and ecx,-02
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C075: EB 02                 - jmp "Tales of Zestiria.Kaim::Waitable::IsSignaled"+C079
+Tales of Zestiria.Kaim::Waitable::IsSignaled+C077: 03 CA                 - add ecx,edx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9964</ID>
+          <Description>"Workaround for fixed_string exception"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2022-05-26
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(enmBookFixedStringworkaround,45 4E 45 5F 50 53 59 30 00 00 45 4E 45 5F 50 53 59 30 00 00 55 4E 49 54 5F 46 4F 52 4D 41 54 5F 50 53 59 30) // should be unique
+
+//??? (Symonne)
+enmBookFixedStringworkaround+54:
+  db 00
+
+//Mountain Troll
+enmBookFixedStringworkaround+2450:
+  db 00
+
+//Sorey (Fire Armatus)
+enmBookFixedStringworkaround-2C6C:
+  db 00
+
+//Rose (Earth Armatus)
+enmBookFixedStringworkaround-32B8:
+  db 00
+
+//Sorey (Water Armatus)
+enmBookFixedStringworkaround-4F9C:
+  db 00
+
+//Rose (Wind Armatus)
+enmBookFixedStringworkaround+27C0:
+  db 00
+
+//Eizen
+enmBookFixedStringworkaround+2F4:
+  db 00
+
+//Test
+enmBookFixedStringworkaround-5070:
+  db 00
+
+//Alisha (party)
+enmBookFixedStringworkaround-5008:
+  db 00
+
+//Rose (party)
+enmBookFixedStringworkaround-E314:
+  db 00
+
+//Sorey (party)
+enmBookFixedStringworkaround-B614:
+  db 00
+
+//Edna (party)
+enmBookFixedStringworkaround-3250:
+  db 00
+
+//Zaveid (party)
+enmBookFixedStringworkaround+36F4:
+  db 00
+
+//Lailah (party)
+enmBookFixedStringworkaround-1EE4:
+  db 00
+
+//Mikleo (party)
+enmBookFixedStringworkaround-BE0:
+  db 00
+
+//Dezel (party)
+enmBookFixedStringworkaround-3570:
+  db 00
+
+//Shadow Zaveid
+enmBookFixedStringworkaround+1A8C:
+  db 00
+
+//Shadow Lailah
+enmBookFixedStringworkaround+D10:
+  db 00
+
+//Shadow Mikleo
+enmBookFixedStringworkaround+1108:
+  db 00
+
+//Rose
+enmBookFixedStringworkaround+434:
+  db 00
+
+//Shadow Alisha
+enmBookFixedStringworkaround+4A0:
+  db 00
+
+//Shadow Rose
+enmBookFixedStringworkaround+1540:
+  db 00
+
+//Shadow Sorey
+enmBookFixedStringworkaround+16F0:
+  db 00
+
+//Zaveid
+enmBookFixedStringworkaround+38A4:
+  db 00
+
+//Shadow Edna
+enmBookFixedStringworkaround+A20:
+  db 00
+
+registersymbol(enmBookFixedStringworkaround)
+
+[DISABLE]
+
+//??? (Symonne)
+enmBookFixedStringworkaround+54:
+  db 47
+
+//Mountain Troll
+enmBookFixedStringworkaround+2450:
+  db 47
+
+//Sorey (Fire Armatus)
+enmBookFixedStringworkaround-2C6C:
+  db 47
+
+//Rose (Earth Armatus)
+enmBookFixedStringworkaround-32B8:
+  db 47
+
+//Sorey (Water Armatus)
+enmBookFixedStringworkaround-4F9C:
+  db 47
+
+//Rose (Wind Armatus)
+enmBookFixedStringworkaround+27C0:
+  db 47
+
+//Eizen
+enmBookFixedStringworkaround+2F4:
+  db 47
+
+//Test
+enmBookFixedStringworkaround-5070:
+  db 47
+
+//Alisha (party)
+enmBookFixedStringworkaround-5008:
+  db 47
+
+//Rose (party)
+enmBookFixedStringworkaround-E314:
+  db 47
+
+//Sorey (party)
+enmBookFixedStringworkaround-B614:
+  db 47
+
+//Edna (party)
+enmBookFixedStringworkaround-3250:
+  db 47
+
+//Zaveid (party)
+enmBookFixedStringworkaround+36F4:
+  db 47
+
+//Lailah (party)
+enmBookFixedStringworkaround-1EE4:
+  db 47
+
+//Mikleo (party)
+enmBookFixedStringworkaround-BE0:
+  db 47
+
+//Dezel (party)
+enmBookFixedStringworkaround-3570:
+  db 47
+
+//Shadow Zaveid
+enmBookFixedStringworkaround+1A8C:
+  db 47
+
+//Shadow Lailah
+enmBookFixedStringworkaround+D10:
+  db 47
+
+//Shadow Mikleo
+enmBookFixedStringworkaround+1108:
+  db 47
+
+//Rose
+enmBookFixedStringworkaround+434:
+  db 47
+
+//Shadow Alisha
+enmBookFixedStringworkaround+4A0:
+  db 47
+
+//Shadow Rose
+enmBookFixedStringworkaround+1540:
+  db 47
+
+//Shadow Sorey
+enmBookFixedStringworkaround+16F0:
+  db 47
+
+//Zaveid
+enmBookFixedStringworkaround+38A4:
+  db 47
+
+//Shadow Edna
+enmBookFixedStringworkaround+A20:
+  db 47
+
+unregistersymbol(enmBookFixedStringworkaround)
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>197</ID>
       <Description>"Notes"</Description>
       <Options moHideChildren="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>C0C0C0</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>152</ID>
           <Description>"Turn off friendly AI byte"</Description>
-          <LastState Value="0" RealAddress="02130318"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>"Tales of Zestiria.exe"+1D30318</Address>
@@ -151,7 +434,6 @@
         <CheatEntry>
           <ID>195</ID>
           <Description>"Pause byte"</Description>
-          <LastState Value="0" RealAddress="0213030C"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>"Tales of Zestiria.exe"+1D3030C</Address>
@@ -159,7 +441,6 @@
         <CheatEntry>
           <ID>196</ID>
           <Description>"Fight end byte"</Description>
-          <LastState Value="0" RealAddress="021302B1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>"Tales of Zestiria.exe"+1D302B1</Address>
@@ -167,7 +448,6 @@
         <CheatEntry>
           <ID>206</ID>
           <Description>"Map load shenanigans"</Description>
-          <LastState RealAddress="0213C9E4"/>
           <VariableType>String</VariableType>
           <Length>30</Length>
           <Unicode>0</Unicode>
@@ -178,378 +458,5 @@
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <CheatCodes>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+18]</Description>
-      <AddressString>Tales of Zestiria.exe+64D29</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>18</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>18</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>18</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>43</Byte>
-        <Byte>1C</Byte>
-        <Byte>D8</Byte>
-        <Byte>44</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+44]</Description>
-      <AddressString>Tales of Zestiria.exe+64E52</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>44</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>44</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>83</Byte>
-        <Byte>8C</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fld dword ptr [esi+44]</Description>
-      <AddressString>Tales of Zestiria.exe+64283</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>8B</Byte>
-        <Byte>54</Byte>
-        <Byte>24</Byte>
-        <Byte>24</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>46</Byte>
-        <Byte>44</Byte>
-      </Actual>
-      <After>
-        <Byte>89</Byte>
-        <Byte>94</Byte>
-        <Byte>24</Byte>
-        <Byte>80</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fsub dword ptr [ebx+44]</Description>
-      <AddressString>Tales of Zestiria.exe+64E3A</AddressString>
-      <Before>
-        <Byte>83</Byte>
-        <Byte>88</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Before>
-      <Actual>
-        <Byte>D8</Byte>
-        <Byte>63</Byte>
-        <Byte>44</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>5C</Byte>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-        <Byte>D9</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fadd dword ptr [ebx+44]</Description>
-      <AddressString>Tales of Zestiria.exe+64E4F</AddressString>
-      <Before>
-        <Byte>14</Byte>
-        <Byte>D9</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-      </Before>
-      <Actual>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>44</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>44</Byte>
-        <Byte>D9</Byte>
-        <Byte>83</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fld dword ptr [edi+38]</Description>
-      <AddressString>Tales of Zestiria.exe+65DCC</AddressString>
-      <Before>
-        <Byte>46</Byte>
-        <Byte>08</Byte>
-        <Byte>D9</Byte>
-        <Byte>5E</Byte>
-        <Byte>08</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>47</Byte>
-        <Byte>38</Byte>
-      </Actual>
-      <After>
-        <Byte>D8</Byte>
-        <Byte>46</Byte>
-        <Byte>04</Byte>
-        <Byte>D9</Byte>
-        <Byte>5E</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fld dword ptr [esi+44]</Description>
-      <AddressString>Tales of Zestiria.exe+64283</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>8B</Byte>
-        <Byte>54</Byte>
-        <Byte>24</Byte>
-        <Byte>24</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>46</Byte>
-        <Byte>44</Byte>
-      </Actual>
-      <After>
-        <Byte>89</Byte>
-        <Byte>94</Byte>
-        <Byte>24</Byte>
-        <Byte>80</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fld dword ptr [ebx+0000008C]</Description>
-      <AddressString>Tales of Zestiria.exe+64E55</AddressString>
-      <Before>
-        <Byte>43</Byte>
-        <Byte>44</Byte>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>44</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>83</Byte>
-        <Byte>8C</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>D8</Byte>
-        <Byte>63</Byte>
-        <Byte>48</Byte>
-        <Byte>D9</Byte>
-        <Byte>5C</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+44]</Description>
-      <AddressString>Tales of Zestiria.exe+64E52</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>44</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>44</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>83</Byte>
-        <Byte>8C</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+14]</Description>
-      <AddressString>Tales of Zestiria.exe+64C53</AddressString>
-      <Before>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>2C</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>14</Byte>
-      </Actual>
-      <After>
-        <Byte>80</Byte>
-        <Byte>BB</Byte>
-        <Byte>ED</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+40]</Description>
-      <AddressString>Tales of Zestiria.exe+64CE3</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>40</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>40</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>43</Byte>
-        <Byte>5C</Byte>
-        <Byte>D8</Byte>
-        <Byte>63</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+10]</Description>
-      <AddressString>Tales of Zestiria.exe+64C49</AddressString>
-      <Before>
-        <Byte>10</Byte>
-        <Byte>D8</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>28</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>10</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>43</Byte>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>44</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+0C]</Description>
-      <AddressString>Tales of Zestiria.exe+64C3F</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>24</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>0C</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>0C</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>43</Byte>
-        <Byte>10</Byte>
-        <Byte>D8</Byte>
-        <Byte>44</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+3C]</Description>
-      <AddressString>Tales of Zestiria.exe+64CAC</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>3C</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>3C</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>0C</Byte>
-        <Byte>DC</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+3C]</Description>
-      <AddressString>Tales of Zestiria.exe+64EBA</AddressString>
-      <Before>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>83</Byte>
-        <Byte>C4</Byte>
-        <Byte>0C</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>3C</Byte>
-      </Actual>
-      <After>
-        <Byte>5F</Byte>
-        <Byte>5E</Byte>
-        <Byte>5B</Byte>
-        <Byte>8B</Byte>
-        <Byte>E5</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry Color="20000000">
-      <Description>Change of fstp dword ptr [ebx+48]</Description>
-      <AddressString>Tales of Zestiria.exe+64E73</AddressString>
-      <Before>
-        <Byte>24</Byte>
-        <Byte>14</Byte>
-        <Byte>D8</Byte>
-        <Byte>43</Byte>
-        <Byte>48</Byte>
-      </Before>
-      <Actual>
-        <Byte>D9</Byte>
-        <Byte>5B</Byte>
-        <Byte>48</Byte>
-      </Actual>
-      <After>
-        <Byte>D9</Byte>
-        <Byte>83</Byte>
-        <Byte>90</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-  </CheatCodes>
   <UserdefinedSymbols/>
 </CheatTable>

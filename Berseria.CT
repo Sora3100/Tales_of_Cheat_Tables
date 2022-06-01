@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12847</ID>
+      <Description>"Show all entries in Enemy Book"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2022-05-20
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(foughtEnemy,Tales of Berseria.exe,0F BF 04 F9 D1 E8) // should be unique
+aobscanmodule(enemyBookShown,Tales of Berseria.exe,0F 84 38 01 00 00 44) // should be unique
+
+foughtEnemy+8:
+  db 90 90 90 90 90 90
+
+enemyBookShown:
+  db 90 90 90 90 90 90
+
+registersymbol(foughtEnemy)
+registersymbol(enemyBookShown)
+[DISABLE]
+
+foughtEnemy:
+  db 0F BF 04 F9 D1 E8 A8 01 0F 84 80 00 00 00
+
+enemyBookShown:
+  db 0F 84 38 01 00 00
+
+unregistersymbol(foughtEnemy)
+unregistersymbol(enemyBookShown)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Berseria.exe+14BBA39
+
+Tales of Berseria.exe+14BBA0A: 70 E3                             - jo "Tales of Berseria.exe"+14BB9EF
+Tales of Berseria.exe+14BBA0C: 5D                                - pop rbp
+Tales of Berseria.exe+14BBA0D: 69 1C A5 39 65 83 7B 0C 00 74 0A  - imul ebx,[7B836539],0A74000C
+Tales of Berseria.exe+14BBA18: 80 7A 24 00                       - cmp byte ptr [rdx+24],00
+Tales of Berseria.exe+14BBA1C: 0F 84 AA 00 00 00                 - je "Tales of Berseria.exe"+14BBACC
+Tales of Berseria.exe+14BBA22: 48 8B 05 6F 17 A6 FF              - mov rax,["Tales of Berseria.exe"+F1D198]
+Tales of Berseria.exe+14BBA29: 48 89 7C 24 48                    - mov [rsp+48],rdi
+Tales of Berseria.exe+14BBA2E: 48 63 3A                          - movsxd  rdi,dword ptr [rdx]
+Tales of Berseria.exe+14BBA31: 48 8B 48 10                       - mov rcx,[rax+10]
+Tales of Berseria.exe+14BBA35: 89 7C 24 20                       - mov [rsp+20],edi
+// ---------- INJECTING HERE ----------
+Tales of Berseria.exe+14BBA39: 0F BF 04 F9                       - movsx eax,word ptr [rcx+rdi*8]
+// ---------- DONE INJECTING  ----------
+Tales of Berseria.exe+14BBA3D: D1 E8                             - shr eax,1
+Tales of Berseria.exe+14BBA3F: A8 01                             - test al,01
+Tales of Berseria.exe+14BBA41: 0F 84 80 00 00 00                 - je "Tales of Berseria.exe"+14BBAC7
+Tales of Berseria.exe+14BBA47: 48 8B 1B                          - mov rbx,[rbx]
+Tales of Berseria.exe+14BBA4A: 48 8D 4C 24 20                    - lea rcx,[rsp+20]
+Tales of Berseria.exe+14BBA4F: 48 8B 43 08                       - mov rax,[rbx+08]
+Tales of Berseria.exe+14BBA53: 48 39 C1                          - cmp rcx,rax
+Tales of Berseria.exe+14BBA56: 73 46                             - jae "Tales of Berseria.exe"+14BBA9E
+Tales of Berseria.exe+14BBA58: 48 8B 0B                          - mov rcx,[rbx]
+Tales of Berseria.exe+14BBA5B: 48 8D 54 24 20                    - lea rdx,[rsp+20]
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Berseria.exe+14BB98E
+
+Tales of Berseria.exe+14BB967: CC                    - int 3
+Tales of Berseria.exe+14BB968: CC                    - int 3
+Tales of Berseria.exe+14BB969: 0F 1F 80 00 00 00 00  - nop dword ptr [rax+00000000]
+Tales of Berseria.exe+14BB970: 53                    - push rbx
+Tales of Berseria.exe+14BB971: 48 83 EC 30           - sub rsp,30
+Tales of Berseria.exe+14BB975: 48 8B 05 64 5D 6C FF  - mov rax,["Tales of Berseria.exe"+B816E0]
+Tales of Berseria.exe+14BB97C: 48 31 E0              - xor rax,rsp
+Tales of Berseria.exe+14BB97F: 48 89 44 24 28        - mov [rsp+28],rax
+Tales of Berseria.exe+14BB984: 80 BA 20 01 00 00 00  - cmp byte ptr [rdx+00000120],00
+Tales of Berseria.exe+14BB98B: 48 89 CB              - mov rbx,rcx
+// ---------- INJECTING HERE ----------
+Tales of Berseria.exe+14BB98E: 0F 84 38 01 00 00     - je "Tales of Berseria.exe"+14BBACC
+// ---------- DONE INJECTING  ----------
+Tales of Berseria.exe+14BB994: 44 8B 41 08           - mov r8d,[rcx+08]
+Tales of Berseria.exe+14BB998: 41 83 F8 FF           - cmp r8d,-01
+Tales of Berseria.exe+14BB99C: 74 74                 - je "Tales of Berseria.exe"+14BBA12
+Tales of Berseria.exe+14BB99E: 48 8B 82 88 00 00 00  - mov rax,[rdx+00000088]
+Tales of Berseria.exe+14BB9A5: A8 01                 - test al,01
+Tales of Berseria.exe+14BB9A7: 74 06                 - je "Tales of Berseria.exe"+14BB9AF
+Tales of Berseria.exe+14BB9A9: 48 83 E0 FE           - and rax,-02
+Tales of Berseria.exe+14BB9AD: EB 09                 - jmp "Tales of Berseria.exe"+14BB9B8
+Tales of Berseria.exe+14BB9AF: 48 05 88 00 00 00     - add rax,00000088
+Tales of Berseria.exe+14BB9B5: 48 01 D0              - add rax,rdx
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Notes"</Description>
+      <Options moHideChildren="1"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Entity shenanigans"</Description>
+          <VariableType>String</VariableType>
+          <Length>30</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>"Tales of Berseria.exe"+B88828</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"Area load shenanigans"</Description>
+          <VariableType>String</VariableType>
+          <Length>30</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>"Tales of Berseria.exe"+100C868</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
