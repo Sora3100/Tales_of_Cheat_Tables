@@ -16794,15 +16794,17 @@ Tales of Arise.exe+722C00: 83 C0 02                 - add eax,02
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>speedAddr</Name>
-      <Address>21034AF0030</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
   <Comments>Update 1 -&gt; 2 offset:
 +13570
 Update 2 -&gt; 3 offset:
 -C45400
 </Comments>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"DMCVTrainer.exe"+10E70</Address>
+      <Comment>Jump if unsupported version
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
 </CheatTable>
