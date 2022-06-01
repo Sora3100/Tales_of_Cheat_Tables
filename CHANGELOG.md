@@ -1,5 +1,22 @@
 ### Changelog
 
+#### 2022/06/01
+
+-	Added a workaround for the Japanese version of Xillia 2, where looking at Bisley's artes in any form would result in a crash.
+-	Fixed one of Ludger's weapons not working under Inventory Editor.
+
+-	Fixed Field Run Speed not working in the Japanese version of Xillia 1.
+-	Added 3 missing entries under Inventory Editor.
+
+-	New feature: Zestiria
+	-	Show all entries in Enemy Book
+
+-	New table: Berseria
+	Feature:
+	-	Show all entries in Enemy Book
+
+-	Minor cleanup of some tables
+
 #### 2022/05/18
 
 -	New feature: Xillia 2

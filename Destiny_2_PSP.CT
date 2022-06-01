@@ -5094,22 +5094,12 @@ unregistersymbol(baseElfAddr)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>speedAddr</Name>
-      <Address>1CC07AC0000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>currMonster</Name>
-      <Address>0EA70000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ringNum</Name>
-      <Address>0EA70010</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>gemNum</Name>
-      <Address>0EA70020</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"DMCVTrainer.exe"+10E70</Address>
+      <Comment>Jump if unsupported version
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
 </CheatTable>
