@@ -4036,18 +4036,12 @@ dealloc(gemNum)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>currMonster</Name>
-      <Address>008E0000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ringNum</Name>
-      <Address>0EA70010</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>gemNum</Name>
-      <Address>21E14C00000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"DMCVTrainer.exe"+10E70</Address>
+      <Comment>Jump if unsupported version
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
 </CheatTable>
