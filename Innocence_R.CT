@@ -924,6 +924,21 @@ unregistersymbol(baseElfAddr)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>259</ID>
+          <Description>"Time till encounter"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>baseElfAddr+17E0A8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>435</ID>
+          <Description>"Airship enabled? (only change it mid-battle)"</Description>
+          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>baseElfAddr+17E062</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>62</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -931,718 +946,950 @@ unregistersymbol(baseElfAddr)
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
-              <ID>63</ID>
-              <Description>"baseElfAddr"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>baseElfAddr</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>215</ID>
-              <Description>"Framerate stuff"</Description>
+              <ID>296</ID>
+              <Description>"Dropdowns"</Description>
               <Options moHideChildren="1"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>208</ID>
-                  <Description>"Framerate"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Float</VariableType>
-                  <Address>baseElfAddr-7FED14E0</Address>
+                  <ID>297</ID>
+                  <Description>"dropdown: Elemental Resist"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:1x Resist
+2:2x Resist
+-1:Weak
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>214</ID>
-                  <Description>"non-battle?"</Description>
-                  <Options moHideChildren="1"/>
+                  <ID>343</ID>
+                  <Description>"dropdown: Enemy List"</Description>
+                  <DropDownList DisplayValueAsItem="1">-1:Nothing
+0:Polwigle
+1:Rustlet
+2:Church Soldier
+3:Honey bunny
+4:Wolf
+5:Giant Beetle
+6:Ratio EX
+7:Ribbit
+8:Bee
+9:Woods Worm
+10:Garam Soldier
+11:Garam Hunter
+12:Ratio Dunes
+13:Ratio Tetes
+14:Ratio Stone
+15:Eggbear
+16:Fangus
+17:Tortue
+18:Araignee
+19:Vase Malefique
+20:Saur
+21:Negucion de Rose
+22:Guard Dog
+23:Hawkeye
+24:Regnum Guard
+25:Regnum Hunter
+26:Regnum Breacher
+27:Fake
+28:Gigantes
+29:Gardle
+30:Hasta
+31:Roxolotl
+32:White Rabbit
+33:Big Bat
+34:Gillman
+35:Golem
+36:Sian
+37:Cer
+38:Berus
+39:Axe Beak
+40:Garm Wolf
+41:Gargoyle
+42:Soldier
+43:Wizard
+44:Mercenary
+45:Ashiharan Rabbit
+46:Boar
+47:Emeral Beetle
+48:Grisly Tortoise
+49:Tarantula
+50:Melting Pot
+51:Mummy
+52:Skeleton
+53:Spirit
+54:Chitose
+55:King Crab
+56:Killer Bee
+57:Sandworm
+58:Land Ribbit
+59:Earth Bat
+60:Brown Bear
+61:Red Cap
+62:Liar
+63:Drake
+64:Salamander
+65:Lava Golem
+66:Fire Animos
+67:Hasta
+68:Chauve-Souris
+69:Horreur
+70:Animos
+71:Macchia
+72:Macchia Grave
+73:Adamantine Bat
+74:Berserker Drone
+75:Church Shock Trooper
+76:Church Wizard
+77:Chitose
+78:Church Bodyguard
+79:Splisher
+80:Hermit Crab
+81:Cawker
+82:Jellfish
+83:Deep Diver
+84:Oil Skater
+85:Hydrosaur
+86:Poltergeist
+87:Bloomshell Beetle
+88:Green Widow
+89:Boxwood
+90:Skipping Rat
+91:Rabid Ribbit
+92:Rock Tortoise
+93:Cockatrice
+94:Earth Drake
+95:Naga
+96:Galpos Varan
+97:Swindler
+98:Sian
+99:Cer
+100:Berus
+101:Robber Crab
+102:Dodo
+103:Death Hornet
+104:Gardle
+105:Gigantes Z
+106:Fattlesnake
+107:Death Raven
+108:Rhinoceros
+109:Neppenthes
+110:Hell Hound
+111:Maggot
+112:Zombie
+113:Bonehead
+114:Mad Undead
+115:Zombie Returner
+116:Regnum Soldier
+117:Regnum Shooter
+118:Tenos Soldier
+119:Tenos Shooter
+120:Gigantes R
+121:Gigantes R Mk.II
+122:Hasta
+123:Snow Hare
+124:White Jackal
+125:Grisley
+126:Ice Animus
+127:Frost Giant
+128:Icigoyle
+129:Skeleton Warrior
+130:Tenos Stinger
+131:Gatekeeper
+132:Tenos Knight
+133:Tenos Sniper
+134:Tenos Breacher
+135:Albert
+136:Crimson Raider
+137:Church Senior Shock Trooper
+138:Church Senior Wizard
+139:Amor Zero
+140:Basilisk
+141:Dragontail
+142:Light Animus
+143:Eden's Keeper
+144:Ancient Soul
+145:Ratio Seraph
+146:Abul Hol
+147:Vulture
+148:Hatchet Beak
+149:Arachnid
+150:Boxer Iris
+151:Tetard D'eau
+152:Macchia Quindi
+153:Macchia Quatro
+154:Macchia Quaranta
+155:Macchia Seyi
+156:Behemoth
+157:Armored Bear
+158:Bearlion
+159:Alpine Beetle
+160:Highlander
+161:Living Dead
+162:Kwancha
+163:Celestial Knight
+164:Glory Pot
+165:Legendary Wyvern
+166:Gold Golem
+167:Grimgoyle
+168:Church Elite Trooper
+169:Church Elite Wizard
+170:Regnum Knight
+171:Regnum Sniper
+172:Shesep'ankh
+173:Caldarius
+174:Hasta
+175:Gigantes Ω
+176:Mattheus
+177:Mattheus Venus
+178:The Great King of Despair
+179:Bec
+180:Abeille
+181:Chenille
+182:Fleur Formidable
+183:Macchia Margo
+184:Ogre
+185:Mimetisme
+186:Poupee
+187:Macchia Uno
+188:Escrimeur
+189:Sorcier
+190:Aberration
+191:Oiseau
+192:Coq
+193:Sanglier
+194:Dinosaure
+195:Macchia Cinquo
+196:Oiseau Legendaire
+197:Tetard
+198:Grenouille
+199:Helmet Crab
+200:Sirene
+201:Macchia Grande
+202:Macchia Deloitte
+203:Gargouille
+204:Cadavre
+205:Squelette
+206:Cauchemar
+207:Macchia Diechi
+208:Macchia Venti
+209:Negacion de Rieze
+210:Tortue Corne
+211:Lapin
+212:Loup
+213:Coccinelle
+214:Ancienne Bete
+215:Ombre
+216:Macchie Due
+217:Soldat
+218:Tireur
+219:Guerrier
+220:Messager du Ciel
+221:Insecte
+222:Faux Tresor
+223:Macchia Tre
+224:Macchia Trente
+225:Chevalier
+226:Lotus De Ruine
+227:Marksman
+228:Negucion de Rose
+229:Tortue
+230:Ange
+231:Ange
+232:Ange
+233:Luca
+234:Luca
+235:Luca
+236:Polwigle R
+237:Rustlet R
+238:Honey Bunny R
+239:Soldier R
+240:Wizard R
+241:Wolf R
+242:Guard Dog R
+243:Garm Wolf R
+244:Big Bat R
+245:Golem R
+246:Boxolotl R
+247:White Rabbit R
+248:Ribbit R
+249:Giant Bee R
+250:Wood Worms R
+251:Hawkeye R
+252:Axebeak R
+253:Eggbear R
+254:Fangus R
+255:Skeleton R
+256:Mummy R
+257:Melting Pot R
+258:Boxwood R
+259:Emerald Beetle R
+260:Bloomshell Beetle R
+261:Lava Golem R
+262:Fire Animus R
+263:Salamander R
+264:Galpos Varan R
+265:King Crab R
+266:Tarantula R
+267:Killer Bee R
+268:Boar R
+269:Cockatrice R
+270:Rabid Ribbit R
+271:Drake R
+272:Earth Dreak R
+273:Grisly Tortoise R
+274:Rock Tortoise R
+275:Ashihara Rabbit R
+276:Skipping Rat R
+277:Dodo R
+278:Hatchet Beak R
+279:Basilisk R
+280:Rhinoceros R
+281:Armored Boar R
+282:Arachnid R
+283:Ice Animus R
+284:Light Animus R
+285:Bearlion R
+286:Deep Diver R
+287:Champion
+288:Boxer Iris R
+289:Gargoyle R
+290:Bonehead R
+291:Poltergeist R
+292:Ancient Soul R
+293:Zombie R
+294:Living Dead R
+295:Nepenthes R
+296:Glory Pot R
+297:Frost Giant R
+298:Dragontail R
+299:Hydrosaur R
+300:Highlander R
+301:Corpse Legion
+302:Milla
+303:Hisui
+304:Kohaku
+305:Albert
+306:Tenos Breacher R
+307:Tenos Shooter R
+308:Tenos Soldier R
+309:Sian
+310:Cer
+311:Berus
+312:Chitose
+313:Hasta
+314:Gardle
+</DropDownList>
                   <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>436</ID>
+                  <Description>"dropdown: Disabled/Enabled"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63</ID>
+              <Description>"baseElfAddr"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>baseElfAddr</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>258</ID>
+              <Description>"Base VitaCheat address"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>baseElfAddr+16F000</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>260</ID>
+              <Description>"Field character mode (can give speed)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+17E0CC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>228</ID>
+              <Description>"Area stuff"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+17E0A4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>231</ID>
+                  <Description>"Type"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Field
+1:Town
+2:Dungeon
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>229</ID>
+                  <Description>"Area"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>234</ID>
+                  <Description>"Room"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>233</ID>
+                  <Description>"Spawn location"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>246</ID>
+                  <Description>"Coordinates"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>baseElfAddr-7758A0A4</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>209</ID>
-                      <Description>"1st actual speed"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(first,45 8B 74 05 00 45 89 77 64 8B 44 24 30 05 A0 01) // should be unique
-alloc(newmem,$1000,first)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-first:
-  jmp newmem
-return:
-registersymbol(first)
-
-[DISABLE]
-
-first:
-  db 45 8B 74 05 00
-
-unregistersymbol(first)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1F180344E10
-
-1F180344DE9: 41 8B 47 10              - mov eax,[r15+10]
-1F180344DED: 89 44 24 30              - mov [rsp+30],eax
-1F180344DF1: 31 C0                    - xor eax,eax
-1F180344DF3: 44 8B 74 24 30           - mov r14d,[rsp+30]
-1F180344DF8: 41 81 C6 40 06 00 00     - add r14d,00000640
-1F180344DFF: 9F                       - lahf 
-1F180344E00: 0F 90 C0                 - seto al
-1F180344E03: 41 89 47 4C              - mov [r15+4C],eax
-1F180344E07: 8B 44 24 30              - mov eax,[rsp+30]
-1F180344E0B: 05 40 06 00 00           - add eax,00000640
-// ---------- INJECTING HERE ----------
-1F180344E10: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1F180344E15: 45 89 77 64              - mov [r15+64],r14d
-1F180344E19: 8B 44 24 30              - mov eax,[rsp+30]
-1F180344E1D: 05 A0 01 00 00           - add eax,000001A0
-1F180344E22: 45 8B 64 05 00           - mov r12d,[r13+rax+00]
-1F180344E27: 45 89 27                 - mov [r15],r12d
-1F180344E2A: 41 C7 47 04 01 00 00 00  - mov [r15+04],00000001
-1F180344E32: 41 81 67 4C FF 7F FF FF  - and [r15+4C],FFFF7FFF
-1F180344E3A: 41 81 67 4C FF BF FF FF  - and [r15+4C],FFFFBFFF
-1F180344E42: C4 C1 79 6E CE           - vmovd xmm1,r14d
-1F180344E47: C5 78 28 3D 41 E3 CB FF  - vmovaps xmm15,[1F180003190]
-}
-</AssemblerScript>
+                      <ID>247</ID>
+                      <Description>"X"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+0</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>210</ID>
-                      <Description>"2nd"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(second,45 8B 74 05 00 45 89 77 64 C4 C1 79 6E CE) // should be unique
-alloc(newmem,$1000,second)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-second:
-  jmp newmem
-return:
-registersymbol(second)
-
-[DISABLE]
-
-second:
-  db 45 8B 74 05 00
-
-unregistersymbol(second)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1F1803452E3
-
-1F1803452BD: 89 44 24 30                    - mov [rsp+30],eax
-1F1803452C1: 31 C0                          - xor eax,eax
-1F1803452C3: 44 8B 74 24 30                 - mov r14d,[rsp+30]
-1F1803452C8: 41 81 C6 40 06 00 00           - add r14d,00000640
-1F1803452CF: 9F                             - lahf 
-1F1803452D0: 0F 90 C0                       - seto al
-1F1803452D3: 45 89 37                       - mov [r15],r14d
-1F1803452D6: 41 89 47 4C                    - mov [r15+4C],eax
-1F1803452DA: 8B 44 24 30                    - mov eax,[rsp+30]
-1F1803452DE: 05 40 06 00 00                 - add eax,00000640
-// ---------- INJECTING HERE ----------
-1F1803452E3: 45 8B 74 05 00                 - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1F1803452E8: 45 89 77 64                    - mov [r15+64],r14d
-1F1803452EC: C4 C1 79 6E CE                 - vmovd xmm1,r14d
-1F1803452F1: C5 78 28 3D 97 DE CB FF        - vmovaps xmm15,[1F180003190]
-1F1803452F9: 41 0F 2E CF                    - ucomiss xmm1,xmm15
-1F1803452FD: 48 B8 00 01 00 80 00 41 01 01  - mov rax,0101410080000100
-1F180345307: 0F 94 C1                       - sete cl
-1F18034530A: C0 D1 05                       - rcl cl,05
-1F18034530D: 48 D3 E8                       - shr rax,cl
-1F180345310: 25 01 C1 00 00                 - and eax,0000C101
-1F180345315: 69 C0 00 00 21 10              - imul eax,eax,10210000
-}
-</AssemblerScript>
+                      <ID>248</ID>
+                      <Description>"Y"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>211</ID>
-                      <Description>"3rd"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(third,45 8B 74 05 00 45 89 77 60 48 83 6C 24 20 16) // should be unique
-alloc(newmem,$1000,third)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-third:
-  jmp newmem
-return:
-registersymbol(third)
-
-[DISABLE]
-
-third:
-  db 45 8B 74 05 00
-
-unregistersymbol(third)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1F18042B392
-
-1F18042B365: 45 89 67 30              - mov [r15+30],r12d
-1F18042B369: B8 2C 41 17 81           - mov eax,8117412C
-1F18042B36E: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-1F18042B373: 45 29 DA                 - sub r10d,r11d
-1F18042B376: 45 89 57 38              - mov [r15+38],r10d
-1F18042B37A: 44 89 74 24 30           - mov [rsp+30],r14d
-1F18042B37F: 41 81 C6 40 06 00 00     - add r14d,00000640
-1F18042B386: 45 89 37                 - mov [r15],r14d
-1F18042B389: 8B 44 24 30              - mov eax,[rsp+30]
-1F18042B38D: 05 40 06 00 00           - add eax,00000640
-// ---------- INJECTING HERE ----------
-1F18042B392: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1F18042B397: 45 89 77 60              - mov [r15+60],r14d
-1F18042B39B: 48 83 6C 24 20 16        - sub qword ptr [rsp+20],16
-1F18042B3A1: 41 8B 47 4C              - mov eax,[r15+4C]
-1F18042B3A5: 9E                       - sahf 
-1F18042B3A6: 79 19                    - jns 1F18042B3C1
-1F18042B3A8: 48 83 7C 24 20 00        - cmp qword ptr [rsp+20],00
-1F18042B3AE: 41 C7 47 3C 52 55 08 81  - mov [r15+3C],81085552
-1F18042B3B6: 0F 8F A4 7D DD FF        - jg 1F180203160
-1F18042B3BC: E9 0F B9 73 0C           - jmp 1F18CB66CD0
-1F18042B3C1: 48 83 7C 24 20 00        - cmp qword ptr [rsp+20],00
-}
-</AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>212</ID>
-                      <Description>"4th physics?"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(fourth,45 8B 74 05 00 45 89 77 64 31 C0 44 8B 5C) // should be unique
-alloc(newmem,$1000,fourth)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-fourth:
-  jmp newmem
-return:
-registersymbol(fourth)
-
-[DISABLE]
-
-fourth:
-  db 45 8B 74 05 00
-
-unregistersymbol(fourth)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1F18041B2E1
-
-1F18041B2B8: 05 58 04 00 00        - add eax,00000458
-1F18041B2BD: 45 8B 64 05 00        - mov r12d,[r13+rax+00]
-1F18041B2C2: 31 C0                 - xor eax,eax
-1F18041B2C4: 44 89 74 24 40        - mov [rsp+40],r14d
-1F18041B2C9: 41 81 C6 40 06 00 00  - add r14d,00000640
-1F18041B2D0: 9F                    - lahf 
-1F18041B2D1: 0F 90 C0              - seto al
-1F18041B2D4: 41 89 47 4C           - mov [r15+4C],eax
-1F18041B2D8: 8B 44 24 40           - mov eax,[rsp+40]
-1F18041B2DC: 05 40 06 00 00        - add eax,00000640
-// ---------- INJECTING HERE ----------
-1F18041B2E1: 45 8B 74 05 00        - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1F18041B2E6: 45 89 77 64           - mov [r15+64],r14d
-1F18041B2EA: 31 C0                 - xor eax,eax
-1F18041B2EC: 44 8B 5C 24 30        - mov r11d,[rsp+30]
-1F18041B2F1: 41 83 C3 00           - add r11d,00
-1F18041B2F5: 9F                    - lahf 
-1F18041B2F6: 0F 90 C0              - seto al
-1F18041B2F9: 45 89 1F              - mov [r15],r11d
-1F18041B2FC: 41 89 47 4C           - mov [r15+4C],eax
-1F18041B300: C4 C1 79 6E CC        - vmovd xmm1,r12d
-1F18041B305: C4 41 79 6E FE        - vmovd xmm15,r14d
-}
-</AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>213</ID>
-                      <Description>"5th"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(fifth,45 8B 5C 05 00 45 89 5F 68 41 C7) // should be unique
-alloc(newmem,$1000,fifth)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-fifth:
-  jmp newmem
-return:
-registersymbol(fifth)
-
-[DISABLE]
-
-fifth:
-  db 45 8B 5C 05 00
-
-unregistersymbol(fifth)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1F1804DD659
-
-1F1804DD631: 0F 90 C0                 - seto al
-1F1804DD634: 45 89 77 04              - mov [r15+04],r14d
-1F1804DD638: 41 89 47 4C              - mov [r15+4C],eax
-1F1804DD63C: 41 8B 47 10              - mov eax,[r15+10]
-1F1804DD640: 89 44 24 40              - mov [rsp+40],eax
-1F1804DD644: 83 C0 54                 - add eax,54
-1F1804DD647: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-1F1804DD64C: 45 89 77 64              - mov [r15+64],r14d
-1F1804DD650: 8B 44 24 30              - mov eax,[rsp+30]
-1F1804DD654: 05 40 06 00 00           - add eax,00000640
-// ---------- INJECTING HERE ----------
-1F1804DD659: 45 8B 5C 05 00           - mov r11d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1F1804DD65E: 45 89 5F 68              - mov [r15+68],r11d
-1F1804DD662: 41 C7 47 1C 00 00 00 00  - mov [r15+1C],00000000
-1F1804DD66A: 41 81 67 4C FF 7F FF FF  - and [r15+4C],FFFF7FFF
-1F1804DD672: 41 81 4F 4C 00 40 00 00  - or [r15+4C],00004000
-1F1804DD67A: C4 C1 79 6E CC           - vmovd xmm1,r12d
-1F1804DD67F: C4 41 79 6E FB           - vmovd xmm15,r11d
-1F1804DD684: 44 0F 28 F1              - movaps xmm14,xmm1
-1F1804DD688: F3 45 0F 5E F7           - divss xmm14,xmm15
-1F1804DD68D: 45 0F 2E F6              - ucomiss xmm14,xmm14
-1F1804DD691: 0F 8A 3E 08 6F 0C        - jp 1F18CBCDED5
-}
-</AssemblerScript>
+                      <ID>249</ID>
+                      <Description>"Z"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>317</ID>
+              <Description>"Encounter Editor"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+182664</Address>
+              <CheatEntries>
                 <CheatEntry>
-                  <ID>220</ID>
-                  <Description>"battle?"</Description>
-                  <Options moHideChildren="1"/>
+                  <ID>437</ID>
+                  <Description>"Spawn location is nearby, maybe I'll add it later"</Description>
+                  <Color>FF00FF</Color>
                   <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>438</ID>
+                  <Description>"Requires disabling the instructions that write to these!"</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>439</ID>
+                  <Description>"Otherwise it will only randomly work!"</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>440</ID>
+                  <Description>"Change these during a battle."</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>452</ID>
+                  <Description>"Background"</Description>
+                  <DropDownList DisplayValueAsItem="1">:These are the only valid values
+0:
+1:
+2:
+4:
+5:
+6:
+7:
+20:
+22:
+23:
+24:
+25:
+28:
+29:
+31:
+32:
+33:
+35:
+36:
+37:
+38:
+39:
+41:
+42:
+43:
+45:
+46:
+47:
+48:
+49:
+50:
+51:
+52:
+53:
+54:
+55:
+56:
+57:
+58:
+59:
+60:
+61:
+80:
+81:
+82:
+84:
+85:
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-15C6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>348</ID>
+                  <Description>"Number of enemies?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-15C5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>347</ID>
+                  <Description>"Number of models???"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-15C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>346</ID>
+                  <Description>"Number of animations???"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-15C3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>328</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>320</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>321</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>322</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>323</ID>
+                  <Description>"Slot 5"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>324</ID>
+                  <Description>"Slot 6"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>325</ID>
+                  <Description>"Slot 7"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>326</ID>
+                  <Description>"Slot 8"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>391</ID>
+              <Description>"Enemy status"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+globalalloc(enmNum,8)
+
+[DISABLE]
+dealloc(enmNum)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>392</ID>
+                  <Description>"Enemy (change this)"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>enmNum</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>216</ID>
-                      <Description>"1st battle mechanics?"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(battle1,45 8B 74 05 00 45 89 77 68 C4 C1 79 6E CC) // should be unique
-alloc(newmem,$1000,battle1)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-battle1:
-  jmp newmem
-return:
-registersymbol(battle1)
-
-[DISABLE]
-
-battle1:
-  db 45 8B 74 05 00
-
-unregistersymbol(battle1)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1C625F57B6C
-
-1C625F57B44: 45 8B 64 05 00           - mov r12d,[r13+rax+00]
-1C625F57B49: 45 89 67 64              - mov [r15+64],r12d
-1C625F57B4D: 31 C0                    - xor eax,eax
-1C625F57B4F: 44 89 74 24 30           - mov [rsp+30],r14d
-1C625F57B54: 41 81 C6 40 06 00 00     - add r14d,00000640
-1C625F57B5B: 9F                       - lahf 
-1C625F57B5C: 0F 90 C0                 - seto al
-1C625F57B5F: 41 89 47 4C              - mov [r15+4C],eax
-1C625F57B63: 8B 44 24 30              - mov eax,[rsp+30]
-1C625F57B67: 05 40 06 00 00           - add eax,00000640
-// ---------- INJECTING HERE ----------
-1C625F57B6C: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1C625F57B71: 45 89 77 68              - mov [r15+68],r14d
-1C625F57B75: C4 C1 79 6E CC           - vmovd xmm1,r12d
-1C625F57B7A: C4 41 79 6E FE           - vmovd xmm15,r14d
-1C625F57B7F: 44 0F 28 F1              - movaps xmm14,xmm1
-1C625F57B83: F3 45 0F 59 F7           - mulss xmm14,xmm15
-1C625F57B88: 45 0F 2E F6              - ucomiss xmm14,xmm14
-1C625F57B8C: 0F 8A 73 8A 62 0C        - jp 1C632580605
-1C625F57B92: C5 F8 28 0D 86 15 94 FF  - vmovaps xmm1,[1C625899120]
-1C625F57B9A: 44 0F 28 F9              - movaps xmm15,xmm1
-1C625F57B9E: F3 45 0F 58 FE           - addss xmm15,xmm14
-}
-</AssemblerScript>
+                      <ID>393</ID>
+                      <Description>"Name"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>30</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>baseElfAddr-7F1624A8+138*[enmNum]</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>217</ID>
-                      <Description>"2nd battle also mechanics?"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(battle2,06 00 00 45 8B 74 05 00 B8) // should be unique
-alloc(newmem,$1000,battle2)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-battle2+03:
-  jmp newmem
-return:
-registersymbol(battle2)
-
-[DISABLE]
-
-battle2+03:
-  db 45 8B 74 05 00
-
-unregistersymbol(battle2)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1C625F6267D
-
-1C625F62655: 45 8B 74 05 00              - mov r14d,[r13+rax+00]
-1C625F6265A: 45 89 77 04                 - mov [r15+04],r14d
-1C625F6265E: 31 C0                       - xor eax,eax
-1C625F62660: 44 89 74 24 30              - mov [rsp+30],r14d
-1C625F62665: 41 81 C6 40 06 00 00        - add r14d,00000640
-1C625F6266C: 9F                          - lahf 
-1C625F6266D: 0F 90 C0                    - seto al
-1C625F62670: 41 89 47 4C                 - mov [r15+4C],eax
-1C625F62674: 8B 44 24 30                 - mov eax,[rsp+30]
-1C625F62678: 05 40 06 00 00              - add eax,00000640
-// ---------- INJECTING HERE ----------
-1C625F6267D: 45 8B 74 05 00              - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1C625F62682: B8 D0 97 17 81              - mov eax,811797D0
-1C625F62687: 45 8B 64 05 00              - mov r12d,[r13+rax+00]
-1C625F6268C: F3 41 0F 10 8F A0 00 00 00  - movss xmm1,[r15+000000A0]
-1C625F62695: C4 41 79 6E FE              - vmovd xmm15,r14d
-1C625F6269A: 44 0F 28 F1                 - movaps xmm14,xmm1
-1C625F6269E: F3 45 0F 5E F7              - divss xmm14,xmm15
-1C625F626A3: 45 0F 2E F6                 - ucomiss xmm14,xmm14
-1C625F626A7: 0F 8A 68 44 62 0C           - jp 1C632586B15
-1C625F626AD: 41 81 C4 14 01 00 00        - add r12d,00000114
-1C625F626B4: 43 8B 44 25 00              - mov eax,[r13+r12+00]
-}
-</AssemblerScript>
+                      <ID>394</ID>
+                      <Description>"Enemy model ID"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+2A+138*[enmNum]</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>218</ID>
-                      <Description>"3rd battle"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(battle3,45 8B 74 05 00 41 8B 07 05 7C) // should be unique
-alloc(newmem,$1000,battle3)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-battle3:
-  jmp newmem
-return:
-registersymbol(battle3)
-
-[DISABLE]
-
-battle3:
-  db 45 8B 74 05 00
-
-unregistersymbol(battle3)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1C625F67009
-
-1C625F66FE0: B8 2C 41 17 81           - mov eax,8117412C
-1C625F66FE5: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-1C625F66FEA: 31 C0                    - xor eax,eax
-1C625F66FEC: 44 89 74 24 30           - mov [rsp+30],r14d
-1C625F66FF1: 41 81 C6 40 06 00 00     - add r14d,00000640
-1C625F66FF8: 9F                       - lahf 
-1C625F66FF9: 0F 90 C0                 - seto al
-1C625F66FFC: 41 89 47 4C              - mov [r15+4C],eax
-1C625F67000: 8B 44 24 30              - mov eax,[rsp+30]
-1C625F67004: 05 40 06 00 00           - add eax,00000640
-// ---------- INJECTING HERE ----------
-1C625F67009: 45 8B 74 05 00           - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1C625F6700E: 41 8B 07                 - mov eax,[r15]
-1C625F67011: 05 7C 09 00 00           - add eax,0000097C
-1C625F67016: 45 8B 64 05 00           - mov r12d,[r13+rax+00]
-1C625F6701B: 45 89 27                 - mov [r15],r12d
-1C625F6701E: B8 D0 97 17 81           - mov eax,811797D0
-1C625F67023: 45 8B 5C 05 00           - mov r11d,[r13+rax+00]
-1C625F67028: C5 F8 28 0D B0 20 93 FF  - vmovaps xmm1,[1C6258990E0]
-1C625F67030: C4 41 79 6E FE           - vmovd xmm15,r14d
-1C625F67035: 44 0F 28 F1              - movaps xmm14,xmm1
-1C625F67039: F3 45 0F 5E F7           - divss xmm14,xmm15
-}
-</AssemblerScript>
+                      <ID>395</ID>
+                      <Description>"Enemy animation ID"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+2C+138*[enmNum]</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>219</ID>
-                      <Description>"4th battle"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(battle4,45 8B 74 05 00 41 8B 47 10 05 20) // should be unique
-alloc(newmem,$1000,battle4)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-battle4:
-  jmp newmem
-return:
-registersymbol(battle4)
-
-[DISABLE]
-
-battle4:
-  db 45 8B 74 05 00
-
-unregistersymbol(battle4)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1C625F0EF99
-
-1C625F0EF70: B8 2C 41 17 81        - mov eax,8117412C
-1C625F0EF75: 45 8B 74 05 00        - mov r14d,[r13+rax+00]
-1C625F0EF7A: 31 C0                 - xor eax,eax
-1C625F0EF7C: 44 89 74 24 30        - mov [rsp+30],r14d
-1C625F0EF81: 41 81 C6 40 06 00 00  - add r14d,00000640
-1C625F0EF88: 9F                    - lahf 
-1C625F0EF89: 0F 90 C0              - seto al
-1C625F0EF8C: 41 89 47 4C           - mov [r15+4C],eax
-1C625F0EF90: 8B 44 24 30           - mov eax,[rsp+30]
-1C625F0EF94: 05 40 06 00 00        - add eax,00000640
-// ---------- INJECTING HERE ----------
-1C625F0EF99: 45 8B 74 05 00        - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1C625F0EF9E: 41 8B 47 10           - mov eax,[r15+10]
-1C625F0EFA2: 05 20 04 00 00        - add eax,00000420
-1C625F0EFA7: 45 8B 64 05 00        - mov r12d,[r13+rax+00]
-1C625F0EFAC: 45 89 67 04           - mov [r15+04],r12d
-1C625F0EFB0: 31 C0                 - xor eax,eax
-1C625F0EFB2: 41 83 C4 00           - add r12d,00
-1C625F0EFB6: 9F                    - lahf 
-1C625F0EFB7: 0F 90 C0              - seto al
-1C625F0EFBA: 45 89 27              - mov [r15],r12d
-1C625F0EFBD: 41 89 47 4C           - mov [r15+4C],eax
-}
-</AssemblerScript>
+                      <ID>396</ID>
+                      <Description>"Lv."</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7F1624A8+40+138*[enmNum]</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>221</ID>
-                      <Description>"5th battle"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : Vita3K.exe
-  Version: 
-  Date   : 2022-06-01
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(battle5,45 8B 74 05 00 45 89 77 64 C4 C1 79 6E CE 45) // should be unique
-alloc(newmem,$1000,battle5)
-
-label(code)
-label(return)
-
-newmem:
-  mov r14d,(float)60
-code:
-//  mov r14d,[r13+rax+00]
-  jmp return
-
-battle5:
-  jmp newmem
-return:
-registersymbol(battle5)
-
-[DISABLE]
-
-battle5:
-  db 45 8B 74 05 00
-
-unregistersymbol(battle5)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 1C62612050C
-
-1C6261204E4: 0F 8A AB AD 56 0C     - jp 1C63268B295
-1C6261204EA: 31 C0                 - xor eax,eax
-1C6261204EC: 44 89 5C 24 30        - mov [rsp+30],r11d
-1C6261204F1: 41 81 C3 40 06 00 00  - add r11d,00000640
-1C6261204F8: 9F                    - lahf 
-1C6261204F9: 0F 90 C0              - seto al
-1C6261204FC: 45 89 1F              - mov [r15],r11d
-1C6261204FF: 41 89 47 4C           - mov [r15+4C],eax
-1C626120503: 8B 44 24 30           - mov eax,[rsp+30]
-1C626120507: 05 40 06 00 00        - add eax,00000640
-// ---------- INJECTING HERE ----------
-1C62612050C: 45 8B 74 05 00        - mov r14d,[r13+rax+00]
-// ---------- DONE INJECTING  ----------
-1C626120511: 45 89 77 64           - mov [r15+64],r14d
-1C626120515: C4 C1 79 6E CE        - vmovd xmm1,r14d
-1C62612051A: 45 0F 28 FE           - movaps xmm15,xmm14
-1C62612051E: F3 44 0F 59 F9        - mulss xmm15,xmm1
-1C626120523: 45 0F 2E FF           - ucomiss xmm15,xmm15
-1C626120527: 0F 8A AF AD 56 0C     - jp 1C63268B2DC
-1C62612052D: F3 45 0F 11 7F 60     - movss [r15+60],xmm15
-1C626120533: 41 8B 47 34           - mov eax,[r15+34]
-1C626120537: 45 8B 74 05 00        - mov r14d,[r13+rax+00]
-1C62612053C: 45 89 77 10           - mov [r15+10],r14d
-}
-</AssemblerScript>
+                      <ID>397</ID>
+                      <Description>"HP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+54+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>398</ID>
+                      <Description>"P. ATK"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+58+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>399</ID>
+                      <Description>"A. ATK"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+5A+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>400</ID>
+                      <Description>"P. DEF"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+5C+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>401</ID>
+                      <Description>"A. DEF"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+5E+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>402</ID>
+                      <Description>"Resistances"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>403</ID>
+                          <Description>"Fire resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+66+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>404</ID>
+                          <Description>"Water resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+67+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>405</ID>
+                          <Description>"Earth resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+68+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>406</ID>
+                          <Description>"Wind resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+69+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>407</ID>
+                          <Description>"Lightning resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+6A+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>408</ID>
+                          <Description>"Light resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+6B+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>409</ID>
+                          <Description>"Darkness resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+6C+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>410</ID>
+                          <Description>"Poison resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+6D+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>411</ID>
+                          <Description>"Weakening resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+6E+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>412</ID>
+                          <Description>"Paralysis resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+6F+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>413</ID>
+                          <Description>"Artesealing resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+70+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>414</ID>
+                          <Description>"Petrification resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7F1624A8+71+138*[enmNum]</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>415</ID>
+                      <Description>"EXP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+74+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>416</ID>
+                      <Description>"Gald"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+78+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>417</ID>
+                      <Description>"AP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+7C+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>418</ID>
+                      <Description>"Dropped Item 1"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+80+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>419</ID>
+                      <Description>"Dropped Item 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+82+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>420</ID>
+                      <Description>"Dropped Item 1 chance"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7F1624A8+84+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>421</ID>
+                      <Description>"Dropped Item 2 chance"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7F1624A8+85+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>422</ID>
+                      <Description>"Stealable Item"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7F1624A8+86+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>423</ID>
+                      <Description>"Stealable Item chance"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7F1624A8+88+138*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>424</ID>
+                      <Description>"Arte List (there might be more)"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>425</ID>
+                          <Description>"Slot 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+A0+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>426</ID>
+                          <Description>"Slot 2"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+A2+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>427</ID>
+                          <Description>"Slot 3"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+A4+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>428</ID>
+                          <Description>"Slot 4"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+A6+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>429</ID>
+                          <Description>"Slot 5"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+A8+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>430</ID>
+                          <Description>"Slot 6"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+AA+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>431</ID>
+                          <Description>"Slot 7"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+AC+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>432</ID>
+                          <Description>"Slot 8"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+AE+138*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>433</ID>
+                          <Description>"Slot 9"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>baseElfAddr-7F1624A8+B0+138*[enmNum]</Address>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -1653,5 +1900,14 @@ dealloc(newmem)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
 </CheatTable>
