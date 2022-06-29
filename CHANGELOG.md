@@ -1,5 +1,12 @@
 ### Changelog
 
+#### 2022/06/29
+
+-	Added the ability to freeze encounter timer.
+-	Added the ability to enable the airship.
+
+-	An Encounter Editor has also been added, but it involves some work from the end-user to use.
+
 #### 2022/06/01
 
 -	Added a workaround for the Japanese version of Xillia 2, where looking at Bisley's artes in any form would result in a crash.
