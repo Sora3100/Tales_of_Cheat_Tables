@@ -924,6 +924,21 @@ unregistersymbol(baseElfAddr)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>259</ID>
+          <Description>"Time till encounter"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>baseElfAddr+29830C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>435</ID>
+          <Description>"Airship enabled? (only change it mid-battle)"</Description>
+          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>baseElfAddr+2982A2</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>62</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -931,16 +946,976 @@ unregistersymbol(baseElfAddr)
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
+              <ID>453</ID>
+              <Description>"Dropdowns"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>297</ID>
+                  <Description>"dropdown: Elemental Resist"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:1x Resist
+2:2x Resist
+-1:Weak
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>454</ID>
+                  <Description>"dropdown: Enemy List"</Description>
+                  <DropDownList DisplayValueAsItem="1">-1:Nothing
+0:Slime
+1:Brood Bee
+2:Spore
+3:Axe Beak
+4:Polwigle
+5:Big Bat
+6:Giant Spider
+7:Brown Bear
+8:Helianthea
+9:Briar
+10:Cowering Lilium
+11:Officier
+12:Macchia
+13:Grenouille
+14:Tortue
+15:Animos
+16:Saur
+17:Grim Keeper
+18:Grim Reaper
+19:Rustlet
+20:Wolf
+21:Land Ribbit
+22:Grieving Briar
+23:Cleone
+24:Doubting Tritoma
+25:Giant Beetle
+26:Grim Lizard
+27:Peridot
+28:Honey Bunny
+29:Boar
+30:Cawker
+31:Zombie
+32:Adamantine Bat
+33:Fangus
+34:Spirit
+35:Chalcedony
+36:Fattlesnake
+37:Killer Bee
+38:Boxwood
+39:Doubting Spore
+40:Doubting Helianthea
+41:Bouquet
+42:Slinking Dahlia
+43:Gargoyle
+44:Alpine Beetle
+45:Drake
+46:Skeleton
+47:Amethyst
+48:Guard Dog
+49:Imperial Soldier
+50:Imperial Captain
+51:Xeromized Soldier
+52:Xeromized Captain
+53:Fake
+54:Kornerupine
+55:Eggbear
+56:Melting Pot
+57:Mole Hare
+58:Mudworm
+59:Blushing Briar
+60:Rending Cleone
+61:Gladiolus
+62:Campanula
+63:Pelargonium
+64:Pyrox
+65:Robber Crab
+66:Gillman
+67:White Ribbit
+68:Oil Skater
+69:Cuttlefish
+70:Kunzite
+71:Emerald Beetle
+72:Grisly Tortoise
+73:Salamander
+74:Desert Crab
+75:Tiny Worm
+76:Cockatrice
+77:Sandworm
+78:Hell Hound
+79:Woods Worm
+80:Dodo
+81:Ribbit
+82:Armored Bear
+83:Crystal Knight
+84:Xeromized Raider
+85:Xeromized Berserker
+86:Green Widow
+87:Vulture Finch
+88:Lesser Squid
+89:Peridot
+90:Chalcedony
+91:Pyrox
+92:Xeromized Spec Ops
+93:Ines
+94:Skeleton Warrior
+95:Mummy
+96:Poltergeist
+97:Highlander
+98:Grimgoyle
+99:Spec Ops Soldier
+100:Silver
+101:Air Animos
+102:Hawkeye
+103:Incarose
+104:Xenospore
+105:Xenobriar
+106:Xenohelianth
+107:Xenogladiolus
+108:Xenocleone
+109:Xenocampanula
+110:Xenolilium
+111:Skipping Rat
+112:Garm Wolf
+113:Grisley
+114:Arachne
+115:Alarming Lilium
+116:Alarming Spore
+117:Alarming Bouquet
+118:Alarming Gladiolus
+119:Hermit Crab
+120:Jellyflesh
+121:Maggot
+122:Acid Slime
+123:Throttlefish
+124:Splisher
+125:Snow Hare
+126:Ice Tortoise
+127:Icicle Bee
+128:Focalor
+129:Cloud Raven
+130:Archelon
+131:Hydrosaur
+132:Binding Pot
+133:Coalwigle
+134:Death Raven
+135:King Basilisk
+136:Bearlion
+137:Thunder Wyvern
+138:Redcap
+139:Siren
+140:Brontowormus
+141:Spargoyle
+142:Chlorseraph
+143:Old Campanula
+144:Old Cleone
+145:Old Gladiolus
+146:Old Pelargonium
+147:Old Lilium
+148:Cloying Dianthus
+149:Hatchet Beat
+150:White Jackal
+151:Berserker Drone
+152:Ice Animos
+153:Light Animos
+154:Ruby Great
+155:Ruby Golem
+156:Sapphire Great
+157:Sapphire Golem
+158:Topaz Great
+159:Topaz Golem
+160:Striegov
+161:Weeping Lilium
+162:Weeping Helianthea
+163:Pining Campanula
+164:Pining Briar
+165:Pining Bouquet
+166:Pining Tritoma
+167:Bonehead
+168:Pitch Plant
+169:Kwancha
+170:Swindler
+171:Pining Veronica
+172:Jupon
+173:Flame Bat
+174:Lava Golem
+175:Blazing Boar
+176:Dragontail
+177:Rabid Ribbit
+178:Rending Pelargonium
+179:Rending Campanula
+180:Rending Gladiolus
+181:Vorgas
+182:Ramor Rois
+183:Ramor Razer
+184:Earth Drake
+185:Lich Lord
+186:Macchia Uno
+187:Macchia Dieci
+188:Death Hornet
+189:Roxolotl
+190:Nepenthes
+191:Boxglove
+192:Helmet Crab
+193:Naga
+194:Seascrew
+195:Dread Focalor
+196:Bloomshell Beetle
+197:Tortue Corné
+198:Coqatrice
+199:Hades Ribbit
+200:Giant Polwigle
+201:Maiming Pelargonium
+202:Maiming Bouquet
+203:Maiming Cleone
+204:Maiming Dahlia
+205:Xeromized Striegov
+206:Guilty Helianthea
+207:Guilty Campanula
+208:Basilisk
+209:Clinoseraph
+210:Chlorseraph
+211:Boxer Iris
+212:Ancient Golem
+213:Gatekeeper
+214:Icigoyle
+215:Incarose Alt
+216:Sighing Bouquet
+217:Gardenia Spore
+218:Sighing Gladiolus
+219:Sighing Pelargonium
+220:Gardenia Tritoma
+221:Gardenia Dahlia
+222:Gardenia Dianthus
+223:Sighing Lilium
+224:Gardenia Worm
+225:Abendhöhle
+226:Gardenia Core
+227:Gardenia Sphere
+228:Creed
+229:Chauve-Souris
+230:Lapin
+231:Araignée
+232:Macchia Sei
+233:Macchia Cinque
+234:Ultime Rose
+235:Shadow Hisui
+236:Shadow Ines
+237:Horreur
+238:Sanglier
+239:Duc
+240:Kniphofia
+241:Macchia Quattro
+242:Macchia Quindici
+243:Soleil Levant
+244:Shadow Beryl
+245:Shadow Kunzite
+246:Parasite
+247:Têtard
+248:Dark Slime
+249:Faux Trésor
+250:Stanophany
+251:Tranchant
+252:Manque
+253:Chevalier
+254:Cadavre
+255:Squelette
+256:Fleur Formidable
+257:Gargouille
+258:Archdeus
+259:Deus Reaper
+260:Oiseau
+261:Guivre
+262:Loup
+263:Mutation
+264:Sirène
+265:Chenille
+266:Macchia Due
+267:Macchia Tre
+268:Pivoine
+269:Duc de L'Enfer
+270:Colère du Monde
+271:Ver
+272:Coccinelle
+273:Dinosaure
+274:Ombre
+275:Vase Maléfique
+276:Bec-de-Hache
+277:Cauchemar
+278:Mimétisme
+279:Glaïeul
+280:Corsage
+281:Cigogne
+282:Jacinthe Sauvage
+283:Crochet
+284:Gatoum Jaws
+285:Poupée
+286:Macchia Grande
+287:Macchia Venti
+288:Shadow Kor
+289:Shadow Kohaku
+290:Shadow Chalcedony
+291:Shadow Gall
+292:Faldealmeus
+293:Hubert
+294:Hubert (Kuro)
+295:Pascal
+296:Pascal (Toro)
+297:Spore
+298:Icicle Bee
+299:Icicle Bee
+300:Icicle Bee
+301:Tiny Worm
+302:Icicle Bee
+303:Icicle Bee
+304:Incarose
+305:Incarose
+306:Incarose
+307:Incarose
+308:Incarose
+309:Incarose
+310:Gardenia Worm
+311:Slime
+312:Polwigle
+313:Brown Bear
+314:Big Bat
+315:Rustlet
+316:Wolf
+317:Tortue
+318:Fattlesnake
+319:Dodo
+320:Melting Pot
+321:Hell Hound
+322:Armored Boar
+323:Emerald Beetle
+324:Eggbear
+325:Mudworm
+326:Skeleton Warrior
+327:Mummy
+328:Poltergeist
+329:Throttlefish
+330:Seascrew
+331:Binding Pot
+332:Redcap
+333:Hydrosaur
+334:Bearlion
+335:Brontowormus
+336:Siren
+337:Spargoyle
+338:Icigoyle
+339:White Jackal
+340:Obliterator
+341:Honey Bunny
+342:Killer Bee
+343:Adamantine Bat
+344:Giant Beetle
+345:Fangus
+346:Zombie
+347:Spirit
+348:Gargoyle
+349:Drake
+350:Grim Lizard
+351:Boar
+352:Mole Hare
+353:Robber Crab
+354:Ribbit
+355:Cuttlefish
+356:Green Widow
+357:Gillman
+358:Woods Worm
+359:Cockatrice
+360:Grisly Tortoise
+361:Salamander
+362:Garm Wolf
+363:Grisley
+364:Grimgoyle
+365:Splisher
+366:Coalwigle
+367:Arachne
+368:Jellyflesh
+369:Boxglove
+370:Blazing Boar
+371:Dragontail
+372:Rabid Ribbit
+373:Ancient Golem
+374:Gatekeeper
+375:Light Animos
+376:Thousand Worm
+377:Bindworm
+378:Kornerupine
+379:Pyrox
+380:Peridot
+381:Silver
+382:Clinoseraph
+383:Chlorseraph
+384:Incarose
+385:Incarose Alt
+386:Pitch Plant
+387:Chenille
+388:Nepenthes
+389:Coqatrice
+390:Sapphire Golem
+391:Topaz Golem
+392:Ruby Golem
+393:Lava Golem
+394:Polwigle (Large)
+395:Splisher (Large)
+396:Roxolotl (Large)
+397:Focalor
+398:Dread Focalor
+399:Lich Lord
+400:Duc de L'Enfer
+401:Amethyst
+402:Grenouile
+403:Wolf
+404:Incarose
+405:Incarose
+406:Bindworm
+407:Guard Dog
+408:Imperial Soldier
+409:Imperial Captain
+410:Crystal Knight
+411:Spec Ops Soldier
+412:Blue Balloon
+413:Red Balloon
+414:Yellow Balloon
+415:Blue Star Balloon
+416:Red Star Balloon
+417:Yellow Star Balloon
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>456</ID>
+                  <Description>"dropdown: DIsabled/Enabled"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
               <ID>63</ID>
               <Description>"baseElfAddr"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>baseElfAddr</Address>
             </CheatEntry>
+            <CheatEntry>
+              <ID>228</ID>
+              <Description>"Area stuff"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+2982E0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>231</ID>
+                  <Description>"Type"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Field
+1:Town
+2:Dungeon
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>229</ID>
+                  <Description>"Area"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>234</ID>
+                  <Description>"Room"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>233</ID>
+                  <Description>"Spawn location"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>246</ID>
+                  <Description>"Coords (probably doesn't work)"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>baseElfAddr-77B4DD0C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>247</ID>
+                      <Description>"X"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>248</ID>
+                      <Description>"Y"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>249</ID>
+                      <Description>"Z"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>317</ID>
+              <Description>"Encounter Editor"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+3401FE</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>437</ID>
+                  <Description>"Spawn location is nearby, maybe I'll add it later"</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>438</ID>
+                  <Description>"Requires disabling the instructions that write to these!"</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>439</ID>
+                  <Description>"Otherwise it will only randomly work!"</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>440</ID>
+                  <Description>"Change these during a battle."</Description>
+                  <Color>FF00FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>452</ID>
+                  <Description>"Background"</Description>
+                  <DropDownList DisplayValueAsItem="1">:These are the only valid values
+0:
+1:
+2:
+3:
+4:
+5:
+20:
+21:
+24:
+26:
+28:
+29:
+31:
+32:
+33:
+34:
+36:
+37:
+38:
+39:
+41:
+42:
+43:
+44:
+45:
+47:
+50:
+51:
+53:
+56:
+58:
+60:
+62:
+63:
+66:
+68:
+70:
+71:
+72:
+73:
+74:
+76:
+77:
+78:
+79:
+80:
+81:
+83:
+84:
+85:
+86:
+87:
+88:
+100:
+102:
+103:
+120:
+121:
+123:
+124:
+125:
+126:
+127:
+128:
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>348</ID>
+                  <Description>"Number of enemies?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>347</ID>
+                  <Description>"Number of models???"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>346</ID>
+                  <Description>"Number of animations???"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>-1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>328</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>320</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>321</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>322</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>323</ID>
+                  <Description>"Slot 5"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>324</ID>
+                  <Description>"Slot 6"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>391</ID>
+              <Description>"Enemy status"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+globalalloc(enmNum,8)
+
+[DISABLE]
+dealloc(enmNum)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>392</ID>
+                  <Description>"Enemy (change this)"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>enmNum</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>393</ID>
+                      <Description>"Name"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>30</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>baseElfAddr-7EFA89A0+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>495</ID>
+                      <Description>"Enemy model ID"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+3A+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>497</ID>
+                      <Description>"Enemy weapon model ID"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+44+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>487</ID>
+                      <Description>"Lv."</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+48+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>464</ID>
+                      <Description>"HP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+5C+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>465</ID>
+                      <Description>"P. ATK"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+60+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>469</ID>
+                      <Description>"W. ATK"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+62+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>468</ID>
+                      <Description>"P. DEF"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+64+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>467</ID>
+                      <Description>"W. DEF"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+66+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>472</ID>
+                      <Description>"Resistances"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>471</ID>
+                          <Description>"Fire resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+76+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>478</ID>
+                          <Description>"Water resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+77+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>477</ID>
+                          <Description>"Earth resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+78+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>476</ID>
+                          <Description>"Wind resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+79+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>475</ID>
+                          <Description>"Lightning resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+7A+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>474</ID>
+                          <Description>"Light resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+7B+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>473</ID>
+                          <Description>"Darkness resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+7C+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>479</ID>
+                          <Description>"Poison resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+7D+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>483</ID>
+                          <Description>"Weakening resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+7E+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>482</ID>
+                          <Description>"Paralysis resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+7F+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>481</ID>
+                          <Description>"Artesealing resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+80+B8*[enmNum]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>480</ID>
+                          <Description>"Petrification resistance"</Description>
+                          <DropDownListLink>dropdown: Elemental Resist</DropDownListLink>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>baseElfAddr-7EFA89A0+81+B8*[enmNum]</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>484</ID>
+                      <Description>"EXP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+84+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>485</ID>
+                      <Description>"Gald"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+88+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>488</ID>
+                      <Description>"Dropped Item 1"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+8C+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>489</ID>
+                      <Description>"Dropped Item 2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+8E+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>490</ID>
+                      <Description>"Stealable Item"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+90+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>491</ID>
+                      <Description>"Dropped Item 1 chance"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+92+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>492</ID>
+                      <Description>"Dropped Item 2 chance"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+93+B8*[enmNum]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>493</ID>
+                      <Description>"Stealable Item chance"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>baseElfAddr-7EFA89A0+94+B8*[enmNum]</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1BF61D70000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
 </CheatTable>

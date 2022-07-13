@@ -1,11 +1,20 @@
 ### Changelog
 
+#### 2022/07/13
+
+-	New features: Hearts R
+-		Added the ability to freeze encounter timer.
+-		Added the ability to enable the airship.
+
+-		An Encounter Editor has also been added, but it involves some work from the end-user to use.
+
 #### 2022/06/29
 
--	Added the ability to freeze encounter timer.
--	Added the ability to enable the airship.
+-	New features: Innocence R
+-		Added the ability to freeze encounter timer.
+-		Added the ability to enable the airship.
 
--	An Encounter Editor has also been added, but it involves some work from the end-user to use.
+-		An Encounter Editor has also been added, but it involves some work from the end-user to use.
 
 #### 2022/06/01
 
