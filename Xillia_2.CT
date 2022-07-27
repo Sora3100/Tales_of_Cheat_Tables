@@ -10,9 +10,6 @@
 aobscanregion(regionCheckEquip, 300000000, 400000000, 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00) // should be unique
 aobscanregion(regionCheckFlags, 300000000, 400000000, 46 50 53 5F 53 43 52 5F ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 00)
 
-regionCheckEquip:
-regionCheckFlags:
-
 registersymbol(regionCheckEquip)
 registersymbol(regionCheckFlags)
 [DISABLE]
@@ -58151,8 +58148,6 @@ aobscanregion(arteEdit, 300000000, 400000000, 00 00 00 00 00 03 83 EC 00 00 00 0
 registersymbol(arteEdit)
 globalAlloc(arteNum,4)
 
-arteEdit:
-
 [DISABLE]
 unregistersymbol(arteEdit)
 dealloc(arteNum)
@@ -58545,184 +58540,194 @@ dealloc(arteNum)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>70390</ID>
-                  <Description>"Arte properties (BtlAttackStatus)"</Description>
+                  <ID>89127</ID>
+                  <Description>"AttackStatus"</Description>
                   <Options moHideChildren="1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
-                  <Address>regionCheckEquip-3EED2C</Address>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanregion(attackStatusEdit, 300000000, 400000000, 00 00 00 08 00 00 0B E5) // should be unique
+registersymbol(attackStatusEdit)
+globalAlloc(attackStatusNum,4)
+
+[DISABLE]
+unregistersymbol(attackStatusEdit)
+dealloc(attackStatusNum)
+</AssemblerScript>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>70799</ID>
-                      <Description>"This is by default set to Jude's Demon Fist projectile."</Description>
-                      <Color>FF00FF</Color>
-                      <GroupHeader>1</GroupHeader>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70450</ID>
-                      <Description>"ID?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-10</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70451</ID>
-                      <Description>"Target"</Description>
-                      <DropDownList DisplayValueAsItem="1">0:Enemy
-1:Players
+                      <ID>89128</ID>
+                      <Description>"Attack Number (edit this)"</Description>
+                      <DropDownList DisplayValueAsItem="1">35:Jude Demon Fist projectile
 </DropDownList>
                       <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70443</ID>
-                      <Description>"lud pow hammer 2"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70444</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>-4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70389</ID>
-                      <Description>"Knockback"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70401</ID>
-                      <Description>"Launcher"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70400</ID>
-                      <Description>"blunt fang 100 pow hammer 100"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70399</ID>
-                      <Description>"Unused?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70398</ID>
-                      <Description>"Stagger type"</Description>
-                      <DropDownList DisplayValueAsItem="1">0:None
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>attackStatusNum</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89129</ID>
+                          <Description>"ID?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89130</ID>
+                          <Description>"Target"</Description>
+                          <DropDownList DisplayValueAsItem="1">0:Enemy
+1:Players
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89131</ID>
+                          <Description>"lud pow hammer 2"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89132</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+14</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89133</ID>
+                          <Description>"Knockback"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+18</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89134</ID>
+                          <Description>"Launcher"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+1C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89135</ID>
+                          <Description>"blunt fang 100 pow hammer 100"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89136</ID>
+                          <Description>"Unused?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89137</ID>
+                          <Description>"Stagger type"</Description>
+                          <DropDownList DisplayValueAsItem="1">0:None
 1:Stagger
 2:Spin
 3:Knockdown
 4:Instant Knockdown
 </DropDownList>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+10</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70397</ID>
-                      <Description>"Damage multiplier"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+14</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70404</ID>
-                      <Description>"High value makes enemies heal?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+18</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70405</ID>
-                      <Description>"beast 1, soaring vortex 100"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+1C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70406</ID>
-                      <Description>"beast at 4, dark projection 100"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+20</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70407</ID>
-                      <Description>"beast at 4"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+24</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70408</ID>
-                      <Description>"beast 15, soaring vortex 20"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+28</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70396</ID>
-                      <Description>"Hitstun"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+2C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70395</ID>
-                      <Description>"Hitstun 2"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+30</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70394</ID>
-                      <Description>"Slowdown speed"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+34</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70393</ID>
-                      <Description>"Slowdown timer"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+38</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70416</ID>
-                      <Description>"Hit effect type"</Description>
-                      <DropDownList DisplayValueAsItem="1">0:None
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89138</ID>
+                          <Description>"Damage multiplier"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+2C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89139</ID>
+                          <Description>"High value makes enemies heal?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89140</ID>
+                          <Description>"beast 1, soaring vortex 100"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89141</ID>
+                          <Description>"beast at 4, dark projection 100"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+38</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89142</ID>
+                          <Description>"beast at 4"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+3C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89143</ID>
+                          <Description>"beast 15, soaring vortex 20"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+40</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89144</ID>
+                          <Description>"Hitstun"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+44</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89145</ID>
+                          <Description>"Hitstun 2"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+48</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89146</ID>
+                          <Description>"Slowdown speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+4C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89147</ID>
+                          <Description>"Slowdown timer"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+50</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89148</ID>
+                          <Description>"Hit effect type"</Description>
+                          <DropDownList DisplayValueAsItem="1">0:None
 1:Blunt?
 2:
 3:Slash
@@ -58732,297 +58737,307 @@ dealloc(arteNum)
 7:Heal
 8:Status recover
 </DropDownList>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+3C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70415</ID>
-                      <Description>"pow hammer 7"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+40</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70414</ID>
-                      <Description>"dark projection 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+44</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70483</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+45</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70482</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+46</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70481</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+47</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70413</ID>
-                      <Description>"dark projection -90"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+48</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70412</ID>
-                      <Description>"Unused?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+4C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70411</ID>
-                      <Description>"Deal damage to enemy?"</Description>
-                      <DropDownListLink>dropdown: Yes/No</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+50</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70459</ID>
-                      <Description>"Stagger enemy?"</Description>
-                      <DropDownListLink>dropdown: Yes/No</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+51</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70458</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+52</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70457</ID>
-                      <Description>"Gets past guard?"</Description>
-                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+53</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70456</ID>
-                      <Description>"beast at/gaius MA 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+54</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70455</ID>
-                      <Description>"rampaging dragon/gaius MA 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+55</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70463</ID>
-                      <Description>"shattering demon fist at/gaius MA 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+56</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70462</ID>
-                      <Description>"dark projection/gaius MA 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+57</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70469</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+58</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70466</ID>
-                      <Description>"Chakra circle/psychic restoration/pixie circle/healing circle/nurse 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+59</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70467</ID>
-                      <Description>"guardian field 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+5A</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70464</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+5B</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70465</ID>
-                      <Description>"Restands?"</Description>
-                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+5C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70461</ID>
-                      <Description>"Guaranteed Guard Break?"</Description>
-                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+5D</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70475</ID>
-                      <Description>"Guaranteed Critical?"</Description>
-                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+5E</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70474</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+5F</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70473</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+60</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70472</ID>
-                      <Description>"dark projection/gaius MA pt1,pt2 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+61</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70471</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+62</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70470</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+63</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70479</ID>
-                      <Description>"Pierce?"</Description>
-                      <DropDownListLink>dropdown: Yes/No</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+64</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70478</ID>
-                      <Description>"shattering demon at 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+65</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70477</ID>
-                      <Description>"muzét stun blitz 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+66</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70476</ID>
-                      <Description>"shattering demon at 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+67</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70437</ID>
-                      <Description>"?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+68</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70438</ID>
-                      <Description>"shattering at -1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+6C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70439</ID>
-                      <Description>"shattering at 400"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>Float Big Endian</CustomType>
-                      <Address>+74</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70440</ID>
-                      <Description>"shattering at 3"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+78</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70425</ID>
-                      <Description>"Status Effect Offset"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+7C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70428</ID>
-                      <Description>"Amount of status effects"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+80</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>70429</ID>
-                      <Description>"Heal health?"</Description>
-                      <DropDownList DisplayValueAsItem="1">0:No
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+54</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89149</ID>
+                          <Description>"pow hammer 7"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+58</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89150</ID>
+                          <Description>"dark projection 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+5C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89151</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+5D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89152</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+5E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89153</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+5F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89154</ID>
+                          <Description>"dark projection -90"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+60</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89155</ID>
+                          <Description>"Unused?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+64</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89156</ID>
+                          <Description>"Deal damage to enemy?"</Description>
+                          <DropDownListLink>dropdown: Yes/No</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+68</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89157</ID>
+                          <Description>"Stagger enemy?"</Description>
+                          <DropDownListLink>dropdown: Yes/No</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+69</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89158</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+6A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89159</ID>
+                          <Description>"Gets past guard?"</Description>
+                          <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+6B</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89160</ID>
+                          <Description>"beast at/gaius MA 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+6C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89161</ID>
+                          <Description>"rampaging dragon/gaius MA 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+6D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89162</ID>
+                          <Description>"shattering demon fist at/gaius MA 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+6E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89163</ID>
+                          <Description>"dark projection/gaius MA 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+6F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89164</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+70</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89165</ID>
+                          <Description>"Chakra circle/psychic restoration/pixie circle/healing circle/nurse 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+71</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89166</ID>
+                          <Description>"guardian field 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+72</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89167</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+73</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89168</ID>
+                          <Description>"Restands?"</Description>
+                          <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+74</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89169</ID>
+                          <Description>"Guaranteed Guard Break?"</Description>
+                          <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+75</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89170</ID>
+                          <Description>"Guaranteed Critical?"</Description>
+                          <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+76</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89171</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+77</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89172</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+78</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89173</ID>
+                          <Description>"dark projection/gaius MA pt1,pt2 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+79</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89174</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+7A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89175</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+7B</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89176</ID>
+                          <Description>"Pierce?"</Description>
+                          <DropDownListLink>dropdown: Yes/No</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+7C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89177</ID>
+                          <Description>"shattering demon at 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+7D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89178</ID>
+                          <Description>"muzét stun blitz 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+7E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89179</ID>
+                          <Description>"shattering demon at 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+7F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89180</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+80</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89181</ID>
+                          <Description>"shattering at -1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+84</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89188</ID>
+                          <Description>"?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+88</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89182</ID>
+                          <Description>"shattering at 400"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>Float Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+8C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89183</ID>
+                          <Description>"shattering at 3"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+90</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89184</ID>
+                          <Description>"Status Effect Offset"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+94</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89185</ID>
+                          <Description>"Amount of status effects"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+98</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89186</ID>
+                          <Description>"Heal health?"</Description>
+                          <DropDownList DisplayValueAsItem="1">0:No
 1:Yes, ~1400
 2:Yes, ~2800
 </DropDownList>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+84</Address>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>attackStatusEdit+98*[attackStatusNum]+9C</Address>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -81474,7 +81489,16 @@ artes will crash the game.
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>attackStatusNum</Name>
+      <Address>0E790000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteNum</Name>
+      <Address>0E790010</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>
