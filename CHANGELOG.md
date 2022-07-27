@@ -1,5 +1,10 @@
 ### Changelog
 
+#### 2022/07/27
+
+-	Fixed Destiny DC's BGM and Enemy Group Mod not being accurate.
+-	Expanded Destiny DC's Difficulty values
+
 #### 2022/07/13
 
 -	New features: Hearts R
