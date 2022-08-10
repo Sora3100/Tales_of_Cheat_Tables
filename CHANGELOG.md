@@ -1,5 +1,10 @@
 ### Changelog
 
+#### 2022/08/10
+
+-	Added Alisha DLC for the all enemy entries viewer in Zestiria.
+-	In addition, added seperate scripts if you don't have certain DLC installed.
+
 #### 2022/07/27
 
 -	Fixed Destiny DC's BGM and Enemy Group Mod not being accurate.
