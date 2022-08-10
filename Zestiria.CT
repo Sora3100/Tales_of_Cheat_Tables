@@ -130,7 +130,7 @@
     <CheatEntry>
       <ID>9963</ID>
       <Description>"Show all entries in enemy book"</Description>
-      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Tales of Zestiria.exe
   Version: 
@@ -192,8 +192,15 @@ Tales of Zestiria.Kaim::Waitable::IsSignaled+C077: 03 CA                 - add e
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
+          <ID>9976</ID>
+          <Description>"Not enabling this will cause your game to crash upon opening the Enemy Book!"</Description>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
           <ID>9964</ID>
-          <Description>"Workaround for fixed_string exception"</Description>
+          <Description>"Workaround for fixed_string exception (Base game)"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Tales of Zestiria.exe
   Version: 
@@ -311,109 +318,237 @@ registersymbol(enmBookFixedStringworkaround)
 
 [DISABLE]
 
-//??? (Symonne)
-enmBookFixedStringworkaround+54:
-  db 47
-
-//Mountain Troll
-enmBookFixedStringworkaround+2450:
-  db 47
-
-//Sorey (Fire Armatus)
-enmBookFixedStringworkaround-2C6C:
-  db 47
-
-//Rose (Earth Armatus)
-enmBookFixedStringworkaround-32B8:
-  db 47
-
-//Sorey (Water Armatus)
-enmBookFixedStringworkaround-4F9C:
-  db 47
-
-//Rose (Wind Armatus)
-enmBookFixedStringworkaround+27C0:
-  db 47
-
-//Eizen
-enmBookFixedStringworkaround+2F4:
-  db 47
-
-//Test
-enmBookFixedStringworkaround-5070:
-  db 47
-
-//Alisha (party)
-enmBookFixedStringworkaround-5008:
-  db 47
-
-//Rose (party)
-enmBookFixedStringworkaround-E314:
-  db 47
-
-//Sorey (party)
-enmBookFixedStringworkaround-B614:
-  db 47
-
-//Edna (party)
-enmBookFixedStringworkaround-3250:
-  db 47
-
-//Zaveid (party)
-enmBookFixedStringworkaround+36F4:
-  db 47
-
-//Lailah (party)
-enmBookFixedStringworkaround-1EE4:
-  db 47
-
-//Mikleo (party)
-enmBookFixedStringworkaround-BE0:
-  db 47
-
-//Dezel (party)
-enmBookFixedStringworkaround-3570:
-  db 47
-
-//Shadow Zaveid
-enmBookFixedStringworkaround+1A8C:
-  db 47
-
-//Shadow Lailah
-enmBookFixedStringworkaround+D10:
-  db 47
-
-//Shadow Mikleo
-enmBookFixedStringworkaround+1108:
-  db 47
-
-//Rose
-enmBookFixedStringworkaround+434:
-  db 47
-
-//Shadow Alisha
-enmBookFixedStringworkaround+4A0:
-  db 47
-
-//Shadow Rose
-enmBookFixedStringworkaround+1540:
-  db 47
-
-//Shadow Sorey
-enmBookFixedStringworkaround+16F0:
-  db 47
-
-//Zaveid
-enmBookFixedStringworkaround+38A4:
-  db 47
-
-//Shadow Edna
-enmBookFixedStringworkaround+A20:
-  db 47
-
 unregistersymbol(enmBookFixedStringworkaround)
 
 </AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>9974</ID>
+              <Description>"No Adventure Items DLC installed"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+//Super Star S
+enmBookFixedStringworkaround+1A0C:
+  db 00
+
+//Super Star G
+enmBookFixedStringworkaround+198C:
+  db 00
+
+//Rowdy Katz
+enmBookFixedStringworkaround-998:
+  db 00
+
+//Bad Katz
+enmBookFixedStringworkaround-A98:
+  db 00
+
+//Super Star R
+enmBookFixedStringworkaround+190C:
+  db 00
+
+//Gangsta Katz
+enmBookFixedStringworkaround-A18:
+  db 00
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9975</ID>
+              <Description>"No God Eater DLC installed"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+//Ogre Tailen
+enmBookFixedStringworkaround-29C:
+  db 00
+
+//Chihyu Dragon
+enmBookFixedStringworkaround+24BC:
+  db 00
+
+//Vajra
+enmBookFixedStringworkaround+1E6C:
+  db 00
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9968</ID>
+          <Description>"Workaround for fixed_string exception (Alisha DLC)"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(enmBookFixedStringworkaround,45 4E 45 5F 50 53 59 30 00 00 45 4E 45 5F 50 53 59 30 00 00 55 4E 49 54 5F 46 4F 52 4D 41 54 5F 50 53 59 30) // should be unique
+
+//Test
+enmBookFixedStringworkaround-55F8:
+  db 00
+
+//Alisha (party)
+enmBookFixedStringworkaround-5590:
+  db 00
+
+//Edna (party)
+enmBookFixedStringworkaround-3764:
+  db 00
+
+//Mikleo (party)
+enmBookFixedStringworkaround-C50:
+  db 00
+
+//Sorey (party)
+enmBookFixedStringworkaround+1548:
+  db 00
+
+//Zaveid (party)
+enmBookFixedStringworkaround+3768:
+  db 00
+
+//Dezel (party)
+enmBookFixedStringworkaround-3A84:
+  db 00
+
+//Rose (party)
+enmBookFixedStringworkaround+35C:
+  db 00
+
+//Lailah (party)
+enmBookFixedStringworkaround-20A0:
+  db 00
+
+//??? (Symonne)
+enmBookFixedStringworkaround+54:
+  db 00
+
+//Mountain Troll
+enmBookFixedStringworkaround+24C4:
+  db 00
+
+//Shadow Zaveid
+enmBookFixedStringworkaround+1B00:
+  db 00
+
+//Shadow Rose
+enmBookFixedStringworkaround+15B4:
+  db 00
+
+//Rose
+enmBookFixedStringworkaround+434:
+  db 00
+
+//Shadow Alisha
+enmBookFixedStringworkaround+4A0:
+  db 00
+
+//Shadow Lailah
+enmBookFixedStringworkaround+D10:
+  db 00
+
+//Shadow Mikleo
+enmBookFixedStringworkaround+1108:
+  db 00
+
+//Zaveid
+enmBookFixedStringworkaround+3918:
+  db 00
+
+//Shadow Edna
+enmBookFixedStringworkaround+A20:
+  db 00
+
+//Shadow Sorey
+enmBookFixedStringworkaround+1764:
+  db 00
+
+//Rose (Earth Armatus)
+enmBookFixedStringworkaround-37CC:
+  db 00
+
+//Sorey (Fire Armatus)
+enmBookFixedStringworkaround-2E98:
+  db 00
+
+//Sorey (Water Armatus)
+enmBookFixedStringworkaround-5524:
+  db 00
+
+//Rose (Wind Armatus)
+enmBookFixedStringworkaround+2834:
+  db 00
+
+//Eizen
+enmBookFixedStringworkaround+2F4:
+  db 00
+
+registersymbol(enmBookFixedStringworkaround)
+
+[DISABLE]
+
+unregistersymbol(enmBookFixedStringworkaround)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>9971</ID>
+              <Description>"No Adventure Items DLC installed"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+//Super Star R
+enmBookFixedStringworkaround+1980:
+  db 00
+
+//Super Star G
+enmBookFixedStringworkaround+1A00:
+  db 00
+
+//Gangsta Katz
+enmBookFixedStringworkaround-A18:
+  db 00
+
+//Rowdy Katz
+enmBookFixedStringworkaround-998:
+  db 00
+
+//Bad Katz
+enmBookFixedStringworkaround-A98:
+  db 00
+
+//Super Star S
+enmBookFixedStringworkaround+1A80:
+  db 00
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9973</ID>
+              <Description>"No God Eater DLC installed"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+//Ogre Tailen
+enmBookFixedStringworkaround-29C:
+  db 00
+
+//Chihyu Dragon
+enmBookFixedStringworkaround+2530:
+  db 00
+
+//Vajra
+enmBookFixedStringworkaround+1EE0:
+  db 00
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
