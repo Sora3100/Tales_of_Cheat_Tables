@@ -8,7 +8,7 @@
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 
-aobscanregion(regionCheckMovSpeed, 300000000, 400000000, 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00 00 15 F3 C4 00 60 B4 F0) // should be unique
+aobscanregion(regionCheckMovSpeed, 300000000, 400000000, 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00) // should be unique
 
 registersymbol(regionCheckMovSpeed)
 [DISABLE]
@@ -1277,9 +1277,9 @@ unregistersymbol(regionCheckMovSpeed)
           <AssemblerScript>[ENABLE]
 [DISABLE]
 regionCheckMovSpeed:
-db 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00 00 15 F3 C4 00 60 B4 F0
+db 3F 80 00 00
 regionCheckMovSpeed+AE4:
-db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
+db 3F A6 66 66
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>

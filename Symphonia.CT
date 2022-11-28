@@ -1625,6 +1625,161 @@ dealloc(TSFixBG)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>1420</ID>
+          <Description>"Save Anywhere"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2022-11-27
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(saveCheck,TOS.exe,A0 89 0C C3 01) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  mov al,1
+code:
+//  mov al,[TOS.exe+1830C89]
+  jmp return
+
+saveCheck:
+  jmp newmem
+return:
+registersymbol(saveCheck)
+
+[DISABLE]
+
+saveCheck:
+  db A0 89 0C C3 01
+
+unregistersymbol(saveCheck)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+C39D0
+
+TOS.exe+C399D: 0F B6 C2                       - movzx eax,dl
+TOS.exe+C39A0: 48                             - dec eax
+TOS.exe+C39A1: C7 05 CC 7F D7 01 03 00 00 00  - mov [TOS.exe+1977FCC],00000003
+TOS.exe+C39AB: 89 1D C8 7F D7 01              - mov [TOS.exe+1977FC8],ebx
+TOS.exe+C39B1: C7 05 C0 C0 B1 00 02 00 00 00  - mov [TOS.exe+71C0C0],00000002
+TOS.exe+C39BB: 83 F8 0C                       - cmp eax,0C
+TOS.exe+C39BE: 0F 87 5A 04 00 00              - ja TOS.exe+C3E1E
+TOS.exe+C39C4: FF 24 85 34 4D 4C 00           - jmp dword ptr [eax*4+TOS.exe+C4D34]
+TOS.exe+C39CB: 80 FA 01                       - cmp dl,01
+TOS.exe+C39CE: 75 66                          - jne TOS.exe+C3A36
+// ---------- INJECTING HERE ----------
+TOS.exe+C39D0: A0 89 0C C3 01                 - mov al,[TOS.exe+1830C89]
+// ---------- DONE INJECTING  ----------
+TOS.exe+C39D5: 84 C0                          - test al,al
+TOS.exe+C39D7: 74 51                          - je TOS.exe+C3A2A
+TOS.exe+C39D9: B9 FF FD 00 00                 - mov ecx,0000FDFF
+TOS.exe+C39DE: 66 21 0D 5E 17 C3 01           - and [TOS.exe+183175E],cx
+TOS.exe+C39E5: 80 3D 68 33 B1 00 00           - cmp byte ptr [TOS.exe+713368],00
+TOS.exe+C39EC: 75 48                          - jne TOS.exe+C3A36
+TOS.exe+C39EE: 3C 02                          - cmp al,02
+TOS.exe+C39F0: 75 2F                          - jne TOS.exe+C3A21
+TOS.exe+C39F2: 8B 15 F4 5A D5 01              - mov edx,[TOS.exe+1955AF4]
+TOS.exe+C39F8: 89 96 84 11 00 00              - mov [esi+00001184],edx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1427</ID>
+          <Description>"Run Speed Modifier"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2022-11-28
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(runSpeed,TOS.exe,DD 05 B8 29 88 00 DC C9 D9 C9 D9 1F) // should be unique
+alloc(runSpeedMem,$1000)
+
+label(code)
+label(return)
+
+runSpeedMem+100:
+db 00 00 00 00 00 00 00 40
+runSpeedMem:
+  fld qword ptr [runSpeedMem+100]
+code:
+//  fld qword ptr [TOS.exe+4829B8]
+  jmp return
+runSpeed:
+  jmp runSpeedMem
+  nop
+return:
+registersymbol(runSpeed)
+registersymbol(runSpeedMem)
+
+[DISABLE]
+
+runSpeed:
+  db DD 05 B8 29 88 00
+
+unregistersymbol(runSpeed)
+dealloc(runSpeedMem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+CCF30
+
+TOS.exe+CCF16: 74 14              - je TOS.exe+CCF2C
+TOS.exe+CCF18: D9 07              - fld dword ptr [edi]
+TOS.exe+CCF1A: DD 05 00 40 88 00  - fld qword ptr [TOS.exe+484000]
+TOS.exe+CCF20: DC C9              - fmul st(1),st(0)
+TOS.exe+CCF22: D9 C9              - fxch st(1)
+TOS.exe+CCF24: D9 1F              - fstp dword ptr [edi]
+TOS.exe+CCF26: D8 4E 2C           - fmul dword ptr [esi+2C]
+TOS.exe+CCF29: D9 5E 2C           - fstp dword ptr [esi+2C]
+TOS.exe+CCF2C: D9 EE              - fldz 
+TOS.exe+CCF2E: D9 07              - fld dword ptr [edi]
+// ---------- INJECTING HERE ----------
+TOS.exe+CCF30: DD 05 B8 29 88 00  - fld qword ptr [TOS.exe+4829B8]
+// ---------- DONE INJECTING  ----------
+TOS.exe+CCF36: DC C9              - fmul st(1),st(0)
+TOS.exe+CCF38: D9 C9              - fxch st(1)
+TOS.exe+CCF3A: D9 1F              - fstp dword ptr [edi]
+TOS.exe+CCF3C: D8 4E 2C           - fmul dword ptr [esi+2C]
+TOS.exe+CCF3F: D9 5E 2C           - fstp dword ptr [esi+2C]
+TOS.exe+CCF42: 8D 46 28           - lea eax,[esi+28]
+TOS.exe+CCF45: D9 5E 30           - fstp dword ptr [esi+30]
+TOS.exe+CCF48: E8 63 70 0C 00     - call TOS.exe+193FB0
+TOS.exe+CCF4D: D9 9E 38 09 00 00  - fstp dword ptr [esi+00000938]
+TOS.exe+CCF53: D9 46 28           - fld dword ptr [esi+28]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1430</ID>
+              <Description>"Does not affect the overworld!"</Description>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1428</ID>
+              <Description>"Run Speed"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Double</VariableType>
+              <Address>runSpeedMem+100</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>173</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -4886,6 +5041,13 @@ TOS.exe+120E61: 85 C0                 - test eax,eax
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>1431</ID>
+              <Description>"Game speed related?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Double</VariableType>
+              <Address>TOS.exe+4829B8</Address>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
@@ -5013,7 +5175,12 @@ TOS.exe+120E61: 85 C0                 - test eax,eax
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>artePropPTR</Name>
+      <Address>020E0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>
