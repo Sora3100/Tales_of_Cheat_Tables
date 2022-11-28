@@ -1,5 +1,13 @@
 ### Changelog
 
+#### 2022/11/28
+
+-	New features: Symphonia
+	-	Added a script that allows you to save anywere.
+	-	Added a field run speed modifier (overworld is unaffected)
+	
+-	Fixed a case where the Graces table wouldn't enable under a certain condition	
+
 #### 2022/08/10
 
 -	Added Alisha DLC for the all enemy entries viewer in Zestiria.
