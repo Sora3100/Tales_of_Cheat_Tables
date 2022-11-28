@@ -219,6 +219,8 @@ Features:
  - Party Formation Editor
  - Use different character's EX Skills
  - Advanced Encounter Modifier ported over from GameCube version
+ - Save anywhere
+ - Field run speed modifier
 
  ## Symphonia - Dawn of the New World (PS3)
 Based on the BLUS31172 version of the game.
