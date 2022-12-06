@@ -1,5 +1,9 @@
 ### Changelog
 
+#### 2022/12/06
+
+-	Updated Eternia table to be compatible with the current version of DuckStation.
+
 #### 2022/11/28
 
 -	New features: Symphonia
