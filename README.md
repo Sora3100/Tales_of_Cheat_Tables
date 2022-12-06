@@ -86,7 +86,7 @@ Features:
  ## Eternia (PS1)
 Based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
  
-Emulator used: DuckStation 0.1-4599-ga542fa85 (dev)
+Emulator used: DuckStation 0.1-5406-ge27f259b (dev)
 
 Features:
  - Party Formation Editor
