@@ -263,7 +263,7 @@ Features:
  ## Xillia (PS3)
 Based on the NPUB31136 version of the game.
 
-Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
+Emulator used: rpcs3 0.0.25-14515-02f3583 Alpha
 
 Features: 
  - Party Formation Editor
@@ -288,7 +288,7 @@ Features:
  ## Xillia 2 (PS3)
 Based on the BLUS31397 version of the game.
 
-Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
+Emulator used: rpcs3 0.0.25-14515-02f3583 Alpha
 
 Features: 
  - Party Formation Editor

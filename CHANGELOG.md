@@ -1,5 +1,11 @@
 ### Changelog
 
+#### 2023/01/02
+
+-	Updated Xillia 1 and Xillia 2 scripts to more recent rpcs3 builds (Arte Editor/Multiplayer linking)
+-	Backported Version 2 of the linking script to Xillia 1.
+-	Minor table cleanup.
+
 #### 2022/12/06
 
 -	Updated Eternia table to be compatible with the current version of DuckStation.
