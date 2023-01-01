@@ -3,15 +3,12 @@
   <CheatEntries>
     <CheatEntry>
       <ID>64287</ID>
-      <Description>"Region Check"</Description>
+      <Description>"Enable on the Main Menu"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 aobscanregion(regionCheckEquip, 300000000, 400000000, 42 ? ? ? 42 C8 00 00 42 C8 00 00 42 C8 00 00 42 C8 00 00 42) // should be unique
 aobscanregion(regionCheckFlags, 300000000, 400000000, 46 50 53 5F 53 43 52 5F ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 00)
-
-regionCheckEquip:
-regionCheckFlags:
 
 registersymbol(regionCheckEquip)
 registersymbol(regionCheckFlags)
@@ -7945,8 +7942,6 @@ go to the title screen and freeze all characters values.
           <AssemblerScript>[ENABLE]
 aobscanregion(Gald, 300000000, 400000000,  00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40) // should be unique
 
-Gald:
-
 registersymbol(Gald)
 [DISABLE]
 unregistersymbol(Gald)
@@ -7969,8 +7964,6 @@ unregistersymbol(Gald)
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscanregion(OverlimitGauge, 300000000, 400000000, 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00) // should be unique
-
-OverlimitGauge:
 
 registersymbol(OverlimitGauge)
 [DISABLE]
@@ -8172,52 +8165,6 @@ writeInteger(Address,readInteger(Address) &amp; (~(((1&lt;&lt;BitLength)-1) &lt;
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>63465</ID>
-          <Description>"Difficulty Finder"</Description>
-          <Options moHideChildren="1"/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-aobscanregion(Difficulty, 300000000, 400000000, 00 00 00 E0 00 00 00 00 01 00 00 00 00 00 00 64 00 00 00 00 00 00 00) // should be unique
-
-Difficulty:
-
-registersymbol(Difficulty)
-[DISABLE]
-unregistersymbol(Difficulty)
-</AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>63509</ID>
-              <Description>"READ THIS"</Description>
-              <Color>0000FF</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>/*
-Opening the Options menu resets the Difficulty.
-
-The ??? difficulty may cause some unintended side effects.
-*/
-[ENABLE]
-[DISABLE]
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63266</ID>
-              <Description>"Difficulty"</Description>
-              <DropDownList DisplayValueAsItem="1">0:Easy
-1:Normal
-2:Moderate
-3:Hard
-4:Unknown
-5:???
-</DropDownList>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>Difficulty+14</Address>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
           <ID>67341</ID>
           <Description>"Unlocks"</Description>
           <Options moHideChildren="1"/>
@@ -8226,8 +8173,6 @@ The ??? difficulty may cause some unintended side effects.
 aobscanregion(gradeShop, 300000000, 400000000, 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00)
 
 registersymbol(gradeShop)
-gradeShop:
-
 [DISABLE]
 unregistersymbol(gradeShop)
 </AssemblerScript>
@@ -8638,28 +8583,349 @@ unregistersymbol(gradeShop)
           <CheatEntries>
             <CheatEntry>
               <ID>77909</ID>
-              <Description>"These scripts require RPCS3 0.0.12-10883-92d65ff3 Alpha!"</Description>
+              <Description>"These scripts require RPCS3 0.0.25-14515-02f3583 Alpha!"</Description>
               <Color>FF00FF</Color>
               <GroupHeader>1</GroupHeader>
             </CheatEntry>
             <CheatEntry>
-              <ID>63774</ID>
+              <ID>87180</ID>
               <Description>"Allow Player control while linked"</Description>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>[ENABLE]
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>85846</ID>
+                  <Description>"Version 2 will work depending on whether the character is set to Auto."</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>85847</ID>
+                  <Description>"If the script isn't working properly, just disable the script and activate it again."</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87181</ID>
+                  <Description>"Version 2"</Description>
+                  <Options moAlwaysHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>87157</ID>
+                      <Description>"Player control mode script"</Description>
+                      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : rpcs3.exe
+  Version: 
+  Date   : 2022-12-30
+  Author : thing
 
-aobscan(LinkControl,42 0F 38 F1 94 00 70 27 00 00)
-alloc(newmem,$1000,51D28BDD)
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(controlModes,0F 38 F0 54 1A 08 48 89 55 30 89 8D 74 04 00 00 48 83 C4 28 48 FF E0 BA 08) // should be unique
+alloc(newmem,$1000)
+
+alloc(ctrlModes,$1000)
+registersymbol(ctrlModes)
+define(ctrlChar1,ctrlModes)
+registersymbol(ctrlChar1)
+define(ctrlChar2,ctrlModes+8)
+registersymbol(ctrlChar2)
+define(ctrlChar3,ctrlModes+10)
+registersymbol(ctrlChar3)
+define(ctrlChar4,ctrlModes+18)
+registersymbol(ctrlChar4)
 
 label(code)
-label(partyMember)
 label(return)
+
 newmem:
-  cmp [rax+r8],1 //This address decides whether you are an enemy or a player
+  push rax
+  pushf
+  mov rax,rdx
+  add rax,rbx
+  add rax,08
+  cmp [ctrlChar4],0
+  jne code
+  cmp [ctrlChar1],rax
+  je code
+  cmp [ctrlChar2],rax
+  je code
+  cmp [ctrlChar3],rax
+  je code
+  cmp [ctrlChar4],rax
+  je code
+  cmp [ctrlChar1],0
+  jne @f
+  mov [ctrlChar1],rax
+  jmp code
+  @@:
+  cmp [ctrlChar2],0
+  jne @f
+  mov [ctrlChar2],rax
+  jmp code
+  @@:
+  cmp [ctrlChar3],0
+  jne @f
+  mov [ctrlChar3],rax
+  jmp code
+  @@:
+  cmp [ctrlChar4],0
+  jne @f
+  mov [ctrlChar4],rax
+
+code:
+  popf
+  pop rax
+  movbe edx,[rdx+rbx+08]
+  mov [rbp+30],rdx
+  mov [rbp+00000474],ecx
+  jmp return
+
+controlModes:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(controlModes)
+
+[DISABLE]
+
+controlModes:
+  db 0F 38 F0 54 1A 08 48 89 55 30 89 8D 74 04 00 00
+
+unregistersymbol(controlModes)
+unregistersymbol(ctrlModes)
+unregistersymbol(ctrlChar1)
+unregistersymbol(ctrlChar2)
+unregistersymbol(ctrlChar3)
+unregistersymbol(ctrlChar4)
+dealloc(newmem)
+dealloc(ctrlModes)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 100E8AFC5
+
+100E8AF98: 75 42                 - jne 100E8AFDC
+100E8AF9A: 48 8B 8D 60 04 00 00  - mov rcx,[rbp+00000460]
+100E8AFA1: 4D 8B 64 4D 00        - mov r12,[r13+rcx*2+00]
+100E8AFA6: B0 30                 - mov al,30
+100E8AFA8: C4 C2 F8 F5 C4        - bzhi raxr12,rax
+100E8AFAD: 49 C1 EC 23           - shr r12,23
+100E8AFB1: 48 8B 55 30           - mov rdx,[rbp+30]
+100E8AFB5: 0F 38 F0 14 13        - movbe edx,[rbx+rdx]
+100E8AFBA: 41 81 E4 00 E0 FF 1F  - and r12d,1FFFE000
+100E8AFC1: 48 89 55 60           - mov [rbp+60],rdx
+// ---------- INJECTING HERE ----------
+100E8AFC5: 0F 38 F0 54 1A 08     - movbe edx,[rdx+rbx+08]
+// ---------- DONE INJECTING  ----------
+100E8AFCB: 48 89 55 30           - mov [rbp+30],rdx
+100E8AFCF: 89 8D 74 04 00 00     - mov [rbp+00000474],ecx
+100E8AFD5: 48 83 C4 28           - add rsp,28
+100E8AFD9: 48 FF E0              - jmp rax
+100E8AFDC: BA 08 36 23 00        - mov edx,rpcs3.exe+223608
+100E8AFE1: 48 89 E9              - mov rcx,rbp
+100E8AFE4: E8 30 F6 01 00        - call 100EAA619
+100E8AFE9: 48 83 C4 28           - add rsp,28
+100E8AFED: C3                    - ret 
+100E8AFEE: 66 90                 - nop 2
+}
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>87158</ID>
+                          <Description>"Player linking script"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : rpcs3.exe
+  Version:
+  Date   : 2022-12-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  push rcx
+  push rsi
+  cmp [rax+rbx],1 //This address decides whether you are an enemy or a player
   je partyMember
 code:
-  bswap edx
-  mov [rax+r8+00002770],edx
+  movbe [rax+rbx+00002770],edx
+  pop rsi
+  pop rcx
+  and r12d,1FFFE000
+  jmp return
+
+partyMember:
+  //check if party member, then move to approporiate slot
+  //party slot 1
+  mov rsi,regionCheckEquip-114
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot1
+  //party slot 2
+  mov rsi,regionCheckEquip-110
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot2
+  //party slot 3
+  mov rsi,regionCheckEquip-10C
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot3
+  //party slot 4
+  mov rsi,regionCheckEquip-108
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot4
+  jmp code
+
+slot1:
+  mov esi,ctrlChar1
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot2:
+  mov esi,ctrlChar2
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot3:
+  mov esi,ctrlChar3
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot4:
+  mov esi,ctrlChar4
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+LinkControl:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(LinkControl)
+
+[DISABLE]
+
+LinkControl:
+  db 0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F
+
+unregistersymbol(LinkControl)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 100DDBDB8
+
+100DDBD90: 48 83 EC 28                    - sub rsp,28
+100DDBD94: 83 7D 14 00                    - cmp dword ptr [rbp+14],00
+100DDBD98: 75 66                          - jne 100DDBE00
+100DDBD9A: 48 8B 8D 60 04 00 00           - mov rcx,[rbp+00000460]
+100DDBDA1: 4D 8B 64 4D 00                 - mov r12,[r13+rcx*2+00]
+100DDBDA6: B0 30                          - mov al,30
+100DDBDA8: C4 42 F8 F5 C4                 - bzhi r8r12,rax
+100DDBDAD: 49 C1 EC 23                    - shr r12,23
+100DDBDB1: 8B 55 38                       - mov edx,[rbp+38]
+100DDBDB4: 48 8B 45 30                    - mov rax,[rbp+30]
+// ---------- INJECTING HERE ----------
+100DDBDB8: 0F 38 F1 94 18 70 27 00 00     - movbe [rax+rbx+00002770],edx
+// ---------- DONE INJECTING  ----------
+100DDBDC1: 41 81 E4 00 E0 FF 1F           - and r12d,1FFFE000
+100DDBDC8: 48 8D 90 48 42 00 00           - lea rdx,[rax+00004248]
+100DDBDCF: 44 0F 38 F0 B4 03 48 42 00 00  - movbe r14d,[rbx+rax+00004248]
+100DDBDD9: 4C 89 75 38                    - mov [rbp+38],r14
+100DDBDDD: 48 89 55 30                    - mov [rbp+30],rdx
+100DDBDE1: 49 83 CE 01                    - or r14,01
+100DDBDE5: 4C 89 75 18                    - mov [rbp+18],r14
+100DDBDE9: 44 0F 38 F1 B4 03 48 42 00 00  - movbe [rbx+rax+00004248],r14d
+100DDBDF3: 89 8D 74 04 00 00              - mov [rbp+00000474],ecx
+100DDBDF9: 48 83 C4 28                    - add rsp,28
+}
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>85849</ID>
+                  <Description>"Version 1 will always force player control."</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87182</ID>
+                  <Description>"Version 1"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : rpcs3.exe
+  Version:
+  Date   : 2022-12-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  cmp [rax+rbx],1 //This address decides whether you are an enemy or a player
+  je partyMember
+code:
+  movbe [rax+rbx+00002770],edx
+  and r12d,1FFFE000
   jmp return
 
 partyMember:
@@ -8670,121 +8936,128 @@ LinkControl:
   jmp newmem
   nop
   nop
-  nop
-  nop
-  nop
+
 return:
 registersymbol(LinkControl)
 
 [DISABLE]
 
 LinkControl:
-  db 42 0F 38 F1 94 00 70 27 00 00
+  db 0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F
 
 unregistersymbol(LinkControl)
 dealloc(newmem)
 
 {
-// ORIGINAL CODE - INJECTION POINT: 51D28BDD
+// ORIGINAL CODE - INJECTION POINT: 100DDBDB8
 
-51D28BB0: 83 79 1C 00                    -  cmp dword ptr [rcx+1C],00
-51D28BB4: 75 66                          -  jne 51D28C1C
-51D28BB6: 4C 8B 05 43 84 03 00           -  mov r8,[51D61000]
-51D28BBD: 4C 8B 89 60 04 00 00           -  mov r9,[rcx+00000460]
-51D28BC4: 4C 89 C8                       -  mov rax,r9
-51D28BC7: 48 83 E0 FE                    -  and rax,-02
-51D28BCB: 48 8B 15 36 84 03 00           -  mov rdx,[51D61008]
-51D28BD2: 44 8B 14 42                    -  mov r10d,[rdx+rax*2]
-51D28BD6: 8B 51 40                       -  mov edx,[rcx+40]
-51D28BD9: 48 8B 41 38                    -  mov rax,[rcx+38]
+100DDBD90: 48 83 EC 28                    - sub rsp,28
+100DDBD94: 83 7D 14 00                    - cmp dword ptr [rbp+14],00
+100DDBD98: 75 66                          - jne 100DDBE00
+100DDBD9A: 48 8B 8D 60 04 00 00           - mov rcx,[rbp+00000460]
+100DDBDA1: 4D 8B 64 4D 00                 - mov r12,[r13+rcx*2+00]
+100DDBDA6: B0 30                          - mov al,30
+100DDBDA8: C4 42 F8 F5 C4                 - bzhi r8r12,rax
+100DDBDAD: 49 C1 EC 23                    - shr r12,23
+100DDBDB1: 8B 55 38                       - mov edx,[rbp+38]
+100DDBDB4: 48 8B 45 30                    - mov rax,[rbp+30]
 // ---------- INJECTING HERE ----------
-51D28BDD: 42 0F 38 F1 94 00 70 27 00 00  -  movbe [rax+r8+00002770],edx
+100DDBDB8: 0F 38 F1 94 18 70 27 00 00     - movbe [rax+rbx+00002770],edx
 // ---------- DONE INJECTING  ----------
-51D28BE7: 4C 8D 98 48 42 00 00           -  lea r11,[rax+00004248]
-51D28BEE: 41 0F 38 F0 94 00 48 42 00 00  -  movbe edx,[r8+rax+00004248]
-51D28BF8: 48 89 51 40                    -  mov [rcx+40],rdx
-51D28BFC: 4C 89 59 38                    -  mov [rcx+38],r11
-51D28C00: 48 83 CA 01                    -  or rdx,01
-51D28C04: 48 89 51 20                    -  mov [rcx+20],rdx
-51D28C08: 41 0F 38 F1 94 00 48 42 00 00  -  movbe [r8+rax+00004248],edx
-51D28C12: 44 89 89 74 04 00 00           -  mov [rcx+00000474],r9d
-51D28C19: 49 FF E2                       -  jmp r10
-51D28C1C: BA 70 96 21 00                 -  mov edx,rpcs3.exe+209670
+100DDBDC1: 41 81 E4 00 E0 FF 1F           - and r12d,1FFFE000
+100DDBDC8: 48 8D 90 48 42 00 00           - lea rdx,[rax+00004248]
+100DDBDCF: 44 0F 38 F0 B4 03 48 42 00 00  - movbe r14d,[rbx+rax+00004248]
+100DDBDD9: 4C 89 75 38                    - mov [rbp+38],r14
+100DDBDDD: 48 89 55 30                    - mov [rbp+30],rdx
+100DDBDE1: 49 83 CE 01                    - or r14,01
+100DDBDE5: 4C 89 75 18                    - mov [rbp+18],r14
+100DDBDE9: 44 0F 38 F1 B4 03 48 42 00 00  - movbe [rbx+rax+00004248],r14d
+100DDBDF3: 89 8D 74 04 00 00              - mov [rbp+00000474],ecx
+100DDBDF9: 48 83 C4 28                    - add rsp,28
 }
 </AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>67634</ID>
+              <ID>87183</ID>
               <Description>"Arte Editor (Hover over the Arte)"</Description>
               <Options moHideChildren="1"/>
               <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : rpcs3_old.exe
+              <AssemblerScript>{ Game   : rpcs3.exe
   Version: 
-  Date   : 2021-06-13
-  Author : something
+  Date   : 2022-12-30
+  Author : thing
 
   This script does blah blah blah
 }
 
 [ENABLE]
 
-aobscan(arteEditHover,0F 38 F0 44 02 18 48 89 81 18 01 00 00 E9 6A) // should be unique
-alloc(newmem,$1000,arteEditHover)
+aobscan(arteEditHover,30 48 89 45 68 0F 38 F0 44 18 18 48) // should be unique
+alloc(newmem,$1000)
 globalalloc(currArte,4)
 
 label(code)
 label(return)
 
+//Arte element is used to make R2 menu work as well
+
 newmem:
-push rbx
-lea rbx,[rdx+rax+18]
-mov [currArte],rbx
-pop rbx
+  push rcx
+  lea rcx,[rax+rbx+18]
+  mov [currArte],rcx
+  pop rcx
 code:
-  movbe eax,[rdx+rax+18]
+  movbe eax,[rax+rbx+18]
+  mov [rbp+00000110],rax
+  add rsp,28
   jmp return
 
-arteEditHover:
+arteEditHover+05:
   jmp newmem
   nop
+  nop
+  nop
+
 return:
 registersymbol(arteEditHover)
 
 [DISABLE]
 
-arteEditHover:
-  db 0F 38 F0 44 02 18
+arteEditHover+05:
+  db 0F 38 F0 44 18 18 48 89 85 10 01 00 00 48 83 C4 28
 
 unregistersymbol(arteEditHover)
 dealloc(newmem)
 dealloc(currArte)
 
 {
-// ORIGINAL CODE - INJECTION POINT: 7760C6E4
+// ORIGINAL CODE - INJECTION POINT: 12061F8C1
 
-7760C6B4: 0F 38 F0 44 02 08     - movbe eax,[rdx+rax+08]
-7760C6BA: 48 89 81 18 01 00 00  - mov [rcx+00000118],rax
-7760C6C1: E9 9A FE FF FF        - jmp 7760C560
-7760C6C6: BA F4 B0 36 00        - mov edx,rpcs3_old.exe+35B0F4
-7760C6CB: E9 D9 F8 03 00        - jmp 7764BFA9
-7760C6D0: 83 79 1C 00           - cmp dword ptr [rcx+1C],00
-7760C6D4: 75 20                 - jne 7760C6F6
-7760C6D6: 48 8B 05 23 99 06 00  - mov rax,[77676000]
-7760C6DD: 8B 51 38              - mov edx,[rcx+38]
-7760C6E0: 48 89 51 70           - mov [rcx+70],rdx
+12061F89C: 48 89 E9              - mov rcx,rbp
+12061F89F: E8 A7 04 06 00        - call 12067FD4B
+12061F8A4: 48 83 C4 28           - add rsp,28
+12061F8A8: C3                    - ret 
+12061F8A9: 0F 1F 80 00 00 00 00  - nop dword ptr [rax+00000000]
+12061F8B0: 48 83 EC 28           - sub rsp,28
+12061F8B4: 83 7D 14 00           - cmp dword ptr [rbp+14],00
+12061F8B8: 75 1D                 - jne 12061F8D7
+12061F8BA: 8B 45 30              - mov eax,[rbp+30]
+12061F8BD: 48 89 45 68           - mov [rbp+68],rax
 // ---------- INJECTING HERE ----------
-7760C6E4: 0F 38 F0 44 02 18     - movbe eax,[rdx+rax+18]
+12061F8C1: 0F 38 F0 44 18 18     - movbe eax,[rax+rbx+18]
 // ---------- DONE INJECTING  ----------
-7760C6EA: 48 89 81 18 01 00 00  - mov [rcx+00000118],rax
-7760C6F1: E9 6A FE FF FF        - jmp 7760C560
-7760C6F6: BA 00 B1 36 00        - mov edx,rpcs3_old.exe+35B100
-7760C6FB: E9 B7 F8 03 00        - jmp 7764BFB7
-7760C700: 83 79 1C 00           - cmp dword ptr [rcx+1C],00
-7760C704: 75 53                 - jne 7760C759
-7760C706: 8B 41 38              - mov eax,[rcx+38]
-7760C709: 48 89 81 80 00 00 00  - mov [rcx+00000080],rax
-7760C710: 83 B9 10 01 00 00 00  - cmp dword ptr [rcx+00000110],00
-7760C717: 0F 98 81 24 04 00 00  - sets byte ptr [rcx+00000424]
+12061F8C7: 48 89 85 10 01 00 00  - mov [rbp+00000110],rax
+12061F8CE: 48 83 C4 28           - add rsp,28
+12061F8D2: E9 49 FE FF FF        - jmp 12061F720
+12061F8D7: BA 00 B1 36 00        - mov edx,rpcs3.exe+35B100
+12061F8DC: 48 89 E9              - mov rcx,rbp
+12061F8DF: E8 75 04 06 00        - call 12067FD59
+12061F8E4: 48 83 C4 28           - add rsp,28
+12061F8E8: C3                    - ret 
+12061F8E9: 0F 1F 80 00 00 00 00  - nop dword ptr [rax+00000000]
+12061F8F0: 48 83 EC 28           - sub rsp,28
 }
 </AssemblerScript>
               <CheatEntries>
@@ -8965,7 +9238,6 @@ dealloc(currArte)
 6:Psyche
 </DropDownList>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <Color>000000</Color>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>currArte</Address>
@@ -8977,7 +9249,6 @@ dealloc(currArte)
                   <ID>67653</ID>
                   <Description>"Sub-stat multiplier"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <Color>000000</Color>
                   <VariableType>Custom</VariableType>
                   <CustomType>Float Big Endian</CustomType>
                   <Address>currArte</Address>
@@ -9512,9 +9783,6 @@ dealloc(currArte)
           <AssemblerScript>[ENABLE]
 aobscanregion(gaiusmuzetEncounter, 300000000, 400000000, 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 37 00) // should be unique
 aobscanregion(gaiusmuzetEncounterValues, 300000000, 400000000, 22 F1 00 00 22 F9 00 00 00 00 00 00 00 00 00 03 00 02 59 A0 00 00 00 00 00 00 00 00 00 00 00 00)
-
-gaiusmuzetEncounter:
-gaiusmuzetEncounterValues:
 
 registersymbol(gaiusmuzetEncounter)
 registersymbol(gaiusmuzetEncounterValues)
@@ -14028,8 +14296,6 @@ unregistersymbol(fieldMovSpeed)
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscanregion(inventory, regionCheckEquip, 400000000, 53 54 52 5F 44 4F 57 4E 4C 4F 41 44 43 4F 4E 54 45 4E 54 53 5F 49 54 45 4D 5F 44 41 54 41 00) // should be unique
-
-inventory:
 
 registersymbol(inventory)
 [DISABLE]
@@ -22913,91 +23179,318 @@ unregistersymbol(inventory)
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>62787</ID>
-              <Description>"Multiplayer"</Description>
-              <Options moHideChildren="1"/>
-              <DropDownList DisplayValueAsItem="1">0:Unlinked
+                <CheatEntry>
+                  <ID>69860</ID>
+                  <Description>"dropdown: Link color"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:Red
+2:Blue
+3:Green
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>69859</ID>
+                  <Description>"dropdown: Link state"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Unlinked
 1:Linked, Player controlled
 2:Linked, AI controlled
 </DropDownList>
-              <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87162</ID>
+              <Description>"Multiplayer debug"</Description>
+              <Options moHideChildren="1"/>
               <GroupHeader>1</GroupHeader>
-              <Address>regionCheckEquip+2724</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>62789</ID>
-                  <Description>"READ THIS"</Description>
-                  <Color>0000FF</Color>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>/*
-Please only use this if you want the AI controlled characters to use linked attacks properly or if both scripts fail.
-Instructions:
-Set the Leader character's value to "Linked, Player controlled"
-Set the Following character's value to "Linked, AI controlled"
-
-If both scripts failed, then follow this:
-Set a hotkey (preferably seperate for each) for every character
-with the value of 1.
-Link to a character normally in-game.
-Press hotkey to switch mid-fight.
-
-Note, that when using this method, linking to a
-character will lose control for a second.
-*/
-[ENABLE]
-[DISABLE]
-</AssemblerScript>
+                  <ID>69855</ID>
+                  <Description>"Linking"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>regionCheckEquip+2724</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>69856</ID>
+                      <Description>"Jude"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>69857</ID>
+                          <Description>"Link state"</Description>
+                          <DropDownListLink>dropdown: Link state</DropDownListLink>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>69861</ID>
+                          <Description>"Linked to"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>69862</ID>
+                          <Description>"Link color"</Description>
+                          <DropDownListLink>dropdown: Link color</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>69867</ID>
+                      <Description>"Milla"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+4390</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>69868</ID>
+                          <Description>"Link state"</Description>
+                          <DropDownListLink>dropdown: Link state</DropDownListLink>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>69869</ID>
+                          <Description>"Linked to"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>69870</ID>
+                          <Description>"Link color"</Description>
+                          <DropDownListLink>dropdown: Link color</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>69863</ID>
+                      <Description>"Alvin"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+4390*2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>69864</ID>
+                          <Description>"Link state"</Description>
+                          <DropDownListLink>dropdown: Link state</DropDownListLink>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>69865</ID>
+                          <Description>"Linked to"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>69866</ID>
+                          <Description>"Link color"</Description>
+                          <DropDownListLink>dropdown: Link color</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87168</ID>
+                      <Description>"Elize"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+4390*3</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>87169</ID>
+                          <Description>"Link state"</Description>
+                          <DropDownListLink>dropdown: Link state</DropDownListLink>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87170</ID>
+                          <Description>"Linked to"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87171</ID>
+                          <Description>"Link color"</Description>
+                          <DropDownListLink>dropdown: Link color</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87172</ID>
+                      <Description>"Rowen"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+4390*4</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>87173</ID>
+                          <Description>"Link state"</Description>
+                          <DropDownListLink>dropdown: Link state</DropDownListLink>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87174</ID>
+                          <Description>"Linked to"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87175</ID>
+                          <Description>"Link color"</Description>
+                          <DropDownListLink>dropdown: Link color</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87176</ID>
+                      <Description>"Leia"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+4390*5</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>87177</ID>
+                          <Description>"Link state"</Description>
+                          <DropDownListLink>dropdown: Link state</DropDownListLink>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87178</ID>
+                          <Description>"Linked to"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>87179</ID>
+                          <Description>"Link color"</Description>
+                          <DropDownListLink>dropdown: Link color</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>62788</ID>
-                  <Description>"Jude"</Description>
-                  <DropDownListLink>Multiplayer</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+0</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>62798</ID>
-                  <Description>"Milla"</Description>
-                  <DropDownListLink>Multiplayer</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+4390</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>62797</ID>
-                  <Description>"Alvin"</Description>
-                  <DropDownListLink>Multiplayer</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+4390*2</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>62796</ID>
-                  <Description>"Elize"</Description>
-                  <DropDownListLink>Multiplayer</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+4390*3</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>62795</ID>
-                  <Description>"Rowen"</Description>
-                  <DropDownListLink>Multiplayer</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+4390*4</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>62794</ID>
-                  <Description>"Leia"</Description>
-                  <DropDownListLink>Multiplayer</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+4390*5</Address>
+                  <ID>87161</ID>
+                  <Description>"Control"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Auto
+1:Semi-Auto
+2:Manual
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>87163</ID>
+                      <Description>"Slot 1"</Description>
+                      <DropDownListLink>Control</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>ctrlChar1</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87166</ID>
+                      <Description>"Slot 2"</Description>
+                      <DropDownListLink>Control</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>ctrlChar2</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87165</ID>
+                      <Description>"Slot 3"</Description>
+                      <DropDownListLink>Control</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>ctrlChar3</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87164</ID>
+                      <Description>"Slot 4"</Description>
+                      <DropDownListLink>Control</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>ctrlChar4</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -23660,9 +24153,6 @@ character will lose control for a second.
 aobscanregion(wingulEncounter, 300000000, 400000000, E4 B8 96 E7 B2 BE E3 83 8E E9 80 94 EF BC 9A E3 82 A6 E3 82 A3 E3 83 B3 E3 82 AC E3 83 AB E6 88 A6 00) // should be unique
 aobscanregion(wingulEncounterStage, 300000000, 400000000, 00 4D 41 50 5F 42 54 4C 5F 46 4E 4C 5F 30 30 30 00)
 
-wingulEncounter:
-wingulEncounterStage:
-
 registersymbol(wingulEncounter)
 registersymbol(wingulEncounterStage)
 [DISABLE]
@@ -23717,8 +24207,6 @@ unregistersymbol(wingulEncounterStage)
 aobscanregion(arteEdit, 300000000, 400000000, 00 00 00 00 00 00 00 04 00 03 88 C0 00 00 00 00) // should be unique
 registersymbol(arteEdit)
 globalAlloc(arteNum,4)
-
-arteEdit:
 
 [DISABLE]
 unregistersymbol(arteEdit)
@@ -28636,6 +29124,50 @@ dealloc(skillPropNum)
                       <Address>skillPropEdit+8+4*1B+B+78*[skillPropNum]</Address>
                     </CheatEntry>
                   </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63465</ID>
+              <Description>"Difficulty Finder"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(Difficulty, 300000000, 400000000, 00 00 00 E0 00 00 00 00 01 00 00 00 00 00 00 64 00 00 00 00 00 00 00) // should be unique
+
+registersymbol(Difficulty)
+[DISABLE]
+unregistersymbol(Difficulty)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>63509</ID>
+                  <Description>"READ THIS"</Description>
+                  <Color>0000FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>/*
+Opening the Options menu resets the Difficulty.
+
+The ??? difficulty may cause some unintended side effects.
+*/
+[ENABLE]
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63266</ID>
+                  <Description>"Difficulty"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Easy
+1:Normal
+2:Moderate
+3:Hard
+4:Unknown
+5:???
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>Difficulty+14</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
