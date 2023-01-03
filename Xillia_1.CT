@@ -8751,7 +8751,7 @@ dealloc(ctrlModes)
 
 [ENABLE]
 
-aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00) // should be unique
+aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F 48 8D 90 48 42 00 00) // should be unique
 alloc(newmem,$1000)
 
 label(code)
@@ -8856,7 +8856,7 @@ registersymbol(LinkControl)
 [DISABLE]
 
 LinkControl:
-  db 0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F
+  db 0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F 48 8D 90 48 42 00 00
 
 unregistersymbol(LinkControl)
 dealloc(newmem)
@@ -8914,7 +8914,7 @@ dealloc(newmem)
 
 [ENABLE]
 
-aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00) // should be unique
+aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F 48 8D 90 48 42 00 00) // should be unique
 alloc(newmem,$1000)
 
 label(code)
@@ -8943,7 +8943,7 @@ registersymbol(LinkControl)
 [DISABLE]
 
 LinkControl:
-  db 0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F
+  db 0F 38 F1 94 18 70 27 00 00 41 81 E4 00 E0 FF 1F 48 8D 90 48 42 00 00
 
 unregistersymbol(LinkControl)
 dealloc(newmem)
