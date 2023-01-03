@@ -1,5 +1,9 @@
 ### Changelog
 
+#### 2023/01/03
+
+-	Fixed some possible crashes in the linking scripts for Xillia 1 and Xillia 2.
+
 #### 2023/01/02
 
 -	Updated Xillia 1 and Xillia 2 scripts to more recent rpcs3 builds (Arte Editor/Multiplayer linking)
