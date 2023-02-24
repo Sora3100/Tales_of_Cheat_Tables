@@ -1,5 +1,9 @@
 ### Changelog
 
+#### 2023/02/24
+
+-	Added a rudimentary Ludger -> Victor script
+
 #### 2023/01/03
 
 -	Fixed some possible crashes in the linking scripts for Xillia 1 and Xillia 2.
