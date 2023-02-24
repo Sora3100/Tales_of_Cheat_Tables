@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>82545</ID>
@@ -33088,6 +33088,95 @@ arteData_source-341C+18*9+8:
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>89738</ID>
+                  <Description>"--&gt; Victor"</Description>
+                  <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89739</ID>
+                      <Description>"Full Character"</Description>
+                      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                      <Color>FF00FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89740</ID>
+                          <Description>"Model"</Description>
+                          <Options moHideChildren="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>[ENABLE]
+
+//Model
+enmData_source+7A0D0:
+  db 43 44 46 5F 43 48 52 5F 56 54 52 5F 35 30 30 5F 53 59 53 5F 30 30 30 00
+
+[DISABLE]
+
+//Model
+enmData_source+7A0D0:
+  db 00
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89746</ID>
+                          <Description>"Voice"</Description>
+                          <Options moHideChildren="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>[ENABLE]
+
+//Voice
+enmData_source+7A0D0+E0:
+  db 56 42 42 5F 45 4E 50 43 5F 56 54 52 5F 30 30 30 5F 41 00
+
+[DISABLE]
+
+//Voice
+enmData_source+7A0D0+E0:
+  db 56 42 42 5F 50 43 5F 52 55 54 5F 30 30 30 5F 44 00
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89750</ID>
+                          <Description>"Chromatus model"</Description>
+                          <Options moHideChildren="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>[ENABLE]
+
+//Model
+enmData_source+7A0D0+A0:
+  db 43 44 46 5F 43 48 52 5F 56 54 52 5F 35 30 31 5F 53 59 53 5F 30 30 30 00
+
+[DISABLE]
+
+//Model
+enmData_source+7A0D0+A0:
+  db 00
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>89751</ID>
+                          <Description>"Chromatus voice"</Description>
+                          <Options moHideChildren="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>[ENABLE]
+
+//Voice
+enmData_source+7A0D0+C0:
+  db 56 42 42 5F 45 4E 50 43 5F 56 54 52 5F 30 30 30 5F 41 00
+
+[DISABLE]
+
+//Voice
+enmData_source+7A0D0+C0:
+  db 56 42 42 5F 50 43 5F 52 55 54 5F 30 30 30 5F 41 00
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -62231,8 +62320,6 @@ character will lose control for a second.
                   <AssemblerScript>[ENABLE]
 aobscanregion(enmData, 300000000, 400000000, 00 00 00 09 00 00 00 09 00 04 30 1C 00 00 00 00 00 04 30 28 00 04 30 34) // should be unique
 
-enmData:
-
 registersymbol(enmData)
 [DISABLE]
 unregistersymbol(enmData)
@@ -62255,7 +62342,7 @@ unregistersymbol(enmData)
                           <Address>+0</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89357</ID>
+                          <ID>89748</ID>
                           <Description>"Player ID"</Description>
                           <DropDownListLink>Party Formation</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -63343,6 +63430,16 @@ unregistersymbol(enmData)
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>+1DC</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>89749</ID>
+                              <Description>"Chromatus voice offset"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>4 Byte Big Endian</CustomType>
+                              <Address>+430e7</Address>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>82542</ID>
