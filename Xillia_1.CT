@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>64287</ID>
@@ -8589,10 +8589,16 @@ unregistersymbol(gradeShop)
             </CheatEntry>
             <CheatEntry>
               <ID>87180</ID>
-              <Description>"Allow Player control while linked"</Description>
+              <Description>"Allow Player control while linked (Intel)"</Description>
               <Options moHideChildren="1"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
+                <CheatEntry>
+                  <ID>87193</ID>
+                  <Description>"If this doesn't work, please try the "AMD" version!"</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
                 <CheatEntry>
                   <ID>85846</ID>
                   <Description>"Version 2 will work depending on whether the character is set to Auto."</Description>
@@ -8975,6 +8981,318 @@ dealloc(newmem)
 100DDBDF3: 89 8D 74 04 00 00              - mov [rbp+00000474],ecx
 100DDBDF9: 48 83 C4 28                    - add rsp,28
 }
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87184</ID>
+              <Description>"Allow Player control while linked (AMD)"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87192</ID>
+                  <Description>"If this doesn't work, please try the "Intel" version!"</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87185</ID>
+                  <Description>"Version 2 will work depending on whether the character is set to Auto."</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87186</ID>
+                  <Description>"If the script isn't working properly, just disable the script and activate it again."</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87187</ID>
+                  <Description>"Version 2"</Description>
+                  <Options moAlwaysHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>87188</ID>
+                      <Description>"Player control mode script"</Description>
+                      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : rpcs3.exe
+  Version: 
+  Date   : 2022-12-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(controlModes,0F 38 F0 54 1A 08 49 C1 E4 0D 48 89 55 30 89 8D 74 04 00 00 48 83 C4 28 48 FF E0 BA 08)
+alloc(newmem,$1000)
+
+alloc(ctrlModes,$1000)
+registersymbol(ctrlModes)
+define(ctrlChar1,ctrlModes)
+registersymbol(ctrlChar1)
+define(ctrlChar2,ctrlModes+8)
+registersymbol(ctrlChar2)
+define(ctrlChar3,ctrlModes+10)
+registersymbol(ctrlChar3)
+define(ctrlChar4,ctrlModes+18)
+registersymbol(ctrlChar4)
+
+label(code)
+label(return)
+
+newmem:
+  push rax
+  pushf
+  mov rax,rdx
+  add rax,rbx
+  add rax,08
+  cmp [ctrlChar4],0
+  jne code
+  cmp [ctrlChar1],rax
+  je code
+  cmp [ctrlChar2],rax
+  je code
+  cmp [ctrlChar3],rax
+  je code
+  cmp [ctrlChar4],rax
+  je code
+  cmp [ctrlChar1],0
+  jne @f
+  mov [ctrlChar1],rax
+  jmp code
+  @@:
+  cmp [ctrlChar2],0
+  jne @f
+  mov [ctrlChar2],rax
+  jmp code
+  @@:
+  cmp [ctrlChar3],0
+  jne @f
+  mov [ctrlChar3],rax
+  jmp code
+  @@:
+  cmp [ctrlChar4],0
+  jne @f
+  mov [ctrlChar4],rax
+
+code:
+  popf
+  pop rax
+  movbe edx,[rdx+rbx+08]
+  shl r12,0D
+  mov [rbp+30],rdx
+  jmp return
+
+controlModes:
+  jmp newmem
+
+return:
+registersymbol(controlModes)
+
+[DISABLE]
+
+controlModes:
+  db 0F 38 F0 54 1A 08 49 C1 E4 0D 48 89 55 30 89 8D 74 04 00 00 48 83 C4 28 48 FF E0 BA 08
+
+unregistersymbol(controlModes)
+unregistersymbol(ctrlModes)
+unregistersymbol(ctrlChar1)
+unregistersymbol(ctrlChar2)
+unregistersymbol(ctrlChar3)
+unregistersymbol(ctrlChar4)
+dealloc(newmem)
+dealloc(ctrlModes)
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>87189</ID>
+                          <Description>"Player linking script"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : rpcs3.exe
+  Version:
+  Date   : 2022-12-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00 48 8D 90 48 42 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  push rcx
+  push rsi
+  cmp [rax+rbx],1 //This address decides whether you are an enemy or a player
+  je partyMember
+code:
+  movbe [rax+rbx+00002770],edx
+  pop rsi
+  pop rcx
+  lea rdx,[rax+00004248]
+  jmp return
+
+partyMember:
+  //check if party member, then move to approporiate slot
+  //party slot 1
+  mov rsi,regionCheckEquip-114
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot1
+  //party slot 2
+  mov rsi,regionCheckEquip-110
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot2
+  //party slot 3
+  mov rsi,regionCheckEquip-10C
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot3
+  //party slot 4
+  mov rsi,regionCheckEquip-108
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,04
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot4
+  jmp code
+
+slot1:
+  mov esi,ctrlChar1
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot2:
+  mov esi,ctrlChar2
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot3:
+  mov esi,ctrlChar3
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot4:
+  mov esi,ctrlChar4
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+LinkControl:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(LinkControl)
+
+[DISABLE]
+
+LinkControl:
+  db 0F 38 F1 94 18 70 27 00 00 48 8D 90 48 42 00 00
+
+unregistersymbol(LinkControl)
+dealloc(newmem)
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87190</ID>
+                  <Description>"Version 1 will always force player control."</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87191</ID>
+                  <Description>"Version 1"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : rpcs3.exe
+  Version:
+  Date   : 2022-12-30
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(LinkControl,0F 38 F1 94 18 70 27 00 00 48 8D 90 48 42 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  cmp [rax+rbx],1 //This address decides whether you are an enemy or a player
+  je partyMember
+code:
+  movbe [rax+rbx+00002770],edx
+  lea rdx,[rax+00004248]
+  jmp return
+
+partyMember:
+  mov edx,1
+  jmp code
+
+LinkControl:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(LinkControl)
+
+[DISABLE]
+
+LinkControl:
+  db 0F 38 F1 94 18 70 27 00 00 48 8D 90 48 42 00 00
+
+unregistersymbol(LinkControl)
+dealloc(newmem)
 </AssemblerScript>
                 </CheatEntry>
               </CheatEntries>
@@ -26397,6 +26715,1057 @@ unregistersymbol(elisemdl)
 unregistersymbol(rowenmdl)
 unregistersymbol(leiamdl)
 </AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87218</ID>
+                  <Description>"Jude transform"</Description>
+                  <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanregion(jurbase, 300000000, 400000000, 00 00 00 01 00 00 00 01 00 02 49 68 00 00 00 00 00 02 49 74 00 02 49 80 00 02 49 8C 00 02 49 A0 00 00 00 00 00 02 49 B0 00 02 49 C4 00 02 49 D8 00 02 49 E2 00 02 49 EC 00 02 49 F8)
+aobscanregion(jurnormals, 300000000, 400000000, 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0)
+aobscanregion(jurartes, 300000000, 400000000, 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D)
+
+registersymbol(jurbase)
+registersymbol(jurnormals)
+registersymbol(jurartes)
+
+jurbase+C:
+ db 00 03 BE 95 //new offset for CDF string
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30 //PRE string
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MDF string
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30 //ATT string
+
+jurbase+24A60:
+ db 00 01 74 AD //new offset for C voice string
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43
+
+jurbase+24A6C:
+ db 00 01 74 CD //new offset for D voice string
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44
+
+jurbase+24A78:
+ db 00 01 74 ED //new offset for A voice string
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41
+
+jurbase+24A84:
+ db 00 01 75 1D //new offset for B voice string
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42
+
+regionCheckEquip+28:
+ db FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF //arte whitelist
+
+[DISABLE]
+
+jurbase+C:
+ db 00 00 00 00
+
+jurbase+24A60:
+ db 00 00 00 28
+
+jurbase+24A6C:
+ db 00 00 00 2D
+
+jurbase+24A78:
+ db 00 00 00 32
+
+jurbase+24A84:
+ db 00 00 00 37
+
+regionCheckEquip+28:
+ db B7 FF E0 00 00 00 00 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+unregistersymbol(jurbase)
+unregistersymbol(jurnormals)
+unregistersymbol(jurartes)
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>87219</ID>
+                      <Description>"-&gt; Gaius"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+ db 43 44 46 5f 43 48 52 5f 47 41 49 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+ db 50 52 45 5f 47 41 49 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 47 41 49 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+24984:
+ db 41 54 54 5F 47 41 49 5F 42 54 4C 5F 30 30 30 //ATT string
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 47 41 49 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 47 41 49 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 47 41 49 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 47 41 49 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 03 EC 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 03 ED 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 03 EE 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 03 EF 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 03 F0 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 03 F1 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 03 F2 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 03 F3 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 03 F4 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 03 F5 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 03 F6 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 03 F7
+
+jurartes:
+ db 00 00 03 FF 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 03 F8 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 03 FA 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 04 00 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 03 F9 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 04 01 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 04 06 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 03 FB 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 04 03 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 04 02 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 03 FC 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 04 04 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 03 FD 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 03 FE 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 04 05 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 04 C7 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 04 08 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 04 09 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 00 00
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87220</ID>
+                      <Description>"-&gt; Muzét"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+ db 43 44 46 5f 43 48 52 5f 4d 55 53 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+ db 50 52 45 5f 4d 55 53 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4d 55 53 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+24984:
+ db 41 54 54 5F 4D 55 53 5F 42 54 4C 5F 30 30 30 //ATT string
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4d 55 53 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4d 55 53 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4d 55 53 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4d 55 53 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 04 0A 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 04 0B 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 04 0C 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 04 0D 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 04 0E 00 00 00 01 00 00 00 00 00 00 04 84 00 00 00 17 00 00 04 0F 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 04 10 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 04 11 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 04 12 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 04 13 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 04 84 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 04 89 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 04 8A 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 04 8B 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 04 14 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 04 15 //changes normal attacks
+
+jurartes:
+ db 00 00 04 16 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 04 17 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 04 18 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 04 1A 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 04 1B 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 04 1E 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 04 1F 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 04 CB 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 04 20 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 04 21 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 04 22 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 04 23 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 04 24 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 04 25 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 04 26 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 04 C0 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 04 19 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 04 1C 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 04 1D 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87221</ID>
+                      <Description>"-&gt; Nachtigal"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 4e 41 48 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+db 50 52 45 5f 4e 41 48 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 4e 41 48 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 4e 41 48 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 4e 41 48 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 4e 41 48 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 4e 41 48 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 02 2F 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 02 24 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 02 30 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 02 27 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00 //changes normal attacks
+
+jurartes:
+ db 00 00 02 26 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 28 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 29 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 02 2A 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 02 2B 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 02 2C 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 02 2D 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 2E 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 33 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 02 34 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 02 35 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 02 36 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 02 37 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87222</ID>
+                      <Description>"-&gt; Gilland"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 4a 49 4c 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 4a 49 4c 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 4a 49 4c 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 4a 49 4c 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 4a 49 4c 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 4a 49 4c 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 02 39 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 02 3a 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 02 3a 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 02 3b 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 02 3c 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 3d 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 3e 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 02 3f 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 02 40 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 02 41 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 02 42 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 43 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 44 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 02 45 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87223</ID>
+                      <Description>"-&gt; Celsius"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 53 45 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 53 45 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 53 45 52 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 53 45 52 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 53 45 52 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 53 45 52 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 02 4a 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 02 4b 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 02 4b 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 02 4a 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 02 4c 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 4d 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 4e 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 02 4f 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 02 50 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 02 51 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 02 52 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 53 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 54 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 02 55 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87224</ID>
+                      <Description>"-&gt; Wingal"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 57 4e 47 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+db 50 52 45 5f 57 4e 47 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+db 4d 44 46 5f 43 48 52 5f 57 4e 47 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 57 4e 47 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 57 4e 47 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 57 4e 47 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 57 4e 47 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 01 e1 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 01 e2 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 01 e4 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 01 e3 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 01 e5 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 01 e6 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 01 e7 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 01 e8 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 01 e9 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 01 ea 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 01 eb 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 01 ec 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 01 ed 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 01 ee 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87225</ID>
+                      <Description>"-&gt; Agria"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+ db 43 44 46 5f 43 48 52 5f 41 47 55 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+ db 50 52 45 5f 41 47 55 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 41 47 55 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+ db 56 42 42 5f 45 4e 50 43 5f 41 47 55 5f 30 30 30 5f 41  //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 45 4e 50 43 5f 41 47 55 5f 30 30 30 5f 41  //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 45 4e 50 43 5f 41 47 55 5f 30 30 30 5f 41  //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 45 4e 50 43 5f 41 47 55 5f 30 30 30 5f 41  //B VOICE
+
+jurnormals:
+ db 00 00 01 f1 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 01 f2 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 01 f3 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 01 f4 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 01 f5 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 01 f6 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 01 f7 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 01 f8 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 01 f9 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 01 fa 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 01 fb 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 01 fc 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 01 fd 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 03 8f 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87226</ID>
+                      <Description>"-&gt; Presa"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 50 4c 5a 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+db 50 52 45 5f 50 4c 5a 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+db 4d 44 46 5f 43 48 52 5f 50 4c 5a 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 50 4c 5a 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 50 4c 5a 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 50 4c 5a 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 50 4c 5a 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 02 07 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 02 08 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 02 07 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 02 08 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 02 09 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 0a 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 0b 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 02 0c 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 02 0d 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 02 0e 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 02 0f 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 10 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 11 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 02 12 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 02 14 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87227</ID>
+                      <Description>"-&gt; Jiao"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 4a 41 4f 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+db 50 52 45 5f 4a 41 4f 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+db 4d 44 46 5f 43 48 52 5f 4a 41 4f 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 4a 41 4f 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 4a 41 4f 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 4a 41 4f 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 4a 41 4f 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 01 d5 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 01 d4 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 01 d6 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 01 d7 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 01 d8 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 01 d9 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 01 da 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 01 db 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 01 dc 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 01 dd 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 01 de 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 01 df 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87228</ID>
+                      <Description>"-&gt; Ivar"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 49 56 41 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+db 50 52 45 5f 49 56 41 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 49 56 41 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 49 56 41 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 49 56 41 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 49 56 41 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 49 56 41 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 02 16 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 02 17 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 02 18 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 02 17 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 02 19 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 1a 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 1b 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 02 1c 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 02 1d 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 02 1e 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 02 1f 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 20 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 21 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87229</ID>
+                      <Description>"-&gt; Maxwell"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 4d 58 57 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+24994:
+db 50 52 45 5f 4d 58 57 5f 42 54 4c 5f 30 30 30 //CUT-IN PRELOAD
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 4d 58 57 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 4d 58 57 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 4d 58 57 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 4d 58 57 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 4d 58 57 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 00 00 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 02 5a 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 5b 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 5c 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 02 5d 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 02 5e 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 02 5f 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 02 60 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 61 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 02 62 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 02 63 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 02 64 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 02 65 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 02 66 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 02 67 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 02 68 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 02 69 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 02 6a 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 02 6b 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 02 6c 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 02 6d 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 02 6e 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87230</ID>
+                      <Description>"-&gt; Volt"</Description>
+                      <Options moHideChildren="1"/>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 42 4f 4c 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 42 4f 4c 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 42 4f 4c 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 42 4f 4c 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 42 4f 4c 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 42 4f 4c 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 02 70 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 02 75 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 02 76 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 02 71 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 02 79 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 02 7a 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 02 7b 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD
+
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>87231</ID>
+                          <Description>"Missing Attacks"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>// Literally every arte Volt has that is not a spell is categorized as a normal attack so if you want to use them you have to map them yourself
+// 626:Charging Roll
+// 627:Random Jump
+// 631:Round Blade
+// 632:Electric Whip
+
+[ENABLE]
+[DISABLE]
+
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87232</ID>
+                      <Description>"-&gt; Golden Swordsman"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+
+jurbase+7:
+ db 00 //sets Player ID to 0
+
+jurbase+C+3BE95:
+db 43 44 46 5f 43 48 52 5f 4d 41 4b 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //MODEL
+
+jurbase+249A4:
+db 4D 44 46 5f 43 48 52 5f 4d 41 4b 5f 30 30 30 5f 42 54 4c 5f 30 30 30 //ANIMATIONS
+
+jurbase+3BF0D:
+db 56 42 42 5f 45 4e 50 43 5f 4d 41 4b 5f 30 30 30 5f 41 //C VOICE
+
+jurbase+3BF39:
+db 56 42 42 5f 45 4e 50 43 5f 4d 41 4b 5f 30 30 30 5f 41 //D VOICE
+
+jurbase+3BF65:
+db 56 42 42 5f 45 4e 50 43 5f 4d 41 4b 5f 30 30 30 5f 41 //A VOICE
+
+jurbase+3BFA1:
+db 56 42 42 5f 45 4e 50 43 5f 4d 41 4b 5f 30 30 30 5f 41 //B VOICE
+
+jurnormals:
+ db 00 00 00 00 00 00 00 01 00 00 00 00 00 00 03 64 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 03 AC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 03 F4 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 04 3C 00 00 00 17 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 02 00 00 00 00 00 00 04 CC 00 00 00 17 00 00 00 00 00 00 00 04 00 00 00 00 00 00 05 14 00 00 00 17 00 00 00 00 00 00 00 08 00 00 00 00 00 00 05 5C 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 A4 00 00 00 17 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 05 EC 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 34 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 7C 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 C4 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 54 00 00 00 17 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 07 9C 00 00 00 17 00 00 00 00
+
+jurartes:
+ db 00 00 04 2f 00 00 00 00 00 00 00 00 00 00 08 2C 00 00 00 17 00 00 04 30 00 00 00 00 00 00 00 00 00 00 08 74 00 00 00 17 00 00 04 31 00 00 00 00 00 00 00 00 00 00 08 BC 00 00 00 17 00 00 04 32 00 00 00 00 00 00 00 00 00 00 09 04 00 00 00 17 00 00 04 35 00 00 00 00 00 00 00 00 00 00 09 4C 00 00 00 17 00 00 04 36 00 00 00 00 00 00 00 00 00 00 09 94 00 00 00 17 00 00 04 37 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 04 38 00 00 00 00 00 00 00 00 00 00 09 DC 00 00 00 17 00 00 04 39 00 00 00 00 00 00 00 00 00 00 0A 24 00 00 00 17 00 00 04 3a 00 00 00 00 00 00 00 00 00 00 0A 6C 00 00 00 17 00 00 04 3b 00 00 00 00 00 00 00 00 00 00 0A B4 00 00 00 17 00 00 04 3c 00 00 00 00 00 00 00 00 00 00 0A FC 00 00 00 17 00 00 04 3d 00 00 00 00 00 00 00 00 00 00 0B 44 00 00 00 17 00 00 04 3e 00 00 00 00 00 00 00 00 00 00 0B 8C 00 00 00 17 00 00 04 3f 00 00 00 00 00 00 00 00 00 00 0B D4 00 00 00 17 00 00 04 40 00 00 00 00 00 00 00 00 00 00 0C 1C 00 00 00 17 00 00 04 41 00 00 00 00 00 00 00 00 00 00 0C 64 00 00 00 17 00 00 04 42 00 00 00 00 00 00 00 00 00 00 0C AC 00 00 00 17 00 00 04 43 00 00 00 00 00 00 00 00 00 00 0C F4 00 00 00 17 00 00 04 44 00 00 00 00 00 00 00 00 00 00 0D 3C 00 00 00 17 00 00 04 45 00 00 00 00 00 00 00 00 00 00 0D 84 00 00 00 17 00 00 04 46 00 00 00 00 00 00 00 00 00 00 0D CC 00 00 00 17 00 00 04 47 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 04 4e 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 04 53 //changes artes list
+
+
+[DISABLE]
+
+jurbase+7:
+ db 01
+
+jurbase+C+3BE95:
+ db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+jurbase+24994:
+ db 50 52 45 5f 4a 55 52 5f 42 54 4c 5f 30 30 30
+
+jurbase+249A4:
+ db 4d 44 46 5f 43 48 52 5f 4a 55 52 5f 30 30 30 5f 42 54 4c 5f 30 30 30
+
+jurbase+24984:
+ db 41 54 54 5F 4A 55 52 5F 42 54 4C 5F 30 30 30
+
+jurbase+3BF0D:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 43 00 //C VOICE
+
+jurbase+3BF39:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 44 00 //D VOICE
+
+jurbase+3BF65:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 41 00 //A VOICE
+
+jurbase+3BFA1:
+ db 56 42 42 5f 50 43 5f 4a 55 52 5f 30 30 30 5f 42 00 //B VOICE
+
+jurnormals:
+ db 00 00 00 01 00 00 00 01 00 00 00 00 00 00 03 50 00 00 00 17 00 00 00 02 00 00 00 02 00 00 00 00 00 00 03 98 00 00 00 17 00 00 00 03 00 00 00 04 00 00 00 00 00 00 03 E0 00 00 00 17 00 00 00 04 00 00 00 08 00 00 00 00 00 00 04 28 00 00 00 17 00 00 00 05 00 00 00 01 00 00 00 00 00 00 04 70 00 00 00 17 00 00 00 06 00 00 00 02 00 00 00 00 00 00 04 B8 00 00 00 17 00 00 00 07 00 00 00 04 00 00 00 00 00 00 05 00 00 00 00 17 00 00 00 08 00 00 00 08 00 00 00 00 00 00 05 48 00 00 00 17 00 00 00 09 00 00 00 0F 00 00 00 00 00 00 05 90 00 00 00 17 00 00 00 0A 00 00 00 0F 00 00 00 00 00 00 05 D8 00 00 00 17 00 00 04 85 00 00 00 00 00 00 00 00 00 00 06 20 00 00 00 17 00 00 04 86 00 00 00 00 00 00 00 00 00 00 06 68 00 00 00 17 00 00 04 87 00 00 00 00 00 00 00 00 00 00 06 B0 00 00 00 17 00 00 04 88 00 00 00 00 00 00 00 00 00 00 06 F8 00 00 00 17 00 00 00 0B 00 00 00 0D 00 00 00 00 00 00 07 40 00 00 00 17 00 00 00 0C
+
+jurartes:
+ db 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 07 D0 00 00 00 17 00 00 00 1A 00 00 00 00 00 00 00 00 00 00 08 18 00 00 00 17 00 00 00 0D 00 00 00 00 00 00 00 00 00 00 08 60 00 00 00 17 00 00 00 0E 00 00 00 00 00 00 00 00 00 00 08 A8 00 00 00 17 00 00 00 10 00 00 00 00 00 00 00 00 00 00 08 F0 00 00 00 17 00 00 00 11 00 00 00 00 00 00 00 00 00 00 09 38 00 00 00 17 00 00 00 1D 00 00 00 00 00 00 00 00 00 00 09 80 00 00 00 17 00 00 00 12 00 00 00 00 00 00 00 00 00 00 09 C8 00 00 00 17 00 00 00 13 00 00 00 00 00 00 00 00 00 00 0A 10 00 00 00 17 00 00 00 14 00 00 00 00 00 00 00 00 00 00 0A 58 00 00 00 17 00 00 00 15 00 00 00 00 00 00 00 00 00 00 0A A0 00 00 00 17 00 00 00 16 00 00 00 00 00 00 00 00 00 00 0A E8 00 00 00 17 00 00 00 17 00 00 00 00 00 00 00 00 00 00 0B 30 00 00 00 17 00 00 00 18 00 00 00 00 00 00 00 00 00 00 0B 78 00 00 00 17 00 00 00 19 00 00 00 00 00 00 00 00 00 00 0B C0 00 00 00 17 00 00 00 1C 00 00 00 00 00 00 00 00 00 00 0C 08 00 00 00 17 00 00 00 20 00 00 00 00 00 00 00 00 00 00 0C 50 00 00 00 17 00 00 00 21 00 00 00 00 00 00 00 00 00 00 0C 98 00 00 00 17 00 00 00 22 00 00 00 00 00 00 00 00 00 00 0C E0 00 00 00 17 00 00 00 1F 00 00 00 00 00 00 00 00 00 00 0D 28 00 00 00 17 00 00 04 BF 00 00 00 00 00 00 00 00 00 00 0D 70 00 00 00 17 00 00 04 78 00 00 00 00 00 00 00 00 00 00 0D B8 00 00 00 17 00 00 04 CD 00 00 00 00 00 00 00 00 00 00 0E 14 00 00 00 17 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 5C 00 00 00 17 00 00 00 00
+
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
