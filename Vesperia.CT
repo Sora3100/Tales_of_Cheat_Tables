@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>1</ID>
@@ -2285,7 +2285,7 @@ TOV_DE.exe+3C5F4B: CC                 - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>79180</ID>
-          <Description>"?"</Description>
+          <Description>"Concentration? Most likely an unused stat"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>enmBookPTR</Address>
@@ -5658,6 +5658,77 @@ TOV_DE.exe+55517D: E8 AE 68 07 00           - call TOV_DE.exe+5CBA30
 TOV_DE.exe+555182: 66 0F 6E C0              - movd xmm0,eax
 TOV_DE.exe+555186: 0F 5B C0                 - cvtdq2ps xmm0,xmm0
 TOV_DE.exe+555189: F3 0F 5E 05 FF 09 6D 00  - divss xmm0,[TOV_DE.exe+C25B90]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>83521</ID>
+      <Description>"Enemies don't Overlimit"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-04-13
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(enemyOVL,TOV_DE.exe,F3 0F 10 81 A8 10 00 00 F3 0F 5E 05 * * * * C3) // should be unique
+alloc(newmem,$1000,enemyOVL)
+
+label(return)
+
+newmem:
+  push rax
+  mov [rax],0
+  movss xmm0,[rax]
+  pop rax
+  jmp return
+
+enemyOVL:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(enemyOVL)
+
+[DISABLE]
+
+enemyOVL:
+  db F3 0F 10 81 A8 10 00 00
+
+unregistersymbol(enemyOVL)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+50A5A0
+
+TOV_DE.exe+50A58F: CC                       - int 3 
+TOV_DE.exe+50A590: F3 0F 10 81 A8 10 00 00  - movss xmm0,[rcx+000010A8]
+TOV_DE.exe+50A598: C3                       - ret 
+TOV_DE.exe+50A599: CC                       - int 3 
+TOV_DE.exe+50A59A: CC                       - int 3 
+TOV_DE.exe+50A59B: CC                       - int 3 
+TOV_DE.exe+50A59C: CC                       - int 3 
+TOV_DE.exe+50A59D: CC                       - int 3 
+TOV_DE.exe+50A59E: CC                       - int 3 
+TOV_DE.exe+50A59F: CC                       - int 3 
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+50A5A0: F3 0F 10 81 A8 10 00 00  - movss xmm0,[rcx+000010A8]
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+50A5A8: F3 0F 5E 05 98 B6 71 00  - divss xmm0,[TOV_DE.exe+C25C48]
+TOV_DE.exe+50A5B0: C3                       - ret 
+TOV_DE.exe+50A5B1: CC                       - int 3 
+TOV_DE.exe+50A5B2: CC                       - int 3 
+TOV_DE.exe+50A5B3: CC                       - int 3 
+TOV_DE.exe+50A5B4: CC                       - int 3 
+TOV_DE.exe+50A5B5: CC                       - int 3 
+TOV_DE.exe+50A5B6: CC                       - int 3 
+TOV_DE.exe+50A5B7: CC                       - int 3 
+TOV_DE.exe+50A5B8: CC                       - int 3 
 }
 </AssemblerScript>
     </CheatEntry>
@@ -9212,7 +9283,7 @@ unregistersymbol(yuriArteWhitelist)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83273</ID>
-                  <Description>"?"</Description>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
@@ -9312,6 +9383,13 @@ unregistersymbol(yuriArteWhitelist)
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>83510</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>79278</ID>
                   <Description>"Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -9404,6 +9482,13 @@ unregistersymbol(yuriArteWhitelist)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83511</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79291</ID>
@@ -9500,6 +9585,13 @@ unregistersymbol(yuriArteWhitelist)
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>83512</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>79304</ID>
                   <Description>"Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -9592,6 +9684,13 @@ unregistersymbol(yuriArteWhitelist)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83513</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79356</ID>
@@ -9688,6 +9787,13 @@ unregistersymbol(yuriArteWhitelist)
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>83514</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>79343</ID>
                   <Description>"Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -9780,6 +9886,13 @@ unregistersymbol(yuriArteWhitelist)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83515</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79330</ID>
@@ -9876,6 +9989,13 @@ unregistersymbol(yuriArteWhitelist)
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>83516</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>79317</ID>
                   <Description>"Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -9968,6 +10088,13 @@ unregistersymbol(yuriArteWhitelist)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83517</ID>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79369</ID>
@@ -14401,7 +14528,7 @@ dealloc(attackNum)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>82883</ID>
-                  <Description>"Ability to always hit downed enemies"</Description>
+                  <Description>"Ability to always hit enemy in downed state"</Description>
                   <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
@@ -14543,8 +14670,8 @@ dealloc(attackNum)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>82878</ID>
-                  <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
+                  <Description>"Ability to always hit in-recovery state enemies"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
@@ -14555,7 +14682,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82899</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
@@ -14566,7 +14692,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82900</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
@@ -14577,7 +14702,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82901</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
@@ -14588,7 +14712,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82902</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
@@ -14599,7 +14722,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82903</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
@@ -14610,7 +14732,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82904</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
@@ -14621,7 +14742,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82905</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
@@ -14632,7 +14752,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82906</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
@@ -14643,7 +14762,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82891</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
@@ -14654,7 +14772,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82897</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
@@ -14665,7 +14782,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82896</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
@@ -14676,7 +14792,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82895</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
@@ -14687,7 +14802,6 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82894</ID>
                   <Description>"?"</Description>
-                  <DropDownListLink>?</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
@@ -14750,8 +14864,15 @@ dealloc(attackNum)
                   <Address>attackStatus+C8*[attackNum]+54</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>83518</ID>
+                  <Description>"Knockback on guarding enemies"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>attackStatus+C8*[attackNum]+58</Address>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>82831</ID>
-                  <Description>"Launcher on knocked down? enemies in air"</Description>
+                  <Description>"Launcher on guarding enemies"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>attackStatus+C8*[attackNum]+5C</Address>
@@ -15434,7 +15555,7 @@ unregistersymbol(estelleTest)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83461</ID>
-                  <Description>"?"</Description>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+18</Address>
@@ -15507,7 +15628,7 @@ unregistersymbol(estelleTest)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83471</ID>
-                  <Description>"?"</Description>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+18</Address>
@@ -15580,7 +15701,7 @@ unregistersymbol(estelleTest)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83481</ID>
-                  <Description>"?"</Description>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+18</Address>
@@ -15653,7 +15774,7 @@ unregistersymbol(estelleTest)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83491</ID>
-                  <Description>"?"</Description>
+                  <Description>"Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+18</Address>
@@ -15976,7 +16097,24 @@ unregistersymbol(estelleTest)
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>enmBookPTR</Name>
+      <Address>25BE4130000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>artePropPTR</Name>
+      <Address>25BE4130010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>attackNum</Name>
+      <Address>158F53D0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>weapEditPTR</Name>
+      <Address>158F53D0010</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <Comments>Search string "T8BTAS" for deeper arte properties (Attack Status)
 Unfinished enemy list (in decimal)
 It seems that if you try to load a model that's not supposed to be in the fight, it will crash the game. Otherwise, the animation will also not function, but it doesn't crash the game.
