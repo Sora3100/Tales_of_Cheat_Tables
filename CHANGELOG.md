@@ -1,5 +1,11 @@
 ### Changelog
 
+#### 2023/04/26
+
+-	Added a new script for Vesperia, where enemies don't activate Over Limit.
+-	Added a secondary script to Xillia 1/2 in case the first linking script doesn't work
+-	Added Samu's Jude transform script
+
 #### 2023/02/24
 
 -	Added a rudimentary Ludger -> Victor script
