@@ -28559,10 +28559,16 @@ regionCheckFlags-119FC:
               <CheatEntries>
                 <CheatEntry>
                   <ID>89195</ID>
-                  <Description>"Allow Player control while linked"</Description>
+                  <Description>"Allow Player control while linked (Intel)"</Description>
                   <Options moHideChildren="1"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
+                    <CheatEntry>
+                      <ID>89761</ID>
+                      <Description>"If this doesn't work, please try the "AMD" version!"</Description>
+                      <Color>0000FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
                     <CheatEntry>
                       <ID>89205</ID>
                       <Description>"Version 2 will work depending on whether the character is set to Auto."</Description>
@@ -28944,6 +28950,317 @@ dealloc(newmem)
 10275A433: 89 8D 74 04 00 00              - mov [rbp+00000474],ecx
 10275A439: 48 83 C4 28                    - add rsp,28
 }
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89752</ID>
+                  <Description>"Allow Player control while linked (AMD)"</Description>
+                  <Options moHideChildren="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89760</ID>
+                      <Description>"If this doesn't work, please try the "Intel" version!"</Description>
+                      <Color>0000FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89753</ID>
+                      <Description>"Version 2 will work depending on whether the character is set to Auto."</Description>
+                      <Color>0000FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89754</ID>
+                      <Description>"If the script isn't working properly, just disable the script and activate it again."</Description>
+                      <Color>0000FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89755</ID>
+                      <Description>"Version 2"</Description>
+                      <Options moAlwaysHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89756</ID>
+                          <Description>"Player control script"</Description>
+                          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : rpcs3.exe
+  Version: 
+  Date   : 2022-12-31
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(controlModes,0F 38 F0 54 1A 08 49 C1 E4 0D 48 89 55 30 89 8D 74 04 00 00 48 83 C4 28 48 FF E0 BA C0) // should be unique
+alloc(newmem,$1000)
+
+alloc(ctrlModes,$1000)
+registersymbol(ctrlModes)
+define(ctrlChar1,ctrlModes)
+registersymbol(ctrlChar1)
+define(ctrlChar2,ctrlModes+8)
+registersymbol(ctrlChar2)
+define(ctrlChar3,ctrlModes+10)
+registersymbol(ctrlChar3)
+define(ctrlChar4,ctrlModes+18)
+registersymbol(ctrlChar4)
+
+label(code)
+label(return)
+
+newmem:
+  push rax
+  pushf
+  mov rax,rdx
+  add rax,rbx
+  add rax,08
+  cmp [ctrlChar4],0
+  jne code
+  cmp [ctrlChar1],rax
+  je code
+  cmp [ctrlChar2],rax
+  je code
+  cmp [ctrlChar3],rax
+  je code
+  cmp [ctrlChar4],rax
+  je code
+  cmp [ctrlChar1],0
+  jne @f
+  mov [ctrlChar1],rax
+  jmp code
+  @@:
+  cmp [ctrlChar2],0
+  jne @f
+  mov [ctrlChar2],rax
+  jmp code
+  @@:
+  cmp [ctrlChar3],0
+  jne @f
+  mov [ctrlChar3],rax
+  jmp code
+  @@:
+  cmp [ctrlChar4],0
+  jne @f
+  mov [ctrlChar4],rax
+code:
+  popf
+  pop rax
+  movbe edx,[rdx+rbx+08]
+  shl r12,0D
+  mov [rbp+30],rdx
+  jmp return
+
+controlModes:
+  jmp newmem
+
+return:
+registersymbol(controlModes)
+
+[DISABLE]
+
+controlModes:
+  db 0F 38 F0 54 1A 08 49 C1 E4 0D 48 89 55 30 89 8D 74 04 00 00 48 83 C4 28 48 FF E0 BA C0
+
+unregistersymbol(controlModes)
+unregistersymbol(ctrlModes)
+unregistersymbol(ctrlChar1)
+unregistersymbol(ctrlChar2)
+unregistersymbol(ctrlChar3)
+unregistersymbol(ctrlChar4)
+dealloc(newmem)
+dealloc(ctrlModes)
+</AssemblerScript>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>89757</ID>
+                              <Description>"Player linking script"</Description>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : rpcs3.exe
+  Version:
+  Date   : 2022-12-31
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(LinkControl,0F 38 F1 94 18 A0 53 00 00 48 8D 90 88 6E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  push rcx
+  push rsi
+  cmp [rax+rbx],1 //This address decides whether you are an enemy or a player
+  je partyMember
+code:
+  movbe [rax+rbx+000053A0],edx
+  pop rsi
+  pop rcx
+  lea rdx,[rax+00006E88]
+  jmp return
+
+partyMember:
+  //check if party member, then move to approporiate slot
+  //party slot 1
+  mov rsi,regionCheckEquip-204
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,08
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot1
+  //party slot 2
+  mov rsi,regionCheckEquip-200
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,08
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot2
+  //party slot 3
+  mov rsi,regionCheckEquip-1FC
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,08
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot3
+  //party slot 4
+  mov rsi,regionCheckEquip-1F8
+  mov rsi,[rsi]
+  //link id
+  mov rcx,rax
+  add rcx,rbx
+  add rcx,08
+  mov rcx,[rcx]
+  cmp esi,ecx
+  je slot4
+  jmp code
+
+slot1:
+  mov rsi,ctrlChar1
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot2:
+  mov rsi,ctrlChar2
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot3:
+  mov rsi,ctrlChar3
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+slot4:
+  mov rsi,ctrlChar4
+  mov rsi,[rsi]
+  cmp [rsi],0
+  je code
+  mov edx,1
+  jmp code
+
+LinkControl:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(LinkControl)
+
+[DISABLE]
+
+LinkControl:
+  db 0F 38 F1 94 18 A0 53 00 00 48 8D 90 88 6E 00 00
+
+unregistersymbol(LinkControl)
+dealloc(newmem)
+</AssemblerScript>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89758</ID>
+                      <Description>"Version 1 will always force player control."</Description>
+                      <Color>0000FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89759</ID>
+                      <Description>"Version 1"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{ Game   : rpcs3.exe
+  Version:
+  Date   : 2022-12-31
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(LinkControl,0F 38 F1 94 18 A0 53 00 00 48 8D 90 88 6E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  cmp [rax+rbx],1 //This address decides whether you are an enemy or a player
+  je partyMember
+code:
+  movbe [rax+rbx+000053A0],edx
+  lea rdx,[rax+00006E88]
+  jmp return
+
+partyMember:
+  mov edx,1
+  jmp code
+
+LinkControl:
+  jmp newmem
+  nop
+  nop
+
+return:
+registersymbol(LinkControl)
+
+[DISABLE]
+
+LinkControl:
+  db 0F 38 F1 94 18 A0 53 00 00 48 8D 90 88 6E 00 00
+
+unregistersymbol(LinkControl)
+dealloc(newmem)
 </AssemblerScript>
                     </CheatEntry>
                   </CheatEntries>
