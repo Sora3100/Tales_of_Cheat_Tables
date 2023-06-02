@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>53</ID>
@@ -937,6 +937,320 @@ unregistersymbol(baseElfAddr)
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>baseElfAddr+17E062</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>453</ID>
+          <Description>"Grade"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>baseElfAddr+17E04C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1340</ID>
+          <Description>"Grade Shop options"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>baseElfAddr+17C0D0</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1341</ID>
+              <Description>"Keep Items"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1347</ID>
+              <Description>"Keep Gald"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1346</ID>
+              <Description>"Keep Grade"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1345</ID>
+              <Description>"Keep Parameters"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1344</ID>
+              <Description>"Keep Titles"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1343</ID>
+              <Description>"Keep Bonds"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1342</ID>
+              <Description>"Keep Raves"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1348</ID>
+              <Description>"Keep Strategies"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1349</ID>
+              <Description>"Keep Recipes"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1350</ID>
+              <Description>"Keep Character Battle Totals"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1351</ID>
+              <Description>"30-Item Carry Limit"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1352</ID>
+              <Description>"60-Item Carry Limit"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1353</ID>
+              <Description>"99-Item Carry Limit"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1354</ID>
+              <Description>"Half Experience"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1355</ID>
+              <Description>"Double Experience"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1356</ID>
+              <Description>"5x Experience"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1357</ID>
+              <Description>"Double Gald"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1358</ID>
+              <Description>"Double Grade"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1359</ID>
+              <Description>"Double AP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1360</ID>
+              <Description>"OVL Gauge UP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1361</ID>
+              <Description>"Rave Gauge UP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1362</ID>
+              <Description>"Double Capacity"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1363</ID>
+              <Description>"Increase Item Drop Rate"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1364</ID>
+              <Description>"Increase Rare Item Drop Rate"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1365</ID>
+              <Description>"Keep Monster Book"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1366</ID>
+              <Description>"Fill Monster Book"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1367</ID>
+              <Description>"Unlock All Skits"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
           <ID>62</ID>
@@ -1895,6 +2209,1198 @@ dealloc(enmNum)
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>83723</ID>
+              <Description>"Styles Editor"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+globalalloc(skillEdit,1000)
+
+skillEdit:
+dd 00 00 00 00
+
+skillEdit+8:
+dd 00 00 00 00
+
+[DISABLE]
+dealloc(skillEdit)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>83724</ID>
+                  <Description>"Please give it a few seconds for it to refresh!"</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83831</ID>
+                  <Description>"It seems that each character has their own styles, so this isn't labeled properly, and it lacks some entries for other characters!"</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83725</ID>
+                  <Description>"Edit"</Description>
+                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:Skill unlocks
+1:Active skills
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>skillEdit</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83726</ID>
+                  <Description>"Character"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>skillEdit+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>83727</ID>
+                      <Description>"Special"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB1+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83729</ID>
+                      <Description>"Inflame 1"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB1+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83730</ID>
+                      <Description>"Inflame 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB1+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83731</ID>
+                      <Description>"Inflame 3"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83736</ID>
+                      <Description>"Combo Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83735</ID>
+                      <Description>"Base Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83734</ID>
+                      <Description>"Base Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83733</ID>
+                      <Description>"Master Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83732</ID>
+                      <Description>"Master Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83739</ID>
+                      <Description>"Arcane Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83738</ID>
+                      <Description>"Arcane Plus"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB2+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83740</ID>
+                      <Description>"Route Breaker"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83741</ID>
+                      <Description>"Repeat"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83742</ID>
+                      <Description>"Heavy Hit"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83743</ID>
+                      <Description>"Stun Extender"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83744</ID>
+                      <Description>"Staggering Strike"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83745</ID>
+                      <Description>"Critical"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83746</ID>
+                      <Description>"Knocked Down"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83747</ID>
+                      <Description>"Knocked Down 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB3+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83737</ID>
+                      <Description>"Destroyer"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83748</ID>
+                      <Description>"Counterstrike"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83749</ID>
+                      <Description>"Counterstun"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83750</ID>
+                      <Description>"Conserve TP"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83751</ID>
+                      <Description>"Conserve TP 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83752</ID>
+                      <Description>"Heavy Attack"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83753</ID>
+                      <Description>"Minimum Damage"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83754</ID>
+                      <Description>"Quarter Damage"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB4+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83755</ID>
+                      <Description>"Half Damage"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83756</ID>
+                      <Description>"Flame Retardant 1"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83757</ID>
+                      <Description>"Flame Retardant 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83758</ID>
+                      <Description>"Flame Retardant 3"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83759</ID>
+                      <Description>"Stun Proof"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83760</ID>
+                      <Description>"Lucky Step"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83761</ID>
+                      <Description>"Void Attack"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83762</ID>
+                      <Description>"Glory"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB5+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83763</ID>
+                      <Description>"Endure"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83764</ID>
+                      <Description>"Physical Guard 1"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83765</ID>
+                      <Description>"Physical Guard 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83766</ID>
+                      <Description>"Physical Guard 3"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83767</ID>
+                      <Description>"Magic Guard 1"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83768</ID>
+                      <Description>"Magic Guard 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83769</ID>
+                      <Description>"Magic Guard 3"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83770</ID>
+                      <Description>"Survive"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB6+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83771</ID>
+                      <Description>"Countermend HP"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83772</ID>
+                      <Description>"Countermend TP"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83773</ID>
+                      <Description>"Counter Rave"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83774</ID>
+                      <Description>"High Metabolism"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83775</ID>
+                      <Description>"Rave Boost"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83776</ID>
+                      <Description>"Over Limit Boost"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83777</ID>
+                      <Description>"Aggravate"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83778</ID>
+                      <Description>"Tranquilize"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB7+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83779</ID>
+                      <Description>"Last-Minute Reprieve"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83780</ID>
+                      <Description>"HP Aftercare 1"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83781</ID>
+                      <Description>"HP Aftercare 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83782</ID>
+                      <Description>"TP Aftercare 1"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83783</ID>
+                      <Description>"TP Aftercare 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83784</ID>
+                      <Description>"HP Gain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83785</ID>
+                      <Description>"TP Gain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83786</ID>
+                      <Description>"Over Limit Gain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB8+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83787</ID>
+                      <Description>"EXP Share"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83788</ID>
+                      <Description>"EXP Cancel"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83789</ID>
+                      <Description>"Dash Cancel"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83790</ID>
+                      <Description>"Jump Cancel"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83791</ID>
+                      <Description>"Aerial Jump"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83792</ID>
+                      <Description>"Athlete"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83793</ID>
+                      <Description>"Athlete 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83794</ID>
+                      <Description>"Speedy Item"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BB9+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83795</ID>
+                      <Description>"Speedy Item 2"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83796</ID>
+                      <Description>"Speedy Item 3"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83797</ID>
+                      <Description>"KO HP Repair"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83798</ID>
+                      <Description>"KO TP Repair"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83799</ID>
+                      <Description>"KO Attack Surge"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83800</ID>
+                      <Description>"KO Defense Surge"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83801</ID>
+                      <Description>"KO Resist Surge"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83802</ID>
+                      <Description>"Burst Blow"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBA+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83803</ID>
+                      <Description>"Burst Stun"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83804</ID>
+                      <Description>"Burst Absorb"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83805</ID>
+                      <Description>"Extend"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83806</ID>
+                      <Description>"Infinity"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83807</ID>
+                      <Description>"Instant Spell"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83808</ID>
+                      <Description>"Invincible"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83809</ID>
+                      <Description>"Attack Burst"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83810</ID>
+                      <Description>"Defense Burst"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBB+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83811</ID>
+                      <Description>"Magic Burst"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83812</ID>
+                      <Description>"Resist Burst"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83813</ID>
+                      <Description>"Critical Burst"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83814</ID>
+                      <Description>"Overdrive"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83815</ID>
+                      <Description>"Heavy Shot"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83816</ID>
+                      <Description>"Limit Breaker"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83817</ID>
+                      <Description>"Damage Limiter"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83818</ID>
+                      <Description>"Damage Protector"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBC+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83819</ID>
+                      <Description>"Adrenaline"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83820</ID>
+                      <Description>"Last Stand"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83821</ID>
+                      <Description>"Denial"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83822</ID>
+                      <Description>"Attack Value"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83823</ID>
+                      <Description>"Attack Bargain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83824</ID>
+                      <Description>"Defense Value"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83825</ID>
+                      <Description>"Defense Bargain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83826</ID>
+                      <Description>"Magic Value"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBD+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83827</ID>
+                      <Description>"Magic Bargain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBE+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83828</ID>
+                      <Description>"Resist Value"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBE+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83829</ID>
+                      <Description>"Resist Bargain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBE+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83830</ID>
+                      <Description>"Luck Bargain"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>baseElfAddr+179BBE+20*[skillEdit]+514*[skillEdit+8]</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>83868</ID>
+              <Description>"Framerate limit"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>baseElfAddr-7FEC74E0</Address>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
@@ -1908,6 +3414,10 @@ dealloc(enmNum)
     <SymbolEntry>
       <Name>enmNum</Name>
       <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillEdit</Name>
+      <Address>1EA34A70000</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
 </CheatTable>

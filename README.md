@@ -113,6 +113,7 @@ Features:
  - Change difficulty values
  - Change battle BGM
  - Arte List Editor
+ - Grade Shop options
 
  ## Hearts (NDS)
 Based on the NTR-CTUJ-JPN version of the game.
@@ -131,6 +132,7 @@ Emulator used: Vita3K
 Features:
  - Stats Editor
  - Party Formation Editor
+ - Grade Shop options
 
  ## Innocence (NDS)
 Based on the NTR-AYTJ-JPN version of the game.
@@ -149,6 +151,7 @@ Emulator used: Vita3K
 Features:
  - Stats Editor
  - Party Formation Editor
+ - Grade Shop options
 
  ## Legendia (PS2)
 Based on the SLUS-21201 version of the game.
@@ -257,6 +260,7 @@ Features:
  - Save Anywhere script
  - Arte Properties Editor
  - Enemy Data Editor
+ - Arte Canceller
  
  This table has some notes regarding changing encounters that I never figured out.
  
