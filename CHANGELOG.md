@@ -1,5 +1,19 @@
 ### Changelog
 
+#### 2023/06/02
+
+-	Added Grade Shop options to Graces, Hearts R and Innocence R.
+-	Added Arte Canceller for Vesperia.
+	Some notes regarding it:
+	-	Mystic Artes are harder to activate.
+	-	Arte order still applies (base -> arcane -> altered, more with skills, and OVL allows free chaining)
+	-	During OverLimit, certain actions that require mashing do not work, as they will be instantly canceled.
+	-	Burst Artes activate instantly upon holding the button.
+	-	Any action can be canceled, except for Mystic Artes. (this includes normal attacks, artes, Fatal Strikes, Burst Artes, activating OVL and spell casting)
+	-	The Burst Arte/Fatal Strike tutorials may softlock the game. Please turn them off while doing them.
+		(if you do get in this state, just set the character's HP to 0 to be able to reload a save)
+	-	I have also included tools regarding Fatal Strike to help you incorporate them into combos, if you wish to.
+
 #### 2023/04/26
 
 -	Added a new script for Vesperia, where enemies don't activate Over Limit.
