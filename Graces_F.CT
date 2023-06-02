@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>351</ID>
@@ -8,7 +8,7 @@
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 
-aobscanregion(regionCheckMovSpeed, 300000000, 400000000, 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00) // should be unique
+aobscanregion(regionCheckMovSpeed, 300000000, 400000000, 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00 00 15 F3 C4 00 60 B4 F0) // should be unique
 
 registersymbol(regionCheckMovSpeed)
 [DISABLE]
@@ -1271,15 +1271,15 @@ unregistersymbol(regionCheckMovSpeed)
         </CheatEntry>
         <CheatEntry>
           <ID>476</ID>
-          <Description>"Movement Speed"</Description>
+          <Description>"Field Movement Speed"</Description>
           <Options moHideChildren="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 [DISABLE]
 regionCheckMovSpeed:
-db 3F 80 00 00
+db 3F 80 00 00 C3 16 00 00 3F 00 00 00 40 20 00 00 00 15 F3 C4 00 60 B4 F0
 regionCheckMovSpeed+AE4:
-db 3F A6 66 66
+db 3F A6 66 66 3E 99 99 9A 3E 19 99 9A 00 8A 12 E0 00 85 37 AC 3D 75 C2 8F
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
@@ -1292,7 +1292,7 @@ db 3F A6 66 66
             </CheatEntry>
             <CheatEntry>
               <ID>478</ID>
-              <Description>"Swift Spellbook"</Description>
+              <Description>"Book of Swiftness"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Custom</VariableType>
               <CustomType>Float Big Endian</CustomType>
@@ -5432,6 +5432,379 @@ ADMUS_V_YUR_R0:
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>1340</ID>
+          <Description>"Grade Shop options"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>regionCheckMovSpeed+141398</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1341</ID>
+              <Description>"Double Critical"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1347</ID>
+              <Description>"Double Damage"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1346</ID>
+              <Description>"5x Damage"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1345</ID>
+              <Description>"Double Gald"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1344</ID>
+              <Description>"Unlock Qualities"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1343</ID>
+              <Description>"Maximum Eleth +500"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1342</ID>
+              <Description>"Maximum HP +1000"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1348</ID>
+              <Description>"Skip Childhood"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1349</ID>
+              <Description>"Mastery Bonus"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1350</ID>
+              <Description>"Double Item Drops"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1351</ID>
+              <Description>"Dualize Discount"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1352</ID>
+              <Description>"Upgrade Eleth Mixer"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1353</ID>
+              <Description>"Expand Inventory"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1354</ID>
+              <Description>"Maximum Speed"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1355</ID>
+              <Description>"Chain Capacity +1"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1356</ID>
+              <Description>"Chain Capacity +2"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1357</ID>
+              <Description>"Inherit Shards"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1358</ID>
+              <Description>"Inherit Herb Bonuses"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1359</ID>
+              <Description>"Trade EXP for Gald"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1360</ID>
+              <Description>"Double Experience"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1361</ID>
+              <Description>"5x Experience"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1362</ID>
+              <Description>"Half Experience"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1363</ID>
+              <Description>"Double SP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1364</ID>
+              <Description>"Triple SP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1374</ID>
+              <Description>"Inherit Titles"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1375</ID>
+              <Description>"Inherit Skills"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1376</ID>
+              <Description>"Inherit Eleth Mixer"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1377</ID>
+              <Description>"Inherit Gald"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1378</ID>
+              <Description>"Inherit Stamps"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1379</ID>
+              <Description>"Inherit Arte Usage"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1380</ID>
+              <Description>"Inherit Books"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1381</ID>
+              <Description>"Inherit Battle Items"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1365</ID>
+              <Description>"Inherit Carta Cards"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+7</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>404</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -6272,7 +6645,7 @@ ADMUS_V_YUR_R0:
               <Address>regionCheckMovSpeed+18B2C6</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>1198</ID>
+              <ID>1312</ID>
               <Description>"Gem/Armor Editor"</Description>
               <Options moHideChildren="1"/>
               <VariableType>Auto Assembler Script</VariableType>
@@ -6312,12 +6685,12 @@ code:
   movbe dx,[r8+rdx]
   pop rbx
   popf
-  movzx edx,dx
-  mov [rcx+30],rdx
   jmp return
 
 gemEdit+8:
   jmp newmem
+  nop
+  nop
 
 return:
 
@@ -6339,12 +6712,12 @@ code2:
   movbe dx,[r8+rdx]
   pop rbx
   popf
-  movzx edx,dx
-  mov [rcx+30],rdx
   jmp return2
 
 armorEdit+8:
   jmp newmem2
+  nop
+  nop
 
 return2:
 
@@ -6371,31 +6744,31 @@ dealloc(armorLoc)
 </AssemblerScript>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>1199</ID>
+                  <ID>1313</ID>
                   <Description>"Hover over the item and switch to the 2nd page via square!"</Description>
                   <Color>FF00FF</Color>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1200</ID>
+                  <ID>1314</ID>
                   <Description>"Values by frubam"</Description>
                   <Color>FF00FF</Color>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1221</ID>
+                  <ID>1315</ID>
                   <Description>"Only works on rpcs3 0.0.14-11605!"</Description>
                   <Color>FF00FF</Color>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1201</ID>
+                  <ID>1316</ID>
                   <Description>"Gems"</Description>
                   <Options moHideChildren="1"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>1202</ID>
+                      <ID>1317</ID>
                       <Description>"Item number"</Description>
                       <DropDownList DisplayValueAsItem="1">:===== Asbel =====
 771:Long Sword
@@ -6491,7 +6864,7 @@ dealloc(armorLoc)
                       <Address>[gemLoc]</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1203</ID>
+                      <ID>1318</ID>
                       <Description>"Shard 1 type"</Description>
                       <DropDownList DisplayValueAsItem="1">00:None
 01:Attack(P.Atk)
@@ -6641,7 +7014,7 @@ dealloc(armorLoc)
                       <Address>[gemLoc]+2</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1204</ID>
+                      <ID>1319</ID>
                       <Description>"Shard 1 level"</Description>
                       <DropDownList DisplayValueAsItem="1">00:[0]
 01:[1]
@@ -6661,7 +7034,7 @@ dealloc(armorLoc)
                       <Address>[gemLoc]+3</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1205</ID>
+                      <ID>1320</ID>
                       <Description>"Shard 2 type"</Description>
                       <DropDownList DisplayValueAsItem="1">00:None
 01:Attack(P.Atk)
@@ -6811,7 +7184,7 @@ dealloc(armorLoc)
                       <Address>[gemLoc]+4</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1206</ID>
+                      <ID>1321</ID>
                       <Description>"Shard 2 level"</Description>
                       <DropDownList DisplayValueAsItem="1">00:[0]
 01:[1]
@@ -6831,7 +7204,7 @@ dealloc(armorLoc)
                       <Address>[gemLoc]+5</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1207</ID>
+                      <ID>1322</ID>
                       <Description>"Quality type"</Description>
                       <DropDownList DisplayValueAsItem="1">00:???
 01:Keen
@@ -6897,13 +7270,13 @@ dealloc(armorLoc)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1208</ID>
+                  <ID>1323</ID>
                   <Description>"Armor"</Description>
                   <Options moHideChildren="1"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>1209</ID>
+                      <ID>1324</ID>
                       <Description>"Item number"</Description>
                       <DropDownList DisplayValueAsItem="1">:===== Asbel =====
 771:Long Sword
@@ -6999,7 +7372,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1210</ID>
+                      <ID>1325</ID>
                       <Description>"Additional P. DEF"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -7007,7 +7380,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+2</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1211</ID>
+                      <ID>1326</ID>
                       <Description>"Additional C. DEF"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -7015,7 +7388,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+4</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1212</ID>
+                      <ID>1327</ID>
                       <Description>"Additional EVA"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -7023,7 +7396,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+6</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1213</ID>
+                      <ID>1328</ID>
                       <Description>"Shard 1 type"</Description>
                       <DropDownList DisplayValueAsItem="1">00:None
 01:Attack(P.Atk)
@@ -7173,7 +7546,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+A</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1214</ID>
+                      <ID>1329</ID>
                       <Description>"Shard 1 level"</Description>
                       <DropDownList DisplayValueAsItem="1">00:[0]
 01:[1]
@@ -7193,7 +7566,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+B</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1215</ID>
+                      <ID>1330</ID>
                       <Description>"Shard 2 type"</Description>
                       <DropDownList DisplayValueAsItem="1">00:None
 01:Attack(P.Atk)
@@ -7343,7 +7716,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+C</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1216</ID>
+                      <ID>1331</ID>
                       <Description>"Shard 2 level"</Description>
                       <DropDownList DisplayValueAsItem="1">00:[0]
 01:[1]
@@ -7363,7 +7736,7 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+D</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1217</ID>
+                      <ID>1332</ID>
                       <Description>"Quality type"</Description>
                       <DropDownList DisplayValueAsItem="1">00:???
 01:Keen
@@ -7427,27 +7800,33 @@ dealloc(armorLoc)
                       <Address>[armorLoc]+E</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1218</ID>
-                      <Description>"Gold?"</Description>
-                      <DropDownList DisplayValueAsItem="1">0:No
-1:Yes
-</DropDownList>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>[armorLoc]+12</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>1219</ID>
+                      <ID>1333</ID>
                       <Description>"Tempered?"</Description>
                       <DropDownList DisplayValueAsItem="1">0:No
 1:Yes
 </DropDownList>
                       <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
                       <Address>[armorLoc]+13</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>1220</ID>
+                      <ID>1273</ID>
+                      <Description>"Gold?"</Description>
+                      <DropDownList DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>[armorLoc]+13</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1334</ID>
                       <Description>"+ mark value"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -8385,7 +8764,16 @@ dealloc(armorLoc)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>

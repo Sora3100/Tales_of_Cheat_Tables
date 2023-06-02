@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>12847</ID>
@@ -120,6 +120,3265 @@ Tales of Berseria.exe+14BB9B5: 48 01 D0              - add rax,rdx
           <CodePage>0</CodePage>
           <ZeroTerminate>1</ZeroTerminate>
           <Address>"Tales of Berseria.exe"+100C868</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7736</ID>
+          <Description>"Enemy Book Data - from Frubam, expanded"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2017-01-22
+  Author : frubam
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(enm_BookData,Tales of Berseria.exe,41 39 00 74 09) // should be unique
+alloc(newmem,$1000,"Tales of Berseria.exe"+3D5347)
+alloc(pEnmBookData,4)
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [pEnmBookData],r8
+  cmp [r8],eax
+  reassemble(enm_BookData+3)
+  jmp return
+
+enm_BookData:
+  jmp code
+return:
+registersymbol(enm_BookData)
+registersymbol(pEnmBookData)
+
+[DISABLE]
+
+enm_BookData:
+  db 41 39 00 74 09
+
+unregistersymbol(enm_BookData)
+unregistersymbol(pEnmBookData)
+
+dealloc(newmem)
+dealloc(pEnmBookData)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Tales of Berseria.exe"+3D5347
+
+"Tales of Berseria.exe"+3D531D: E8 7E B8 FE FF        -  call "Tales of Berseria.exe"+3C0BA0
+"Tales of Berseria.exe"+3D5322: EB 46                 -  jmp "Tales of Berseria.exe"+3D536A
+"Tales of Berseria.exe"+3D5324: BA 01 00 00 00        -  mov edx,00000001
+"Tales of Berseria.exe"+3D5329: 48 8B CB              -  mov rcx,rbx
+"Tales of Berseria.exe"+3D532C: E8 6F C7 20 00        -  call "Tales of Berseria.exe"+5E1AA0
+"Tales of Berseria.exe"+3D5331: 48 8B 0D 30 42 C3 00  -  mov rcx,["Tales of Berseria.exe"+1009568]
+"Tales of Berseria.exe"+3D5338: 48 8B 15 21 42 C3 00  -  mov rdx,["Tales of Berseria.exe"+1009560]
+"Tales of Berseria.exe"+3D533F: 48 3B D1              -  cmp rdx,rcx
+"Tales of Berseria.exe"+3D5342: 74 16                 -  je "Tales of Berseria.exe"+3D535A
+"Tales of Berseria.exe"+3D5344: 4C 8B 02              -  mov r8,[rdx]
+// ---------- INJECTING HERE ----------
+"Tales of Berseria.exe"+3D5347: 41 39 00              -  cmp [r8],eax
+"Tales of Berseria.exe"+3D534A: 74 09                 -  je "Tales of Berseria.exe"+3D5355
+// ---------- DONE INJECTING  ----------
+"Tales of Berseria.exe"+3D534C: 48 83 C2 08           -  add rdx,08
+"Tales of Berseria.exe"+3D5350: 48 3B D1              -  cmp rdx,rcx
+"Tales of Berseria.exe"+3D5353: 75 EF                 -  jne "Tales of Berseria.exe"+3D5344
+"Tales of Berseria.exe"+3D5355: 48 3B D1              -  cmp rdx,rcx
+"Tales of Berseria.exe"+3D5358: EB BB                 -  jmp "Tales of Berseria.exe"+3D5315
+"Tales of Berseria.exe"+3D535A: 48 8B 43 10           -  mov rax,[rbx+10]
+"Tales of Berseria.exe"+3D535E: C7 40 08 00 00 00 00  -  mov [rax+08],00000000
+"Tales of Berseria.exe"+3D5365: 48 83 43 10 10        -  add qword ptr [rbx+10],10
+"Tales of Berseria.exe"+3D536A: B8 01 00 00 00        -  mov eax,00000001
+"Tales of Berseria.exe"+3D536F: 48 8B 4C 24 28        -  mov rcx,[rsp+28]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>7719</ID>
+              <Description>"Character/Enemy value (0x00)"</Description>
+              <DropDownList DisplayValueAsItem="1">1:Test
+2:Velvet
+3:Laphicet
+4:Rokurou
+5:Eleanor
+6:Magilou
+7:Eizen
+
+8:Seres (Lv 5)
+9:Mysterious Malak (Zavied)(Lv 18)
+10:Zavied (Gaiburk)(Lv 60)
+11:Innominat (Lv 65)
+12:Red-Eyed Swdsmn (Roku)(Lv 6)
+13:Shigure (Vester)(Lv 22)
+14:Shigure (Port Cadnix)(Lv 23)
+15:Shigure (Mt Killaraus)(Lv 54)
+16:Pirate Malak (Eizen)(Lv 11)
+17:Eizen (Zav battle)(Lv 18)
+18:Eleanor (Lv 14)
+19:Eleanor (Lv 17)
+20:Eleanor (Lv 20)
+21:Oscar (Lv 6)
+22:Failed Oscar (Lv 45)
+23:Melchior (Lv 49)
+24:Demi-Melchior (Lv 56)
+25:Artorius (Lv 60)(1st battle)
+26:Artorius (Lv 65)(Final battle)
+27:Armatized Artorius (Lv 65)
+28:Teresa (Lv 9)
+29:Therion Theresa (Lv 44)
+30:Jude (Yseult)(Lv 68)
+31:Jude (Normin Island)(Lv 126)
+32:Milla (Figahl)(Lv 72)
+33:Milla (Normin Island)(Lv 126)
+34:Dark Turtlez (Lv 88)
+35:Phoenix (Lv 100)
+36:Tethered Malak One (Hellawes)(Lv 9)
+37:Tethered Malak One (The Calix)(Lv 49)
+38:Tethered Malak Two (Laphi)(Lv 9)
+
+39:Longsword Orderly (Lv 5)
+40:Rapier Orderly (Lv 9)
+41:Spear Orderly (Lv 5)
+42:Two-sword Orderly (Lv 17)
+43:Longsword Praetor (Lv 11)
+44:Longsword Praetor (Lv 21)
+45:Pugilist Praetor [Earth](Lv 46)
+46:Mace Praetor (Lv 23)
+47:Two-sword Praetor (Lv 39)
+48:Longbow Praetor [Water](Lv 46)
+49:Lancer (Lv 6)
+50:Hammerer (Lv 30)
+51:Duelist (Lv 14)
+52:Mace Wielder (Lv 6)
+53:Prison Guard (Lv 5)
+54:Royal Lancer (Lv 16)
+55:Guard (Lv 30)
+56:Spearman (Lv 30)
+57:Spear Guard (Lv 5)
+58:Royal Swordfighter (Lv 16)
+59:Mercernary (Lv 15)
+60:Pirate A(tentative)
+61:Pirate A(tentative) (Lv 55) 
+62:Brigid Brigand (Lv 20)
+63:Brigand (tentative)(Lv 50)
+64:Prickleboar (Lv 3)
+
+65:Blude Wolf (Lv 6)
+66:Daemon Mahina (Boss)(Lv 30)
+67:Tree Therion (Boss)(Lv 31)
+68:Daemon Dyle (Lv 9)
+69:Guardian (Lv 12)
+70:Swordbreaker (Lv 20)
+71:Legendary Wyvern (Boss)(Lv 28)
+72:Drake (Lv 7)
+73:Illuyankas (Lv 92)
+74:Daemon Aifread (Lv 52)
+75:Dullahan (Lv 34)
+76:Therion Orthrus (Lv 43)
+77:Vigilante (Lv 65)
+78:Therion Medissa (Lv 39)
+
+79:Vengeful Goddess (Lv 79)
+80:Venom Lizard (Boss)(Lv 29)
+81:Basilisk (Lv 80)
+82:Shenlong (Lv 62)
+83:Leviathan (Lv 98)
+84:Sky Soldier (Lv 65)
+85:Pandora Pot (Lv 36)
+86:Lawless Vessel (Lv 65)
+87:Xeno Mantis (Lv 42)
+88:Vouivre (Lv 86)
+89:Reaper's Slanderer (Lv 65)
+90:Chimaera (Lv 48)
+91:Azhdahak (Lv 124)
+92:Miraculous Mimic (Lv 65)
+93:Fafnir (Lv 112)
+94:Hellkite (1st battle)(Lv 50)
+95:Varaha (Boss assist)(Lv 11)
+96:Delusory Rodent (Boss assist)(Lv 11)
+97:Primal Python (Boss assist)(Lv 15)
+98:Minion of Prophecy (Lv 60)
+99:Antique Armor (Lv 34)
+100:Thickjaw Beetle (Boss)(Lv 24)
+
+101:Heavy Guardian (Boss)(Lv 15)
+102:Wild Thickjaw Beetle (Lv 25)
+103:Pandora Pot Omega (Lv 35)
+104:Gentleman (Lv 45)
+105:Wrathful Prickleboar (Lv 55)
+106:Hecatoncheire (Lv 65)
+107: Void Normin(does nothing)(Lv 150)
+
+108:Wolf (Lv 11)
+109:Force Hound (Lv 25)
+110:Winter Wolf (Lv 52)
+111:Managarmr (Code R)(Lv 41)
+112:Fury Wolf (Lv 88)
+
+113:Marmot (Lv 14)
+114:Skunk (Lv 23)
+115:Two-tailed Fox (Lv 58)
+116:Dangeroma (Code R)(Lv 44)
+117:Water Skunk (Lv 88)
+
+118:Varaha (Lv 18)
+119:Boar (Lv 23)
+120:Wild Boar (Lv 52)
+121:Behemoth (Code R)(Lv 46)
+122:Brutaur (Lv 76)
+
+123:Gibbon (Lv 13)
+124:Bush Ape (Lv 32)
+125:Polar Meteor (Lv 59)
+126:Sacred Baboon (Dire Foe)(Lv 21)
+127:Dynamite Puncher (Lv 100)
+
+128:Scorpion (Lv 10)
+129:Scorpstar (Lv 25)
+130:Phantasmal Needle (Lv 58)
+131:Serket (Code R)(Lv 36)
+132:Scarlet Needler (Lv 120)
+
+133:Delusory Rodent (Lv 18)
+134:Geo Roller (Lv 40)
+135:Freezillo (Lv 52)
+136:Pillbug (Code R)(Lv 18)
+137:Flame Roller (Lv76)
+
+138:Centipede (Lv 8)
+139:Armored Centipede (Lv18)
+140:Hundrepede (Lv 140)
+141:Millionaire (Code R)(Lv 52)
+142:Trilobite (Lv 82)
+
+143:Spider (Lv 10)
+144:Orb-weaver (Lv 26)
+145:Mysterious Enforcer (Lv 59)
+146:Spider Queen (Code R)(Lv 20)
+147:Tarantulizm (Lv 82)
+
+148:Slime (Lv 15)
+149:Mud Slime (Lv 23)
+150:Fleeting Cell (Lv 59)
+151:Gluttony (Code R)(Lv 35)
+152:Almond Jelly (Lv 76)
+
+153:Seed (Lv 10)
+154:Wet Seed (Lv 25)
+155:Faerie Bounty (Lv 44)
+156:Spectral Crystal (Code R)(Lv 52)
+157:Stretch (Lv 100)
+
+158:Octopus (Lv 8)
+159:Dumpus (Lv 28)
+160:Scatterer (Lv 44)
+161:Kraken (Code R)(Lv 32)
+162:Devil Fish (Lv 100)
+
+163:Maul (Lv 11)
+164:Sand Mole (Lv 28)
+165:Igniter Mole (Lv 55)
+166:Hanged Man (Dire Foe)(Lv 15)
+167:Molerino (Lv 94)
+
+168:Snake (Lv 13)
+169:Sea Serpent (Lv 29)
+170:Rigid Python (Lv 46)
+171:Oroboros (Code R)(Lv 25)
+172:King Cobra (Lv 82)
+
+173:Primal Python (Lv 18)
+174:Naga (Lv 28)
+175:Hell Lady (Lv 47)
+176:Echidna (Code R)(Lv 17)
+177:Midgard Serpent (Lv 76)
+
+178:Treant (Lv 19)
+179:Aged Treant (Lv 36)
+180:Hallowed Tree (Lv 44)
+181:Dryad (Code R)(Lv 42)
+182:Wood Chopper (Lv 88)
+
+183:Plantus (Lv 11)
+184:Forest Plantus (Lv 37)
+185:Robust Seed (Lv 59)
+186:Plantasm (Code R)(Lv 28)
+187:Metal Grass (Lv 76)
+
+188:Bat (Lv 8)
+189:Night Flapper (Lv 38)
+190:Blood Heat (Lv 53)
+191:Bat Baron (Code R)(Lv 10)
+192:Golden Bat (Lv 82)
+
+193:Axe Beak (Lv 13)
+194:Peacock (Lv 28)
+195:Blade Beak (Lv 40)
+196:King Peacock (Code R)(Lv 42)
+197:Golden Axer (Lv 88)
+
+198:Eagle (Lv 7)
+199:Hawk (Lv 29)
+200:Bird of Paradise (Lv 59)
+201:Horus (Code R)(Lv 21)
+202:Black Bird (Lv 88)
+
+203:Harpy (Lv 19)
+204:Garuda (Lv 42)
+205:Wings of Misfortune (Lv 58)
+206:Harpy Go Lucky (Code R)(Lv 35)
+207:Hell Harpy (Lv 120)
+
+208:Orc (Lv 5)
+209:Cliff Orc (Lv 40)
+210:Blind Follower (Lv 59)
+211:Orc Kong (Code R)(Lv 18)
+212:Orc Gorilla (Lv 94)
+
+213:Werewolf (Lv 5)
+214:Lycanthrope (Lv 23)
+215:Wolf Berserker (Lv 40)
+216:Breed Wolf (Code R)(Lv 29)
+217:Lycan Coyote (Lv 76)
+
+218:Troll (Lv 23)
+219:Cyclopz (Lv 41)
+220:Curse Island Giant (Lv 50)
+221:Boss Troll (Code R)(Lv 64)
+222:Solveiger (Lv 70)
+
+223:Witch (Lv 19)
+224:Flame Witch (Lv 33)
+225:Gale Witch (Lv 46)
+226:Weighty Witch (Code R)(Lv 62)
+227:Water Witch (Lv)
+
+228:Stag Beetle (Lv 7)
+229:Hornet (Lv 36)
+230:Bearer of Salvation (Lv 59)
+231:Queen Bee (Dire Foe)(Lv 37)
+232:Heracles Beetle (Lv 120)
+
+233:Lizardman (Lv 11)
+234:Twisted Priest (Lv 30)
+235:Lizard Paladin (Lv 55)
+236:Dragonfolk (Code R)(Lv 67)
+237:Dragoon (Lv 120)
+
+238:Living Armor (Lv 15)
+239:Argent Armor (Lv 38)
+240:Ancient Armor (Lv 47)
+241:Lancelot (Code R)(Lv 61)
+242:Cluster Fang (Lv 70)
+
+243:Rock Golem (Lv 21)
+244:Red Mist Watcher (Lv 44)
+245:Lava Atlas (Lv 55)
+246:Titan (Code R)(Lv 57)
+247:Mythril Gigant (Lv 94)
+
+248:Gobun Heddin (Lv 15)
+249:Tiga Heddin (Lv 33)
+250:Macrotian Wraith (Lv 46)
+251:Bison Heddin (Code R)(Lv 55)
+252:Beard Heddin
+
+253:Zombie (Lv 21)
+254:Undying Wretch (Lv 38)
+255:Ghoul (Lv 57)
+256:Iron Bones (Code R)(Lv 49)
+257:Immortus (Lv 82)
+
+258:Wraith (Lv 11)
+259:Roving Spirit (Lv 38)
+260:Specter (Lv 47)
+261:Phantom(Code R)(Lv 54)
+262:Mist Puppeteer
+
+263:Undead Magician (Lv 18)
+264:Undead Sorcerer (Lv 42)
+265:Immortal Staff (Lv 59)
+266:Demon Rodler (Code R)(Lv 66)
+267:Undead Wizard (Lv 94)
+
+268:Pixie (Lv 14)
+269:Fairy (Lv 36)
+270:Enticing Glamor (Lv 50)
+271:Trickstar (Code R)(Lv 27)
+272:Changeling (Lv 70)
+
+273:Wall Man (Lv 11)
+274:Deep Barrier (Lv 30)
+275:Executioner (Lv 52)
+276:Bacturnian Man (Dire Foe)(Lv 51)
+277:Megaphoner (Lv 120)
+
+278:Devil (Lv 18)
+279:Gargoyle (Lv 33)
+280:Angel of Remorse (Lv 59)
+281:Succubus Queen (Code R)(Lv 50)
+282:Nightmare (Lv 120)
+
+283:Scaled Bird (Lv 19)
+284:Wyvern (Lv 36)
+285:Firewing Serpent (Lv 59)
+286:Lindwurm (Dire Foe)(Lv 65)
+287:Kylvern (Lv 88)
+
+288:Metaboar (Lv 5)
+289:Seres (playable version)
+290:Deific(Armatized) Artorius 
+291:Baloon (Lv1)
+292:Baloon
+293:Baloon
+294:Baloon
+295:Mook 5 (Fire Normin)(Lv50)
+296:Mook 6 (Water Normin)(Lv60)
+297:Mook 7 (Earth Normin)(Lv70)
+298:Mook 8 (Wind Normin)(Lv80)
+299:Mook 9 (Void Normin)(Lv90)
+300:Hellkite (2nd battle)(Lv 64)
+301:Training Dummy(Phoenix) (Lv10)
+302:Hellkite (1st battle?)(Lv 64)
+303:Blude Wolf (Lv5)
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12704</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7720</ID>
+              <Description>"Offset to ENE_&lt;char&gt; tag (0x08)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12849</ID>
+                  <Description>"ENE_&lt;char&gt; tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBookData]+8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7721</ID>
+              <Description>"Level (0x10)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12706</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12707</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12708</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12709</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12710</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7722</ID>
+              <Description>"Max HP (0x28)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12711</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12712</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7723</ID>
+              <Description>"Attack (0x34)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7724</ID>
+              <Description>"Arte Attack (0x38)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7731</ID>
+              <Description>"Defense (0x3C)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7730</ID>
+              <Description>"Arte Defense (0x40)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7729</ID>
+              <Description>"Focus (0x44)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12713</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12714</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7728</ID>
+              <Description>"Max Souls(min- 1;max- 5) (0x50)"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1:1 Soul
+2:2 Souls
+3:3 Souls
+4:4 Souls
+5:5 Souls
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>50</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12715</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12720</ID>
+              <Description>"Offset to ABX? tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>58</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12850</ID>
+                  <Description>"ABX? tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBookData]+58</Offset>
+                    <Offset>58</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12718</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>60</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12717</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12716</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12721</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12722</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>70</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12723</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>74</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7726</ID>
+              <Description>"Status Effect Efficacy(%) on Artes (0x78)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12724</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12725</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>7C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12726</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12727</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>84</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12728</ID>
+              <Description>"Offset to value after ENE_&lt;char&gt; tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>88</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12851</ID>
+                  <Description>"Value"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBookData]+88</Offset>
+                    <Offset>88</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12730</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12731</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>94</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12732</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>98</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12733</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12734</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12735</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>A4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12736</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12737</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10165</ID>
+              <Description>"Enemy Drop 1 Item (0xB0)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+</DropDownList>
+              <VariableType>2 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10164</ID>
+              <Description>"Enemy Drop 1 Item Type (0xB3)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No Item Drop
+1:Consumables
+2:Materials
+3:Weapons
+4:Accessories
+5:Armors
+6:Rings
+7:Boots
+8:Fashion
+9:Valuables
+10:NULL
+11:Potentites
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>B3</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10167</ID>
+              <Description>"Enemy Drop 2 Item (0xB4)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+</DropDownList>
+              <VariableType>2 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10166</ID>
+              <Description>"Enemy Drop 2 Item Type (0xB7)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No Item Drop
+1:Consumables
+2:Materials
+3:Weapons
+4:Accessories
+5:Armors
+6:Rings
+7:Boots
+8:Fashion
+9:Valuables
+10:NULL
+11:Potentites
+</DropDownList>
+              <VariableType>Byte</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>B7</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12740</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12741</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12742</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12743</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>C4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7725</ID>
+              <Description>"Model Size Multiplier (0xC8)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10276</ID>
+              <Description>"Floating height off ground (0xCC)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10275</ID>
+              <Description>"Casting Glyph Size Multiplier (0xD0)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12744</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>D4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12745</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>D8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12746</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>DC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7737</ID>
+              <Description>"Movement[running] Speed (0xE0)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12747</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12748</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12749</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12750</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12751</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12752</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>F8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12753</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11515</ID>
+              <Description>"Enemy disappears after Defeat(bit) (0x100)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Yes, disappears when HP=0
+1:No, does not disappear when HP=0
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>100</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12754</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>104</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12755</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>108</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12756</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12757</ID>
+              <Description>"Offset to enemy name tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>110</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12852</ID>
+                  <Description>"Enemy name tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBookData]+110</Offset>
+                    <Offset>110</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12759</ID>
+              <Description>"Offset to unit format tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>118</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12853</ID>
+                  <Description>"Unit format tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBookData]+118</Offset>
+                    <Offset>118</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12761</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>120</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12762</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>124</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12763</ID>
+              <Description>"Offset to GUI image tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>128</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12854</ID>
+                  <Description>"GUI image tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBooKData]+128</Offset>
+                    <Offset>128</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12765</ID>
+              <Description>"Offset to BTL Voice tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>130</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12855</ID>
+                  <Description>"BTL Voice tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBooKData]+130</Offset>
+                    <Offset>130</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12767</ID>
+              <Description>"Offset to SEL tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>138</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12856</ID>
+                  <Description>"SEL tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBooKData]+138</Offset>
+                    <Offset>138</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12769</ID>
+              <Description>"Offset to 1st value after btl voice tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>140</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12857</ID>
+                  <Description>"Value"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBooKData]+140</Offset>
+                    <Offset>140</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12771</ID>
+              <Description>"Offset to 2nd value after btl voice tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>148</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12858</ID>
+                  <Description>"Value"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBooKData]+148</Offset>
+                    <Offset>148</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12773</ID>
+              <Description>"Offset to battle event tag"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pEnmBookData</Address>
+              <Offsets>
+                <Offset>150</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12859</ID>
+                  <Description>"Battle event tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pEnmBookData</Address>
+                  <Offsets>
+                    <Offset>[pEnmBooKData]+150</Offset>
+                    <Offset>150</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"Arte Parameters - from Frubam, expanded"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2017-01-10
+  Author : frubam
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(arte_Param,Tales of Berseria.exe,44 39 3B 74 0C 48 81 C3 C0 00 00 00 48 39 FB 75 EF 48) // should be unique
+alloc(newmem,$1000,"Tales of Berseria.exe"+15C6D91)
+alloc(pToB_arteParam,8)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [pToB_arteParam],rbx
+  cmp [rbx],r15d
+  reassemble(arte_Param+3)
+  jmp return
+
+arte_Param:
+  jmp code
+return:
+
+registersymbol(arte_Param)
+registersymbol(pToB_arteParam)
+
+[DISABLE]
+
+arte_Param:
+  db 44 39 3B 74 0C
+
+unregistersymbol(arte_Param)
+unregistersymbol(pToB_arteParam)
+
+dealloc(newmem)
+dealloc(pToB_arteParam)
+{
+// ORIGINAL CODE - INJECTION POINT: "Tales of Berseria.exe"+3D3412
+
+"Tales of Berseria.exe"+3D33F3: 74 AF                 -  je "Tales of Berseria.exe"+3D33A4
+"Tales of Berseria.exe"+3D33F5: 48 8B CB              -  mov rcx,rbx
+"Tales of Berseria.exe"+3D33F8: E8 13 7D 01 00        -  call "Tales of Berseria.exe"+3EB110
+"Tales of Berseria.exe"+3D33FD: EB B5                 -  jmp "Tales of Berseria.exe"+3D33B4
+"Tales of Berseria.exe"+3D33FF: CC                    -  int 3 
+"Tales of Berseria.exe"+3D3400: 40 53                 -  push rbx
+"Tales of Berseria.exe"+3D3402: 48 83 EC 20           -  sub rsp,20
+"Tales of Berseria.exe"+3D3406: 48 8B D9              -  mov rbx,rcx
+"Tales of Berseria.exe"+3D3409: E8 12 92 01 00        -  call "Tales of Berseria.exe"+3EC620
+"Tales of Berseria.exe"+3D340E: 48 8B 53 10           -  mov rdx,[rbx+10]
+// ---------- INJECTING HERE ----------
+"Tales of Berseria.exe"+3D3412: 66 0F 6E 00           -  movd xmm0,[rax]
+"Tales of Berseria.exe"+3D3416: C7 42 08 03 00 00 00  -  mov [rdx+08],00000003
+// ---------- DONE INJECTING  ----------
+"Tales of Berseria.exe"+3D341D: B8 01 00 00 00        -  mov eax,00000001
+"Tales of Berseria.exe"+3D3422: F3 0F E6 C0           -  cvtdq2pd xmm0,xmm0
+"Tales of Berseria.exe"+3D3426: F2 0F 11 02           -  movsd [rdx],xmm0
+"Tales of Berseria.exe"+3D342A: 48 83 43 10 10        -  add qword ptr [rbx+10],10
+"Tales of Berseria.exe"+3D342F: 48 83 C4 20           -  add rsp,20
+"Tales of Berseria.exe"+3D3433: 5B                    -  pop rbx
+"Tales of Berseria.exe"+3D3434: C3                    -  ret 
+"Tales of Berseria.exe"+3D3435: CC                    -  int 3 
+"Tales of Berseria.exe"+3D3436: CC                    -  int 3 
+"Tales of Berseria.exe"+3D3437: CC                    -  int 3 
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>6313</ID>
+              <Description>"Arte Value (0x00)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None/Default
+
+== Velvet ==
+1:Slicing Foot (0x01)
+2:Tearing Thorn (0x02)
+3:Gouging Spin (0x03)
+4:Swallow Dance (0x04)
+5:Twin Whip (0x05)
+6:Avalanche Fang (0x06)
+7:Harsh Rebuttal (0x07)
+8:Water Snake's Wake (0x08)
+9:Moonlight Cyclone (0x09)
+10:Soaring Dragon (0x0A)
+11:Rising Moon (0x0B)
+12:Rising Falcon (0x0C)
+13:Heaven's Wrath (0x0D)
+14:Infernal Torrent (0x0E)
+15:Searing Edge (0x0F)
+16:Mega Sonic Thrust (0x10)
+17:Shell Splitter (0x11)
+18:Shadow Flow (0x12)
+19:Slag Assault (0x13)
+20:Grounding Strike (0x14)
+21:Cerberus Wave (0x15)
+22:Banishing Thunder (0x16)
+23:Binding Frost (0x17)
+24:Scale Crusher (0x18)
+25:Defiant Conviction (0x19)
+26:Scarlet Edge (0x1A)
+27:Zero Impact Vest (0x1B)
+28:Rush Strafe (0x1C)
+29:Thunder Blitz (0x1D)
+30:Break Boost (0x1E)
+31:Laughing Raven (0x1F)
+32:Blue Inferno (0x20)
+33:Lunar Surface (0x21)
+34:Jet Blizzard (0x22)
+35:Phalanx Raid (0x23)
+36:Discord (0x24)
+37:Consuming Claw (0x25)
+39:Heaven's Claw (0x27)
+40:Hell's Claw (0x28)
+41:Nightmare Claw (0x29)
+42:Lethal Pain (0x2A)
+43:Annihilating Crash (0x2B)
+44:Impluse Desire (0x2C)
+45:Grievous Slash (0x2D)
+
+== Laphicet ==
+46:Paper Rock (0x2E)
+47:Triple Gale (0x2F)
+48:Mana Eruption (0x30)
+49:Rainbow Mist (0x31)
+50:Triflare (0x32)
+51:Dark Quarter (0x33)
+52:Beckoning Lure (0x34)
+53:Frigid Pillar (0x35)
+54:Frozen Flame (0x36)
+55:Arctic Peals (0x37)
+56:Lunar Fountain (0x38)
+57:Bright Shade (0x39)
+58:Geostigma (0x3A)
+59:Pyrogenic Ring (0x3B)
+60:Kaleidos Ray (0x3C)
+61:Void Mire (0x3D)
+62:Blessed Drops (0x3E)
+63:Dark Fangs (0x3F)
+64:Divine Saber (0x40)
+65:Insubstantiality (0x41)
+66:First Aid (0x42)
+67:Elixir Vitae (0x43)
+68:Divide Pain (0x44)
+69:Static Force (0x45)
+70:Soul Distortion (0x46)
+71:Binding Order (0x47)
+72:Chaos Bloom (0x48)
+73:Indignation (0x49)
+74:Seer's Storm (0x4A)
+
+== Rokurou ==
+75:Bone Breaker (0x4B)
+76:Crimson Flash (0x4C)
+77:Mowing Blade (0x4D)
+78:Hurricane Thrust (0x4E)
+79:Shockwave Slash (0x4F)
+80:Smokescreen Assault (0x50)
+81:Concealed Blade (0x51)
+82:Armor Crusher (0x52)
+83:Shooting Star (0x53)
+84:Jade Wave (0x54)
+85:Mirage Dance (0x55)
+86:Double Haze (0x56)
+87:Infernal Bloom (0x57)
+88:Orochi's Fury (0x58)
+89:Form 1: Fire Burst (0x59)
+90:Form 2: Imbue Earth (0x5A)
+91:Form 3: Water Hammer (0x5B)
+92:Form 4: Cyclone Dart (0x5C)
+93:Form 5: Scatterburst (0x5D)
+94:Form 6: Dark Vortex (0x5E)
+95:Form 7: Rapid Bolt (0x5F)
+96:Form 8: Magma Burst (0x60)
+97:Vengeful Stance (0x61)
+98:Vengeful Punishment (0x62)
+99:Vengeful Scourge (0x63)
+100:Vengeful Retribution (0x64)
+101:Form 0: Sunder (0x65)
+102:Rangetsu Heron (0x66)
+103:Form 9: Final Judgment (0x67)
+105:Ghost Strike (0x69)
+
+== Eleanor ==
+106:Vanguard (0x6A)
+107:Rending Strike (0x6B)
+108:Double Rush (0x6C)
+109:Skewering Spear (0x6D)
+110:Whirling Top (0x6E)
+111:Burning Moon (0x6F)
+112:Treble Strike (0x70)
+113:Coiling Serpent (0x71)
+114:Earth Drake (0x72)
+115:Cleansing Lance (0x73)
+116:Crushing Drop (0x74)
+117:Hexa Strike (0x75)
+118:Thermal Skewer (0x76)
+119:Roaring Thunder (0x77)
+120:Flame Beast (0x78)
+121:Ice Edge (0x79)
+122:Maelstrom (0x7A)
+123:Rock Swarm (0x7B)
+124:Shock Drum (0x7C)
+125:Violet Ray (0x7D)
+126:Inspiration (0x7E)
+127:Life (0x7F)
+128:Aerial Stirke (0x80)
+129:Strike Zwei (0x81)
+130:Strike Drei (0x82)
+131:Spiral Hail (0x83)
+132:Lostfon Drive (0x84)
+133:Gungnir Twister (0x85)
+134:Break Roll (0x86)
+
+== Magilou ==
+135:Dryad (0x87)
+136:Up the Sleeve (0x88)
+137:Twin Spirits (0x89)
+138:Hellrise (0x8A)
+139:Great Cycle (0x8B)
+140:Spirit Beads (0x8C)
+141:Atmos Glaive (0x8D)
+142:Triple Tremor (0x8E)
+143:Spirit Drop (0x8F)
+144:Gliding Blast (0x90)
+145:Shrike Dive (0x91)
+146:Aqua Split (0x92)
+147:Flood Wall (0x93)
+148:Final Embrace (0x94)
+149:Blood Moon (0x95)
+150:Crown Fire (0x96)
+151:Explode (0x97)
+152:Water Mine (0x98)
+153:Fire Mine (0x99)
+154:Gravity Mine (0x9A)
+155:Healing Circle (0x9B)
+156:Fairy Circle (0x9C)
+157:Spell Absorber (0x9D)
+158:Calamity Flare (0x9E)
+159:Violet Storm (0x9F)
+160:Flare Vortex (0xA0)
+161:Hydrostorm (0xA1)
+162:Gravity Gale (0xA2)
+163:Lightning Blast (0xA3)
+164:Tetra Detonator (0xA4)
+165:Ascending Angel (0xA5)
+166:Good Grip (0xA6)
+167:The Host of Forty-Nine (0xA7)
+168:Magilou's Paradise (0xA8)
+
+== Eizen ==
+169:Fate (0xA9)
+170:Verdict (0xAA)
+171:Tempo (0xAB)
+172:Eleventh Hour (0xAC)
+173:Winter Winds (0xAD)
+174:Clear Path (0xAE)
+175:Lighthouse (0xAF)
+176:Mirage (0xB0)
+177:Coercion (0xB1)
+178:Last Throes (0xB2)
+179:Deceiving Pummel (0xB3)
+180:Wind Lance (0xB4)
+181:Air Thrust (0xB5)
+182:Hell Gate (0xB6)
+183:Stone Lance (0xB7)
+184:Frigid Photon (0xB8)
+185:Geo Rumble (0xB9)
+186:Flash Step (0xBA)
+187:Illusory Veil (0xBB)
+188:Plundering Ghost (0xBC)
+189:Quickness (0xBD)
+190:Resurrection (0xBE)
+191:Dragonic Drive (0xBF)
+192:Dragon Dive (0xC0)
+193:Tyrant's Fete (0xC1)
+194:Perfect Mayhem (0xC2)
+195:Howling Dragon (0xC3)
+196:Venom Strike (0xC4)
+197:Road of Survival (0xC5)
+
+== Seres ==
+198:Flicker Flame (0xC6)
+199:Lingering Ember (0xC7)
+200:Infernal Path (0xC8)
+201:Burning Wings (0xC9)
+202:Phoenix Triad (0xCA)
+203:Fire Cavort (0xCB)
+204:Twisting Dragon (0xCC)
+205:Blaze Waltz (0xCD)
+206:Phoenix Flight (0xCE)
+207:Tinder Doll (0xCF)
+208:Mad Waltz (0xD0)
+209:Photon Blaze (0xD1)
+
+== Enemy Specific Spells ==
+210:Luminous Gain (0xD2)
+211:Grave (0xD3)
+212:Gravity Well (0xD4)
+213:Freeze Lancer (0xD5)
+214:Meteor Storm (0xD6)
+215:Shadow Servant (0xD7)
+216:Sinister Soul (0xD8)
+217:Paralytic Break (0xD9)
+218:Burning Break (0xDA)
+219:Slowing Break (0xDB)
+220:Poisonous Break (0xDC)
+221:Fatiguing Break (0xDD)
+979:Calamity Flare (0x3D3)
+980:Violet Storm (0x3D4)
+981:Flare Vortex (0x3D5)
+982:Hydrostorm (0x3D6)
+983:Gravity Storm (0x3D7)
+984:Lightning Blast (0x3D8)
+985:Cloudburst (0x3D9)
+
+== Dual Mystic Artes ==
+233:Tiger Blade Sigma (0xE9)
+965:Innumerable Wounds (0x3C5)
+966:Last Laugh (0x3C6)
+967:Excerion Pierce (0x3C7) 
+
+
+== Zavied ==
+840:Dissembling Snag (0x348)
+841:Heresy Strike (forward)(0x349)
+842:Heresy Strike (left)(0x34A)
+843:Heresy Strike (right)(0x34B)
+844:Simony Pellet (0x34C)
+845:High Strike (0x34D)
+846:Anathema Force (0x34E)
+847:Regretful Thrust (0x34F)
+848:Constrictor (0x350)
+849:Jealousy Cyclone (0x351)
+850:Furious Snipe (0x352)
+851:Magius (0x353)
+852:Deceiving Pummel (Break)(0x354)
+986:Outlaw Barrage (Mystic)(0x3DA)
+
+== Jude ==
+853:Palm Strike (0x355)
+854:Mirage Blitz (0x356)
+855:Cerberus Strike (0x357)
+856:Whirlwind Snap (0x358)
+857:Lion's Howl (0x359)
+858:Soaring Vortex (stance)(0x35A)
+859:Soaring Vortex (attack)(0x35B)
+860:Phoenix Plunge (0x35C)
+861:Talon Storm (0x35D)
+862:Wings of Glory (Break)(0x35E)
+231:Final Fury (Mystic)(0xE7)
+
+== Milla ==
+863:Shimmer Spin (0x35F)
+864:Sigil Spear (0x360)
+865:Mystic Wheel (0x361)
+866:Death Knell (0x362)
+867:Blade Torrent (0x363)
+868:Binding Sphere (0x364)
+869:Whirling Assault (0x365)
+870:Overdrive (Break)(0x366)
+232:Elemental Mastery (Mystic)(0xE8)
+
+== Innominant ==
+652:Triple Bulwark (0x28C)
+653:Leaf Storm (0x28D)
+654:Leaf Circle (0x28E)
+655:Leaf Cyclone (0x28F)
+656:Warp Dash (0x290)
+658:Erupt (0x292)
+657: Annihilation Beam (Break)(0x291)
+226:Primal Kill (Mystic)(0xE2)
+
+== Artorius ==
+690: Slash Kick (0x2B2)
+691:Swallow Kick (0x2B3)
+692:Ascension (0x2B4)
+693:Harvester (0x2B5)
+694:Evocation (0x2B6)
+695:Explosion (0x2B7)
+696:Shrouded Moon (0x2B8)
+697:Temptation (0x2B9)
+698:Sweep Clean (0x2BA)
+699:Ice Prison (Break)(0x2BB)
+224:Savage Wolf Fury (Mystic)(0xE0)
+
+== Armatized Artorius ==
+700:Radiant Wind (0x2BC)
+701:Winds of Despair (0x2BD)
+702:Earth Frenzy (0x2BE)
+703:Flames of Fury (0x2BF)
+704:Water Crescent (0x2C0)
+705:Soul Render (0x2C1)
+706:Judgment Barrier (0x2C2)
+707:Shadow Fire (0x2C3)
+708:Illusory Force (Break)(0x2C4)
+225:Right of Rule (Mystic)(0xE1)
+
+== Oscar ==
+667:Striking Fang (0x29B)
+668:Tiger's Fang (0x29C)
+669:Dragon Swarm (0x29D)
+670:Severing Wind (0x29E)
+671:Shadow Shock (0x29F)
+672:Storm Bringer (0x2A0)
+673:Mirage Dive (0x2A1)
+674:Heavenly Torrent (0x2A2)
+
+== Failed(Armatized) Oscar ==
+709:Wind Blade (0x2C5)
+710:Violent Projection (0x2C6)
+711:Gale Fang (0x2C7)
+712:Dragon Blitz (0x2C8)
+713:Torrent Spear (0x2C9)
+714:Whirlwind Slash (0x2CA)
+715:Virulent Shards (0x2CB)
+716:Dark Star (0x2CC)
+717:Razor Vortex (0x2CD)
+229:Sylphid Blaze (Mystic)(0xE5)
+
+== Teresa ==
+683:Full Moon (0x2AB)
+684:Moulin Rouge (0x2AC)
+686:Phantom Step (0x2AE)
+687:Lazy Reel (0x2AF)
+688:Moonsault(0x2B0)
+689:Eclipse
+685:Northern Lights (Break)(0x2AD)
+
+== Therion Teresa ==
+952:Triple Sting (0x3B8)
+953:Sweep (0x3B9)
+954:Maleficent Pellet (0x3BA)
+955:Swift Pitch (0x3BB)
+957:Jump (0x3BD)
+958:Energy Trap (0x3BE)
+956:Screw Driver (Break)(0x3BC)
+950:Bone Skewer (Mystic)(0x3B6)
+
+== Shigure ==
+659:Wild Rain (0x293)
+660:Split (0x294)
+661:Slash (0x295)
+662:Storm (0x296)
+663:Crush (0x297)
+664:Punish (0x298)
+665:Silence (0x299)
+990:Counter (0x3DE)
+978:Empty Stance (0x3D2)
+666:Cleave (Break)(0x29A)
+951:Rangetsu Owl (Break)(0x3B7)
+227:Rangetsu Eagle (Mystic)(0xE3)
+959:Rangetsu Eagle (Mystic)(Roku-block?)(0x3BF)
+
+== Melchior ==
+675:Linking (0x2A3)
+676:Beam (0x2A4)
+677:Gem Barrier (0x2A5)
+678:Shifted Space (0x2A6)
+679:Bead Spiral (0x2A7)
+681:Warp (0x2A9)
+682:Warp (0x2AA)
+
+== Demi-Melchior ==
+718:Pulsing Mirage (0x2CE)
+719:Distressing Glamor (0x2CF)
+720:Phantom Curtain (0x2D0)
+721:Illusory Chill (0x2D1)
+723:Haunting Shards (0x2D3)
+722:Soul Landslide (Break)(0x2D2)
+228:Absolute Prison (Mystic)(0xE4)
+
+== Phoenix ==
+878:Foot Kick (0x36E)
+879:I am a bird! (0x36F)
+881:Fists of the Phoenix (0x371)
+880:Ire (Break)(0x370)
+961:Like a Phoenix (Mystic)(0x3C1)
+
+== Dark Turtlez == 
+871:Azure Edge (0x367)
+872:Tiger Blade (0x368)
+873:Rolling Thunder (0x369)
+874:Lunar Reflection (0x36A)
+875:Time Disintegration (0x36B)
+876:Crimson Fury (0x36C)
+877:Dual Waltz (Break)(0x36D)
+234:Final Furyz Blade (Mystic)(0xEA)
+960:No itemz for you (Mystic)(0x3C0)
+989:No itemz anymore (Mystic)(0x3DD)
+
+== Daemon Aifread ==
+545:Tremor (0x221)
+839:Tremor (0x347)
+547:Turbulence (0x223)
+549:Rib Burst (Break)(0x225)
+230:Violent Mix (Mystic)(0xE6)
+
+== Armatized Earth Mooks ==
+937:Rising Sands (0x3A9)
+938:Rampaging Giant (0x3AA)
+939:Surging Landscape (0x3AB)
+940:Echo Shock (0x3AC)
+941:Iron Curtain (0x3AD)
+942:Divine Basalt Blow (Break)(0x3AE)
+
+== Armatized Water Mooks ==
+943:Blue Flurry (0x3AF)
+944:Saint's Arrow (0x3B0)
+945:Splitting Torrent (0x3B1)
+946:Binding Vortex (0x3B2)
+947:Shimmering Shower (0x3B3)
+948:Azure Assault (0x3B4)
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12860</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7684</ID>
+              <Description>"Arte Tag Offset (0x08)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12861</ID>
+                  <Description>"Arte Tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7686</ID>
+              <Description>"Offset to JP character name"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12862</ID>
+                  <Description>"Character name"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+10</Offset>
+                    <Offset>10</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7681</ID>
+              <Description>"Arte Type (0x18)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Arte
+4:Malak Arte
+5:Healing Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7738</ID>
+              <Description>"??? (0x1C)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7687</ID>
+              <Description>"Offset to Arte Name Tag String (ally) (0x20)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12863</ID>
+                  <Description>"Arte Name Tag String (ally)"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+20</Offset>
+                    <Offset>20</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7688</ID>
+              <Description>"Arte Name( "_RUBY") Tag Offset (0x28)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12864</ID>
+                  <Description>"Arte Name( "_RUBY") Tag"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+28</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7689</ID>
+              <Description>"Offset to Arte Explanation Tag String (0x30)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12865</ID>
+                  <Description>"Arte Explanation Tag"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:No Icon
+1:Martial(Base) Arte
+2:Hidden(Arcane) Arte
+3:Break Soul Arte
+4:Malak Arte
+5:Recovery Arte
+6:Mystic Arte
+7:Break Soul
+8:Switch Char Attack
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+30</Offset>
+                    <Offset>30</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7675</ID>
+              <Description>"Elemental Affinity (0x38)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Void
+2:Fire
+3:Fire/Void
+4:Earth
+5:Earth/Void
+6:Earth/Fire
+7:Earth/Fire/Void
+8:Water
+9:Water/Void
+10:Water/Fire
+11:Water/Fire/Void
+12:Earth/Water
+13:Earth/Water/Void
+14:Earth/Water/Fire
+15:Earth/Water/Fire/Void
+16:Wind
+17:Wind/Void
+18:Fire/Wind
+19:Fire/Wind/Void
+20:Earth/Wind
+21:Earth/Wind/Void
+22:Earth/Fire/Wind
+23:Earth/Fire/Wind/Void
+24:Water/Wind
+25:Water/Wind/Void
+26:Water/Fire/Wind
+27:Water/Fire/Wind/Void
+28:Earth/Water/Wind
+29:Earth/Water/Wind/Void
+30:Earth/Water/Fire/Wind
+31:Earth/Water/Fire/Wind/Void
+64:No Elemental Affinity
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7676</ID>
+              <Description>"SC Cost (0x3C)"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:No SG Cost
+1:1 SG
+2:2 SG
+3:3 SG
+4:4 SG
+5:5 SG
+6:6 SG
+7:7 SG
+8:8 SG
+9:9 SG
+10:10 SG
+11:11 SG
+12:12 SG
+13:13 SG
+14:14 SG
+15:15 SG
+16:16 SG
+17:17 SG
+18:18 SG
+19:19 SG
+20:20 SG
+21:21 SG
+22:22 SG
+23:23 SG
+24:24 SG
+25:25 SG
+26:26 SG
+27:27 SG
+28:28 SG
+29:29 SG
+30:30 SG
+31:31 SG
+32:32 SG
+33:33 SG
+34:34 SG
+35:35 SG
+36:36 SG
+37:37 SG
+38:38 SG
+39:39 SG
+40:40 SG
+41:41 SG
+42:42 SG
+43:43 SG
+44:44 SG
+45:45 SG
+46:46 SG
+47:47 SG
+48:48 SG
+49:49 SG
+50:50 SG
+51:51 SG
+52:52 SG
+53:53 SG
+54:54 SG
+55:55 SG
+56:56 SG
+57:57 SG
+58:58 SG
+59:59 SG
+60:60 SG
+90:90 SG
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7677</ID>
+              <Description>"Damage Value (0x40)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7678</ID>
+              <Description>"Damage Divisor(# of Hits)(0x44)"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:No Hits
+1:1 Hit
+2:2 Hits
+3:3 Hits
+4:4 Hits
+5:5 Hits
+6:6 Hits
+7:7 Hits
+8:8 Hits
+9:9 Hits
+10:10 Hits
+11:11 Hits
+12:12 Hits
+13:13 Hits
+14:14 Hits
+15:15 Hits
+49:49 Hits
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7679</ID>
+              <Description>"Enemy Affinity (0x48)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Beasts
+2:Crustaceans
+3:Amorphous
+4:Apodus
+5:Winged
+6:Demihuman
+7:Armored
+8:Undead
+9:Fiends
+10:Dragons
+11:Person
+12:Unknown
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7683</ID>
+              <Description>"Casting Time(frames) (0x4C)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12866</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>50</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7739</ID>
+              <Description>"Stagger Duration when linking w/Arte (0x54)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7707</ID>
+              <Description>"Stagger Duration when Hit (0x58)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>58</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12867</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>5C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10260</ID>
+              <Description>"Derivative Arte(when button held)(0x60)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None/Default
+
+== Velvet ==
+1:Slicing Foot (0x01)
+2:Tearing Thorn (0x02)
+3:Gouging Spin (0x03)
+4:Swallow Dance (0x04)
+5:Twin Whip (0x05)
+6:Avalanche Fang (0x06)
+7:Harsh Rebuttal (0x07)
+8:Water Snake's Wake (0x08)
+9:Moonlight Cyclone (0x09)
+10:Soaring Dragon (0x0A)
+11:Rising Moon (0x0B)
+12:Rising Falcon (0x0C)
+13:Heaven's Wrath (0x0D)
+14:Infernal Torrent (0x0E)
+15:Searing Edge (0x0F)
+16:Mega Sonic Thrust (0x10)
+17:Shell Splitter (0x11)
+18:Shadow Flow (0x12)
+19:Slag Assault (0x13)
+20:Grounding Strike (0x14)
+21:Cerberus Wave (0x15)
+22:Banishing Thunder (0x16)
+23:Binding Frost (0x17)
+24:Scale Crusher (0x18)
+25:Defiant Conviction (0x19)
+26:Scarlet Edge (0x1A)
+27:Zero Impact Vest (0x1B)
+28:Rush Strafe (0x1C)
+29:Thunder Blitz (0x1D)
+30:Break Boost (0x1E)
+31:Laughing Raven (0x1F)
+32:Blue Inferno (0x20)
+33:Lunar Surface (0x21)
+34:Jet Blizzard (0x22)
+35:Phalanx Raid (0x23)
+36:Discord (0x24)
+37:Consuming Claw (0x25)
+39:Heaven's Claw (0x27)
+40:Hell's Claw (0x28)
+41:Nightmare Claw (0x29)
+42:Lethal Pain (0x2A)
+43:Annihilating Crash (0x2B)
+44:Impluse Desire (0x2C)
+45:Grievous Slash (0x2D)
+
+== Laphicet ==
+46:Paper Rock (0x2E)
+47:Triple Gale (0x2F)
+48:Mana Eruption (0x30)
+49:Rainbow Mist (0x31)
+50:Triflare (0x32)
+51:Dark Quarter (0x33)
+52:Beckoning Lure (0x34)
+53:Frigid Pillar (0x35)
+54:Frozen Flame (0x36)
+55:Arctic Peals (0x37)
+56:Lunar Fountain (0x38)
+57:Bright Shade (0x39)
+58:Geostigma (0x3A)
+59:Pyrogenic Ring (0x3B)
+60:Kaleidos Ray (0x3C)
+61:Void Mire (0x3D)
+62:Blessed Drops (0x3E)
+63:Dark Fangs (0x3F)
+64:Divine Saber (0x40)
+65:Insubstantiality (0x41)
+66:First Aid (0x42)
+67:Elixir Vitae (0x43)
+68:Divide Pain (0x44)
+69:Static Force (0x45)
+70:Soul Distortion (0x46)
+71:Binding Order (0x47)
+72:Chaos Bloom (0x48)
+73:Indignation (0x49)
+74:Seer's Storm (0x4A)
+
+== Rokurou ==
+75:Bone Breaker (0x4B)
+76:Crimson Flash (0x4C)
+77:Mowing Blade (0x4D)
+78:Hurricane Thrust (0x4E)
+79:Shockwave Slash (0x4F)
+80:Smokescreen Assault (0x50)
+81:Concealed Blade (0x51)
+82:Armor Crusher (0x52)
+83:Shooting Star (0x53)
+84:Jade Wave (0x54)
+85:Mirage Dance (0x55)
+86:Double Haze (0x56)
+87:Infernal Bloom (0x57)
+88:Orochi's Fury (0x58)
+89:Form 1: Fire Burst (0x59)
+90:Form 2: Imbue Earth (0x5A)
+91:Form 3: Water Hammer (0x5B)
+92:Form 4: Cyclone Dart (0x5C)
+93:Form 5: Scatterburst (0x5D)
+94:Form 6: Dark Vortex (0x5E)
+95:Form 7: Rapid Bolt (0x5F)
+96:Form 8: Magma Burst (0x60)
+97:Vengeful Stance (0x61)
+98:Vengeful Punishment (0x62)
+99:Vengeful Scourge (0x63)
+100:Vengeful Retribution (0x64)
+101:Form 0: Sunder (0x65)
+102:Rangetsu Heron (0x66)
+103:Form 9: Final Judgment (0x67)
+105:Ghost Strike (0x69)
+
+== Eleanor ==
+106:Vanguard (0x6A)
+107:Rending Strike (0x6B)
+108:Double Rush (0x6C)
+109:Skewering Spear (0x6D)
+110:Whirling Top (0x6E)
+111:Burning Moon (0x6F)
+112:Treble Strike (0x70)
+113:Coiling Serpent (0x71)
+114:Earth Drake (0x72)
+115:Cleansing Lance (0x73)
+116:Crushing Drop (0x74)
+117:Hexa Strike (0x75)
+118:Thermal Skewer (0x76)
+119:Roaring Thunder (0x77)
+120:Flame Beast (0x78)
+121:Ice Edge (0x79)
+122:Maelstrom (0x7A)
+123:Rock Swarm (0x7B)
+124:Shock Drum (0x7C)
+125:Violet Ray (0x7D)
+126:Inspiration (0x7E)
+127:Life (0x7F)
+128:Aerial Stirke (0x80)
+129:Strike Zwei (0x81)
+130:Strike Drei (0x82)
+131:Spiral Hail (0x83)
+132:Lostfon Drive (0x84)
+133:Gungnir Twister (0x85)
+134:Break Roll (0x86)
+
+== Magilou ==
+135:Dryad (0x87)
+136:Up the Sleeve (0x88)
+137:Twin Spirits (0x89)
+138:Hellrise (0x8A)
+139:Great Cycle (0x8B)
+140:Spirit Beads (0x8C)
+141:Atmos Glaive (0x8D)
+142:Triple Tremor (0x8E)
+143:Spirit Drop (0x8F)
+144:Gliding Blast (0x90)
+145:Shrike Dive (0x91)
+146:Aqua Split (0x92)
+147:Flood Wall (0x93)
+148:Final Embrace (0x94)
+149:Blood Moon (0x95)
+150:Crown Fire (0x96)
+151:Explode (0x97)
+152:Water Mine (0x98)
+153:Fire Mine (0x99)
+154:Gravity Mine (0x9A)
+155:Healing Circle (0x9B)
+156:Fairy Circle (0x9C)
+157:Spell Absorber (0x9D)
+158:Calamity Flare (0x9E)
+159:Violet Storm (0x9F)
+160:Flare Vortex (0xA0)
+161:Hydrostorm (0xA1)
+162:Gravity Gale (0xA2)
+163:Lightning Blast (0xA3)
+164:Tetra Detonator (0xA4)
+165:Ascending Angel (0xA5)
+166:Good Grip (0xA6)
+167:The Host of Forty-Nine (0xA7)
+168:Magilou's Paradise (0xA8)
+
+== Eizen ==
+169:Fate (0xA9)
+170:Verdict (0xAA)
+171:Tempo (0xAB)
+172:Eleventh Hour (0xAC)
+173:Winter Winds (0xAD)
+174:Clear Path (0xAE)
+175:Lighthouse (0xAF)
+176:Mirage (0xB0)
+177:Coercion (0xB1)
+178:Last Throes (0xB2)
+179:Deceiving Pummel (0xB3)
+180:Wind Lance (0xB4)
+181:Air Thrust (0xB5)
+182:Hell Gate (0xB6)
+183:Stone Lance (0xB7)
+184:Frigid Photon (0xB8)
+185:Geo Rumble (0xB9)
+186:Flash Step (0xBA)
+187:Illusory Veil (0xBB)
+188:Plundering Ghost (0xBC)
+189:Quickness (0xBD)
+190:Resurrection (0xBE)
+191:Dragonic Drive (0xBF)
+192:Dragon Dive (0xC0)
+193:Tyrant's Fete (0xC1)
+194:Perfect Mayhem (0xC2)
+195:Howling Dragon (0xC3)
+196:Venom Strike (0xC4)
+197:Road of Survival (0xC5)
+
+== Seres ==
+198:Flicker Flame (0xC6)
+199:Lingering Ember (0xC7)
+200:Infernal Path (0xC8)
+201:Burning Wings (0xC9)
+202:Phoenix Triad (0xCA)
+203:Fire Cavort (0xCB)
+204:Twisting Dragon (0xCC)
+205:Blaze Waltz (0xCD)
+206:Phoenix Flight (0xCE)
+207:Tinder Doll (0xCF)
+208:Mad Waltz (0xD0)
+209:Photon Blaze (0xD1)
+
+== Enemy Specific Spells ==
+210:Luminous Gain (0xD2)
+211:Grave (0xD3)
+212:Gravity Well (0xD4)
+213:Freeze Lancer (0xD5)
+214:Meteor Storm (0xD6)
+215:Shadow Servant (0xD7)
+216:Sinister Soul (0xD8)
+217:Paralytic Break (0xD9)
+218:Burning Break (0xDA)
+219:Slowing Break (0xDB)
+220:Poisonous Break (0xDC)
+221:Fatiguing Break (0xDD)
+979:Calamity Flare (0x3D3)
+980:Violet Storm (0x3D4)
+981:Flare Vortex (0x3D5)
+982:Hydrostorm (0x3D6)
+983:Gravity Storm (0x3D7)
+984:Lightning Blast (0x3D8)
+985:Cloudburst (0x3D9)
+
+== Dual Mystic Artes ==
+233:Tiger Blade Sigma (0xE9)
+965:Innumerable Wounds (0x3C5)
+966:Last Laugh (0x3C6)
+967:Excerion Pierce (0x3C7) 
+
+
+== Zavied ==
+840:Dissembling Snag (0x348)
+841:Heresy Strike (forward)(0x349)
+842:Heresy Strike (left)(0x34A)
+843:Heresy Strike (right)(0x34B)
+844:Simony Pellet (0x34C)
+845:High Strike (0x34D)
+846:Anathema Force (0x34E)
+847:Regretful Thrust (0x34F)
+848:Constrictor (0x350)
+849:Jealousy Cyclone (0x351)
+850:Furious Snipe (0x352)
+851:Magius (0x353)
+852:Deceiving Pummel (Break)(0x354)
+986:Outlaw Barrage (Mystic)(0x3DA)
+
+== Jude ==
+853:Palm Strike (0x355)
+854:Mirage Blitz (0x356)
+855:Cerberus Strike (0x357)
+856:Whirlwind Snap (0x358)
+857:Lion's Howl (0x359)
+858:Soaring Vortex (stance)(0x35A)
+859:Soaring Vortex (attack)(0x35B)
+860:Phoenix Plunge (0x35C)
+861:Talon Storm (0x35D)
+862:Wings of Glory (Break)(0x35E)
+231:Final Fury (Mystic)(0xE7)
+
+== Milla ==
+863:Shimmer Spin (0x35F)
+864:Sigil Spear (0x360)
+865:Mystic Wheel (0x361)
+866:Death Knell (0x362)
+867:Blade Torrent (0x363)
+868:Binding Sphere (0x364)
+869:Whirling Assault (0x365)
+870:Overdrive (Break)(0x366)
+232:Elemental Mastery (Mystic)(0xE8)
+
+== Innominant ==
+652:Triple Bulwark (0x28C)
+653:Leaf Storm (0x28D)
+654:Leaf Circle (0x28E)
+655:Leaf Cyclone (0x28F)
+656:Warp Dash (0x290)
+658:Erupt (0x292)
+657: Annihilation Beam (Break)(0x291)
+226:Primal Kill (Mystic)(0xE2)
+
+== Artorius ==
+690: Slash Kick (0x2B2)
+691:Swallow Kick (0x2B3)
+692:Ascension (0x2B4)
+693:Harvester (0x2B5)
+694:Evocation (0x2B6)
+695:Explosion (0x2B7)
+696:Shrouded Moon (0x2B8)
+697:Temptation (0x2B9)
+698:Sweep Clean (0x2BA)
+699:Ice Prison (Break)(0x2BB)
+224:Savage Wolf Fury (Mystic)(0xE0)
+
+== Armatized Artorius ==
+700:Radiant Wind (0x2BC)
+701:Winds of Despair (0x2BD)
+702:Earth Frenzy (0x2BE)
+703:Flames of Fury (0x2BF)
+704:Water Crescent (0x2C0)
+705:Soul Render (0x2C1)
+706:Judgment Barrier (0x2C2)
+707:Shadow Fire (0x2C3)
+708:Illusory Force (Break)(0x2C4)
+225:Right of Rule (Mystic)(0xE1)
+
+== Oscar ==
+667:Striking Fang (0x29B)
+668:Tiger's Fang (0x29C)
+669:Dragon Swarm (0x29D)
+670:Severing Wind (0x29E)
+671:Shadow Shock (0x29F)
+672:Storm Bringer (0x2A0)
+673:Mirage Dive (0x2A1)
+674:Heavenly Torrent (0x2A2)
+
+== Failed(Armatized) Oscar ==
+709:Wind Blade (0x2C5)
+710:Violent Projection (0x2C6)
+711:Gale Fang (0x2C7)
+712:Dragon Blitz (0x2C8)
+713:Torrent Spear (0x2C9)
+714:Whirlwind Slash (0x2CA)
+715:Virulent Shards (0x2CB)
+716:Dark Star (0x2CC)
+717:Razor Vortex (0x2CD)
+229:Sylphid Blaze (Mystic)(0xE5)
+
+== Teresa ==
+683:Full Moon (0x2AB)
+684:Moulin Rouge (0x2AC)
+686:Phantom Step (0x2AE)
+687:Lazy Reel (0x2AF)
+688:Moonsault(0x2B0)
+689:Eclipse
+685:Northern Lights (Break)(0x2AD)
+
+== Therion Teresa ==
+952:Triple Sting (0x3B8)
+953:Sweep (0x3B9)
+954:Maleficent Pellet (0x3BA)
+955:Swift Pitch (0x3BB)
+957:Jump (0x3BD)
+958:Energy Trap (0x3BE)
+956:Screw Driver (Break)(0x3BC)
+950:Bone Skewer (Mystic)(0x3B6)
+
+== Shigure ==
+659:Wild Rain (0x293)
+660:Split (0x294)
+661:Slash (0x295)
+662:Storm (0x296)
+663:Crush (0x297)
+664:Punish (0x298)
+665:Silence (0x299)
+990:Counter (0x3DE)
+978:Empty Stance (0x3D2)
+666:Cleave (Break)(0x29A)
+951:Rangetsu Owl (Break)(0x3B7)
+227:Rangetsu Eagle (Mystic)(0xE3)
+959:Rangetsu Eagle (Mystic)(Roku-block?)(0x3BF)
+
+== Melchior ==
+675:Linking (0x2A3)
+676:Beam (0x2A4)
+677:Gem Barrier (0x2A5)
+678:Shifted Space (0x2A6)
+679:Bead Spiral (0x2A7)
+681:Warp (0x2A9)
+682:Warp (0x2AA)
+
+== Demi-Melchior ==
+718:Pulsing Mirage (0x2CE)
+719:Distressing Glamor (0x2CF)
+720:Phantom Curtain (0x2D0)
+721:Illusory Chill (0x2D1)
+723:Haunting Shards (0x2D3)
+722:Soul Landslide (Break)(0x2D2)
+228:Absolute Prison (Mystic)(0xE4)
+
+== Phoenix ==
+878:Foot Kick (0x36E)
+879:I am a bird! (0x36F)
+881:Fists of the Phoenix (0x371)
+880:Ire (Break)(0x370)
+961:Like a Phoenix (Mystic)(0x3C1)
+
+== Dark Turtlez == 
+871:Azure Edge (0x367)
+872:Tiger Blade (0x368)
+873:Rolling Thunder (0x369)
+874:Lunar Reflection (0x36A)
+875:Time Disintegration (0x36B)
+876:Crimson Fury (0x36C)
+877:Dual Waltz (Break)(0x36D)
+234:Final Furyz Blade (Mystic)(0xEA)
+960:No itemz for you (Mystic)(0x3C0)
+989:No itemz anymore (Mystic)(0x3DD)
+
+== Daemon Aifread ==
+545:Tremor (0x221)
+839:Tremor (0x347)
+547:Turbulence (0x223)
+549:Rib Burst (Break)(0x225)
+230:Violent Mix (Mystic)(0xE6)
+
+== Armatized Earth Mooks ==
+937:Rising Sands (0x3A9)
+938:Rampaging Giant (0x3AA)
+939:Surging Landscape (0x3AB)
+940:Echo Shock (0x3AC)
+941:Iron Curtain (0x3AD)
+942:Divine Basalt Blow (Break)(0x3AE)
+
+== Armatized Water Mooks ==
+943:Blue Flurry (0x3AF)
+944:Saint's Arrow (0x3B0)
+945:Splitting Torrent (0x3B1)
+946:Binding Vortex (0x3B2)
+947:Shimmering Shower (0x3B3)
+948:Azure Assault (0x3B4)
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>60</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10262</ID>
+              <Description>"Directional Arte?(0x64)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No change
+2:Forward/Left/Right
+4:Left/Right
+96:???
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7682</ID>
+              <Description>"Status Attribute 1(0x68)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Attack Up
+2:Arte Attack Up
+3:Defense Up
+4:Arte Defense Up
+5:Focus Up
+6:Attack Down
+7:Arte Attack Down
+8:Defense Down
+9:Arte Defense Down
+10:Focus Down
+11:Steal Attack
+12:Steal Arte Attack
+13:Steal Defense
+14:Steal Arte Defense
+15:Steal Focus
+16:Stun
+17:Paralysis
+18:Burn
+19:Slow
+20:Poison
+21:Fatigue
+22:Petrify
+23:Soul Bonus
+24:Arte Barrier
+25:Mystic Arte
+26:SG Recovery
+27:Absorb HP
+28:Suck Blood
+29:Remove Paralysis
+30:Remove Burn
+31:Speed+/Unslow
+32:Remove Poison
+33:Remove Fatigue
+34:Remove Ailment
+35:Remove -Status (Stat Down)
+36:Status Ailment
+37:Status Down
+38:HP Recovery
+39:KO Recovery
+40:Reduce Damage
+41:Increase Max HP
+42:HP Recovery(Break Soul)
+43:SG Recovery(Break Soul?)
+44:BG Recovery(Break Soul)
+45:Soul Burst
+47:Unknown/Empty
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7705</ID>
+              <Description>"SA1 Efficacy (0x6C)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7704</ID>
+              <Description>"Status Attribute 2(0x70)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Attack Up
+2:Arte Attack Up
+3:Defense Up
+4:Arte Defense Up
+5:Focus Up
+6:Attack Down
+7:Arte Attack Down
+8:Defense Down
+9:Arte Defense Down
+10:Focus Down
+11:Steal Attack
+12:Steal Arte Attack
+13:Steal Defense
+14:Steal Arte Defense
+15:Steal Focus
+16:Stun
+17:Paralysis
+18:Burn
+19:Slow
+20:Poison
+21:Fatigue
+22:Petrify
+23:Soul Bonus
+24:Arte Barrier
+25:Mystic Arte
+26:SG Recovery
+27:Absorb HP
+28:Suck Blood
+29:Remove Paralysis
+30:Remove Burn
+31:Speed+/Unslow
+32:Remove Poison
+33:Remove Fatigue
+34:Remove Ailment
+35:Remove -Status (Stat Down)
+36:Status Ailment
+37:Status Down
+38:HP Recovery
+39:KO Recovery
+40:Reduce Damage
+41:Increase Max HP
+42:HP Recovery(Break Soul)
+43:SG Recovery(Break Soul?)
+44:BG Recovery(Break Soul)
+45:Soul Burst
+47:Unknown/Empty
+</DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>70</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7706</ID>
+              <Description>"SA2 Efficacy (0x74)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>74</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12868</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12869</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>7C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12870</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12871</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>84</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10261</ID>
+              <Description>"Offset to Voice Tag String (ally=null)(0x88)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>88</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12878</ID>
+                  <Description>"Voice Tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+88</Offset>
+                    <Offset>88</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12872</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12873</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>94</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10263</ID>
+              <Description>"Offset to Arte Tag String (enemy) (0x98)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>98</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12879</ID>
+                  <Description>"Arte Tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+98</Offset>
+                    <Offset>98</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12356</ID>
+              <Description>"Offset to Char Cut-in Tag Name (0xA0)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>A0</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12880</ID>
+                  <Description>"Char Cut-in Tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+A0</Offset>
+                    <Offset>A0</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10264</ID>
+              <Description>"Offset to Sound Effect Tag String (0xA8)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>A8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12881</ID>
+                  <Description>"Sound Effect Tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>pToB_arteParam</Address>
+                  <Offsets>
+                    <Offset>[pToB_arteParam]+A8</Offset>
+                    <Offset>A8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12874</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12875</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12876</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12877</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pToB_arteParam</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
