@@ -1,5 +1,20 @@
 ### Changelog
 
+#### 2023/06/14
+
+-	Vesperia changes:
+	-	Updated Arte Canceller to be able to ocnfigure which side is affected.
+	-	Added a script that lets you chain artes in any order.
+	-	Added a script that lets you use Player artes in the air.
+
+-	Symphonia changes:
+	-	Added enemies don't attack script
+	-	Added minimum damage script (the numbers shown on screen are still the normal values, though)
+	-	Added infinite normal attacks script
+	-	Added a script that gives everyone Colette's wings
+	-	Added a script that lets you ignore OVL restriction for Lloyd/Kratos/Sheena/Regal,
+		and also be able to use Mystic Artes multiple times (applies for all characters)
+
 #### 2023/06/02
 
 -	Added Grade Shop options to Graces, Hearts R and Innocence R.
