@@ -224,6 +224,8 @@ Features:
  - Advanced Encounter Modifier ported over from GameCube version
  - Save anywhere
  - Field run speed modifier
+ - Enemies don't attack
+ - Minimum Damage
 
  ## Symphonia - Dawn of the New World (PS3)
 Based on the BLUS31172 version of the game.
