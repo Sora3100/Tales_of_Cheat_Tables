@@ -379,7 +379,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
       <CheatEntries>
         <CheatEntry>
           <ID>79028</ID>
-          <Description>"Next entry"</Description>
+          <Description>"Next entry offset"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
@@ -389,7 +389,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>79059</ID>
-          <Description>"Entry"</Description>
+          <Description>"Entry number"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
@@ -1559,7 +1559,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>79139</ID>
-          <Description>"Something to do with Patty's Advance Form"</Description>
+          <Description>"Semi-Auto max use range (Advance Form)"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
@@ -1569,7 +1569,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>79140</ID>
-          <Description>"Something to do with Patty's Brainiac Form"</Description>
+          <Description>"Semi-Auto max use range (Brainiac Form)"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
@@ -1579,7 +1579,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>79141</ID>
-          <Description>"Something to do with Patty's Critical Form"</Description>
+          <Description>"Semi-Auto max use range (Critical Form)"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
@@ -5733,8 +5733,9 @@ TOV_DE.exe+50A5B8: CC                       - int 3
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
-      <ID>84141</ID>
-      <Description>"Arte Canceller V2"</Description>
+      <ID>84496</ID>
+      <Description>"Arte Canceller V2.5"</Description>
+      <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
@@ -5748,14 +5749,46 @@ TOV_DE.exe+50A5B8: CC                       - int 3
 
 aobscanmodule(arteCancel2,TOV_DE.exe,0F B6 81 FD 46 00 00) // should be unique
 aobscanmodule(arteCancelFS,TOV_DE.exe,84 C0 75 2D 41 83 7E 24 0C) // should be unique
+alloc(newmem,$1000,arteCancel2)
+alloc(arteCancelVars,10)
+
+label(code)
+label(return)
+
+newmem:
+  //check if btlunit id is below 9, if so jump to party check
+  cmp [rcx+64],A
+  jb @f
+  //check if enemy variable is on
+  cmp [arteCancelVars+8],1
+  jne code
+  mov eax,1
+  jmp return
+  //check if ally variable is on
+@@:
+  cmp [arteCancelVars],1
+  je @f
+  jmp code
+@@:
+  mov eax,1
+  jmp return
+code:
+  movzx eax,byte ptr [rcx+000046FD]
+  jmp return
 
 arteCancel2:
-  db B8 01 00 00 00 90 90
+  jmp newmem
+  nop
+  nop
+return:
 
 arteCancelFS+2:
   db 90 90
 
-registersymbol(arteCancel2 arteCancelFS)
+arteCancelVars:
+  dq 1
+
+registersymbol(arteCancel2 arteCancelFS arteCancelVars)
 
 [DISABLE]
 
@@ -5765,7 +5798,8 @@ arteCancel2:
 arteCancelFS:
   db 84 C0 75 2D 41 83 7E 24 0C
 
-unregistersymbol(arteCancel2 arteCancelFS)
+unregistersymbol(arteCancel2 arteCancelFS arteCancelVars)
+dealloc(newmem arteCancelVars)
 
 {
 // ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+55B6D0
@@ -5823,6 +5857,24 @@ TOV_DE.exe+55FF6F: 48 8B 7C 24 48  - mov rdi,[rsp+48]
 TOV_DE.exe+55FF74: 48 83 C4 28     - add rsp,28
 }
 </AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>84498</ID>
+          <Description>"Allies"</Description>
+          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>8 Bytes</VariableType>
+          <Address>arteCancelVars</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84499</ID>
+          <Description>"Enemies"</Description>
+          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>8 Bytes</VariableType>
+          <Address>arteCancelVars+8</Address>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>84142</ID>
@@ -6005,6 +6057,136 @@ TOV_DE.exe+5CEA48: CC                          - int 3
 TOV_DE.exe+5CEA49: CC                          - int 3 
 TOV_DE.exe+5CEA4A: CC                          - int 3 
 TOV_DE.exe+5CEA4B: CC                          - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>84546</ID>
+      <Description>"Free Arte Order Chain"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-06-10
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(arteOrderCheck,TOV_DE.exe,74 DA 48 8B CF) // should be unique
+
+arteOrderCheck:
+  db 90 90
+
+registersymbol(arteOrderCheck)
+
+[DISABLE]
+
+arteOrderCheck:
+  db 74 DA 48 8B CF
+
+unregistersymbol(arteOrderCheck)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+52F9A0
+
+TOV_DE.exe+52F981: E8 1A BB 02 00                 - call TOV_DE.exe+55B4A0
+TOV_DE.exe+52F986: EB 46                          - jmp TOV_DE.exe+52F9CE
+TOV_DE.exe+52F988: 45 84 FF                       - test r15b,r15b
+TOV_DE.exe+52F98B: 75 15                          - jne TOV_DE.exe+52F9A2
+TOV_DE.exe+52F98D: 48 8B CF                       - mov rcx,rdi
+TOV_DE.exe+52F990: E8 3B 6D 02 00                 - call TOV_DE.exe+5566D0
+TOV_DE.exe+52F995: 8B C8                          - mov ecx,eax
+TOV_DE.exe+52F997: 8B D3                          - mov edx,ebx
+TOV_DE.exe+52F999: E8 32 05 03 00                 - call TOV_DE.exe+55FED0
+TOV_DE.exe+52F99E: 84 C0                          - test al,al
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+52F9A0: 74 DA                          - je TOV_DE.exe+52F97C
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+52F9A2: 48 8B CF                       - mov rcx,rdi
+TOV_DE.exe+52F9A5: E8 46 BB 02 00                 - call TOV_DE.exe+55B4F0
+TOV_DE.exe+52F9AA: 48 8B CF                       - mov rcx,rdi
+TOV_DE.exe+52F9AD: 83 F8 01                       - cmp eax,01
+TOV_DE.exe+52F9B0: 75 05                          - jne TOV_DE.exe+52F9B7
+TOV_DE.exe+52F9B2: 0F B6 D0                       - movzx edx,al
+TOV_DE.exe+52F9B5: EB 02                          - jmp TOV_DE.exe+52F9B9
+TOV_DE.exe+52F9B7: 33 D2                          - xor edx,edx
+TOV_DE.exe+52F9B9: E8 22 BD 02 00                 - call TOV_DE.exe+55B6E0
+TOV_DE.exe+52F9BE: 81 8D F8 B2 02 00 00 02 00 00  - or [rbp+0002B2F8],00000200
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>84545</ID>
+      <Description>"Every Player arte is aerial usable"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-06-10
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(artejumpusableCheck,TOV_DE.exe,83 BF 10 01 00 00 FF) // should be unique
+alloc(newmem,$1000,artejumpusableCheck)
+
+label(code)
+label(return)
+
+newmem:
+  cmp dword ptr [rdi+188],A
+  jge code
+  test esp,esp //set zero flag
+  jmp return
+code:
+  cmp dword ptr [rdi+00000110],-01
+  jmp return
+
+artejumpusableCheck:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(artejumpusableCheck)
+
+[DISABLE]
+
+artejumpusableCheck:
+  db 83 BF 10 01 00 00 FF
+
+unregistersymbol(artejumpusableCheck)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+55FB7B
+
+TOV_DE.exe+55FB53: 48 8B CD              - mov rcx,rbp
+TOV_DE.exe+55FB56: E8 85 5C FF FF        - call TOV_DE.exe+5557E0
+TOV_DE.exe+55FB5B: 48 8B C8              - mov rcx,rax
+TOV_DE.exe+55FB5E: 41 8B D6              - mov edx,r14d
+TOV_DE.exe+55FB61: E8 DA D5 06 00        - call TOV_DE.exe+5CD140
+TOV_DE.exe+55FB66: 3B 87 0C 01 00 00     - cmp eax,[rdi+0000010C]
+TOV_DE.exe+55FB6C: 0F 8D F3 00 00 00     - jnl TOV_DE.exe+55FC65
+TOV_DE.exe+55FB72: 32 C0                 - xor al,al
+TOV_DE.exe+55FB74: E9 EB 02 00 00        - jmp TOV_DE.exe+55FE64
+TOV_DE.exe+55FB79: 32 DB                 - xor bl,bl
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+55FB7B: 83 BF 10 01 00 00 FF  - cmp dword ptr [rdi+00000110],-01
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+55FB82: 74 24                 - je TOV_DE.exe+55FBA8
+TOV_DE.exe+55FB84: 48 8B CD              - mov rcx,rbp
+TOV_DE.exe+55FB87: E8 54 5C FF FF        - call TOV_DE.exe+5557E0
+TOV_DE.exe+55FB8C: 48 8B C8              - mov rcx,rax
+TOV_DE.exe+55FB8F: 41 8B D6              - mov edx,r14d
+TOV_DE.exe+55FB92: E8 A9 D5 06 00        - call TOV_DE.exe+5CD140
+TOV_DE.exe+55FB97: 3B 87 10 01 00 00     - cmp eax,[rdi+00000110]
+TOV_DE.exe+55FB9D: B8 01 00 00 00        - mov eax,00000001
+TOV_DE.exe+55FBA2: 0F B6 DB              - movzx ebx,bl
+TOV_DE.exe+55FBA5: 0F 4D D8              - cmovge ebx,eax
 }
 </AssemblerScript>
     </CheatEntry>
@@ -9540,50 +9722,113 @@ unregistersymbol(yuriArteWhitelist)
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>84296</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84295</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84294</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84293</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84292</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84291</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84290</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84289</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84288</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>79261</ID>
-                  <Description>"Physical Attack"</Description>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79262</ID>
-                  <Description>"Magic Attack"</Description>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79263</ID>
-                  <Description>"Physical Defense"</Description>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79264</ID>
-                  <Description>"Magic Defense"</Description>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>83273</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79265</ID>
-                  <Description>"Agility"</Description>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>79266</ID>
-                  <Description>"Luck"</Description>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -9591,7 +9836,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79267</ID>
+              <ID>84297</ID>
               <Description>"Estellise"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -9599,92 +9844,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79268</ID>
+                  <ID>84298</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79269</ID>
+                  <ID>84299</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79270</ID>
+                  <ID>84300</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79271</ID>
+                  <ID>84301</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79272</ID>
+                  <ID>84302</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79273</ID>
+                  <ID>84303</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79274</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84304</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84305</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84306</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84307</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84308</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84309</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84310</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84311</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84312</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84313</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79275</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84314</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79276</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84315</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79277</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84316</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83510</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84317</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79278</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84318</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79279</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84319</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -9692,7 +10000,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79280</ID>
+              <ID>84320</ID>
               <Description>"Karol"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -9700,92 +10008,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*2</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79281</ID>
+                  <ID>84321</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79282</ID>
+                  <ID>84322</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79283</ID>
+                  <ID>84323</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79284</ID>
+                  <ID>84324</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79285</ID>
+                  <ID>84325</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79286</ID>
+                  <ID>84326</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79287</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84327</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84328</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84329</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84330</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84331</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84332</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84333</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84334</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84335</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84336</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79288</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84337</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79289</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84338</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79290</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84339</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83511</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84340</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79291</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84341</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79292</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84342</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -9793,7 +10164,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79293</ID>
+              <ID>84435</ID>
               <Description>"Rita"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -9801,92 +10172,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*3</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79294</ID>
+                  <ID>84436</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79295</ID>
+                  <ID>84437</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79296</ID>
+                  <ID>84438</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79297</ID>
+                  <ID>84439</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79298</ID>
+                  <ID>84440</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79299</ID>
+                  <ID>84441</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79300</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84442</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84443</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84444</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84445</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84446</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84447</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84448</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84449</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84450</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84451</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79301</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84452</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79302</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84453</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79303</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84454</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83512</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84455</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79304</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84456</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79305</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84457</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -9894,7 +10328,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79345</ID>
+              <ID>84412</ID>
               <Description>"Raven"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -9902,92 +10336,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*4</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79346</ID>
+                  <ID>84413</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79347</ID>
+                  <ID>84414</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79348</ID>
+                  <ID>84415</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79349</ID>
+                  <ID>84416</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79350</ID>
+                  <ID>84417</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79351</ID>
+                  <ID>84418</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79352</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84419</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84420</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84421</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84422</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84423</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84424</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84425</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84426</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84427</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84428</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79353</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84429</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79354</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84430</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79355</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84431</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83513</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84432</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79356</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84433</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79357</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84434</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -9995,7 +10492,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79332</ID>
+              <ID>84389</ID>
               <Description>"Judith"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -10003,92 +10500,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*5</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79333</ID>
+                  <ID>84390</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79334</ID>
+                  <ID>84391</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79335</ID>
+                  <ID>84392</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79336</ID>
+                  <ID>84393</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79337</ID>
+                  <ID>84394</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79338</ID>
+                  <ID>84395</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79339</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84396</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84397</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84398</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84399</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84400</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84401</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84402</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84403</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84404</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84405</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79340</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84406</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79341</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84407</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79342</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84408</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83514</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84409</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79343</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84410</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79344</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84411</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -10096,7 +10656,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79319</ID>
+              <ID>84366</ID>
               <Description>"Repede"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -10104,92 +10664,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*6</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79320</ID>
+                  <ID>84367</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79321</ID>
+                  <ID>84368</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79322</ID>
+                  <ID>84369</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79323</ID>
+                  <ID>84370</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79324</ID>
+                  <ID>84371</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79325</ID>
+                  <ID>84372</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79326</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84373</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84374</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84375</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84376</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84377</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84378</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84379</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84380</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84381</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84382</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79327</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84383</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79328</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84384</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79329</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84385</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83515</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84386</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79330</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84387</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79331</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84388</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -10197,7 +10820,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79306</ID>
+              <ID>84343</ID>
               <Description>"Flynn"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -10205,92 +10828,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*7</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79307</ID>
+                  <ID>84344</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79308</ID>
+                  <ID>84345</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79309</ID>
+                  <ID>84346</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79310</ID>
+                  <ID>84347</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79311</ID>
+                  <ID>84348</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79312</ID>
+                  <ID>84349</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79313</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84350</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84351</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84352</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84353</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84354</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84355</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84356</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84357</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84358</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84359</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79314</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84360</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79315</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84361</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79316</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84362</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83516</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84363</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79317</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84364</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79318</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84365</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -10298,7 +10984,7 @@ unregistersymbol(yuriArteWhitelist)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>79358</ID>
+              <ID>84458</ID>
               <Description>"Patty"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -10306,92 +10992,155 @@ unregistersymbol(yuriArteWhitelist)
               <Address>+40A8*8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79359</ID>
+                  <ID>84459</ID>
                   <Description>"Lv."</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>-4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79360</ID>
+                  <ID>84460</ID>
                   <Description>"Current HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79361</ID>
+                  <ID>84461</ID>
                   <Description>"Current TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79362</ID>
+                  <ID>84462</ID>
                   <Description>"Max HP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79363</ID>
+                  <ID>84463</ID>
                   <Description>"Max TP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79364</ID>
+                  <ID>84464</ID>
                   <Description>"EXP"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79365</ID>
-                  <Description>"Physical Attack"</Description>
+                  <ID>84465</ID>
+                  <Description>"Base Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84466</ID>
+                  <Description>"Base Max TP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84467</ID>
+                  <Description>"Base Physical Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84468</ID>
+                  <Description>"Base Magic Attack"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84469</ID>
+                  <Description>"Base Physical Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84470</ID>
+                  <Description>"Base Magic Defense"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84471</ID>
+                  <Description>"Base Concentration? Most likely an unused stat"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84472</ID>
+                  <Description>"Base Agility"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84473</ID>
+                  <Description>"Base Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84474</ID>
+                  <Description>"Current Physical Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79366</ID>
-                  <Description>"Magic Attack"</Description>
+                  <ID>84475</ID>
+                  <Description>"Current Magic Attack"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79367</ID>
-                  <Description>"Physical Defense"</Description>
+                  <ID>84476</ID>
+                  <Description>"Current Physical Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79368</ID>
-                  <Description>"Magic Defense"</Description>
+                  <ID>84477</ID>
+                  <Description>"Current Magic Defense"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>83517</ID>
-                  <Description>"Concentration? Most likely an unused stat"</Description>
+                  <ID>84478</ID>
+                  <Description>"Current Concentration? Most likely an unused stat"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79369</ID>
-                  <Description>"Agility"</Description>
+                  <ID>84479</ID>
+                  <Description>"Current Agility"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>79370</ID>
-                  <Description>"Luck"</Description>
+                  <ID>84480</ID>
+                  <Description>"Current Luck"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+104</Address>
@@ -15280,17 +16029,6 @@ unregistersymbol(estelleTest)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>83503</ID>
-          <Description>"Area"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>10</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>7FF7ABC48C38</Address>
-        </CheatEntry>
-        <CheatEntry>
           <ID>83509</ID>
           <Description>"Fatal Strikes enabled?"</Description>
           <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
@@ -15358,8 +16096,12 @@ dealloc(attackNum)
 :
 144:Guardian Field
 :
+1748:Over Limit
+:
 ::Estellise
 290:Pow Hammer
+:
+1749:Over Limit
 :
 ::Karol
 420:Destructo Booing
@@ -15377,14 +16119,14 @@ dealloc(attackNum)
                   <CheatEntries>
                     <CheatEntry>
                       <ID>83274</ID>
-                      <Description>"Next entry"</Description>
+                      <Description>"Next entry offset"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
                       <Address>attackStatus+C8*[attackNum]+10</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>82866</ID>
-                      <Description>"Entry"</Description>
+                      <Description>"Entry number"</Description>
                       <DropDownListLink>Attack (change this)</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -18899,6 +19641,802 @@ TOV_DE.exe+4C14C0: 48 83 C1 09           - add rcx,09
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>84506</ID>
+          <Description>"Current Area"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-06-08
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(currArea,TOV_DE.exe,41 80 38 00 49 8B C0 48) // should be unique
+aobscanmodule(currCoords,TOV_DE.exe,F3 0F 10 48 04 F3 0F 11 0D) // should be unique
+alloc(newmem,$1000,currArea)
+alloc(newmem2,$1000,currCoords)
+alloc(currAreaPTR,18)
+
+//fullAccess(currCoords,5)
+
+label(code)
+label(return)
+label(code2)
+label(return2)
+
+newmem:
+  cmp [currAreaPTR+8],2
+  jb @f
+  jg code
+  mov [currAreaPTR],r8
+@@:
+  add [currAreaPTR+8],1
+code:
+  cmp byte ptr [r8],00
+  mov rax,r8
+  jmp return
+
+currArea:
+  jmp newmem
+  nop
+  nop
+return:
+
+newmem2:
+  mov [currAreaPTR+10],rax
+code2:
+  movss xmm1,[rax+04]
+  jmp return2
+
+currCoords:
+  jmp newmem2
+return2:
+registersymbol(currArea currAreaPTR currCoords)
+
+[DISABLE]
+
+currArea:
+  db 41 80 38 00 49 8B C0
+
+currCoords:
+  db F3 0F 10 48 04
+
+unregistersymbol(currArea currAreaPTR currCoords)
+dealloc(newmem currAreaPTR newmem2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+5D59CF
+
+TOV_DE.exe+5D59AF: CC                          - int 3 
+TOV_DE.exe+5D59B0: 40 53                       - push rbx
+TOV_DE.exe+5D59B2: 55                          - push rbp
+TOV_DE.exe+5D59B3: 41 54                       - push r12
+TOV_DE.exe+5D59B5: 41 55                       - push r13
+TOV_DE.exe+5D59B7: 41 57                       - push r15
+TOV_DE.exe+5D59B9: 48 81 EC 80 00 00 00        - sub rsp,00000080
+TOV_DE.exe+5D59C0: 48 8B 05 29 9C 89 00        - mov rax,[TOV_DE.exe+E6F5F0]
+TOV_DE.exe+5D59C7: 48 33 C4                    - xor rax,rsp
+TOV_DE.exe+5D59CA: 48 89 44 24 50              - mov [rsp+50],rax
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+5D59CF: 41 80 38 00                 - cmp byte ptr [r8],00
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+5D59D3: 49 8B C0                    - mov rax,r8
+TOV_DE.exe+5D59D6: 48 89 7C 24 70              - mov [rsp+70],rdi
+TOV_DE.exe+5D59DB: 4C 8B E2                    - mov r12,rdx
+TOV_DE.exe+5D59DE: 4C 89 4C 24 28              - mov [rsp+28],r9
+TOV_DE.exe+5D59E3: 48 89 4C 24 20              - mov [rsp+20],rcx
+TOV_DE.exe+5D59E8: 48 C7 44 24 48 0F 00 00 00  - mov qword ptr [rsp+48],0000000F
+TOV_DE.exe+5D59F1: 48 C7 44 24 40 00 00 00 00  - mov qword ptr [rsp+40],00000000
+TOV_DE.exe+5D59FA: C6 44 24 30 00              - mov byte ptr [rsp+30],00
+TOV_DE.exe+5D59FF: 75 05                       - jne TOV_DE.exe+5D5A06
+TOV_DE.exe+5D5A01: 45 33 C0                    - xor r8d,r8d
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+63AB42
+
+TOV_DE.exe+63AB0E: 48 8D 0D 33 77 31 01     - lea rcx,[TOV_DE.exe+1952248]
+TOV_DE.exe+63AB15: E8 76 9C FF FF           - call TOV_DE.exe+634790
+TOV_DE.exe+63AB1A: 48 8D 0D 07 35 B7 00     - lea rcx,[TOV_DE.exe+11AE028]
+TOV_DE.exe+63AB21: E8 2A 70 F3 FF           - call TOV_DE.exe+571B50
+TOV_DE.exe+63AB26: 84 C0                    - test al,al
+TOV_DE.exe+63AB28: 74 32                    - je TOV_DE.exe+63AB5C
+TOV_DE.exe+63AB2A: 48 8D 0D F7 34 B7 00     - lea rcx,[TOV_DE.exe+11AE028]
+TOV_DE.exe+63AB31: E8 2A 75 F3 FF           - call TOV_DE.exe+572060
+TOV_DE.exe+63AB36: F3 0F 10 00              - movss xmm0,[rax]
+TOV_DE.exe+63AB3A: F3 0F 11 05 AE 77 31 01  - movss [TOV_DE.exe+19522F0],xmm0
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+63AB42: F3 0F 10 48 04           - movss xmm1,[rax+04]
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+63AB47: F3 0F 11 0D A5 77 31 01  - movss [TOV_DE.exe+19522F4],xmm1
+TOV_DE.exe+63AB4F: F3 0F 10 40 08           - movss xmm0,[rax+08]
+TOV_DE.exe+63AB54: F3 0F 11 05 9C 77 31 01  - movss [TOV_DE.exe+19522F8],xmm0
+TOV_DE.exe+63AB5C: 0F 57 C0                 - xorps xmm0,xmm0
+TOV_DE.exe+63AB5F: F3 0F 7F 44 24 50        - movdqu [rsp+50],xmm0
+TOV_DE.exe+63AB65: 45 33 ED                 - xor r13d,r13d
+TOV_DE.exe+63AB68: 45 8B FD                 - mov r15d,r13d
+TOV_DE.exe+63AB6B: 4C 89 6C 24 60           - mov [rsp+60],r13
+TOV_DE.exe+63AB70: 41 8D 4D 01              - lea ecx,[r13+01]
+TOV_DE.exe+63AB74: E8 E7 B3 FB FF           - call TOV_DE.exe+5F5F60
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>84543</ID>
+              <Description>"Transition to a different room for Area to populate!"</Description>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84502</ID>
+              <Description>"Area"</Description>
+              <DropDownList DisplayValueAsItem="1">dummy:dummy
+titletitle:titletitle
+titlegameov:titlegameover
+test001:test001
+test002:test002
+test003:test003
+test004:test004
+test005:test005
+test006:test006
+test007:test007
+test008:test008
+test009:test009
+test010:test010
+test011:test011
+test012:test012
+test013:test013
+test014:test014
+test015:test015
+test016:test016
+test017:test017
+test018:test018
+test019:test019
+test020:test020
+test021:test021
+test022:test022
+test023:test023
+test024:test024
+test025:test025
+test026:test026
+test027:test027
+test028:test028
+test029:test029
+test030:test030
+test031:test031
+test032:test032
+test033:test033
+test034:test034
+test035:test035
+test036:test036
+test037:test037
+test038:test038
+test039:test039
+test040:test040
+test041:test041
+test042:test042
+test043:test043
+test044:test044
+test045:test045
+test046:test046
+test047:test047
+test048:test048
+test049:test049
+test050:test050
+test051:test051
+test052:test052
+test053:test053
+test054:test054
+test055:test055
+test056:test056
+test057:test057
+test058:test058
+test059:test059
+test060:test060
+field:field
+menumap:menumap
+theatermap:theatermap
+ahot00:ahot00
+ahoi00_00:ahoi00_00
+ahoi00_01:ahoi00_01
+ahoi00_02:ahoi00_02
+aped00:aped00
+aphd01:aphd01
+aphd02:aphd02
+aphd03:aphd03
+aphd04:aphd04
+aphd05:aphd05
+aphd06:aphd06
+aphd07:aphd07
+boat00:boat00
+boat01:boat01
+boat02:boat02
+boai00:boai00
+bugd00:bugd00
+bugd01:bugd01
+bugd02:bugd02
+bugd03:bugd03
+bugd04:bugd04
+bugd05:bugd05
+bugd06:bugd06
+bugd07:bugd07
+bugd08:bugd08
+bugd09:bugd09
+caot00:caot00
+caot01:caot01
+caot02:caot02
+caot03:caot03
+caot04:caot04
+caot05:caot05
+caoi01_00:caoi01_00
+caoi01_01:caoi01_01
+capt06:capt06
+capt07:capt07
+capt08:capt08
+capt09:capt09
+capi00_00:capi00_00
+capi00_01:capi00_01
+capi00_02:capi00_02
+capi00_03:capi00_03
+capi00_04:capi00_04
+capi00_05:capi00_05
+capi00_06:capi00_06
+capi00_07:capi00_07
+capi00_08:capi00_08
+capi00_09:capi00_09
+capi00_10:capi00_10
+capi00_11:capi00_11
+capi00_12:capi00_12
+capi00_13:capi00_13
+capi02:capi02
+caqt00:caqt00
+caqt01:caqt01
+caqt10:caqt10
+caqi00_00:caqi00_00
+caqi00_01:caqi00_01
+caqi00_02:caqi00_02
+caqi00_03:caqi00_03
+caqi00_04:caqi00_04
+caqi00_05:caqi00_05
+caqi00_06:caqi00_06
+caqi00_07:caqi00_07
+caqi00_08:caqi00_08
+caqi00_09:caqi00_09
+cavd00:cavd00
+cavd01:cavd01
+cavd02:cavd02
+cavd03:cavd03
+chet00:chet00
+chet01:chet01
+chet02:chet02
+chet03:chet03
+chei00_00:chei00_00
+chei00_01:chei00_01
+chei01:chei01
+chxt00:chxt00
+chxt01:chxt01
+chxt02:chxt02
+chxt03:chxt03
+cogd00:cogd00
+cogd01:cogd01
+cogd02:cogd02
+cogd03:cogd03
+cogd04:cogd04
+cogd05:cogd05
+cogd06:cogd06
+cogd07:cogd07
+cogd08:cogd08
+cogd09:cogd09
+devt00:devt00
+devt01:devt01
+devi00:devi00
+devi01:devi01
+devi02:devi02
+drad00:drad00
+drad01:drad01
+drad02:drad02
+drad03:drad03
+drad04:drad04
+drad05:drad05
+drad06:drad06
+drad07:drad07
+drad08:drad08
+evet00:evet00
+evet01:evet01
+evei00:evei00
+fort00:fort00
+fori00:fori00
+fori01:fori01
+frit00:frit00
+frit01:frit01
+frit02:frit02
+frii00:frii00
+frii01:frii01
+frii02:frii02
+frii03:frii03
+frii04:frii04
+ghod00:ghod00
+ghod01:ghod01
+ghod02:ghod02
+ghod03:ghod03
+ghod04:ghod04
+ghod05:ghod05
+ghod06:ghod06
+ghod08:ghod08
+ghxd07:ghxd07
+grod00:grod00
+grod01:grod01
+grod02:grod02
+grod03:grod03
+guit00:guit00
+guit01:guit01
+guit02:guit02
+guit03:guit03
+guit04:guit04
+guit05:guit05
+guit06:guit06
+guit07:guit07
+guii00_00:guii00_00
+guii00_01:guii00_01
+guii01_00:guii01_00
+guii01_01:guii01_01
+guii01_02:guii01_02
+guii02:guii02
+guii03:guii03
+guii04:guii04
+guii05:guii05
+hild00:hild00
+hild01:hild01
+hild02:hild02
+hild03:hild03
+hild04:hild04
+hisd00:hisd00
+hisd01:hisd01
+hisd02:hisd02
+hisd03:hisd03
+hisd04:hisd04
+hisd05:hisd05
+hisd06:hisd06
+hisd07:hisd07
+hisd08:hisd08
+hisd09:hisd09
+howd00:howd00
+howd01:howd01
+howd02:howd02
+howd03:howd03
+howd04:howd04
+howd05:howd05
+howd06:howd06
+howd07:howd07
+howd08:howd08
+howd09:howd09
+howd10:howd10
+iced00:iced00
+iced01:iced01
+iced02:iced02
+iced03:iced03
+iced04:iced04
+iced05:iced05
+iced06:iced06
+iced07:iced07
+iegd00:iegd00
+iegd01:iegd01
+iegd02:iegd02
+iegd03:iegd03
+iegd04:iegd04
+iegd05:iegd05
+iegd06:iegd06
+iegd07:iegd07
+lard01:lard01
+lard03:lard03
+lard19:lard19
+lard20:lard20
+lasd00:lasd00
+lasd05:lasd05
+lasd06:lasd06
+lasd08:lasd08
+lasd09:lasd09
+lasd11:lasd11
+lasd11_00:lasd11_00
+lasd12:lasd12
+lasd13:lasd13
+lasd13_00:lasd13_00
+lasd17:lasd17
+lasd18:lasd18
+latd00:latd00
+latd01:latd01
+latd02:latd02
+latd03:latd03
+mand00:mand00
+mand01:mand01
+mand02:mand02
+mand03:mand03
+mand04:mand04
+mand05:mand05
+mand06:mand06
+mand07:mand07
+mysd00:mysd00
+mysd01:mysd01
+mysd02:mysd02
+mysd03:mysd03
+mysd04:mysd04
+mysd05:mysd05
+mysd06:mysd06
+mysd07:mysd07
+mysd08:mysd08
+mysd09:mysd09
+mysd10:mysd10
+mysd11:mysd11
+mysd12:mysd12
+mysd13:mysd13
+mysd14:mysd14
+mysd15:mysd15
+mysd16:mysd16
+mysd17:mysd17
+mysd18:mysd18
+mysd19:mysd19
+mysd20:mysd20
+mysd21:mysd21
+mysd22:mysd22
+mysd23:mysd23
+mysd24:mysd24
+mysd25:mysd25
+mysd26:mysd26
+mysd27:mysd27
+mysd28:mysd28
+mysd29:mysd29
+mysd30:mysd30
+mysd31:mysd31
+mysd32:mysd32
+mysd33:mysd33
+mysd34:mysd34
+mysd35:mysd35
+mysd36:mysd36
+mysd37:mysd37
+namt00:namt00
+nami00_00:nami00_00
+nami01_00:nami01_00
+oast00:oast00
+oast01:oast01
+oasi00:oasi00
+oasi01:oasi01
+orgd00:orgd00
+orgd01:orgd01
+orgd02:orgd02
+orgd03:orgd03
+orgd04:orgd04
+orgd05:orgd05
+orgd06:orgd06
+orgd07:orgd07
+orgd08:orgd08
+orgd10:orgd10
+orhd09:orhd09
+port00:port00
+port01:port01
+port02:port02
+port03:port03
+port08:port08
+pori00_00:pori00_00
+pori00_01:pori00_01
+pori04_00:pori04_00
+pori04_01:pori04_01
+pori04_02:pori04_02
+pori04_03:pori04_03
+pori04_04:pori04_04
+pori04_05:pori04_05
+pori04_06:pori04_06
+pori04_07:pori04_07
+pori04_08:pori04_08
+pori04_09:pori04_09
+pori04_10:pori04_10
+pori04_11:pori04_11
+pott04:pott04
+pott05:pott05
+pott06:pott06
+pott07:pott07
+poti01_00:poti01_00
+poti01_01:poti01_01
+poti01_02:poti01_02
+poti02:poti02
+poti03:poti03
+poti05:poti05
+ruid00:ruid00
+ruid01:ruid01
+ruid02:ruid02
+ruid03:ruid03
+ruid04:ruid04
+sead00:sead00
+sead01:sead01
+sead02:sead02
+sead03:sead03
+sead04:sead04
+sead05:sead05
+sead06:sead06
+sead07:sead07
+sead08:sead08
+sead09:sead09
+sead10:sead10
+sead11:sead11
+sead12:sead12
+sead13:sead13
+sead14:sead14
+sead15:sead15
+sead16:sead16
+sead17:sead17
+sead18:sead18
+shat00:shat00
+shat01:shat01
+shat02:shat02
+shat04:shat04
+shat14:shat14
+shai00:shai00
+togt00:togt00
+togt01:togt01
+togt02:togt02
+togt03:togt03
+togi00_00:togi00_00
+togi00_01:togi00_01
+togi00_02:togi00_02
+togi00_03:togi00_03
+togi00_05:togi00_05
+togi00_10:togi00_10
+undt00:undt00
+undt01:undt01
+undt02:undt02
+undt03:undt03
+undt04:undt04
+undi00_00:undi00_00
+undi00_01:undi00_01
+undi00_02:undi00_02
+undi00_03:undi00_03
+vilt00:vilt00
+vili00:vili00
+vili01:vili01
+vixt00:vixt00
+vsid00:vsid00
+vsid01:vsid01
+vsid02:vsid02
+vsid03:vsid03
+vsid04:vsid04
+vsid05:vsid05
+vsid06:vsid06
+vsid07:vsid07
+vsid08:vsid08
+vsid09:vsid09
+vsid10:vsid10
+wood00:wood00
+wood01:wood01
+wood02:wood02
+wood03:wood03
+wood04:wood04
+wood05:wood05
+wood06:wood06
+wood07:wood07
+zaad00:zaad00
+zaad01:zaad01
+zaad02:zaad02
+zaad03:zaad03
+zaad04:zaad04
+zaad05:zaad05
+zaad06:zaad06
+zaad07:zaad07
+zaad08:zaad08
+zaad09:zaad09
+zaad10:zaad10
+zaad11:zaad11
+zaad12:zaad12
+zaad13:zaad13
+zaad14:zaad14
+zaad15:zaad15
+zabd00:zabd00
+zabd01:zabd01
+zacd00:zacd00
+zadd00:zadd00
+zaed00:zaed00
+zafd00:zafd00
+zagd00:zagd00
+zahd00:zahd00
+zaid00:zaid00
+zajd00:zajd00
+zajd01:zajd01
+zakd00:zakd00
+zald00:zald00
+zamd00:zamd00
+zand00:zand00
+zand01:zand01
+zaod00:zaod00
+zaod01:zaod01
+zaod02:zaod02
+zapd00:zapd00
+zapd01:zapd01
+zaqd00:zaqd00
+zard00:zard00
+zard01:zard01
+zasd00:zasd00
+zasd01:zasd01
+zatd00:zatd00
+zatd01:zatd01
+zaud00:zaud00
+zaud01:zaud01
+zaud02:zaud02
+zavd00:zavd00
+zavd01:zavd01
+zavd02:zavd02
+zavd03:zavd03
+zavd04:zavd04
+zavd05:zavd05
+zawd00:zawd00
+zaxd00:zaxd00
+zzzd00:zzzd00
+capi00_14:capi00_14
+cavd04:cavd04
+frit03:frit03
+pori04_21:pori04_21
+pori04_22:pori04_22
+pori04_23:pori04_23
+pori04_24:pori04_24
+pori04_25:pori04_25
+pori04_26:pori04_26
+pori04_27:pori04_27
+pori04_28:pori04_28
+pori04_29:pori04_29
+pori04_30:pori04_30
+pori04_31:pori04_31
+xgud00:xgud00
+xgud01:xgud01
+xgud02:xgud02
+xlad00:xlad00
+xlad01:xlad01
+xlad02:xlad02
+xlad03:xlad03
+xlad04:xlad04
+xlad05:xlad05
+xlad06:xlad06
+xlad07:xlad07
+xlad08:xlad08
+xtct00:xtct00
+xtci00:xtci00
+xtmd00:xtmd00
+xtmd01:xtmd01
+xtmd02:xtmd02
+xtmd10:xtmd10
+xtmd11:xtmd11
+xtmd12:xtmd12
+xtmd20:xtmd20
+xtmd21:xtmd21
+xtmd22:xtmd22
+xtmd30:xtmd30
+xtmd31:xtmd31
+xtmd32:xtmd32
+xtmd40:xtmd40
+xtmd41:xtmd41
+xtmd42:xtmd42
+xtmd50:xtmd50
+xtmd51:xtmd51
+xtmd52:xtmd52
+xptd00:xptd00
+xptd01:xptd01
+xrgd00:xrgd00
+xrgd01:xrgd01
+xrgd02:xrgd02
+xrgd03:xrgd03
+xrgd04:xrgd04
+xrgd05:xrgd05
+xrgd06:xrgd06
+xrgd07:xrgd07
+zbad00:zbad00
+zbbd00:zbbd00
+zbcd00:zbcd00
+zbdd00:zbdd00
+evet02:evet02
+GRADE_SHOP:GRADE_SHOP
+GAME_NEW:GAME_NEW
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>60</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>currAreaPTR</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84540</ID>
+              <Description>"X"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>currAreaPTR+10</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84541</ID>
+              <Description>"Y"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>currAreaPTR+10</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84542</ID>
+              <Description>"Z"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>currAreaPTR+10</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84544</ID>
+          <Description>"Free Arte Order Chain (breaks MA)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-06-09
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(arteOrderCheck,TOV_DE.exe,75 2D 4C 8B 74 24 50) // should be unique
+
+arteOrderCheck:
+  db 90 90
+
+registersymbol(arteOrderCheck)
+
+[DISABLE]
+
+arteOrderCheck:
+  db 75 2D 4C 8B 74 24 50
+
+unregistersymbol(arteOrderCheck)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+55FF68
+
+TOV_DE.exe+55FF4B: 48 8B CF        - mov rcx,rdi
+TOV_DE.exe+55FF4E: E8 6D A2 FF FF  - call TOV_DE.exe+55A1C0
+arteCancelFS: 84 C0           - test al,al
+TOV_DE.exe+55FF55: 90              - nop 
+TOV_DE.exe+55FF56: 90              - nop 
+TOV_DE.exe+55FF57: 41 83 7E 24 0C  - cmp dword ptr [r14+24],0C
+TOV_DE.exe+55FF5C: 48 8B CF        - mov rcx,rdi
+TOV_DE.exe+55FF5F: 74 1A           - je TOV_DE.exe+55FF7B
+TOV_DE.exe+55FF61: E8 6A B7 FF FF  - call arteCancel2
+TOV_DE.exe+55FF66: 84 C0           - test al,al
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+55FF68: 75 2D           - jne TOV_DE.exe+55FF97
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+55FF6A: 4C 8B 74 24 50  - mov r14,[rsp+50]
+TOV_DE.exe+55FF6F: 48 8B 7C 24 48  - mov rdi,[rsp+48]
+TOV_DE.exe+55FF74: 48 83 C4 28     - add rsp,28
+TOV_DE.exe+55FF78: 5D              - pop rbp
+TOV_DE.exe+55FF79: 5B              - pop rbx
+TOV_DE.exe+55FF7A: C3              - ret 
+TOV_DE.exe+55FF7B: E8 D0 B8 FF FF  - call TOV_DE.exe+55B850
+TOV_DE.exe+55FF80: 84 C0           - test al,al
+TOV_DE.exe+55FF82: 75 13           - jne TOV_DE.exe+55FF97
+TOV_DE.exe+55FF84: 4C 8B 74 24 50  - mov r14,[rsp+50]
+}
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
@@ -19152,31 +20690,6 @@ TOV_DE.exe+4C14C0: 48 83 C1 09           - add rcx,09
       </After>
     </CodeEntry>
     <CodeEntry>
-      <Description>Current area</Description>
-      <AddressString>TOV_DE.exe+3C0353</AddressString>
-      <Before>
-        <Byte>40</Byte>
-        <Byte>00</Byte>
-        <Byte>49</Byte>
-        <Byte>FF</Byte>
-        <Byte>C0</Byte>
-      </Before>
-      <Actual>
-        <Byte>42</Byte>
-        <Byte>80</Byte>
-        <Byte>3C</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>75</Byte>
-        <Byte>F6</Byte>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>D0</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
       <Description>SCF opcode?</Description>
       <AddressString>TOV_DE.exe+5E687F</AddressString>
       <Before>
@@ -19301,74 +20814,12 @@ TOV_DE.exe+4C14C0: 48 83 C1 09           - add rcx,09
         <Byte>B4</Byte>
       </After>
     </CodeEntry>
-    <CodeEntry>
-      <Description>Change of mulss xmm2,[rbx+50]</Description>
-      <AddressString>TOV_DE.exe+555558</AddressString>
-      <Before>
-        <Byte>6E</Byte>
-        <Byte>D0</Byte>
-        <Byte>0F</Byte>
-        <Byte>5B</Byte>
-        <Byte>D2</Byte>
-      </Before>
-      <Actual>
-        <Byte>F3</Byte>
-        <Byte>0F</Byte>
-        <Byte>59</Byte>
-        <Byte>53</Byte>
-        <Byte>50</Byte>
-      </Actual>
-      <After>
-        <Byte>F3</Byte>
-        <Byte>0F</Byte>
-        <Byte>5E</Byte>
-        <Byte>D6</Byte>
-        <Byte>E8</Byte>
-      </After>
-    </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>enmBookPTR</Name>
-      <Address>87F60000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>artePropPTR</Name>
-      <Address>0B960010</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>attackNum</Name>
-      <Address>17ABD440000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>weapEditPTR</Name>
-      <Address>158F53D0010</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>randomvalue</Name>
-      <Address>006E0000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
-  <Comments>Search string "T8BTAS" for deeper arte properties (Attack Status)
-Unfinished enemy list (in decimal)
+  <UserdefinedSymbols/>
+  <Comments>Unfinished enemy list (in decimal)
 It seems that if you try to load a model that's not supposed to be in the fight, it will crash the game. Otherwise, the animation will also not function, but it doesn't crash the game.
 </Comments>
   <DisassemblerComments>
-    <DisassemblerComment>
-      <Address>62F16D4E</Address>
-      <Comment>60
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D58</Address>
-      <Comment>71
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D64</Address>
-      <Comment>90
-</Comment>
-    </DisassemblerComment>
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+4A272D</Address>
       <Comment>multiplier (70)
@@ -19387,6 +20838,21 @@ It seems that if you try to load a model that's not supposed to be in the fight,
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+5555BC</Address>
       <Comment>fs3
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
 </Comment>
     </DisassemblerComment>
   </DisassemblerComments>
