@@ -9742,19 +9742,19 @@ dealloc(currArte)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>67673</ID>
-          <Description>"Gaius/Muzét Final Boss Encounter editor"</Description>
+          <ID>67708</ID>
+          <Description>"Wingul Encounter editor"</Description>
           <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
           <DropDownList DisplayValueAsItem="1">0:Nothing
-1:Jude (party)
-2:Milla (party)
-3:Alvin (party)
-4:Elize (party)
-5:Rowen (party)
-6:Leia (party)
+1:Jude
+2:Milla
+3:Alvin
+4:Elize
+5:Rowen
+6:Leia
 13:Teepo
 14:Gaius (Fezebel Marsh)
-15:Muzét (Fennmont)
+15:Muzét (Ship)
 16:Nachtigal
 17:Gilland
 18:Wingul (Kanbalar)
@@ -9767,12 +9767,12 @@ dealloc(currArte)
 25:Volt
 26:Greater Demon
 27:Nameless Anomaly
-28:Hammerzamm (9000 HP)
+28:Hammerzamm (36.000 HP)
 29:Fire Teagle
 30:Aquadragon 1
 31:Aquadragon 2
-32:Gandala Defense Golem 1
-33:Gandala Defense Golem 2
+32:Gandala Golem 1
+33:Gandala Golem 2
 34:Brutaur
 35:Pterobronc
 36:Dranzort
@@ -9835,7 +9835,7 @@ dealloc(currArte)
 93:Fleet Mare
 94:Guardian Mare
 95:Sylvan Mare
-96:Sylphid (9000 HP)
+96:Sylphid
 97:Unicorn
 99:Sol Cat
 100:Floral Cat
@@ -9847,7 +9847,7 @@ dealloc(currArte)
 106:Snowmelt Merfish
 107:Quag Merfish
 108:Lizardman
-109:Lizitar (6900 HP)
+109:Lizitar
 110:Tortoise
 111:Angry Tortoise
 112:Snow Tortoise
@@ -9856,7 +9856,7 @@ dealloc(currArte)
 115:Crab Man
 116:Tree Crab
 117:Sylvan Crab
-118:Runed Crab (6792 HP)
+118:Runed Crab
 119:Ribbit
 120:Grass Ribbit
 121:Terra Ribbit
@@ -9876,7 +9876,7 @@ dealloc(currArte)
 135:Penguinist
 136:Fire Hawk
 137:Vulture
-138:Azure Hawk (6900 HP)
+138:Azure Hawk
 140:Bat
 141:Dusk Bat
 142:Fire Bat
@@ -9908,7 +9908,7 @@ dealloc(currArte)
 168:Leafy Mandragora
 169:Ice Mandragora
 170:Terra Mandragora
-171:Megistus Mandragora (6400 HP)
+171:Megistus Mandragora
 172:Insect Plant
 173:Mighty Plant
 174:Bog Plant
@@ -9921,7 +9921,7 @@ dealloc(currArte)
 181:Filihelia
 182:Filifreet
 183:Filignome
-184:Filisylph
+184:Filisyplh
 185:Filindine
 186:Golem
 187:Fire Golem
@@ -9938,7 +9938,7 @@ dealloc(currArte)
 198:Rock Djinn
 199:Water Djinn
 200:Fire Djinn
-201:Tetra Djinn (5700 HP)
+201:Tetra Djinn
 202:Thunder Djinn
 203:Skeleton
 204:Shaft Skeleton
@@ -9949,7 +9949,7 @@ dealloc(currArte)
 209:Ice Harpy
 210:Floral Harpy
 211:Wind Element
-212:Megistus Harpy (7400 HP)
+212:Megistus Harpy
 213:Gentleman
 214:Gentlefreet
 215:Gentlegnome
@@ -9962,14 +9962,14 @@ dealloc(currArte)
 222:King Cockatrice
 223:Snow Dragon
 224:Fire Dragon
-225:Temporal Sentinel (17400 HP)
+225:Temporal Sentinel
 226:Twilight Sentinel
 227:Crime and Punishment
 233:Spyrix Sentry 1.0
 234:Spyrix Sentry 2.0
 235:Meniphto
 236:Undinette
-237:Meniphto Mk IV (10500 HP)
+237:Meniphto Mk IV
 238:Bacura
 239:Bronze Bacura
 240:Silver Bacura
@@ -9979,20 +9979,20 @@ dealloc(currArte)
 244:Graddic Claw
 245:Crimson Servant
 246:Azure Servant
-247:Golden Mage Knight - Scholar (80000 HP)
-248:Golden Mage Knight - Creator (76000 HP)
-249:Golden Mage Knight - Mercenary (90000 HP)
-250:Golden Mage Knight - Duelist (78000 HP)
-251:Golden Mage Knight - Puppeteer (64000 HP)
-252:Golden Mage Knight - Conductor (69000 HP)
+247:Golden Mage Knight - Scholar
+248:Golden Mage Knight - Creator
+249:Golden Mage Knight - Mercenary
+250:Golden Mage Knight - Duelist
+251:Golden Mage Knight - Puppeteer
+252:Golden Mage Knight - Conductor
 253:Fire Element
 254:Fire Element Ultra
 255:Vortex Scorpion
 256:Gaius (Temporal Crossroads)
-257:Gaius (Temporal Terminus)
+257:Gaius (Final Boss)
 258:Muzét (Milla's Shrine)
 259:Muzét (Temporal Crossroads)
-260:Muzét (Temporal Terminus)
+260:Muzét (Final Boss)
 261:Wingul (Fezebel Marsh)
 262:Wingul (Temporal Crossroads)
 263:Wingul (Coliseum)
@@ -10044,7 +10044,7 @@ dealloc(currArte)
 310:Rashugal Battlecorps Veteran
 311:Rashugal Bladecorps Veteran
 312:Rashugal Battlecorps Elite
-313:Driselle
+313:Driselle (Crash)
 314:Jude (Coliseum)
 315:Milla (Coliseum)
 316:Alvin (Coliseum)
@@ -10053,7 +10053,7 @@ dealloc(currArte)
 319:Leia (Coliseum)
 320:Insurgent Battlemaster
 321:Rashugar Bladecorps Cadet
-322:Hammerzamm (22000 HP)
+322:Hammerzamm (88.000 HP)
 323:Greater Demon (Coliseum)
 324:Nameless Anomaly (Coliseum)
 325:Hammerzamm (Coliseum)
@@ -10065,64 +10065,67 @@ dealloc(currArte)
 331:Wyvern (Coliseum)
 332:Veywind Eye (Coliseum)
 333:Graddic Claw (Coliseum)
-334:Golden Mage Knight - Scholar (120000 HP)
-335:Golden Mage Knight - Creator (114000 HP)
-336:Golden Mage Knight - Mercenary (135000 HP)
-337:Golden Mage Knight - Duelist (117000 HP)
-338:Golden Mage Knight - Puppeteer (96000 HP)
-339:Golden Mage Knight - Conductor (103500 HP)
-340:Golden Mage Knight - Scholar (160000 HP)
-341:Golden Mage Knight - Creator (152000 HP)
-342:Golden Mage Knight - Mercenary (180000 HP)
-343:Golden Mage Knight - Duelist (156000 HP)
-344:Golden Mage Knight - Puppeteer (128000 HP)
-345:Golden Mage Knight - Conductor (138000 HP)
-350:Lizitar (10350 HP)
-351:Lizitar (13800 HP)
-354:Sylphid (13500 HP)
-355:Sylphid (18000 HP)
-356:Azure Hawk (10350 HP)
-357:Azure Hawk (13800 HP)
-358:Runed Crab (10188 HP)
-359:Runed Crab (13584 HP)
-362:Temporal Sentinel (24000 HP)
-363:Temporal Sentinel (32000 HP)
-366:Meniphto Mk IV (15750 HP)
-367:Meniphto Mk IV (21000 HP)
-368:Tetra Djinn (8550 HP)
-369:Tetra Djinn (11400 HP)
-370:Megistus Harpy (11100 HP)
-371:Megistus Harpy (14800 HP)
-374:Megistus Mandragora (9600 HP)
-375:Megistus Mandragora (12800 HP)
+334:Golden Mage Knight - Scholar (stronger than ID 247)
+335:Golden Mage Knight - Creator (stronger than ID 248)
+336:Golden Mage Knight - Mercenary (stronger than ID 249)
+337:Golden Mage Knight - Duelist (stronger than ID 250)
+338:Golden Mage Knight - Puppeteer (stronger than ID 251)
+339:Golden Mage Knight - Conductor (stronger than ID 252)
+340:Golden Mage Knight - Scholar (stronger than ID 334)
+341:Golden Mage Knight - Creator (stronger than ID 335)
+342:Golden Mage Knight - Mercenary (stronger than ID 336)
+343:Golden Mage Knight - Duelist (stronger than ID 337)
+344:Golden Mage Knight - Puppeteer (stronger than ID 338)
+345:Golden Mage Knight - Conductor (stronger than ID 339)
+350:Lizitar (stronger than ID 109)
+351:Lizitar (stronger than ID 350)
+354:Sylphid (stronger than ID 96)
+355:Sylphid (stronger than ID 354)
+356:Azure Hawk (stronger than ID 138)
+357:Azure Hawk (stronger than ID 356)
+358:Runed Crab (stronger than ID 118)
+359:Runed Crab (stronger than ID 359)
+362:Temporal Sentinel (stronger than ID 225, doesn't have a habitat)
+363:Temporal Sentinel (stronger than ID 363, doesn't have a habitat)
+366:Meniphto Mk IV (stronger than ID 237)
+367:Meniphto Mk IV (stronger than ID 367)
+368:Tetra Djinn (stronger than ID 201)
+369:Tetra Djinn (stronger than ID 369)
+370:Megistus Harpy (stronger than ID 212)
+371:Megistus Harpy (stronger than ID 371)
+374:Megistus Mandragora (stronger than ID 171)
+375:Megistus Mandragora (stronger than ID 374)
 376:Technician Veteran
 </DropDownList>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
-aobscanregion(gaiusmuzetEncounter, 300000000, 400000000, 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 37 00) // should be unique
-aobscanregion(gaiusmuzetEncounterValues, 300000000, 400000000, 22 F1 00 00 22 F9 00 00 00 00 00 00 00 00 00 03 00 02 59 A0 00 00 00 00 00 00 00 00 00 00 00 00)
+aobscanregion(wingulEncounter, 300000000, 400000000, E4 B8 96 E7 B2 BE E3 83 8E E9 80 94 EF BC 9A E3 82 A6 E3 82 A3 E3 83 B3 E3 82 AC E3 83 AB E6 88 A6 00) // should be unique
+aobscanregion(wingulEncounterStage, 300000000, 400000000, 00 4D 41 50 5F 42 54 4C 5F 46 4E 4C 5F 30 30 30 00)
 
-registersymbol(gaiusmuzetEncounter)
-registersymbol(gaiusmuzetEncounterValues)
+registersymbol(wingulEncounter)
+registersymbol(wingulEncounterStage)
 [DISABLE]
-gaiusmuzetEncounter:
-db 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 37 00 00 00 00 00 00 01 01 00 00 00 00 00 00 01 04 00 00 00 00
+wingulEncounter+24:
+db 00 00 01 06 00 00 00 00
 
-unregistersymbol(gaiusmuzetEncounter)
-unregistersymbol(gaiusmuzetEncounterValues)
+wingulEncounterStage:
+db 00 4D 41 50 5F 42 54 4C 5F 46 4E 4C 5F 30 30 30 00
+
+unregistersymbol(wingulEncounter)
+unregistersymbol(wingulEncounterStage)
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
-              <ID>67675</ID>
+              <ID>67709</ID>
               <Description>"1st enemy"</Description>
               <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Custom</VariableType>
               <CustomType>4 Byte Big Endian</CustomType>
-              <Address>gaiusmuzetEncounter+16</Address>
+              <Address>wingulEncounter+24</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>67679</ID>
+                  <ID>67710</ID>
                   <Description>"Group"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
@@ -10132,40 +10135,22 @@ unregistersymbol(gaiusmuzetEncounterValues)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>67676</ID>
-              <Description>"2nd enemy"</Description>
-              <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>gaiusmuzetEncounter+16+8</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>67680</ID>
-                  <Description>"Group"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>+4</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>67678</ID>
-              <Description>"Event"</Description>
+              <ID>67725</ID>
+              <Description>"Stage"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>String</VariableType>
-              <Length>30</Length>
+              <Length>24</Length>
               <Unicode>0</Unicode>
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
-              <Address>gaiusmuzetEncounter+1</Address>
+              <Address>wingulEncounterStage+1</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>67681</ID>
+              <ID>87233</ID>
               <Description>"More Enemies"</Description>
-              <Options moHideChildren="1"/>
-              <DropDownList DisplayValueAsItem="1">1:Jude
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Jude
 2:Milla
 3:Alvin
 4:Elize
@@ -10518,34 +10503,55 @@ unregistersymbol(gaiusmuzetEncounterValues)
 </DropDownList>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
-gaiusmuzetEncounter+16+8*2:
-db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+wingulEncounter+24+8:
+  db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
 [DISABLE]
-gaiusmuzetEncounter+16+8*2:
-db 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 30 36 37 5F 4E 41 4D 45 00 E6 88 A6 E9 97 98 E3 83 81 E3 83 A5 E3 83 BC E3 83 88 E3 83 AA E3 82 A2 E3 83 AB 32 EF BC 9A E3 82 AD E3 83 A3 E3 83 A9 E5 9B BA E6 9C 89 E6 93 8D E4 BD 9C EF BC 88 E3 82 B8 E3 83 A5 E3 83 BC E3 83 89 EF BC 89 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 38 00
-gaiusmuzetEncounterValues+AAC:
-db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00 CD 00 00 00 00 45 00 00 CD 14 00 00 00 22 00 00 00 00
+wingulEncounter+24+8:
+  db 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 30 35 38 5F 4E 41 4D 45 00 E4 B8 96 E7 B2 BE E3 83 8E E9 80 94 EF BC 9A E4 B8 AD E3 83 9C E3 82 B9 E6 88 A6 EF BC 91 EF BC 88 E3 83 9F E3 83 A9 E6 95 91 E5 87
+
+wingulEncounter-CBE4:
+  db 00 00 00 01
 </AssemblerScript>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>67687</ID>
+                  <ID>87234</ID>
                   <Description>"Number of enemies"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounterValues+AC0</Address>
+                  <Address>wingulEncounter-CBE4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67688</ID>
+                  <ID>87252</ID>
+                  <Description>"2nd enemy"</Description>
+                  <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>wingulEncounter+24+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>87253</ID>
+                      <Description>"Group"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87248</ID>
                   <Description>"3rd enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*2</Address>
+                  <Address>wingulEncounter+24+8*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67689</ID>
+                      <ID>87249</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10555,16 +10561,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67690</ID>
+                  <ID>87246</ID>
                   <Description>"4th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*3</Address>
+                  <Address>wingulEncounter+24+8*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67691</ID>
+                      <ID>87247</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10574,16 +10580,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67692</ID>
+                  <ID>87244</ID>
                   <Description>"5th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*4</Address>
+                  <Address>wingulEncounter+24+8*4</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67693</ID>
+                      <ID>87245</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10593,16 +10599,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67700</ID>
+                  <ID>87242</ID>
                   <Description>"6th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*5</Address>
+                  <Address>wingulEncounter+24+8*5</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67701</ID>
+                      <ID>87243</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10612,16 +10618,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67698</ID>
+                  <ID>87240</ID>
                   <Description>"7th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*6</Address>
+                  <Address>wingulEncounter+24+8*6</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67699</ID>
+                      <ID>87241</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10631,16 +10637,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67696</ID>
+                  <ID>87238</ID>
                   <Description>"8th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*7</Address>
+                  <Address>wingulEncounter+24+8*7</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67697</ID>
+                      <ID>87239</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10650,16 +10656,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67694</ID>
+                  <ID>87236</ID>
                   <Description>"9th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*8</Address>
+                  <Address>wingulEncounter+24+8*8</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67695</ID>
+                      <ID>87237</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10669,16 +10675,16 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>67702</ID>
+                  <ID>87250</ID>
                   <Description>"10th enemy"</Description>
                   <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>gaiusmuzetEncounter+16+8*9</Address>
+                  <Address>wingulEncounter+24+8*9</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>67703</ID>
+                      <ID>87251</ID>
                       <Description>"Group"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -10686,6 +10692,391 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
                       <Address>+4</Address>
                     </CheatEntry>
                   </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87254</ID>
+              <Description>"Change Event"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Jude
+2:Milla
+3:Alvin
+4:Elize
+5:Rowen
+6:Leia
+13:Teepo
+14:Gaius (Fezebel Marsh)
+15:Muzét (Ship)
+16:Nachtigal
+17:Gilland
+18:Wingul (Kanbalar)
+19:Girl in Red
+20:Presa (Kanbalar)
+21:Jiao (Sapstrath Deepwood)
+22:Ivar (Sapstrath Seahaven)
+23:Maxwell
+24:Celsius
+25:Volt
+26:Greater Demon
+27:Nameless Anomaly
+28:Hammerzamm (36.000 HP)
+29:Fire Teagle
+30:Aquadragon 1
+31:Aquadragon 2
+32:Gandala Golem 1
+33:Gandala Golem 2
+34:Brutaur
+35:Pterobronc
+36:Dranzort
+37:Folzam
+38:Schweiss
+39:Gatrega
+40:Melanbron
+41:Roparde
+42:Fenmont Sentry
+43:Rashugal Soldier
+44:Rashugal Officer
+45:Rashugal Sergeant
+46:Auj Oule Lancer
+47:Rashugal Battlecorps Deserter
+48:Insurgent Soldier
+49:Rashugal Battlecorps Captain
+50:Rashugal Bladecorps Cadet
+51:Rashugal Bladecorps Officer
+52:Rashugal Bladecorps Sergeant
+53:Auj Oule Enforcer
+54:Insurgent Striker
+55:Insurgent Lead Striker
+56:Spirit Artes Researcher
+57:Rashugal Spiritcorps Channeler
+58:Rashugal Spiritcorps Officer
+59:Rashugal Spiritcorps Sergeant
+60:Auj Oule Channeler
+61:Rashugal Spiritcorps Deserter
+62:Insurgent Channeler
+63:Exodus Stalwart
+64:Stalwart Sergeant
+65:Stalwart Commander
+66:Stalwart Elite
+67:Stalwart Captain
+68:Exodus Infiltrator
+69:Infiltrator Sergeant
+70:Infiltrator Commander
+71:Infiltrator Captain
+72:Infiltrator Elite
+73:Exodus Technician
+74:Technician Sergeant
+75:Technician Commander
+76:Technician Captain
+77:Technician Elite
+78:Wolf
+79:Sylvan Wolf
+80:Snow Wolf
+81:Vortex Wolf
+82:Gust Wolf
+83:Axe Beak
+84:Antler Beak
+85:Frost Beak
+86:Blade Beak
+87:Prism Beak
+88:Boar
+89:Bladed Boar
+90:Armored Boar
+91:Plated Boar
+92:Wild Boar
+93:Fleet Mare
+94:Guardian Mare
+95:Sylvan Mare
+96:Sylphid
+97:Unicorn
+99:Sol Cat
+100:Floral Cat
+101:Brindle Cat
+102:Rime Cat
+103:Ancient Cat
+104:Tiny Teagle
+105:Merfish
+106:Snowmelt Merfish
+107:Quag Merfish
+108:Lizardman
+109:Lizitar
+110:Tortoise
+111:Angry Tortoise
+112:Snow Tortoise
+113:Gun Tortoise
+114:Erdas
+115:Crab Man
+116:Tree Crab
+117:Sylvan Crab
+118:Runed Crab
+119:Ribbit
+120:Grass Ribbit
+121:Terra Ribbit
+122:Bog Ribbit
+123:Clukkit
+124:Polwigle
+125:Grass Polwigle
+126:Terra Polwigle
+127:Bog Polwigle
+128:Peepit
+129:Goblin
+130:Toadstool Goblin
+131:Dusk Goblin
+132:Terra Goblin
+133:Burrow Goblin
+134:Hawk
+135:Penguinist
+136:Fire Hawk
+137:Vulture
+138:Azure Hawk
+140:Bat
+141:Dusk Bat
+142:Fire Bat
+143:Snow Bat
+144:Chirpee
+145:Terra Chirpee
+146:Bog Chirpee
+147:Cave Chirpee
+148:Butterfly
+149:Green Butterfly
+150:Floral Butterfly
+151:Runed Butterfly
+152:Wind Butterfly
+153:Bee
+154:Sword Bee
+155:Arrow Bee
+156:Gun Bee
+157:Spider
+158:Prickle Spider
+159:Scorpion
+160:Sentinel Spider
+161:Magma Scorpion
+162:Treant
+163:Sylvan Treant
+164:Terra Treant
+165:Snow Treant
+166:Megistus Treant
+167:Coastal Mandragora
+168:Leafy Mandragora
+169:Ice Mandragora
+170:Terra Mandragora
+171:Megistus Mandragora
+172:Insect Plant
+173:Mighty Plant
+174:Bog Plant
+175:Tundra Plant
+176:Cave Plant
+177:Mine Plant
+178:Filifolia
+179:Wilted Filifolia
+180:Filinocta
+181:Filihelia
+182:Filifreet
+183:Filignome
+184:Filisyplh
+185:Filindine
+186:Golem
+187:Fire Golem
+188:Ice Golem
+189:Mechanical Golem
+190:Earth Golem
+191:Dusk Shade
+192:Golem Shade
+193:Worm Shade
+194:Water Element
+195:Abject Shade
+196:Water Element Ultra
+197:Wind Djinn
+198:Rock Djinn
+199:Water Djinn
+200:Fire Djinn
+201:Tetra Djinn
+202:Thunder Djinn
+203:Skeleton
+204:Shaft Skeleton
+205:Frost Skeleton
+206:Earth Element
+207:Earthen Warrior
+208:Harpy
+209:Ice Harpy
+210:Floral Harpy
+211:Wind Element
+212:Megistus Harpy
+213:Gentleman
+214:Gentlefreet
+215:Gentlegnome
+216:Gentlesylph
+217:Gentlemundine
+218:Basilisk
+219:Salamander
+220:Skunky
+221:Cockatrice
+222:King Cockatrice
+223:Snow Dragon
+224:Fire Dragon
+225:Temporal Sentinel
+226:Twilight Sentinel
+227:Crime and Punishment
+233:Spyrix Sentry 1.0
+234:Spyrix Sentry 2.0
+235:Meniphto
+236:Undinette
+237:Meniphto Mk IV
+238:Bacura
+239:Bronze Bacura
+240:Silver Bacura
+241:Gold Bacura
+242:Wyvern
+243:Veywind Eye
+244:Graddic Claw
+245:Crimson Servant
+246:Azure Servant
+247:Golden Mage Knight - Scholar
+248:Golden Mage Knight - Creator
+249:Golden Mage Knight - Mercenary
+250:Golden Mage Knight - Duelist
+251:Golden Mage Knight - Puppeteer
+252:Golden Mage Knight - Conductor
+253:Fire Element
+254:Fire Element Ultra
+255:Vortex Scorpion
+256:Gaius (Temporal Crossroads)
+257:Gaius (Final Boss)
+258:Muzét (Milla's Shrine)
+259:Muzét (Temporal Crossroads)
+260:Muzét (Final Boss)
+261:Wingul (Fezebel Marsh)
+262:Wingul (Temporal Crossroads)
+263:Wingul (Coliseum)
+264:Agria (Fennmont)
+265:Agria (Nia Khera Hallowmont)
+266:Agria (Coliseum)
+267:Presa (Fezebel Marsh)
+268:Presa (Nia Khera Hallowmont)
+269:Presa (Coliseum)
+270:Jiao (Fezebel Marsh)
+271:Jiao (Coliseum)
+272:Ivar (Milla's Shrine)
+273:Ivar (Coliseum)
+274:Spyrix Warrior 1
+275:Spyrix Warrior 2
+276:Spyrix Warrior 3
+277:Wolf (Spirit Realm)
+278:Axe Beak (Spirit Realm)
+279:Grand Boar (Spirit Realm)
+280:Fleet Mare (Spirit Realm)
+281:Sylvan Mare (Spirit Realm)
+282:Merfish (Spirit Realm)
+283:Tortoise (Spirit Realm)
+284:Crab Man (Spirit Realm)
+285:Ribbit (Spirit Realm)
+286:Polwigle (Spirit Realm)
+287:Goblin (Spirit Realm)
+288:Toadstool Goblin (Spirit Realm)
+289:Chirpee (Spirit Realm)
+290:Bog Chirpee (Spirit Realm)
+291:Butterfly (Spirit Realm)
+292:Floral Butterfly (Spirit Realm)
+293:Prickle Spider (Spirit Realm)
+294:Treat (Spirit Realm)
+295:Megistus Treant (Spirit Realm)
+296:Insect Plant (Spirit Realm)
+297:Water Djinn (Spirit Realm)
+298:Floral Harpy (Spirit Realm)
+299:Cockatrice (Spirit Realm)
+301:Insurgent Elite Striker
+302:Auj Oule Royal Enforcer
+303:Auj Oule Spy
+304:Insurgent Grand-Channeler
+305:Auj Oule Royal Channeler
+306:Insurgent Commander
+307:Auj Oule Royal Guard
+308:Coastal Mandragora (Spirit Realm)
+309:Alvin (Hamil)
+310:Rashugal Battlecorps Veteran
+311:Rashugal Bladecorps Veteran
+312:Rashugal Battlecorps Elite
+313:Driselle (Crash)
+314:Jude (Coliseum)
+315:Milla (Coliseum)
+316:Alvin (Coliseum)
+317:Elize (Coliseum)
+318:Rowen (Coliseum)
+319:Leia (Coliseum)
+320:Insurgent Battlemaster
+321:Rashugar Bladecorps Cadet
+322:Hammerzamm (88.000 HP)
+323:Greater Demon (Coliseum)
+324:Nameless Anomaly (Coliseum)
+325:Hammerzamm (Coliseum)
+326:Fire Teagle (Coliseum)
+327:Aquadragon 1 (Coliseum)
+328:Aquadragon 2 (Coliseum)
+329:Brutaur (Coliseum)
+330:Pterobronc (Coliseum)
+331:Wyvern (Coliseum)
+332:Veywind Eye (Coliseum)
+333:Graddic Claw (Coliseum)
+334:Golden Mage Knight - Scholar (stronger than ID 247)
+335:Golden Mage Knight - Creator (stronger than ID 248)
+336:Golden Mage Knight - Mercenary (stronger than ID 249)
+337:Golden Mage Knight - Duelist (stronger than ID 250)
+338:Golden Mage Knight - Puppeteer (stronger than ID 251)
+339:Golden Mage Knight - Conductor (stronger than ID 252)
+340:Golden Mage Knight - Scholar (stronger than ID 334)
+341:Golden Mage Knight - Creator (stronger than ID 335)
+342:Golden Mage Knight - Mercenary (stronger than ID 336)
+343:Golden Mage Knight - Duelist (stronger than ID 337)
+344:Golden Mage Knight - Puppeteer (stronger than ID 338)
+345:Golden Mage Knight - Conductor (stronger than ID 339)
+350:Lizitar (stronger than ID 109)
+351:Lizitar (stronger than ID 350)
+354:Sylphid (stronger than ID 96)
+355:Sylphid (stronger than ID 354)
+356:Azure Hawk (stronger than ID 138)
+357:Azure Hawk (stronger than ID 356)
+358:Runed Crab (stronger than ID 118)
+359:Runed Crab (stronger than ID 359)
+362:Temporal Sentinel (stronger than ID 225, doesn't have a habitat)
+363:Temporal Sentinel (stronger than ID 363, doesn't have a habitat)
+366:Meniphto Mk IV (stronger than ID 237)
+367:Meniphto Mk IV (stronger than ID 367)
+368:Tetra Djinn (stronger than ID 201)
+369:Tetra Djinn (stronger than ID 369)
+370:Megistus Harpy (stronger than ID 212)
+371:Megistus Harpy (stronger than ID 371)
+374:Megistus Mandragora (stronger than ID 171)
+375:Megistus Mandragora (stronger than ID 374)
+376:Technician Veteran
+</DropDownList>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+wingulEncounter+74:
+  db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+wingulEncounter-CBF4:
+  db 00 00 CC 68
+
+[DISABLE]
+wingulEncounter+74:
+  db BA EF BC 89 00 00 00 00 00 00 00 52 00 00 00 00 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 30 35 39 5F 4E 41 4D 45
+
+wingulEncounter-CBF4:
+  db 00 00 00 00
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87255</ID>
+                  <Description>"Event"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>42</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>wingulEncounter+74</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -24111,412 +24502,6 @@ unregistersymbol(inventory)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>67708</ID>
-              <Description>"Wingul Encounter editor"</Description>
-              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
-              <DropDownList DisplayValueAsItem="1">0:Nothing
-1:Jude
-2:Milla
-3:Alvin
-4:Elize
-5:Rowen
-6:Leia
-13:Teepo
-14:Gaius (Fezebel Marsh)
-15:Muzét (Ship)
-16:Nachtigal
-17:Gilland
-18:Wingul (Kanbalar)
-19:Girl in Red
-20:Presa (Kanbalar)
-21:Jiao (Sapstrath Deepwood)
-22:Ivar (Sapstrath Seahaven)
-23:Maxwell
-24:Celsius
-25:Volt
-26:Greater Demon
-27:Nameless Anomaly
-28:Hammerzamm (36.000 HP)
-29:Fire Teagle
-30:Aquadragon 1
-31:Aquadragon 2
-32:Gandala Golem 1
-33:Gandala Golem 2
-34:Brutaur
-35:Pterobronc
-36:Dranzort
-37:Folzam
-38:Schweiss
-39:Gatrega
-40:Melanbron
-41:Roparde
-42:Fenmont Sentry
-43:Rashugal Soldier
-44:Rashugal Officer
-45:Rashugal Sergeant
-46:Auj Oule Lancer
-47:Rashugal Battlecorps Deserter
-48:Insurgent Soldier
-49:Rashugal Battlecorps Captain
-50:Rashugal Bladecorps Cadet
-51:Rashugal Bladecorps Officer
-52:Rashugal Bladecorps Sergeant
-53:Auj Oule Enforcer
-54:Insurgent Striker
-55:Insurgent Lead Striker
-56:Spirit Artes Researcher
-57:Rashugal Spiritcorps Channeler
-58:Rashugal Spiritcorps Officer
-59:Rashugal Spiritcorps Sergeant
-60:Auj Oule Channeler
-61:Rashugal Spiritcorps Deserter
-62:Insurgent Channeler
-63:Exodus Stalwart
-64:Stalwart Sergeant
-65:Stalwart Commander
-66:Stalwart Elite
-67:Stalwart Captain
-68:Exodus Infiltrator
-69:Infiltrator Sergeant
-70:Infiltrator Commander
-71:Infiltrator Captain
-72:Infiltrator Elite
-73:Exodus Technician
-74:Technician Sergeant
-75:Technician Commander
-76:Technician Captain
-77:Technician Elite
-78:Wolf
-79:Sylvan Wolf
-80:Snow Wolf
-81:Vortex Wolf
-82:Gust Wolf
-83:Axe Beak
-84:Antler Beak
-85:Frost Beak
-86:Blade Beak
-87:Prism Beak
-88:Boar
-89:Bladed Boar
-90:Armored Boar
-91:Plated Boar
-92:Wild Boar
-93:Fleet Mare
-94:Guardian Mare
-95:Sylvan Mare
-96:Sylphid
-97:Unicorn
-99:Sol Cat
-100:Floral Cat
-101:Brindle Cat
-102:Rime Cat
-103:Ancient Cat
-104:Tiny Teagle
-105:Merfish
-106:Snowmelt Merfish
-107:Quag Merfish
-108:Lizardman
-109:Lizitar
-110:Tortoise
-111:Angry Tortoise
-112:Snow Tortoise
-113:Gun Tortoise
-114:Erdas
-115:Crab Man
-116:Tree Crab
-117:Sylvan Crab
-118:Runed Crab
-119:Ribbit
-120:Grass Ribbit
-121:Terra Ribbit
-122:Bog Ribbit
-123:Clukkit
-124:Polwigle
-125:Grass Polwigle
-126:Terra Polwigle
-127:Bog Polwigle
-128:Peepit
-129:Goblin
-130:Toadstool Goblin
-131:Dusk Goblin
-132:Terra Goblin
-133:Burrow Goblin
-134:Hawk
-135:Penguinist
-136:Fire Hawk
-137:Vulture
-138:Azure Hawk
-140:Bat
-141:Dusk Bat
-142:Fire Bat
-143:Snow Bat
-144:Chirpee
-145:Terra Chirpee
-146:Bog Chirpee
-147:Cave Chirpee
-148:Butterfly
-149:Green Butterfly
-150:Floral Butterfly
-151:Runed Butterfly
-152:Wind Butterfly
-153:Bee
-154:Sword Bee
-155:Arrow Bee
-156:Gun Bee
-157:Spider
-158:Prickle Spider
-159:Scorpion
-160:Sentinel Spider
-161:Magma Scorpion
-162:Treant
-163:Sylvan Treant
-164:Terra Treant
-165:Snow Treant
-166:Megistus Treant
-167:Coastal Mandragora
-168:Leafy Mandragora
-169:Ice Mandragora
-170:Terra Mandragora
-171:Megistus Mandragora
-172:Insect Plant
-173:Mighty Plant
-174:Bog Plant
-175:Tundra Plant
-176:Cave Plant
-177:Mine Plant
-178:Filifolia
-179:Wilted Filifolia
-180:Filinocta
-181:Filihelia
-182:Filifreet
-183:Filignome
-184:Filisyplh
-185:Filindine
-186:Golem
-187:Fire Golem
-188:Ice Golem
-189:Mechanical Golem
-190:Earth Golem
-191:Dusk Shade
-192:Golem Shade
-193:Worm Shade
-194:Water Element
-195:Abject Shade
-196:Water Element Ultra
-197:Wind Djinn
-198:Rock Djinn
-199:Water Djinn
-200:Fire Djinn
-201:Tetra Djinn
-202:Thunder Djinn
-203:Skeleton
-204:Shaft Skeleton
-205:Frost Skeleton
-206:Earth Element
-207:Earthen Warrior
-208:Harpy
-209:Ice Harpy
-210:Floral Harpy
-211:Wind Element
-212:Megistus Harpy
-213:Gentleman
-214:Gentlefreet
-215:Gentlegnome
-216:Gentlesylph
-217:Gentlemundine
-218:Basilisk
-219:Salamander
-220:Skunky
-221:Cockatrice
-222:King Cockatrice
-223:Snow Dragon
-224:Fire Dragon
-225:Temporal Sentinel
-226:Twilight Sentinel
-227:Crime and Punishment
-233:Spyrix Sentry 1.0
-234:Spyrix Sentry 2.0
-235:Meniphto
-236:Undinette
-237:Meniphto Mk IV
-238:Bacura
-239:Bronze Bacura
-240:Silver Bacura
-241:Gold Bacura
-242:Wyvern
-243:Veywind Eye
-244:Graddic Claw
-245:Crimson Servant
-246:Azure Servant
-247:Golden Mage Knight - Scholar
-248:Golden Mage Knight - Creator
-249:Golden Mage Knight - Mercenary
-250:Golden Mage Knight - Duelist
-251:Golden Mage Knight - Puppeteer
-252:Golden Mage Knight - Conductor
-253:Fire Element
-254:Fire Element Ultra
-255:Vortex Scorpion
-256:Gaius (Temporal Crossroads)
-257:Gaius (Final Boss)
-258:Muzét (Milla's Shrine)
-259:Muzét (Temporal Crossroads)
-260:Muzét (Final Boss)
-261:Wingul (Fezebel Marsh)
-262:Wingul (Temporal Crossroads)
-263:Wingul (Coliseum)
-264:Agria (Fennmont)
-265:Agria (Nia Khera Hallowmont)
-266:Agria (Coliseum)
-267:Presa (Fezebel Marsh)
-268:Presa (Nia Khera Hallowmont)
-269:Presa (Coliseum)
-270:Jiao (Fezebel Marsh)
-271:Jiao (Coliseum)
-272:Ivar (Milla's Shrine)
-273:Ivar (Coliseum)
-274:Spyrix Warrior 1
-275:Spyrix Warrior 2
-276:Spyrix Warrior 3
-277:Wolf (Spirit Realm)
-278:Axe Beak (Spirit Realm)
-279:Grand Boar (Spirit Realm)
-280:Fleet Mare (Spirit Realm)
-281:Sylvan Mare (Spirit Realm)
-282:Merfish (Spirit Realm)
-283:Tortoise (Spirit Realm)
-284:Crab Man (Spirit Realm)
-285:Ribbit (Spirit Realm)
-286:Polwigle (Spirit Realm)
-287:Goblin (Spirit Realm)
-288:Toadstool Goblin (Spirit Realm)
-289:Chirpee (Spirit Realm)
-290:Bog Chirpee (Spirit Realm)
-291:Butterfly (Spirit Realm)
-292:Floral Butterfly (Spirit Realm)
-293:Prickle Spider (Spirit Realm)
-294:Treat (Spirit Realm)
-295:Megistus Treant (Spirit Realm)
-296:Insect Plant (Spirit Realm)
-297:Water Djinn (Spirit Realm)
-298:Floral Harpy (Spirit Realm)
-299:Cockatrice (Spirit Realm)
-301:Insurgent Elite Striker
-302:Auj Oule Royal Enforcer
-303:Auj Oule Spy
-304:Insurgent Grand-Channeler
-305:Auj Oule Royal Channeler
-306:Insurgent Commander
-307:Auj Oule Royal Guard
-308:Coastal Mandragora (Spirit Realm)
-309:Alvin (Hamil)
-310:Rashugal Battlecorps Veteran
-311:Rashugal Bladecorps Veteran
-312:Rashugal Battlecorps Elite
-313:Driselle (Crash)
-314:Jude (Coliseum)
-315:Milla (Coliseum)
-316:Alvin (Coliseum)
-317:Elize (Coliseum)
-318:Rowen (Coliseum)
-319:Leia (Coliseum)
-320:Insurgent Battlemaster
-321:Rashugar Bladecorps Cadet
-322:Hammerzamm (88.000 HP)
-323:Greater Demon (Coliseum)
-324:Nameless Anomaly (Coliseum)
-325:Hammerzamm (Coliseum)
-326:Fire Teagle (Coliseum)
-327:Aquadragon 1 (Coliseum)
-328:Aquadragon 2 (Coliseum)
-329:Brutaur (Coliseum)
-330:Pterobronc (Coliseum)
-331:Wyvern (Coliseum)
-332:Veywind Eye (Coliseum)
-333:Graddic Claw (Coliseum)
-334:Golden Mage Knight - Scholar (stronger than ID 247)
-335:Golden Mage Knight - Creator (stronger than ID 248)
-336:Golden Mage Knight - Mercenary (stronger than ID 249)
-337:Golden Mage Knight - Duelist (stronger than ID 250)
-338:Golden Mage Knight - Puppeteer (stronger than ID 251)
-339:Golden Mage Knight - Conductor (stronger than ID 252)
-340:Golden Mage Knight - Scholar (stronger than ID 334)
-341:Golden Mage Knight - Creator (stronger than ID 335)
-342:Golden Mage Knight - Mercenary (stronger than ID 336)
-343:Golden Mage Knight - Duelist (stronger than ID 337)
-344:Golden Mage Knight - Puppeteer (stronger than ID 338)
-345:Golden Mage Knight - Conductor (stronger than ID 339)
-350:Lizitar (stronger than ID 109)
-351:Lizitar (stronger than ID 350)
-354:Sylphid (stronger than ID 96)
-355:Sylphid (stronger than ID 354)
-356:Azure Hawk (stronger than ID 138)
-357:Azure Hawk (stronger than ID 356)
-358:Runed Crab (stronger than ID 118)
-359:Runed Crab (stronger than ID 359)
-362:Temporal Sentinel (stronger than ID 225, doesn't have a habitat)
-363:Temporal Sentinel (stronger than ID 363, doesn't have a habitat)
-366:Meniphto Mk IV (stronger than ID 237)
-367:Meniphto Mk IV (stronger than ID 367)
-368:Tetra Djinn (stronger than ID 201)
-369:Tetra Djinn (stronger than ID 369)
-370:Megistus Harpy (stronger than ID 212)
-371:Megistus Harpy (stronger than ID 371)
-374:Megistus Mandragora (stronger than ID 171)
-375:Megistus Mandragora (stronger than ID 374)
-376:Technician Veteran
-</DropDownList>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>[ENABLE]
-aobscanregion(wingulEncounter, 300000000, 400000000, E4 B8 96 E7 B2 BE E3 83 8E E9 80 94 EF BC 9A E3 82 A6 E3 82 A3 E3 83 B3 E3 82 AC E3 83 AB E6 88 A6 00) // should be unique
-aobscanregion(wingulEncounterStage, 300000000, 400000000, 00 4D 41 50 5F 42 54 4C 5F 46 4E 4C 5F 30 30 30 00)
-
-registersymbol(wingulEncounter)
-registersymbol(wingulEncounterStage)
-[DISABLE]
-wingulEncounter+24:
-db 00 00 01 06 00 00 00 00
-
-wingulEncounterStage:
-db 00 4D 41 50 5F 42 54 4C 5F 46 4E 4C 5F 30 30 30 00
-
-unregistersymbol(wingulEncounter)
-unregistersymbol(wingulEncounterStage)
-</AssemblerScript>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>67709</ID>
-                  <Description>"1st enemy"</Description>
-                  <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>wingulEncounter+24</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>67710</ID>
-                      <Description>"Group"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+4</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>67725</ID>
-                  <Description>"Stage"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>String</VariableType>
-                  <Length>24</Length>
-                  <Unicode>0</Unicode>
-                  <CodePage>0</CodePage>
-                  <ZeroTerminate>1</ZeroTerminate>
-                  <Address>wingulEncounterStage+1</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
               <ID>64642</ID>
               <Description>"Arte Editor (Manual)"</Description>
               <Options moHideChildren="1"/>
@@ -30537,6 +30522,956 @@ The ??? difficulty may cause some unintended side effects.
                   <VariableType>Custom</VariableType>
                   <CustomType>4 Byte Big Endian</CustomType>
                   <Address>Difficulty+14</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>67673</ID>
+              <Description>"Gaius/Muzét Final Boss Encounter editor"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Jude (party)
+2:Milla (party)
+3:Alvin (party)
+4:Elize (party)
+5:Rowen (party)
+6:Leia (party)
+13:Teepo
+14:Gaius (Fezebel Marsh)
+15:Muzét (Fennmont)
+16:Nachtigal
+17:Gilland
+18:Wingul (Kanbalar)
+19:Girl in Red
+20:Presa (Kanbalar)
+21:Jiao (Sapstrath Deepwood)
+22:Ivar (Sapstrath Seahaven)
+23:Maxwell
+24:Celsius
+25:Volt
+26:Greater Demon
+27:Nameless Anomaly
+28:Hammerzamm (9000 HP)
+29:Fire Teagle
+30:Aquadragon 1
+31:Aquadragon 2
+32:Gandala Defense Golem 1
+33:Gandala Defense Golem 2
+34:Brutaur
+35:Pterobronc
+36:Dranzort
+37:Folzam
+38:Schweiss
+39:Gatrega
+40:Melanbron
+41:Roparde
+42:Fenmont Sentry
+43:Rashugal Soldier
+44:Rashugal Officer
+45:Rashugal Sergeant
+46:Auj Oule Lancer
+47:Rashugal Battlecorps Deserter
+48:Insurgent Soldier
+49:Rashugal Battlecorps Captain
+50:Rashugal Bladecorps Cadet
+51:Rashugal Bladecorps Officer
+52:Rashugal Bladecorps Sergeant
+53:Auj Oule Enforcer
+54:Insurgent Striker
+55:Insurgent Lead Striker
+56:Spirit Artes Researcher
+57:Rashugal Spiritcorps Channeler
+58:Rashugal Spiritcorps Officer
+59:Rashugal Spiritcorps Sergeant
+60:Auj Oule Channeler
+61:Rashugal Spiritcorps Deserter
+62:Insurgent Channeler
+63:Exodus Stalwart
+64:Stalwart Sergeant
+65:Stalwart Commander
+66:Stalwart Elite
+67:Stalwart Captain
+68:Exodus Infiltrator
+69:Infiltrator Sergeant
+70:Infiltrator Commander
+71:Infiltrator Captain
+72:Infiltrator Elite
+73:Exodus Technician
+74:Technician Sergeant
+75:Technician Commander
+76:Technician Captain
+77:Technician Elite
+78:Wolf
+79:Sylvan Wolf
+80:Snow Wolf
+81:Vortex Wolf
+82:Gust Wolf
+83:Axe Beak
+84:Antler Beak
+85:Frost Beak
+86:Blade Beak
+87:Prism Beak
+88:Boar
+89:Bladed Boar
+90:Armored Boar
+91:Plated Boar
+92:Wild Boar
+93:Fleet Mare
+94:Guardian Mare
+95:Sylvan Mare
+96:Sylphid (9000 HP)
+97:Unicorn
+99:Sol Cat
+100:Floral Cat
+101:Brindle Cat
+102:Rime Cat
+103:Ancient Cat
+104:Tiny Teagle
+105:Merfish
+106:Snowmelt Merfish
+107:Quag Merfish
+108:Lizardman
+109:Lizitar (6900 HP)
+110:Tortoise
+111:Angry Tortoise
+112:Snow Tortoise
+113:Gun Tortoise
+114:Erdas
+115:Crab Man
+116:Tree Crab
+117:Sylvan Crab
+118:Runed Crab (6792 HP)
+119:Ribbit
+120:Grass Ribbit
+121:Terra Ribbit
+122:Bog Ribbit
+123:Clukkit
+124:Polwigle
+125:Grass Polwigle
+126:Terra Polwigle
+127:Bog Polwigle
+128:Peepit
+129:Goblin
+130:Toadstool Goblin
+131:Dusk Goblin
+132:Terra Goblin
+133:Burrow Goblin
+134:Hawk
+135:Penguinist
+136:Fire Hawk
+137:Vulture
+138:Azure Hawk (6900 HP)
+140:Bat
+141:Dusk Bat
+142:Fire Bat
+143:Snow Bat
+144:Chirpee
+145:Terra Chirpee
+146:Bog Chirpee
+147:Cave Chirpee
+148:Butterfly
+149:Green Butterfly
+150:Floral Butterfly
+151:Runed Butterfly
+152:Wind Butterfly
+153:Bee
+154:Sword Bee
+155:Arrow Bee
+156:Gun Bee
+157:Spider
+158:Prickle Spider
+159:Scorpion
+160:Sentinel Spider
+161:Magma Scorpion
+162:Treant
+163:Sylvan Treant
+164:Terra Treant
+165:Snow Treant
+166:Megistus Treant
+167:Coastal Mandragora
+168:Leafy Mandragora
+169:Ice Mandragora
+170:Terra Mandragora
+171:Megistus Mandragora (6400 HP)
+172:Insect Plant
+173:Mighty Plant
+174:Bog Plant
+175:Tundra Plant
+176:Cave Plant
+177:Mine Plant
+178:Filifolia
+179:Wilted Filifolia
+180:Filinocta
+181:Filihelia
+182:Filifreet
+183:Filignome
+184:Filisylph
+185:Filindine
+186:Golem
+187:Fire Golem
+188:Ice Golem
+189:Mechanical Golem
+190:Earth Golem
+191:Dusk Shade
+192:Golem Shade
+193:Worm Shade
+194:Water Element
+195:Abject Shade
+196:Water Element Ultra
+197:Wind Djinn
+198:Rock Djinn
+199:Water Djinn
+200:Fire Djinn
+201:Tetra Djinn (5700 HP)
+202:Thunder Djinn
+203:Skeleton
+204:Shaft Skeleton
+205:Frost Skeleton
+206:Earth Element
+207:Earthen Warrior
+208:Harpy
+209:Ice Harpy
+210:Floral Harpy
+211:Wind Element
+212:Megistus Harpy (7400 HP)
+213:Gentleman
+214:Gentlefreet
+215:Gentlegnome
+216:Gentlesylph
+217:Gentlemundine
+218:Basilisk
+219:Salamander
+220:Skunky
+221:Cockatrice
+222:King Cockatrice
+223:Snow Dragon
+224:Fire Dragon
+225:Temporal Sentinel (17400 HP)
+226:Twilight Sentinel
+227:Crime and Punishment
+233:Spyrix Sentry 1.0
+234:Spyrix Sentry 2.0
+235:Meniphto
+236:Undinette
+237:Meniphto Mk IV (10500 HP)
+238:Bacura
+239:Bronze Bacura
+240:Silver Bacura
+241:Gold Bacura
+242:Wyvern
+243:Veywind Eye
+244:Graddic Claw
+245:Crimson Servant
+246:Azure Servant
+247:Golden Mage Knight - Scholar (80000 HP)
+248:Golden Mage Knight - Creator (76000 HP)
+249:Golden Mage Knight - Mercenary (90000 HP)
+250:Golden Mage Knight - Duelist (78000 HP)
+251:Golden Mage Knight - Puppeteer (64000 HP)
+252:Golden Mage Knight - Conductor (69000 HP)
+253:Fire Element
+254:Fire Element Ultra
+255:Vortex Scorpion
+256:Gaius (Temporal Crossroads)
+257:Gaius (Temporal Terminus)
+258:Muzét (Milla's Shrine)
+259:Muzét (Temporal Crossroads)
+260:Muzét (Temporal Terminus)
+261:Wingul (Fezebel Marsh)
+262:Wingul (Temporal Crossroads)
+263:Wingul (Coliseum)
+264:Agria (Fennmont)
+265:Agria (Nia Khera Hallowmont)
+266:Agria (Coliseum)
+267:Presa (Fezebel Marsh)
+268:Presa (Nia Khera Hallowmont)
+269:Presa (Coliseum)
+270:Jiao (Fezebel Marsh)
+271:Jiao (Coliseum)
+272:Ivar (Milla's Shrine)
+273:Ivar (Coliseum)
+274:Spyrix Warrior 1
+275:Spyrix Warrior 2
+276:Spyrix Warrior 3
+277:Wolf (Spirit Realm)
+278:Axe Beak (Spirit Realm)
+279:Grand Boar (Spirit Realm)
+280:Fleet Mare (Spirit Realm)
+281:Sylvan Mare (Spirit Realm)
+282:Merfish (Spirit Realm)
+283:Tortoise (Spirit Realm)
+284:Crab Man (Spirit Realm)
+285:Ribbit (Spirit Realm)
+286:Polwigle (Spirit Realm)
+287:Goblin (Spirit Realm)
+288:Toadstool Goblin (Spirit Realm)
+289:Chirpee (Spirit Realm)
+290:Bog Chirpee (Spirit Realm)
+291:Butterfly (Spirit Realm)
+292:Floral Butterfly (Spirit Realm)
+293:Prickle Spider (Spirit Realm)
+294:Treat (Spirit Realm)
+295:Megistus Treant (Spirit Realm)
+296:Insect Plant (Spirit Realm)
+297:Water Djinn (Spirit Realm)
+298:Floral Harpy (Spirit Realm)
+299:Cockatrice (Spirit Realm)
+301:Insurgent Elite Striker
+302:Auj Oule Royal Enforcer
+303:Auj Oule Spy
+304:Insurgent Grand-Channeler
+305:Auj Oule Royal Channeler
+306:Insurgent Commander
+307:Auj Oule Royal Guard
+308:Coastal Mandragora (Spirit Realm)
+309:Alvin (Hamil)
+310:Rashugal Battlecorps Veteran
+311:Rashugal Bladecorps Veteran
+312:Rashugal Battlecorps Elite
+313:Driselle
+314:Jude (Coliseum)
+315:Milla (Coliseum)
+316:Alvin (Coliseum)
+317:Elize (Coliseum)
+318:Rowen (Coliseum)
+319:Leia (Coliseum)
+320:Insurgent Battlemaster
+321:Rashugar Bladecorps Cadet
+322:Hammerzamm (22000 HP)
+323:Greater Demon (Coliseum)
+324:Nameless Anomaly (Coliseum)
+325:Hammerzamm (Coliseum)
+326:Fire Teagle (Coliseum)
+327:Aquadragon 1 (Coliseum)
+328:Aquadragon 2 (Coliseum)
+329:Brutaur (Coliseum)
+330:Pterobronc (Coliseum)
+331:Wyvern (Coliseum)
+332:Veywind Eye (Coliseum)
+333:Graddic Claw (Coliseum)
+334:Golden Mage Knight - Scholar (120000 HP)
+335:Golden Mage Knight - Creator (114000 HP)
+336:Golden Mage Knight - Mercenary (135000 HP)
+337:Golden Mage Knight - Duelist (117000 HP)
+338:Golden Mage Knight - Puppeteer (96000 HP)
+339:Golden Mage Knight - Conductor (103500 HP)
+340:Golden Mage Knight - Scholar (160000 HP)
+341:Golden Mage Knight - Creator (152000 HP)
+342:Golden Mage Knight - Mercenary (180000 HP)
+343:Golden Mage Knight - Duelist (156000 HP)
+344:Golden Mage Knight - Puppeteer (128000 HP)
+345:Golden Mage Knight - Conductor (138000 HP)
+350:Lizitar (10350 HP)
+351:Lizitar (13800 HP)
+354:Sylphid (13500 HP)
+355:Sylphid (18000 HP)
+356:Azure Hawk (10350 HP)
+357:Azure Hawk (13800 HP)
+358:Runed Crab (10188 HP)
+359:Runed Crab (13584 HP)
+362:Temporal Sentinel (24000 HP)
+363:Temporal Sentinel (32000 HP)
+366:Meniphto Mk IV (15750 HP)
+367:Meniphto Mk IV (21000 HP)
+368:Tetra Djinn (8550 HP)
+369:Tetra Djinn (11400 HP)
+370:Megistus Harpy (11100 HP)
+371:Megistus Harpy (14800 HP)
+374:Megistus Mandragora (9600 HP)
+375:Megistus Mandragora (12800 HP)
+376:Technician Veteran
+</DropDownList>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(gaiusmuzetEncounter, 300000000, 400000000, 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 37 00) // should be unique
+aobscanregion(gaiusmuzetEncounterValues, 300000000, 400000000, 22 F2 00 00 22 FA 00 00 00 00 00 00 00 00 00 03 00 02 59 A0 00 00 00 00 00 00 00 00 00 00 00 00)
+
+registersymbol(gaiusmuzetEncounter)
+registersymbol(gaiusmuzetEncounterValues)
+[DISABLE]
+gaiusmuzetEncounter:
+db 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 37 00 00 00 00 00 00 01 01 00 00 00 00 00 00 01 04 00 00 00 00
+
+unregistersymbol(gaiusmuzetEncounter)
+unregistersymbol(gaiusmuzetEncounterValues)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>67675</ID>
+                  <Description>"1st enemy"</Description>
+                  <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>gaiusmuzetEncounter+16</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>67679</ID>
+                      <Description>"Group"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67676</ID>
+                  <Description>"2nd enemy"</Description>
+                  <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>gaiusmuzetEncounter+16+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>67680</ID>
+                      <Description>"Group"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67678</ID>
+                  <Description>"Event"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>gaiusmuzetEncounter+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67681</ID>
+                  <Description>"More Enemies"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">1:Jude
+2:Milla
+3:Alvin
+4:Elize
+5:Rowen
+6:Leia
+13:Teepo
+14:Gaius (Fezebel Marsh)
+15:Muzét (Ship)
+16:Nachtigal
+17:Gilland
+18:Wingul (Kanbalar)
+19:Girl in Red
+20:Presa (Kanbalar)
+21:Jiao (Sapstrath Deepwood)
+22:Ivar (Sapstrath Seahaven)
+23:Maxwell
+24:Celsius
+25:Volt
+26:Greater Demon
+27:Nameless Anomaly
+28:Hammerzamm (36.000 HP)
+29:Fire Teagle
+30:Aquadragon 1
+31:Aquadragon 2
+32:Gandala Golem 1
+33:Gandala Golem 2
+34:Brutaur
+35:Pterobronc
+36:Dranzort
+37:Folzam
+38:Schweiss
+39:Gatrega
+40:Melanbron
+41:Roparde
+42:Fenmont Sentry
+43:Rashugal Soldier
+44:Rashugal Officer
+45:Rashugal Sergeant
+46:Auj Oule Lancer
+47:Rashugal Battlecorps Deserter
+48:Insurgent Soldier
+49:Rashugal Battlecorps Captain
+50:Rashugal Bladecorps Cadet
+51:Rashugal Bladecorps Officer
+52:Rashugal Bladecorps Sergeant
+53:Auj Oule Enforcer
+54:Insurgent Striker
+55:Insurgent Lead Striker
+56:Spirit Artes Researcher
+57:Rashugal Spiritcorps Channeler
+58:Rashugal Spiritcorps Officer
+59:Rashugal Spiritcorps Sergeant
+60:Auj Oule Channeler
+61:Rashugal Spiritcorps Deserter
+62:Insurgent Channeler
+63:Exodus Stalwart
+64:Stalwart Sergeant
+65:Stalwart Commander
+66:Stalwart Elite
+67:Stalwart Captain
+68:Exodus Infiltrator
+69:Infiltrator Sergeant
+70:Infiltrator Commander
+71:Infiltrator Captain
+72:Infiltrator Elite
+73:Exodus Technician
+74:Technician Sergeant
+75:Technician Commander
+76:Technician Captain
+77:Technician Elite
+78:Wolf
+79:Sylvan Wolf
+80:Snow Wolf
+81:Vortex Wolf
+82:Gust Wolf
+83:Axe Beak
+84:Antler Beak
+85:Frost Beak
+86:Blade Beak
+87:Prism Beak
+88:Boar
+89:Bladed Boar
+90:Armored Boar
+91:Plated Boar
+92:Wild Boar
+93:Fleet Mare
+94:Guardian Mare
+95:Sylvan Mare
+96:Sylphid
+97:Unicorn
+99:Sol Cat
+100:Floral Cat
+101:Brindle Cat
+102:Rime Cat
+103:Ancient Cat
+104:Tiny Teagle
+105:Merfish
+106:Snowmelt Merfish
+107:Quag Merfish
+108:Lizardman
+109:Lizitar
+110:Tortoise
+111:Angry Tortoise
+112:Snow Tortoise
+113:Gun Tortoise
+114:Erdas
+115:Crab Man
+116:Tree Crab
+117:Sylvan Crab
+118:Runed Crab
+119:Ribbit
+120:Grass Ribbit
+121:Terra Ribbit
+122:Bog Ribbit
+123:Clukkit
+124:Polwigle
+125:Grass Polwigle
+126:Terra Polwigle
+127:Bog Polwigle
+128:Peepit
+129:Goblin
+130:Toadstool Goblin
+131:Dusk Goblin
+132:Terra Goblin
+133:Burrow Goblin
+134:Hawk
+135:Penguinist
+136:Fire Hawk
+137:Vulture
+138:Azure Hawk
+140:Bat
+141:Dusk Bat
+142:Fire Bat
+143:Snow Bat
+144:Chirpee
+145:Terra Chirpee
+146:Bog Chirpee
+147:Cave Chirpee
+148:Butterfly
+149:Green Butterfly
+150:Floral Butterfly
+151:Runed Butterfly
+152:Wind Butterfly
+153:Bee
+154:Sword Bee
+155:Arrow Bee
+156:Gun Bee
+157:Spider
+158:Prickle Spider
+159:Scorpion
+160:Sentinel Spider
+161:Magma Scorpion
+162:Treant
+163:Sylvan Treant
+164:Terra Treant
+165:Snow Treant
+166:Megistus Treant
+167:Coastal Mandragora
+168:Leafy Mandragora
+169:Ice Mandragora
+170:Terra Mandragora
+171:Megistus Mandragora
+172:Insect Plant
+173:Mighty Plant
+174:Bog Plant
+175:Tundra Plant
+176:Cave Plant
+177:Mine Plant
+178:Filifolia
+179:Wilted Filifolia
+180:Filinocta
+181:Filihelia
+182:Filifreet
+183:Filignome
+184:Filisyplh
+185:Filindine
+186:Golem
+187:Fire Golem
+188:Ice Golem
+189:Mechanical Golem
+190:Earth Golem
+191:Dusk Shade
+192:Golem Shade
+193:Worm Shade
+194:Water Element
+195:Abject Shade
+196:Water Element Ultra
+197:Wind Djinn
+198:Rock Djinn
+199:Water Djinn
+200:Fire Djinn
+201:Tetra Djinn
+202:Thunder Djinn
+203:Skeleton
+204:Shaft Skeleton
+205:Frost Skeleton
+206:Earth Element
+207:Earthen Warrior
+208:Harpy
+209:Ice Harpy
+210:Floral Harpy
+211:Wind Element
+212:Megistus Harpy
+213:Gentleman
+214:Gentlefreet
+215:Gentlegnome
+216:Gentlesylph
+217:Gentlemundine
+218:Basilisk
+219:Salamander
+220:Skunky
+221:Cockatrice
+222:King Cockatrice
+223:Snow Dragon
+224:Fire Dragon
+225:Temporal Sentinel
+226:Twilight Sentinel
+227:Crime and Punishment
+233:Spyrix Sentry 1.0
+234:Spyrix Sentry 2.0
+235:Meniphto
+236:Undinette
+237:Meniphto Mk IV
+238:Bacura
+239:Bronze Bacura
+240:Silver Bacura
+241:Gold Bacura
+242:Wyvern
+243:Veywind Eye
+244:Graddic Claw
+245:Crimson Servant
+246:Azure Servant
+247:Golden Mage Knight - Scholar
+248:Golden Mage Knight - Creator
+249:Golden Mage Knight - Mercenary
+250:Golden Mage Knight - Duelist
+251:Golden Mage Knight - Puppeteer
+252:Golden Mage Knight - Conductor
+253:Fire Element
+254:Fire Element Ultra
+255:Vortex Scorpion
+256:Gaius (Temporal Crossroads)
+257:Gaius (Final Boss)
+258:Muzét (Milla's Shrine)
+259:Muzét (Temporal Crossroads)
+260:Muzét (Final Boss)
+261:Wingul (Fezebel Marsh)
+262:Wingul (Temporal Crossroads)
+263:Wingul (Coliseum)
+264:Agria (Fennmont)
+265:Agria (Nia Khera Hallowmont)
+266:Agria (Coliseum)
+267:Presa (Fezebel Marsh)
+268:Presa (Nia Khera Hallowmont)
+269:Presa (Coliseum)
+270:Jiao (Fezebel Marsh)
+271:Jiao (Coliseum)
+272:Ivar (Milla's Shrine)
+273:Ivar (Coliseum)
+274:Spyrix Warrior 1
+275:Spyrix Warrior 2
+276:Spyrix Warrior 3
+277:Wolf (Spirit Realm)
+278:Axe Beak (Spirit Realm)
+279:Grand Boar (Spirit Realm)
+280:Fleet Mare (Spirit Realm)
+281:Sylvan Mare (Spirit Realm)
+282:Merfish (Spirit Realm)
+283:Tortoise (Spirit Realm)
+284:Crab Man (Spirit Realm)
+285:Ribbit (Spirit Realm)
+286:Polwigle (Spirit Realm)
+287:Goblin (Spirit Realm)
+288:Toadstool Goblin (Spirit Realm)
+289:Chirpee (Spirit Realm)
+290:Bog Chirpee (Spirit Realm)
+291:Butterfly (Spirit Realm)
+292:Floral Butterfly (Spirit Realm)
+293:Prickle Spider (Spirit Realm)
+294:Treat (Spirit Realm)
+295:Megistus Treant (Spirit Realm)
+296:Insect Plant (Spirit Realm)
+297:Water Djinn (Spirit Realm)
+298:Floral Harpy (Spirit Realm)
+299:Cockatrice (Spirit Realm)
+301:Insurgent Elite Striker
+302:Auj Oule Royal Enforcer
+303:Auj Oule Spy
+304:Insurgent Grand-Channeler
+305:Auj Oule Royal Channeler
+306:Insurgent Commander
+307:Auj Oule Royal Guard
+308:Coastal Mandragora (Spirit Realm)
+309:Alvin (Hamil)
+310:Rashugal Battlecorps Veteran
+311:Rashugal Bladecorps Veteran
+312:Rashugal Battlecorps Elite
+313:Driselle (Crash)
+314:Jude (Coliseum)
+315:Milla (Coliseum)
+316:Alvin (Coliseum)
+317:Elize (Coliseum)
+318:Rowen (Coliseum)
+319:Leia (Coliseum)
+320:Insurgent Battlemaster
+321:Rashugar Bladecorps Cadet
+322:Hammerzamm (88.000 HP)
+323:Greater Demon (Coliseum)
+324:Nameless Anomaly (Coliseum)
+325:Hammerzamm (Coliseum)
+326:Fire Teagle (Coliseum)
+327:Aquadragon 1 (Coliseum)
+328:Aquadragon 2 (Coliseum)
+329:Brutaur (Coliseum)
+330:Pterobronc (Coliseum)
+331:Wyvern (Coliseum)
+332:Veywind Eye (Coliseum)
+333:Graddic Claw (Coliseum)
+334:Golden Mage Knight - Scholar (stronger than ID 247)
+335:Golden Mage Knight - Creator (stronger than ID 248)
+336:Golden Mage Knight - Mercenary (stronger than ID 249)
+337:Golden Mage Knight - Duelist (stronger than ID 250)
+338:Golden Mage Knight - Puppeteer (stronger than ID 251)
+339:Golden Mage Knight - Conductor (stronger than ID 252)
+340:Golden Mage Knight - Scholar (stronger than ID 334)
+341:Golden Mage Knight - Creator (stronger than ID 335)
+342:Golden Mage Knight - Mercenary (stronger than ID 336)
+343:Golden Mage Knight - Duelist (stronger than ID 337)
+344:Golden Mage Knight - Puppeteer (stronger than ID 338)
+345:Golden Mage Knight - Conductor (stronger than ID 339)
+350:Lizitar (stronger than ID 109)
+351:Lizitar (stronger than ID 350)
+354:Sylphid (stronger than ID 96)
+355:Sylphid (stronger than ID 354)
+356:Azure Hawk (stronger than ID 138)
+357:Azure Hawk (stronger than ID 356)
+358:Runed Crab (stronger than ID 118)
+359:Runed Crab (stronger than ID 359)
+362:Temporal Sentinel (stronger than ID 225, doesn't have a habitat)
+363:Temporal Sentinel (stronger than ID 363, doesn't have a habitat)
+366:Meniphto Mk IV (stronger than ID 237)
+367:Meniphto Mk IV (stronger than ID 367)
+368:Tetra Djinn (stronger than ID 201)
+369:Tetra Djinn (stronger than ID 369)
+370:Megistus Harpy (stronger than ID 212)
+371:Megistus Harpy (stronger than ID 371)
+374:Megistus Mandragora (stronger than ID 171)
+375:Megistus Mandragora (stronger than ID 374)
+376:Technician Veteran
+</DropDownList>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+gaiusmuzetEncounter+16+8*2:
+db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[DISABLE]
+gaiusmuzetEncounter+16+8*2:
+db 53 54 52 5F 44 42 47 5F 42 54 4C 5F 45 47 5F 45 56 45 5F 30 36 37 5F 4E 41 4D 45 00 E6 88 A6 E9 97 98 E3 83 81 E3 83 A5 E3 83 BC E3 83 88 E3 83 AA E3 82 A2 E3 83 AB 32 EF BC 9A E3 82 AD E3 83 A3 E3 83 A9 E5 9B BA E6 9C 89 E6 93 8D E4 BD 9C EF BC 88 E3 82 B8 E3 83 A5 E3 83 BC E3 83 89 EF BC 89 00 42 54 4C 5F 45 56 5F 45 47 5F 45 56 45 5F 30 36 38 00
+gaiusmuzetEncounterValues+AAC:
+db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00 CD 00 00 00 00 45 00 00 CD 14 00 00 00 22 00 00 00 00
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>67687</ID>
+                      <Description>"Number of enemies"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounterValues+AC0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67688</ID>
+                      <Description>"3rd enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67689</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67690</ID>
+                      <Description>"4th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*3</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67691</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67692</ID>
+                      <Description>"5th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*4</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67693</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67700</ID>
+                      <Description>"6th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*5</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67701</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67698</ID>
+                      <Description>"7th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*6</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67699</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67696</ID>
+                      <Description>"8th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*7</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67697</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67694</ID>
+                      <Description>"9th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*8</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67695</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>67702</ID>
+                      <Description>"10th enemy"</Description>
+                      <DropDownListLink>Gaius/Muzét Final Boss Encounter editor</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>gaiusmuzetEncounter+16+8*9</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>67703</ID>
+                          <Description>"Group"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>95</ID>
@@ -589,6 +589,119 @@ enmBookFixedStringworkaround+1EE0:
           <CodePage>0</CodePage>
           <ZeroTerminate>1</ZeroTerminate>
           <Address>"Tales of Zestiria.exe"+1D3C9E4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10064</ID>
+          <Description>"Coordinates"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version:
+  Date   : 2023-06-17
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(coordsPTR,Tales of Zestiria.exe,89 50 44 89 78 48) // should be unique
+alloc(newmem,$1000)
+alloc(coords,8)
+
+label(code)
+label(return)
+
+newmem:
+  mov [coords],eax
+code:
+  mov [eax+44],edx
+  mov [eax+48],edi
+  jmp return
+
+coordsPTR:
+  jmp newmem
+  nop
+return:
+registersymbol(coordsPTR)
+registersymbol(coords)
+
+[DISABLE]
+
+coordsPTR:
+  db 89 50 44 89 78 48
+
+unregistersymbol(coordsPTR)
+unregistersymbol(coords)
+dealloc(newmem)
+dealloc(coords)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 0085CDD9
+
+0085CDBB: 89 50 2C        - mov [eax+2C],edx
+0085CDBE: 8B 55 D4        - mov edx,[ebp-2C]
+0085CDC1: 89 50 34        - mov [eax+34],edx
+0085CDC4: 8B 55 DC        - mov edx,[ebp-24]
+0085CDC7: 89 48 38        - mov [eax+38],ecx
+0085CDCA: 8B 4D E0        - mov ecx,[ebp-20]
+0085CDCD: 89 48 40        - mov [eax+40],ecx
+0085CDD0: 8B 4D FC        - mov ecx,[ebp-04]
+0085CDD3: 89 50 3C        - mov [eax+3C],edx
+0085CDD6: 8B 55 E4        - mov edx,[ebp-1C]
+// ---------- INJECTING HERE ----------
+0085CDD9: 89 50 44        - mov [eax+44],edx
+// ---------- DONE INJECTING  ----------
+0085CDDC: 89 78 48        - mov [eax+48],edi
+0085CDDF: 89 70 4C        - mov [eax+4C],esi
+0085CDE2: 8A 45 AF        - mov al,[ebp-51]
+0085CDE5: 5F              - pop edi
+0085CDE6: 33 CD           - xor ecx,ebp
+0085CDE8: 5E              - pop esi
+0085CDE9: E8 E8 65 3B 00  - call "Tales of Zestiria.std::_Init_locks::operator="+E82
+0085CDEE: 8B E5           - mov esp,ebp
+0085CDF0: 5D              - pop ebp
+0085CDF1: 8B E3           - mov esp,ebx
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10073</ID>
+              <Description>"Move in-game to populate this!"</Description>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10065</ID>
+              <Description>"X"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>coords</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10067</ID>
+              <Description>"Y"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>coords</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10066</ID>
+              <Description>"Z"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>coords</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
