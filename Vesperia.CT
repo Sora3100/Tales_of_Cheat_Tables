@@ -19643,7 +19643,7 @@ TOV_DE.exe+4C14C0: 48 83 C1 09           - add rcx,09
         </CheatEntry>
         <CheatEntry>
           <ID>84506</ID>
-          <Description>"Current Area"</Description>
+          <Description>"Current area + coordinates"</Description>
           <Options moHideChildren="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : TOV_DE.exe
@@ -20434,6 +20434,71 @@ TOV_DE.exe+55FF7B: E8 D0 B8 FF FF  - call TOV_DE.exe+55B850
 TOV_DE.exe+55FF80: 84 C0           - test al,al
 TOV_DE.exe+55FF82: 75 13           - jne TOV_DE.exe+55FF97
 TOV_DE.exe+55FF84: 4C 8B 74 24 50  - mov r14,[rsp+50]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84552</ID>
+          <Description>"Don't display arte names"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-06-20
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+
+aobscanmodule(arteNameDisplay,TOV_DE.exe,8B D7 48 8B CB E8 C8 DF) // should be unique
+alloc(arteNameDispstorage,1000)
+
+arteNameDispstorage:
+reassemble(arteNameDisplay+5)
+
+arteNameDisplay+5:
+  db 90 90 90 90 90
+
+registersymbol(arteNameDisplay)
+registersymbol(arteNameDispstorage)
+
+[DISABLE]
+
+arteNameDisplay+5:
+reassemble(arteNameDispstorage)
+
+unregistersymbol(arteNameDisplay)
+unregistersymbol(arteNameDispstorage)
+dealloc(arteNameDispstorage)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF6CD578FBE
+
+7FF6CD578F9D: 48 8B 7C 24 38  - mov rdi,[rsp+38]
+7FF6CD578FA2: 48 83 C4 20     - add rsp,20
+7FF6CD578FA6: 5B              - pop rbx
+7FF6CD578FA7: C3              - ret 
+7FF6CD578FA8: E8 13 D7 F7 FF  - call 7FF6CD4F66C0
+7FF6CD578FAD: 8B 4E 1C        - mov ecx,[rsi+1C]
+7FF6CD578FB0: 48 8B D8        - mov rbx,rax
+7FF6CD578FB3: E8 38 DB F6 FF  - call 7FF6CD4E6AF0
+7FF6CD578FB8: 4C 8B C0        - mov r8,rax
+7FF6CD578FBB: 45 33 C9        - xor r9d,r9d
+// ---------- INJECTING HERE ----------
+7FF6CD578FBE: 8B D7           - mov edx,edi
+// ---------- DONE INJECTING  ----------
+7FF6CD578FC0: 48 8B CB        - mov rcx,rbx
+7FF6CD578FC3: E8 C8 DF F7 FF  - call 7FF6CD4F6F90
+7FF6CD578FC8: 8B C8           - mov ecx,eax
+7FF6CD578FCA: 48 8B 74 24 30  - mov rsi,[rsp+30]
+7FF6CD578FCF: 48 8B 7C 24 38  - mov rdi,[rsp+38]
+7FF6CD578FD4: 48 83 C4 20     - add rsp,20
+7FF6CD578FD8: 5B              - pop rbx
+7FF6CD578FD9: E9 A2 90 00 00  - jmp 7FF6CD582080
+7FF6CD578FDE: CC              - int 3 
+7FF6CD578FDF: CC              - int 3 
 }
 </AssemblerScript>
         </CheatEntry>

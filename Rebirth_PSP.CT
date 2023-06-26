@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>1450</ID>
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+      <AssemblerScript>{$lua}
+-- By "25094" on GitHub
+function GetEmuBase()
+local command = 0xB118
+local emuHWND = findWindow("PPSSPPWnd")
 
-aobscan(baseElfAddr,E0 FF BD 27 14 00 BF AF 31 10 20 0E) // should be unique
-registersymbol(baseElfAddr)
+local pointer = {}
 
+local result = sendMessage(emuHWND, command, 0, 0)
+pointer[1] = tonumber(result)
+
+result = sendMessage(emuHWND, command, 0, 1)
+pointer[2] = tonumber(result)
+
+local lower = pointer[1]
+local upper = pointer[2]
+local combinedPointer = (upper * 0x100000000) + lower
+
+return tonumber(combinedPointer)
+end
+{$asm}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+if (string.lower(process):match("ppsspp")) then
+   local ptr = GetEmuBase()
+
+   if not (ptr == nil) and not (ptr == 0) then
+        registerSymbol("baseElfAddr",ptr+0x8804000+0x18)
+   else
+        print("Using fallback... this may take a few seconds")
+        r,error=autoAssemble([[aobscan(baseElfAddr,E0 FF BD 27 14 00 BF AF 31 10 20 0E) // should be unique
+registersymbol(baseElfAddr)]])
+        if (r==false) then
+           error(print(error .. "\nMake sure the game is running!"))
+        end
+   end
+else
+   error(print("Not attached to PPSSPP"))
+   return
+end
+{$asm}
 [DISABLE]
-
 unregistersymbol(baseElfAddr)
 </AssemblerScript>
       <CheatEntries>
