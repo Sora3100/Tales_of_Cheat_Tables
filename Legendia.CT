@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>47</ID>
@@ -7,9 +7,24 @@
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
-aobscan(baseElfAddr, 19 04 00 00 80 44 00 08 80 44 00 10 80 44 00 18 80 44)
-
-registersymbol(baseElfAddr)
+{$lua}
+if syntaxcheck then return end
+if (string.lower(process):match("pcsx2")) then
+   if not (getAddressSafe("EEmem") == nil) and not (getAddressSafe("EEmem") == 0) then
+        registerSymbol("baseElfAddr",readPointer(getAddress("EEmem"))+0x10008E)
+   else
+        print("Using fallback... this may take a few seconds")
+        r,error=autoAssemble([[aobscan(baseElfAddr, 19 04 00 00 80 44 00 08 80 44 00 10 80 44 00 18 80 44)
+registersymbol(baseElfAddr)]])
+        if (r==false) then
+           error(print(error .. "\nMake sure the game is running!"))
+        end
+   end
+else
+   error(print("Not attached to PCSX2"))
+   return
+end
+{$asm}
 [DISABLE]
 unregistersymbol(baseElfAddr)
 </AssemblerScript>
@@ -1919,6 +1934,13 @@ unregistersymbol(baseElfAddr)
             </CheatEntry>
             <CheatEntry>
               <ID>81</ID>
+              <Description>"Base EE memory"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>baseElfAddr-10008E</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>314</ID>
               <Description>"Base ELF Address"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
