@@ -1,9 +1,22 @@
 ### Changelog
 
+#### 2023/06/26
+
+-	Added a Skills Editor for Narikiri Dungeon X.
+
+-	Ported over certain things from GameCube:
+	-	"No Recoil Time after Tech"
+	-	"Walk Through Walls"
+	-	"Get on Rheiards any time"
+	
+-	Updated all PS2 and PSP tables to use a newer and faster enable mechanism.
+	Note that this may require newer versions of the emulator(s).
+	In case it detects the new method is not available, it will revert to the old method.
+
 #### 2023/06/14
 
 -	Vesperia changes:
-	-	Updated Arte Canceller to be able to ocnfigure which side is affected.
+	-	Updated Arte Canceller to be able to configure which side is affected.
 	-	Added a script that lets you chain artes in any order.
 	-	Added a script that lets you use Player artes in the air.
 

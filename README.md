@@ -226,6 +226,8 @@ Features:
  - Field run speed modifier
  - Enemies don't attack
  - Minimum Damage
+ - Walk through walls
+ - Rheiards usable any time
 
  ## Symphonia - Dawn of the New World (PS3)
 Based on the BLUS31172 version of the game.
