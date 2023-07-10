@@ -317,6 +317,122 @@ TOV_DE.exe+6A209F: 32 C0                 - xor al,al
 }
 
 [ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--RecID is the ID of the Memory Record that is going to have its DropDown changed (aka Parameter)
+--offset is the offset of the Condition # address
+function arteConditionChange(RecID,offset)
+         local currRecord = getAddressList().getMemoryRecordByID(RecID)
+               if (readInteger("[artePropPTR]+"..offset) == 2) then
+                  currRecord.DropDownLinkedMemrec = "Arte List"
+                  currRecord.DropDownLinked = true
+                  currRecord.Options = ""
+         --Skills unlocks
+               elseif (readInteger("[artePropPTR]+"..offset) == 3) then
+                  currRecord.DropDownLinkedMemrec = "dropdown: Skills"
+                  currRecord.DropDownLinked = true
+                  currRecord.Options = "moAlwaysHideChildren"
+                  currRecord.Child[0].Active = false
+               else
+                  currRecord.DropDownLinked = false
+                  currRecord.Options = "moAlwaysHideChildren"
+                  currRecord.Child[0].Active = false
+               end
+         currRecord = nil
+end
+
+--RecID is the ID of the Memory Record that is going to have its DropDown changed (aka Parameter)
+--offset is the offset of the Condition # address
+function evolveConditionChange(RecID,offset)
+         local currRecord = getAddressList().getMemoryRecordByID(RecID)
+               if (readInteger("[artePropPTR]+"..offset) == 2) then
+                  currRecord.DropDownLinkedMemrec = "Arte List"
+                  currRecord.DropDownLinked = true
+               elseif (readInteger("[artePropPTR]+"..offset) == 3) then
+                  currRecord.DropDownLinkedMemrec = "dropdown: Skills"
+                  currRecord.DropDownLinked = true
+               else
+                  currRecord.DropDownLinked = false
+               end
+         currRecord = nil
+end
+
+function CharArteUseCheck()
+         local header = getAddressList().getMemoryRecordByID("83301")
+         local NumofCharChildren = header.Count-1
+         local AmountofChars = tonumber(header.Child[0].Value)
+
+         if not (NumofCharChildren == AmountofChars) then
+
+            local offset = nil
+
+            if (NumofCharChildren &gt; AmountofChars) then
+               for i = NumofCharChildren, AmountofChars+1,-1 do
+                   header.Child[i].destroy()
+               end
+            end
+
+            if (NumofCharChildren &lt; AmountofChars) then
+               for i = NumofCharChildren+1, AmountofChars do
+                   if (i &gt; 524) then
+                      break --Too many to do, there are only 524 enemies
+                   end
+               local newrec = getAddressList().createMemoryRecord()
+
+               offset = 0x188 + 4 * (i - 1)
+
+               newrec.Type = 2
+               newrec.setAddress("artePropPTR")
+               newrec.setOffsetCount("1")
+               newrec.setOffset(0, offset)
+               newrec.DropDownLinkedMemrec = "dropdown: Enemy List"
+               newrec.DropDownLinked = true
+               newrec.setDescription("Character "..i)
+               newrec.appendToEntry(header)
+               end
+            end
+         end
+end
+
+function mainloop()
+            if not (readPointer("artePropPTR") == 0) and not (readPointer("artePropPTR") == nil) then
+               --Arte unlock conditions
+               if (getAddressList().getMemoryRecordByID("84822").Active == true) then
+                  arteConditionChange("79081","60") -- #1
+                  arteConditionChange("79082","64") -- #2
+                  arteConditionChange("84809","68") -- #3
+                  arteConditionChange("84811","6C") -- #4
+                  arteConditionChange("84813","70") -- #5
+                  arteConditionChange("84815","74") -- #6
+               end
+
+               --Evolve conditions
+               if (getAddressList().getMemoryRecordByID("83300").Active == true) then
+                  evolveConditionChange("79152","120") -- #1
+                  evolveConditionChange("79153","124") -- #2
+                  evolveConditionChange("79154","128") -- #3
+                  evolveConditionChange("79155","12C") -- #4
+               end
+
+               --Character use check
+               if (getAddressList().getMemoryRecordByID("83301").Active == true) then
+                  CharArteUseCheck()
+               end
+            end
+end
+
+if not timer then
+   timer = createTimer(nil)
+   timer.OnTimer = function(timer)
+                   mainloop()
+                   end
+   timer.Interval = 1000
+   timer.Enabled = true
+else
+   timer.Enabled = true
+end
+{$asm}
 
 aobscanmodule(artePropDescPTR,TOV_DE.exe,8B 48 20 48 83 C4 28) // should be unique
 alloc(newmem,$1000)
@@ -335,11 +451,19 @@ code:
 
 artePropDescPTR:
   jmp newmem
-  nop 2
+  nop
+  nop
 return:
 registersymbol(artePropDescPTR)
 
 [DISABLE]
+{$lua}
+if (timer) then
+   timer.Enabled = false
+   timer.Destroy()
+   timer = nil
+end
+{$asm}
 
 artePropDescPTR:
   db 8B 48 20 48 83 C4 28 E9 9B 44 0C 00 CC CC CC CC
@@ -611,10 +735,10 @@ TOV_DE.exe+3C265C: CC                    - int 3
           </Offsets>
         </CheatEntry>
         <CheatEntry>
-          <ID>79070</ID>
-          <Description>"Semi-Auto use direction?"</Description>
+          <ID>84817</ID>
+          <Description>"Semi-Auto max use range"</Description>
           <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
+          <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
           <Offsets>
             <Offset>4C</Offset>
@@ -629,6 +753,13 @@ TOV_DE.exe+3C265C: CC                    - int 3
           <Offsets>
             <Offset>50</Offset>
           </Offsets>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>84818</ID>
+              <Description>"The highest one is taken"</Description>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
           <ID>79075</ID>
@@ -661,19 +792,14 @@ TOV_DE.exe+3C265C: CC                    - int 3
           </Offsets>
         </CheatEntry>
         <CheatEntry>
-          <ID>83287</ID>
+          <ID>84822</ID>
           <Description>"Arte learning conditions"</Description>
           <Options moHideChildren="1"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>83285</ID>
-              <Description>"300 as value for Level/Arte required = learned by event"</Description>
-              <GroupHeader>1</GroupHeader>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83289</ID>
-              <Description>"Parameters are the same thing, just with different dropdowns for more convenience!"</Description>
+              <Description>"(Condition = level) + (Parameter = 300) means earned by event!"</Description>
               <GroupHeader>1</GroupHeader>
             </CheatEntry>
             <CheatEntry>
@@ -689,8 +815,8 @@ TOV_DE.exe+3C265C: CC                    - int 3
               <CheatEntries>
                 <CheatEntry>
                   <ID>79081</ID>
-                  <Description>"Parameter (Level/Arte)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <Description>"Parameter"</Description>
+                  <Options moAlwaysHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -710,17 +836,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
-                <CheatEntry>
-                  <ID>83288</ID>
-                  <Description>"Parameter (Skill)"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>78</Offset>
-                  </Offsets>
-                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -736,8 +851,8 @@ TOV_DE.exe+3C265C: CC                    - int 3
               <CheatEntries>
                 <CheatEntry>
                   <ID>79082</ID>
-                  <Description>"Parameter (Level/Arte)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <Description>"Parameter"</Description>
+                  <Options moAlwaysHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -757,17 +872,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
-                <CheatEntry>
-                  <ID>83290</ID>
-                  <Description>"Parameter (Skill)"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>7C</Offset>
-                  </Offsets>
-                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -782,9 +886,9 @@ TOV_DE.exe+3C265C: CC                    - int 3
               </Offsets>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79083</ID>
-                  <Description>"Parameter (Level/Arte)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ID>84809</ID>
+                  <Description>"Parameter"</Description>
+                  <Options moAlwaysHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -793,7 +897,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                   </Offsets>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>79079</ID>
+                      <ID>84810</ID>
                       <Description>"Arte usage required"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -803,17 +907,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                       </Offsets>
                     </CheatEntry>
                   </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>83291</ID>
-                  <Description>"Parameter (Skill)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>80</Offset>
-                  </Offsets>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -829,9 +922,9 @@ TOV_DE.exe+3C265C: CC                    - int 3
               </Offsets>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79084</ID>
-                  <Description>"Parameter (Level/Arte)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ID>84811</ID>
+                  <Description>"Parameter"</Description>
+                  <Options moAlwaysHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -840,7 +933,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                   </Offsets>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>79080</ID>
+                      <ID>84812</ID>
                       <Description>"Arte usage required"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -850,17 +943,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                       </Offsets>
                     </CheatEntry>
                   </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>83293</ID>
-                  <Description>"Parameter (Skill)"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>84</Offset>
-                  </Offsets>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -876,9 +958,9 @@ TOV_DE.exe+3C265C: CC                    - int 3
               </Offsets>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79085</ID>
-                  <Description>"Parameter (Level/Arte)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ID>84813</ID>
+                  <Description>"Parameter"</Description>
+                  <Options moAlwaysHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -887,7 +969,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                   </Offsets>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>79091</ID>
+                      <ID>84814</ID>
                       <Description>"Arte usage required"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -897,17 +979,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                       </Offsets>
                     </CheatEntry>
                   </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>83295</ID>
-                  <Description>"Parameter (Skill)"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>88</Offset>
-                  </Offsets>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -923,9 +994,9 @@ TOV_DE.exe+3C265C: CC                    - int 3
               </Offsets>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>79076</ID>
-                  <Description>"Parameter (Level/Arte)"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ID>84815</ID>
+                  <Description>"Parameter"</Description>
+                  <Options moAlwaysHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -934,7 +1005,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                   </Offsets>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>79096</ID>
+                      <ID>84816</ID>
                       <Description>"Arte usage required"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -944,17 +1015,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                       </Offsets>
                     </CheatEntry>
                   </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>83297</ID>
-                  <Description>"Parameter (Skill)"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>8C</Offset>
-                  </Offsets>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -1441,7 +1501,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                 <CheatEntry>
                   <ID>79152</ID>
                   <Description>"Parameter"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -1465,7 +1524,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                 <CheatEntry>
                   <ID>79153</ID>
                   <Description>"Parameter"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -1489,7 +1547,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                 <CheatEntry>
                   <ID>79154</ID>
                   <Description>"Parameter"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -1513,7 +1570,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                 <CheatEntry>
                   <ID>79155</ID>
                   <Description>"Parameter"</Description>
-                  <DropDownListLink>dropdown: Skills</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>artePropPTR</Address>
@@ -1594,189 +1650,13 @@ TOV_DE.exe+3C265C: CC                    - int 3
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
-              <ID>79132</ID>
+              <ID>84821</ID>
               <Description>"Amount of characters that can use this arte"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>artePropPTR</Address>
               <Offsets>
                 <Offset>184</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>79133</ID>
-              <Description>"What character can use this arte 1"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>188</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83198</ID>
-              <Description>"What character can use this arte 2 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>18C</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83199</ID>
-              <Description>"What character can use this arte 3 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>190</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83200</ID>
-              <Description>"What character can use this arte 4 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>194</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83201</ID>
-              <Description>"What character can use this arte 5 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>198</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83204</ID>
-              <Description>"What character can use this arte 6 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>19C</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83203</ID>
-              <Description>"What character can use this arte 7 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1A0</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83205</ID>
-              <Description>"What character can use this arte 8 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1A4</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83207</ID>
-              <Description>"What character can use this arte 9 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1A8</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83206</ID>
-              <Description>"What character can use this arte 10 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1AC</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83211</ID>
-              <Description>"What character can use this arte 11 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1B0</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83210</ID>
-              <Description>"What character can use this arte 12 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1B4</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83209</ID>
-              <Description>"What character can use this arte 13 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1B8</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83208</ID>
-              <Description>"What character can use this arte 14 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1BC</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83213</ID>
-              <Description>"What character can use this arte 15 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1C0</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>83212</ID>
-              <Description>"What character can use this arte 16 (Enemy artes only)"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>artePropPTR</Address>
-              <Offsets>
-                <Offset>1C4</Offset>
               </Offsets>
             </CheatEntry>
           </CheatEntries>
@@ -1807,7 +1687,8 @@ showEnemyBook+0F:
 enemyUnlocked:
   db B8 FF FF FF FF 90 90
 
-registersymbol(showEnemyBook enemyUnlocked)
+registersymbol(showEnemyBook)
+registersymbol(enemyUnlocked)
 
 [DISABLE]
 
@@ -1817,7 +1698,8 @@ showEnemyBook+0F:
 enemyUnlocked:
   db 8B 84 97 38 47 00 00
 
-unregistersymbol(showEnemyBook enemyUnlocked)
+unregistersymbol(showEnemyBook)
+unregistersymbol(enemyUnlocked)
 
 {
 // ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+5C0622
@@ -2053,6 +1935,7 @@ enmBook:
   db 8B 80 F4 00 00 00
 
 unregistersymbol(enmBook)
+unregistersymbol(enmBookPTR)
 dealloc(newmem)
 dealloc(enmBookPTR)
 
@@ -3047,16 +2930,19 @@ code:
 
 SkillProperties:
   jmp newmem
-  nop 2
+  nop
+  nop
 return:
-registersymbol(SkillProperties skillPropPTR)
+registersymbol(SkillProperties)
+registersymbol(skillPropPTR)
 
 [DISABLE]
 
 SkillProperties:
   db 8B 48 14 48 83 C4 20
 
-unregistersymbol(SkillProperties skillPropPTR)
+unregistersymbol(SkillProperties)
+registersymbol(skillPropPTR)
 dealloc(newmem)
 dealloc(skillPropPTR)
 
@@ -5788,7 +5674,9 @@ arteCancelFS+2:
 arteCancelVars:
   dq 1
 
-registersymbol(arteCancel2 arteCancelFS arteCancelVars)
+registersymbol(arteCancel2)
+registersymbol(arteCancelFS)
+registersymbol(arteCancelVars)
 
 [DISABLE]
 
@@ -5798,8 +5686,11 @@ arteCancel2:
 arteCancelFS:
   db 84 C0 75 2D 41 83 7E 24 0C
 
-unregistersymbol(arteCancel2 arteCancelFS arteCancelVars)
-dealloc(newmem arteCancelVars)
+unregistersymbol(arteCancel2)
+unregistersymbol(arteCancelFS)
+unregistersymbol(arteCancelVars)
+dealloc(newmem)
+dealloc(arteCancelVars)
 
 {
 // ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+55B6D0
@@ -16271,7 +16162,7 @@ dealloc(attackNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>82882</ID>
-                      <Description>"Ignore guard"</Description>
+                      <Description>"Ignore guard/superarmor"</Description>
                       <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Binary</VariableType>
@@ -20880,7 +20771,12 @@ dealloc(arteNameDispstorage)
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>artePropPTR</Name>
+      <Address>68DF0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <Comments>Unfinished enemy list (in decimal)
 It seems that if you try to load a model that's not supposed to be in the fight, it will crash the game. Otherwise, the animation will also not function, but it doesn't crash the game.
 </Comments>
