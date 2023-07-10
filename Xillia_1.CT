@@ -30526,6 +30526,185 @@ The ??? difficulty may cause some unintended side effects.
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
+              <ID>88241</ID>
+              <Description>"Growth data"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(growthData, 300000000, 400000000, 00 00 00 38 00 00 00 06 00 00 09 A8 00 00 00 63) // should be unique
+
+registersymbol(growthData)
+[DISABLE]
+unregistersymbol(growthData)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>88243</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88244</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88245</ID>
+                  <Description>"? offset"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>88246</ID>
+                      <Description>"+9a8"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+9a8</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88247</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88248</ID>
+                  <Description>"? offset"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+10</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>88251</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+0b2c</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88249</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88250</ID>
+                  <Description>"? offset"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+18</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>88252</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+0c14</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88253</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88254</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+20</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>88259</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+2d3c</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88255</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88256</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+28</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>88260</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+5a64</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88257</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88258</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Custom</VariableType>
+                  <CustomType>4 Byte Big Endian</CustomType>
+                  <Address>growthData+30</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>88261</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>+ab8c</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
               <ID>67673</ID>
               <Description>"Gaius/Muzét Final Boss Encounter editor"</Description>
               <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
@@ -31480,7 +31659,20 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>arteNum</Name>
+      <Address>07E70000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillEdit</Name>
+      <Address>07E70010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillPropNum</Name>
+      <Address>07E70400</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>

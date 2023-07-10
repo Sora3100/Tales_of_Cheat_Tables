@@ -1,5 +1,38 @@
 ### Changelog
 
+#### 2023/07/11
+
+-	Vesperia's "Arte Properties Editor" will now automatically update itself for the following groups:
+	-	Arte learning conditions
+	-	Evolve conditions
+	-	Characters that can use this arte
+
+-	Changed Xillia 1's Final Boss encounter editor to use the final Wingul encounter instead
+	-	If for some reason you still want the old one, it can be found under notes
+
+-	Added "Alisha can armatize" script to Zestiria
+
+-	Updated Arte names and Grade Shop options to reflect the english patch names for Destiny DC
+
+-	Addded a difficulty unlocker for Destiny DC
+
+-	Added Arte Usage to the following games:
+	-	Destiny DC
+	-	Innocence R
+	-	Hearts R
+	
+-	Added Arte Unlocks to the following games:
+	-	Innocence R
+	-	Hearts R
+	
+-	Added Equipment Editor to the following games:
+	-	Innocence R
+	-	Hearts R
+	
+-	Added Bonds and Somatic Bonds to the following games:
+	-	Innocence R
+	-	Hearts R
+
 #### 2023/06/26
 
 -	Added a Skills Editor for Narikiri Dungeon X.
