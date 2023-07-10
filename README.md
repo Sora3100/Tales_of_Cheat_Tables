@@ -57,6 +57,7 @@ Features:
  - In-Battle Stats Editor
  - Equipment Editor
  - Arte List Editor (including Narikiri Dolls)
+ - Arte Usage
  - Gald & EX Point Editor
  - Unlock any and all artes
  - Change each character's Blast Calibers
@@ -132,6 +133,10 @@ Emulator used: Vita3K
 Features:
  - Stats Editor
  - Party Formation Editor
+ - Equipment Editor
+ - Arte Unlocks
+ - Arte Usage
+ - Somatic Bonds Editor
  - Grade Shop options
 
  ## Innocence (NDS)
@@ -151,6 +156,10 @@ Emulator used: Vita3K
 Features:
  - Stats Editor
  - Party Formation Editor
+ - Equipment Editor
+ - Arte Unlocks
+ - Arte Usage
+ - Bonds Editor
  - Grade Shop options
 
  ## Legendia (PS2)
@@ -341,4 +350,5 @@ Based on the 2015/12/04 (1.4) update.
 Features: 
  - Change Camera Zoom
  - Change Camera Height
+ - Alisha can armatize
  - Show all entries in Enemy Book

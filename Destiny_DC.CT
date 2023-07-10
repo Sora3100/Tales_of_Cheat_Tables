@@ -2204,8 +2204,6 @@ but note that it may break fights.
           <ID>16804</ID>
           <Description>"Equipment Editor"</Description>
           <Options moHideChildren="1"/>
-          <DropDownList DisplayValueAsItem="1">0:Nothing
-</DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+1C1E12</Address>
@@ -2220,37 +2218,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16806</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16807</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16808</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16809</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16810</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20439</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2264,37 +2270,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16812</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16813</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16814</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16815</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16816</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20443</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2308,37 +2322,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16818</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16819</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16820</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16821</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16822</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20444</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2352,37 +2374,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16824</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16825</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16826</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16827</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16828</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20445</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2396,37 +2426,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16830</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16831</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16832</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16833</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16834</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20446</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2440,37 +2478,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16836</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16837</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16838</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16839</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16840</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20447</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2484,37 +2530,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16842</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16843</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16844</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16845</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16846</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20448</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2528,37 +2582,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16848</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16849</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16850</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16851</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16852</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20449</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2572,37 +2634,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16854</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16855</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16856</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16857</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16858</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20450</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2616,37 +2686,45 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16860</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16861</ID>
                   <Description>"Armor"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16862</ID>
                   <Description>"Accessory"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16863</ID>
                   <Description>"Ring 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>16864</ID>
                   <Description>"Ring 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>dropdown: Item List</DropDownListLink>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20451</ID>
+                  <Description>"Character to change into (narikiri)"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E6</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -6226,11 +6304,8 @@ but note that it may break fights.
         </CheatEntry>
         <CheatEntry>
           <ID>17048</ID>
-          <Description>"Unlocks"</Description>
+          <Description>"Arte Unlocks"</Description>
           <Options moHideChildren="1"/>
-          <DropDownList DisplayValueAsItem="1">0:Locked
-1:Unlocked
-</DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+1C1E1C</Address>
@@ -6245,245 +6320,245 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17050</ID>
                   <Description>"Demon Fang"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17051</ID>
                   <Description>"Hell Sword"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17052</ID>
                   <Description>"Fire Ball"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17053</ID>
                   <Description>"Swallow Dance"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17054</ID>
                   <Description>"Tempest Strike"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17055</ID>
                   <Description>"Tiger Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17056</ID>
                   <Description>"Eruption"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17057</ID>
                   <Description>"Dragon Slayer"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17058</ID>
                   <Description>"Dragon Swarm"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17059</ID>
-                  <Description>"Shakkouken"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Scorching Fist"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17060</ID>
                   <Description>"Fire Wall"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17061</ID>
                   <Description>"Azure Edge"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17062</ID>
                   <Description>"Hell Pyre"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17063</ID>
                   <Description>"Severing Wind"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17064</ID>
                   <Description>"Fire Storm"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17065</ID>
                   <Description>"Soaring Demon Fang"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17066</ID>
                   <Description>"Beast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17067</ID>
                   <Description>"Dragon Toss"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17068</ID>
                   <Description>"Demonic Tiger Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17069</ID>
                   <Description>"Light Spear Blast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17070</ID>
                   <Description>"Fear Flare"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17071</ID>
                   <Description>"Omega Tempest"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+54</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17072</ID>
                   <Description>"Rising Phoenix"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+58</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17073</ID>
                   <Description>"Flare Tornado"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+5C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17074</ID>
                   <Description>"Infernal Torrent"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+60</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17075</ID>
                   <Description>"Searing Gale"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+64</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17076</ID>
-                  <Description>"Explode"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Explosion"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+68</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17077</ID>
                   <Description>"Fiery Beast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+6C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17078</ID>
                   <Description>"Light Spear"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+70</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17079</ID>
                   <Description>"Phoenix Blast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+74</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17080</ID>
                   <Description>"Frigid Moon"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+78</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17081</ID>
                   <Description>"Rending Quake"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+7C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17082</ID>
-                  <Description>"Phoenix"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Regal Phoenix"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+80</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17083</ID>
                   <Description>"Final Fury"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+84</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17084</ID>
-                  <Description>"Gouma Kaijinken"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Blazing Apocalypse"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+88</Address>
                 </CheatEntry>
@@ -6499,224 +6574,224 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17086</ID>
                   <Description>"Search Gald"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17087</ID>
                   <Description>"First Aid"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17088</ID>
-                  <Description>"Ice Needle"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Ice Needles"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17089</ID>
                   <Description>"Snipe Air"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17090</ID>
                   <Description>"Antidote"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17091</ID>
                   <Description>"Ice Wall"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17092</ID>
                   <Description>"Thievery"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17093</ID>
                   <Description>"Blizzard"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17094</ID>
                   <Description>"Heal"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17095</ID>
                   <Description>"Air Escape"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17096</ID>
                   <Description>"Sharpness"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17097</ID>
                   <Description>"Ice Tornado"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17098</ID>
                   <Description>"Acid Rain"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17099</ID>
                   <Description>"Snipe Roar"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17100</ID>
                   <Description>"Recover"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17101</ID>
                   <Description>"Nurse"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17102</ID>
                   <Description>"Barrier"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17103</ID>
                   <Description>"Resurrection"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17104</ID>
                   <Description>"Icicle"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17105</ID>
                   <Description>"Slash Rain"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17106</ID>
                   <Description>"Deep Mist"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17107</ID>
                   <Description>"Cure"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+54</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17108</ID>
                   <Description>"Silence"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+58</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17109</ID>
                   <Description>"Maelstrom"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+5C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17110</ID>
                   <Description>"Revitalize"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+60</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17111</ID>
                   <Description>"Dispel"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+64</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17112</ID>
                   <Description>"Tidal Wave"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+68</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17113</ID>
                   <Description>"Bloody Rose"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+6C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17114</ID>
                   <Description>"Serpent Edge"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+70</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17115</ID>
                   <Description>"Trickster"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+74</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17116</ID>
                   <Description>"Life Discharge"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+78</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17117</ID>
                   <Description>"Final Embrace"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+7C</Address>
                 </CheatEntry>
@@ -6732,238 +6807,238 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17119</ID>
                   <Description>"Philia Bomb"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17120</ID>
                   <Description>"Lightning"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17121</ID>
-                  <Description>"Inspect Eye"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Inspect"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17122</ID>
                   <Description>"Fire Ball"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17123</ID>
                   <Description>"Stone Blast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17124</ID>
                   <Description>"Wind Arrow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17125</ID>
                   <Description>"Stone Wall"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17126</ID>
                   <Description>"Twin Bomb"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17127</ID>
                   <Description>"Storm"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17128</ID>
                   <Description>"Flare Tornado"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17129</ID>
                   <Description>"Ice Tornado"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17130</ID>
                   <Description>"Thunder Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17131</ID>
                   <Description>"Force Field"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17132</ID>
                   <Description>"Tractor Beam"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17133</ID>
                   <Description>"Ray"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17134</ID>
                   <Description>"Fear Flare"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17135</ID>
                   <Description>"Cyclone"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17136</ID>
                   <Description>"Ground Dasher"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17137</ID>
                   <Description>"Holy Lance"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17138</ID>
-                  <Description>"Judgment"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Judgement"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17139</ID>
                   <Description>"Extension"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17140</ID>
-                  <Description>"Explode"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Explosion"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+54</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17141</ID>
                   <Description>"Tidal Wave"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+58</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17142</ID>
-                  <Description>"Cloak"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Hide Party"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+5C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17143</ID>
                   <Description>"Indignation"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+60</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17144</ID>
                   <Description>"Bomb Rain"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+64</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17145</ID>
                   <Description>"Meteor Storm"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+68</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17146</ID>
                   <Description>"Stop Flow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+6C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17147</ID>
                   <Description>"Black Hole"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+70</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17148</ID>
                   <Description>"Big Bang"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+74</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17149</ID>
                   <Description>"Piko Piko Hammer"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+78</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17150</ID>
                   <Description>"Sacred Penance"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+7C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17151</ID>
                   <Description>"Divine Power"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+80</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17152</ID>
                   <Description>"Heavenly Crusader"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+84</Address>
                 </CheatEntry>
@@ -6979,168 +7054,168 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17154</ID>
                   <Description>"Inferno"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17155</ID>
                   <Description>"Hurricane Thrust"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17156</ID>
                   <Description>"Gale Shot"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17157</ID>
                   <Description>"Mirage"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17158</ID>
                   <Description>"Wind Arrow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17159</ID>
-                  <Description>"Kourinshou"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Gleam"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17160</ID>
                   <Description>"Storm"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17161</ID>
                   <Description>"Severing Wind"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17162</ID>
                   <Description>"Arrow Stream"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17163</ID>
-                  <Description>"Bassaiga"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Crush Fang"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17164</ID>
                   <Description>"Whirlwind"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17165</ID>
                   <Description>"Transience"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17166</ID>
                   <Description>"Air Thrust"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17167</ID>
                   <Description>"Hail"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17168</ID>
                   <Description>"Sword Rain: Alpha"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17169</ID>
                   <Description>"Cyclone"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17170</ID>
                   <Description>"Void Seal"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17171</ID>
                   <Description>"Mega Sonic Thrust"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17172</ID>
                   <Description>"Void Sword"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17173</ID>
                   <Description>"God's Breath"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17174</ID>
                   <Description>"Dark Projection"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17175</ID>
-                  <Description>"Resshou Souhajin"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Azure Wave"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+54</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17176</ID>
-                  <Description>"Koubu Senkousen"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Radiant Vortex"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+58</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17177</ID>
-                  <Description>"Sekkazan"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Terminal Flash"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+5C</Address>
                 </CheatEntry>
@@ -7156,196 +7231,196 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17179</ID>
                   <Description>"Demon Fang"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17180</ID>
                   <Description>"Stone Blast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17181</ID>
                   <Description>"Glimmer Dragon"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17182</ID>
                   <Description>"Grave"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17183</ID>
                   <Description>"Flying Dragon"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17184</ID>
                   <Description>"Phantom Edge"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17185</ID>
                   <Description>"Stone Wall"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17186</ID>
                   <Description>"Tiger Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17187</ID>
                   <Description>"Pow Hammer"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17188</ID>
                   <Description>"Swallow Talon"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17189</ID>
                   <Description>"Air Pressure"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17190</ID>
                   <Description>"Moon Glare"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17191</ID>
                   <Description>"Dragon Swarm"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17192</ID>
                   <Description>"Demon's Lance"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17193</ID>
                   <Description>"Demon Attack"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17194</ID>
                   <Description>"Pow Pow Hammer"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17195</ID>
                   <Description>"Fang Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17196</ID>
                   <Description>"Ground Dasher"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17197</ID>
                   <Description>"Dragon Glare"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17198</ID>
                   <Description>"Black Hole"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17199</ID>
-                  <Description>"Dark Slaughter"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Demonic Obliteration"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17200</ID>
                   <Description>"Cleansing Inferno"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+54</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17201</ID>
                   <Description>"Infernal Suffering"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+58</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17202</ID>
-                  <Description>"Majinken Setsuga"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Infernal Demon Fang"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+5C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17203</ID>
                   <Description>"Focus"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+60</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17204</ID>
                   <Description>"Heal"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+64</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17205</ID>
-                  <Description>"Shining Dragon"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Awakened Dragon"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+68</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17206</ID>
                   <Description>"Demon's Lance Zero"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+6C</Address>
                 </CheatEntry>
@@ -7361,119 +7436,119 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17208</ID>
                   <Description>"Beast Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17209</ID>
-                  <Description>"Power Missile"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Daemon Fang"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17210</ID>
-                  <Description>"Shittoushuu"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Swift Tackle"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17211</ID>
-                  <Description>"Double Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Lightning Assault"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17212</ID>
-                  <Description>"Shunjinrouga"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Wolf Fang Blade"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17213</ID>
                   <Description>"Beast"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17214</ID>
                   <Description>"Fierce Demon Fang"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17215</ID>
                   <Description>"Tornado Blade"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17216</ID>
                   <Description>"Roaring Havoc"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17217</ID>
                   <Description>"Maniacal Fang"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17218</ID>
                   <Description>"Mirage"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17219</ID>
-                  <Description>"Shin Gouraiken"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Lightning Assault EX"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17220</ID>
-                  <Description>"Bakujinkyousatsu"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Infernal Rampage"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17221</ID>
-                  <Description>"Shishiou Messai"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Lion King Attack"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17222</ID>
                   <Description>"Roaring Explosion"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17223</ID>
-                  <Description>"Shinrabassai"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Gaia's Fury"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17224</ID>
-                  <Description>"ZAN!"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Zan!"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
@@ -7488,106 +7563,106 @@ but note that it may break fights.
               <CheatEntries>
                 <CheatEntry>
                   <ID>17226</ID>
-                  <Description>"Shuren"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Red Lotus"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17227</ID>
                   <Description>"Sonic Bash"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17228</ID>
                   <Description>"Gale Shot"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17229</ID>
-                  <Description>"Speed Arrow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Flying Swallow"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17230</ID>
                   <Description>"Inferno"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17231</ID>
-                  <Description>"Gekka"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Moon Flower"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17232</ID>
-                  <Description>"Shayou"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Setting Sun"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17233</ID>
                   <Description>"Shock Arrow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17234</ID>
                   <Description>"Hail"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17235</ID>
                   <Description>"Force Arrow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17236</ID>
                   <Description>"Celestial Conqueror"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17237</ID>
-                  <Description>"Rasen"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Spiral"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17238</ID>
-                  <Description>"Shiranagi Touga"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Icy Petal"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17239</ID>
                   <Description>"Wild Geese"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17240</ID>
                   <Description>"Cupid's Arrow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
@@ -7603,98 +7678,98 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17242</ID>
                   <Description>"Symphony"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17243</ID>
                   <Description>"Rumba"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17244</ID>
                   <Description>"Sonic Rave"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17245</ID>
                   <Description>"Waltz"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17246</ID>
                   <Description>"March"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17247</ID>
                   <Description>"Samba"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17248</ID>
                   <Description>"Beat Heaven"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17249</ID>
                   <Description>"Reverb Soul"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17250</ID>
                   <Description>"Lullaby"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17251</ID>
                   <Description>"Golden Voice"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17252</ID>
                   <Description>"Reflect Rage"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17253</ID>
-                  <Description>"Maware Rondo"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Revolving Rondo"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17254</ID>
                   <Description>"Sonic Stream"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17255</ID>
                   <Description>"Layer Sphere"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
@@ -7710,105 +7785,105 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17257</ID>
                   <Description>"Volt Thrust"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17258</ID>
                   <Description>"Falcon Fledge"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17259</ID>
-                  <Description>"Upper Cut"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Great Upper"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17260</ID>
-                  <Description>"1-2 Combo"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Rhomb Shoulder"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17261</ID>
-                  <Description>"Muscle Hit"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Muscle Heat"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17262</ID>
                   <Description>"Hip Attack"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17263</ID>
-                  <Description>"Hurricane"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Hell's Hurricane"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17264</ID>
-                  <Description>"Resurrect Kiai"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Revival Shout"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17265</ID>
-                  <Description>"Messa Throw"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Massive Throw"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17266</ID>
                   <Description>"Metal Body"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17267</ID>
-                  <Description>"Ballistic"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Heavy Bomber"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17268</ID>
                   <Description>"Earth Crusher"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17269</ID>
                   <Description>"Heartbreak"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17270</ID>
                   <Description>"Tres Bien Hip"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17271</ID>
                   <Description>"Gozza Blow"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
@@ -7824,78 +7899,1595 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>17273</ID>
                   <Description>"Aqua Smite"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17274</ID>
-                  <Description>"Stake Flare"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Steak Flare"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17275</ID>
                   <Description>"Turn Over"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17276</ID>
-                  <Description>"Lilith Slash"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Lilith Rush"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17277</ID>
                   <Description>"Kick Rock"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17278</ID>
                   <Description>"Wake the Dead"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17279</ID>
                   <Description>"Rainbow Arch"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17280</ID>
                   <Description>"Sunfish Screech"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17281</ID>
                   <Description>"Flash Back"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17282</ID>
-                  <Description>"Manbou Stride"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <Description>"Sunfish Stride"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>17283</ID>
                   <Description>"Thunder Sword"</Description>
-                  <DropDownListLink>Unlocks</DropDownListLink>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <VariableType>Byte</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20503</ID>
+          <Description>"Arte Usage"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>baseElfAddr+1C1E1E</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>20504</ID>
+              <Description>"Stahn"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20505</ID>
+                  <Description>"Demon Fang"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20506</ID>
+                  <Description>"Hell Sword"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20507</ID>
+                  <Description>"Fire Ball"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20508</ID>
+                  <Description>"Swallow Dance"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20509</ID>
+                  <Description>"Tempest Strike"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20510</ID>
+                  <Description>"Tiger Blade"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20511</ID>
+                  <Description>"Eruption"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20512</ID>
+                  <Description>"Dragon Slayer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20513</ID>
+                  <Description>"Dragon Swarm"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20514</ID>
+                  <Description>"Scorching Fist"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20515</ID>
+                  <Description>"Fire Wall"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20516</ID>
+                  <Description>"Azure Edge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20517</ID>
+                  <Description>"Hell Pyre"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20518</ID>
+                  <Description>"Severing Wind"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20519</ID>
+                  <Description>"Fire Storm"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20520</ID>
+                  <Description>"Soaring Demon Fang"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20521</ID>
+                  <Description>"Beast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20522</ID>
+                  <Description>"Dragon Toss"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20523</ID>
+                  <Description>"Demonic Tiger Blade"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20524</ID>
+                  <Description>"Light Spear Blast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20525</ID>
+                  <Description>"Fear Flare"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20526</ID>
+                  <Description>"Omega Tempest"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20527</ID>
+                  <Description>"Rising Phoenix"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20528</ID>
+                  <Description>"Flare Tornado"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20529</ID>
+                  <Description>"Infernal Torrent"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20530</ID>
+                  <Description>"Searing Gale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20531</ID>
+                  <Description>"Explosion"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20532</ID>
+                  <Description>"Fiery Beast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20533</ID>
+                  <Description>"Light Spear"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20534</ID>
+                  <Description>"Phoenix Blast"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20535</ID>
+                  <Description>"Frigid Moon"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20536</ID>
+                  <Description>"Rending Quake"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20537</ID>
+                  <Description>"Regal Phoenix"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20538</ID>
+                  <Description>"Final Fury"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+84</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20539</ID>
+                  <Description>"Blazing Apocalypse"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+88</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20540</ID>
+              <Description>"Rutee"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20541</ID>
+                  <Description>"Search Gald"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20542</ID>
+                  <Description>"First Aid"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20543</ID>
+                  <Description>"Ice Needles"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20544</ID>
+                  <Description>"Snipe Air"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20545</ID>
+                  <Description>"Antidote"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20546</ID>
+                  <Description>"Ice Wall"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20547</ID>
+                  <Description>"Thievery"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20548</ID>
+                  <Description>"Blizzard"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20549</ID>
+                  <Description>"Heal"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20550</ID>
+                  <Description>"Air Escape"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20551</ID>
+                  <Description>"Sharpness"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20552</ID>
+                  <Description>"Ice Tornado"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20553</ID>
+                  <Description>"Acid Rain"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20554</ID>
+                  <Description>"Snipe Roar"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20555</ID>
+                  <Description>"Recover"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20556</ID>
+                  <Description>"Nurse"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20557</ID>
+                  <Description>"Barrier"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20558</ID>
+                  <Description>"Resurrection"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20559</ID>
+                  <Description>"Icicle"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20560</ID>
+                  <Description>"Slash Rain"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20561</ID>
+                  <Description>"Deep Mist"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20562</ID>
+                  <Description>"Cure"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20563</ID>
+                  <Description>"Silence"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20564</ID>
+                  <Description>"Maelstrom"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20565</ID>
+                  <Description>"Revitalize"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20566</ID>
+                  <Description>"Dispel"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20567</ID>
+                  <Description>"Tidal Wave"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20568</ID>
+                  <Description>"Bloody Rose"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20569</ID>
+                  <Description>"Serpent Edge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20570</ID>
+                  <Description>"Trickster"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20571</ID>
+                  <Description>"Life Discharge"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20572</ID>
+                  <Description>"Final Embrace"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+7C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20573</ID>
+              <Description>"Philia"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20574</ID>
+                  <Description>"Philia Bomb"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20575</ID>
+                  <Description>"Lightning"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20576</ID>
+                  <Description>"Inspect"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20577</ID>
+                  <Description>"Fire Ball"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20578</ID>
+                  <Description>"Stone Blast"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20579</ID>
+                  <Description>"Wind Arrow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20580</ID>
+                  <Description>"Stone Wall"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20581</ID>
+                  <Description>"Twin Bomb"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20582</ID>
+                  <Description>"Storm"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20583</ID>
+                  <Description>"Flare Tornado"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20584</ID>
+                  <Description>"Ice Tornado"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20585</ID>
+                  <Description>"Thunder Blade"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20586</ID>
+                  <Description>"Force Field"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20587</ID>
+                  <Description>"Tractor Beam"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20588</ID>
+                  <Description>"Ray"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20589</ID>
+                  <Description>"Fear Flare"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20590</ID>
+                  <Description>"Cyclone"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20591</ID>
+                  <Description>"Ground Dasher"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20592</ID>
+                  <Description>"Holy Lance"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20593</ID>
+                  <Description>"Judgement"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20594</ID>
+                  <Description>"Extension"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20595</ID>
+                  <Description>"Explosion"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20596</ID>
+                  <Description>"Tidal Wave"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20597</ID>
+                  <Description>"Hide Party"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20598</ID>
+                  <Description>"Indignation"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20599</ID>
+                  <Description>"Bomb Rain"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20600</ID>
+                  <Description>"Meteor Storm"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20601</ID>
+                  <Description>"Stop Flow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20602</ID>
+                  <Description>"Black Hole"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20603</ID>
+                  <Description>"Big Bang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20604</ID>
+                  <Description>"Piko Piko Hammer"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20605</ID>
+                  <Description>"Sacred Penance"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20606</ID>
+                  <Description>"Divine Power"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20607</ID>
+                  <Description>"Heavenly Crusader"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+84</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20608</ID>
+              <Description>"Garr"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20609</ID>
+                  <Description>"Inferno"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20610</ID>
+                  <Description>"Hurricane Thrust"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20611</ID>
+                  <Description>"Gale Shot"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20612</ID>
+                  <Description>"Mirage"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20613</ID>
+                  <Description>"Wind Arrow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20614</ID>
+                  <Description>"Gleam"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20615</ID>
+                  <Description>"Storm"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20616</ID>
+                  <Description>"Severing Wind"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20617</ID>
+                  <Description>"Arrow Stream"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20618</ID>
+                  <Description>"Crush Fang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20619</ID>
+                  <Description>"Whirlwind"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20620</ID>
+                  <Description>"Transience"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20621</ID>
+                  <Description>"Air Thrust"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20622</ID>
+                  <Description>"Hail"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20623</ID>
+                  <Description>"Sword Rain: Alpha"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20624</ID>
+                  <Description>"Cyclone"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20625</ID>
+                  <Description>"Void Seal"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20626</ID>
+                  <Description>"Mega Sonic Thrust"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20627</ID>
+                  <Description>"Void Sword"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20628</ID>
+                  <Description>"God's Breath"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20629</ID>
+                  <Description>"Dark Projection"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20630</ID>
+                  <Description>"Azure Wave"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20631</ID>
+                  <Description>"Radiant Vortex"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20632</ID>
+                  <Description>"Terminal Flash"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20633</ID>
+              <Description>"Leon"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20634</ID>
+                  <Description>"Demon Fang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20635</ID>
+                  <Description>"Stone Blast"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20636</ID>
+                  <Description>"Glimmer Dragon"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20637</ID>
+                  <Description>"Grave"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20638</ID>
+                  <Description>"Flying Dragon"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20639</ID>
+                  <Description>"Phantom Edge"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20640</ID>
+                  <Description>"Stone Wall"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20641</ID>
+                  <Description>"Tiger Blade"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20642</ID>
+                  <Description>"Pow Hammer"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20643</ID>
+                  <Description>"Swallow Talon"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20644</ID>
+                  <Description>"Air Pressure"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20645</ID>
+                  <Description>"Moon Glare"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20646</ID>
+                  <Description>"Dragon Swarm"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20647</ID>
+                  <Description>"Demon's Lance"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20648</ID>
+                  <Description>"Demon Attack"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20649</ID>
+                  <Description>"Pow Pow Hammer"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20650</ID>
+                  <Description>"Fang Blade"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20651</ID>
+                  <Description>"Ground Dasher"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20652</ID>
+                  <Description>"Dragon Glare"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20653</ID>
+                  <Description>"Black Hole"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20654</ID>
+                  <Description>"Demonic Obliteration"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20655</ID>
+                  <Description>"Cleansing Inferno"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20656</ID>
+                  <Description>"Infernal Suffering"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20657</ID>
+                  <Description>"Infernal Demon Fang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20658</ID>
+                  <Description>"Focus"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20659</ID>
+                  <Description>"Heal"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20660</ID>
+                  <Description>"Awakened Dragon"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20661</ID>
+                  <Description>"Demon's Lance Zero"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20662</ID>
+              <Description>"Mary"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20663</ID>
+                  <Description>"Beast Blade"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20664</ID>
+                  <Description>"Daemon Fang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20665</ID>
+                  <Description>"Swift Tackle"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20666</ID>
+                  <Description>"Lightning Assault"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20667</ID>
+                  <Description>"Wolf Fang Blade"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20668</ID>
+                  <Description>"Beast"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20669</ID>
+                  <Description>"Fierce Demon Fang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20670</ID>
+                  <Description>"Tornado Blade"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20671</ID>
+                  <Description>"Roaring Havoc"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20672</ID>
+                  <Description>"Maniacal Fang"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20673</ID>
+                  <Description>"Mirage"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20674</ID>
+                  <Description>"Lightning Assault EX"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20675</ID>
+                  <Description>"Infernal Rampage"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20676</ID>
+                  <Description>"Lion King Attack"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20677</ID>
+                  <Description>"Roaring Explosion"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20678</ID>
+                  <Description>"Gaia's Fury"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20679</ID>
+                  <Description>"Zan!"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20680</ID>
+              <Description>"Chelsea"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20681</ID>
+                  <Description>"Red Lotus"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20682</ID>
+                  <Description>"Sonic Bash"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20683</ID>
+                  <Description>"Gale Shot"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20684</ID>
+                  <Description>"Flying Swallow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20685</ID>
+                  <Description>"Inferno"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20686</ID>
+                  <Description>"Moon Flower"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20687</ID>
+                  <Description>"Setting Sun"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20688</ID>
+                  <Description>"Shock Arrow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20689</ID>
+                  <Description>"Hail"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20690</ID>
+                  <Description>"Force Arrow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20691</ID>
+                  <Description>"Celestial Conqueror"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20692</ID>
+                  <Description>"Spiral"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20693</ID>
+                  <Description>"Icy Petal"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20694</ID>
+                  <Description>"Wild Geese"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20695</ID>
+                  <Description>"Cupid's Arrow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20696</ID>
+              <Description>"Karyl"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20697</ID>
+                  <Description>"Symphony"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20698</ID>
+                  <Description>"Rumba"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20699</ID>
+                  <Description>"Sonic Rave"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20700</ID>
+                  <Description>"Waltz"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20701</ID>
+                  <Description>"March"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20702</ID>
+                  <Description>"Samba"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20703</ID>
+                  <Description>"Beat Heaven"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20704</ID>
+                  <Description>"Reverb Soul"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20705</ID>
+                  <Description>"Lullaby"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20706</ID>
+                  <Description>"Golden Voice"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20707</ID>
+                  <Description>"Reflect Rage"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20708</ID>
+                  <Description>"Revolving Rondo"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20709</ID>
+                  <Description>"Sonic Stream"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20710</ID>
+                  <Description>"Layer Sphere"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20711</ID>
+              <Description>"Bruiser"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20712</ID>
+                  <Description>"Volt Thrust"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20713</ID>
+                  <Description>"Falcon Fledge"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20714</ID>
+                  <Description>"Great Upper"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20715</ID>
+                  <Description>"Rhomb Shoulder"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20716</ID>
+                  <Description>"Muscle Heat"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20717</ID>
+                  <Description>"Hip Attack"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20718</ID>
+                  <Description>"Hell's Hurricane"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20719</ID>
+                  <Description>"Revival Shout"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20720</ID>
+                  <Description>"Massive Throw"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20721</ID>
+                  <Description>"Metal Body"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20722</ID>
+                  <Description>"Heavy Bomber"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20723</ID>
+                  <Description>"Earth Crusher"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20724</ID>
+                  <Description>"Heartbreak"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20725</ID>
+                  <Description>"Tres Bien Hip"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20726</ID>
+                  <Description>"Gozza Blow"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20727</ID>
+              <Description>"Lilith"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>+1A8*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20728</ID>
+                  <Description>"Aqua Smite"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20729</ID>
+                  <Description>"Steak Flare"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20730</ID>
+                  <Description>"Turn Over"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20731</ID>
+                  <Description>"Lilith Rush"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20732</ID>
+                  <Description>"Kick Rock"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20733</ID>
+                  <Description>"Wake the Dead"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20734</ID>
+                  <Description>"Rainbow Arch"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20735</ID>
+                  <Description>"Sunfish Screech"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20736</ID>
+                  <Description>"Flash Back"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20737</ID>
+                  <Description>"Sunfish Stride"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20738</ID>
+                  <Description>"Thunder Sword"</Description>
+                  <VariableType>2 Bytes</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
               </CheatEntries>
@@ -18778,7 +20370,7 @@ Use the Inventory if you want more items.
           <CheatEntries>
             <CheatEntry>
               <ID>20264</ID>
-              <Description>"EXTEND CHAIN"</Description>
+              <Description>"Chain Combo Extension"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18789,7 +20381,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20271</ID>
-              <Description>"INFINITY MOVEMENT"</Description>
+              <Description>"Free Movement"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18800,7 +20392,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20270</ID>
-              <Description>"FLOAT GRAVITY"</Description>
+              <Description>"Low Gravity"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18811,7 +20403,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20269</ID>
-              <Description>"SINGLE PLAY"</Description>
+              <Description>"Single Player Mode"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18822,7 +20414,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20268</ID>
-              <Description>"SELECTOR MODE"</Description>
+              <Description>"Selector Mode"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18833,7 +20425,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20267</ID>
-              <Description>"SURVIVAL MODE"</Description>
+              <Description>"Survival Mode"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18844,7 +20436,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20266</ID>
-              <Description>"SUCCEED SKILL"</Description>
+              <Description>"Inherit Artes"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18855,7 +20447,7 @@ Use the Inventory if you want more items.
             </CheatEntry>
             <CheatEntry>
               <ID>20265</ID>
-              <Description>"SUCCEED FOOD STRAP"</Description>
+              <Description>"Inherit Food Straps"</Description>
               <DropDownListLink>Grade Shop options</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
@@ -18867,12 +20459,47 @@ Use the Inventory if you want more items.
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>20438</ID>
+          <Description>"Difficulties available"</Description>
+          <DropDownList DisplayValueAsItem="1">:Other values are not recommended
+4:Hard
+5:Evil
+6:Chaos
+</DropDownList>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>baseElfAddr+2BBEE0</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>4130</ID>
           <Description>"Other"</Description>
           <Options moHideChildren="1"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
+            <CheatEntry>
+              <ID>20441</ID>
+              <Description>"Dropdowns"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20442</ID>
+                  <Description>"dropdown: Item List"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Nothing
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20502</ID>
+                  <Description>"dropdown: Disabled/Enabled"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
             <CheatEntry>
               <ID>916</ID>
               <Description>"Control Test"</Description>
@@ -20012,12 +21639,117 @@ Use the Inventory if you want more items.
               <VariableType>4 Bytes</VariableType>
               <Address>baseElfAddr</Address>
             </CheatEntry>
+            <CheatEntry>
+              <ID>20497</ID>
+              <Description>"Coordinates"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+35A4C8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20498</ID>
+                  <Description>"X"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20499</ID>
+                  <Description>"Y"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20500</ID>
+                  <Description>"Z"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20501</ID>
+              <Description>"Weird Shot (Chelsea minigame)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+2EDB4C</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>781</ID>
+                  <Description>"Score"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>782</ID>
+                  <Description>"Current Chain"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>783</ID>
+                  <Description>"Max Chain"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>19152</ID>
+                  <Description>"Max Hits"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20492</ID>
+              <Description>"Food Sack (Current)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>baseElfAddr+1C3DDA</Address>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>arteNum</Name>
+      <Address>07E70000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillEdit</Name>
+      <Address>07E70010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillPropNum</Name>
+      <Address>07E70400</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>artePropPTR</Name>
+      <Address>68DF0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>baseElfAddr</Name>
+      <Address>7FF74010007C</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>
