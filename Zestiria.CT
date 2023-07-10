@@ -553,12 +553,95 @@ enmBookFixedStringworkaround+1EE0:
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
+      <ID>10191</ID>
+      <Description>"Alisha can armatize"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version:
+  Date   : 2023-07-02
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+aobscanmodule(armaCheck,Tales of Zestiria.exe,83 7B 04 08 74 6D) // should be unique
+
+armaCheck:
+  db 90 90 90 90 90 90
+
+registersymbol(armaCheck)
+[DISABLE]
+
+armaCheck:
+  db 83 7B 04 08 74 6D
+
+unregistersymbol(armaCheck)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Zestiria.exe+A1E97
+
+Tales of Zestiria.exe+A1E62: 80 BE 9C 05 00 00 00  - cmp byte ptr [esi+0000059C],00
+Tales of Zestiria.exe+A1E69: 0F 85 9B 00 00 00     - jne "Tales of Zestiria.exe"+A1F0A
+Tales of Zestiria.exe+A1E6F: 8B 96 A8 00 00 00     - mov edx,[esi+000000A8]
+Tales of Zestiria.exe+A1E75: 8B 7A 28              - mov edi,[edx+28]
+Tales of Zestiria.exe+A1E78: 80 BF 9C 05 00 00 00  - cmp byte ptr [edi+0000059C],00
+Tales of Zestiria.exe+A1E7F: 0F 85 85 00 00 00     - jne "Tales of Zestiria.exe"+A1F0A
+Tales of Zestiria.exe+A1E85: 83 BE FC 00 00 00 00  - cmp dword ptr [esi+000000FC],00
+Tales of Zestiria.exe+A1E8C: 75 7C                 - jne "Tales of Zestiria.exe"+A1F0A
+Tales of Zestiria.exe+A1E8E: 83 BF FC 00 00 00 00  - cmp dword ptr [edi+000000FC],00
+Tales of Zestiria.exe+A1E95: 75 73                 - jne "Tales of Zestiria.exe"+A1F0A
+// ---------- INJECTING HERE ----------
+Tales of Zestiria.exe+A1E97: 83 7B 04 08           - cmp dword ptr [ebx+04],08
+// ---------- DONE INJECTING  ----------
+Tales of Zestiria.exe+A1E9B: 74 6D                 - je "Tales of Zestiria.exe"+A1F0A
+Tales of Zestiria.exe+A1E9D: 8D 86 78 02 00 00     - lea eax,[esi+00000278]
+Tales of Zestiria.exe+A1EA3: E8 B8 AF 01 00        - call "Tales of Zestiria.exe"+BCE60
+Tales of Zestiria.exe+A1EA8: 84 C0                 - test al,al
+Tales of Zestiria.exe+A1EAA: 75 5E                 - jne "Tales of Zestiria.exe"+A1F0A
+Tales of Zestiria.exe+A1EAC: 8B 0D 90 24 13 02     - mov ecx,["Tales of Zestiria.exe"+1D32490]
+Tales of Zestiria.exe+A1EB2: E8 B9 BC FE FF        - call "Tales of Zestiria.exe"+8DB70
+Tales of Zestiria.exe+A1EB7: 84 C0                 - test al,al
+Tales of Zestiria.exe+A1EB9: 75 4F                 - jne "Tales of Zestiria.exe"+A1F0A
+Tales of Zestiria.exe+A1EBB: 38 83 0C 43 00 00     - cmp [ebx+0000430C],al
+}
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
       <ID>197</ID>
       <Description>"Notes"</Description>
       <Options moHideChildren="1"/>
       <Color>C0C0C0</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
+        <CheatEntry>
+          <ID>10166</ID>
+          <Description>"Dropdowns"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10167</ID>
+              <Description>"dropdown: Weakness"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Weak
+2:Resist
+3:Resist?
+4:Resist?
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10187</ID>
+              <Description>"dropdown: No/Yes"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
         <CheatEntry>
           <ID>152</ID>
           <Description>"Turn off friendly AI byte"</Description>
@@ -700,6 +783,2475 @@ dealloc(coords)
               <Offsets>
                 <Offset>48</Offset>
               </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4644</ID>
+          <Description>"Enemy Book Data - from Frubam, expanded"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2016-11-14
+  Author : frubam
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(char_generalData,Tales of Zestiria.exe,5F 89 06 8B C6 5B 8B E5 5D C3) // should be unique
+alloc(newmem,$1000)
+alloc(data_entryNO,4)
+
+label(code)
+label(return)
+
+newmem:
+  mov [data_entryNO],ecx
+code:
+  pop edi
+  mov [esi],eax
+  mov eax,esi
+  jmp return
+
+char_generalData:
+  jmp newmem
+return:
+
+registersymbol(char_generalData)
+registersymbol(data_entryNO)
+
+[DISABLE]
+
+char_generalData:
+  db 5F 89 06 8B C6
+
+unregistersymbol(char_generalData)
+unregistersymbol(data_entryNO)
+dealloc(newmem)
+dealloc(data_entryNO)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Tales of Zestiria.exe"+E71EF
+
+"Tales of Zestiria.exe"+E71D3: 8B 7D 10           -  mov edi,[ebp+10]
+"Tales of Zestiria.exe"+E71D6: 8B C8              -  mov ecx,eax
+"Tales of Zestiria.exe"+E71D8: 83 E1 FE           -  and ecx,-02
+"Tales of Zestiria.exe"+E71DB: 39 79 04           -  cmp [ecx+04],edi
+"Tales of Zestiria.exe"+E71DE: 74 0F              -  je "Tales of Zestiria.exe"+E71EF
+"Tales of Zestiria.exe"+E71E0: 8D 55 FC           -  lea edx,[ebp-04]
+"Tales of Zestiria.exe"+E71E3: E8 A8 01 00 00     -  call "Tales of Zestiria.exe"+E7390
+"Tales of Zestiria.exe"+E71E8: 8B 45 FC           -  mov eax,[ebp-04]
+"Tales of Zestiria.exe"+E71EB: 3B C3              -  cmp eax,ebx
+"Tales of Zestiria.exe"+E71ED: 75 E7              -  jne "Tales of Zestiria.exe"+E71D6
+// ---------- INJECTING HERE ----------
+"Tales of Zestiria.exe"+E71EF: 5F                 -  pop edi
+"Tales of Zestiria.exe"+E71F0: 89 06              -  mov [esi],eax
+"Tales of Zestiria.exe"+E71F2: 8B C6              -  mov eax,esi
+// ---------- DONE INJECTING  ----------
+"Tales of Zestiria.exe"+E71F4: 5B                 -  pop ebx
+"Tales of Zestiria.exe"+E71F5: 8B E5              -  mov esp,ebp
+"Tales of Zestiria.exe"+E71F7: 5D                 -  pop ebp
+"Tales of Zestiria.exe"+E71F8: C3                 -  ret 
+"Tales of Zestiria.exe"+E71F9: 89 06              -  mov [esi],eax
+"Tales of Zestiria.exe"+E71FB: 8B C6              -  mov eax,esi
+"Tales of Zestiria.exe"+E71FD: 5B                 -  pop ebx
+"Tales of Zestiria.exe"+E71FE: 8B E5              -  mov esp,ebp
+"Tales of Zestiria.exe"+E7200: 5D                 -  pop ebp
+"Tales of Zestiria.exe"+E7201: C3                 -  ret 
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10140</ID>
+              <Description>""ENE_XXXX" tag offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10190</ID>
+                  <Description>""ENE_XXXX" tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4665</ID>
+              <Description>"Enemy value (0x04)"</Description>
+              <DropDownList DisplayValueAsItem="1">1:Sorey Lv1
+2:Rose Lv1
+3:Mikleo Lv1
+4:Lailah Lv1
+5:Edna Lv1
+6:Dezel Lv1
+7:Zavied Lv1
+8:Alisha Lv1
+9:Heldalf (~Biroclef Ridge) Lv80
+10:Heldalf (Biroclef Ridge) Lv80
+11:Heldalf (Artorius Throne) Lv80
+12:???(LunarreElysia) Lv6
+13:???(LunarreLadylake) Lv7
+14:Lunarre Lv41
+15:Lunarre Lv60
+16:Cerberus Lv68
+17:Duoblock Lv122
+18:Dullahan Lv47
+19:Odin Lv80
+20:Asura Lv43
+21:Minotauros Lv42
+22:Medusa Lv39
+23:Euryale Lv57
+24:Stheno Lv56
+25:Drake Lv19
+26:Griffin Lv36
+27:Hippogriff Lv80
+28:Hecatoncheire Lv80
+29:Eizen Lv80
+30:Dinosaur Lv80
+31:Dragon Zombie Lv145
+32:Tiamat Lv62
+33:Ammit Lv80
+34:Fafnir Lv132
+35:Armatized Heldalf Lv80
+36:Dragonewt Lv24
+37:Salamander Lv38
+38:???(maybe Mimic?) Lv42
+39:Maltran Lv61
+40:Male Assassin Lv14
+41:Female Assassin Lv14
+42:Zaveid Lv14
+43:Dark Turtlez Lv99
+44:Sergei Lv25
+45:Sergei Lv60
+46:Spider in the Ruins Lv5
+47:Prickleboar Lv6
+48:Slime Glutton
+49:Chancellor's Pawn Lv12
+50:Rolance Swordsman Lv18
+51:Rolance Spearman Lv18
+52:Hellionized Rolance Swordsman Lv18
+53:Hellionized Rolance Spearman Lv18
+54:General Landon Lv22
+55:Hound Dog Lv17
+56:Fuseface Lv50
+57:Werewolf Hellion Lv8
+58:Giant Centipede Lv10
+59:CRASH!
+60:CRASH!
+61:Sorey (Symonne Illusion?) Lv74
+62:Sorey (Symonne Illusion?) Lv75
+63:Rose (Symonne Illusion?) Lv74
+64:Rose (Symonne Illusion?) Lv75
+65:Catoblepas Lv80
+66:Quetzalcoatl Lv115
+67:Mayvin Lv56
+68:Illuyankas Lv105
+
+69:Wolf Lv7
+70:Savage Wolf Lv18
+71:Blazen Wolf Lv31
+72:Managarmr (Boss) Lv19
+73:Fury Wolf Lv120
+
+74:Marmot Lv10
+75:Skunk Lv25
+76:Duobomb Lv44
+77:Dangeroma (Boss) Lv35
+78:Water Skunk Lv75
+
+79:Boar Lv18
+80:Brutaur Lv24
+81:Wild Boar Lv35
+82:Behemoth (Boss) Lv34
+83:Boar Deity Lv100
+
+84:Aquaphant Lv37
+85:Elephant Lv43
+86:Mammoth Lv64
+87:Hyphant (Boss) Lv53
+88:Ganesh Lv110
+
+89:Scorpion Lv15
+90:Scorpstar Lv36
+91:Variant Needler Lv43
+92:Serket (Boss) Lv36
+93:Scarlet Needler Lv85
+
+94:Armadillo Lv14
+95:Geo Roller Lv24
+96:Flame Roller Lv31
+97:Pill Bug (Boss) Lv54
+98:Freezillo Lv100
+
+99:Centipede Lv8
+100:Armored Centipede Lv29
+101:Hundrepede Lv37
+102:Millionpede (Boss) Lv40
+103:Trilobite Lv70
+
+104:Spider Edge Lv15
+105:Orb-weaver Lv31
+106:Arachne Lv62
+107:Spider Queen (Boss) Lv45
+108:Tarantulizm Lv100
+
+109:Slime Lv8
+110:Mud Slime Lv36
+111:Slimeroot Lv54
+112:Maneater (Boss) Lv65
+113:Almond Jelly Lv90
+
+114:Leech Lv9
+115:Leecher Leech Lv30
+116:Bloodsucker Lv38
+117:Dirt Leech (Boss) Lv36
+118:Femt Leech Lv100
+
+119:Octopus Lv10
+120:Dumpus Lv35
+121:Octobert Lv39
+122:Kraken (Boss) Lv48
+123:Devil Fish Lv80
+
+124:Darken Eye Lv37
+125:Starfish Lv45
+126:Voided Eye Lv64
+127:Duhvision (Boss) Lv45
+128:Soleye Lv110
+
+129:Snake Lv7
+130:Serpent Lv20
+131:Cobra Lv38
+132:Oroboros (Boss) Lv12
+133:King Cobra Lv80
+
+134:Lamia Lv12
+135:Naga Lv35
+136:Hell Lady Lv62
+137:Echidna (Boss) Lv13
+138:Midgard Serpent Lv85
+
+139:Treant Lv20
+140:Aged Treant Lv26
+141:Elder Treant Lv56
+142:Dryad (Boss) Lv40
+143:Wood Chopper Lv70
+
+144:Plantus Lv18
+145:Forest Plantus Lv19
+146:Merciless Plantus Lv45
+147:Evil Plantasm (Boss) Lv19
+148:Caterpillar Fungus Lv70
+
+149:Bat Lv8
+150:Dusk Bat Lv24
+151:Vampire Lv59
+152:Bat Baron (Boss) Lv40
+153:Golden Bat Lv110
+
+154:Axe Beak Lv18
+155:Peacock Lv24
+156:Blade Beak Lv43
+157:King Peacock (Boss) Lv34
+158:Golden Axer Lv95
+
+159:Eagle Lv10
+160:Hawk Lv25
+161:Black Bird Lv42
+162:Horus (Boss) Lv24
+163:Bird-of-Paradise Lv70
+
+164:Harpy Lv14
+165:Wendy Lv40
+166:Garuda Lv62
+167:Harpy Go Lucky (Boss) Lv50
+168:Hell Harpy Lv110
+
+169:Orc Lv12
+170:Orc Farmer Lv25
+171:Orc Groomer Lv35
+172:Orc Kong (Boss) Lv65
+173:Orc Gorilla Lv95
+
+174:Werewolf Lv20
+175:Lycanthrope Lv43
+176:Wolf Berserker Lv57
+177:Breed Wolf (Boss) Lv32
+178:Lycan Coyote Lv100
+
+179:Troll Lv30
+180:Cyclopz Lv45
+181:Mountain Troll Lv56
+182:Boss Troll (Boss) Lv49
+183:Solveiger Lv75
+
+184:War Tiger Lv30
+185:Saber-toothed Tiger Lv40
+186:Black Panther Lv62
+187:Beast Master (Boss) Lv40
+188:Killer Cougar Lv120
+
+189:Goblin Shooter Lv24
+190:Goblin Sniper Lv38
+191:Goblin Ballista Lv59
+192:Goblin Lord (Boss) Lv48
+193:Goblin Cannon Lv95
+
+194:Lizardman Lv18
+195:Lizard Priest Lv33
+196:Lizard Warrior Lv50
+197:Dragon Warlock (Boss) Lv62
+198:Dragoon Lv90
+
+199:Living Armor Lv33
+200:Armor Knight Lv52
+201:Ancient Armor Lv64
+202:Knight Arthur (Boss) Lv17
+203:Wandering Armor Lv120
+
+204:Rock Giant Lv36
+205:Stone Colossal Lv46
+206:Mythril Giant Lv57
+207:Titan (Boss) Lv55
+208:Lava Atlas Lv85
+
+209:Pig Heddin Lv12
+210:Wolf Heddin Lv20
+211:Boar Heddin Lv31
+212:Bison Heddin (Boss) Lv47
+213:Bird Head Lv95
+
+214:Zombie Lv23
+215:Skeleton Lv27
+216:Ghoul Lv47
+217:Naught (Boss) Lv56
+218:Immortus Lv85
+
+219:Wraith Lv29
+220:Ghost Lv48
+221:Specter Lv62
+222:Phantom (Boss) Lv25
+223:Mist Puppeteer Lv90
+
+224:Undead Magician Lv20
+225:Undead Sorcerer Lv50
+226:Undead Druid Lv55
+227:Demon Rodler (Boss) Lv67
+228:Undead Wizard Lv120
+
+229:Pixie Lv15
+230:Fairy Lv36
+231:Sylphid Lv42
+232:Trickster (Boss) Lv47
+233:Changeling Lv75
+
+234:Scylla Lv37
+235:Aqua Scylla Lv45
+236:Hydra Lv59
+237:Nine-headed Serpent (Boss) Lv44
+238:Technician Lv80
+
+239:Devil Lv33
+240:Gargoyle Lv40
+241:Succubus Lv64
+242:Angel (Boss) Lv69
+243:Nightmare Lv120
+
+244:Scaled Bird Lv24
+245:Wyvern Lv40
+246:Dragonflare Lv64
+247:Legendary Wyvern (Boss) Lv55
+248:Kylvern Lv90
+
+249:CRASH!!
+250:CRASH!!
+251:CRASH!!
+
+252:Mimic Giant Lv75
+253:CRASH!
+254:CRASH!
+255:CRASH!
+256:Sophie Lv100
+257:Jade Lv115
+258:Zaveid Lv40
+259:Zaveid Lv42
+
+260:Mimic Treant Lv25
+261:Mimic Spider Lv15
+262:Mimic Zombie Lv45
+
+263:Agni Lv93
+264:Symonne Lv76
+265:Despot Heldalf Lv150
+266:Despot Armatized Heldalf Lv150
+267:Rougarou Lv27
+268:Eizen Lv80
+269:Mountain Troll Lv56
+270:Phoenix Lv83
+271:Rose Lv60
+272:Zaveid Lv60
+273:Heldalf Lv78
+274:Sophie Lv150
+275:Jade Lv150
+276:Test (???) Lv1
+
+277:Bad Katz Lv5
+278:Gangsta Katz Lv5
+279:Rowdy Katz Lv5
+280:Super Star R Lv5
+281:Super Star G Lv5
+282:Super Star S Lv5
+
+283:Vajra Lv120
+284:Ogre Tailen Lv60
+285:Chihyu Dragon Lv84
+286:CRASH!!!
+294:Shadow Sorey Lv60
+295:Shadow Rose Lv60
+296:Shadow Mikleo Lv60
+297:Shadow Lailah Lv60
+298:Shadow Edna Lv60
+299:CRASH!!!
+300:Shadow Zaveid Lv60
+301:Shadow Alisha Lv60
+302:Fuseface Lv50
+303:Lunarre Lv41
+304:Sergei Lv25
+305:Symonne Lv76
+306:Hellion Ooze Lv8
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10074</ID>
+              <Description>""ENE_XXXX" tag 2 offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10139</ID>
+                  <Description>""ENE_XXXX" tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10075</ID>
+              <Description>"Player value"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Sorey
+2:Rose
+3:Mikleo
+4:Lailah
+5:Edna
+6:Dezel
+7:Zaveid
+8:Alisha
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4646</ID>
+              <Description>"To Walk/Run/Quickstep Animation tag (0x10)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10090</ID>
+                  <Description>"Walk/Run/Quickstep Animation tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+10</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10076</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10077</ID>
+              <Description>"Name tag offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10091</ID>
+                  <Description>"Name tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+18</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10078</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10079</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10083</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10082</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10081</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10080</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10087</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10086</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10085</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10084</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10088</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4647</ID>
+              <Description>"Neutral Spacing btwn Player and Target (0x48)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10092</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10093</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>50</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10094</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10095</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>58</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10096</ID>
+              <Description>"Offset to ?"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>5C</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10097</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+5C</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4648</ID>
+              <Description>"Character Level (0x60)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>60</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10098</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10099</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4649</ID>
+              <Description>"Max HP (0x6C)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10100</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>70</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10101</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>74</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4650</ID>
+              <Description>"Attack (0x78)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4654</ID>
+              <Description>"Arte Attack (0x7C)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>7C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4653</ID>
+              <Description>"Defense (0x80)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>80</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4652</ID>
+              <Description>"Arte Defense (0x84)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>84</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4651</ID>
+              <Description>"Focus (0x88)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>88</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10102</ID>
+              <Description>"Enemy Skill (0x8C)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No skill in this slot
+1:Atakk - Attack +x%
+2:Mynd - Arte attack +x%
+3:Difens - Defense +x%
+4:Reziss - Arte defense +x%
+5:Spirri - Focus +x%
+6:Rangus - Stun Damage +x%
+7:Roon - Duration of stat increases +x%
+8:Blokk - Defense capability +x%
+9:Wresst - Duration of stat reduction -x%
+10:Gillum - Stun time reduction x%
+11:Blude - HP recovery upon succusful stun +x
+12:Plezur - HP recovery during combo +x
+13:Primor - HP recovery while defending +x
+14:Gaine - HP recovery upon defeating enemy +x
+15:Releeph - HP recovery when using BG +x
+16:Fantum - SC recovery upon successful stun +x
+17:Chein - SC use reduction during combo +x%
+18:Mirag - SC recovery speed while defending +x%
+19:Gaizer - SC recovery when damage received +x
+20:Justiss - SC recovery upon successful evasion +x
+21:Tempescht - BG increase when 10 hits landed +x%
+22:Wundor - BG increase upon defeating enemy +x%
+23:Farrest - BG increase rate while defending +x%
+24:Fethur - BG increase rate during evasion +x%
+25:Tensun - BG increase upon successful stun +x%
+26:Shokk - Capability paralyzing +x%
+27:Flaym - Capability burning +x%
+28:Sloe - Capability slowing +x%
+29:Poizon - Capability posioning +x%
+30:Fatty G - Capability fatiguing +x%
+31:Animili - Capability vs. beasts +x%
+32:Schel - Capability vs. crustaceans +x%
+33:Blarb - Capability vs. armorphous +x%
+34:Leglis - Capability vs. apodous +x%
+35:Pinyon - Capability vs. winged foes +x%
+36:Anther - Capability vs. therians +x%
+37:Plaite - Capability vs. armored +x%
+38:Litsch - Capability vs. undead +x%
+39:Deemun - Capability vs. fiends +x%
+40:Linder - Capability vs. dragons +x%
+41:Voyd - None-Elemental attack power +x%
+42:Faira - Fire attck power x%
+43:Urth - Earth attack power x%
+44:Acqua - Water attack power x%
+45:Windur - Wind attack power x%
+46:Pennetrayt - No Staggering when taking x damage
+47:Sheeld - No. of iron stances during casting +x
+48:Priventi - All damage taken reduced by x
+49:Invalada - Damage taken totaling less then x is negated
+50:Phoenix - KO protection +x%
+51:Soljur - All stats +x
+52:Asashin - HP +x% when evading with quickstep
+53:Preest - Max HP +x%
+54:Scowtt - SC recovery speed +x%
+55:Worlok - When BG reaches 0, BG auto-recovery +x%
+56:Shaymin - Duration of inflicted status ailments +x%
+57:Sordzmin - Enemy Stagger time +x with 2-combo
+58:Knyte - Enemy Stagger time +x with 3-combo
+59:Palydeen - Enemy Stagger time +x with 4-combo
+60:Heerow - X seconds complete evasion at start of battle
+61:Devoyd - Non-elemental damage reduced by x%
+62:Defaira - Fire damage reduced by x%
+63:Deurth - Earth damage reduced by x%
+64:Deacqua - Water damage reduced by x%
+65:Dewindur - Wind damage reduced by x%
+66:Roklin - Effect of paralysis reduced by x%
+67:Komfert - Effect of burn reduced by x%
+68:Elvin - Effect of slow reduced by x%
+69:Meltem - Effect of poison reduced by x%
+70:Leah - Effect of fatigue reduced by x%
+71:Atakkus - Attack +x when you level up
+72:Myndus - Arte Attack +x when you level up
+73:Difensus - Defense +x when you level up
+74:Rezissus - Arte Defense +x when you level up
+75:Spirrius - Focus +x when you level up
+76:Invoyd - None-elemental damage on first combo hit +x
+77:Infaira - Fire damage on first combo hit +x
+78:Inurth - Earth damage on first combo hit +x
+79:Inacqua - Water damage on first combo hit +x
+80:Inwindur - Wind damage on first combo hit +x
+81:Brilyanti - Stun time for none-elemental attacks +x seconds
+82:Charr - Stun time for fire attacks +x seconds
+83:Gayya - Stun time for earth attacks +x seconds
+84:Tryton - Stun time for water attacks +x seconds
+85:Zeffir - Stun time for wind attacks +x seconds
+86:Vanisch - Negates enemy's none-elemental resistance
+87:Igneet - Negates enemy's fire resistance
+88:Quayk - Negates enemy's earth resistance
+89:Tidel - Negates enemy's water resistance
+90:Vohrtex - Negates enemy's wind resistance
+91:Maxwell - x% chance to convert none-elemental damage to 1
+92:Efreet - x% chance to convert fire damage to 1
+93:Gnome - x% chance to convert earth damage to 1
+94:Undine - x% chance to convert water damage to 1
+95:Sylph - x% chance to convert wind damage to 1
+96:Voydax - 20% chance of x'x' none-elemental power increase
+97:Fairax - 20% chance of x'x' fire power increase
+98:Urthax - 20% chance of x'x' earth power increase
+99:Acquax - 20% chance of x'x' water power increase
+100:Windurax - 20% chance of x'x' wind power increase
+101:Ebonis - Reflect back x% of none-elemental damage
+102:Krimsen - Reflect back x% of fire damage
+103:Ambur - Reflect back x% of earth damage
+104:Azura - Reflect back x% of water damage
+105:Verdae - Reflect back x% of wind damage
+106:Anthemn - Stagger time lowered by x%
+107:Blasst - Maximum BG +x
+108:Ekseed - No. of combos in normal stat +x
+109:Aster - x'x damage on 10th, 20th, 30th (etc.) hit
+110:Aejis - Prevents Petrify, your knockback chance halved
+111:Axcell - BG cost of mystic artes reduced by x
+112:Riborne - Recovers x% of damage to take
+113:Kiloh - Halves damage over 1000
+114:Ashur - Times used for artes x'x'
+115:Mistiq - Reduces casting time by x%
+116:Metalik - No staggering when HP is over 70%
+117:Oddin - Number of hits doubled
+118:Athaena - 5sec after healing, extra x% HP Recovery
+119:Lucyfir - All SC consumption halved
+120:Eterniti - No combo limit while SC remaining
+121:Armatize: Bullet - Armatized - Banish Blast powered up
+122:Armatize: Fire - Armatized - strong to wind, weak to water x%
+123:Armatize: Earth - Armatized - strong to water, weak to wind x%
+124:Armatize: Water - Armatized - strong to fire, weak to earth x%
+125:Armatize: Wind - Armatized - strong to earth, weak to fire x%
+126:Purify: Human - All curses broken upon armatization
+127:Purify: Fire - All Burn effects healed upon armatization
+128:Purify: Earth - All Slow effects healed upon armatization
+129:Purify: Water - All Poison effects neutralized upon armatization
+130:Purify: Wind - All Fatigue effects cured upon armatization
+131:Short Attack Bonus - Grade for quick enemy dispatch +x
+132:Fatal Beginning - Stun rate +10% for 'x' seconds battle start
+133:Utmost Fatality - Stun rate +x% against enemies with max HP
+134:No Damage Bonus - Grade for no-damage enemy dispatch +x
+135:No Damage SP - SC recovery speed +x% while undamaged
+136:Jumbo Combo -  +x damage rate increase for consecutive hits
+137:Equal Attack Bonus - Grade for simultaneous enemy disptach +x
+138:Emergency Attack - Damage rate to enemy with status ailment +x%
+139:Flip Attack - Damage multiplier to downed enemy +x%
+140:Matched Recovery - Quickstepping SC cost reduced by x%
+141:Increased Hate - Rate targeted by enemies +x%
+142:Desperate Defense - Damage reduced by x% when HP less then 25%
+143:Reduce Hate - Rate targeted by enemies -x%
+144:Desperate Prevention - SC +x when resisting status ailments
+145:High Speed Items - Time you can't use items reduced by x%
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>8C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10103</ID>
+              <Description>"Enemy Skill Multiplier (0x90)"</Description>
+              <DropDownList DisplayValueAsItem="1">0: Not active
+1: x 1
+2: x 2
+3: x 3
+4: x 4
+5: x 5
+6: x 6
+7: x 7
+8: x 8
+9: x 9
+10: x 10
+20: x 20
+40: x 40
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10104</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>94</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10105</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>98</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10106</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10107</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10108</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>A4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10109</ID>
+              <Description>"Offset to ?"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>A8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10112</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+A8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10110</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10111</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4659</ID>
+              <Description>"Enemy Affinity offset (0xB4)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Charge
+2:Area
+3:Jump
+4:Pierce
+5:Swing
+6:Sneaky
+7:Shoot
+8:Long Reach
+9:Weapon
+10:Super Jump
+11:Breath
+12:Teleport
+13:Long Range
+14:Barrier
+15:Teleport
+16:Support
+17:Adaptive
+18:Counterattack
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10183</ID>
+                  <Description>"Might overlap with weakness if there's only 1 affinity!"</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4662</ID>
+                  <Description>"Enemy Affinity 1"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:Beasts
+2:Crustaceans
+3:Amorphous
+4:Apodus
+5:Winged
+6:Therian
+7:Armored
+8:Undead
+9:Fiends
+10:Dragons
+11:People
+12:Unknown
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+B4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10149</ID>
+                  <Description>"Enemy Affinity 2"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:Beasts
+2:Crustaceans
+3:Amorphous
+4:Apodus
+5:Winged
+6:Therian
+7:Armored
+8:Undead
+9:Fiends
+10:Dragons
+11:People
+12:Unknown
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+B8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4671</ID>
+              <Description>"Number of Enemy Affinities(0xB8)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10115</ID>
+              <Description>"Weakness offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10146</ID>
+                  <Description>"Physical"</Description>
+                  <DropDownListLink>dropdown: Weakness</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+BC</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10168</ID>
+                  <Description>"Fire"</Description>
+                  <DropDownListLink>dropdown: Weakness</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+C0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10174</ID>
+                  <Description>"Earth"</Description>
+                  <DropDownListLink>dropdown: Weakness</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+C4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10175</ID>
+                  <Description>"Water"</Description>
+                  <DropDownListLink>dropdown: Weakness</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+C8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10182</ID>
+                  <Description>"Wind"</Description>
+                  <DropDownListLink>dropdown: Weakness</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+CC</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10117</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10118</ID>
+              <Description>"Offset to ?"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>C4</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10148</ID>
+                  <Description>"?"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>4</ByteLength>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+C4</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10188</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10120</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10121</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10186</ID>
+              <Description>"Boss?"</Description>
+              <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>D1</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10185</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>D2</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10184</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>D3</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4661</ID>
+              <Description>"Attack Type (0xD4)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Charge
+2:Area
+3:Jump
+4:Pierce
+5:Swing
+6:Sneaky
+7:Shoot
+8:Long Reach
+9:Weapon
+10:Super Jump
+11:Breath
+12:Teleport
+13:Long Range
+14:Barrier
+15:Teleport
+16:Support
+17:Adaptive
+18:Counterattack
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>D4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10122</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>D8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4655</ID>
+              <Description>"Normal Run Speed (0xDC)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>DC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10123</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4656</ID>
+              <Description>"Model Turn Speed (0xE4)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10124</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10125</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10126</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10127</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10128</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>F8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10129</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10130</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>100</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4664</ID>
+              <Description>"Power Link (0x104)(invalid if PLM = 0)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+1:Sorey Lv1
+2:Rose Lv1
+3:Mikleo Lv1
+4:Lailah Lv1
+5:Edna Lv1
+6:Dezel Lv1
+7:Zavied Lv1
+8:Alisha Lv1
+9:Heldalf (~Biroclef Ridge) Lv80
+10:Heldalf (Biroclef Ridge) Lv80
+11:Heldalf (Artorius Throne) Lv80
+12:???(LunarreElysia) Lv6
+13:???(LunarreLadylake) Lv7
+14:Lunarre Lv41
+15:Lunarre Lv60
+16:Cerberus Lv68
+17:Duoblock Lv122
+18:Dullahan Lv47
+19:Odin Lv80
+20:Asura Lv43
+21:Minotauros Lv42
+22:Medusa Lv39
+23:Euryale Lv57
+24:Stheno Lv56
+25:Drake Lv19
+26:Griffin Lv36
+27:Hippogriff Lv80
+28:Hecatoncheire Lv80
+29:Eizen Lv80
+30:Dinosaur Lv80
+31:Dragon Zombie Lv145
+32:Tiamat Lv62
+33:Ammit Lv80
+34:Fafnir Lv132
+35:Armatized Heldalf Lv80
+36:Dragonewt Lv24
+37:Salamander Lv38
+38:???(maybe Mimic?) Lv42
+39:Maltran Lv61
+40:Male Assassin Lv14
+41:Female Assassin Lv14
+42:Zaveid Lv14
+43:Dark Turtlez Lv99
+44:Sergei Lv25
+45:Sergei Lv60
+46:Spider in the Ruins Lv5
+47:Prickleboar Lv6
+48:Slime Glutton
+49:Chancellor's Pawn Lv12
+50:Rolance Swordsman Lv18
+51:Rolance Spearman Lv18
+52:Hellionized Rolance Swordsman Lv18
+53:Hellionized Rolance Spearman Lv18
+54:General Landon Lv22
+55:Hound Dog Lv17
+56:Fuseface Lv50
+57:Werewolf Hellion Lv8
+58:Giant Centipede Lv10
+59:CRASH!
+60:CRASH!
+61:Sorey (Symonne Illusion?) Lv74
+62:Sorey (Symonne Illusion?) Lv75
+63:Rose (Symonne Illusion?) Lv74
+64:Rose (Symonne Illusion?) Lv75
+65:Catoblepas Lv80
+66:Quetzalcoatl Lv115
+67:Mayvin Lv56
+68:Illuyankas Lv105
+
+69:Wolf Lv7
+70:Savage Wolf Lv18
+71:Blazen Wolf Lv31
+72:Managarmr (Boss) Lv19
+73:Fury Wolf Lv120
+
+74:Marmot Lv10
+75:Skunk Lv25
+76:Duobomb Lv44
+77:Dangeroma (Boss) Lv35
+78:Water Skunk Lv75
+
+79:Boar Lv18
+80:Brutaur Lv24
+81:Wild Boar Lv35
+82:Behemoth (Boss) Lv34
+83:Boar Deity Lv100
+
+84:Aquaphant Lv37
+85:Elephant Lv43
+86:Mammoth Lv64
+87:Hyphant (Boss) Lv53
+88:Ganesh Lv110
+
+89:Scorpion Lv15
+90:Scorpstar Lv36
+91:Variant Needler Lv43
+92:Serket (Boss) Lv36
+93:Scarlet Needler Lv85
+
+94:Armadillo Lv14
+95:Geo Roller Lv24
+96:Flame Roller Lv31
+97:Pill Bug (Boss) Lv54
+98:Freezillo Lv100
+
+99:Centipede Lv8
+100:Armored Centipede Lv29
+101:Hundrepede Lv37
+102:Millionpede (Boss) Lv40
+103:Trilobite Lv70
+
+104:Spider Edge Lv15
+105:Orb-weaver Lv31
+106:Arachne Lv62
+107:Spider Queen (Boss) Lv45
+108:Tarantulizm Lv100
+
+109:Slime Lv8
+110:Mud Slime Lv36
+111:Slimeroot Lv54
+112:Maneater (Boss) Lv65
+113:Almond Jelly Lv90
+
+114:Leech Lv9
+115:Leecher Leech Lv30
+116:Bloodsucker Lv38
+117:Dirt Leech (Boss) Lv36
+118:Femt Leech Lv100
+
+119:Octopus Lv10
+120:Dumpus Lv35
+121:Octobert Lv39
+122:Kraken (Boss) Lv48
+123:Devil Fish Lv80
+
+124:Darken Eye Lv37
+125:Starfish Lv45
+126:Voided Eye Lv64
+127:Duhvision (Boss) Lv45
+128:Soleye Lv110
+
+129:Snake Lv7
+130:Serpent Lv20
+131:Cobra Lv38
+132:Oroboros (Boss) Lv12
+133:King Cobra Lv80
+
+134:Lamia Lv12
+135:Naga Lv35
+136:Hell Lady Lv62
+137:Echidna (Boss) Lv13
+138:Midgard Serpent Lv85
+
+139:Treant Lv20
+140:Aged Treant Lv26
+141:Elder Treant Lv56
+142:Dryad (Boss) Lv40
+143:Wood Chopper Lv70
+
+144:Plantus Lv18
+145:Forest Plantus Lv19
+146:Merciless Plantus Lv45
+147:Evil Plantasm (Boss) Lv19
+148:Caterpillar Fungus Lv70
+
+149:Bat Lv8
+150:Dusk Bat Lv24
+151:Vampire Lv59
+152:Bat Baron (Boss) Lv40
+153:Golden Bat Lv110
+
+154:Axe Beak Lv18
+155:Peacock Lv24
+156:Blade Beak Lv43
+157:King Peacock (Boss) Lv34
+158:Golden Axer Lv95
+
+159:Eagle Lv10
+160:Hawk Lv25
+161:Black Bird Lv42
+162:Horus (Boss) Lv24
+163:Bird-of-Paradise Lv70
+
+164:Harpy Lv14
+165:Wendy Lv40
+166:Garuda Lv62
+167:Harpy Go Lucky (Boss) Lv50
+168:Hell Harpy Lv110
+
+169:Orc Lv12
+170:Orc Farmer Lv25
+171:Orc Groomer Lv35
+172:Orc Kong (Boss) Lv65
+173:Orc Gorilla Lv95
+
+174:Werewolf Lv20
+175:Lycanthrope Lv43
+176:Wolf Berserker Lv57
+177:Breed Wolf (Boss) Lv32
+178:Lycan Coyote Lv100
+
+179:Troll Lv30
+180:Cyclopz Lv45
+181:Mountain Troll Lv56
+182:Boss Troll (Boss) Lv49
+183:Solveiger Lv75
+
+184:War Tiger Lv30
+185:Saber-toothed Tiger Lv40
+186:Black Panther Lv62
+187:Beast Master (Boss) Lv40
+188:Killer Cougar Lv120
+
+189:Goblin Shooter Lv24
+190:Goblin Sniper Lv38
+191:Goblin Ballista Lv59
+192:Goblin Lord (Boss) Lv48
+193:Goblin Cannon Lv95
+
+194:Lizardman Lv18
+195:Lizard Priest Lv33
+196:Lizard Warrior Lv50
+197:Dragon Warlock (Boss) Lv62
+198:Dragoon Lv90
+
+199:Living Armor Lv33
+200:Armor Knight Lv52
+201:Ancient Armor Lv64
+202:Knight Arthur (Boss) Lv17
+203:Wandering Armor Lv120
+
+204:Rock Giant Lv36
+205:Stone Colossal Lv46
+206:Mythril Giant Lv57
+207:Titan (Boss) Lv55
+208:Lava Atlas Lv85
+
+209:Pig Heddin Lv12
+210:Wolf Heddin Lv20
+211:Boar Heddin Lv31
+212:Bison Heddin (Boss) Lv47
+213:Bird Head Lv95
+
+214:Zombie Lv23
+215:Skeleton Lv27
+216:Ghoul Lv47
+217:Naught (Boss) Lv56
+218:Immortus Lv85
+
+219:Wraith Lv29
+220:Ghost Lv48
+221:Specter Lv62
+222:Phantom (Boss) Lv25
+223:Mist Puppeteer Lv90
+
+224:Undead Magician Lv20
+225:Undead Sorcerer Lv50
+226:Undead Druid Lv55
+227:Demon Rodler (Boss) Lv67
+228:Undead Wizard Lv120
+
+229:Pixie Lv15
+230:Fairy Lv36
+231:Sylphid Lv42
+232:Trickster (Boss) Lv47
+233:Changeling Lv75
+
+234:Scylla Lv37
+235:Aqua Scylla Lv45
+236:Hydra Lv59
+237:Nine-headed Serpent (Boss) Lv44
+238:Technician Lv80
+
+239:Devil Lv33
+240:Gargoyle Lv40
+241:Succubus Lv64
+242:Angel (Boss) Lv69
+243:Nightmare Lv120
+
+244:Scaled Bird Lv24
+245:Wyvern Lv40
+246:Dragonflare Lv64
+247:Legendary Wyvern (Boss) Lv55
+248:Kylvern Lv90
+
+249:CRASH!!
+250:CRASH!!
+251:CRASH!!
+
+252:Mimic Giant Lv75
+253:CRASH!
+254:CRASH!
+255:CRASH!
+256:Sophie Lv100
+257:Jade Lv115
+258:Zaveid Lv40
+259:Zaveid Lv42
+
+260:Mimic Treant Lv25
+261:Mimic Spider Lv15
+262:Mimic Zombie Lv45
+
+263:Agni Lv93
+264:Symonne Lv76
+265:Despot Heldalf Lv150
+266:Despot Armatized Heldalf Lv150
+267:Rougarou Lv27
+268:Eizen Lv80
+269:Mountain Troll Lv56
+270:Phoenix Lv83
+271:Rose Lv60
+272:Zaveid Lv60
+273:Heldalf Lv78
+274:Sophie Lv150
+275:Jade Lv150
+276:Test (???) Lv1
+
+277:Bad Katz Lv5
+278:Gangsta Katz Lv5
+279:Rowdy Katz Lv5
+280:Super Star R Lv5
+281:Super Star G Lv5
+282:Super Star S Lv5
+
+283:Vajra Lv120
+284:Ogre Tailen Lv60
+285:Chihyu Dragon Lv84
+286:CRASH!!!
+294:Shadow Sorey Lv60
+295:Shadow Rose Lv60
+296:Shadow Mikleo Lv60
+297:Shadow Lailah Lv60
+298:Shadow Edna Lv60
+299:CRASH!!!
+300:Shadow Zaveid Lv60
+301:Shadow Alisha Lv60
+302:Fuseface Lv50
+303:Lunarre Lv41
+304:Sergei Lv25
+305:Symonne Lv76
+306:Hellion Ooze Lv8
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>104</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4666</ID>
+              <Description>"Power Link Multiplier(in %)(0x108)"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>108</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4658</ID>
+              <Description>"Model Size Multiplier(loads before battle) (0x10C)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4657</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>110</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10131</ID>
+              <Description>"Model Run Anim Spd(not actual spd) (0x114)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>114</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10132</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>118</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10133</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>11C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10134</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>120</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10135</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>124</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10136</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>128</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10137</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>12C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4669</ID>
+              <Description>"Enemy Book Image tag offset (0x130)"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>130</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4672</ID>
+                  <Description>"!!Graphical User Interface Menu Enemy Book Image[tag meaning]"</Description>
+                  <Color>0000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10138</ID>
+                  <Description>"Enemy Book Image tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+130</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10143</ID>
+              <Description>"Voice value (0x134)"</Description>
+              <DropDownList DisplayValueAsItem="1">0:???
+1:Sorey
+2:Rose
+3:Mikleo
+4:Lailah
+5:Edna
+6:Dezel
+7:Zaveid
+8:Alisha
+11:Sophie
+12:Jade
+13:Heldalf
+14:Heldalf(2)
+15:Lunarre(?)
+16:?
+17:?
+18:?
+19:Sergei(?)
+20:Sergei(Symonne)(?)
+21:Maltran
+22:Mayvin
+23:Symonne
+24:Asura(?)
+25:Cardinal Forton
+26:?
+27:Asura(?)
+31:?
+32:?
+33:
+35:
+36:
+37:
+38:Dark Turtlez
+41:
+42:
+43:
+44:Phoenix
+45:
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>134</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10144</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>138</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10145</ID>
+              <Description>"SEL tag offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>data_entryNO</Address>
+              <Offsets>
+                <Offset>13C</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10147</ID>
+                  <Description>"SEL tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>[data_entryNO]+13C</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4890</ID>
+          <Description>"Item data"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2023-07-03
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(itemDataPTR,00 00 00 00 00 00 00 00 ? ? ? ? ? ? ? ? B0 7B 00 00 00 00 00 00 08 00 00 00 8D 00 00 00) // should be unique
+alloc(itemNum,8)
+
+registersymbol(itemDataPTR)
+registersymbol(itemNum)
+
+[DISABLE]
+
+unregistersymbol(itemDataPTR)
+unregistersymbol(itemNum)
+dealloc(itemNum)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>4891</ID>
+              <Description>"Item number"</Description>
+              <DropDownList DisplayValueAsItem="1">39:Sorey water armatization
+49:Rose water armatization
+50:Alisha def costume (and arma?)
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemNum</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4929</ID>
+              <Description>"Item offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+24+5C*[itemNum]</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4930</ID>
+                  <Description>"Item tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>itemDataPTR+24+5C*[itemNum]</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4894</ID>
+              <Description>"Name offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+4+24+5C*[itemNum]</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4895</ID>
+                  <Description>"Name tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>itemDataPTR+4+24+5C*[itemNum]</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4896</ID>
+              <Description>"Description offset"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+8+24+5C*[itemNum]</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4897</ID>
+                  <Description>"Description tag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>60</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>itemDataPTR+8+24+5C*[itemNum]</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4898</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+C+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4899</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+10+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4900</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+14+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4901</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+18+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4902</ID>
+              <Description>"Offset to model?"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+1C+24+5C*[itemNum]</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4903</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>itemDataPTR+1C+24+5C*[itemNum]</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4923</ID>
+                  <Description>"Offset to model?"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>itemDataPTR+1C+24+5C*[itemNum]+4</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>4924</ID>
+                      <Description>"Model tag"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>[itemDataPTR+1C+24+5C*[itemNum]]+itemDataPTR+1C+24+5C*[itemNum]+4</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4904</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+20+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4905</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+24+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4906</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+28+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4907</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+2C+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4908</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+30+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4909</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+34+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4910</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+38+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4911</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+3C+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4912</ID>
+              <Description>"Offset to ?"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+40+24+5C*[itemNum]</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4913</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>String</VariableType>
+                  <Length>30</Length>
+                  <Unicode>0</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>+0</Address>
+                  <Offsets>
+                    <Offset>itemDataPTR+40+24+5C*[itemNum]</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4914</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+44+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4915</ID>
+              <Description>"Character that can equip"</Description>
+              <DropDownList DisplayValueAsItem="1">-1:Anyone
+0:None
+1:Sorey
+2:Rose
+3:Mikleo
+4:Lailah
+5:Edna
+6:Dezel
+7:Zaveid
+8:Alisha
+</DropDownList>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>itemDataPTR+48+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4916</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>itemDataPTR+49+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4917</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>itemDataPTR+4A+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4918</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>itemDataPTR+4B+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4919</ID>
+              <Description>"Cost to equip"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+4C+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4920</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+50+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4921</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+54+24+5C*[itemNum]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4922</ID>
+              <Description>"?"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>itemDataPTR+58+24+5C*[itemNum]</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
