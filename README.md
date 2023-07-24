@@ -46,6 +46,21 @@ Based on the 2017/02/03 update.
 Features:
  - Show all entries in Enemy Book
 
+ ## Destiny (PS1)
+Based on the SLUS00626 version of the game.
+
+Emulator used: DuckStation 0.1-5485-gc6a57273 (dev)
+
+Features:
+ - Party Formation Editor
+ - Stats Editor
+ - In-Battle Stats Editor
+ - Equipment Editor
+ - Change Control Modes in and outside of battle
+ - Enable or Disable Dash Modes
+ - Enable or Disable Combo Command Modes
+ - Automatic Manual Control Mode, Dash Mode and Combo Command Mode script
+
  ## Destiny Director's Cut (PS2)
 Based on the SLPS25842 version of the game.
 
@@ -87,7 +102,7 @@ Features:
  ## Eternia (PS1)
 Based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
  
-Emulator used: DuckStation 0.1-5406-ge27f259b (dev)
+Emulator used: DuckStation 0.1-5485-gc6a57273 (dev)
 
 Features:
  - Party Formation Editor
@@ -176,7 +191,7 @@ Features:
  ## Phantasia (PS1)
 Based on the SLPS91210 version of the game.
 
-Emulator used: Beetle PSX HW 0.9.44.1 9f126e5
+Emulator used: DuckStation 0.1-5485-gc6a57273 (dev)
 
 Features: 
  - Party Formation Editor
@@ -187,6 +202,7 @@ Features:
  - Enable or Disable Dash Modes
  - Enable or Disable Combo Command Modes
  - Difficulty Modifier
+ - Automatic Manual Control Mode, Dash Mode and Combo Command Mode + Auto Death Cam script
 
  ## Phantasia: Narikiri Dungeon X (PSP)
 Based on the ULJS00293 (1.01) version of the game.
