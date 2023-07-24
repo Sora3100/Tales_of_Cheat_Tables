@@ -1,5 +1,26 @@
 ### Changelog
 
+#### 2023/07/24
+
+-	Added new table: Destiny (PS1)
+	-	Features:
+		-	Party Formation Editor
+		-	Stats Editor
+		-	In-Battle Stats Editor
+		-	Equipment Editor
+		-	Change Control Modes in and outside of battle
+		-	Enable or Disable Dash Modes
+		-	Enable or Disable Combo Command Modes
+		-	Automatic Manual Control Mode, Dash Mode and Combo Command Mode script
+
+-	Updated PS1 tables to be more future proof (they might even work on other emulators now, but it is not guaranteed, try your luck!)
+	-	Affected:
+		-	Phantasia
+		-	Eternia
+		
+-	Phantasia now has a more future proof version of the Automatic Manual Control Mode, Dash Mode and Combo Command Mode + Auto Death Cam script
+-	Added Arte Usage for Phantasia
+
 #### 2023/07/11
 
 -	Vesperia's "Arte Properties Editor" will now automatically update itself for the following groups:
