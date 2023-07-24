@@ -6082,6 +6082,99 @@ TOV_DE.exe+55FBA5: 0F 4D D8              - cmovge ebx,eax
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
+      <ID>84825</ID>
+      <Description>"Infinite Air Dash"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2023-07-15
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(forwardDashCheck,TOV_DE.exe,74 07 83 A3 F8 B2 02 00 BF) // should be unique
+aobscanmodule(backDashCheck,TOV_DE.exe,C0 74 0A 81 A3 F8 B2 02 00 FF FE FF FF) // should be unique
+
+forwardDashCheck:
+  db EB 07
+
+backDashCheck+01:
+  db EB 0A
+
+registersymbol(forwardDashCheck)
+registersymbol(backDashCheck)
+
+[DISABLE]
+
+forwardDashCheck:
+  db 74 07
+
+backDashCheck+01:
+  db 74 0A
+
+unregistersymbol(forwardDashCheck)
+unregistersymbol(backDashCheck)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+53C60D
+
+TOV_DE.exe+53C5EA: 48 8B CF              - mov rcx,rdi
+TOV_DE.exe+53C5ED: E8 EE 91 01 00        - call TOV_DE.exe+5557E0
+TOV_DE.exe+53C5F2: 48 8B C8              - mov rcx,rax
+TOV_DE.exe+53C5F5: BA 1C 01 00 00        - mov edx,0000011C
+TOV_DE.exe+53C5FA: E8 D1 E3 08 00        - call TOV_DE.exe+5CA9D0
+TOV_DE.exe+53C5FF: 84 C0                 - test al,al
+TOV_DE.exe+53C601: 74 0C                 - je TOV_DE.exe+53C60F
+TOV_DE.exe+53C603: 48 8B CF              - mov rcx,rdi
+TOV_DE.exe+53C606: E8 F5 01 02 00        - call TOV_DE.exe+55C800
+TOV_DE.exe+53C60B: 84 C0                 - test al,al
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+53C60D: 74 07                 - je TOV_DE.exe+53C616
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+53C60F: 83 A3 F8 B2 02 00 BF  - and dword ptr [rbx+0002B2F8],-41
+TOV_DE.exe+53C616: 8B 83 F8 B2 02 00     - mov eax,[rbx+0002B2F8]
+TOV_DE.exe+53C61C: C1 E8 07              - shr eax,07
+TOV_DE.exe+53C61F: A8 01                 - test al,01
+TOV_DE.exe+53C621: 74 23                 - je TOV_DE.exe+53C646
+TOV_DE.exe+53C623: 48 8B CF              - mov rcx,rdi
+TOV_DE.exe+53C626: E8 B5 91 01 00        - call TOV_DE.exe+5557E0
+TOV_DE.exe+53C62B: 48 8B C8              - mov rcx,rax
+TOV_DE.exe+53C62E: BA 0D 01 00 00        - mov edx,0000010D
+TOV_DE.exe+53C633: E8 98 E3 08 00        - call TOV_DE.exe+5CA9D0
+}
+{
+// ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+53C5D1
+
+TOV_DE.exe+53C5AE: 48 8B CF                       - mov rcx,rdi
+TOV_DE.exe+53C5B1: E8 2A 92 01 00                 - call TOV_DE.exe+5557E0
+TOV_DE.exe+53C5B6: 48 8B C8                       - mov rcx,rax
+TOV_DE.exe+53C5B9: BA 19 01 00 00                 - mov edx,00000119
+TOV_DE.exe+53C5BE: E8 0D E4 08 00                 - call TOV_DE.exe+5CA9D0
+TOV_DE.exe+53C5C3: 84 C0                          - test al,al
+TOV_DE.exe+53C5C5: 74 0C                          - je TOV_DE.exe+53C5D3
+TOV_DE.exe+53C5C7: 48 8B CF                       - mov rcx,rdi
+TOV_DE.exe+53C5CA: E8 51 02 02 00                 - call TOV_DE.exe+55C820
+TOV_DE.exe+53C5CF: 84 C0                          - test al,al
+// ---------- INJECTING HERE ----------
+TOV_DE.exe+53C5D1: 74 0A                          - je TOV_DE.exe+53C5DD
+// ---------- DONE INJECTING  ----------
+TOV_DE.exe+53C5D3: 81 A3 F8 B2 02 00 FF FE FF FF  - and [rbx+0002B2F8],FFFFFEFF
+TOV_DE.exe+53C5DD: 8B 83 F8 B2 02 00              - mov eax,[rbx+0002B2F8]
+TOV_DE.exe+53C5E3: C1 E8 06                       - shr eax,06
+TOV_DE.exe+53C5E6: A8 01                          - test al,01
+TOV_DE.exe+53C5E8: 74 2C                          - je TOV_DE.exe+53C616
+TOV_DE.exe+53C5EA: 48 8B CF                       - mov rcx,rdi
+TOV_DE.exe+53C5ED: E8 EE 91 01 00                 - call TOV_DE.exe+5557E0
+TOV_DE.exe+53C5F2: 48 8B C8                       - mov rcx,rax
+TOV_DE.exe+53C5F5: BA 1C 01 00 00                 - mov edx,0000011C
+TOV_DE.exe+53C5FA: E8 D1 E3 08 00                 - call TOV_DE.exe+5CA9D0
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
       <ID>63628</ID>
       <Description>"UNSUPPORTED"</Description>
       <Options moHideChildren="1"/>
@@ -20770,6 +20863,72 @@ dealloc(arteNameDispstorage)
         <Byte>B4</Byte>
       </After>
     </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jmp TOV_DE.exe+53E6DB</Description>
+      <AddressString>TOV_DE.exe+53E6CA</AddressString>
+      <Before>
+        <Byte>E1</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>EB</Byte>
+        <Byte>0F</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+        <Byte>E8</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je TOV_DE.exe+53C5DD</Description>
+      <AddressString>TOV_DE.exe+53C5D1</AddressString>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+      </Actual>
+      <After>
+        <Byte>81</Byte>
+        <Byte>A3</Byte>
+        <Byte>F8</Byte>
+        <Byte>B2</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je TOV_DE.exe+53C616</Description>
+      <AddressString>TOV_DE.exe+53C60D</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>07</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>A3</Byte>
+        <Byte>F8</Byte>
+        <Byte>B2</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
   </CheatCodes>
   <UserdefinedSymbols>
     <SymbolEntry>
@@ -20781,6 +20940,21 @@ dealloc(arteNameDispstorage)
 It seems that if you try to load a model that's not supposed to be in the fight, it will crash the game. Otherwise, the animation will also not function, but it doesn't crash the game.
 </Comments>
   <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
+</Comment>
+    </DisassemblerComment>
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+4A272D</Address>
       <Comment>multiplier (70)
@@ -20799,21 +20973,6 @@ It seems that if you try to load a model that's not supposed to be in the fight,
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+5555BC</Address>
       <Comment>fs3
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D4E</Address>
-      <Comment>60
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D58</Address>
-      <Comment>71
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D64</Address>
-      <Comment>90
 </Comment>
     </DisassemblerComment>
   </DisassemblerComments>
