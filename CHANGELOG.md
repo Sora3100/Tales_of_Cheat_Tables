@@ -1,5 +1,12 @@
 ### Changelog
 
+#### 2023/09/16
+
+-	Updated the Auto Control Mode script to be able to pick whether to set to Auto, Semi-Auto or Manual. (default Manual)
+	-	Applies to both Phantasia and Destiny
+
+-	Added some backgrounds as a dropdown for Symphonia
+
 #### 2023/07/24
 
 -	Added new table: Destiny (PS1)
