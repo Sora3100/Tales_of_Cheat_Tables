@@ -2269,19 +2269,19 @@ function mainloop()
             --Control Modes
             --Slot 1
             if (readByte("controlModemem") == 1) then
-               writeByte("baseRAMAddr+138F26",2)
+               writeByte("baseRAMAddr+138F26",readByte("controlModemem+10"))
             end
             --Slot 2
             if (readByte("controlModemem+1") == 1) then
-               writeByte("baseRAMAddr+138F26+238",2)
+               writeByte("baseRAMAddr+138F26+238",readByte("controlModemem+11"))
             end
             --Slot 3
             if (readByte("controlModemem+2") == 1) then
-               writeByte("baseRAMAddr+138F26+238*2",2)
+               writeByte("baseRAMAddr+138F26+238*2",readByte("controlModemem+12"))
             end
             --Slot 4
             if (readByte("controlModemem+3") == 1) then
-               writeByte("baseRAMAddr+138F26+238*3",2)
+               writeByte("baseRAMAddr+138F26+238*3",readByte("controlModemem+13"))
             end
 
             --Dash Modes
@@ -2409,7 +2409,7 @@ controlModemem:
   db 01 00 00 00 01 01 01 01
 
 controlModemem+C:
-  db 01 01 01 01
+  db 01 01 01 01 02 02 02 02
 
 registersymbol(controlModemem)
 
@@ -2445,7 +2445,7 @@ unregistersymbol(controlModemem)
           <CheatEntries>
             <CheatEntry>
               <ID>63471</ID>
-              <Description>"Manual Control Modes"</Description>
+              <Description>"Control Modes"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
@@ -2458,6 +2458,16 @@ unregistersymbol(controlModemem)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63532</ID>
+                      <Description>"Control Mode"</Description>
+                      <DropDownListLink>dropdown: Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>63473</ID>
@@ -2466,6 +2476,16 @@ unregistersymbol(controlModemem)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+1</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63533</ID>
+                      <Description>"Control Mode"</Description>
+                      <DropDownListLink>dropdown: Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>63474</ID>
@@ -2474,6 +2494,16 @@ unregistersymbol(controlModemem)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63535</ID>
+                      <Description>"Control Mode"</Description>
+                      <DropDownListLink>dropdown: Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>63475</ID>
@@ -2482,6 +2512,16 @@ unregistersymbol(controlModemem)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>63534</ID>
+                      <Description>"Control Mode"</Description>
+                      <DropDownListLink>dropdown: Control Modes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
