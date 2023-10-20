@@ -1,5 +1,13 @@
 ### Changelog
 
+#### 2023/10/20
+
+-	Corrected some mistakes in Destiny DC's difficulty values editor
+
+-	Made the Graces F table more compatible with other region versions
+-	Expanded difficulty values in Graces F
+-	Added a (hopefully) future proof Shard/Gem/Weapon/Armor editor
+
 #### 2023/09/16
 
 -	Updated the Auto Control Mode script to be able to pick whether to set to Auto, Semi-Auto or Manual. (default Manual)
