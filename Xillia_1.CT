@@ -24807,21 +24807,54 @@ dealloc(arteNum)
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>71204</ID>
+                  <ID>88264</ID>
                   <Description>"Difficulty values"</Description>
                   <Options moHideChildren="1"/>
-                  <GroupHeader>1</GroupHeader>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+autoAssemble([[
+aobscanregion(diffValues, 300000000, 400000000, 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 20 00 00 40 80 00 00 40 A0 00 00 3F 33 33 33 3F 80 00 00 3F 80 00 00 3F C0 00 00 40 00 00 00 40 00 00 00 FF FF FF FF 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00) // should be unique
+aobscanregion(diffBonusEXP, 300000000, 400000000, 3F 00 00 00 3F 80 00 00 3F C0 00 00 40 00 00 00 40 80 00 00 00 00 00 00)
+
+registersymbol(diffValues)
+registersymbol(diffBonusEXP)
+]])
+
+setMemoryProtection(getAddress("diffValues"), 0x1000, {R=true;W=true;X=false;})
+setMemoryProtection(getAddress("diffBonusEXP"), 0x1000, {R=true;W=true;X=false;})
+
+{$asm}
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+autoAssemble([[
+diffValues:
+  db 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 20 00 00 40 80 00 00 40 A0 00 00 3F 33 33 33 3F 80 00 00 3F 80 00 00 3F C0 00 00 40 00 00 00 40 00 00 00 FF FF FF FF 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00 3F 33 33 33 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 20 00 00
+
+diffBonusEXP:
+  db 3F 00 00 00 3F 80 00 00 3F C0 00 00 40 00 00 00 40 80 00 00 00 00 00 00
+]])
+
+setMemoryProtection(getAddress("diffValues"), 0x1000, {R=true;W=false;X=false;})
+setMemoryProtection(getAddress("diffBonusEXP"), 0x1000, {R=true;W=false;X=false;})
+{$asm}
+
+unregistersymbol(diffValues)
+unregistersymbol(diffBonusEXP)
+</AssemblerScript>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>71203</ID>
+                      <ID>88267</ID>
                       <Description>"Stats"</Description>
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>regionCheckFlags-2282A8</Address>
+                      <Address>diffValues</Address>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>71050</ID>
+                          <ID>88268</ID>
                           <Description>"Easy"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -24829,7 +24862,7 @@ dealloc(arteNum)
                           <Address>+0</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>71115</ID>
+                              <ID>88269</ID>
                               <Description>"HP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24837,7 +24870,7 @@ dealloc(arteNum)
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71116</ID>
+                              <ID>88270</ID>
                               <Description>"TP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24845,7 +24878,7 @@ dealloc(arteNum)
                               <Address>+18</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71131</ID>
+                              <ID>88271</ID>
                               <Description>"AC"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24853,7 +24886,7 @@ dealloc(arteNum)
                               <Address>+30</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71118</ID>
+                              <ID>88272</ID>
                               <Description>"STR"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24861,7 +24894,7 @@ dealloc(arteNum)
                               <Address>+48</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71119</ID>
+                              <ID>88273</ID>
                               <Description>"INT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24869,7 +24902,7 @@ dealloc(arteNum)
                               <Address>+60</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71120</ID>
+                              <ID>88274</ID>
                               <Description>"VIT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24877,7 +24910,7 @@ dealloc(arteNum)
                               <Address>+78</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71121</ID>
+                              <ID>88275</ID>
                               <Description>"DEX"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24885,7 +24918,7 @@ dealloc(arteNum)
                               <Address>+90</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71122</ID>
+                              <ID>88276</ID>
                               <Description>"AGI"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24893,7 +24926,7 @@ dealloc(arteNum)
                               <Address>+A8</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71132</ID>
+                              <ID>88277</ID>
                               <Description>"PSY"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24903,7 +24936,7 @@ dealloc(arteNum)
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71134</ID>
+                          <ID>88278</ID>
                           <Description>"Normal"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -24911,7 +24944,7 @@ dealloc(arteNum)
                           <Address>+4</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>71135</ID>
+                              <ID>88279</ID>
                               <Description>"HP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24919,7 +24952,7 @@ dealloc(arteNum)
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71136</ID>
+                              <ID>88280</ID>
                               <Description>"TP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24927,7 +24960,7 @@ dealloc(arteNum)
                               <Address>+18</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71137</ID>
+                              <ID>88281</ID>
                               <Description>"AC"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24935,7 +24968,7 @@ dealloc(arteNum)
                               <Address>+30</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71138</ID>
+                              <ID>88282</ID>
                               <Description>"STR"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24943,7 +24976,7 @@ dealloc(arteNum)
                               <Address>+48</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71139</ID>
+                              <ID>88283</ID>
                               <Description>"INT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24951,7 +24984,7 @@ dealloc(arteNum)
                               <Address>+60</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71140</ID>
+                              <ID>88284</ID>
                               <Description>"VIT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24959,7 +24992,7 @@ dealloc(arteNum)
                               <Address>+78</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71141</ID>
+                              <ID>88285</ID>
                               <Description>"DEX"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24967,7 +25000,7 @@ dealloc(arteNum)
                               <Address>+90</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71142</ID>
+                              <ID>88286</ID>
                               <Description>"AGI"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24975,7 +25008,7 @@ dealloc(arteNum)
                               <Address>+A8</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71143</ID>
+                              <ID>88287</ID>
                               <Description>"PSY"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -24985,7 +25018,7 @@ dealloc(arteNum)
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71144</ID>
+                          <ID>88288</ID>
                           <Description>"Moderate"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -24993,7 +25026,7 @@ dealloc(arteNum)
                           <Address>+4*2</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>71145</ID>
+                              <ID>88289</ID>
                               <Description>"HP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25001,7 +25034,7 @@ dealloc(arteNum)
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71146</ID>
+                              <ID>88290</ID>
                               <Description>"TP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25009,7 +25042,7 @@ dealloc(arteNum)
                               <Address>+18</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71147</ID>
+                              <ID>88291</ID>
                               <Description>"AC"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25017,7 +25050,7 @@ dealloc(arteNum)
                               <Address>+30</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71148</ID>
+                              <ID>88292</ID>
                               <Description>"STR"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25025,7 +25058,7 @@ dealloc(arteNum)
                               <Address>+48</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71149</ID>
+                              <ID>88293</ID>
                               <Description>"INT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25033,7 +25066,7 @@ dealloc(arteNum)
                               <Address>+60</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71150</ID>
+                              <ID>88294</ID>
                               <Description>"VIT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25041,7 +25074,7 @@ dealloc(arteNum)
                               <Address>+78</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71151</ID>
+                              <ID>88295</ID>
                               <Description>"DEX"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25049,7 +25082,7 @@ dealloc(arteNum)
                               <Address>+90</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71152</ID>
+                              <ID>88296</ID>
                               <Description>"AGI"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25057,7 +25090,7 @@ dealloc(arteNum)
                               <Address>+A8</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71153</ID>
+                              <ID>88297</ID>
                               <Description>"PSY"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25067,7 +25100,7 @@ dealloc(arteNum)
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71174</ID>
+                          <ID>88298</ID>
                           <Description>"Hard"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -25075,7 +25108,7 @@ dealloc(arteNum)
                           <Address>+4*3</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>71175</ID>
+                              <ID>88299</ID>
                               <Description>"HP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25083,7 +25116,7 @@ dealloc(arteNum)
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71176</ID>
+                              <ID>88300</ID>
                               <Description>"TP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25091,7 +25124,7 @@ dealloc(arteNum)
                               <Address>+18</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71177</ID>
+                              <ID>88301</ID>
                               <Description>"AC"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25099,7 +25132,7 @@ dealloc(arteNum)
                               <Address>+30</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71178</ID>
+                              <ID>88302</ID>
                               <Description>"STR"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25107,7 +25140,7 @@ dealloc(arteNum)
                               <Address>+48</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71179</ID>
+                              <ID>88303</ID>
                               <Description>"INT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25115,7 +25148,7 @@ dealloc(arteNum)
                               <Address>+60</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71180</ID>
+                              <ID>88304</ID>
                               <Description>"VIT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25123,7 +25156,7 @@ dealloc(arteNum)
                               <Address>+78</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71181</ID>
+                              <ID>88305</ID>
                               <Description>"DEX"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25131,7 +25164,7 @@ dealloc(arteNum)
                               <Address>+90</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71182</ID>
+                              <ID>88306</ID>
                               <Description>"AGI"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25139,7 +25172,7 @@ dealloc(arteNum)
                               <Address>+A8</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71183</ID>
+                              <ID>88307</ID>
                               <Description>"PSY"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25149,7 +25182,7 @@ dealloc(arteNum)
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71164</ID>
+                          <ID>88308</ID>
                           <Description>"Unknown"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -25157,7 +25190,7 @@ dealloc(arteNum)
                           <Address>+4*4</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>71165</ID>
+                              <ID>88309</ID>
                               <Description>"HP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25165,7 +25198,7 @@ dealloc(arteNum)
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71166</ID>
+                              <ID>88310</ID>
                               <Description>"TP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25173,7 +25206,7 @@ dealloc(arteNum)
                               <Address>+18</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71167</ID>
+                              <ID>88311</ID>
                               <Description>"AC"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25181,7 +25214,7 @@ dealloc(arteNum)
                               <Address>+30</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71168</ID>
+                              <ID>88312</ID>
                               <Description>"STR"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25189,7 +25222,7 @@ dealloc(arteNum)
                               <Address>+48</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71169</ID>
+                              <ID>88313</ID>
                               <Description>"INT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25197,7 +25230,7 @@ dealloc(arteNum)
                               <Address>+60</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71170</ID>
+                              <ID>88314</ID>
                               <Description>"VIT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25205,7 +25238,7 @@ dealloc(arteNum)
                               <Address>+78</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71171</ID>
+                              <ID>88315</ID>
                               <Description>"DEX"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25213,7 +25246,7 @@ dealloc(arteNum)
                               <Address>+90</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71172</ID>
+                              <ID>88316</ID>
                               <Description>"AGI"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25221,7 +25254,7 @@ dealloc(arteNum)
                               <Address>+A8</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71173</ID>
+                              <ID>88317</ID>
                               <Description>"PSY"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25231,7 +25264,7 @@ dealloc(arteNum)
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71154</ID>
+                          <ID>88318</ID>
                           <Description>"???"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -25239,7 +25272,7 @@ dealloc(arteNum)
                           <Address>+4*5</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>71155</ID>
+                              <ID>88319</ID>
                               <Description>"HP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25247,7 +25280,7 @@ dealloc(arteNum)
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71156</ID>
+                              <ID>88320</ID>
                               <Description>"TP"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25255,7 +25288,7 @@ dealloc(arteNum)
                               <Address>+18</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71157</ID>
+                              <ID>88321</ID>
                               <Description>"AC"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25263,7 +25296,7 @@ dealloc(arteNum)
                               <Address>+30</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71158</ID>
+                              <ID>88322</ID>
                               <Description>"STR"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25271,7 +25304,7 @@ dealloc(arteNum)
                               <Address>+48</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71159</ID>
+                              <ID>88323</ID>
                               <Description>"INT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25279,7 +25312,7 @@ dealloc(arteNum)
                               <Address>+60</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71160</ID>
+                              <ID>88324</ID>
                               <Description>"VIT"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25287,7 +25320,7 @@ dealloc(arteNum)
                               <Address>+78</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71161</ID>
+                              <ID>88325</ID>
                               <Description>"DEX"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25295,7 +25328,7 @@ dealloc(arteNum)
                               <Address>+90</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71162</ID>
+                              <ID>88326</ID>
                               <Description>"AGI"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25303,7 +25336,7 @@ dealloc(arteNum)
                               <Address>+A8</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>71163</ID>
+                              <ID>88327</ID>
                               <Description>"PSY"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -25315,15 +25348,15 @@ dealloc(arteNum)
                       </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>71206</ID>
+                      <ID>88328</ID>
                       <Description>"Bonus EXP multiplier"</Description>
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>regionCheckFlags-22E09C</Address>
+                      <Address>diffBonusEXP</Address>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>71207</ID>
+                          <ID>88329</ID>
                           <Description>"Easy"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -25331,7 +25364,7 @@ dealloc(arteNum)
                           <Address>+0</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71212</ID>
+                          <ID>88330</ID>
                           <Description>"Normal"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -25339,7 +25372,7 @@ dealloc(arteNum)
                           <Address>+4</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71211</ID>
+                          <ID>88331</ID>
                           <Description>"Moderate"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -25347,7 +25380,7 @@ dealloc(arteNum)
                           <Address>+8</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71210</ID>
+                          <ID>88332</ID>
                           <Description>"Hard"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -25355,7 +25388,7 @@ dealloc(arteNum)
                           <Address>+C</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71209</ID>
+                          <ID>88333</ID>
                           <Description>"Unknown"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -25363,7 +25396,7 @@ dealloc(arteNum)
                           <Address>+10</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>71208</ID>
+                          <ID>88334</ID>
                           <Description>"???"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -31660,6 +31693,14 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
     <SymbolEntry>
       <Name>arteNum</Name>
       <Address>07E70000</Address>
