@@ -61268,21 +61268,71 @@ character will lose control for a second.
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>70814</ID>
+                  <ID>89762</ID>
                   <Description>"Difficulty values"</Description>
                   <Options moHideChildren="1"/>
-                  <GroupHeader>1</GroupHeader>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+autoAssemble([[
+aobscanregion(diffValues, 300000000, 400000000, 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 4C CC CD 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00) // should be unique
+aobscanregion(diffPwrCombo, 300000000, 400000000, 3E B3 33 33 3F 00 00 00 3F 40 00 00 3F A0 00 00 40 00 00 00 3D 8F 5C 29 3D CC CC CD 3E 19 99 9A 3E 80 00 00 3E CC CC CD 00 00 00 76) // should be unique
+aobscanregion(diffBonusEXP, 300000000, 400000000, 00 00 00 00 3F 00 00 00 3F 80 00 00 3F C0 00 00 40 00 00 00 40 80 00 00) // should be unique
+aobscanregion(diffAC, 300000000, 400000000, 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03 FF FF FF FF 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03) // should be unique
+
+registersymbol(diffValues)
+registersymbol(diffPwrCombo)
+registersymbol(diffBonusEXP)
+registersymbol(diffAC)
+]])
+
+setMemoryProtection(getAddress("diffValues"), 0x1000, {R=true;W=true;X=false;})
+setMemoryProtection(getAddress("diffPwrCombo"), 0x1000, {R=true;W=true;X=false;})
+setMemoryProtection(getAddress("diffBonusEXP"), 0x1000, {R=true;W=true;X=false;})
+setMemoryProtection(getAddress("diffAC"), 0x1000, {R=true;W=true;X=false;})
+{$asm}
+[DISABLE]
+
+{$lua}
+if syntaxcheck then return end
+
+autoAssemble([[
+diffValues:
+  db 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 33 33 33 3F 80 00 00 3F C0 00 00 40 00 00 00 40 40 00 00 40 80 00 00 3F 4C CC CD 3F 80 00 00 3F 99 99 9A 3F C0 00 00 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00 3F 33 33 33 3F 80 00 00 3F A6 66 66 3F CC CC CD 40 00 00 00 40 00 00 00
+
+diffPwrCombo:
+  db 3E B3 33 33 3F 00 00 00 3F 40 00 00 3F A0 00 00 40 00 00 00 3D 8F 5C 29 3D CC CC CD 3E 19 99 9A 3E 80 00 00 3E CC CC CD 00 00 00 76
+
+diffBonusEXP:
+  db 00 00 00 00 3F 00 00 00 3F 80 00 00 3F C0 00 00 40 00 00 00 40 80 00 00
+
+diffAC:
+  db 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03 FF FF FF FF 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03
+]])
+
+setMemoryProtection(getAddress("diffValues"), 0x1000, {R=true;W=false;X=false;})
+setMemoryProtection(getAddress("diffPwrCombo"), 0x1000, {R=true;W=false;X=false;})
+setMemoryProtection(getAddress("diffBonusEXP"), 0x1000, {R=true;W=false;X=false;})
+setMemoryProtection(getAddress("diffAC"), 0x1000, {R=true;W=false;X=false;})
+{$asm}
+
+unregistersymbol(diffValues)
+unregistersymbol(diffPwrCombo)
+unregistersymbol(diffBonusEXP)
+unregistersymbol(diffAC)
+</AssemblerScript>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>70815</ID>
+                      <ID>89765</ID>
                       <Description>"Power Combo"</Description>
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>regionCheckFlags-2A594C</Address>
+                      <Address>diffPwrCombo</Address>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>70819</ID>
+                          <ID>89766</ID>
                           <Description>"Easy"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61290,7 +61340,7 @@ character will lose control for a second.
                           <Address>+0</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>70817</ID>
+                              <ID>89767</ID>
                               <Description>"Hitting with all elements"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61298,7 +61348,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89282</ID>
+                              <ID>89768</ID>
                               <Description>"Hitting with a different element"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61308,7 +61358,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89283</ID>
+                          <ID>89769</ID>
                           <Description>"Normal"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61316,7 +61366,7 @@ character will lose control for a second.
                           <Address>+4</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89284</ID>
+                              <ID>89770</ID>
                               <Description>"Hitting with all elements"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61324,7 +61374,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89285</ID>
+                              <ID>89771</ID>
                               <Description>"Hitting with a different element"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61334,7 +61384,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89286</ID>
+                          <ID>89772</ID>
                           <Description>"Moderate"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61342,7 +61392,7 @@ character will lose control for a second.
                           <Address>+8</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89287</ID>
+                              <ID>89773</ID>
                               <Description>"Hitting with all elements"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61350,7 +61400,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89288</ID>
+                              <ID>89774</ID>
                               <Description>"Hitting with a different element"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61360,7 +61410,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89289</ID>
+                          <ID>89775</ID>
                           <Description>"Hard"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61368,7 +61418,7 @@ character will lose control for a second.
                           <Address>+C</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89290</ID>
+                              <ID>89776</ID>
                               <Description>"Hitting with all elements"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61376,7 +61426,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89291</ID>
+                              <ID>89777</ID>
                               <Description>"Hitting with a different element"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61386,7 +61436,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89292</ID>
+                          <ID>89778</ID>
                           <Description>"Unknown"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61394,7 +61444,7 @@ character will lose control for a second.
                           <Address>+10</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89293</ID>
+                              <ID>89779</ID>
                               <Description>"Hitting with all elements"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61402,7 +61452,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89294</ID>
+                              <ID>89780</ID>
                               <Description>"Hitting with a different element"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61412,7 +61462,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89295</ID>
+                          <ID>89781</ID>
                           <Description>"???"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61420,13 +61470,13 @@ character will lose control for a second.
                           <Address>+14</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89296</ID>
+                              <ID>89782</ID>
                               <Description>"Overlaps with easy difficulty!"</Description>
                               <Color>FF00FF</Color>
                               <GroupHeader>1</GroupHeader>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89297</ID>
+                              <ID>89783</ID>
                               <Description>"Hitting with all elements"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61434,7 +61484,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89298</ID>
+                              <ID>89784</ID>
                               <Description>"Hitting with a different element"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -61446,15 +61496,15 @@ character will lose control for a second.
                       </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>70816</ID>
+                      <ID>89785</ID>
                       <Description>"Bonus EXP multiplier"</Description>
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>regionCheckFlags-2A1C18</Address>
+                      <Address>diffBonusEXP</Address>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>70818</ID>
+                          <ID>89786</ID>
                           <Description>"Easy"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -61462,7 +61512,7 @@ character will lose control for a second.
                           <Address>+0</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89299</ID>
+                          <ID>89787</ID>
                           <Description>"Normal"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -61470,7 +61520,7 @@ character will lose control for a second.
                           <Address>+4</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89300</ID>
+                          <ID>89788</ID>
                           <Description>"Moderate"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -61478,7 +61528,7 @@ character will lose control for a second.
                           <Address>+8</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89301</ID>
+                          <ID>89789</ID>
                           <Description>"Hard"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -61486,7 +61536,7 @@ character will lose control for a second.
                           <Address>+C</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89302</ID>
+                          <ID>89790</ID>
                           <Description>"Unknown"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -61494,7 +61544,7 @@ character will lose control for a second.
                           <Address>+10</Address>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89303</ID>
+                          <ID>89791</ID>
                           <Description>"???"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -61504,15 +61554,15 @@ character will lose control for a second.
                       </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>70813</ID>
+                      <ID>89792</ID>
                       <Description>"Stats"</Description>
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>regionCheckFlags-29A5EC</Address>
+                      <Address>diffValues</Address>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>89304</ID>
+                          <ID>89793</ID>
                           <Description>"Easy"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61520,7 +61570,7 @@ character will lose control for a second.
                           <Address>+0</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>70223</ID>
+                              <ID>89794</ID>
                               <Description>"Mobs"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -61528,7 +61578,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70224</ID>
+                                  <ID>89795</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61536,7 +61586,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70225</ID>
+                                  <ID>89796</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61544,7 +61594,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70226</ID>
+                                  <ID>89797</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61552,7 +61602,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70227</ID>
+                                  <ID>89798</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61560,7 +61610,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70228</ID>
+                                  <ID>89799</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61568,7 +61618,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70229</ID>
+                                  <ID>89800</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61576,7 +61626,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70230</ID>
+                                  <ID>89801</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61584,7 +61634,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70231</ID>
+                                  <ID>89802</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61594,7 +61644,7 @@ character will lose control for a second.
                               </CheatEntries>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>70232</ID>
+                              <ID>89803</ID>
                               <Description>"Bosses"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -61602,7 +61652,7 @@ character will lose control for a second.
                               <Address>+C0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70233</ID>
+                                  <ID>89804</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61610,7 +61660,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70234</ID>
+                                  <ID>89805</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61618,7 +61668,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70235</ID>
+                                  <ID>89806</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61626,7 +61676,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70236</ID>
+                                  <ID>89807</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61634,7 +61684,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70237</ID>
+                                  <ID>89808</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61642,7 +61692,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70238</ID>
+                                  <ID>89809</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61650,7 +61700,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70239</ID>
+                                  <ID>89810</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61658,7 +61708,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70240</ID>
+                                  <ID>89811</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61670,7 +61720,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89305</ID>
+                          <ID>89812</ID>
                           <Description>"Normal"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61678,7 +61728,7 @@ character will lose control for a second.
                           <Address>+4</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>70204</ID>
+                              <ID>89813</ID>
                               <Description>"Mobs"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -61686,7 +61736,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70205</ID>
+                                  <ID>89814</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61694,7 +61744,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70206</ID>
+                                  <ID>89815</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61702,7 +61752,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70207</ID>
+                                  <ID>89816</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61710,7 +61760,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70208</ID>
+                                  <ID>89817</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61718,7 +61768,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70209</ID>
+                                  <ID>89818</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61726,7 +61776,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70210</ID>
+                                  <ID>89819</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61734,7 +61784,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70211</ID>
+                                  <ID>89820</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61742,7 +61792,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70212</ID>
+                                  <ID>89821</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61752,7 +61802,7 @@ character will lose control for a second.
                               </CheatEntries>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>70213</ID>
+                              <ID>89822</ID>
                               <Description>"Bosses"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -61760,7 +61810,7 @@ character will lose control for a second.
                               <Address>+C0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70214</ID>
+                                  <ID>89823</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61768,7 +61818,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70215</ID>
+                                  <ID>89824</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61776,7 +61826,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70216</ID>
+                                  <ID>89825</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61784,7 +61834,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70217</ID>
+                                  <ID>89826</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61792,7 +61842,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70218</ID>
+                                  <ID>89827</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61800,7 +61850,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70219</ID>
+                                  <ID>89828</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61808,7 +61858,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70220</ID>
+                                  <ID>89829</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61816,7 +61866,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70221</ID>
+                                  <ID>89830</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61828,7 +61878,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89306</ID>
+                          <ID>89831</ID>
                           <Description>"Moderate"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61836,7 +61886,7 @@ character will lose control for a second.
                           <Address>+8</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>70185</ID>
+                              <ID>89832</ID>
                               <Description>"Mobs"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -61844,7 +61894,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70186</ID>
+                                  <ID>89833</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61852,7 +61902,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70187</ID>
+                                  <ID>89834</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61860,7 +61910,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70188</ID>
+                                  <ID>89835</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61868,7 +61918,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70189</ID>
+                                  <ID>89836</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61876,7 +61926,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70190</ID>
+                                  <ID>89837</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61884,7 +61934,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70191</ID>
+                                  <ID>89838</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61892,7 +61942,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70192</ID>
+                                  <ID>89839</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61900,7 +61950,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70193</ID>
+                                  <ID>89840</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61910,7 +61960,7 @@ character will lose control for a second.
                               </CheatEntries>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>70194</ID>
+                              <ID>89841</ID>
                               <Description>"Bosses"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -61918,7 +61968,7 @@ character will lose control for a second.
                               <Address>+C0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70195</ID>
+                                  <ID>89842</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61926,7 +61976,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70196</ID>
+                                  <ID>89843</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61934,7 +61984,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70197</ID>
+                                  <ID>89844</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61942,7 +61992,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70198</ID>
+                                  <ID>89845</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61950,7 +62000,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70199</ID>
+                                  <ID>89846</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61958,7 +62008,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70200</ID>
+                                  <ID>89847</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61966,7 +62016,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70201</ID>
+                                  <ID>89848</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61974,7 +62024,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70202</ID>
+                                  <ID>89849</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -61986,7 +62036,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89307</ID>
+                          <ID>89850</ID>
                           <Description>"Hard"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -61994,7 +62044,7 @@ character will lose control for a second.
                           <Address>+C</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89308</ID>
+                              <ID>89851</ID>
                               <Description>"Mobs"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -62002,7 +62052,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>89309</ID>
+                                  <ID>89852</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62010,7 +62060,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89310</ID>
+                                  <ID>89853</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62018,7 +62068,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89311</ID>
+                                  <ID>89854</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62026,7 +62076,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89312</ID>
+                                  <ID>89855</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62034,7 +62084,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89313</ID>
+                                  <ID>89856</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62042,7 +62092,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89314</ID>
+                                  <ID>89857</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62050,7 +62100,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89315</ID>
+                                  <ID>89858</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62058,7 +62108,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70174</ID>
+                                  <ID>89859</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62068,7 +62118,7 @@ character will lose control for a second.
                               </CheatEntries>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>70175</ID>
+                              <ID>89860</ID>
                               <Description>"Bosses"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -62076,7 +62126,7 @@ character will lose control for a second.
                               <Address>+C0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70176</ID>
+                                  <ID>89861</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62084,7 +62134,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70177</ID>
+                                  <ID>89862</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62092,7 +62142,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70178</ID>
+                                  <ID>89863</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62100,7 +62150,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70179</ID>
+                                  <ID>89864</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62108,7 +62158,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70180</ID>
+                                  <ID>89865</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62116,7 +62166,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70181</ID>
+                                  <ID>89866</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62124,7 +62174,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70182</ID>
+                                  <ID>89867</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62132,7 +62182,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70183</ID>
+                                  <ID>89868</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62144,7 +62194,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89316</ID>
+                          <ID>89869</ID>
                           <Description>"Unknown"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62152,7 +62202,7 @@ character will lose control for a second.
                           <Address>+10</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89317</ID>
+                              <ID>89870</ID>
                               <Description>"Mobs"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -62160,7 +62210,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>89318</ID>
+                                  <ID>89871</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62168,7 +62218,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89319</ID>
+                                  <ID>89872</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62176,7 +62226,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89320</ID>
+                                  <ID>89873</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62184,7 +62234,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89321</ID>
+                                  <ID>89874</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62192,7 +62242,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89322</ID>
+                                  <ID>89875</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62200,7 +62250,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89323</ID>
+                                  <ID>89876</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62208,7 +62258,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89324</ID>
+                                  <ID>89877</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62216,7 +62266,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89325</ID>
+                                  <ID>89878</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62226,7 +62276,7 @@ character will lose control for a second.
                               </CheatEntries>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89326</ID>
+                              <ID>89879</ID>
                               <Description>"Bosses"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -62234,7 +62284,7 @@ character will lose control for a second.
                               <Address>+C0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>89327</ID>
+                                  <ID>89880</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62242,7 +62292,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89328</ID>
+                                  <ID>89881</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62250,7 +62300,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89329</ID>
+                                  <ID>89882</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62258,7 +62308,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89330</ID>
+                                  <ID>89883</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62266,7 +62316,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89331</ID>
+                                  <ID>89884</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62274,7 +62324,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89332</ID>
+                                  <ID>89885</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62282,7 +62332,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89333</ID>
+                                  <ID>89886</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62290,7 +62340,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>89334</ID>
+                                  <ID>89887</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62302,7 +62352,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>70266</ID>
+                          <ID>89888</ID>
                           <Description>"???"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62310,7 +62360,7 @@ character will lose control for a second.
                           <Address>+14</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>70268</ID>
+                              <ID>89889</ID>
                               <Description>"Mobs"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -62318,7 +62368,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70269</ID>
+                                  <ID>89890</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62326,7 +62376,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70270</ID>
+                                  <ID>89891</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62334,7 +62384,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70271</ID>
+                                  <ID>89892</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62342,7 +62392,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70272</ID>
+                                  <ID>89893</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62350,7 +62400,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70273</ID>
+                                  <ID>89894</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62358,7 +62408,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70274</ID>
+                                  <ID>89895</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62366,7 +62416,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70275</ID>
+                                  <ID>89896</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62374,7 +62424,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70276</ID>
+                                  <ID>89897</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62384,7 +62434,7 @@ character will lose control for a second.
                               </CheatEntries>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>70277</ID>
+                              <ID>89898</ID>
                               <Description>"Bosses"</Description>
                               <Options moHideChildren="1"/>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -62392,7 +62442,7 @@ character will lose control for a second.
                               <Address>+C0</Address>
                               <CheatEntries>
                                 <CheatEntry>
-                                  <ID>70278</ID>
+                                  <ID>89899</ID>
                                   <Description>"HP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62400,7 +62450,7 @@ character will lose control for a second.
                                   <Address>+0</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70279</ID>
+                                  <ID>89900</ID>
                                   <Description>"TP"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62408,7 +62458,7 @@ character will lose control for a second.
                                   <Address>+18</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70280</ID>
+                                  <ID>89901</ID>
                                   <Description>"STR"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62416,7 +62466,7 @@ character will lose control for a second.
                                   <Address>+30</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70281</ID>
+                                  <ID>89902</ID>
                                   <Description>"VIT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62424,7 +62474,7 @@ character will lose control for a second.
                                   <Address>+48</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70282</ID>
+                                  <ID>89903</ID>
                                   <Description>"INT"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62432,7 +62482,7 @@ character will lose control for a second.
                                   <Address>+60</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70283</ID>
+                                  <ID>89904</ID>
                                   <Description>"PSY"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62440,7 +62490,7 @@ character will lose control for a second.
                                   <Address>+78</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70284</ID>
+                                  <ID>89905</ID>
                                   <Description>"AGI"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62448,7 +62498,7 @@ character will lose control for a second.
                                   <Address>+90</Address>
                                 </CheatEntry>
                                 <CheatEntry>
-                                  <ID>70285</ID>
+                                  <ID>89906</ID>
                                   <Description>"DEX"</Description>
                                   <ShowAsSigned>0</ShowAsSigned>
                                   <VariableType>Custom</VariableType>
@@ -62462,15 +62512,15 @@ character will lose control for a second.
                       </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>89335</ID>
+                      <ID>89907</ID>
                       <Description>"AC"</Description>
                       <Options moHideChildren="1"/>
                       <ShowAsSigned>0</ShowAsSigned>
                       <GroupHeader>1</GroupHeader>
-                      <Address>regionCheckFlags-299D84</Address>
+                      <Address>diffAC</Address>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>89336</ID>
+                          <ID>89908</ID>
                           <Description>"Easy"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62478,7 +62528,7 @@ character will lose control for a second.
                           <Address>+0</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89337</ID>
+                              <ID>89909</ID>
                               <Description>"Mobs"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62486,7 +62536,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89338</ID>
+                              <ID>89910</ID>
                               <Description>"Bosses"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62496,7 +62546,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89339</ID>
+                          <ID>89911</ID>
                           <Description>"Normal"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62504,7 +62554,7 @@ character will lose control for a second.
                           <Address>+4</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89340</ID>
+                              <ID>89912</ID>
                               <Description>"Mobs"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62512,7 +62562,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89341</ID>
+                              <ID>89913</ID>
                               <Description>"Bosses"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62522,7 +62572,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89342</ID>
+                          <ID>89914</ID>
                           <Description>"Moderate"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62530,7 +62580,7 @@ character will lose control for a second.
                           <Address>+8</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89343</ID>
+                              <ID>89915</ID>
                               <Description>"Mobs"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62538,7 +62588,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89344</ID>
+                              <ID>89916</ID>
                               <Description>"Bosses"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62548,7 +62598,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89345</ID>
+                          <ID>89917</ID>
                           <Description>"Hard"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62556,7 +62606,7 @@ character will lose control for a second.
                           <Address>+C</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89346</ID>
+                              <ID>89918</ID>
                               <Description>"Mobs"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62564,7 +62614,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89347</ID>
+                              <ID>89919</ID>
                               <Description>"Bosses"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62574,7 +62624,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89348</ID>
+                          <ID>89920</ID>
                           <Description>"Unknown"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62582,7 +62632,7 @@ character will lose control for a second.
                           <Address>+10</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89349</ID>
+                              <ID>89921</ID>
                               <Description>"Mobs"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62590,7 +62640,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89350</ID>
+                              <ID>89922</ID>
                               <Description>"Bosses"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62600,7 +62650,7 @@ character will lose control for a second.
                           </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
-                          <ID>89351</ID>
+                          <ID>89923</ID>
                           <Description>"???"</Description>
                           <Options moHideChildren="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -62608,7 +62658,7 @@ character will lose control for a second.
                           <Address>+14</Address>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>89352</ID>
+                              <ID>89924</ID>
                               <Description>"Mobs"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -62616,7 +62666,7 @@ character will lose control for a second.
                               <Address>+0</Address>
                             </CheatEntry>
                             <CheatEntry>
-                              <ID>89353</ID>
+                              <ID>89925</ID>
                               <Description>"Bosses"</Description>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>Custom</VariableType>
@@ -81751,7 +81801,28 @@ artes will crash the game.
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteNum</Name>
+      <Address>07E70000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillEdit</Name>
+      <Address>07E70010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillPropNum</Name>
+      <Address>07E70400</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>
