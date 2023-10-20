@@ -155,11 +155,6 @@ but note that it may break fights.
           <ID>16514</ID>
           <Description>"Stats"</Description>
           <Options moHideChildren="1"/>
-          <DropDownList DisplayValueAsItem="1">0:Empty
-65536000:Stage 1
-131072000:Stage 2
-196608000:Stage 3
-</DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+1C1DB0</Address>
@@ -205,7 +200,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16521</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -389,7 +384,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16547</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -573,7 +568,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16573</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -757,7 +752,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16599</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -941,7 +936,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16625</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -1125,7 +1120,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16651</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -1309,7 +1304,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16677</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -1493,7 +1488,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16703</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -1677,7 +1672,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16729</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -1861,7 +1856,7 @@ but note that it may break fights.
                 <CheatEntry>
                   <ID>16755</ID>
                   <Description>"Blast Gauge"</Description>
-                  <DropDownListLink>Stats</DropDownListLink>
+                  <DropDownListLink>dropdown: Blast Gauge</DropDownListLink>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
@@ -19755,10 +19750,10 @@ Use the Inventory if you want more items.
               <CheatEntries>
                 <CheatEntry>
                   <ID>20420</ID>
-                  <Description>"Stats"</Description>
+                  <Description>"P./M. ATK"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>-20</Address>
+                  <Address>-18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>20421</ID>
@@ -19856,10 +19851,10 @@ Use the Inventory if you want more items.
               <CheatEntries>
                 <CheatEntry>
                   <ID>20407</ID>
-                  <Description>"Stats"</Description>
+                  <Description>"P./M. ATK"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>-20</Address>
+                  <Address>-18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>20408</ID>
@@ -19957,10 +19952,10 @@ Use the Inventory if you want more items.
               <CheatEntries>
                 <CheatEntry>
                   <ID>20394</ID>
-                  <Description>"Stats"</Description>
+                  <Description>"P./M. ATK"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>-20</Address>
+                  <Address>-18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>20395</ID>
@@ -20058,10 +20053,10 @@ Use the Inventory if you want more items.
               <CheatEntries>
                 <CheatEntry>
                   <ID>20381</ID>
-                  <Description>"Stats"</Description>
+                  <Description>"P./M. ATK"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>-20</Address>
+                  <Address>-18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>20382</ID>
@@ -20159,10 +20154,10 @@ Use the Inventory if you want more items.
               <CheatEntries>
                 <CheatEntry>
                   <ID>20368</ID>
-                  <Description>"Stats"</Description>
+                  <Description>"P./M. ATK"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>-20</Address>
+                  <Address>-18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>20369</ID>
@@ -20260,10 +20255,10 @@ Use the Inventory if you want more items.
               <CheatEntries>
                 <CheatEntry>
                   <ID>19144</ID>
-                  <Description>"Stats"</Description>
+                  <Description>"P./M. ATK"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>-20</Address>
+                  <Address>-18</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>19143</ID>
@@ -20491,6 +20486,16 @@ Use the Inventory if you want more items.
                   <Description>"dropdown: Disabled/Enabled"</Description>
                   <DropDownList DisplayValueAsItem="1">0:Disabled
 1:Enabled
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20739</ID>
+                  <Description>"dropdown: Blast Gauge"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Empty
+65536000:Stage 1
+131072000:Stage 2
+196608000:Stage 3
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
@@ -21718,6 +21723,10 @@ Use the Inventory if you want more items.
   </CheatEntries>
   <UserdefinedSymbols>
     <SymbolEntry>
+      <Name>baseRAMAddr</Name>
+      <Address>21800000000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
       <Name>arteNum</Name>
       <Address>07E70000</Address>
     </SymbolEntry>
@@ -21740,10 +21749,6 @@ Use the Inventory if you want more items.
     <SymbolEntry>
       <Name>artePropPTR</Name>
       <Address>68DF0000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>baseElfAddr</Name>
-      <Address>7FF74010007C</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
   <DisassemblerComments>
