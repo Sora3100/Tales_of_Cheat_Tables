@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>37</ID>
@@ -18,7 +18,7 @@
 </DropDownList>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
-      <Address>Tales of Arise.exe+3FA2D50</Address>
+      <Address>"Tales of Arise.exe"+04C43A30</Address>
       <Offsets>
         <Offset>0</Offset>
         <Offset>A0</Offset>
@@ -100,7 +100,7 @@
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>C8</Offset>
@@ -150,7 +150,7 @@
       <Options moHideChildren="1"/>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
-      <Address>Tales of Arise.exe+3FA2D50</Address>
+      <Address>"Tales of Arise.exe"+04C43A30</Address>
       <Offsets>
         <Offset>CA8</Offset>
         <Offset>20</Offset>
@@ -211,7 +211,7 @@
       <Options moHideChildren="1"/>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
-      <Address>Tales of Arise.exe+3FA2D50</Address>
+      <Address>"Tales of Arise.exe"+04C43A30</Address>
       <Offsets>
         <Offset>118</Offset>
         <Offset>C0</Offset>
@@ -862,7 +862,7 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>1B8</Offset>
@@ -901,7 +901,7 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>1B8</Offset>
@@ -940,7 +940,7 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>1B8</Offset>
@@ -979,7 +979,7 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>1B8</Offset>
@@ -1018,7 +1018,7 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>1B8</Offset>
@@ -1057,7 +1057,7 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>0</Offset>
             <Offset>1B8</Offset>
@@ -1100,7 +1100,7 @@
 </DropDownList>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
-      <Address>Tales of Arise.exe+3FA2D50</Address>
+      <Address>"Tales of Arise.exe"+04C43A30</Address>
       <Offsets>
         <Offset>118</Offset>
         <Offset>C0</Offset>
@@ -1921,7 +1921,7 @@
 </DropDownList>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
-      <Address>"Tales of Arise.exe"+3FA2D50</Address>
+      <Address>"Tales of Arise.exe"+04C43A30</Address>
       <Offsets>
         <Offset>118</Offset>
         <Offset>C0</Offset>
@@ -4918,7 +4918,7 @@
       <Options moHideChildren="1"/>
       <ShowAsSigned>0</ShowAsSigned>
       <GroupHeader>1</GroupHeader>
-      <Address>Tales of Arise.exe+3FA2D50</Address>
+      <Address>"Tales of Arise.exe"+04C43A30</Address>
       <Offsets>
         <Offset>118</Offset>
         <Offset>C0</Offset>
@@ -16442,12 +16442,12 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>629</ID>
+      <ID>40624</ID>
       <Description>"Have 1 of every item"</Description>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Tales of Arise.exe
-  Version:
-  Date   : 2021-09-19
+  Version: 
+  Date   : 2023-11-09
   Author : thing
 
   This script does blah blah blah
@@ -16455,45 +16455,46 @@
 
 [ENABLE]
 
-aobscanmodule(haveItem,Tales of Arise.exe,0F 84 88 00 00 00 4C 8B 57) // should be unique
+aobscanmodule(haveItem,Tales of Arise.exe,01 0F 1F 00 48 63 C8 48 8D 14 89 41 39 1C D0) // should be unique
 
-haveItem:
-  db E9 89 00 00 00 90
+haveItem+13:
+  db EB 0A
 
 registersymbol(haveItem)
 
 [DISABLE]
 
-haveItem:
-  db 0F 84 88 00 00 00
+haveItem+13:
+  db 74 0A
 
 unregistersymbol(haveItem)
-{
-// ORIGINAL CODE - INJECTION POINT: Tales of Arise.exe+9A9DFC
 
-Tales of Arise.exe+9A9DD6: 48 81 EC A0 00 00 00  - sub rsp,000000A0
-Tales of Arise.exe+9A9DDD: 48 63 DA              - movsxd  rbx,edx
-Tales of Arise.exe+9A9DE0: 48 8B F9              - mov rdi,rcx
-Tales of Arise.exe+9A9DE3: 8B CB                 - mov ecx,ebx
-Tales of Arise.exe+9A9DE5: E8 96 75 00 00        - call "Tales of Arise.exe"+9B1380
-Tales of Arise.exe+9A9DEA: 84 C0                 - test al,al
-Tales of Arise.exe+9A9DEC: 0F 85 C9 01 00 00     - jne "Tales of Arise.exe"+9A9FBB
-Tales of Arise.exe+9A9DF2: 8B CB                 - mov ecx,ebx
-Tales of Arise.exe+9A9DF4: E8 07 75 00 00        - call "Tales of Arise.exe"+9B1300
-Tales of Arise.exe+9A9DF9: 83 F8 08              - cmp eax,08
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Arise.exe+CFA703
+
+Tales of Arise.exe+CFA6E4: 4C 23 C3     - and r8,rbx
+Tales of Arise.exe+CFA6E7: 48 85 D2     - test rdx,rdx
+Tales of Arise.exe+CFA6EA: 48 0F 44 C1  - cmove rax,rcx
+Tales of Arise.exe+CFA6EE: 48 0B C2     - or rax,rdx
+Tales of Arise.exe+CFA6F1: 42 8B 04 80  - mov eax,[rax+r8*4]
+Tales of Arise.exe+CFA6F5: 83 F8 FF     - cmp eax,-01
+Tales of Arise.exe+CFA6F8: 74 26        - je "Tales of Arise.exe"+CFA720
+Tales of Arise.exe+CFA6FA: 4D 8B 01     - mov r8,[r9]
+Tales of Arise.exe+CFA6FD: 0F 1F 00     - nop dword ptr [rax]
+Tales of Arise.exe+CFA700: 48 63 C8     - movsxd  rcx,eax
 // ---------- INJECTING HERE ----------
-Tales of Arise.exe+9A9DFC: 0F 84 88 00 00 00     - je "Tales of Arise.exe"+9A9E8A
+Tales of Arise.exe+CFA703: 48 8D 14 89  - lea rdx,[rcx+rcx*4]
 // ---------- DONE INJECTING  ----------
-Tales of Arise.exe+9A9E02: 4C 8B 57 08           - mov r10,[rdi+08]
-Tales of Arise.exe+9A9E06: 45 33 C9              - xor r9d,r9d
-Tales of Arise.exe+9A9E09: 41 8B 42 08           - mov eax,[r10+08]
-Tales of Arise.exe+9A9E0D: 41 3B 42 34           - cmp eax,[r10+34]
-Tales of Arise.exe+9A9E11: 74 4D                 - je "Tales of Arise.exe"+9A9E60
-Tales of Arise.exe+9A9E13: 49 8B 52 40           - mov rdx,[r10+40]
-Tales of Arise.exe+9A9E17: 49 8D 4A 38           - lea rcx,[r10+38]
-Tales of Arise.exe+9A9E1B: 4D 63 42 48           - movsxd  r8,dword ptr [r10+48]
-Tales of Arise.exe+9A9E1F: 41 8B C1              - mov eax,r9d
-Tales of Arise.exe+9A9E22: 49 FF C8              - dec r8
+Tales of Arise.exe+CFA707: 41 39 1C D0  - cmp [r8+rdx*8],ebx
+Tales of Arise.exe+CFA70B: 49 8D 0C D0  - lea rcx,[r8+rdx*8]
+Tales of Arise.exe+CFA70F: 74 0A        - je "Tales of Arise.exe"+CFA71B
+Tales of Arise.exe+CFA711: 8B 41 20     - mov eax,[rcx+20]
+Tales of Arise.exe+CFA714: 83 F8 FF     - cmp eax,-01
+Tales of Arise.exe+CFA717: 75 E7        - jne "Tales of Arise.exe"+CFA700
+Tales of Arise.exe+CFA719: EB 05        - jmp "Tales of Arise.exe"+CFA720
+Tales of Arise.exe+CFA71B: 83 F8 FF     - cmp eax,-01
+Tales of Arise.exe+CFA71E: 75 03        - jne "Tales of Arise.exe"+CFA723
+Tales of Arise.exe+CFA720: 48 8B CF     - mov rcx,rdi
 }
 </AssemblerScript>
     </CheatEntry>
@@ -16661,12 +16662,12 @@ Tales of Arise.exe+722C00: 83 C0 02                 - add eax,02
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>Tales of Arise.exe+3FA2D50</Address>
+          <Address>"Tales of Arise.exe"+04C43A30</Address>
           <Offsets>
             <Offset>950</Offset>
             <Offset>EE8</Offset>
             <Offset>1B8</Offset>
-            <Offset>190</Offset>
+            <Offset>1B0</Offset>
             <Offset>F0</Offset>
             <Offset>8</Offset>
           </Offsets>
@@ -16697,104 +16698,12 @@ Tales of Arise.exe+722C00: 83 C0 02                 - add eax,02
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <CheatCodes>
-    <CodeEntry>
-      <Description>Skill active?</Description>
-      <AddressString>Tales of Arise.exe+C5AD37</AddressString>
-      <Before>
-        <Byte>84</Byte>
-        <Byte>70</Byte>
-        <Byte>FF</Byte>
-        <Byte>FF</Byte>
-        <Byte>FF</Byte>
-      </Before>
-      <Actual>
-        <Byte>0F</Byte>
-        <Byte>B6</Byte>
-        <Byte>44</Byte>
-        <Byte>C8</Byte>
-        <Byte>04</Byte>
-      </Actual>
-      <After>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>5C</Byte>
-        <Byte>24</Byte>
-        <Byte>08</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>"Grade Shop" + menu state</Description>
-      <AddressString>Tales of Arise.exe+C689B4</AddressString>
-      <Before>
-        <Byte>07</Byte>
-        <Byte>48</Byte>
-        <Byte>C1</Byte>
-        <Byte>E9</Byte>
-        <Byte>03</Byte>
-      </Before>
-      <Actual>
-        <Byte>0F</Byte>
-        <Byte>B6</Byte>
-        <Byte>14</Byte>
-        <Byte>01</Byte>
-      </Actual>
-      <After>
-        <Byte>B8</Byte>
-        <Byte>01</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>DLC flags</Description>
-      <AddressString>Tales of Arise.exe+5D467C</AddressString>
-      <Before>
-        <Byte>44</Byte>
-        <Byte>C1</Byte>
-        <Byte>48</Byte>
-        <Byte>0B</Byte>
-        <Byte>C2</Byte>
-      </Before>
-      <Actual>
-        <Byte>42</Byte>
-        <Byte>8B</Byte>
-        <Byte>1C</Byte>
-        <Byte>80</Byte>
-      </Actual>
-      <After>
-        <Byte>83</Byte>
-        <Byte>FB</Byte>
-        <Byte>FF</Byte>
-        <Byte>0F</Byte>
-        <Byte>84</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Item check</Description>
-      <AddressString>Tales of Arise.exe+9A9E77</AddressString>
-      <Before>
-        <Byte>84</Byte>
-        <Byte>80</Byte>
-        <Byte>01</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Before>
-      <Actual>
-        <Byte>8B</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>9C</Byte>
-        <Byte>24</Byte>
-        <Byte>B8</Byte>
-      </After>
-    </CodeEntry>
-  </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedAddr</Name>
+      <Address>18484780000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <Comments>Update 1 -&gt; 2 offset:
 +13570
 Update 2 -&gt; 3 offset:

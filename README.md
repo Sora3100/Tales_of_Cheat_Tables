@@ -28,7 +28,7 @@ Features:
  - Arte List Editor
 
  ## Arise (PC)
-Based on the 2022/04/07 (1.07) update.
+Based on the 2023/11/09 (10.47.00 according to buildinfo, buildid 12162925) update.
 
 Features:
  - Party Formation Editor
