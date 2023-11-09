@@ -1,5 +1,9 @@
 ### Changelog
 
+#### 2023/11/09
+
+-	Updated Arise to latest game version (10.47.00 according to buildinfo, buildid 12162925)
+
 #### 2023/10/20
 
 -	Corrected some mistakes in Destiny DC's difficulty values editor
