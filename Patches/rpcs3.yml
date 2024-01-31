@@ -1,0 +1,560 @@
+Version: 1.2
+
+Anchors:
+  togf_eu_save_anywhere: &togf_eu_save_anywhere
+      - [ be32, 0x1DC260, 0x48000008 ]
+      - [ be32, 0x1DD5F4, 0x48000008 ]
+
+  tox2_no_link_req_exd_nonjp: &tox2_no_link_req_exd_nonjp
+      - [ be32, 0x8A554, 0x4BFFEB6C ]
+
+  tox2_no_link_req_exd_expl: &tox2_no_link_req_exd_expl
+        "Allows characters to deal more than 1 damage without being linked in the Illusionary Darkness dungeon."
+
+  tox_no_party_lock: &tox_no_party_lock
+      - [ be32, 0x219B90, 0x38E00000 ]
+
+  tox_no_party_lock_expl: &tox_no_party_lock_expl
+        "Allows injured Milla and Elize to participate earlier in battles."
+
+  tox_disable_party_checks: &tox_disable_party_checks
+      - [ be32, 0x1E1838, 0x38600001 ]
+      - [ be32, 0x1E183C, 0x4E800020 ]
+
+  tox2_disable_party_checks_eu: &tox2_disable_party_checks_eu
+      - [ be32, 0x2035C8, 0x38600001 ]
+      - [ be32, 0x2035CC, 0x4E800020 ]
+
+  tox_disable_party_checks_expl: &tox_disable_party_checks_expl
+        "Allows events to trigger regardless of party composition."
+
+  tox_disable_party_changes: &tox_disable_party_changes #crashes on interpreter without setting a breakpoint
+      - [ be32, 0x2DACE0, 0x48000008 ] #Skip party set to real chars
+      - [ be32, 0x2DACB4, 0x48000008 ] #Skip party set to nothing
+      - [ be32, 0x2DAC68, 0x48000008 ] #Skip party set to real chars but not participating in battle
+      - [ be32, 0x21B90C, 0x48000008 ] #Skip party set to real chars but not participating in battle
+      - [ be32, 0xCEA7C, 0x60000000 ]
+      - [ jump, 0xCEA7C, 0x0 ] #jump to final boss softlock workaround
+      - [ calloc, 0xCEA7C, 9 ]
+      - [ be32, 0x0, 0x83440000 ] #load address from r4 into r26
+      - [ be32, 0x0, 0x835A0000 ] #load value of r26 into r26
+      - [ be32, 0x0, 0x2C1A0044 ] #if r26 is equal to 88 (0x44)
+      - [ be32, 0x0, 0x4082000C ] #jump to 3rd instr from this if not equal
+      - [ be32, 0x0, 0x3B400000 ] #write 0 to r26
+      - [ be32, 0x0, 0x48000008 ] #skip next instruction
+      - [ be32, 0x0, 0x835E0000 ] #return original value of r26
+      - [ be32, 0x0, 0x2C1A0000 ] #original compare code
+      - [ jump, 0x0, 0xCEA80 ] #jump back
+      - [ be32, 0x2C0BDC, 0x480000A4 ] #Skip party set in final boss
+
+  tox_disable_party_changes_expl: &tox_disable_party_changes_expl
+        "Forces the game to never update your party composition.\nIt is recommended that you use Cheat Engine or something similiar to change the party to your needs.\nHighly recommended to use this in combination with \"Disable party checks\" and \"No party locks\".\nRemoves the final boss' event as a workaround to not softlock."
+        
+  tox2_disable_party_changes: &tox2_disable_party_changes
+      - [ be32, 0x345BB8, 0x48000008 ]
+      - [ be32, 0x345B94, 0x48000008 ]
+      - [ be32, 0x345BD8, 0x48000008 ]
+      - [ be32, 0x345B58, 0x48000008 ]
+      - [ be32, 0x21BE2C, 0x48000BE0 ] #leaving town remove party
+      - [ be32, 0x21BF94, 0x48000004 ] #leaving town set 0
+
+  tox2_disable_party_changes_expl: &tox2_disable_party_changes_expl
+        "Forces the game to never update your party composition.\nIt is recommended that you use Cheat Engine or something similiar to change the party to your needs.\nHighly recommended to use this in combination with \"Disable party checks\" and \"No party locks\".\nNot fully implemented."
+
+  tox_disable_hitstop: &tox_disable_hitstop
+      - [ be32, 0x8D350, 0xFC421028 ]
+
+  tox_disable_hitstop_expl: &tox_disable_hitstop_expl
+        "Forces the game to never slow down when any attack hits."
+        
+  tox2_disable_hitstop: &tox2_disable_hitstop
+      - [ be32, 0x88FE4, 0xFC421028 ]
+
+PPU-579f304de30005038ae57bbc922539442104fad6:
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        BLJS10093: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1DBE28, 0x48000008 ]
+      - [ be32, 0x1DD1B0, 0x48000008 ]
+
+PPU-3e9032a3f7857057ef783810bd8f34a439baaa59: #Vanilla
+#PPU-d8bce76d385cc40b4c522a8415b1fd9fca3d06b8: #Undub
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        BLUS30903: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1D8C0C, 0x48000008 ]
+      - [ be32, 0x1D9F94, 0x48000008 ]
+      
+PPU-b8943beb705272fcbd97057092caf91d2e51989f:
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        NPUB31133: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1D8C04, 0x48000008 ]
+      - [ be32, 0x1D9F8C, 0x48000008 ]
+      
+PPU-084ac5536f65a5bffef014af9fc4389c5be6c8f9:
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        BLES01617: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *togf_eu_save_anywhere ]
+
+PPU-3fe1d2a2a5375eb2e9e04cede28a561851f4e282:
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        NPEB01288: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *togf_eu_save_anywhere ]
+ 
+PPU-259260de890d71ed8e6cb59e5c0a199e56d3e384: #Vanilla JP
+#PPU-19c24a1aefd3e8119f38874121e06c1f530d2c41: #English Patch
+  "Save Anywhere":
+    Games:
+      "Tales of Vesperia":
+        BLJS10053: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x385BE4, 0x48000040 ]
+      - [ be32, 0x385BD8, 0x48000008 ]
+      
+PPU-5d8f55a64f8c71b29709d1c1a898c0009079c216:
+  "Unlock Lloyd & Co. for leveling (DOESN'T WORK)":
+    Games:
+      "Tales of Symphonia Dawn of the New World":
+        BLUS31172: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Original Wii code by dcx2.\nDoesn't work due to RPCS3 patch system limitations."
+    Patch:
+       - [ be32, 0xBDFEEC, 0x60000000 ]
+       - [ jump, 0xBDFEEC, 0x0 ]
+       - [ calloc, 0xBDFEEC, 6 ]
+       - [ be32, 0x0, 0x2C030000 ] #cmpwi r3, 0
+       - [ be32, 0x0, 0x4082000C ] #bne 0x10
+       - [ be32, 0x0, 0x38600001 ] #li r3, 1
+       - [ be32, 0x0, 0x7C7FF1AE ] #stbx r3, r31, r30
+       - [ be32, 0x0, 0xE8010090 ] #ld r0, 0x90(r1)
+       - [ jump, 0x0, 0xBDFEF0 ]
+
+PPU-1e824ae4a38b69e8e5a9a92e1179040e07b6ec69:
+  "Unlock Lloyd & Co. for leveling":
+    Games:
+      "Tales of Symphonia Dawn of the New World":
+        NPUB31194: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Original Wii code by dcx2."
+    Patch:
+      - [ be32, 0xBFFBC, 0x60000000 ]
+      - [ jump, 0xBFFBC, 0x0 ]
+      - [ calloc, 0xBFFBC, 5 ]
+      - [ be32, 0x0, 0x2C030000 ] #cmpwi r3, 0
+      - [ be32, 0x0, 0x40820008 ] #bne 0xC
+      - [ be32, 0x0, 0x38600001 ] #li r3, 1
+      - [ be32, 0x0, 0xE8010090 ] #ld r0, 0x90(r1)
+      - [ jump, 0x0, 0xBFFC0 ]
+      - [ be32, 0xC00B4, 0x38800001 ] #li r4,1
+      
+PPU-a7f26bbbcb13fd5f554d0612f490861feec78e8f:
+  "No party lock":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_party_lock_expl
+    Patch:
+      - [ load, *tox_no_party_lock ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ load, *tox_disable_party_checks ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_changes_expl
+    Patch:
+      - [ load, *tox_disable_party_changes ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox_disable_hitstop ]
+      
+PPU-62b0f370c487523166efb0d4b4a24e627acc3488:
+  "No party lock":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_party_lock_expl
+    Patch:
+      - [ load, *tox_no_party_lock ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ load, *tox_disable_party_checks ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_changes_expl
+    Patch:
+      - [ load, *tox_disable_party_changes ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox_disable_hitstop ]
+      
+PPU-f7f6881ea84c3196f294e437d766e7fb2c5b8d0c:
+  "No party lock":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_party_lock_expl
+    Patch:
+      - [ be32, 0x214920, 0x38E00000 ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x1DC420, 0x38600001 ]
+      - [ be32, 0x1DC424, 0x4E800020 ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_changes_expl
+    Patch: #crashes on interpreter without setting a breakpoint
+      - [ be32, 0x2D6AE0, 0x48000008 ] #Skip party set to real chars
+      - [ be32, 0x2D6AB4, 0x48000008 ] #Skip party set to nothing
+      - [ be32, 0x2D6A68, 0x48000008 ] #Skip party set to real chars but not participating in battle
+      - [ be32, 0x2164CC, 0x48000008 ] #Skip party set to real chars but not participating in battle      
+      - [ be32, 0xCEC4C, 0x60000000 ]
+      - [ jump, 0xCEC4C, 0x0 ] #jump to final boss softlock workaround
+      - [ calloc, 0xCEC4C, 9 ]
+      - [ be32, 0x0, 0x83440000 ] #load address from r4 into r26
+      - [ be32, 0x0, 0x835A0000 ] #load value of r26 into r26
+      - [ be32, 0x0, 0x2C1A0044 ] #if r26 is equal to 88 (0x44)
+      - [ be32, 0x0, 0x4082000C ] #jump to 3rd instr from this if not equal
+      - [ be32, 0x0, 0x3B400000 ] #write 0 to r26
+      - [ be32, 0x0, 0x48000008 ] #skip next instruction
+      - [ be32, 0x0, 0x835E0000 ] #return original value of r26
+      - [ be32, 0x0, 0x2C1A0000 ] #original compare code
+      - [ jump, 0x0, 0xCEC50 ] #jump back
+      - [ be32, 0x2BC9E4, 0x480000A4 ] #Skip party set in final boss
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ be32, 0xA0C08, 0xFC421028 ]
+      
+PPU-a7d11f549ba784d539148688ef512a6a1907e63e:
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ load, *tox2_no_link_req_exd_nonjp ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ load, *tox2_disable_party_checks_eu ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_changes_expl
+    Patch:
+      - [ load, *tox2_disable_party_changes ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox2_disable_hitstop ]
+
+PPU-c83d91c3be29b1460777f8a5d7fa5a111b1237b0:
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ load, *tox2_no_link_req_exd_nonjp ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ load, *tox2_disable_party_checks_eu ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_changes_expl
+    Patch:
+      - [ load, *tox2_disable_party_changes ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox2_disable_hitstop ]
+
+PPU-d96e838f10e9730d8ba21659e02663b44488670f:
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ load, *tox2_no_link_req_exd_nonjp ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x203590, 0x38600001 ]
+      - [ be32, 0x203594, 0x4E800020 ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_changes_expl
+    Patch:
+      - [ be32, 0x345B54, 0x48000008 ]
+      - [ be32, 0x345B78, 0x48000008 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox2_disable_hitstop ]
+
+PPU-c8cfdd45c319ebbb747f070c80436c3472e28181:
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ be32, 0x8ABE8, 0x4BFFEB6C ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x1FAF98, 0x38600001 ]
+      - [ be32, 0x1FAF9C, 0x4E800020 ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_changes_expl
+    Patch:
+      - [ be32, 0x33C3A4, 0x48000008 ]
+      - [ be32, 0x33C3C8, 0x48000008 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ be32, 0x89680, 0xFC421028 ]
+
+PPU-b04f05aaf687e0f9b26887c7d277d571079efcc5:
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ be32, 0x8A53C, 0x4BFFEB6C ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x1FB468, 0x38600001 ]
+      - [ be32, 0x1FB46C, 0x4E800020 ]
+  "Disable party changes":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_changes_expl
+    Patch:
+      - [ be32, 0x33AABC, 0x48000008 ]
+      - [ be32, 0x33AAE0, 0x48000008 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ be32, 0x88FD4, 0xFC421028 ]

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>64124</ID>
-      <Description>"Enable"</Description>
+      <Description>"Enable on the Main Menu"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
+aobscanregion(btlUnitStatus, 300000000, 400000000, 00 08 00 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 26 01 01 01 00 11 22 33 00 00 00 2A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00)
 aobscanregion(emilModel, 300000000, 400000000, 2F 43 68 61 72 2F 65 6D 69 6C 2E 62 69 6E 00)
 
+registersymbol(btlUnitStatus)
 registersymbol(emilModel)
 [DISABLE]
+unregistersymbol(btlUnitStatus)
 unregistersymbol(emilModel)
+
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -37,7 +41,7 @@ unregistersymbol(emilModel)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>emilModel+184818</Address>
+          <Address>btlUnitStatus</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>64126</ID>
@@ -55,7 +59,9 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64127</ID>
               <Description>"Slot 1"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
               <Address>+2</Address>
@@ -83,6 +89,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64130</ID>
               <Description>"Slot 2"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -111,6 +118,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64133</ID>
               <Description>"Slot 3"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -139,6 +147,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64136</ID>
               <Description>"Slot 4"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -167,6 +176,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64139</ID>
               <Description>"Slot 5"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -195,6 +205,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64142</ID>
               <Description>"Slot 6"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -223,6 +234,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64145</ID>
               <Description>"Slot 7"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -251,6 +263,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64148</ID>
               <Description>"Slot 8"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -279,6 +292,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64151</ID>
               <Description>"Slot 9"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -307,6 +321,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64154</ID>
               <Description>"Slot 10"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -335,6 +350,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64157</ID>
               <Description>"Slot 11"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -361,36 +377,9 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>64160</ID>
-              <Description>"Slot 14"</Description>
-              <DropDownListLink>Party Formation</DropDownListLink>
-              <VariableType>Custom</VariableType>
-              <CustomType>2 Byte Big Endian</CustomType>
-              <Address>+6A</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>64161</ID>
-                  <Description>"Loadout"</Description>
-                  <DropDownListLink>READ THIS</DropDownListLink>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>2 Byte Big Endian</CustomType>
-                  <Address>-2</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>64162</ID>
-                  <Description>"Type"</Description>
-                  <DropDownList DisplayValueAsItem="1">0:Human
-1:Monster
-</DropDownList>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>2 Byte Big Endian</CustomType>
-                  <Address>-4</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
               <ID>64163</ID>
               <Description>"Slot 12"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -419,6 +408,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64166</ID>
               <Description>"Slot 13"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -447,6 +437,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64169</ID>
               <Description>"Slot 14"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -475,6 +466,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
             <CheatEntry>
               <ID>64172</ID>
               <Description>"Slot 15"</Description>
+              <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
               <DropDownListLink>Party Formation</DropDownListLink>
               <VariableType>Custom</VariableType>
               <CustomType>2 Byte Big Endian</CustomType>
@@ -508,7 +500,7 @@ Opening the Status screen on Slot 1 for anything other than Emil/Marta will cras
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>emilModel+172E3E</Address>
+          <Address>btlUnitStatus-119DA</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>64176</ID>
@@ -2037,9 +2029,12 @@ Note that you still need to have caught a monster for it to work.
         </CheatEntry>
         <CheatEntry>
           <ID>64384</ID>
-          <Description>"Equipment"</Description>
+          <Description>"Equipment Editor"</Description>
           <Options moHideChildren="1"/>
-          <DropDownList DisplayValueAsItem="1">0:Empty
+          <DropDownList DisplayValueAsItem="1">0:Nothing
+:
+:::Consumables
+::Gels
 1:Apple Gel
 2:Orange Gel
 3:Melange Gel
@@ -2050,7 +2045,8 @@ Note that you still need to have caught a monster for it to work.
 8:Treat
 9:Special Gel
 10:Lottery Gel
-11:Jelly Gel (Dummy)
+:
+::Bottles
 12:Nectar Bottle
 13:Cure Bottle
 14:Dark Bottle
@@ -2067,6 +2063,8 @@ Note that you still need to have caught a monster for it to work.
 25:Virus Bottle
 26:Weak Bottle
 27:Wing Bottle
+:
+::Herbs
 28:Sage
 29:Savory
 30:Lavender
@@ -2088,11 +2086,8 @@ Note that you still need to have caught a monster for it to work.
 46:Red Chamomile
 47:Red Basil
 48:Red Saffron
-49:Rosemary (Dummy)
-50:Blue Rosemary (Dummy)
-51:Red Rosemary (Dummy)
-52:All-Divide
-53:Hourglass (Dummy)
+:
+::Grimoires
 54:Grey Manuscript
 55:White Manuscript
 56:Yellow Manuscript
@@ -2133,21 +2128,21 @@ Note that you still need to have caught a monster for it to work.
 91:Gnome's Frustration
 92:Luna's Punishment
 93:Efreet's Anger
+:
+::Other
+52:All-Divide
+:
+:::Valuables
 94:Tenebrae's Core
 95:Tenebrae
 96:Aqua's Core
 97:Aqua
 98:Glacies' Core
 99:Glacies
-100:Tonitrus' Core (Dummy)
 101:Tonitrus
-102:Lumen's Core (Dummy)
 103:Lumen
-104:Solum's Core (Dummy)
 105:Solum
-106:Ventus' Core (Dummy)
 107:Ventus
-108:Ignis' Core (Dummy)
 109:Ignis
 110:Eau de Seduction
 111:Lloyd's Mask 1
@@ -2158,8 +2153,6 @@ Note that you still need to have caught a monster for it to work.
 116:Seafood Gel
 117:Research Notes 1
 118:Research Notes 2
-119:Presea's Iron Maiden (Dummy)
-120:Marta's Wood (Dummy)
 121:High-Speed Transport
 122:Rheaird
 123:Sorcerer's Ring
@@ -2189,6 +2182,9 @@ Note that you still need to have caught a monster for it to work.
 147:Special Bait
 148:Water Spider
 149:Lloyd's Mask 4
+:
+:::Materials
+::Food Materials
 150:Pasta
 151:Rice
 152:Flour
@@ -2240,6 +2236,8 @@ Note that you still need to have caught a monster for it to work.
 198:Seaweed
 199:Egg
 200:Milk
+:
+::Monster Materials
 201:Plant Vine
 202:Thick Leaf
 203:Flower Petals
@@ -2360,163 +2358,134 @@ Note that you still need to have caught a monster for it to work.
 318:Orichalcum
 319:Electrum
 320:Quality Stone
-321:Bronze Sword
-322:Iron Sword
-323:Small Sword
-324:Long Sword
-325:Broadsword
-326:Hunting Sword
-327:Great Sword
-328:Gold Sword
-329:Black Sword
-330:Bastard Sword
-331:Knight's Sword
-332:Mythril Sword
-333:Riot Spike
-334:Echo Tracer
-335:Vile Requiem
-336:Soul Blast
-337:Mind Slicer
-338:Mesmeric Trance
-339:Demonic Torment
-340:Nether Traitor
-341:Bronze Spinner
-342:Iron Spinner
-343:Ivory Spinner
-344:Gothic Spinner
-345:Silver Spinner
-346:Coral Spinner
-347:Demonic Spinner
-348:Gold Spinner
-349:Black Spinner
-350:Dragon Spinner
-351:Unicorn Spinner
-352:Mythril Spinner
-353:Millstone
-354:War Chariot
-355:Retribution
-356:Clock Spinner
-357:Dark Sphere
-358:Energy Arc
-359:Trick Bind
-360:Kismet
-361:Rapier
+:
+:::Weapons
+::Twin Blades
 362:Gagnrad
-363:Chakram
+361:Rapier
+:
+::Rings
 364:Angel's Halo
-365:Nova
+363:Chakram
+:
+::Kendamas
 366:One World
-367:Rod
+365:Nova
+:
+::Rods
 368:Crystal Rod
-369:Spell Card
+367:Rod
+:
+::Cards
 370:Divine Judgement
-371:Silver Sword
+369:Spell Card
+:
+::Swords (Zelos)
 372:Last Fencer
-373:Francesca
+371:Silver Sword
+:
+::Axes
 374:Gaia Cleaver
-375:Leather Greaves
+373:Francesca
+:
+::Leg Guards
 376:Dynast
+375:Leather Greaves
+:
+::Swords (Emil)
+340:Nether Traitor
+338:Mesmeric Trance
+336:Soul Blast
+339:Demonic Torment
+337:Mind Slicer
+332:Mythril Sword
+331:Knight's Sword
+330:Bastard Sword
+335:Vile Requiem
+329:Black Sword
+334:Echo Tracer
+328:Gold Sword
+327:Great Sword
+333:Riot Spike
+326:Hunting Sword
+325:Broadsword
+324:Long Sword
+323:Small Sword
+322:Iron Sword
+321:Bronze Sword
+:
+::Spinners
+360:Kismet
+353:Millstone
+359:Trick Bind
+355:Retribution
+358:Energy Arc
+352:Mythril Spinner
+357:Dark Sphere
+351:Unicorn Spinner
+350:Dragon Spinner
+349:Black Spinner
+356:Clock Spinner
+348:Gold Spinner
+354:War Chariot
+347:Demonic Spinner
+346:Coral Spinner
+345:Silver Spinner
+344:Gothic Spinner
+343:Ivory Spinner
+342:Iron Spinner
+341:Bronze Spinner
+:
+::Sword and Ax
 377:Sol and Mani
-378:Leather Plate
-379:Iron Plate
-380:Chain Plate
-381:Scale Plate
-382:Silver Plate
-383:Half Plate
-384:Battle Plate
-385:Light Plate
-386:Black Plate
-387:Royal Plate
-388:Rare Plate
-389:Mythril Plate
+:
+:::Armors
+::Body
+:Plates (Emil)
+393:Lion Heart
 390:Blood Lust
 391:Incinerator
-392:Lawful Light
-393:Lion Heart
+396:Solitude
+389:Mythril Plate
 394:Pain Killer
 395:Power Drive
-396:Solitude
+388:Rare Plate
+387:Royal Plate
+386:Black Plate
+392:Lawful Light
+385:Light Plate
 397:Strange Blue
-398:Cloak
-399:Feather Cloak
-400:Silk Cloak
-401:White Cloak
-402:Silver Cloak
-403:Mage Cloak
-404:Mystic Cloak
-405:Holy Cloak
-406:Witch Cloak
-407:Mirage Cloak
-408:Elder Cloak
-409:Mythril Cloak
-410:Angel Dust
-411:Anthem
+384:Battle Plate
+383:Half Plate
+382:Silver Plate
+381:Scale Plate
+380:Chain Plate
+379:Iron Plate
+378:Leather Plate
+:
+:Cloaks (Marta)
 412:Fairy Tale
-413:Moon Luminance
-414:Phantom Lord
 415:Prime Evil
 416:Rain Maker
+410:Angel Dust
+414:Phantom Lord
+411:Anthem
+409:Mythril Cloak
+408:Elder Cloak
+413:Moon Luminance
+407:Mirage Cloak
 417:Windmill
-418:Bandanna
-419:Leather Bandanna
-420:Custom Bandanna
-421:Sturdy Bandanna
-422:Plate Bandanna
-423:Quill Bandanna
-424:Studded Bandanna
-425:Martial Bandanna
-426:Light Bandanna
-427:Noble Bandanna
-428:Thick Bandanna
-429:Dusk Bandanna
-430:Fencer's Bandanna
-431:Warrior's Bandanna
-432:Rogue's Bandanna
-433:Red Ribbon
-434:Blue Ribbon
-435:Orange Ribbon
-436:Green Ribbon
-437:White Ribbon
-438:Black Ribbon
-439:Purple Ribbon
-440:Yellow Ribbon
-441:Plaid Ribbon
-442:Striped Ribbon
-443:Pretty Ribbon
-444:Elemental Ribbon
-445:Puppet's Ribbon
-446:Wizard's Ribbon
-447:Healer's Ribbon
-448:Leather Gauntlets
-449:Iron Gauntlets
-450:Chain Gauntlets
-451:Scale Gauntlets
-452:Silver Gauntlets
-453:Half Gauntlets
-454:Battle Gauntlets
-455:Light Gauntlets
-456:Black Gauntlets
-457:Royal Gauntlets
-458:Rare Gauntlets
-459:Mythril Gauntlets
-460:Dark Passage
-461:Soul Forge
-462:Star Breaker
-463:Mittens
-464:Feather Mittens
-465:Silk Mittens
-466:White Mittens
-467:Silver Mittens
-468:Mage Mittens
-469:Mystic Mittens
-470:Holy Mittens
-471:Witch Mittens
-472:Mirage Mittens
-473:Elder Mittens
-474:Mythril Mittens
-475:Crossroad
-476:Fortune Teller
-477:Master Mind
+406:Witch Cloak
+405:Holy Cloak
+404:Mystic Cloak
+403:Mage Cloak
+402:Silver Cloak
+401:White Cloak
+400:Silk Cloak
+399:Feather Cloak
+398:Cloak
+:
+:Others
 478:Splint Mail
 479:Mumbane
 480:Golden Armor
@@ -2530,6 +2499,58 @@ Note that you still need to have caught a monster for it to work.
 488:Carnelian Robe
 489:Cerulean Robe
 490:Viridian Robe
+504:Sea Fire
+:
+::Head
+:Plates (Emil)
+429:Dusk Bandanna
+431:Warrior's Bandanna
+428:Thick Bandanna
+427:Noble Bandanna
+426:Light Bandanna
+425:Martial Bandanna
+432:Rogue's Bandanna
+424:Studded Bandanna
+423:Quill Bandanna
+422:Plate Bandanna
+430:Fencer's Bandanna
+421:Sturdy Bandanna
+420:Custom Bandanna
+419:Leather Bandanna
+418:Bandanna
+603:Emilnator
+605:Fish Face
+608:It's Good to be King!
+607:Jewel Hunter Mask
+604:Judas Mask
+606:Pharaoh's Mask
+602:Tenemil
+:
+:Ribbons (Marta)
+444:Elemental Ribbon
+445:Puppet's Ribbon
+443:Pretty Ribbon
+442:Striped Ribbon
+441:Plaid Ribbon
+447:Healer's Ribbon
+440:Yellow Ribbon
+439:Purple Ribbon
+438:Black Ribbon
+436:Green Ribbon
+437:White Ribbon
+446:Wizard's Ribbon
+434:Blue Ribbon
+435:Orange Ribbon
+614:Kitty Kat Hat
+611:Noishe Head
+612:Puppet Master
+433:Red Ribbon
+610:RoboMarta
+609:Tenemart
+615:Tiara of Tears
+613:Tricky Trio
+:
+:Others
 491:Duel Helm
 492:Golden Helm
 493:Rare Circlet
@@ -2537,114 +2558,180 @@ Note that you still need to have caught a monster for it to work.
 495:Aifread's Hat
 496:Ancient Ribbon
 497:Magical Ribbon
+505:Dual Blaze
+:
+::Arm
+:Gauntlets (Emil)
+459:Mythril Gauntlets
+462:Star Breaker
+458:Rare Gauntlets
+457:Royal Gauntlets
+456:Black Gauntlets
+455:Light Gauntlets
+461:Soul Forge
+454:Battle Gauntlets
+453:Half Gauntlets
+452:Silver Gauntlets
+460:Dark Passage
+451:Scale Gauntlets
+450:Chain Gauntlets
+449:Iron Gauntlets
+448:Leather Gauntlets
+:
+:Mittens (Marta)
+477:Master Mind
+474:Mythril Mittens
+473:Elder Mittens
+472:Mirage Mittens
+471:Witch Mittens
+476:Fortune Teller
+470:Holy Mittens
+469:Mystic Mittens
+468:Mage Mittens
+467:Silver Mittens
+475:Crossroad
+466:White Mittens
+465:Silk Mittens
+464:Feather Mittens
+463:Mittens
+:
+:Others
 498:Rare Bracelet
 499:Angel Bracelet
 500:Kaiser Bracelet
 501:Draupnir
 502:Snow Mittens
 503:Queen Mittens
-504:Sea Fire
-505:Dual Blaze
 506:Flambeau
-507:Virus Charm
-508:Stone Charm
-509:Poison Charm
-510:Seal Charm
-511:Paralysis Charm
-512:Shock Charm
-513:Weak Charm
-514:Sleep Charm
-515:Virus Periapt
-516:Stone Periapt
-517:Poison Periapt
-518:Seal Periapt
-519:Paralysis Periapt
-520:Shock Periapt
-521:Weak Periapt
-522:Sleep Periapt
+:
+:::Accessories
+::Charms
 523:Amulet
-524:Talisman
 525:Blue Amulet
 526:Blue Talisman
-527:Garnet Ring
-528:Ruby Ring
+511:Paralysis Charm
+519:Paralysis Periapt
+509:Poison Charm
+517:Poison Periapt
+510:Seal Charm
+518:Seal Periapt
+512:Shock Charm
+520:Shock Periapt
+514:Sleep Charm
+522:Sleep Periapt
+508:Stone Charm
+516:Stone Periapt
+524:Talisman
+507:Virus Charm
+515:Virus Periapt
+513:Weak Charm
+521:Weak Periapt
+:
+::Rings
+534:Amethyst Ring
 529:Aquamarine Ring
+535:Electrum Ring
+527:Garnet Ring
+537:Mythril Ring
 530:Opal Ring
+538:Orichalcum Ring
+536:Platinum Ring
+528:Ruby Ring
 531:Sapphire Ring
 532:Sardonyx Ring
 533:Topaz Ring
-534:Amethyst Ring
-535:Electrum Ring
-536:Platinum Ring
-537:Mythril Ring
-538:Orichalcum Ring
-539:Ring 13 (Dummy)
-540:Ring 14 (Dummy)
-541:Ring 15 (Dummy)
+:
+::Marks
 542:Heal Mark
-543:Holy Mark
-544:Mystic Mark
-545:Spirit Mark
-546:Mana Mark
 547:Heal Symbol
+543:Holy Mark
 548:Holy Symbol
-549:Mystic Symbol
-550:Spirit Symbol
+546:Mana Mark
 551:Mana Symbol
-552:Fire Cape
+544:Mystic Mark
+549:Mystic Symbol
+545:Spirit Mark
+550:Spirit Symbol
+:
+::Capes
+566:Aegir's Cape
+570:Baldr's Cape
+560:Cape
+559:Dark Cape
 553:Earth Cape
+563:Elven Cape
+552:Fire Cape
+567:Forseti's Cape
+565:Freyja's Cape
+556:Ice Cape
+561:Leather Cape
+558:Light Cape
+564:Surtr's Cape
+562:Thief's Cape
+569:Thor's Cape
+557:Thunder Cape
 554:Water Cape
 555:Wind Cape
-556:Ice Cape
-557:Thunder Cape
-558:Light Cape
-559:Dark Cape
-560:Cape
-561:Leather Cape
-562:Thief's Cape
-563:Elven Cape
-564:Surtr's Cape
-565:Freyja's Cape
-566:Aegir's Cape
-567:Forseti's Cape
-568:Ymir's Cape
-569:Thor's Cape
-570:Baldr's Cape
 571:Woden's Cape
+568:Ymir's Cape
+:
+::Boots
 572:Boots
+578:Combat Boots
+577:Feather Boots
+575:Heavy Boots
 573:Leather Boots
 574:Long Boots
-575:Heavy Boots
-576:Sturdy Boots
-577:Feather Boots
-578:Combat Boots
-579:Studded Boots
-580:Seven League Boots
 581:Persian Boots
-582:Garnet
-583:Ruby
+580:Seven League Boots
+579:Studded Boots
+576:Sturdy Boots
+:
+::Gems
+589:Amethyst
 584:Aquamarine
+582:Garnet
 585:Opal
+583:Ruby
 586:Sapphire
 587:Sardonyx
 588:Topaz
-589:Amethyst
-590:Jewel 9 (Dummy)
-591:Jewel 10 (Dummy)
-592:Ground Breaker
-593:Feral Shadow
-594:Edge Walker
+:
+::Statues
+:
 595:Arcanum Wings
-596:Innocent Blood
-597:Damnation
-598:Lord of Chaos
 599:Bright Flame
+597:Damnation
+594:Edge Walker
+593:Feral Shadow
+592:Ground Breaker
 600:Heart Warden
+596:Innocent Blood
 601:Jihad
+598:Lord of Chaos
+:
+:::Unused
+11:Jelly Gel
+49:Rosemary
+50:Blue Rosemary
+51:Red Rosemary
+53:Hourglass
+100:Tonitrus' Core
+102:Lumen's Core
+104:Solum's Core
+106:Ventus' Core
+108:Ignis' Core
+119:Presea's Iron Maiden
+120:Marta's Wood
+539:Ring 13
+540:Ring 14
+541:Ring 15
+590:Jewel 9
+591:Jewel 10
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>emilModel+172E3E</Address>
+          <Address>btlUnitStatus-119DA</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>64385</ID>
@@ -2682,7 +2769,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64387</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -2690,7 +2777,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64388</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -2698,7 +2785,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64389</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -2706,7 +2793,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64390</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -2714,7 +2801,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64391</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -2722,7 +2809,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64392</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -2739,7 +2826,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64394</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -2747,7 +2834,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64395</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -2755,7 +2842,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64396</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -2763,7 +2850,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64397</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -2771,7 +2858,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64398</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -2779,7 +2866,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64399</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -2796,7 +2883,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64401</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -2804,7 +2891,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64402</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -2812,7 +2899,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64403</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -2820,7 +2907,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64404</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -2828,7 +2915,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64405</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -2836,7 +2923,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64406</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -2853,7 +2940,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64408</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -2861,7 +2948,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64409</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -2869,7 +2956,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64410</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -2877,7 +2964,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64411</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -2885,7 +2972,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64412</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -2893,7 +2980,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64413</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -2910,7 +2997,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64415</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -2918,7 +3005,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64416</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -2926,7 +3013,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64417</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -2934,7 +3021,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64418</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -2942,7 +3029,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64419</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -2950,7 +3037,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64420</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -2967,7 +3054,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64422</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -2975,7 +3062,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64423</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -2983,7 +3070,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64424</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -2991,7 +3078,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64425</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -2999,7 +3086,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64426</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3007,7 +3094,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64427</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3024,7 +3111,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64429</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -3032,7 +3119,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64430</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -3040,7 +3127,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64431</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -3048,7 +3135,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64432</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -3056,7 +3143,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64433</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3064,7 +3151,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64434</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3081,7 +3168,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64436</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -3089,7 +3176,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64437</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -3097,7 +3184,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64438</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -3105,7 +3192,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64439</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -3113,7 +3200,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64440</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3121,7 +3208,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64441</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3138,7 +3225,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64443</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -3146,7 +3233,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64444</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -3154,7 +3241,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64445</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -3162,7 +3249,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64446</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -3170,7 +3257,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64447</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3178,7 +3265,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64448</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3195,7 +3282,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64450</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -3203,7 +3290,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64451</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -3211,7 +3298,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64452</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -3219,7 +3306,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64453</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -3227,7 +3314,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64454</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3235,7 +3322,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64455</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3252,7 +3339,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64457</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -3260,7 +3347,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64458</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -3268,7 +3355,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64459</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -3276,7 +3363,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64460</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -3284,7 +3371,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64461</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3292,7 +3379,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64462</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3309,7 +3396,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64464</ID>
                   <Description>"Weapon"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+46</Address>
@@ -3317,7 +3404,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64465</ID>
                   <Description>"Body"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+48</Address>
@@ -3325,7 +3412,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64466</ID>
                   <Description>"Head"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4A</Address>
@@ -3333,7 +3420,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64467</ID>
                   <Description>"Arm"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4C</Address>
@@ -3341,7 +3428,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64468</ID>
                   <Description>"Other 1"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+4E</Address>
@@ -3349,7 +3436,7 @@ Note that you still need to have caught a monster for it to work.
                 <CheatEntry>
                   <ID>64469</ID>
                   <Description>"Other 2"</Description>
-                  <DropDownListLink>Equipment</DropDownListLink>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
                   <VariableType>Custom</VariableType>
                   <CustomType>2 Byte Big Endian</CustomType>
                   <Address>+50</Address>
@@ -3366,7 +3453,7 @@ Note that you still need to have caught a monster for it to work.
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>emilModel+172E3E</Address>
+          <Address>btlUnitStatus-119DA</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>64471</ID>
@@ -4704,7 +4791,15 @@ to use Artes via Right Stick on monsters.
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>64628</ID>
+          <ID>64634</ID>
+          <Description>"Gald"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>emilModel+172CB8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64705</ID>
           <Description>"Control Modes"</Description>
           <Options moHideChildren="1"/>
           <DropDownList DisplayValueAsItem="1">0:Auto
@@ -4713,10 +4808,10 @@ to use Artes via Right Stick on monsters.
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>emilModel+18488C</Address>
+          <Address>btlUnitStatus+74</Address>
           <CheatEntries>
             <CheatEntry>
-              <ID>64629</ID>
+              <ID>64706</ID>
               <Description>"READ THIS"</Description>
               <DropDownList DisplayValueAsItem="1">::Humans
 0:Lloyd/Empty
@@ -4774,42 +4869,34 @@ Tip: In the Colosseum, you can have all 4 characters be a monster in all types.
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
-              <ID>64630</ID>
+              <ID>64707</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <VariableType>Byte</VariableType>
               <Address>+0</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>64631</ID>
+              <ID>64708</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <VariableType>Byte</VariableType>
               <Address>+1</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>64632</ID>
+              <ID>64709</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <VariableType>Byte</VariableType>
               <Address>+2</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>64633</ID>
+              <ID>64710</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <VariableType>Byte</VariableType>
               <Address>+3</Address>
             </CheatEntry>
           </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>64634</ID>
-          <Description>"Gald"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Custom</VariableType>
-          <CustomType>4 Byte Big Endian</CustomType>
-          <Address>emilModel+172CB8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>64702</ID>
@@ -4819,7 +4906,7 @@ Tip: In the Colosseum, you can have all 4 characters be a monster in all types.
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
-          <Address>emilModel+1848A1</Address>
+          <Address>btlUnitStatus+89</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>64637</ID>
@@ -4829,41 +4916,19 @@ Tip: In the Colosseum, you can have all 4 characters be a monster in all types.
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
-              <ID>64638</ID>
-              <Description>"Map test"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <Color>C0C0C0</Color>
-              <VariableType>String</VariableType>
-              <Length>9</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>emilModel+20A650D8</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>64639</ID>
-              <Description>"Map test"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <Color>C0C0C0</Color>
-              <VariableType>String</VariableType>
-              <Length>9</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>emilModel+20A65178</Address>
-            </CheatEntry>
-            <CheatEntry>
               <ID>64641</ID>
               <Description>"Iogia exp table"</Description>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Byte</VariableType>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
               <Address>emilModel-4EF20</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>64642</ID>
               <Description>"Emil exp table (level3)"</Description>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Byte</VariableType>
+              <VariableType>Custom</VariableType>
+              <CustomType>4 Byte Big Endian</CustomType>
               <Address>emilModel-4F734</Address>
             </CheatEntry>
             <CheatEntry>
@@ -4945,6 +5010,14 @@ You have to open the Options menu at least once for the Difficulty option to wor
               <CodePage>0</CodePage>
               <ZeroTerminate>1</ZeroTerminate>
               <Address>emilModel-528B8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>64703</ID>
+              <Description>"Marta Prism Sword TP cost"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Custom</VariableType>
+              <CustomType>2 Byte Big Endian</CustomType>
+              <Address>emilModel+59CD0</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
