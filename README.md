@@ -1,7 +1,3 @@
-
-
-
-  
  # Tales of Cheat Engine tables
 
 These tables were originally meant to be for myself, but I am releasing all of them here. 
@@ -11,8 +7,10 @@ Having trouble? See the [troubleshooting](https://github.com/Sora3100/Tales_of_C
 
 [Click here to see the changelog.](https://github.com/Sora3100/Tales_of_Cheat_Tables/blob/master/CHANGELOG.md)
 
-Below is a listing of features for each table.
+Below is a listing of features for each table and patch.
 
+ # Cheat Tables
+ 
  ## Abyss (PS2)
 Based on the SLUS21386 version of the game.
  
@@ -368,3 +366,61 @@ Features:
  - Change Camera Height
  - Alisha can armatize
  - Show all entries in Enemy Book
+ 
+ # Patches
+ 
+ ## Graces f (PS3)
+Available for:
+ - BLUS30903
+ - NPUB31133
+ - BLES01617
+ - NPEB01288
+ - BLJS10093
+
+Features:
+ - Save Anywhere
+ 
+ ## Xillia 1 (PS3)
+ Available for:
+ - BLUS31006
+ - NPUB31136
+ - BLES01815
+ - NPEB01310
+ - BLJS10120
+ 
+Features:
+ - No party lock
+ - Disable party checks
+ - Disable party changes
+ - Disable hitstop
+ 
+ ## Xillia 2 (PS3)
+ Available for:
+ - BLUS31397
+ - NPUB31443
+ - BLES01962
+ - NPEB01858
+ - BLJS10188
+ 
+Features:
+ - No linking requirement in EX Dungeon
+ - Disable party checks
+ - Disable hitstop
+ 
+ ## Symphonia - Dawn of the New World (PS3)
+ Available for NPUB31194.
+ 
+Features:
+ - Unlock Lloyd & Co. for leveling
+ 
+ ## Vesperia (PS3)
+Available for BLJS10053.
+
+Features:
+ - Save Anywhere
+ 
+ ## VS (PSP)
+Available for ULJS00209.
+
+Features:
+ - Freeze battle timer
