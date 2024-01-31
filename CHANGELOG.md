@@ -1,5 +1,39 @@
 ### Changelog
 
+#### 2024/01/31
+
+-	Added "Save Anywhere" patch for Graces F and Vesperia (PS3)
+-	Added "No linking requirement for EX Dungeon" patch for Xillia 2
+-	Added "Unlock Lloyd & Co. for leveling" for Symphonia - Dawn of the New World
+-	Added "No party lock" for Xillia 1
+-	Added "Disable party checks" for Xillia 1 and Xillia 2
+-	Added "Disable party changes" for Xillia 1
+-	Added "Disable hitstop" for Xillia 1 and Xillia 2
+-	Added "Freeze battle timer" for Tales of VS
+
+-	Corrected some mistakes in Destiny DC's difficulty values editor
+
+-	Added On-Hover ability to Rebirth's Gem Editor
+
+-	Gem editor now automatically detects your version
+-	Gem editor now supports EU versions
+-	Added Base Max HP to Graces table
+-	Added some more info about shards
+-	Removed leftover hotkey from Weapon editor
+
+-	Added Devil's Arms kills for Xillia 1 and 2
+-	Updated Arte List for Xillia 1 and 2 with some QoL
+
+-	Expanded and gave Symphonia - Dawn of the New World's item list some quality of life upgrades
+-	Made the Symphonia - Dawn of the New World table more compatible with other game versions
+
+-	Added Overlimit gauges to Innocence R and Hearts R
+
+-	Fixed Arise's Have 1 of every item script
+-	The Arte List now generates a list of dropdown options
+
+-	Made Destiny DC's difficulty options savable
+
 #### 2023/11/09
 
 -	Updated Arise to latest game version (10.47.00 according to buildinfo, buildid 12162925)
