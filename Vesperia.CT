@@ -7292,7 +7292,8 @@ dealloc(PSX_3)
             <CheatEntry>
               <ID>83181</ID>
               <Description>"dropdown: Enemy List"</Description>
-              <DropDownList DisplayValueAsItem="1">0:Dummy Data
+              <DropDownList DisplayValueAsItem="1">-1:Nothing
+0:Dummy Data
 1:Yuri (party)
 2:Estellise (party)
 3:Karol (party)
@@ -9315,136 +9316,79 @@ dealloc(PSX_3)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>63619</ID>
-          <Description>"Encounter Finder"</Description>
+          <ID>84832</ID>
+          <Description>"T8BTEMGP Finder"</Description>
           <Options moHideChildren="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
-aobscan(Encounter, F5 00 00 00 F6 00 00 00 F6 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF) // should be unique
-label(_Encounter)
-registersymbol(_Encounter)
+aobscan(T8BTEMGP, 54 38 42 54 45 4D 47 50) // should be unique
+globalalloc(T8BTEMGPEdit,8)
 
-Encounter:
-_Encounter:
-
+registersymbol(T8BTEMGP)
 [DISABLE]
-unregistersymbol(_Encounter)
+unregistersymbol(T8BTEMGP)
+dealloc(T8BTEMGPEdit)
+unregistersymbol(T8BTEMGPEdit)
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
-              <ID>63626</ID>
-              <Description>"Gattuso fight"</Description>
-              <Options moHideChildren="1"/>
-              <GroupHeader>1</GroupHeader>
-              <Address>_Encounter</Address>
+              <ID>84834</ID>
+              <Description>"Edit"</Description>
+              <DropDownList DisplayValueAsItem="1">109:Gattuso
+735:Duke 1
+736:Duke 2
+737:Radiant Winged One
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>T8BTEMGPEdit</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63621</ID>
-                  <Description>"Gattuso"</Description>
-                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>+0</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63622</ID>
-                  <Description>"Gattuso Cub 1"</Description>
-                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>+4</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63623</ID>
-                  <Description>"Gattuso Cub 2"</Description>
-                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>+8</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63624</ID>
-              <Description>"Duke 1st fight"</Description>
-              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Encounter+219F8</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>78932</ID>
-                  <Description>"lol"</Description>
+                  <ID>84840</ID>
+                  <Description>"Next entry"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
-                  <Address>+40</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>78933</ID>
-                      <Description>"lol"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+3f1b6db7</Address>
-                    </CheatEntry>
-                  </CheatEntries>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78934</ID>
-                  <Description>"???"</Description>
+                  <ID>84841</ID>
+                  <Description>"Entry"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
-                  <Address>-10</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>78935</ID>
-                      <Description>"???"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+01897f</Address>
-                    </CheatEntry>
-                  </CheatEntries>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78936</ID>
-                  <Description>"???"</Description>
+                  <ID>84846</ID>
+                  <Description>"String ID"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
-                  <Address>-C</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>78937</ID>
-                      <Description>"???"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+085b</Address>
-                    </CheatEntry>
-                  </CheatEntries>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78938</ID>
-                  <Description>"next entry offset?"</Description>
+                  <ID>84845</ID>
+                  <Description>"In game ID"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
-                  <Address>-18</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>78939</ID>
-                      <Description>"next entry?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+dc</Address>
-                    </CheatEntry>
-                  </CheatEntries>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78940</ID>
-                  <Description>"event offset"</Description>
+                  <ID>84844</ID>
+                  <Description>"Pointer to EG name"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>-8</Address>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>78941</ID>
-                      <Description>"event"</Description>
+                      <ID>84847</ID>
+                      <Description>"EG name"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
                       <Address>+0</Address>
                       <Offsets>
                         <Offset>0</Offset>
@@ -9453,45 +9397,526 @@ unregistersymbol(_Encounter)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78942</ID>
-                  <Description>"monster list end offset"</Description>
+                  <ID>84842</ID>
+                  <Description>"Enemy model 1"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84848</ID>
+                  <Description>"Enemy model 2"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84855</ID>
+                  <Description>"Enemy model 3"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84854</ID>
+                  <Description>"Enemy model 4"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84853</ID>
+                  <Description>"Enemy model 5"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84852</ID>
+                  <Description>"Enemy model 6"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84851</ID>
+                  <Description>"Enemy model 7"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84850</ID>
+                  <Description>"Enemy model 8"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84856</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84865</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84864</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84863</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84862</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84861</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84860</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84859</ID>
+                  <Description>"~1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84858</ID>
+                  <Description>"Enemy 1 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84857</ID>
+                  <Description>"Enemy 2 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84866</ID>
+                  <Description>"Enemy 3 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84882</ID>
+                  <Description>"Enemy 4 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84881</ID>
+                  <Description>"Enemy 5 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84880</ID>
+                  <Description>"Enemy 6 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84879</ID>
+                  <Description>"Enemy 7 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84878</ID>
+                  <Description>"Enemy 8 X Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84877</ID>
+                  <Description>"Enemy 1 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84876</ID>
+                  <Description>"Enemy 2 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84875</ID>
+                  <Description>"Enemy 3 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84874</ID>
+                  <Description>"Enemy 4 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+84</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84873</ID>
+                  <Description>"Enemy 5 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+88</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84872</ID>
+                  <Description>"Enemy 6 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+8C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84871</ID>
+                  <Description>"Enemy 7 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+90</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84870</ID>
+                  <Description>"Enemy 8 Y Position"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84869</ID>
+                  <Description>"Enemy 1 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+98</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84868</ID>
+                  <Description>"Enemy 2 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+9C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84867</ID>
+                  <Description>"Enemy 3 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+A0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84895</ID>
+                  <Description>"Enemy 4 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+A4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84894</ID>
+                  <Description>"Enemy 5 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+A8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84893</ID>
+                  <Description>"Enemy 6 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+AC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84892</ID>
+                  <Description>"Enemy 7 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+B0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84891</ID>
+                  <Description>"Enemy 8 Scale"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84890</ID>
+                  <Description>"?"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
-                  <Address>-4</Address>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84889</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84888</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84887</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84886</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84885</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+CC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84884</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84883</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+D4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84896</ID>
+                  <Description>"~5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+D8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84835</ID>
+          <Description>"T8BTEMEG Finder"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(T8BTEMEG, 54 38 42 54 45 4D 45 47) // should be unique
+globalalloc(T8BTEMEGEdit, 8)
+
+registersymbol(T8BTEMEG)
+[DISABLE]
+unregistersymbol(T8BTEMEG)
+dealloc(T8BTEMEGEdit)
+unregistersymbol(T8BTEMEGEdit)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>84897</ID>
+              <Description>"Edit"</Description>
+              <DropDownList DisplayValueAsItem="1">44:Gattuso
+287:Duke
+288:Duke 2
+289:Radiant Winged One
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>T8BTEMEGEdit</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>84837</ID>
+                  <Description>"Next entry"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84898</ID>
+                  <Description>"Entry"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84912</ID>
+                  <Description>"String ID"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84911</ID>
+                  <Description>"In game ID"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84910</ID>
+                  <Description>"Pointer to ENG name"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>78943</ID>
-                      <Description>"monster list end?"</Description>
+                      <ID>84909</ID>
+                      <Description>"ENG name"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+01d6</Address>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78946</ID>
-                  <Description>"Enemy 1 size"</Description>
+                  <ID>84908</ID>
+                  <Description>"T8BTEMGP ID"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Float</VariableType>
-                  <Address>+80</Address>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+18</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>78947</ID>
-                  <Description>"Enemy 2 size"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Float</VariableType>
-                  <Address>+84</Address>
+                  <ID>84907</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84906</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84905</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84904</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84903</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84902</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84901</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84900</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84899</ID>
+                  <Description>"T8BTEMGP ID"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+3C</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
-            <CheatEntry>
-              <ID>63625</ID>
-              <Description>"Duke 2nd fight"</Description>
-              <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-              <VariableType>4 Bytes</VariableType>
-              <Address>_Encounter+21AD4</Address>
-            </CheatEntry>
           </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84830</ID>
+          <Description>"Encounter"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+11B0274</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84831</ID>
+          <Description>"Encounter 2?"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TOV_DE.exe+11CC1B4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>79244</ID>
@@ -16054,48 +16479,2607 @@ dealloc(attackNum)
                 <CheatEntry>
                   <ID>82803</ID>
                   <Description>"Attack (change this)"</Description>
-                  <DropDownList DisplayValueAsItem="1">:ex = 9999 arte usage
-::Yuri
-12:First neutral normal attack
-13:First up normal attack
-14:First up normal attack (ex)
-15:First side normal attack
-16:First down normal attack first hit
-17:First down normal attack second hit
-:
-20:Second neutral normal attack
-:
-22:Second up normal attack (ex)
-:
-24:Second side normal attack (ex)
-:
-33:Free Run Attack
-:
-37:Azure Edge close range hit
-38:Azure Edge projectile
-54:Wolf Strike first hit
-55:Wolf Strike second hit
-56:Wolf Strike second hit (ex)
-57:Tiger Blade first hit
-:
-144:Guardian Field
-:
-1748:Over Limit
-:
-::Estellise
-290:Pow Hammer
-:
-1749:Over Limit
-:
-::Karol
-420:Destructo Booing
-:
-422:Destructo Pain Shot
-:
-424:Destructo Spider Web
-:
-473:Destructo Pain Carnival
-:List ends at 2597
+                  <DropDownList DisplayValueAsItem="1">:Format: ID : Attack relating to:(Arte ID) Arte Name
+:For example, "63:(25) Destruction Field" is actually Dhaos Blast
+:If it doesn't match, it's most likely unknown
+0:(0) None
+1:TEST0
+2:TEST1
+3:TEST2
+4:TEST3
+5:TEST4
+6:TEST5
+7:TEST6
+8:TEST7
+9:TEST8
+10:SYS_PALSY
+11:Guard Impact
+12:(1) Regular Attack - O
+13:(2) Regular Attack - ^O
+14:(2) Regular Attack - ^O
+15:(3) Regular Attack - &lt;&gt;O
+16:(4) Regular Attack - vO
+17:(4) Regular Attack - vO
+18:(5) Regular Attack - Jumping - O
+19:(6) Regular Attack - Jumping - vO
+20:(7) Regular Secondary Attack - O
+21:(8) Regular Secondary Attack - ^O
+22:(8) Regular Secondary Attack - ^O
+23:(9) Regular Secondary Attack - &lt;&gt;O
+24:(9) Regular Secondary Attack - &lt;&gt;O
+25:(10) Regular Secondary Attack - vO
+26:(10) Regular Secondary Attack - vO
+27:(10) Regular Secondary Attack - vO
+28:(10) Regular Secondary Attack - vO
+29:(10) Regular Secondary Attack - vO
+30:(10) Regular Secondary Attack - vO
+31:(11) Regular Secondary Attack - Jumping - O
+32:(12) Regular Secondary Attack - Jumping - vO
+33:(13) Free Run Attack
+34:(14) Indigo Fatal Strike
+35:(15) Crimson Fatal Strike
+36:(16) Viridian Fatal Strike
+37:(17) Azure Edge (close range hit)
+38:(17) Azure Edge (projectile)
+39:(18) Azure Storm
+40:(18) Azure Storm
+41:(19) Azure Blast
+42:(19) Azure Blast
+43:(20) Fang Strike
+44:(20) Fang Strike
+45:(21) Cerberus Strike
+46:(21) Cerberus Strike
+47:(21) Cerberus Strike
+48:(21) Cerberus Strike
+49:(22) Cerberus Blast
+50:(22) Cerberus Blast
+51:(22) Cerberus Blast
+52:(22) Cerberus Blast
+53:(22) Cerberus Blast
+54:(23) Wolf Strike (first hit)
+55:(23) Wolf Strike (second hit)
+56:(23) Wolf Strike (second hit ex)
+57:(24) Tiger Blade (first hit)
+58:(24) Tiger Blade
+59:(24) Tiger Blade
+60:(24) Tiger Blade
+61:(25) Destruction Field
+62:(25) Destruction Field
+63:(25) Destruction Field
+64:(26) Ghost Wolf
+65:(26) Ghost Wolf
+66:(27) Shining Fang
+67:(27) Shining Fang
+68:(28) Shining Fang Drop
+69:(28) Shining Fang Drop
+70:(28) Shining Fang Drop
+71:(28) Shining Fang Drop
+72:(29) Severing Fang
+73:(29) Severing Fang
+74:(29) Severing Fang
+75:(30) Dragon Swarm
+76:(30) Dragon Swarm
+77:(30) Dragon Swarm
+78:(30) Dragon Swarm
+79:(30) Dragon Swarm
+80:(31) Raging Blast
+81:(31) Raging Blast
+82:(31) Raging Blast
+83:(32) Brutal Fang
+84:(32) Brutal Fang
+85:(32) Brutal Fang
+86:(32) Brutal Fang
+87:(32) Brutal Fang
+88:(32) Brutal Fang
+89:(33) Wailing Havoc
+90:(33) Wailing Havoc
+91:(33) Wailing Havoc
+92:(33) Wailing Havoc
+93:(34) Pyre Havoc
+94:(34) Pyre Havoc
+95:(34) Pyre Havoc
+96:(34) Pyre Havoc
+97:(35) Lone Wolf Charge
+98:(35) Lone Wolf Charge
+99:(35) Lone Wolf Charge
+100:(35) Lone Wolf Charge
+101:(36) Lone Wolf Storm
+102:(36) Lone Wolf Storm
+103:(36) Lone Wolf Storm
+104:(36) Lone Wolf Storm
+105:(36) Lone Wolf Storm
+106:(37) Azure Wolf Strike
+107:(37) Azure Wolf Strike
+108:(37) Azure Wolf Strike
+109:(37) Azure Wolf Strike
+110:(37) Azure Wolf Strike
+111:(38) Shining Dragon Swarm
+112:(38) Shining Dragon Swarm
+113:(38) Shining Dragon Swarm
+114:(39) Wailing Blast
+115:(39) Wailing Blast
+116:(39) Wailing Blast
+117:(39) Wailing Blast
+118:(40) Rending Wolf Charge
+119:(40) Rending Wolf Charge
+120:(40) Rending Wolf Charge
+121:(40) Rending Wolf Charge
+122:(40) Rending Wolf Charge
+123:(40) Rending Wolf Charge
+124:(40) Rending Wolf Charge
+125:(41) Final Gale
+126:(41) Final Gale
+127:(41) Final Gale
+128:(41) Final Gale
+129:(42) Frigid Blast
+130:(42) Frigid Blast
+131:(42) Frigid Blast
+132:(42) Frigid Blast
+133:(42) Frigid Blast
+134:(42) Frigid Blast
+135:(355) Shining Eagle
+136:(355) Shining Eagle
+137:(355) Shining Eagle
+138:(355) Shining Eagle
+139:(355) Shining Eagle
+140:(355) Shining Eagle
+141:(915) Crushing Eagle
+142:(915) Crushing Eagle
+143:(915) Crushing Eagle
+144:(1257) Guardian Field
+145:(1369) Draconian Slash
+146:(1369) Draconian Slash
+147:(1370) Shredding Palm
+148:(1370) Shredding Palm
+149:(1370) Shredding Palm
+150:(1522) Concealed Wave
+151:(1522) Concealed Wave
+152:(1522) Concealed Wave
+153:(1522) Concealed Wave
+154:(1625) Demon Attack
+155:(1625) Demon Attack
+156:(43) Divine Wolf
+157:(43) Divine Wolf
+158:(43) Divine Wolf
+159:(43) Divine Wolf
+160:(43) Divine Wolf
+161:(43) Divine Wolf
+162:(43) Divine Wolf
+163:(43) Divine Wolf
+164:(43) Divine Wolf
+165:(44) Divine Wolf - Crush
+166:(44) Divine Wolf - Crush
+167:(44) Divine Wolf - Crush
+168:(44) Divine Wolf - Crush
+169:(45) Divine Wolf - Storm
+170:(45) Divine Wolf - Storm
+171:(45) Divine Wolf - Storm
+172:(45) Divine Wolf - Storm
+173:(45) Divine Wolf - Storm
+174:(45) Divine Wolf - Storm
+175:(45) Divine Wolf - Storm
+176:(45) Divine Wolf - Storm
+177:(45) Divine Wolf - Storm
+178:(45) Divine Wolf - Storm
+179:(46) Divine Wolf - Blaze
+180:(46) Divine Wolf - Blaze
+181:(46) Divine Wolf - Blaze
+182:(46) Divine Wolf - Blaze
+183:(46) Divine Wolf - Blaze
+184:(46) Divine Wolf - Blaze
+185:(46) Divine Wolf - Blaze
+186:(46) Divine Wolf - Blaze
+187:(46) Divine Wolf - Blaze
+188:(46) Divine Wolf - Blaze
+189:(46) Divine Wolf - Blaze
+190:(46) Divine Wolf - Blaze
+191:(46) Divine Wolf - Blaze
+192:(46) Divine Wolf - Blaze
+193:(910) Divine Wolf - Flood
+194:(910) Divine Wolf - Flood
+195:(910) Divine Wolf - Flood
+196:(910) Divine Wolf - Flood
+197:(910) Divine Wolf - Flood
+198:(910) Divine Wolf - Flood
+199:(910) Divine Wolf - Flood
+200:(47) Savage Wolf Fury
+201:(47) Savage Wolf Fury
+202:(47) Savage Wolf Fury
+203:(47) Savage Wolf Fury
+204:(47) Savage Wolf Fury
+205:(47) Savage Wolf Fury
+206:(47) Savage Wolf Fury
+207:(47) Savage Wolf Fury
+208:(47) Savage Wolf Fury
+209:(47) Savage Wolf Fury
+210:(47) Savage Wolf Fury
+211:(47) Savage Wolf Fury
+212:(47) Savage Wolf Fury
+213:(1344) Heavenly Bladewing
+214:(1344) Heavenly Bladewing
+215:(1344) Heavenly Bladewing
+216:(52) Regular Attack - O
+217:(53) Regular Attack - ^O
+218:(54) Regular Attack - &lt;&gt;O
+219:(55) Regular Attack - vO
+220:(55) Regular Attack - vO
+221:(56) Regular Attack - Jumping - O
+222:(57) Regular Attack - Jumping - vO
+223:(58) Regular Secondary Attack - O
+224:(59) Regular Secondary Attack - ^O
+225:(60) Regular Secondary Attack - &lt;&gt;O
+226:(61) Regular Secondary Attack - vO
+227:(64) Free Run Attack
+228:Estelle ONE_01
+229:Estelle ONE_02
+230:Estelle ONE_03
+231:Estelle ONE_04
+232:(52) Regular Attack - O
+233:(53) Regular Attack - ^O
+234:(54) Regular Attack - &lt;&gt;O
+235:(55) Regular Attack - vO
+236:(55) Regular Attack - vO
+237:(56) Regular Attack - Jumping - O
+238:(57) Regular Attack - Jumping - vO
+239:(58) Regular Secondary Attack - O
+240:(59) Regular Secondary Attack - ^O
+241:(60) Regular Secondary Attack - &lt;&gt;O
+242:(61) Regular Secondary Attack - vO
+243:(64) Free Run Attack
+244:Estelle ONE_01_ch
+245:Estelle ONE_02_ch
+246:Estelle ONE_03_ch
+247:Estelle ONE_04_ch
+248:(52) Regular Attack - O
+249:(53) Regular Attack - ^O
+250:(54) Regular Attack - &lt;&gt;O
+251:(55) Regular Attack - vO
+252:(55) Regular Attack - vO
+253:(56) Regular Attack - Jumping - O
+254:(57) Regular Attack - Jumping - vO
+255:(58) Regular Secondary Attack - O
+256:(59) Regular Secondary Attack - ^O
+257:(60) Regular Secondary Attack - &lt;&gt;O
+258:(61) Regular Secondary Attack - vO
+259:(64) Free Run Attack
+260:Estelle ONE_01_sl
+261:Estelle ONE_02_sl
+262:Estelle ONE_03_sl
+263:Estelle ONE_04_sl
+264:(65) Indigo Fatal Strike
+265:(66) Crimson Fatal Strike
+266:(67) Viridian Fatal Strike
+267:(68) Star Stroke
+268:(68) Star Stroke
+269:(68) Star Stroke
+270:(68) Star Stroke
+271:(69) Pierce Cluster
+272:(69) Pierce Cluster
+273:(69) Pierce Cluster
+274:(69) Pierce Cluster
+275:(69) Pierce Cluster
+276:(69) Pierce Cluster
+277:(70) Ray Sting
+278:(70) Ray Sting
+279:(71) Dividing Edge
+280:(71) Dividing Edge
+281:(71) Dividing Edge
+282:(72) Air Divide
+283:(72) Air Divide
+284:(73) Marche Waltz
+285:(73) Marche Waltz
+286:(73) Marche Waltz
+287:(73) Marche Waltz
+288:(74) Pow Hammer
+289:(74) Pow Hammer
+290:(74) Pow Hammer
+291:(397) Cavalry
+292:(398) Delight Roll
+293:(398) Delight Roll
+294:(398) Delight Roll
+295:(1371) Tri Slash
+296:(1371) Tri Slash
+297:(1372) Blazing Pillar
+298:(1372) Blazing Pillar
+299:(1373) Sylphy Roll
+300:(1374) Amenes Sorbe
+301:(1626) Phantom Blade
+302:(1626) Phantom Blade
+303:(1626) Phantom Blade
+304:(669) Extreme Stars
+305:(669) Extreme Stars
+306:(669) Extreme Stars
+307:(916) Star Sign - Flame
+308:(916) Star Sign - Flame
+309:(916) Star Sign - Flame
+310:(917) Star Sign - Geo
+311:(917) Star Sign - Geo
+312:(917) Star Sign - Geo
+313:(918) Star Sign - Gale
+314:(918) Star Sign - Gale
+315:(918) Star Sign - Gale
+316:(919) Star Sign - Aqua
+317:(919) Star Sign - Aqua
+318:(919) Star Sign - Aqua
+319:(920) Sacred Penance
+320:(920) Sacred Penance
+321:(920) Sacred Penance
+322:(920) Sacred Penance
+323:(920) Sacred Penance
+324:(1345) Ultima Elementia
+325:(1345) Ultima Elementia
+326:(1345) Ultima Elementia
+327:(1345) Ultima Elementia
+328:(1345) Ultima Elementia
+329:(1345) Ultima Elementia
+330:(1345) Ultima Elementia
+331:(1345) Ultima Elementia
+332:(1345) Ultima Elementia
+333:(1345) Ultima Elementia
+334:(1345) Ultima Elementia
+335:Estelle G_01
+336:Estelle G_02
+337:(97) Regular Attack - O
+338:(97) Regular Attack - O
+339:(97) Regular Attack - O
+340:(97) Regular Attack - O
+341:(97) Regular Attack - O
+342:(98) Regular Attack - ^O
+343:(98) Regular Attack - ^O
+344:(98) Regular Attack - ^O
+345:(99) Regular Attack - &lt;&gt;O
+346:(99) Regular Attack - &lt;&gt;O
+347:(99) Regular Attack - &lt;&gt;O
+348:(100) Regular Attack - vO
+349:(100) Regular Attack - vO
+350:(100) Regular Attack - vO
+351:(101) Regular Attack - Jumping - O
+352:(102) Regular Attack - Jumping - vO
+353:(103) Regular Secondary Attack - O
+354:(103) Regular Secondary Attack - O
+355:(103) Regular Secondary Attack - O
+356:(104) Regular Secondary Attack - ^O
+357:(104) Regular Secondary Attack - ^O
+358:(104) Regular Secondary Attack - ^O
+359:(105) Regular Secondary Attack - &lt;&gt;O
+360:(105) Regular Secondary Attack - &lt;&gt;O
+361:(105) Regular Secondary Attack - &lt;&gt;O
+362:(106) Regular Secondary Attack - vO
+363:(106) Regular Secondary Attack - vO
+364:(106) Regular Secondary Attack - vO
+365:(109) Free Run Attack
+366:(109) Free Run Attack
+367:(109) Free Run Attack
+368:(109) Free Run Attack
+369:(109) Free Run Attack
+370:(113) Dragon Upper
+371:(113) Dragon Upper
+372:(113) Dragon Upper
+373:(113) Dragon Upper
+374:(113) Dragon Upper
+375:(114) Destroying Rock
+376:(114) Destroying Rock
+377:(114) Destroying Rock
+378:(114) Destroying Rock
+379:(114) Destroying Rock
+380:(115) Destruction Street
+381:(115) Destruction Street
+382:(115) Destruction Street
+383:(115) Destruction Street
+384:(115) Destruction Street
+385:(116) Lightning Wave
+386:(116) Lightning Wave
+387:(117) Punishhng Smash
+388:(117) Punishhng Smash
+389:(117) Punishhng Smash
+390:(118) Twin Punishing Smash
+391:(118) Twin Punishing Smash
+392:(118) Twin Punishing Smash
+393:(118) Twin Punishing Smash
+394:(118) Twin Punishing Smash
+395:(118) Twin Punishing Smash
+396:(119) Havoc Break
+397:(119) Havoc Break
+398:(119) Havoc Break
+399:(119) Havoc Break
+400:(120) Havoc Thunder
+401:(120) Havoc Thunder
+402:(120) Havoc Thunder
+403:(121) Coil Beat
+404:(122) Gaia Bug
+405:(122) Gaia Bug
+406:(122) Gaia Bug
+407:(122) Gaia Bug
+408:(122) Gaia Bug
+409:(122) Gaia Bug
+410:(122) Gaia Bug
+411:(123) Bug Breath
+412:(123) Bug Breath
+413:(124) Roaring Revolution
+414:(124) Roaring Revolution
+415:(124) Roaring Revolution
+416:(124) Roaring Revolution
+417:(125) Nice Aid Smash
+418:(126) Nice Healing Smash
+419:(127) Nice Curing Smash
+420:(128) Destructo Booing
+421:(128) Destructo Booing
+422:(129) Destructo Pain Shot
+423:(129) Destructo Pain Shot
+424:(130) Destructo Spider Web
+425:(130) Destructo Spider Web
+426:(131) Rending Drop
+427:(131) Rending Drop
+428:(131) Rending Drop
+429:(131) Rending Drop
+430:(132) Reaper Knock
+431:(132) Reaper Knock
+432:(132) Reaper Knock
+433:(132) Reaper Knock
+434:(132) Reaper Knock
+435:(133) Punishing Beast Flash
+436:(133) Punishing Beast Flash
+437:(133) Punishing Beast Flash
+438:(133) Punishing Beast Flash
+439:(133) Punishing Beast Flash
+440:(133) Punishing Beast Flash
+441:(133) Punishing Beast Flash
+442:(134) Devil Rage Rise
+443:(134) Devil Rage Rise
+444:(134) Devil Rage Rise
+445:(134) Devil Rage Rise
+446:(134) Devil Rage Rise
+447:(134) Devil Rage Rise
+448:(135) Ultimate Divine Destruction
+449:(135) Ultimate Divine Destruction
+450:(135) Ultimate Divine Destruction
+451:(135) Ultimate Divine Destruction
+452:(135) Ultimate Divine Destruction
+453:(136) Death Quake Spark
+454:(136) Death Quake Spark
+455:(136) Death Quake Spark
+456:(137) Punishing Aid Smash
+457:(137) Punishing Aid Smash
+458:(137) Punishing Aid Smash
+459:(138) Roaring Dragon Blow
+460:(138) Roaring Dragon Blow
+461:(138) Roaring Dragon Blow
+462:(138) Roaring Dragon Blow
+463:(138) Roaring Dragon Blow
+464:(138) Roaring Dragon Blow
+465:(138) Roaring Dragon Blow
+466:(358) Hammer Flow Upper
+467:(358) Hammer Flow Upper
+468:(358) Hammer Flow Upper
+469:(358) Hammer Flow Upper
+470:(1336) Nice Recovery Smash
+471:(1375) Hellfire Breath
+472:(1375) Hellfire Breath
+473:(1376) Destructo Pain Carnival
+474:(1376) Destructo Pain Carnival
+475:(1377) Destructo Booing Festival
+476:(1377) Destructo Booing Festival
+477:(1378) Hurricane Revolution
+478:(1378) Hurricane Revolution
+479:(1379) Diablo Hyper Buster
+480:(1379) Diablo Hyper Buster
+481:(1379) Diablo Hyper Buster
+482:(1379) Diablo Hyper Buster
+483:(1379) Diablo Hyper Buster
+484:(1627) Blazing Tempest
+485:(1627) Blazing Tempest
+486:(1627) Blazing Tempest
+487:(674) Ultra Punishing Swing
+488:(674) Ultra Punishing Swing
+489:(674) Ultra Punishing Swing
+490:(674) Ultra Punishing Swing
+491:(906) Ultra Punishing Soul
+492:(906) Ultra Punishing Soul
+493:(906) Ultra Punishing Soul
+494:(906) Ultra Punishing Soul
+495:(907) Ultra Punishing Typhoon
+496:(907) Ultra Punishing Typhoon
+497:(907) Ultra Punishing Typhoon
+498:(907) Ultra Punishing Typhoon
+499:(907) Ultra Punishing Typhoon
+500:(907) Ultra Punishing Typhoon
+501:(907) Ultra Punishing Typhoon
+502:(907) Ultra Punishing Typhoon
+503:(907) Ultra Punishing Typhoon
+504:(908) Ultra Punishing Heat
+505:(908) Ultra Punishing Heat
+506:(908) Ultra Punishing Heat
+507:(908) Ultra Punishing Heat
+508:(909) Ultra Punishing Crush
+509:(909) Ultra Punishing Crush
+510:(909) Ultra Punishing Crush
+511:(909) Ultra Punishing Crush
+512:(921) Overlord Reign Impact
+513:(921) Overlord Reign Impact
+514:(921) Overlord Reign Impact
+515:(921) Overlord Reign Impact
+516:(921) Overlord Reign Impact
+517:(921) Overlord Reign Impact
+518:(921) Overlord Reign Impact
+519:(921) Overlord Reign Impact
+520:(921) Overlord Reign Impact
+521:(1350) Mega Flashbang Ultra X Bomber
+522:(1350) Mega Flashbang Ultra X Bomber
+523:(110) Indigo Fatal Strike
+524:(111) Crimson Fatal Strike
+525:(112) Viridian Fatal Strike
+526:(139) Regular Attack - O
+527:(139) Regular Attack - O
+528:(140) Regular Attack - ^O
+529:(140) Regular Attack - ^O
+530:(141) Regular Attack - &lt;&gt;O
+531:(141) Regular Attack - &lt;&gt;O
+532:(141) Regular Attack - &lt;&gt;O
+533:(142) Regular Attack - vO
+534:(142) Regular Attack - vO
+535:(142) Regular Attack - vO
+536:(143) Regular Attack - Jumping - O
+537:(143) Regular Attack - Jumping - O
+538:(143) Regular Attack - Jumping - O
+539:(143) Regular Attack - Jumping - O
+540:(144) Regular Attack - Jumping - vO
+541:(144) Regular Attack - Jumping - vO
+542:(144) Regular Attack - Jumping - vO
+543:(145) Regular Secondary Attack - O
+544:(145) Regular Secondary Attack - O
+545:(145) Regular Secondary Attack - O
+546:(145) Regular Secondary Attack - O
+547:(146) Regular Secondary Attack - ^O
+548:(148) Regular Secondary Attack - vO
+549:(148) Regular Secondary Attack - vO
+550:(148) Regular Secondary Attack - vO
+551:(148) Regular Secondary Attack - vO
+552:(151) Free Run Attack
+553:(155) β×ψ＝√
+554:(155) β×ψ＝√
+555:(155) β×ψ＝√
+556:(155) β×ψ＝√
+557:(155) β×ψ＝√
+558:(155) β×ψ＝√
+559:(155) β×ψ＝√
+560:(155) β×ψ＝√
+561:(155) β×ψ＝√
+562:(155) β×ψ＝√
+563:(155) β×ψ＝√
+564:(155) β×ψ＝√
+565:(156) ζ×ψ＝φ
+566:(156) ζ×ψ＝φ
+567:(156) ζ×ψ＝φ
+568:(156) ζ×ψ＝φ
+569:(156) ζ×ψ＝φ
+570:(156) ζ×ψ＝φ
+571:(156) ζ×ψ＝φ
+572:(157) ∠＝（x,y,z）
+573:(157) ∠＝（x,y,z）
+574:(157) ∠＝（x,y,z）
+575:(158) ∠＝∞
+576:(158) ∠＝∞
+577:(158) ∠＝∞
+578:(158) ∠＝∞
+579:(158) ∠＝∞
+580:(158) ∠＝∞
+581:(158) ∠＝∞
+582:(158) ∠＝∞
+583:(158) ∠＝∞
+584:(158) ∠＝∞
+585:(913) （δ/χ）λ＝ι
+586:(913) （δ/χ）λ＝ι
+587:(913) （δ/χ）λ＝ι
+588:(913) （δ/χ）λ＝ι
+589:(913) （δ/χ）λ＝ι
+590:(913) （δ/χ）λ＝ι
+591:(914) ζ＝δτ（ωρ）
+592:(914) ζ＝δτ（ωρ）
+593:(914) ζ＝δτ（ωρ）
+594:(914) ζ＝δτ（ωρ）
+595:(1380) Ａ＝Ｉｋ｛λ∈Λ｝
+596:(1380) Ａ＝Ｉｋ｛λ∈Λ｝
+597:(1380) Ａ＝Ｉｋ｛λ∈Λ｝
+598:(1380) Ａ＝Ｉｋ｛λ∈Λ｝
+599:(1380) Ａ＝Ｉｋ｛λ∈Λ｝
+600:(1380) Ａ＝Ｉｋ｛λ∈Λ｝
+601:(1381) ∫∇＝Σ（ωπ）
+602:(1381) ∫∇＝Σ（ωπ）
+603:(1381) ∫∇＝Σ（ωπ）
+604:(1382) ∠＝（r,θ,φ）
+605:(1382) ∠＝（r,θ,φ）
+606:(911) Mystic Drive
+607:(911) Mystic Drive
+608:(911) Mystic Drive
+609:(911) Mystic Drive
+610:(905) Raging Drive
+611:(905) Raging Drive
+612:(905) Raging Drive
+613:(905) Raging Drive
+614:(905) Raging Drive
+615:(922) Ruinous Drive
+616:(922) Ruinous Drive
+617:(922) Ruinous Drive
+618:(922) Ruinous Drive
+619:(923) Fleeting Drive
+620:(923) Fleeting Drive
+621:(923) Fleeting Drive
+622:(923) Fleeting Drive
+623:(923) Fleeting Drive
+624:(924) Diffusional Drive
+625:(924) Diffusional Drive
+626:(924) Diffusional Drive
+627:(924) Diffusional Drive
+628:(924) Diffusional Drive
+629:(925) Ancient Catastrophe
+630:(925) Ancient Catastrophe
+631:(925) Ancient Catastrophe
+632:(1351) Indignation
+633:(1351) Indignation
+634:(1351) Indignation
+635:(1351) Indignation
+636:(152) Indigo Fatal Strike
+637:(152) Indigo Fatal Strike
+638:(153) Crimson Fatal Strike
+639:(154) Viridian Fatal Strike
+640:(184) Regular Attack - O
+641:(184) Regular Attack - O
+642:(184) Regular Attack - O
+643:(185) Regular Attack - ^O
+644:(185) Regular Attack - ^O
+645:(185) Regular Attack - ^O
+646:(185) Regular Attack - ^O
+647:(186) Regular Attack - &lt;&gt;O
+648:(186) Regular Attack - &lt;&gt;O
+649:(186) Regular Attack - &lt;&gt;O
+650:(187) Regular Attack - vO
+651:(187) Regular Attack - vO
+652:(187) Regular Attack - vO
+653:(188) Regular Attack - Jumping - O
+654:(188) Regular Attack - Jumping - O
+655:(188) Regular Attack - Jumping - O
+656:(189) Regular Attack - Jumping - vO
+657:(189) Regular Attack - Jumping - vO
+658:(189) Regular Attack - Jumping - vO
+659:(190) Regular Secondary Attack - O
+660:(190) Regular Secondary Attack - O
+661:(190) Regular Secondary Attack - O
+662:(191) Regular Secondary Attack - ^O
+663:(191) Regular Secondary Attack - ^O
+664:(191) Regular Secondary Attack - ^O
+665:(191) Regular Secondary Attack - ^O
+666:(191) Regular Secondary Attack - ^O
+667:(192) Regular Secondary Attack - &lt;&gt;O
+668:(192) Regular Secondary Attack - &lt;&gt;O
+669:(192) Regular Secondary Attack - &lt;&gt;O
+670:(192) Regular Secondary Attack - &lt;&gt;O
+671:(192) Regular Secondary Attack - &lt;&gt;O
+672:(193) Regular Secondary Attack - vO
+673:(193) Regular Secondary Attack - vO
+674:(193) Regular Secondary Attack - vO
+675:(196) Free Run Attack
+676:(196) Free Run Attack
+677:Raven normal attack_ex
+678:Raven normal attack_ex2
+679:Raven f_ex_01
+680:Raven f_ex_02
+681:Raven f_ex_03
+682:Raven f_ex_04
+683:Raven f_ex_05
+684:Raven f_ex_06
+685:Raven f_ex_07
+686:(200) Rain
+687:(200) Rain
+688:(200) Rain
+689:(201) Rainsong
+690:(200) Rain
+691:(202) Bouquet
+692:(202) Bouquet
+693:(202) Bouquet
+694:(203) Serpent
+695:(203) Serpent
+696:(203) Serpent
+697:(204) Glimmer of Hesven
+698:(204) Glimmer of Hesven
+699:(204) Glimmer of Hesven
+700:(204) Glimmer of Hesven
+701:(204) Glimmer of Hesven
+702:(205) Dark Chase
+703:(205) Dark Chase
+704:(205) Dark Chase
+705:(205) Dark Chase
+706:(206) Cyan Instant
+707:(206) Cyan Instant
+708:(207) Around
+709:(207) Around
+710:(208) Around and Around
+711:(208) Around and Around
+712:(208) Around and Around
+713:(208) Around and Around
+714:(209) Violet Snake
+715:(209) Violet Snake
+716:(209) Violet Snake
+717:(211) Heaven's Tear
+718:(211) Heaven's Tear
+719:(212) Rain of Heaven's Tears
+720:(212) Rain of Heaven's Tears
+721:(213) Cloud of Heaven's Tears
+722:(213) Cloud of Heaven's Tears
+723:(214) Just Like Dancing
+724:(214) Just Like Dancing
+725:(215) Falling Stars
+726:(215) Falling Stars
+727:(215) Falling Stars
+728:(215) Falling Stars
+729:(215) Falling Stars
+730:(215) Falling Stars
+731:(215) Falling Stars
+732:(215) Falling Stars
+733:(215) Falling Stars
+734:(215) Falling Stars
+735:(215) Falling Stars
+736:(216) The Growing World
+737:(216) The Growing World
+738:(218) Crime
+739:(218) Crime
+740:(218) Crime
+741:(220) Falling
+742:(220) Falling
+743:(220) Falling
+744:(220) Falling
+745:(221) Falling Further
+746:(221) Falling Further
+747:(223) The Wind's Howl
+748:(223) The Wind's Howl
+749:(1126) Azure Heavens
+750:(1126) Azure Heavens
+751:(1307) Love Shot
+752:(1307) Love Shot
+753:(1307) Love Shot
+754:(1383) Firefly
+755:(1383) Firefly
+756:(1383) Firefly
+757:(1385) Crimson Helix
+758:(1385) Crimson Helix
+759:(1631) Elemental Master
+760:(1631) Elemental Master
+761:(1631) Elemental Master
+762:(672) Fury Blast
+763:(672) Fury Blast
+764:(926) Chaotic Fury
+765:(926) Chaotic Fury
+766:(927) Garnet Chaos
+767:(927) Garnet Chaos
+768:(928) Kamikaze Fury
+769:(928) Kamikaze Fury
+770:(928) Kamikaze Fury
+771:(929) Storm of Chaos
+772:(929) Storm of Chaos
+773:(930) Blast Heart
+774:(930) Blast Heart
+775:(930) Blast Heart
+776:(930) Blast Heart
+777:(930) Blast Heart
+778:(930) Blast Heart
+779:(930) Blast Heart
+780:(1352) Crisis Rain
+781:(1352) Crisis Rain
+782:(1352) Crisis Rain
+783:(197) Indigo Fatal Strike
+784:(198) Crimson Fatal Strike
+785:(199) Viridian Fatal Strike
+786:(231) Wide slice
+787:(232) High thrust
+788:(232) High thrust
+789:(232) High thrust
+790:(233) Middle thrust
+791:(234) Leg sweep
+792:(234) Leg sweep
+793:(234) Leg sweep
+794:(235) Jump cut
+795:(235) Jump cut
+796:(236) Jump thrust
+797:(236) Jump thrust
+798:(237) Spin kick
+799:(237) Spin kick
+800:(238) Moonsault
+801:(238) Moonsault
+802:(239) Wide swing
+803:(240) Hit
+804:(240) Hit
+805:(240) Hit
+806:(241) Jump slice
+807:(241) Jump slice
+808:(242) Jump heel
+809:(242) Jump heel
+810:(243) Free Run Attack
+811:(243) Free Run Attack
+812:(243) Free Run Attack
+813:(244) Spinning jump cut
+814:(244) Spinning jump cut
+815:(245) Jump kick
+816:(245) Jump kick
+817:(249) Crescent Moon
+818:(249) Crescent Moon
+819:(249) Crescent Moon
+820:(249) Crescent Moon
+821:(249) Crescent Moon
+822:(249) Crescent Moon
+823:(250) Crescent Strike
+824:(250) Crescent Strike
+825:(250) Crescent Strike
+826:(250) Crescent Strike
+827:(250) Crescent Strike
+828:(250) Crescent Strike
+829:(250) Crescent Strike
+830:(250) Crescent Strike
+831:(251) Moonlight Talon
+832:(251) Moonlight Talon
+833:(251) Moonlight Talon
+834:(251) Moonlight Talon
+835:(251) Moonlight Talon
+836:(251) Moonlight Talon
+837:(251) Moonlight Talon
+838:(251) Moonlight Talon
+839:(252) Moonlight Drop
+840:(252) Moonlight Drop
+841:(252) Moonlight Drop
+842:(252) Moonlight Drop
+843:(252) Moonlight Drop
+844:(252) Moonlight Drop
+845:(252) Moonlight Drop
+846:(252) Moonlight Drop
+847:(252) Moonlight Drop
+848:(252) Moonlight Drop
+849:(253) Luna Fang
+850:(253) Luna Fang
+851:(254) Luna Talon
+852:(254) Luna Talon
+853:(254) Luna Talon
+854:(255) Moonlight Havoc
+855:(255) Moonlight Havoc
+856:(255) Moonlight Havoc
+857:(255) Moonlight Havoc
+858:(255) Moonlight Havoc
+859:(255) Moonlight Havoc
+860:(255) Moonlight Havoc
+861:(255) Moonlight Havoc
+862:(256) Dawn Moon
+863:(256) Dawn Moon
+864:(256) Dawn Moon
+865:(257) Moonlight Blast
+866:(257) Moonlight Blast
+867:(257) Moonlight Blast
+868:(257) Moonlight Blast
+869:(257) Moonlight Blast
+870:(257) Moonlight Blast
+871:(257) Moonlight Blast
+872:(257) Moonlight Blast
+873:(257) Moonlight Blast
+874:(257) Moonlight Blast
+875:(257) Moonlight Blast
+876:(257) Moonlight Blast
+877:(257) Moonlight Blast
+878:(257) Moonlight Blast
+879:(257) Moonlight Blast
+880:(258) New Moon Blade
+881:(258) New Moon Blade
+882:(258) New Moon Blade
+883:(258) New Moon Blade
+884:(259) Luna Storm
+885:(259) Luna Storm
+886:(259) Luna Storm
+887:(259) Luna Storm
+888:(259) Luna Storm
+889:(260) Raging Luna Storm
+890:(260) Raging Luna Storm
+891:(260) Raging Luna Storm
+892:(260) Raging Luna Storm
+893:(260) Raging Luna Storm
+894:(261) Luna Rise
+895:(261) Luna Rise
+896:(261) Luna Rise
+897:(261) Luna Rise
+898:(261) Luna Rise
+899:(261) Luna Rise
+900:(261) Luna Rise
+901:(261) Luna Rise
+902:(261) Luna Rise
+903:(261) Luna Rise
+904:(261) Luna Rise
+905:(262) Piercing Moon
+906:(263) Luna Gale
+907:(263) Luna Gale
+908:(263) Luna Gale
+909:(263) Luna Gale
+910:(263) Luna Gale
+911:(263) Luna Gale
+912:(263) Luna Gale
+913:(263) Luna Gale
+914:(263) Luna Gale
+915:(264) Thunder Moon
+916:(264) Thunder Moon
+917:(264) Thunder Moon
+918:(264) Thunder Moon
+919:(265) Moonbeam
+920:(265) Moonbeam
+921:(265) Moonbeam
+922:(266) Luna Rondo
+923:(266) Luna Rondo
+924:(266) Luna Rondo
+925:(267) Rising Luna Rondo
+926:(267) Rising Luna Rondo
+927:(267) Rising Luna Rondo
+928:(267) Rising Luna Rondo
+929:(267) Rising Luna Rondo
+930:(268) Luna Havoc
+931:(268) Luna Havoc
+932:(269) Luna Storm
+933:(269) Luna Storm
+934:(269) Luna Storm
+935:(269) Luna Storm
+936:(270) Luna Crush
+937:(270) Luna Crush
+938:(270) Luna Crush
+939:(270) Luna Crush
+940:(271) Moon Glare
+941:(271) Moon Glare
+942:(271) Moon Glare
+943:(271) Moon Glare
+944:(271) Moon Glare
+945:(271) Moon Glare
+946:(271) Moon Glare
+947:(271) Moon Glare
+948:(271) Moon Glare
+949:(271) Moon Glare
+950:(271) Moon Glare
+951:(271) Moon Glare
+952:(271) Moon Glare
+953:(271) Moon Glare
+954:(271) Moon Glare
+955:(271) Moon Glare
+956:(272) Luna Ascendent
+957:(272) Luna Ascendent
+958:(272) Luna Ascendent
+959:(273) Rising Moonlight Havoc
+960:(273) Rising Moonlight Havoc
+961:(273) Rising Moonlight Havoc
+962:(273) Rising Moonlight Havoc
+963:(273) Rising Moonlight Havoc
+964:(273) Rising Moonlight Havoc
+965:(273) Rising Moonlight Havoc
+966:(273) Rising Moonlight Havoc
+967:(273) Rising Moonlight Havoc
+968:(273) Rising Moonlight Havoc
+969:(274) Thunder Moon Rising
+970:(274) Thunder Moon Rising
+971:(274) Thunder Moon Rising
+972:(274) Thunder Moon Rising
+973:(274) Thunder Moon Rising
+974:(274) Thunder Moon Rising
+975:(274) Thunder Moon Rising
+976:(274) Thunder Moon Rising
+977:(274) Thunder Moon Rising
+978:(274) Thunder Moon Rising
+979:(275) Sundering Moon
+980:(275) Sundering Moon
+981:(275) Sundering Moon
+982:(1386) Moonbeam - Bird
+983:(1386) Moonbeam - Bird
+984:(1387) Guiding Moon
+985:(1387) Guiding Moon
+986:(1387) Guiding Moon
+987:(1387) Guiding Moon
+988:(1388) Moonlit Knife
+989:(1388) Moonlit Knife
+990:(1389) Dawn Moon Falcon
+991:(1389) Dawn Moon Falcon
+992:(1390) Crescent Moon Blade
+993:(1390) Crescent Moon Blade
+994:(1632) Bloody Rose
+995:(1632) Bloody Rose
+996:(1632) Bloody Rose
+997:(1632) Bloody Rose
+998:(1632) Bloody Rose
+999:(1632) Bloody Rose
+1000:(1632) Bloody Rose
+1001:(1632) Bloody Rose
+1002:(1632) Bloody Rose
+1003:(1632) Bloody Rose
+1004:(1632) Bloody Rose
+1005:(1632) Bloody Rose
+1006:(1632) Bloody Rose
+1007:(931) Ashen Moonlight
+1008:(931) Ashen Moonlight
+1009:(931) Ashen Moonlight
+1010:(931) Ashen Moonlight
+1011:(931) Ashen Moonlight
+1012:(931) Ashen Moonlight
+1013:(931) Ashen Moonlight
+1014:(931) Ashen Moonlight
+1015:(931) Ashen Moonlight
+1016:(931) Ashen Moonlight
+1017:(932) Conflagration Blast
+1018:(932) Conflagration Blast
+1019:(932) Conflagration Blast
+1020:(932) Conflagration Blast
+1021:(932) Conflagration Blast
+1022:(932) Conflagration Blast
+1023:(932) Conflagration Blast
+1024:(932) Conflagration Blast
+1025:(932) Conflagration Blast
+1026:(932) Conflagration Blast
+1027:(933) Quasi Seal
+1028:(933) Quasi Seal
+1029:(933) Quasi Seal
+1030:(933) Quasi Seal
+1031:(933) Quasi Seal
+1032:(933) Quasi Seal
+1033:(933) Quasi Seal
+1034:(933) Quasi Seal
+1035:(933) Quasi Seal
+1036:(933) Quasi Seal
+1037:(933) Quasi Seal
+1038:(934) Midnight Flood
+1039:(934) Midnight Flood
+1040:(934) Midnight Flood
+1041:(934) Midnight Flood
+1042:(934) Midnight Flood
+1043:(934) Midnight Flood
+1044:(934) Midnight Flood
+1045:(934) Midnight Flood
+1046:(934) Midnight Flood
+1047:(934) Midnight Flood
+1048:(934) Midnight Flood
+1049:(935) Crushing Grave
+1050:(935) Crushing Grave
+1051:(935) Crushing Grave
+1052:(935) Crushing Grave
+1053:(935) Crushing Grave
+1054:(935) Crushing Grave
+1055:(935) Crushing Grave
+1056:(935) Crushing Grave
+1057:(935) Crushing Grave
+1058:(935) Crushing Grave
+1059:(936) Radiant Moonlight
+1060:(936) Radiant Moonlight
+1061:(936) Radiant Moonlight
+1062:(936) Radiant Moonlight
+1063:(936) Radiant Moonlight
+1064:(936) Radiant Moonlight
+1065:(936) Radiant Moonlight
+1066:(936) Radiant Moonlight
+1067:(1353) Dragon's Moon Spear
+1068:(1353) Dragon's Moon Spear
+1069:(1353) Dragon's Moon Spear
+1070:(1353) Dragon's Moon Spear
+1071:(1353) Dragon's Moon Spear
+1072:(1353) Dragon's Moon Spear
+1073:(1353) Dragon's Moon Spear
+1074:(1353) Dragon's Moon Spear
+1075:(1353) Dragon's Moon Spear
+1076:(1353) Dragon's Moon Spear
+1077:(1353) Dragon's Moon Spear
+1078:(1353) Dragon's Moon Spear
+1079:(1353) Dragon's Moon Spear
+1080:(1353) Dragon's Moon Spear
+1081:(1353) Dragon's Moon Spear
+1082:(1353) Dragon's Moon Spear
+1083:(246) Indigo Fatal Strike
+1084:(246) Indigo Fatal Strike
+1085:(246) Indigo Fatal Strike
+1086:(246) Indigo Fatal Strike
+1087:(247) Crimson Fatal Strike
+1088:(247) Crimson Fatal Strike
+1089:(248) Viridian Fatal Strike
+1090:(276) Regular Attack - O
+1091:(277) Regular Attack - ^O
+1092:(278) Regular Attack - &lt;&gt;O
+1093:(279) Regular Attack - vO
+1094:(280) Regular Attack - Jumping - O
+1095:(281) Regular Attack - Jumping - vO
+1096:(282) Regular Secondary Attack - O
+1097:(283) Regular Secondary Attack - ^O
+1098:(284) Regular Secondary Attack - &lt;&gt;O
+1099:(285) Regular Secondary Attack - vO
+1100:(286) Regular Secondary Attack - Jumping - O
+1101:(287) Regular Secondary Attack - Jumping - vO
+1102:(288) Free Run Attack
+1103:(292) Sonic Dog
+1104:(292) Sonic Dog
+1105:(292) Sonic Dog
+1106:(293) Lightning Dog
+1107:(293) Lightning Dog
+1108:(293) Lightning Dog
+1109:(293) Lightning Dog
+1110:(294) Crescent Fang
+1111:(294) Crescent Fang
+1112:(295) Punishing Fang
+1113:(295) Punishing Fang
+1114:(295) Punishing Fang
+1115:(295) Punishing Fang
+1116:(295) Punishing Fang
+1117:(295) Punishing Fang
+1118:(297) Shadow Fang
+1119:(297) Shadow Fang
+1120:(297) Shadow Fang
+1121:(297) Shadow Fang
+1122:(297) Shadow Fang
+1123:(298) Thievery
+1124:(299) Gale Dog
+1125:(300) Demon Dog
+1126:(300) Demon Dog
+1127:(300) Demon Dog
+1128:(301) Demon Dog Rush
+1129:(301) Demon Dog Rush
+1130:(301) Demon Dog Rush
+1131:(302) Shining Dog
+1132:(302) Shining Dog
+1133:(303) Sonic Return
+1134:(303) Sonic Return
+1135:(304) Sonic Fang
+1136:(304) Sonic Fang
+1137:(304) Sonic Fang
+1138:(305) Shining Fang
+1139:(305) Shining Fang
+1140:(306) Light Spear
+1141:(306) Light Spear
+1142:(306) Light Spear
+1143:(307) Victory Light Spear
+1144:(307) Victory Light Spear
+1145:(307) Victory Light Spear
+1146:(307) Victory Light Spear
+1147:(307) Victory Light Spear
+1148:(307) Victory Light Spear
+1149:(308) Hell Hound
+1150:(308) Hell Hound
+1151:(308) Hell Hound
+1152:(308) Hell Hound
+1153:(309) Cyclone Shot
+1154:(310) Phantom Fang
+1155:(310) Phantom Fang
+1156:(311) Phantom Glacier
+1157:(311) Phantom Glacier
+1158:(311) Phantom Glacier
+1159:(312) Ghost Wolf
+1160:(312) Ghost Wolf
+1161:(312) Ghost Wolf
+1162:(312) Ghost Wolf
+1163:(312) Ghost Wolf
+1164:(312) Ghost Wolf
+1165:(312) Ghost Wolf
+1166:(312) Ghost Wolf
+1167:(312) Ghost Wolf
+1168:(313) Demon Spear
+1169:(313) Demon Spear
+1170:(313) Demon Spear
+1171:(313) Demon Spear
+1172:(313) Demon Spear
+1173:(314) Hell Hound Return
+1174:(314) Hell Hound Return
+1175:(314) Hell Hound Return
+1176:(314) Hell Hound Return
+1177:(315) Shadow Fang Punishment
+1178:(315) Shadow Fang Punishment
+1179:(315) Shadow Fang Punishment
+1180:(315) Shadow Fang Punishment
+1181:(315) Shadow Fang Punishment
+1182:(315) Shadow Fang Punishment
+1183:(1393) Snatch Item
+1184:(1393) Snatch Item
+1185:(1394) Shadow Fang Wave
+1186:(1394) Shadow Fang Wave
+1187:(1394) Shadow Fang Wave
+1188:(1395) Dense Demon Dog
+1189:(1395) Dense Demon Dog
+1190:(1395) Dense Demon Dog
+1191:(1395) Dense Demon Dog
+1192:(1396) Swirling Nature
+1193:(1397) Punishing Air Fang
+1194:(1397) Punishing Air Fang
+1195:(1628) Beastly Blow
+1196:(1628) Beastly Blow
+1197:(316) Divine Dog
+1198:(316) Divine Dog
+1199:(316) Divine Dog
+1200:(316) Divine Dog
+1201:(317) Divine Dog - Blaze
+1202:(317) Divine Dog - Blaze
+1203:(317) Divine Dog - Blaze
+1204:(317) Divine Dog - Blaze
+1205:(317) Divine Dog - Blaze
+1206:(318) Divine Dog - Tremble
+1207:(318) Divine Dog - Tremble
+1208:(318) Divine Dog - Tremble
+1209:(318) Divine Dog - Tremble
+1210:(318) Divine Dog - Tremble
+1211:(318) Divine Dog - Tremble
+1212:(318) Divine Dog - Tremble
+1213:(937) Divine Dog - Savage
+1214:(937) Divine Dog - Savage
+1215:(937) Divine Dog - Savage
+1216:(938) Divine Dog - Whirlpool
+1217:(938) Divine Dog - Whirlpool
+1218:(938) Divine Dog - Whirlpool
+1219:(938) Divine Dog - Whirlpool
+1220:(938) Divine Dog - Whirlpool
+1221:(938) Divine Dog - Whirlpool
+1222:(939) Slash!!
+1223:(939) Slash!!
+1224:(939) Slash!!
+1225:(939) Slash!!
+1226:(1354) Lightning Flash
+1227:(1354) Lightning Flash
+1228:(1354) Lightning Flash
+1229:(1354) Lightning Flash
+1230:(1354) Lightning Flash
+1231:(1354) Lightning Flash
+1232:(1354) Lightning Flash
+1233:(1354) Lightning Flash
+1234:(1354) Lightning Flash
+1235:(1354) Lightning Flash
+1236:(1354) Lightning Flash
+1237:(1354) Lightning Flash
+1238:(289) Indigo Fatal Strike
+1239:(290) Crimson Fatal Strike
+1240:(291) Viridian Fatal Strike
+1241:(319) Regular Attack - O
+1242:(320) Regular Attack - ^O
+1243:(320) Regular Attack - ^O
+1244:(321) Regular Attack - &lt;&gt;O
+1245:(322) Regular Attack - vO
+1246:(323) Regular Attack - Jumping - O
+1247:(324) Regular Attack - Jumping - vO
+1248:(325) Regular Secondary Attack - O
+1249:(326) Regular Secondary Attack - ^O
+1250:(326) Regular Secondary Attack - ^O
+1251:(327) Regular Secondary Attack - &lt;&gt;O
+1252:(328) Regular Secondary Attack - vO
+1253:(328) Regular Secondary Attack - vO
+1254:(329) Regular Secondary Attack - Jumping - O
+1255:(330) Din of the Earth
+1256:(331) Free Run Attack
+1257:(332) Indigo Fatal Strike
+1258:(333) Crimson Fatal Strike
+1259:(334) Viridian Fatal Strike
+1260:(1103) Demon Fang
+1261:(1103) Demon Fang
+1262:(1103) Demon Fang
+1263:(1103) Demon Fang
+1264:(1104) Tiger Blade
+1265:(1104) Tiger Blade
+1266:(1104) Tiger Blade
+1267:(1104) Tiger Blade
+1268:(1105) Beast
+1269:(1105) Beast
+1270:(1443) Demonic Chaos
+1271:(1443) Demonic Chaos
+1272:(1443) Demonic Chaos
+1273:(1443) Demonic Chaos
+1274:(1443) Demonic Chaos
+1275:(1443) Demonic Chaos
+1276:(1443) Demonic Chaos
+1277:(1443) Demonic Chaos
+1278:(1443) Demonic Chaos
+1279:(1444) Demonic Circle
+1280:(1444) Demonic Circle
+1281:(1444) Demonic Circle
+1282:(1444) Demonic Circle
+1283:(1444) Demonic Circle
+1284:(1106) Sonic Thrust
+1285:(1106) Sonic Thrust
+1286:(1106) Sonic Thrust
+1287:(1106) Sonic Thrust
+1288:(1107) Sword Rain: Alpha
+1289:(1107) Sword Rain: Alpha
+1290:(1107) Sword Rain: Alpha
+1291:(1107) Sword Rain: Alpha
+1292:(1445) Guardian Field
+1293:(1446) Dragon Swarm
+1294:(1446) Dragon Swarm
+1295:(1446) Dragon Swarm
+1296:(1446) Dragon Swarm
+1297:(1398) Shining Falcon
+1298:(1398) Shining Falcon
+1299:(1398) Shining Falcon
+1300:(1399) Severing Blade
+1301:(1399) Severing Blade
+1302:(1400) Sword Rain
+1303:(1400) Sword Rain
+1304:(1400) Sword Rain
+1305:(1401) Hell Fire Blade
+1306:(1401) Hell Fire Blade
+1307:(1402) Dazzling Spin
+1308:(1402) Dazzling Spin
+1309:(1402) Dazzling Spin
+1310:(1403) Rising Falcon
+1311:(1403) Rising Falcon
+1312:(1403) Rising Falcon
+1313:(1404) Fierce Hell Fire Blade
+1314:(1404) Fierce Hell Fire Blade
+1315:(1405) Rising Phoenix
+1316:(1405) Rising Phoenix
+1317:(1405) Rising Phoenix
+1318:(1405) Rising Phoenix
+1319:(1406) Rending Quake
+1320:(1406) Rending Quake
+1321:(1406) Rending Quake
+1322:(1406) Rending Quake
+1323:(1407) Shining Falcon - Dispersion
+1324:(1407) Shining Falcon - Dispersion
+1325:(1407) Shining Falcon - Dispersion
+1326:(1447) Tiger Rage
+1327:(1447) Tiger Rage
+1328:(1447) Tiger Rage
+1329:(1447) Tiger Rage
+1330:(1447) Tiger Rage
+1331:(1447) Tiger Rage
+1332:(1447) Tiger Rage
+1333:(1540) Distortion Blade
+1334:(1540) Distortion Blade
+1335:(1500) Blazing Pillar Smash
+1336:(1500) Blazing Pillar Smash
+1337:(1500) Blazing Pillar Smash
+1338:(1501) Blazing Pillar Smash - Fiery Lion
+1339:(1501) Blazing Pillar Smash - Fiery Lion
+1340:(1501) Blazing Pillar Smash - Fiery Lion
+1341:(1501) Blazing Pillar Smash - Fiery Lion
+1342:(1501) Blazing Pillar Smash - Fiery Lion
+1343:(1502) Blazing Pillar Smash - Earthquaker
+1344:(1502) Blazing Pillar Smash - Earthquaker
+1345:(1502) Blazing Pillar Smash - Earthquaker
+1346:(1503) Blazing Pillar Smash - Tornado Cutter
+1347:(1503) Blazing Pillar Smash - Tornado Cutter
+1348:(1503) Blazing Pillar Smash - Tornado Cutter
+1349:(1503) Blazing Pillar Smash - Tornado Cutter
+1350:(1503) Blazing Pillar Smash - Tornado Cutter
+1351:(1504) Blazing Pillar Smash - Bubble Bomber
+1352:(1504) Blazing Pillar Smash - Bubble Bomber
+1353:(1504) Blazing Pillar Smash - Bubble Bomber
+1354:(1355) Radiant Dragon Fang
+1355:(1355) Radiant Dragon Fang
+1356:(1355) Radiant Dragon Fang
+1357:(1355) Radiant Dragon Fang
+1358:(1355) Radiant Dragon Fang
+1359:(1355) Radiant Dragon Fang
+1360:(1355) Radiant Dragon Fang
+1361:(1355) Radiant Dragon Fang
+1362:(1356) Firebird Flight
+1363:(1356) Firebird Flight
+1364:(1356) Firebird Flight
+1365:(1356) Firebird Flight
+1366:(1356) Firebird Flight
+1367:(1356) Firebird Flight
+1368:(1356) Firebird Flight
+1369:(1356) Firebird Flight
+1370:(335) Regular Attack - O
+1371:(336) Regular Attack - ^O
+1372:(336) Regular Attack - ^O
+1373:(336) Regular Attack - ^O
+1374:(336) Regular Attack - ^O
+1375:(337) Regular Attack - &lt;&gt;O
+1376:(338) Regular Attack - vO
+1377:(338) Regular Attack - vO
+1378:(338) Regular Attack - vO
+1379:(338) Regular Attack - vO
+1380:(339) Regular Attack - Jumping - O
+1381:(341) Regular Secondary Attack - O
+1382:(343) Regular Secondary Attack - &lt;&gt;O
+1383:(347) Free Run Attack
+1384:(335) Regular Attack - O
+1385:(336) Regular Attack - ^O
+1386:(336) Regular Attack - ^O
+1387:(337) Regular Attack - &lt;&gt;O
+1388:(340) Regular Attack - Jumping - vO
+1389:(341) Regular Secondary Attack - O
+1390:(342) Regular Secondary Attack - ^O
+1391:(342) Regular Secondary Attack - ^O
+1392:(343) Regular Secondary Attack - &lt;&gt;O
+1393:(344) Regular Secondary Attack - vO
+1394:(344) Regular Secondary Attack - vO
+1395:(345) Regular Secondary Attack - Jumping - O
+1396:(345) Regular Secondary Attack - Jumping - O
+1397:(347) Free Run Attack
+1398:(347) Free Run Attack
+1399:(347) Free Run Attack
+1400:(347) Free Run Attack
+1401:(347) Free Run Attack
+1402:(335) Regular Attack - O
+1403:(339) Regular Attack - Jumping - O
+1404:(339) Regular Attack - Jumping - O
+1405:(344) Regular Secondary Attack - vO
+1406:(1412) Form Change
+1407:(1412) Form Change
+1408:(1412) Form Change
+1409:(1412) Form Change
+1410:(1412) Form Change
+1411:(1412) Form Change
+1412:(1413) Clunky Bomb
+1413:(1413) Clunky Bomb
+1414:(1413) Clunky Bomb
+1415:(1413) Clunky Bomb
+1416:(1413) Clunky Bomb
+1417:(1413) Clunky Bomb
+1418:(1413) Clunky Bomb
+1419:(1413) Clunky Bomb
+1420:(1413) Clunky Bomb
+1421:(1413) Clunky Bomb
+1422:(1413) Clunky Bomb
+1423:(1414) Variable Trigger
+1424:(1414) Variable Trigger
+1425:(1414) Variable Trigger
+1426:(1414) Variable Trigger
+1427:(1414) Variable Trigger
+1428:(1414) Variable Trigger
+1429:(1414) Variable Trigger
+1430:(1414) Variable Trigger
+1431:(1414) Variable Trigger
+1432:(1414) Variable Trigger
+1433:(1415) Trigger Tune
+1434:(1415) Trigger Tune
+1435:(1415) Trigger Tune
+1436:(1415) Trigger Tune
+1437:(1415) Trigger Tune
+1438:(1415) Trigger Tune
+1439:(1415) Trigger Tune
+1440:(1415) Trigger Tune
+1441:(1416) Trick Trick
+1442:(1416) Trick Trick
+1443:(1416) Trick Trick
+1444:(1416) Trick Trick
+1445:(1416) Trick Trick
+1446:(1416) Trick Trick
+1447:(1416) Trick Trick
+1448:(1416) Trick Trick
+1449:(1416) Trick Trick
+1450:(1417) Trick or Treat
+1451:(1417) Trick or Treat
+1452:(1417) Trick or Treat
+1453:(1417) Trick or Treat
+1454:(1417) Trick or Treat
+1455:(1417) Trick or Treat
+1456:(1417) Trick or Treat
+1457:(1417) Trick or Treat
+1458:(1417) Trick or Treat
+1459:(1417) Trick or Treat
+1460:(1417) Trick or Treat
+1461:(1418) Random Fall
+1462:(1418) Random Fall
+1463:(1418) Random Fall
+1464:(1418) Random Fall
+1465:(1419) Falling Ice
+1466:(1419) Falling Ice
+1467:(1419) Falling Ice
+1468:(1419) Falling Ice
+1469:(1419) Falling Ice
+1470:(1419) Falling Ice
+1471:(1420) Search Gald
+1472:(1420) Search Gald
+1473:(1420) Search Gald
+1474:(1421) Gald Steal
+1475:(1421) Gald Steal
+1476:(1421) Gald Steal
+1477:(1421) Gald Steal
+1478:(1422) Welcome Dish
+1479:(1422) Welcome Dish
+1480:(1422) Welcome Dish
+1481:(1422) Welcome Dish
+1482:(1422) Welcome Dish
+1483:(1422) Welcome Dish
+1484:(1422) Welcome Dish
+1485:(1422) Welcome Dish
+1486:(1422) Welcome Dish
+1487:(1422) Welcome Dish
+1488:(1422) Welcome Dish
+1489:(1422) Welcome Dish
+1490:(1422) Welcome Dish
+1491:(1422) Welcome Dish
+1492:(1422) Welcome Dish
+1493:(1422) Welcome Dish
+1494:(1422) Welcome Dish
+1495:(1423) Risky Bet
+1496:(1423) Risky Bet
+1497:(1423) Risky Bet
+1498:(1423) Risky Bet
+1499:(1423) Risky Bet
+1500:(1423) Risky Bet
+1501:(1423) Risky Bet
+1502:(1423) Risky Bet
+1503:(1423) Risky Bet
+1504:(1423) Risky Bet
+1505:(1423) Risky Bet
+1506:(1423) Risky Bet
+1507:(1423) Risky Bet
+1508:(1423) Risky Bet
+1509:(1423) Risky Bet
+1510:(1423) Risky Bet
+1511:(1424) Severed Fate
+1512:(1424) Severed Fate
+1513:(1424) Severed Fate
+1514:(1424) Severed Fate
+1515:(1424) Severed Fate
+1516:(1424) Severed Fate
+1517:(1424) Severed Fate
+1518:(1424) Severed Fate
+1519:(1424) Severed Fate
+1520:(1424) Severed Fate
+1521:(1425) Fatal Triangle
+1522:(1425) Fatal Triangle
+1523:(1425) Fatal Triangle
+1524:(1425) Fatal Triangle
+1525:(1425) Fatal Triangle
+1526:(1425) Fatal Triangle
+1527:(1425) Fatal Triangle
+1528:(1425) Fatal Triangle
+1529:(1425) Fatal Triangle
+1530:(1425) Fatal Triangle
+1531:(1426) Dream Star
+1532:(1426) Dream Star
+1533:(1426) Dream Star
+1534:(1426) Dream Star
+1535:(1426) Dream Star
+1536:(1426) Dream Star
+1537:(1426) Dream Star
+1538:(1426) Dream Star
+1539:(1426) Dream Star
+1540:(1426) Dream Star
+1541:(1426) Dream Star
+1542:(1426) Dream Star
+1543:(1427) Dangerous Ladder
+1544:(1427) Dangerous Ladder
+1545:(1427) Dangerous Ladder
+1546:(1427) Dangerous Ladder
+1547:(1427) Dangerous Ladder
+1548:(1427) Dangerous Ladder
+1549:(1427) Dangerous Ladder
+1550:(1427) Dangerous Ladder
+1551:(1427) Dangerous Ladder
+1552:(1427) Dangerous Ladder
+1553:(1427) Dangerous Ladder
+1554:(1427) Dangerous Ladder
+1555:(1427) Dangerous Ladder
+1556:(1427) Dangerous Ladder
+1557:(1427) Dangerous Ladder
+1558:(1427) Dangerous Ladder
+1559:(1427) Dangerous Ladder
+1560:(1427) Dangerous Ladder
+1561:(1427) Dangerous Ladder
+1562:(1427) Dangerous Ladder
+1563:(1427) Dangerous Ladder
+1564:(1427) Dangerous Ladder
+1565:(1427) Dangerous Ladder
+1566:(1427) Dangerous Ladder
+1567:(1427) Dangerous Ladder
+1568:(1427) Dangerous Ladder
+1569:(1427) Dangerous Ladder
+1570:(1427) Dangerous Ladder
+1571:(1427) Dangerous Ladder
+1572:(1427) Dangerous Ladder
+1573:(1427) Dangerous Ladder
+1574:(1427) Dangerous Ladder
+1575:(1427) Dangerous Ladder
+1576:(1427) Dangerous Ladder
+1577:(1427) Dangerous Ladder
+1578:(1427) Dangerous Ladder
+1579:(1427) Dangerous Ladder
+1580:(1427) Dangerous Ladder
+1581:(1427) Dangerous Ladder
+1582:(1427) Dangerous Ladder
+1583:(1427) Dangerous Ladder
+1584:(1427) Dangerous Ladder
+1585:(1427) Dangerous Ladder
+1586:(1427) Dangerous Ladder
+1587:(1427) Dangerous Ladder
+1588:(1428) Little Big Chef
+1589:(1428) Little Big Chef
+1590:(1428) Little Big Chef
+1591:(1428) Little Big Chef
+1592:(1428) Little Big Chef
+1593:(1428) Little Big Chef
+1594:(1428) Little Big Chef
+1595:(1428) Little Big Chef
+1596:(1428) Little Big Chef
+1597:(1428) Little Big Chef
+1598:(1428) Little Big Chef
+1599:(1428) Little Big Chef
+1600:(1428) Little Big Chef
+1601:(1429) Fire Big Chef
+1602:(1429) Fire Big Chef
+1603:(1429) Fire Big Chef
+1604:(1429) Fire Big Chef
+1605:(1429) Fire Big Chef
+1606:(1429) Fire Big Chef
+1607:(1429) Fire Big Chef
+1608:(1429) Fire Big Chef
+1609:(1429) Fire Big Chef
+1610:(1429) Fire Big Chef
+1611:(1429) Fire Big Chef
+1612:(1429) Fire Big Chef
+1613:(1429) Fire Big Chef
+1614:(1633) Happy Light
+1615:(1433) Card Gamble
+1616:(1433) Card Gamble
+1617:(1433) Card Gamble
+1618:(1433) Card Gamble
+1619:(1433) Card Gamble
+1620:(1433) Card Gamble
+1621:(1433) Card Gamble
+1622:(1433) Card Gamble
+1623:(1433) Card Gamble
+1624:(1433) Card Gamble
+1625:(1433) Card Gamble
+1626:(1434) Mahjong
+1627:(1434) Mahjong
+1628:(1434) Mahjong
+1629:(1434) Mahjong
+1630:(1434) Mahjong
+1631:(1437) Glittery Rain
+1632:(1437) Glittery Rain
+1633:(1437) Glittery Rain
+1634:(1437) Glittery Rain
+1635:(1437) Glittery Rain
+1636:(1437) Glittery Rain
+1637:(1437) Glittery Rain
+1638:(1437) Glittery Rain
+1639:(1437) Glittery Rain
+1640:(1437) Glittery Rain
+1641:(1438) Volcanic Blast
+1642:(1438) Volcanic Blast
+1643:(1438) Volcanic Blast
+1644:(1438) Volcanic Blast
+1645:(1438) Volcanic Blast
+1646:(1438) Volcanic Blast
+1647:(1438) Volcanic Blast
+1648:(1438) Volcanic Blast
+1649:(1438) Volcanic Blast
+1650:(1438) Volcanic Blast
+1651:(1439) Hydraulic Raid
+1652:(1439) Hydraulic Raid
+1653:(1439) Hydraulic Raid
+1654:(1439) Hydraulic Raid
+1655:(1439) Hydraulic Raid
+1656:(1439) Hydraulic Raid
+1657:(1439) Hydraulic Raid
+1658:(1439) Hydraulic Raid
+1659:(1439) Hydraulic Raid
+1660:(1439) Hydraulic Raid
+1661:(1439) Hydraulic Raid
+1662:(1439) Hydraulic Raid
+1663:(1439) Hydraulic Raid
+1664:(1440) Windy Rage
+1665:(1440) Windy Rage
+1666:(1440) Windy Rage
+1667:(1440) Windy Rage
+1668:(1440) Windy Rage
+1669:(1440) Windy Rage
+1670:(1440) Windy Rage
+1671:(1440) Windy Rage
+1672:(1440) Windy Rage
+1673:(1440) Windy Rage
+1674:(1441) Grand Blow
+1675:(1441) Grand Blow
+1676:(1441) Grand Blow
+1677:(1441) Grand Blow
+1678:(1441) Grand Blow
+1679:(1441) Grand Blow
+1680:(1441) Grand Blow
+1681:(1441) Grand Blow
+1682:(1441) Grand Blow
+1683:(1441) Grand Blow
+1684:(1442) Summon Friends
+1685:(1442) Summon Friends
+1686:(1442) Summon Friends
+1687:(1442) Summon Friends
+1688:(1442) Summon Friends
+1689:(1442) Summon Friends
+1690:(1442) Summon Friends
+1691:(1442) Summon Friends
+1692:(1442) Summon Friends
+1693:(1442) Summon Friends
+1694:(1442) Summon Friends
+1695:(1442) Summon Friends
+1696:(1442) Summon Friends
+1697:(1442) Summon Friends
+1698:(1442) Summon Friends
+1699:(1442) Summon Friends
+1700:(1442) Summon Friends
+1701:(1442) Summon Friends
+1702:(1442) Summon Friends
+1703:(1442) Summon Friends
+1704:(1442) Summon Friends
+1705:(1442) Summon Friends
+1706:(1442) Summon Friends
+1707:(1442) Summon Friends
+1708:(1442) Summon Friends
+1709:(1442) Summon Friends
+1710:(1442) Summon Friends
+1711:(1442) Summon Friends
+1712:(1442) Summon Friends
+1713:(1442) Summon Friends
+1714:(1442) Summon Friends
+1715:(1442) Summon Friends
+1716:(1442) Summon Friends
+1717:(1442) Summon Friends
+1718:(1442) Summon Friends
+1719:(1442) Summon Friends
+1720:(1442) Summon Friends
+1721:(1442) Summon Friends
+1722:(1442) Summon Friends
+1723:(1442) Summon Friends
+1724:(1442) Summon Friends
+1725:(1442) Summon Friends
+1726:(1442) Summon Friends
+1727:(1442) Summon Friends
+1728:(1442) Summon Friends
+1729:(1442) Summon Friends
+1730:(1442) Summon Friends
+1731:(1442) Summon Friends
+1732:(1442) Summon Friends
+1733:(1442) Summon Friends
+1734:(1442) Summon Friends
+1735:(1442) Summon Friends
+1736:(1442) Summon Friends
+1737:(1442) Summon Friends
+1738:(348) Indigo Fatal Strike
+1739:(349) Crimson Fatal Strike
+1740:(350) Viridian Fatal Strike
+1741:(350) Viridian Fatal Strike
+1742:(350) Viridian Fatal Strike
+1743:Twin Wave?
+1744:Twin Wave?
+1745:Twin Wave?
+1746:Twin Wave?
+1747:(668) Over Limit
+1748:(1121) Over Limit
+1749:Over Limit?
+1750:Over Limit?
+1751:Over Limit?
+1752:Over Limit?
+1753:Over Limit?
+1754:Over Limit?
+1755:Over Limit?
+1756:Over Limit?
+1757:(1667) Over Limit
+1758:(1668) Over Limit
+1759:Over Limit?
+1760:Over Limit?
+1761:Spell
+1762:Spell
+1763:Spell
+1764:Spell
+1765:Spell
+1766:Spell
+1767:Spell
+1768:Spell
+1769:Spell
+1770:Spell
+1771:Spell
+1772:Spell
+1773:Spell
+1774:Spell
+1775:Spell
+1776:Spell
+1777:Spell
+1778:Spell
+1779:Spell
+1780:Spell
+1781:Spell
+1782:Spell
+1783:Spell
+1784:Spell
+1785:Spell
+1786:Spell
+1787:Spell
+1788:Spell
+1789:Spell
+1790:Spell
+1791:Spell
+1792:Spell
+1793:Spell
+1794:Spell
+1795:Spell
+1796:Spell
+1797:Spell
+1798:Spell
+1799:Spell
+1800:Spell
+1801:Spell
+1802:Spell
+1803:Spell
+1804:Spell
+1805:Spell
+1806:Spell
+1807:Spell
+1808:Spell
+1809:Spell
+1810:Spell
+1811:Spell
+1812:Spell
+1813:Spell
+1814:Spell
+1815:Spell
+1816:Spell
+1817:Spell
+1818:Spell
+1819:Spell
+1820:Spell
+1821:Spell
+1822:Spell
+1823:Spell
+1824:Spell
+1825:Spell
+1826:Spell
+1827:Spell
+1828:Spell
+1829:Spell
+1830:Spell
+1831:Spell
+1832:Spell
+1833:Spell
+1834:Spell
+1835:Spell
+1836:Spell
+1837:Spell
+1838:Spell
+1839:Spell
+1840:Spell
+1841:Spell
+1842:Spell
+1843:Spell
+1844:Spell
+1845:Spell
+1846:Spell
+1847:Spell
+1848:Spell
+1849:Spell
+1850:Spell
+1851:Spell
+1852:Spell
+1853:Spell
+1854:Spell
+1855:Spell
+1856:Spell
+1857:Spell
+1858:Spell
+1859:Spell
+1860:Spell
+1861:Spell
+1862:Spell
+1863:Spell
+1864:Spell
+1865:Spell
+1866:Spell
+1867:Spell
+1868:Spell
+1869:Spell
+1870:Spell
+1871:Spell
+1872:Spell
+1873:Spell
+1874:Spell
+1875:Spell
+1876:Spell
+1877:Spell
+1878:Spell
+1879:Spell
+1880:Spell
+1881:Spell
+1882:Spell
+1883:Spell
+1884:Spell
+1885:Spell
+1886:Spell
+1887:Spell
+1888:Spell
+1889:Spell
+1890:Spell
+1891:Spell
+1892:Spell
+1893:Spell
+1894:Spell
+1895:Spell
+1896:Spell
+1897:Spell
+1898:Spell
+1899:Spell
+1900:Spell
+1901:Spell
+1902:Spell
+1903:Spell
+1904:Spell
+1905:Spell
+1906:Spell
+1907:Spell
+1908:Spell
+1909:Spell
+1910:Spell
+1911:Spell
+1912:Spell
+1913:Spell
+1914:Spell
+1915:Spell
+1916:Spell
+1917:Spell
+1918:Spell
+1919:Spell
+1920:Spell
+1921:Spell
+1922:Spell
+1923:Spell
+1924:Spell
+1925:Spell
+1926:Spell
+1927:Spell
+1928:Enemy normal attack
+1929:Enemy normal attack
+1930:Enemy normal attack
+1931:Enemy normal attack
+1932:Enemy normal attack
+1933:Enemy normal attack
+1934:Enemy normal attack
+1935:Enemy normal attack
+1936:Enemy normal attack
+1937:Enemy normal attack
+1938:Enemy normal attack
+1939:Enemy normal attack
+1940:Enemy normal attack
+1941:Enemy normal attack
+1942:Enemy normal attack
+1943:Enemy normal attack
+1944:Enemy normal attack
+1945:Enemy normal attack
+1946:Enemy normal attack
+1947:Enemy normal attack
+1948:Enemy normal attack
+1949:Enemy normal attack
+1950:Enemy normal attack
+1951:Enemy poison
+1952:Enemy poison
+1953:Enemy poison
+1954:Enemy paralyze
+1955:Enemy mind
+1956:Enemy stone
+1957:Enemy stone
+1958:Enemy charm
+1959:Enemy magic seal
+1960:Enemy skill seal
+1961:Enemy sleep
+1962:Enemy weak
+1963:Enemy paralyze thunder
+1964:(705) Spinning attack
+1965:(640) Cut
+1966:(641) Cut (secondary)
+1967:(642) Cut down
+1968:(643) Kick up
+1969:(644) Blastia Blow
+1970:(645) Blastia Back Blow
+1971:(646) Savage Flight
+1972:Cut Zagi arte?
+1973:(648) Reaper's Cross
+1974:(649) Reaper's Charge
+1975:(650) Charging Shockwave
+1976:(650) Charging Shockwave
+1977:(651) Punishing Fog
+1978:(652) Four Hit Charge
+1979:(652) Four Hit Charge
+1980:(652) Four Hit Charge
+1981:(653) Falling Leaf
+1982:(654) Cyclone Shot
+1983:(655) Cyclone Shot - Destruction
+1984:(656) Light Spear
+1985:(657) Victory Light Spear
+1986:(658) Blastia Blast
+1987:(659) Blastia Blaze
+1988:(660) Blastia Bane
+1989:(661) Shining Blastia Strike
+1990:(662) Shining Blastia Massacre
+1991:Cut Zagi arte?
+1992:(1291) Punishing Fury
+1993:(663) Shining Blastia Field
+1994:(663) Shining Blastia Field
+1995:(742) Regular Attack
+1996:(742) Regular Attack
+1997:(742) Regular Attack
+1998:(742) Regular Attack
+1999:(742) Regular Attack
+2000:(745) Jump Hammer
+2001:(746) Hammer Roll
+2002:(747) Head Shock
+2003:(747) Head Shock
+2004:(900) Macabre Hammer
+2005:(900) Macabre Hammer
+2006:(900) Macabre Hammer
+2007:(900) Macabre Hammer
+2008:(900) Macabre Hammer
+2009:(901) Hammer Impact
+2010:(902) Raging Snake Eyes
+2011:(902) Raging Snake Eyes
+2012:(903) Hell Hammer
+2013:(746) Hammer Roll
+2014:(747) Head Shock
+2015:(902) Raging Snake Eyes
+2016:(1511) Destruction Wave
+2017:(1512) Punishing Fang
+2018:(1512) Punishing Fang
+2019:(1513) Coil
+2020:(1514) Dragon Slayer
+2021:(1514) Dragon Slayer
+2022:(1515) Rending Thrust
+2023:(1516) Shackling Mallet
+2024:(1516) Shackling Mallet
+2025:(1517) Slog Assault
+2026:(1517) Slog Assault
+2027:(1518) Fiery Beast
+2028:(1518) Fiery Beast
+2029:(1518) Fiery Beast
+2030:(1519) Despotic Oppression
+2031:(1520) FS Attack
+2032:(1520) FS Attack
+2033:(1521) Ultimate Fatal Strike
+2034:(1521) Ultimate Fatal Strike
+2035:(1521) Ultimate Fatal Strike
+2036:(1521) Ultimate Fatal Strike
+2037:(1507) Cut Down
+2038:(1508) Cut up
+2039:(1509) Spinning Cut
+2040:(1510) Tackle
+2041:(766) Basic Combo 1
+2042:(766) Basic Combo 1
+2043:(766) Basic Combo 1
+2044:(766) Basic Combo 1
+2045:(769) Rising Dragon: Ratatosk
+2046:(770) Dragon Blade: Banshee
+2047:(771) Rising Dragon: Rule of Might
+2048:(771) Rising Dragon: Rule of Might
+2049:(1010) Dragon Blade: Dullahan
+2050:(1011) Dragon Blade: Advent
+2051:(1011) Dragon Blade: Advent
+2052:(1012) Dragon Blade: Furies
+2053:(1012) Dragon Blade: Furies
+2054:(1012) Dragon Blade: Furies
+2055:(1013) Rising Dragon: Maw
+2056:(1013) Rising Dragon: Maw
+2057:(1014) Dragon Blade: Infernal Lord
+2058:(1014) Dragon Blade: Infernal Lord
+2059:(1014) Dragon Blade: Infernal Lord
+2060:(1014) Dragon Blade: Infernal Lord
+2061:(1014) Dragon Blade: Infernal Lord
+2062:(1014) Dragon Blade: Infernal Lord
+2063:(1014) Dragon Blade: Infernal Lord
+2064:(1014) Dragon Blade: Infernal Lord
+2065:Cut Nan normal attack?
+2066:Cut Nan normal attack?
+2067:Cut Nan normal attack?
+2068:(775) Flying Blade
+2069:(776) Raptor Ring
+2070:(776) Raptor Ring
+2071:(777) Raptor Assault
+2072:(777) Raptor Assault
+2073:(1016) Whirl Slash
+2074:(1016) Whirl Slash
+2075:(1017) Rending Slash
+2076:(1017) Rending Slash
+2077:(1018) Charging Slash
+2078:(1023) Soaring Raptor Blast
+2079:(1023) Soaring Raptor Blast
+2080:(1023) Soaring Raptor Blast
+2081:(748) Close Combo
+2082:(748) Close Combo
+2083:(748) Close Combo
+2084:(748) Close Combo
+2085:(748) Close Combo
+2086:(751) Human Launch
+2087:(752) Thousand Cruise
+2088:(752) Thousand Cruise
+2089:(752) Thousand Cruise
+2090:(753) Core Triple Shot
+2091:(985) Aer Light
+2092:(986) Plural Edge
+2093:(986) Plural Edge
+2094:(986) Plural Edge
+2095:(987) Sharp Blow
+2096:(987) Sharp Blow
+2097:Cut Yeager arte?
+2098:(989) Pierce Barret
+2099:(989) Pierce Barret
+2100:(990) Coward Shot
+2101:(1292) Trans Wakening
+2102:(1292) Trans Wakening
+2103:Cut Yeager burst arte?
+2104:(1293) Caress of Death
+2105:(1293) Caress of Death
+2106:(1293) Caress of Death
+2107:(1293) Caress of Death
+2108:Cut Yeager normal attack?
+2109:Cut Yeager normal attack?
+2110:Cut Yeager normal attack?
+2111:Cut Yeager normal attack?
+2112:Cut Yeager normal attack?
+2113:Cut Yeager arte?
+2114:Cut Yeager arte?
+2115:Cut Yeager arte?
+2116:Cut Yeager Mystic Arte?
+2117:Cut Yeager Mystic Arte?
+2118:Cut Yeager arte?
+2119:(765) Heaven Erase
+2120:(765) Heaven Erase
+2121:(1004) Piercing Shot
+2122:(1005) Sleepy Thrust
+2123:(758) Somersault
+2124:(759) Dancing Gale
+2125:(759) Dancing Gale
+2126:(759) Dancing Gale
+2127:(759) Dancing Gale
+2128:(759) Dancing Gale
+2129:(996) Charm Thrust
+2130:Cut Schwann normal attack?
+2131:Cut Schwann normal attack?
+2132:Cut Schwann normal attack?
+2133:(787) Just Like Dancing
+2134:(787) Just Like Dancing
+2135:(787) Just Like Dancing
+2136:(787) Just Like Dancing
+2137:(787) Just Like Dancing
+2138:(788) Apocalypse Toll
+2139:(788) Apocalypse Toll
+2140:(789) Violet Weasel
+2141:(789) Violet Weasel
+2142:(1038) Falling
+2143:(1038) Falling
+2144:(1039) Ill Wind
+2145:(1039) Ill Wind
+2146:(805) Left-Right Hook
+2147:(806) Straight
+2148:(807) Upper
+2149:(808) Spinning Lariat
+2150:(808) Spinning Lariat
+2151:(809) Volt Crash
+2152:(809) Volt Crash
+2153:(810) Drop Kick
+2154:(810) Drop Kick
+2155:(811) Smash
+2156:(811) Smash
+2157:(812) X Buster
+2158:(1124) Bolt Straight
+2159:(1125) Bolt Upper
+2160:(813) Claw
+2161:(814) Tail Stab
+2162:(815) Bite and Throw
+2163:(815) Bite and Throw
+2164:(815) Bite and Throw
+2165:(816) Rear Tail Attack
+2166:(817) Blast Run
+2167:(818) Roar
+2168:(818) Roar
+2169:(1044) Ice Breath
+2170:(1283) Poison Claws
+2171:(820) Kick Up
+2172:(821) Kick up
+2173:(822) Bite
+2174:(823) Swing Head
+2175:(824) Swing Tail
+2176:(824) Swing Tail
+2177:(825) Ground Smash
+2178:(825) Ground Smash
+2179:(826) Roar
+2180:(826) Roar
+2181:(826) Roar
+2182:(827) Breath
+2183:Cut BOS arte?
+2184:(828) Area Breath
+2185:Cut BOM arte?
+2186:Cut BOM arte?
+2187:(829) Left-Right Hook
+2188:(830) Back Blow/Tail Blow
+2189:(831) Cross Arms
+2190:(832) Tail Spear
+2191:(832) Tail Spear
+2192:(833) Shell Charge
+2193:(834) Spread TP Poison
+2194:(835) Shell Missiles
+2195:(836) Sleepy Bubble
+2196:(837) Regenerate
+2197:(1046) Hide in Shell
+2198:(1325) Rampage
+2199:(871) Swing Wing Up
+2200:(872) 2-hit Wing Scratch
+2201:(872) 2-hit Wing Scratch
+2202:(873) Spinning Wings
+2203:(874) Body Strike
+2204:(875) Terrorsound
+2205:(876) Terrorlight
+2206:(877) Explosion
+2207:(877) Explosion
+2208:(878) Fin Slap
+2209:(879) Counter Fin Slap
+2210:(879) Counter Fin Slap
+2211:(880) Swing Tail
+2212:(881) Body Strike
+2213:(882) Roar
+2214:(882) Roar
+2215:(882) Roar
+2216:(883) Laser
+2217:(884) Porcupine Fish
+2218:(884) Porcupine Fish
+2219:(885) Reverse Day and Night
+2220:(886) Kick
+2221:(887) Ear Slap
+2222:(888) Multistage Tail
+2223:(888) Multistage Tail
+2224:(889) Area Tail
+2225:(890) Twin Weasel
+2226:(891) Fierce Weasel
+2227:(891) Fierce Weasel
+2228:(892) Charge
+2229:(892) Charge
+2230:(893) Bite
+2231:(894) Tail Slap Run
+2232:(894) Tail Slap Run
+2233:(895) Dive
+2234:(895) Dive
+2235:(896) Ice Breath Line
+2236:(898) Spine Fin Charge
+2237:(899) Bite from Below
+2238:(1339) Moment Spark
+2239:(1339) Moment Spark
+2240:Cut BOM altered arte?
+2241:(1064) Infinity Beak
+2242:(1064) Infinity Beak
+2243:(1064) Infinity Beak
+2244:(1064) Infinity Beak
+2245:(1074) Stone Powder
+2246:(1258) Small Damage
+2247:(1259) Stagger
+2248:(1260) Float
+2249:(1261) Blown Away
+2250:(1262) Midair Blow
+2251:(1263) Down
+2252:(1264) Small Damage + Y Axis Turn
+2253:(1265) Guard Break
+2254:(1266) Guard Break
+2255:(1267) Stun
+2256:(1268) Enchant
+2257:(1269) Poison
+2258:(1270) Neural Contamination
+2259:(1271) Paralysis
+2260:(1272) Petrify
+2261:(1273) Weak
+2262:(1274) Sealed Arte
+2263:(1275) Sealed Skill
+2264:(1276) Sleep
+2265:(1655) Standard Skill 01
+2266:(1656) Standard Skill 02
+2267:(1657) Standard Skill 03
+2268:(1658) Demon Fang
+2269:(1658) Demon Fang
+2270:(1659) Sonic Thrust
+2271:(1660) Fang Blade
+2272:(1660) Fang Blade
+2273:(1661) Demonic Circle
+2274:(1662) Beast
+2275:(1662) Beast
+2276:RUB heal?
+2277:Cut DEC normal attack?
+2278:(1188) Thrust
+2279:(1189) Kick up
+2280:(1192) Wide Slash
+2281:(1193) Sonic Thrust
+2282:(1194) Sword Rain
+2283:Cut BOC normal attack?
+2284:(1195) Thrust
+2285:(1198) Spin Attack
+2286:(1198) Spin Attack
+2287:(1199) Hip Attack
+2288:(1200) Storm Thrust
+2289:(1201) Havoc Blast
+2290:(736) Close Combo 1 (3 hit combo)
+2291:(736) Close Combo 1 (3 hit combo)
+2292:(737) Mid-range Combo 1 (3 hit combo)
+2293:(737) Mid-range Combo 1 (3 hit combo)
+2294:(739) Ill Wind
+2295:(740) Radiant Dragon
+2296:(740) Radiant Dragon
+2297:(741) Apocalypse Toll
+2298:(741) Apocalypse Toll
+2299:(972) Guardian Frost
+2300:(972) Guardian Frost
+2301:(973) Grave Worm
+2302:(974) Raging Ice Fang
+2303:(974) Raging Ice Fang
+2304:(974) Raging Ice Fang
+2305:(981) Brilliant Cataclysm
+2306:(981) Brilliant Cataclysm
+2307:(981) Brilliant Cataclysm
+2308:(981) Brilliant Cataclysm
+2309:(981) Brilliant Cataclysm
+2310:(981) Brilliant Cataclysm
+2311:(981) Brilliant Cataclysm
+2312:(981) Brilliant Cataclysm
+2313:(730) Combo 1 (3 hit combo)
+2314:(730) Combo 1 (3 hit combo)
+2315:(730) Combo 1 (3 hit combo)
+2316:(733) Shock Thrust
+2317:(733) Shock Thrust
+2318:(733) Shock Thrust
+2319:(734) Shining Chaos
+2320:(734) Shining Chaos
+2321:(734) Shining Chaos
+2322:(735) Razor Fang
+2323:(735) Razor Fang
+2324:(735) Razor Fang
+2325:(952) Death Blade
+2326:(952) Death Blade
+2327:(952) Death Blade
+2328:(953) Dragon Ascendant
+2329:(953) Dragon Ascendant
+2330:(955) Havoc Heaven
+2331:(955) Havoc Heaven
+2332:(955) Havoc Heaven
+2333:(955) Havoc Heaven
+2334:(956) Crimson Wolf
+2335:(957) Punishing Decend
+2336:(957) Punishing Decend
+2337:(958) Punishing Divine Flash
+2338:(958) Punishing Divine Flash
+2339:(959) Phantom Wolf
+2340:(959) Phantom Wolf
+2341:(960) Punishing Beast
+2342:(960) Punishing Beast
+2343:(961) Moonbeam
+2344:(961) Moonbeam
+2345:(1129) Light Spear
+2346:(1129) Light Spear
+2347:(1128) Around
+2348:(1128) Around
+2349:(968) Brave Vesperia
+2350:(968) Brave Vesperia
+2351:(968) Brave Vesperia
+2352:(968) Brave Vesperia
+2353:(968) Brave Vesperia
+2354:(968) Brave Vesperia
+2355:(968) Brave Vesperia
+2356:(968) Brave Vesperia
+2357:(968) Brave Vesperia
+2358:(968) Brave Vesperia
+2359:(1132) Big Bang
+2360:(1132) Big Bang
+2361:(1132) Big Bang
+2362:(1053) Claw down
+2363:(1054) Claw up
+2364:(1055) Claw Cross Cut
+2365:(1056) Swing Tail
+2366:(1057) Tail Smash
+2367:(1057) Tail Smash
+2368:(1058) Beat
+2369:(1059) Falling Rocks
+2370:(1060) Breath
+2371:(1061) Spirit Shot
+2372:(1061) Spirit Shot
+2373:(1062) Earthquake - Spread Wings
+2374:(1062) Earthquake - Spread Wings
+2375:(1065) Fang Hook
+2376:(1066) Fang Upper
+2377:(1067) Arm Cutter Hook
+2378:(1068) Arm Cutter Cross
+2379:(1069) Tail Thrust
+2380:(1070) Swing Tail
+2381:(1072) Glide
+2382:(1073) Spread Glowing Powder
+2383:(1075) Bite
+2384:(1076) Upper Thrust
+2385:(1077) Rodeo Kick
+2386:(1078) Spinning Hip
+2387:(1079) Charge
+2388:(1080) Lightning
+2389:(1081) Bite
+2390:(1082) Upper Thrust
+2391:(1083) Rodeo Kick
+2392:(1084) Charge
+2393:(1085) Gliding Dive
+2394:(1086) Swing Head Wide
+2395:MOVE?
+2396:Cut Kratos normal attack?
+2397:Cut Kratos normal attack?
+2398:Cut Kratos normal attack?
+2399:(1208) Demon Fang
+2400:(1208) Demon Fang
+2401:(1210) Fierced Demon Fang
+2402:(1210) Fierced Demon Fang
+2403:(1211) Sonic Thrust
+2404:(1212) Lightning Blade
+2405:(1212) Lightning Blade
+2406:(1213) Super Lightning Blade
+2407:(1213) Super Lightning Blade
+2408:(1214) Light Spear
+2409:(1214) Light Spear
+2410:(1215) Guardian Field
+2411:(1215) Guardian Field
+2412:(1217) Shining Bind
+2413:(1217) Shining Bind
+2414:(1217) Shining Bind
+2415:(1217) Shining Bind
+2416:Cut Nereid normal attack?
+2417:(1242) Frontal Shockwave
+2418:(1244) Nereid Left Hook
+2419:(1245) Nereid Right Upper
+2420:(1246) Nereid Slam
+2421:(1246) Nereid Slam
+2422:(1254) Eternal Fatality
+2423:(1254) Eternal Fatality
+2424:MANY?
+2425:(1218) Horizon Slash
+2426:(1219) Punch
+2427:(1220) Upper
+2428:(1221) Dhaos Blast
+2429:(1222) Dhaos Laser
+2430:(1223) Tetra Assault
+2431:(1223) Tetra Assault
+2432:Cut Dhaos altered arte?
+2433:(1229) Super Dhaos Laser
+2434:(1229) Super Dhaos Laser
+2435:(1229) Super Dhaos Laser
+2436:(1229) Super Dhaos Laser
+2437:(1229) Super Dhaos Laser
+2438:(1230) Cut up
+2439:(1231) Cut down
+2440:(1232) Wide cut
+2441:(1233) Cut up -&gt; Cut down
+2442:(1233) Cut up -&gt; Cut down
+2443:(1234) Cut up -&gt; Wide cut
+2444:(1234) Cut up -&gt; Wide cut
+2445:(1235) Earth Crusher
+2446:(1235) Earth Crusher
+2447:(1235) Earth Crusher
+2448:(1236) Evil Charge
+2449:(1237) Ares Fist
+2450:(1238) Stomp
+2451:(1239) Throw
+2452:(1239) Throw
+2453:(1239) Throw
+2454:(1239) Throw
+2455:(1239) Throw
+2456:(1239) Throw
+2457:(1240) Compass
+2458:(1240) Compass
+2459:(1241) No Items Ever!
+2460:(1241) No Items Ever!
+2461:(1241) No Items Ever!
+2462:(1241) No Items Ever!
+2463:(1241) No Items Ever!
+2464:ETC20?
+2465:ETC20?
+2466:ETC20?
+2467:ETC20?
+2468:(710) Explosion
+2469:(1693) Paralysis Chomp
+2470:(1693) Paralysis Chomp
+2471:(1694) Sleep Chomp
+2472:(1694) Sleep Chomp
+2473:(1357) Cut up
+2474:(1358) Double Strike
+2475:(1359) Triple Strike
+2476:(1359) Triple Strike
+2477:(1360) Trigger Tune α
+2478:(1360) Trigger Tune α
+2479:(1362) Deadly Storm
+2480:(1366) Glittery Storm
+2481:(1366) Glittery Storm
+2482:(1363) Glittery Cross
+2483:(1363) Glittery Cross
+2484:(1367) Severed Fate α
+2485:(1368) Volcanic Stamp
+2486:(1368) Volcanic Stamp
+2487:(1483) Straight
+2488:(1484) Charing Hook
+2489:(1484) Charing Hook
+2490:(1485) Spinning Lariat
+2491:(1486) Gatling Attack
+2492:(1487) Frenzied Attack
+2493:(1487) Frenzied Attack
+2494:(1488) Press
+2495:(1488) Press
+2496:(1489) Shock Thrust Wave
+2497:(1490) X Buster - Ki
+2498:(1491) Final X Buster
+2499:(1492) Guardian (Production Model) Straight
+2500:(1493) Guardian (Production Model) Charging Hook
+2501:(1494) Guardian (Production Model) Spinning Lariat
+2502:(1495) Guardian (Production Model) Frenzied Attack
+2503:(1496) Guardian (Production Model) Press
+2504:(1496) Guardian (Production Model) Press
+2505:(1449) Physical Attack
+2506:(1450) Lightning
+2507:(1451) Horn Laser
+2508:(1452) Dispersion Laser
+2509:(1457) Bite
+2510:(1458) Ice Ball
+2511:(1458) Ice Ball
+2512:(1459) Ice Breath
+2513:(1464) Fire Ball
+2514:(1464) Fire Ball
+2515:(1465) Fire Breath
+2516:BOM21_31?
+2517:(1470) Vibration (Light)
+2518:(1471) Vibration (Heavy)
+2519:(1471) Vibration (Heavy)
+2520:(1473) Flap Wings (All Around)
+2521:(1474) Flap Wings (Front)
+2522:(1499) Fly and Fall
+2523:(1475) Swish Tail
+2524:(1476) Wild Swings
+2525:(1477) Stat Wrecker
+2526:BOM21_44?
+2527:(1481) Stat Wrecker
+2528:(1523) Right Horizontal Swipe
+2529:(1523) Right Horizontal Swipe
+2530:(1524) Left Horizontal Swipe
+2531:(1524) Left Horizontal Swipe
+2532:(1525) Combo Attack
+2533:(1526) Spread Your Wings
+2534:(1527) Charm Hold
+2535:(1527) Charm Hold
+2536:(1527) Charm Hold
+2537:(1528) Grievance Spread
+2538:(1529) Grievance Focus
+2539:(1530) Thor's Gravity
+2540:(1530) Thor's Gravity
+2541:(1530) Thor's Gravity
+2542:(1530) Thor's Gravity
+2543:(1531) Back Knuckle
+2544:(1532) 10-Hit Combo
+2545:(1533) Bite
+2546:(1534) Tackle
+2547:(1535) Bear Upper
+2548:(1536) Wild Yell
+2549:(1537) Double Lariat
+2550:(1538) Wild Press
+2551:(1538) Wild Press
+2552:(1538) Wild Press
+2553:(1539) Wild Tackle
+2554:(1558) Forward Gnaw
+2555:(1558) Forward Gnaw
+2556:(1559) Weak Tail Swipe
+2557:(1560) Single Tail Spin
+2558:(1560) Single Tail Spin
+2559:(1561) Tackle
+2560:(1562) Ground Breath
+2561:(1563) Fly
+2562:(1563) Fly
+2563:(1563) Fly
+2564:(1563) Fly
+2565:(1565) Left Spinning Horizontal Swipe
+2566:(1566) Right Spinning Horizontal Swipe
+2567:(1567) Slice down
+2568:(1568) Charging Thrust
+2569:(1569) Combo Thrust
+2570:(1569) Combo Thrust
+2571:(1570) Spinning Cut
+2572:(1571) Projectile Weapon
+2573:(1571) Projectile Weapon
+2574:(1572) Horizontal Slice to Spin kick
+2575:(1572) Horizontal Slice to Spin kick
+2576:(1573) Spinning Cut (Rise and Fall)
+2577:(1573) Spinning Cut (Rise and Fall)
+2578:(1574) Charging Thrust to Somersault
+2579:(1574) Charging Thrust to Somersault
+2580:(1575) Projectile Weapon
+2581:(1575) Projectile Weapon
+2582:(1575) Projectile Weapon
+2583:(1579) Guard Cancel Skill
+2584:(1580) Chaos
+2585:(1612) Left Cut Up
+2586:(1618) Body Cut
+2587:(1619) Left Diagonal Cut
+2588:(1613) Rose Wreath
+2589:(1614) Crushing Heaven
+2590:(1614) Crushing Heaven
+2591:(1615) Tiger Blade
+2592:(1615) Tiger Blade
+2593:(1615) Tiger Blade
+2594:(1616) Phoenix Dance
+2595:(1616) Phoenix Dance
+2596:(1617) Shadow Blade
+2597:(1617) Shadow Blade
 </DropDownList>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -19623,6 +22607,93 @@ TOV_DE.exe+4C14C0: 48 83 C1 09           - add rcx,09
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>84826</ID>
+              <Description>"Friendly Fire stuff"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscan(BTLAS,54 38 42 54 41 53)
+globalalloc(BTLASOptions,1000)
+
+BTLASOptions:
+  dq 01
+
+registersymbol(BTLAS)
+[DISABLE]
+unregistersymbol(BTLAS)
+unregistersymbol(BTLASOptions)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>84829</ID>
+                  <Description>"Activate"</Description>
+                  <Options moHideChildren="1"/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--+10 = first AttackStatus
+--+C8 = ignore first, skip to next one
+--+39 = offset
+--In Binary:
+--3 -&gt; 3 = Hit self
+--6 -&gt; 6 = Hit allies
+
+  local address = getAddress("BTLAS+10+C8+39")
+
+  for i = 0, 2597,1 do
+      --Friendly Fire check
+      if (readInteger("BTLASOptions") == 1) then
+         if (readInteger(address-0x35) &gt;= 1760) and (readInteger(address-0x35) &lt;= 1926) then
+            writeByte(address,readByte(address) &amp; (~(((1&lt;&lt;1)-1) &lt;&lt; 6)) | ((1 &amp; ((1&lt;&lt;1)-1)) &lt;&lt; 6))
+         end
+      elseif (readInteger("BTLASOptions") == 2) then
+         writeByte(address,readByte(address) &amp; (~(((1&lt;&lt;1)-1) &lt;&lt; 6)) | ((1 &amp; ((1&lt;&lt;1)-1)) &lt;&lt; 6))
+      end
+      --Self hit check
+      if (readInteger("BTLASOptions+8") == 1) then
+         if (readInteger(address-0x35) &gt;= 1760) and (readInteger(address-0x35) &lt;= 1926) then
+            writeByte(address,readByte(address) &amp; (~(((1&lt;&lt;1)-1) &lt;&lt; 3)) | ((1 &amp; ((1&lt;&lt;1)-1)) &lt;&lt; 3))
+         end
+      elseif (readInteger("BTLASOptions+8") == 2) then
+         writeByte(address,readByte(address) &amp; (~(((1&lt;&lt;1)-1) &lt;&lt; 3)) | ((1 &amp; ((1&lt;&lt;1)-1)) &lt;&lt; 3))
+      end
+      address = address + 0xC8
+  end
+
+
+
+{$asm}
+[DISABLE]
+
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84827</ID>
+                  <Description>"Friendly Fire"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Spells only
+2:All
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BTLASOptions</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84828</ID>
+                  <Description>"Self Fire"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Only spells
+2:All
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BTLASOptions+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
@@ -20863,77 +23934,39 @@ dealloc(arteNameDispstorage)
         <Byte>B4</Byte>
       </After>
     </CodeEntry>
-    <CodeEntry>
-      <Description>Change of jmp TOV_DE.exe+53E6DB</Description>
-      <AddressString>TOV_DE.exe+53E6CA</AddressString>
-      <Before>
-        <Byte>E1</Byte>
-        <Byte>01</Byte>
-        <Byte>00</Byte>
-        <Byte>84</Byte>
-        <Byte>C0</Byte>
-      </Before>
-      <Actual>
-        <Byte>EB</Byte>
-        <Byte>0F</Byte>
-      </Actual>
-      <After>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>CF</Byte>
-        <Byte>E8</Byte>
-        <Byte>2C</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Change of je TOV_DE.exe+53C5DD</Description>
-      <AddressString>TOV_DE.exe+53C5D1</AddressString>
-      <Before>
-        <Byte>02</Byte>
-        <Byte>02</Byte>
-        <Byte>00</Byte>
-        <Byte>84</Byte>
-        <Byte>C0</Byte>
-      </Before>
-      <Actual>
-        <Byte>74</Byte>
-        <Byte>0A</Byte>
-      </Actual>
-      <After>
-        <Byte>81</Byte>
-        <Byte>A3</Byte>
-        <Byte>F8</Byte>
-        <Byte>B2</Byte>
-        <Byte>02</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Change of je TOV_DE.exe+53C616</Description>
-      <AddressString>TOV_DE.exe+53C60D</AddressString>
-      <Before>
-        <Byte>01</Byte>
-        <Byte>02</Byte>
-        <Byte>00</Byte>
-        <Byte>84</Byte>
-        <Byte>C0</Byte>
-      </Before>
-      <Actual>
-        <Byte>74</Byte>
-        <Byte>07</Byte>
-      </Actual>
-      <After>
-        <Byte>83</Byte>
-        <Byte>A3</Byte>
-        <Byte>F8</Byte>
-        <Byte>B2</Byte>
-        <Byte>02</Byte>
-      </After>
-    </CodeEntry>
   </CheatCodes>
   <UserdefinedSymbols>
     <SymbolEntry>
+      <Name>ptrtohp</Name>
+      <Address>23E23580000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>enmNum</Name>
+      <Address>1B5BFAB0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>arteNum</Name>
+      <Address>07E70000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillEdit</Name>
+      <Address>07E70010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>skillPropNum</Name>
+      <Address>117C0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>attackStatusNum</Name>
+      <Address>07FE0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
       <Name>artePropPTR</Name>
       <Address>68DF0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>attackNum</Name>
+      <Address>04DE0000</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
   <Comments>Unfinished enemy list (in decimal)

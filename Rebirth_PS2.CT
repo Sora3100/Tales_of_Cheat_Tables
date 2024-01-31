@@ -3085,6 +3085,16 @@ unregistersymbol(baseElfAddr)
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1980</ID>
+                  <Description>"Accessory"</Description>
+                  <DropDownListLink>Equipment Editor</DropDownListLink>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>2</ByteLength>
+                  <Address>+6</Address>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -3300,19 +3310,85 @@ unregistersymbol(baseElfAddr)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>1862</ID>
+          <ID>1973</ID>
           <Description>"Gem Editor"</Description>
           <Options moHideChildren="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
-globalalloc(gemNum,4)
+{$lua}
+if syntaxcheck then return end
+
+local function mainloop()
+      --Hover check
+      if not (readInteger("gemNum+8") == 0) then
+           if not (readInteger("baseElfAddr") == nil) then
+                 --equip page hover
+                 if not (readSmallInteger("baseElfAddr+1DE3D4") == 0) and
+                            (readSmallInteger("baseElfAddr+1DE3D4") &lt; 3005) then
+                        itemCheck(readSmallInteger("baseElfAddr+1DE3D4"))
+                 --item page hover
+                 elseif not (readSmallInteger("baseElfAddr+1DF464") == 0) then
+                        itemCheck(readSmallInteger("baseElfAddr+1DF464"))
+                 end
+           end
+      end
+end
+
+function itemCheck(item)
+         if not (item == 0) and not (item == nil) then
+
+            if (item &lt; 1024) or (item &gt; 1084) then
+               return
+            else
+               item = item - 1024
+            end
+
+            writeInteger(getAddress("gemNum"), item)
+            else
+               return
+            end
+end
+
+if not timer then
+   timer = createTimer(nil)
+   timer.OnTimer = function(timer)
+                   mainloop()
+                   end
+   timer.Interval = 1000
+   timer.Enabled = true
+else
+   timer.Enabled = true
+end
+{$asm}
+globalalloc(gemNum,1000)
+
+gemNum+8:
+  dq 1
 
 [DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+if (timer) then
+   timer.Enabled = false
+   timer.Destroy()
+   timer = nil
+end
+{$asm}
 dealloc(gemNum)
+unregistersymbol(gemNum)
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
-              <ID>1863</ID>
+              <ID>1978</ID>
+              <Description>"Hover"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>gemNum+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1974</ID>
               <Description>"Gem Number (change this may take a few seconds to update)"</Description>
               <DropDownList DisplayValueAsItem="1">0:Gem 1
 1:Gem 2
@@ -3376,11 +3452,11 @@ dealloc(gemNum)
 59:Gem 60
 </DropDownList>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Byte</VariableType>
+              <VariableType>8 Bytes</VariableType>
               <Address>gemNum</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>1864</ID>
+                  <ID>1975</ID>
                   <Description>"Effect Type"</Description>
                   <DropDownList DisplayValueAsItem="1">1:Feat (Raises Slash ATK)
 2:Muscle (Raises Blow ATK)
@@ -3406,7 +3482,7 @@ dealloc(gemNum)
                   <Address>baseElfAddr+13578C+4*[gemNum]</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1865</ID>
+                  <ID>1976</ID>
                   <Description>"Item Category"</Description>
                   <DropDownList DisplayValueAsItem="1">4:Ring (must be set)
 </DropDownList>
@@ -3415,7 +3491,7 @@ dealloc(gemNum)
                   <Address>baseElfAddr+13578D+4*[gemNum]</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1866</ID>
+                  <ID>1977</ID>
                   <Description>"Grade"</Description>
                   <DropDownList DisplayValueAsItem="1">0:None (not normally accessible)
 1:Pearl
@@ -3759,7 +3835,7 @@ dealloc(gemNum)
             </CheatEntry>
             <CheatEntry>
               <ID>1927</ID>
-              <Description>"Dropdown lists"</Description>
+              <Description>"Dropdowns"</Description>
               <Options moHideChildren="1"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
@@ -3802,6 +3878,14 @@ dealloc(gemNum)
                   <ID>1933</ID>
                   <Description>"dropdown: Hilda FC"</Description>
                   <DropDownList DisplayValueAsItem="1">0:Nothing
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1979</ID>
+                  <Description>"dropdown: Disabled/Enabled"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
@@ -4050,6 +4134,20 @@ dealloc(gemNum)
                   </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1968</ID>
+              <Description>"Item 1"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>baseElfAddr+1DF464</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1972</ID>
+              <Description>"Equip 1"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>baseElfAddr+1DE3D4</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>

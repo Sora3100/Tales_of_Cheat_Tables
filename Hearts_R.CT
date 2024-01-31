@@ -988,6 +988,19 @@ unregistersymbol(baseElfAddr)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>2141</ID>
+          <Description>"Overlimit"</Description>
+          <DropDownList DisplayValueAsItem="1">0:OVL 0
+100:OVL 1
+200:OVL 2
+300:OVL 3
+400:OVL 4
+</DropDownList>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>baseElfAddr+29829C</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>1373</ID>
           <Description>"Equipment Editor"</Description>
           <Options moHideChildren="1"/>
@@ -8667,12 +8680,6 @@ unregistersymbol(baseElfAddr)
               <Address>baseElfAddr+3401FE</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>437</ID>
-                  <Description>"Spawn location is nearby, maybe I'll add it later"</Description>
-                  <Color>FF00FF</Color>
-                  <GroupHeader>1</GroupHeader>
-                </CheatEntry>
-                <CheatEntry>
                   <ID>438</ID>
                   <Description>"Requires disabling the instructions that write to these!"</Description>
                   <Color>FF00FF</Color>
@@ -8772,14 +8779,14 @@ unregistersymbol(baseElfAddr)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>347</ID>
-                  <Description>"Number of models???"</Description>
+                  <Description>"Number of models?"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-2</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>346</ID>
-                  <Description>"Number of animations???"</Description>
+                  <Description>"Number of animations?"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-1</Address>
@@ -8787,50 +8794,152 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>328</ID>
                   <Description>"Slot 1"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2116</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>2134</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>320</ID>
                   <Description>"Slot 2"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2129</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>2138</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>321</ID>
                   <Description>"Slot 3"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2130</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>2136</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>322</ID>
                   <Description>"Slot 4"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2131</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+9</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>2135</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>323</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2132</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>2137</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>324</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+A</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2133</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>2139</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
