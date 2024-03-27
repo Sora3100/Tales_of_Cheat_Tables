@@ -35,10 +35,10 @@ function swapEndian(n)
     return b1 * 0x1000000 + b2 * 0x10000 + b3 * 0x100 + b4 * 0x1
 end
 
-local AoB = AOBScanRegion("42 54 4C 55 4E 49 54 53 54 41 54 55 53 00 00")
+local AoB = AOBScanRegion("42 54 4C 55 4E 49 54 53 54 41 54 55 53 00 00 00 00")
 
 if (AoB.getCount() &gt; 1) then
-   print("Something went wrong")
+   print("Array of bytes not unique")
 end
 
 local address = AoB[0]
@@ -8266,7 +8266,7 @@ writeInteger(Address,readInteger(Address) &amp; (~(((1&lt;&lt;BitLength)-1) &lt;
           <Options moHideChildren="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
-aobscanregion(gradeShop, 300000000, 400000000, 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00)
+aobscanregion(gradeShop, 300000000, 400000000, 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40 00 00 00 00 00 0F 42 40)
 
 registersymbol(gradeShop)
 [DISABLE]
@@ -24677,6 +24677,46 @@ unregistersymbol(inventory)
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>91334</ID>
+                  <Description>"dropdown: Status Effects"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Death
+2:Death recovery?
+3:Poison
+4:Arteseal
+5:Skillseal
+6:Petrify
+7:Poison recovery
+8:Arteseal recovery
+9:Skillseal recovery
+10:Petrify recovery
+11:STR Up
+12:VIT Up
+13:INT Up
+14:PSY Up
+15:AGI Up
+16:STR Down
+17:VIT Down
+18:INT Down
+19:PSY Down
+20:AGI Down?
+21:Stun
+22:Revive
+23:Blue Immunity
+24:Green Immunity
+25:HP Damage
+26:TP Damage
+27:unused?
+28:Linkseal
+29:Linkseal recovery
+30:Psychic Drain
+31:Psychic Drain recovery
+32:Death
+33:Death recovery?
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -25292,11 +25332,130 @@ unregistersymbol(diffBonusEXP)
                   <Options moHideChildren="1"/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
-aobscanregion(enmData, 300000000, 400000000, 00 02 49 D0 00 00 00 06 3F 80 00 00 00 00 00 00 00 02 49 D8) // should be unique
-globalalloc(enmDataEdit,8)
+{$lua}
+if syntaxcheck then return end
 
+autoAssemble([[
+aobscanregion(enmData, 300000000, 400000000, 00 02 49 D0 00 00 00 06 3F 80 00 00 00 00 00 00 00 02 49 D8) // should be unique
 registersymbol(enmData)
+]])
+
+local currEnemy
+
+function mainloop()
+         if not (getAddressSafe("enmData") == nil) and not (getAddressSafe("enmData") == 0) then
+            local btlUnitOffset = getAddressList().getMemoryRecordByID("90502")
+            local modelOffset = getAddressList().getMemoryRecordByID("90503")
+            local attachmentOffset = getAddressList().getMemoryRecordByID("90504")
+            local preOffset = getAddressList().getMemoryRecordByID("90505")
+            local animationOffset = getAddressList().getMemoryRecordByID("90506")
+            local mdfResOffset = getAddressList().getMemoryRecordByID("90507")
+            local mdfBtlFaceOffset = getAddressList().getMemoryRecordByID("90508")
+            local slashEffOffset = getAddressList().getMemoryRecordByID("90509")
+            local ldfOffset = getAddressList().getMemoryRecordByID("90510")
+            local gaOffset = getAddressList().getMemoryRecordByID("90511")
+            local aiOffset = getAddressList().getMemoryRecordByID("90512")
+            local iconOffset = getAddressList().getMemoryRecordByID("90513")
+            local guiFctOffset = getAddressList().getMemoryRecordByID("90514")
+            local weaknessOffset = getAddressList().getMemoryRecordByID("90571")
+            local droppedItemOffset = getAddressList().getMemoryRecordByID("90574")
+            local habitatOffset = getAddressList().getMemoryRecordByID("90604")
+            local modelEnmBookOffset = getAddressList().getMemoryRecordByID("90605")
+            local weaponMdlEnmBookOffset = getAddressList().getMemoryRecordByID("90606")
+            local unkOffset = getAddressList().getMemoryRecordByID("90611")
+            local unkAmountMemRec = getAddressList().getMemoryRecordByID("90612")
+            local nameOffset = getAddressList().getMemoryRecordByID("90613")
+            local descOffset = getAddressList().getMemoryRecordByID("90614")
+
+            if not (readInteger("enmDataEdit") == currEnemy) then
+               writeQword("enmDataEdit+0x8", tonumber(getAddress(btlUnitOffset.Address)) + swapEndian(readInteger(getAddress(btlUnitOffset.Address))))
+               writeQword("enmDataEdit+0x10", tonumber(getAddress(modelOffset.Address)) + swapEndian(readInteger(getAddress(modelOffset.Address))))
+               writeQword("enmDataEdit+0x18", tonumber(getAddress(attachmentOffset.Address)) + swapEndian(readInteger(getAddress(attachmentOffset.Address))))
+               writeQword("enmDataEdit+0x20", tonumber(getAddress(preOffset.Address)) + swapEndian(readInteger(getAddress(preOffset.Address))))
+               writeQword("enmDataEdit+0x28", tonumber(getAddress(animationOffset.Address)) + swapEndian(readInteger(getAddress(animationOffset.Address))))
+               writeQword("enmDataEdit+0x30", tonumber(getAddress(mdfResOffset.Address)) + swapEndian(readInteger(getAddress(mdfResOffset.Address))))
+               writeQword("enmDataEdit+0x38", tonumber(getAddress(mdfBtlFaceOffset.Address)) + swapEndian(readInteger(getAddress(mdfBtlFaceOffset.Address))))
+               writeQword("enmDataEdit+0x40", tonumber(getAddress(slashEffOffset.Address)) + swapEndian(readInteger(getAddress(slashEffOffset.Address))))
+               writeQword("enmDataEdit+0x48", tonumber(getAddress(ldfOffset.Address)) + swapEndian(readInteger(getAddress(ldfOffset.Address))))
+               writeQword("enmDataEdit+0x50", tonumber(getAddress(gaOffset.Address)) + swapEndian(readInteger(getAddress(gaOffset.Address))))
+               writeQword("enmDataEdit+0x58", tonumber(getAddress(aiOffset.Address)) + swapEndian(readInteger(getAddress(aiOffset.Address))))
+               writeQword("enmDataEdit+0x60", tonumber(getAddress(iconOffset.Address)) + swapEndian(readInteger(getAddress(iconOffset.Address))))
+               writeQword("enmDataEdit+0x68", tonumber(getAddress(guiFctOffset.Address)) + swapEndian(readInteger(getAddress(guiFctOffset.Address))))
+               writeQword("enmDataEdit+0x70", tonumber(getAddress(weaknessOffset.Address)) + swapEndian(readInteger(getAddress(weaknessOffset.Address))))
+               writeQword("enmDataEdit+0x78", tonumber(getAddress(droppedItemOffset.Address)) + swapEndian(readInteger(getAddress(droppedItemOffset.Address))))
+               writeQword("enmDataEdit+0x80", tonumber(getAddress(habitatOffset.Address)) + swapEndian(readInteger(getAddress(habitatOffset.Address))))
+               writeQword("enmDataEdit+0x88", tonumber(getAddress(modelEnmBookOffset.Address)) + swapEndian(readInteger(getAddress(modelEnmBookOffset.Address))))
+               writeQword("enmDataEdit+0x90", tonumber(getAddress(weaponMdlEnmBookOffset.Address)) + swapEndian(readInteger(getAddress(weaponMdlEnmBookOffset.Address))))
+               writeQword("enmDataEdit+0x98", tonumber(getAddress(unkOffset.Address)) + swapEndian(readInteger(getAddress(unkOffset.Address))))
+               writeQword("enmDataEdit+0xA0", tonumber(getAddress(nameOffset.Address)) + swapEndian(readInteger(getAddress(nameOffset.Address))))
+               writeQword("enmDataEdit+0xA8", tonumber(getAddress(descOffset.Address)) + swapEndian(readInteger(getAddress(descOffset.Address))))
+
+               currEnemy = readInteger("enmDataEdit")
+            end
+
+            --dropped items
+            local droppedItemAmountMemRec = getAddressList().getMemoryRecordByID("90575")
+            local droppedItemAmount = swapEndian(readInteger(getAddress(droppedItemAmountMemRec.Address)))
+            local offset = droppedItemOffset.Count*0x4
+
+            if not (droppedItemOffset.Count == droppedItemAmount) then
+               --remove
+               if (droppedItemOffset.Count &gt; droppedItemAmount) then
+                  for i = droppedItemOffset.Count, droppedItemAmount+1, -1 do
+                      droppedItemOffset.Child[i-1].destroy()
+                  end
+               --add
+               elseif (droppedItemOffset.Count &lt; droppedItemAmount) then
+                   for i = droppedItemOffset.Count, droppedItemAmount-1 do
+                      if (i &gt; 100) then
+                         break --inf loop
+                      end
+                      local newrec = getAddressList().createMemoryRecord()
+
+                      newrec.Type = 8
+                      newrec.Aob.Size = 4
+                      newrec.setAddress("enmDataEdit+78")
+                      newrec.setOffsetCount("1")
+                      newrec.setOffset(0, offset)
+                      newrec.DropDownLinkedMemrec = "dropdown: Items"
+                      newrec.DropDownLinked = true
+                      newrec.setDescription("Dropped Item "..(i+1))
+                      newrec.ShowAsHex = true
+                      newrec.appendToEntry(droppedItemOffset)
+
+                      offset = offset + 0x4
+                   end
+               end
+            end
+         end
+end
+
+if not timer then
+   timer = createTimer(nil)
+   timer.OnTimer = function(timer)
+                   mainloop()
+                   end
+   timer.Interval = 1000
+   timer.Enabled = true
+else
+   timer.Enabled = true
+end
+{$asm}
+//aobscanregion(enmData, 300000000, 400000000, 00 02 49 D0 00 00 00 06 3F 80 00 00 00 00 00 00 00 02 49 D8) // should be unique
+//globalalloc(enmDataEdit,8)
+
+//registersymbol(enmData)
+alloc(enmDataEdit,100)
+registersymbol(enmDataEdit)
 [DISABLE]
+{$lua}
+if syntaxcheck then return end
+if (timer) then
+   timer.Enabled = false
+   timer.Destroy()
+   timer = nil
+end
+{$asm}
 unregistersymbol(enmData)
 unregistersymbol(enmDataEdit)
 dealloc(enmDataEdit)
@@ -25682,106 +25841,340 @@ dealloc(enmDataEdit)
                         <CheatEntry>
                           <ID>90502</ID>
                           <Description>"BTL Unit offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+8</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90984</ID>
+                              <Description>"BTL Unit"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+8</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90503</ID>
                           <Description>"Model offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+C</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90996</ID>
+                              <Description>"Model"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+10</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90504</ID>
                           <Description>"Attachment offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+10</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90995</ID>
+                              <Description>"Attachment"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+18</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90505</ID>
                           <Description>"PRE offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+14</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90994</ID>
+                              <Description>"PRE"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+20</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90506</ID>
                           <Description>"Animation offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+18</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90993</ID>
+                              <Description>"Animation"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+28</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90507</ID>
                           <Description>"MDF RES offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+1C</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90992</ID>
+                              <Description>"MDF RES"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+30</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90508</ID>
-                          <Description>"?"</Description>
+                          <Description>"MDF BTL FACE offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+20</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90991</ID>
+                              <Description>"MDF BTL FACE"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+38</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90509</ID>
                           <Description>"Slash effect offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+24</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90990</ID>
+                              <Description>"Slash effect"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+40</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90510</ID>
                           <Description>"LDF offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+28</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90989</ID>
+                              <Description>"LDF"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+48</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90511</ID>
                           <Description>"GA offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+2C</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90988</ID>
+                              <Description>"GA"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+50</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90512</ID>
                           <Description>"AI offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+30</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90987</ID>
+                              <Description>"AI"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+58</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90513</ID>
                           <Description>"Icon offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+34</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90985</ID>
+                              <Description>"Icon"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+60</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90514</ID>
                           <Description>"GUI FCT offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+38</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90986</ID>
+                              <Description>"GUI FCT"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+68</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90515</ID>
@@ -26240,10 +26633,80 @@ dealloc(enmDataEdit)
                         <CheatEntry>
                           <ID>90571</ID>
                           <Description>"Weakness offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+104</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>90997</ID>
+                              <Description>"Fire weakness"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>Float Big Endian</CustomType>
+                              <Address>enmDataEdit+70</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>91002</ID>
+                              <Description>"Water weakness"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>Float Big Endian</CustomType>
+                              <Address>enmDataEdit+70</Address>
+                              <Offsets>
+                                <Offset>4</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>91001</ID>
+                              <Description>"Wind weakness"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>Float Big Endian</CustomType>
+                              <Address>enmDataEdit+70</Address>
+                              <Offsets>
+                                <Offset>8</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>91000</ID>
+                              <Description>"Earth weakness"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>Float Big Endian</CustomType>
+                              <Address>enmDataEdit+70</Address>
+                              <Offsets>
+                                <Offset>C</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>90999</ID>
+                              <Description>"Light weakness"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>Float Big Endian</CustomType>
+                              <Address>enmDataEdit+70</Address>
+                              <Offsets>
+                                <Offset>10</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>90998</ID>
+                              <Description>"Darkness weakness"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>Float Big Endian</CustomType>
+                              <Address>enmDataEdit+70</Address>
+                              <Offsets>
+                                <Offset>14</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90572</ID>
@@ -26264,10 +26727,38 @@ dealloc(enmDataEdit)
                         <CheatEntry>
                           <ID>90574</ID>
                           <Description>"Dropped Item offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+114</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91335</ID>
+                              <Description>"Dropped item 1"</Description>
+                              <DropDownListLink>dropdown: Items</DropDownListLink>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>Array of byte</VariableType>
+                              <ByteLength>4</ByteLength>
+                              <Address>enmDataEdit+78</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>91336</ID>
+                              <Description>"Dropped item 2"</Description>
+                              <DropDownListLink>dropdown: Items</DropDownListLink>
+                              <ShowAsHex>1</ShowAsHex>
+                              <VariableType>Array of byte</VariableType>
+                              <ByteLength>4</ByteLength>
+                              <Address>enmDataEdit+78</Address>
+                              <Offsets>
+                                <Offset>4</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90575</ID>
@@ -26510,26 +27001,80 @@ dealloc(enmDataEdit)
                         <CheatEntry>
                           <ID>90604</ID>
                           <Description>"Habitat offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+180</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91005</ID>
+                              <Description>"Habitat"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+80</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90605</ID>
                           <Description>"Model offset (Enemy Book)"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+184</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91006</ID>
+                              <Description>"Model"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+88</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90606</ID>
                           <Description>"Weapon model offset (Enemy Book)"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+188</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91007</ID>
+                              <Description>"Weapon model"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+90</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90607</ID>
@@ -26566,14 +27111,30 @@ dealloc(enmDataEdit)
                         <CheatEntry>
                           <ID>90611</ID>
                           <Description>"??? offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+19C</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91010</ID>
+                              <Description>"???"</Description>
+                              <ShowAsHex>1</ShowAsHex>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Custom</VariableType>
+                              <CustomType>4 Byte Big Endian</CustomType>
+                              <Address>enmDataEdit+98</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90612</ID>
-                          <Description>"?"</Description>
+                          <Description>"Amount of ???"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
@@ -26582,18 +27143,53 @@ dealloc(enmDataEdit)
                         <CheatEntry>
                           <ID>90613</ID>
                           <Description>"Name offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+1A4</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91011</ID>
+                              <Description>"Name"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+A0</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90614</ID>
                           <Description>"Description offset"</Description>
+                          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+1A8</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>91008</ID>
+                              <Description>"Description"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>String</VariableType>
+                              <Length>60</Length>
+                              <Unicode>0</Unicode>
+                              <CodePage>0</CodePage>
+                              <ZeroTerminate>1</ZeroTerminate>
+                              <Address>enmDataEdit+A8</Address>
+                              <Offsets>
+                                <Offset>0</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                       </CheatEntries>
                     </CheatEntry>
@@ -26606,7 +27202,7 @@ dealloc(enmDataEdit)
                   <AssemblerScript>[ENABLE]
 {$lua}
 if syntaxcheck then return end
-local float = 9999
+local float = 999999
 
 function swapEndiannessFloat(f)
     local bytes = {string.byte(string.pack("f", f), 1, -1)}
@@ -26934,11 +27530,112 @@ unregistersymbol(enmDataIdle)
               <Options moHideChildren="1"/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+autoAssemble([[
 aobscanregion(attackStatusEdit, 300000000, 400000000, 00 00 00 08 00 00 07 65) // should be unique
 registersymbol(attackStatusEdit)
-globalAlloc(attackStatusNum,4)
+]])
+
+local currAttack
+
+function mainloop()
+         if not (getAddressSafe("attackStatusEdit") == nil) and not (getAddressSafe("attackStatusEdit") == 0) then
+            local statusEffectOffset = getAddressList().getMemoryRecordByID("89265")
+
+            if not (readInteger("attackStatusNum") == currAttack) then
+               writeQword("attackStatusNum+8", tonumber(getAddress(statusEffectOffset.Address)) + swapEndian(readInteger(getAddress(statusEffectOffset.Address))))
+
+               currAttack = readInteger("attackStatusNum")
+            end
+
+            local statusEffectAmountMemRec = getAddressList().getMemoryRecordByID("89266")
+            local statusEffectAmount = swapEndian(readInteger(getAddress(statusEffectAmountMemRec.Address)))
+            local offset = statusEffectOffset.Count*0x4*0x3
+
+            if not (statusEffectOffset.Count == statusEffectAmount) then
+               --remove
+               if (statusEffectOffset.Count &gt; statusEffectAmount) then
+                  for i = statusEffectOffset.Count, statusEffectAmount+1, -1 do
+                      statusEffectOffset.Child[i-1].destroy()
+                  end
+               --add
+               elseif (statusEffectOffset.Count &lt; statusEffectAmount) then
+                      for i = statusEffectOffset.Count, statusEffectAmount-1 do
+                          if (i &gt; 10) then
+                             break --inf loop
+                          end
+                          local statusEffrec = getAddressList().createMemoryRecord()
+
+                          statusEffrec.Type = 13
+                          statusEffrec.CustomTypeName = "4 Byte Big Endian"
+                          statusEffrec.setAddress("attackStatusNum+8")
+                          statusEffrec.setOffsetCount("1")
+                          statusEffrec.setOffset(0, offset)
+                          statusEffrec.DropDownLinkedMemrec = "dropdown: Status Effects"
+                          statusEffrec.DropDownLinked = true
+                          statusEffrec.setDescription("Status Effect "..(i+1))
+                          statusEffrec.Options = "[moAllowManualCollapseAndExpand,moManualExpandCollapse]"
+                          statusEffrec.appendToEntry(statusEffectOffset)
+
+                          offset = offset + 0x4
+
+                          local newrec = getAddressList().createMemoryRecord()
+
+                          newrec.Type = 13
+                          newrec.CustomTypeName = "4 Byte Big Endian"
+                          newrec.setAddress("attackStatusNum+8")
+                          newrec.setOffsetCount("1")
+                          newrec.setOffset(0, offset)
+                          newrec.setDescription("Chance")
+                          newrec.appendToEntry(statusEffrec)
+
+                          offset = offset + 0x4
+
+                          local newrec = getAddressList().createMemoryRecord()
+
+                          newrec.Type = 13
+                          newrec.CustomTypeName = "Float Big Endian"
+                          newrec.setAddress("attackStatusNum+8")
+                          newrec.setOffsetCount("1")
+                          newrec.setOffset(0, offset)
+                          newrec.setDescription("Parameter")
+                          newrec.appendToEntry(statusEffrec)
+
+                          offset = offset + 0x4
+                      end
+               end
+            end
+         end
+end
+
+if not timer then
+   timer = createTimer(nil)
+   timer.OnTimer = function(timer)
+                   mainloop()
+                   end
+   timer.Interval = 1000
+   timer.Enabled = true
+else
+   timer.Enabled = true
+end
+{$asm}
+//aobscanregion(attackStatusEdit, 300000000, 400000000, 00 00 00 08 00 00 07 65) // should be unique
+//registersymbol(attackStatusEdit)
+//globalAlloc(attackStatusNum,4)
+alloc(attackStatusNum,10)
+registersymbol(attackStatusNum)
 
 [DISABLE]
+{$lua}
+if syntaxcheck then return end
+if (timer) then
+   timer.Enabled = false
+   timer.Destroy()
+   timer = nil
+end
+{$asm}
 unregistersymbol(attackStatusEdit)
 unregistersymbol(attackStatusNum)
 dealloc(attackStatusNum)
@@ -27273,6 +27970,7 @@ dealloc(attackStatusNum)
                     <CheatEntry>
                       <ID>89265</ID>
                       <Description>"Status Effect Offset"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
@@ -39755,19 +40453,122 @@ dealloc(arteUnlockEdit)
               <Options moHideChildren="1"/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+autoAssemble([[
 aobscanregion(arteEdit, 300000000, 400000000, 00 00 00 00 00 00 00 04 00 03 88 C0 00 00 00 00) // should be unique
 registersymbol(arteEdit)
-globalAlloc(arteNum,4)
+]])
 
+local currArte
+
+function mainloop()
+         if not (getAddressSafe("arteEdit") == nil) and not (getAddressSafe("arteEdit") == 0) then
+            local arteOffset = getAddressList().getMemoryRecordByID("64650")
+            local linkedArteOffset = getAddressList().getMemoryRecordByID("64670")
+            local nameOffset = getAddressList().getMemoryRecordByID("64668")
+            local altNameOffset = getAddressList().getMemoryRecordByID("64667")
+            local descOffset = getAddressList().getMemoryRecordByID("64666")
+
+            if not (readInteger("arteNum") == currArte) then
+               --print("full: "..tonumber(getAddress(linkedArteOffset.Address)) + tonumber(linkedArteOffset.Value)..", addr: "..tonumber(getAddress(linkedArteOffset.Address))..", val: "..tonumber(linkedArteOffset.Value))
+               --print(swapEndian(readInteger(getAddress(arteOffset.Address))))
+
+               writeQword("arteNum+0x8", tonumber(getAddress(arteOffset.Address)) + swapEndian(readInteger(getAddress(arteOffset.Address))))
+               writeQword("arteNum+0x10", tonumber(getAddress(linkedArteOffset.Address)) + swapEndian(readInteger(getAddress(linkedArteOffset.Address))))
+               writeQword("arteNum+0x18", tonumber(getAddress(nameOffset.Address)) + swapEndian(readInteger(getAddress(nameOffset.Address))))
+               writeQword("arteNum+0x20", tonumber(getAddress(altNameOffset.Address)) + swapEndian(readInteger(getAddress(altNameOffset.Address))))
+               writeQword("arteNum+0x28", tonumber(getAddress(descOffset.Address)) + swapEndian(readInteger(getAddress(descOffset.Address))))
+
+               currArte = readInteger("arteNum")
+            end
+
+            local linkArteAmountMemRec = getAddressList().getMemoryRecordByID("64669")
+            local linkArteAmount = swapEndian(readInteger(getAddress(linkArteAmountMemRec.Address)))
+            local linkArteOffset = linkedArteOffset.Count*0x4*0x2
+
+            if not (linkedArteOffset.Count == linkArteAmount) then
+               --remove
+               if (linkedArteOffset.Count &gt; linkArteAmount) then
+                  for i = linkedArteOffset.Count, linkArteAmount+1, -1 do
+                      linkedArteOffset.Child[i-1].destroy()
+                  end
+               --add
+               elseif (linkedArteOffset.Count &lt; linkArteAmount) then
+                      for i = linkedArteOffset.Count, linkArteAmount-1 do
+                          if (i &gt; 10) then
+                             break --inf loop
+                          end
+                          linkArteOffset = linkArteOffset + 0x4
+
+                          local linkedArteRec = getAddressList().createMemoryRecord()
+
+                          linkedArteRec.Type = 13
+                          linkedArteRec.CustomTypeName = "4 Byte Big Endian"
+                          linkedArteRec.setAddress("arteNum+10")
+                          linkedArteRec.setOffsetCount("1")
+                          linkedArteRec.setOffset(0, linkArteOffset)
+                          linkedArteRec.DropDownLinkedMemrec = "Arte List"
+                          linkedArteRec.DropDownLinked = true
+                          linkedArteRec.setDescription("Linked with this Arte "..(i+1))
+                          linkedArteRec.Options = "[moAllowManualCollapseAndExpand,moManualExpandCollapse]"
+                          linkedArteRec.appendToEntry(linkedArteOffset)
+
+                          linkArteOffset = linkArteOffset - 0x4
+
+                          local newrec = getAddressList().createMemoryRecord()
+
+                          newrec.Type = 13
+                          newrec.CustomTypeName = "4 Byte Big Endian"
+                          newrec.setAddress("arteNum+10")
+                          newrec.setOffsetCount("1")
+                          newrec.setOffset(0, linkArteOffset)
+                          newrec.DropDownLinkedMemrec = "Arte List"
+                          newrec.DropDownLinked = true
+                          newrec.setDescription("Linked to this Linked Arte")
+                          newrec.appendToEntry(linkedArteRec)
+
+                          linkArteOffset = linkArteOffset + 0x8
+                      end
+               end
+            end
+         end
+end
+
+if not timer then
+   timer = createTimer(nil)
+   timer.OnTimer = function(timer)
+                   mainloop()
+                   end
+   timer.Interval = 1000
+   timer.Enabled = true
+else
+   timer.Enabled = true
+end
+{$asm}
+//aobscanregion(arteEdit, 300000000, 400000000, 00 00 00 00 00 00 00 04 00 03 88 C0 00 00 00 00) // should be unique
+//registersymbol(arteEdit)
+//globalAlloc(arteNum,4)
+alloc(arteNum,30)
+registersymbol(arteNum)
 [DISABLE]
+{$lua}
+if syntaxcheck then return end
+if (timer) then
+   timer.Enabled = false
+   timer.Destroy()
+   timer = nil
+end
+{$asm}
+dealloc(arteNum)
 unregistersymbol(arteEdit)
 unregistersymbol(arteNum)
-dealloc(arteNum)
 </AssemblerScript>
               <CheatEntries>
                 <CheatEntry>
                   <ID>64706</ID>
-                  <Description>"Arte Number"</Description>
+                  <Description>"Edit"</Description>
                   <DropDownList DisplayValueAsItem="1">0:Nothing
 1:For dmg. calculation
 2:Jude's normal attack - Ground - Normal - Neutral
@@ -40905,7 +41706,7 @@ dealloc(arteNum)
 1134:Expansive Strike
 </DropDownList>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>8 Bytes</VariableType>
                   <Address>arteNum</Address>
                   <CheatEntries>
                     <CheatEntry>
@@ -40962,10 +41763,28 @@ dealloc(arteNum)
                     <CheatEntry>
                       <ID>64650</ID>
                       <Description>"Arte Offset"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
                       <Address>arteEdit+24+60*[arteNum]</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>90978</ID>
+                          <Description>"Arte"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>String</VariableType>
+                          <Length>60</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>arteNum+8</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64651</ID>
@@ -41142,6 +41961,8 @@ dealloc(arteNum)
                     <CheatEntry>
                       <ID>64670</ID>
                       <Description>"Linked Arte Offset"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
@@ -41158,26 +41979,80 @@ dealloc(arteNum)
                     <CheatEntry>
                       <ID>64668</ID>
                       <Description>"Name Offset"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
                       <Address>arteEdit+74+60*[arteNum]</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>90983</ID>
+                          <Description>"Name"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>String</VariableType>
+                          <Length>60</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>arteNum+18</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64667</ID>
                       <Description>"Alt Name Offset"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
                       <Address>arteEdit+78+60*[arteNum]</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>90980</ID>
+                          <Description>"Alt Name"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>String</VariableType>
+                          <Length>60</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>arteNum+20</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64666</ID>
                       <Description>"Description Offset"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
                       <Address>arteEdit+7C+60*[arteNum]</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>90979</ID>
+                          <Description>"Description"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>String</VariableType>
+                          <Length>60</Length>
+                          <Unicode>0</Unicode>
+                          <CodePage>0</CodePage>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>arteNum+28</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -44927,36 +45802,6 @@ createTimer(1000, function() memrec.Active = false end)
               <Address>regionCheckFlags-EDE4</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>64119</ID>
-              <Description>"Jude normal outfit"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>30</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>regionCheckEquip+371CA0</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>64154</ID>
-              <Description>"Jude animation"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>String</VariableType>
-              <Length>11</Length>
-              <Unicode>0</Unicode>
-              <CodePage>0</CodePage>
-              <ZeroTerminate>1</ZeroTerminate>
-              <Address>regionCheckEquip+2F4A3C</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>64123</ID>
-              <Description>"Leia air normal"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Custom</VariableType>
-              <CustomType>4 Byte Big Endian</CustomType>
-              <Address>regionCheckEquip+286CA0</Address>
-            </CheatEntry>
-            <CheatEntry>
               <ID>64292</ID>
               <Description>"Region Check"</Description>
               <Options moHideChildren="1"/>
@@ -46475,1600 +47320,6 @@ jurartes:
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>67589</ID>
-                  <Description>"Jude artes"</Description>
-                  <Options moHideChildren="1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
-                  <Address>regionCheckEquip+281A30</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>67590</ID>
-                      <Description>"1st Neutral normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67591</ID>
-                      <Description>"1st Up normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67592</ID>
-                      <Description>"1st Side normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*2</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67593</ID>
-                      <Description>"1st Down normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*3</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67594</ID>
-                      <Description>"2nd Neutral normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67608</ID>
-                      <Description>"2nd Up normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*5</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67607</ID>
-                      <Description>"2nd Side normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*6</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67606</ID>
-                      <Description>"2nd Down normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*7</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67605</ID>
-                      <Description>"1st Air normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67604</ID>
-                      <Description>"2nd Air normal"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*9</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67603</ID>
-                      <Description>"Link bot attacks"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*A</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67602</ID>
-                      <Description>"Link bot attacks"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*B</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67601</ID>
-                      <Description>"Link bot attacks"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67600</ID>
-                      <Description>"Link bot attacks"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*D</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67599</ID>
-                      <Description>"L1 Neutral/Side/Down attack"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*E</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67598</ID>
-                      <Description>"L1 Up attack"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*F</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67597</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*10</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67596</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*11</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67595</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*12</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67613</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*13</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67612</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*14</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67611</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*15</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67610</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*16</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67609</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*17</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67623</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*18</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67622</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*19</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67621</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*1A</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67620</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*1B</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67619</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*1C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67618</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*1D</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67617</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*1E</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67616</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*1F</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67615</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*20</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67614</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*21</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67628</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*22</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67627</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*23</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67626</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*24</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67625</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*25</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67624</ID>
-                      <Description>"Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*26</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67633</ID>
-                      <Description>"Character gimmick"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*27</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67632</ID>
-                      <Description>"Link skill"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*28</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67631</ID>
-                      <Description>"Mystic Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*29</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67630</ID>
-                      <Description>"Mystic Arte"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>+14*2A</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>64155</ID>
-                  <Description>"Gaius/Muzét fight attacks"</Description>
-                  <Options moHideChildren="1"/>
-                  <GroupHeader>1</GroupHeader>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>64156</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF77C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64157</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF790</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64158</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF7A4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64159</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF7B8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64160</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF7CC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64161</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF7E0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64162</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF7F4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64163</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF808</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64164</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF81C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64165</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF830</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64166</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF844</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64167</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF858</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64168</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF86C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64169</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF880</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64170</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF894</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64171</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF8A8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64172</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF8BC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64173</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF8D0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64174</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF8E4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64175</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF8F8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64176</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF90C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64177</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF920</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64178</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF934</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64179</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF948</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64180</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF95C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64181</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF970</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64182</ID>
-                      <Description>"Gaius?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230EF984</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64183</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F22E4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64184</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F22F8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64185</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F230C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64186</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2320</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64187</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2334</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64188</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2348</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64189</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F235C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64190</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2370</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64191</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2384</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64192</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2398</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64193</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F23AC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64194</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F23C0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64195</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F23D4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64196</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F23E8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64197</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F23FC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64198</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2410</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64199</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2424</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64200</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2438</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64201</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F244C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64202</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2460</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64203</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2474</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64204</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F2488</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64205</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F249C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64206</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F24B0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64207</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F24C4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64208</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F24D8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64209</ID>
-                      <Description>"Muzét?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230F24EC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64210</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6D3C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64211</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6D50</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64212</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6D64</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64213</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6D78</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64214</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6D8C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64215</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6DA0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64216</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6DB4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64217</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6DC8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64218</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6DDC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64219</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6DF0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64220</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E04</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64221</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E18</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64222</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E2C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64223</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E40</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64224</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E54</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64225</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E68</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64226</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E7C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64227</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6E90</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64228</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6EA4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64229</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6EB8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64230</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6ECC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64231</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6EE0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64232</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6EF4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64233</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F08</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64234</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F1C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64235</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F30</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64236</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F44</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64237</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F58</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64238</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F6C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64239</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F80</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64240</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6F94</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64241</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6FA8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64242</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6FBC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64243</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E6FD0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64244</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1B6C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64245</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1B80</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64246</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1B94</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64247</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1BA8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64248</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1BBC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64249</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1BD0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64250</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1BE4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64251</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1BF8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64252</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C0C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64253</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C20</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64254</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C34</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64255</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C48</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64256</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C5C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64257</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C70</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64258</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C84</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64259</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1C98</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64260</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1CAC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64261</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1CC0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64262</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1CD4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64263</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1CE8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64264</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1CFC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64265</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D10</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64266</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D24</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64267</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D38</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64268</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D4C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64269</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D60</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64270</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D74</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64271</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D88</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64272</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1D9C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64273</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1DB0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64274</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1DC4</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64275</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1DD8</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64276</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1DEC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64277</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E00</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64278</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E14</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64279</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E28</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64280</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E3C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64281</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E50</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64282</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E64</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64283</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E78</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64284</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1E8C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64285</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1EA0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64286</ID>
-                      <Description>"PC?"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>3230E1EB4</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>64327</ID>
-                  <Description>"Milla Stuff by Just_Samu"</Description>
-                  <Options moHideChildren="1"/>
-                  <GroupHeader>1</GroupHeader>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>64321</ID>
-                      <Description>"Milla Model Thing"</Description>
-                      <VariableType>String</VariableType>
-                      <Length>11</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>322DFFE30</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64324</ID>
-                      <Description>"Milla Animation"</Description>
-                      <VariableType>String</VariableType>
-                      <Length>19</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>323154D0A</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64294</ID>
-                      <Description>"Milla Voice"</Description>
-                      <VariableType>String</VariableType>
-                      <Length>16</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>323154E37</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64325</ID>
-                      <Description>"Milla Attacks"</Description>
-                      <VariableType>String</VariableType>
-                      <Length>15</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>323154CE6</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64326</ID>
-                      <Description>"Milla Something"</Description>
-                      <VariableType>String</VariableType>
-                      <Length>23</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>323154D4E</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64404</ID>
-                      <Description>"Milla Hitboxes"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>String</VariableType>
-                      <Length>19</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>322DFFE3C</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>67671</ID>
-                  <Description>"Dranduo stats"</Description>
-                  <Options moHideChildren="1"/>
-                  <GroupHeader>1</GroupHeader>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>67669</ID>
-                      <Description>"Dranduo P. ATK"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>32318120C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67670</ID>
-                      <Description>"Dranduo A. ATK"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>323181210</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>67666</ID>
-                  <Description>"Jude Stuff"</Description>
-                  <Options moHideChildren="1"/>
-                  <GroupHeader>1</GroupHeader>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>67665</ID>
-                      <Description>"Jude Model Thing"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>String</VariableType>
-                      <Length>12</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>322DEFBEC</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67667</ID>
-                      <Description>"Jude Animation"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>String</VariableType>
-                      <Length>20</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>323154B7C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>67668</ID>
-                      <Description>"Jude Voice A"</Description>
-                      <VariableType>String</VariableType>
-                      <Length>16</Length>
-                      <Unicode>0</Unicode>
-                      <CodePage>0</CodePage>
-                      <ZeroTerminate>1</ZeroTerminate>
-                      <Address>323154C7E</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>67724</ID>
-                  <Description>"Gaius (Fezebel Marsh)"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Custom</VariableType>
-                  <CustomType>4 Byte Big Endian</CustomType>
-                  <Address>322F6CE98</Address>
-                </CheatEntry>
-                <CheatEntry>
                   <ID>64328</ID>
                   <Description>"Milla -&gt; Musee (scripts) by Just_Samu (old)"</Description>
                   <Options moHideChildren="1"/>
@@ -49110,20 +48361,7 @@ db 00 00 00 00 00 00 CC EF 01 01 00 00 00 00 00 00 00 00 CC F8 00 00 00 02 00 00
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>skillPropNum</Name>
-      <Address>08200010</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>arteUnlockEdit</Name>
-      <Address>08200020</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>BTLASOptions</Name>
-      <Address>08200030</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
   <DisassemblerComments>
     <DisassemblerComment>
       <Address>62F16D4E</Address>
