@@ -1,5 +1,15 @@
 ### Changelog
 
+#### 2024/03/27
+
+-	Fixed game functions not working properly sometimes in Xillia 1
+-	Fixed the issue behind the "Something went wrong" message in Xillia 1
+
+-	Made the Symphonia table less dependent on the latest game version
+
+-	Added some accel stats to Graces F table
+-	Added Narikiri artes to Graces F table
+
 #### 2024/01/31
 
 -	Added "Save Anywhere" patch for Graces F and Vesperia (PS3)
