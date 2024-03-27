@@ -2,21 +2,128 @@
 <CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
-      <ID>25</ID>
+      <ID>1948</ID>
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <GroupHeader>1</GroupHeader>
-      <Address>"TOS.exe"+0071B120</Address>
-      <Offsets>
-        <Offset>378</Offset>
-        <Offset>4</Offset>
-        <Offset>4</Offset>
-        <Offset>40</Offset>
-        <Offset>D0</Offset>
-        <Offset>4</Offset>
-        <Offset>2C</Offset>
-      </Offsets>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TOS_crack.exe
+  Version: 
+  Date   : 2024-02-18
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(TOS_basePTRs,TOS.exe,8D 9B 00 00 00 00 8B 04) // should be unique
+aobscanmodule(UnionAtkAOB,TOS.exe,B9 01 00 00 00 66 89 86) // should be unique
+alloc(newmem,$1000)
+alloc(newmem2,$1000)
+alloc(basePTRLoc,10)
+
+label(code)
+label(return)
+label(code2)
+label(return2)
+
+newmem:
+  mov [basePTRLoc+8],ebx
+  mov ebx,1E
+  reassemble(TOS_basePTRs+6)
+  mov [basePTRLoc],eax
+  mov ebx,[basePTRLoc+8]
+code:
+  lea ebx,[ebx+00000000]
+  jmp return
+TOS_basePTRs:
+  jmp newmem
+  nop
+return:
+//----------------------------------------------------------------------------
+newmem2:
+  mov [basePTRLoc+10],edx
+code2:
+  mov ecx,00000001
+  jmp return2
+
+UnionAtkAOB:
+  jmp newmem2
+return2:
+registersymbol(TOS_basePTRs)
+registersymbol(UnionAtkAOB)
+registersymbol(basePTRLoc)
+
+[DISABLE]
+
+TOS_basePTRs:
+  db 8D 9B 00 00 00 00
+
+UnionAtkAOB:
+  db B9 01 00 00 00
+
+unregistersymbol(TOS_basePTRs)
+unregistersymbol(UnionAtkAOB)
+unregistersymbol(basePTRLoc)
+dealloc(newmem)
+dealloc(basePTRLoc)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+181F3A
+
+TOS.exe+181F08: 83 C3 04                       - add ebx,04
+TOS.exe+181F0B: FF 4D F4                       - dec [ebp-0C]
+TOS.exe+181F0E: 89 7D F8                       - mov [ebp-08],edi
+TOS.exe+181F11: 0F 85 75 FF FF FF              - jne TOS.exe+181E8C
+TOS.exe+181F17: 80 3D E6 C3 C3 01 00           - cmp byte ptr [TOS.exe+183C3E6],00
+TOS.exe+181F1E: 0F 85 8A 00 00 00              - jne TOS.exe+181FAE
+TOS.exe+181F24: C7 05 AC B9 B1 00 00 00 00 00  - mov [TOS.exe+71B9AC],00000000
+TOS.exe+181F2E: 33 DB                          - xor ebx,ebx
+TOS.exe+181F30: BE B4 B9 B1 00                 - mov esi,TOS.exe+71B9B4
+TOS.exe+181F35: BF 00 10 00 00                 - mov edi,00001000
+// ---------- INJECTING HERE ----------
+TOS.exe+181F3A: 8D 9B 00 00 00 00              - lea ebx,[ebx+00000000]
+// ---------- DONE INJECTING  ----------
+TOS.exe+181F40: 8B 04 9D A8 B0 B1 00           - mov eax,[ebx*4+TOS.exe+71B0A8]
+TOS.exe+181F47: 50                             - push eax
+TOS.exe+181F48: E8 CC 90 0E 00                 - call TOS.exe+26B019
+TOS.exe+181F4D: 83 C4 04                       - add esp,04
+TOS.exe+181F50: 89 04 9D E4 BE B1 00           - mov [ebx*4+TOS.exe+71BEE4],eax
+TOS.exe+181F57: 83 F8 01                       - cmp eax,01
+TOS.exe+181F5A: 74 3D                          - je TOS.exe+181F99
+TOS.exe+181F5C: 83 F8 02                       - cmp eax,02
+TOS.exe+181F5F: 74 3D                          - je TOS.exe+181F9E
+TOS.exe+181F61: 8B 0D AC B9 B1 00              - mov ecx,[TOS.exe+71B9AC]
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+B740F
+
+TOS.exe+B73E0: E8 4B EA 0E 00        - call TOS.exe+1A5E30
+TOS.exe+B73E5: D9 E8                 - fld1
+TOS.exe+B73E7: 83 C4 10              - add esp,10
+TOS.exe+B73EA: D9 EE                 - fldz
+TOS.exe+B73EC: C6 05 24 80 D7 01 00  - mov byte ptr [TOS.exe+1978024],00
+TOS.exe+B73F3: 83 BE A0 42 08 00 00  - cmp dword ptr [esi+000842A0],00
+TOS.exe+B73FA: 0F 84 7F 03 00 00     - je TOS.exe+B777F
+TOS.exe+B7400: 8B 15 E8 3E AD 00     - mov edx,[TOS.exe+6D3EE8]
+TOS.exe+B7406: 33 C0                 - xor eax,eax
+TOS.exe+B7408: 81 7A 40 C8 EC 58 01  - cmp [edx+40],TOS.exe+118ECC8
+// ---------- INJECTING HERE ----------
+TOS.exe+B740F: B9 01 00 00 00        - mov ecx,00000001
+// ---------- DONE INJECTING  ----------
+TOS.exe+B7414: 66 89 86 B0 3B 08 00  - mov [esi+00083BB0],ax
+TOS.exe+B741B: 8B 86 38 F9 09 00     - mov eax,[esi+0009F938]
+TOS.exe+B7421: 66 89 8E 00 3C 08 00  - mov [esi+00083C00],cx
+TOS.exe+B7428: B9 00 30 00 00        - mov ecx,00003000
+TOS.exe+B742D: 0F 8C C9 01 00 00     - jl TOS.exe+B75FC
+TOS.exe+B7433: BA 02 00 00 00        - mov edx,00000002
+TOS.exe+B7438: 66 89 96 50 3C 08 00  - mov [esi+00083C50],dx
+TOS.exe+B743F: 33 D2                 - xor edx,edx
+TOS.exe+B7441: F7 F1                 - div ecx
+TOS.exe+B7443: 89 54 24 18           - mov [esp+18],edx
+}
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
           <ID>1028</ID>
@@ -35,7 +142,16 @@
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>+BE5</Address>
+          <Address>basePTRLoc</Address>
+          <Offsets>
+            <Offset>378+BE5</Offset>
+            <Offset>4</Offset>
+            <Offset>4</Offset>
+            <Offset>40</Offset>
+            <Offset>D0</Offset>
+            <Offset>4</Offset>
+            <Offset>2C</Offset>
+          </Offsets>
           <CheatEntries>
             <CheatEntry>
               <ID>1029</ID>
@@ -109,7 +225,16 @@
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>+EA</Address>
+          <Address>basePTRLoc</Address>
+          <Offsets>
+            <Offset>378+EA</Offset>
+            <Offset>4</Offset>
+            <Offset>4</Offset>
+            <Offset>40</Offset>
+            <Offset>D0</Offset>
+            <Offset>4</Offset>
+            <Offset>2C</Offset>
+          </Offsets>
           <CheatEntries>
             <CheatEntry>
               <ID>27</ID>
@@ -960,33 +1085,24 @@
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>180</ID>
-          <Description>"Encounter"</Description>
-          <DropDownListLink>dropdown: Encounter</DropDownListLink>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>2 Bytes</VariableType>
-          <Address>TOS.exe+6D3F40</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>1026</ID>
-          <Description>"Background"</Description>
-          <DropDownListLink>dropdown: Background</DropDownListLink>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>2 Bytes</VariableType>
-          <Address>TOS.exe+6D3F44</Address>
-        </CheatEntry>
-        <CheatEntry>
           <ID>1211</ID>
           <Description>"Devil's Arms power"</Description>
-          <DropDownList DisplayValueAsItem="1">0:Disabled
-1:Enabled
-</DropDownList>
+          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Binary</VariableType>
           <BitStart>2</BitStart>
           <BitLength>1</BitLength>
           <ShowAsBinary>0</ShowAsBinary>
-          <Address>+A64</Address>
+          <Address>basePTRLoc</Address>
+          <Offsets>
+            <Offset>378+A64</Offset>
+            <Offset>4</Offset>
+            <Offset>4</Offset>
+            <Offset>40</Offset>
+            <Offset>D0</Offset>
+            <Offset>4</Offset>
+            <Offset>2C</Offset>
+          </Offsets>
         </CheatEntry>
         <CheatEntry>
           <ID>1215</ID>
@@ -997,7 +1113,7 @@
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>"TOS.exe"+6D3EE8</Address>
+          <Address>basePTRLoc+10</Address>
           <Offsets>
             <Offset>40</Offset>
           </Offsets>
@@ -1010,7 +1126,7 @@
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>"TOS.exe"+6D3EE8</Address>
+          <Address>basePTRLoc+10</Address>
           <Offsets>
             <Offset>4C</Offset>
           </Offsets>
@@ -1519,7 +1635,7 @@ unregistersymbol(encounter507)
         </CheatEntry>
         <CheatEntry>
           <ID>1107</ID>
-          <Description>"TSFix Background/Encounter"</Description>
+          <Description>"Background/Encounter"</Description>
           <Options moHideChildren="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : TOS.exe
@@ -1638,7 +1754,7 @@ dealloc(TSFixBG)
 
 [ENABLE]
 
-aobscanmodule(saveCheck,TOS.exe,A0 89 0C C3 01) // should be unique
+aobscanmodule(saveCheck,TOS.exe,84 C0 74 51 B9 FF FD 00 00) // should be unique
 alloc(newmem,$1000)
 
 label(code)
@@ -1650,14 +1766,14 @@ code:
 //  mov al,[TOS.exe+1830C89]
   jmp return
 
-saveCheck:
+saveCheck-5:
   jmp newmem
 return:
 registersymbol(saveCheck)
 
 [DISABLE]
 
-saveCheck:
+saveCheck-5:
   db A0 89 0C C3 01
 
 unregistersymbol(saveCheck)
@@ -1707,7 +1823,7 @@ TOS.exe+C39F8: 89 96 84 11 00 00              - mov [esi+00001184],edx
 
 [ENABLE]
 
-aobscanmodule(runSpeed,TOS.exe,DD 05 B8 29 88 00 DC C9 D9 C9 D9 1F) // should be unique
+aobscanmodule(runSpeed,TOS.exe,DC C9 D9 C9 D9 1F D8 4E 2C D9 5E 2C 8D) // should be unique
 alloc(runSpeedMem,$1000)
 
 label(code)
@@ -1720,7 +1836,7 @@ runSpeedMem:
 code:
 //  fld qword ptr [TOS.exe+4829B8]
   jmp return
-runSpeed:
+runSpeed-6:
   jmp runSpeedMem
   nop
 return:
@@ -1729,7 +1845,7 @@ registersymbol(runSpeedMem)
 
 [DISABLE]
 
-runSpeed:
+runSpeed-6:
   db DD 05 B8 29 88 00
 
 unregistersymbol(runSpeed)
@@ -1865,16 +1981,16 @@ TOS.exe+402A8: 7F 03                 - jg TOS.exe+402AD
 
 [ENABLE]
 
-aobscanmodule(chainSameArteType,TOS.exe,0F 84 7D 02 00 00 8B 4D) // should be unique
+aobscanmodule(chainSameArteType,TOS.exe,8B 4D 08 8B 41 0C) // should be unique
 
-chainSameArteType:
+chainSameArteType-6:
   db E9 7E 02 00 00 90
 
 registersymbol(chainSameArteType)
 
 [DISABLE]
 
-chainSameArteType:
+chainSameArteType-6:
   db 0F 84 7D 02 00 00
 
 unregistersymbol(chainSameArteType)
@@ -1922,16 +2038,16 @@ TOS.exe+3EFF3: 80 E1 0F                 - and cl,0F
 
 [ENABLE]
 
-aobscanmodule(enemyCanActState,TOS.exe,0F 85 C8 00 00 00 8B 88) // should be unique
+aobscanmodule(enemyCanActState,TOS.exe,8B 88 98 32 01 00 85 C9 74 27) // should be unique
 
-enemyCanActState:
+enemyCanActState-6:
   db E9 C9 00 00 00 90
 
 registersymbol(enemyCanActState)
 
 [DISABLE]
 
-enemyCanActState:
+enemyCanActState-6:
   db 0F 85 C8 00 00 00
 
 unregistersymbol(enemyCanActState)
@@ -1979,16 +2095,16 @@ TOS.exe+419D0: F6 81 20 13 00 00 01  - test byte ptr [ecx+00001320],01
 
 [ENABLE]
 
-aobscanmodule(NormalAtkCheck,TOS.exe,0F 8D EC 01 00 00) // should be unique
+aobscanmodule(NormalAtkCheck,TOS.exe,F6 86 6C 13 00 00 07) // should be unique
 
-NormalAtkCheck:
+NormalAtkCheck-6:
   db 90 90 90 90 90 90
 
 registersymbol(NormalAtkCheck)
 
 [DISABLE]
 
-NormalAtkCheck:
+NormalAtkCheck-6:
   db 0F 8D EC 01 00 00
 
 unregistersymbol(NormalAtkCheck)
@@ -3540,64 +3656,6 @@ TOS.exe+CF421: C6 44 24 1B 01           - mov byte ptr [esp+1B],01
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>1067</ID>
-              <Description>"Auto Encounter test"</Description>
-              <Options moHideChildren="1"/>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : TOS.exe
-  Version: 
-  Date   : 2021-08-09
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-{$lua}
-if syntaxcheck then return end
-autoAssemble([[
-aobscanmodule(encounterAddr,TOS.exe,8B 35 DC 2E AD 00 0F B7 86 F2) // should be unique
-
-registersymbol(encounterAddr)
-]])
-local address = getAddress("encounterAddr") + 2
-
-address = readInteger(address)
-
-address = readInteger(address) + 0x933C
-
---address = address + 0x933C
-
-address = readInteger(address)
-
-address = getAddress(address)
-
-registerSymbol("encounterArea", address, true)
-{$asm}
-[DISABLE]
-{$lua}
-unregisterSymbol("encounterAddr")
-unregisterSymbol("encounterArea")
-</AssemblerScript>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>1068</ID>
-                  <Description>"Number of enemies"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>encounterArea+4</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1069</ID>
-                  <Description>"Number of species"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>encounterArea+5</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
               <ID>1106</ID>
               <Description>"Figure out Encounter with this (edit this) (enable encounter editor)"</Description>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3609,33 +3667,108 @@ unregisterSymbol("encounterArea")
               <Address>encounter507-FD80+80*4E</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>1132</ID>
+              <ID>1951</ID>
               <Description>"Coordinates"</Description>
               <Options moHideChildren="1"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <GroupHeader>1</GroupHeader>
-              <Address>TOS.exe+1955AF4</Address>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2024-02-19
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(coordsAOB,TOS.exe,D9 46 04 D8 43 04) // should be unique
+alloc(newmem,$1000)
+alloc(coordsPTR,8)
+
+label(code)
+label(return)
+
+newmem:
+  mov [coordsPTR],esi
+code:
+  fld dword ptr [esi+04]
+  fadd dword ptr [ebx+04]
+  jmp return
+
+coordsAOB:
+  jmp newmem
+  nop
+return:
+registersymbol(coordsAOB)
+registersymbol(coordsPTR)
+[DISABLE]
+
+coordsAOB:
+  db D9 46 04 D8 43 04
+
+unregistersymbol(coordsAOB)
+unregistersymbol(coordsPTR)
+dealloc(newmem)
+dealloc(coordsPTR)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+171F1E
+
+TOS.exe+171EFD: D9 5C 24 44  - fstp dword ptr [esp+44]
+TOS.exe+171F01: D9 43 04     - fld dword ptr [ebx+04]
+TOS.exe+171F04: D8 44 24 3C  - fadd dword ptr [esp+3C]
+TOS.exe+171F08: D9 5B 40     - fstp dword ptr [ebx+40]
+TOS.exe+171F0B: D9 43 08     - fld dword ptr [ebx+08]
+TOS.exe+171F0E: D8 44 24 44  - fadd dword ptr [esp+44]
+TOS.exe+171F12: D9 5B 44     - fstp dword ptr [ebx+44]
+TOS.exe+171F15: D9 43 0C     - fld dword ptr [ebx+0C]
+TOS.exe+171F18: D8 44 24 40  - fadd dword ptr [esp+40]
+TOS.exe+171F1C: EB 18        - jmp TOS.exe+171F36
+// ---------- INJECTING HERE ----------
+TOS.exe+171F1E: D9 46 04     - fld dword ptr [esi+04]
+// ---------- DONE INJECTING  ----------
+TOS.exe+171F21: D8 43 04     - fadd dword ptr [ebx+04]
+TOS.exe+171F24: D9 5B 40     - fstp dword ptr [ebx+40]
+TOS.exe+171F27: D9 46 08     - fld dword ptr [esi+08]
+TOS.exe+171F2A: D8 43 08     - fadd dword ptr [ebx+08]
+TOS.exe+171F2D: D9 5B 44     - fstp dword ptr [ebx+44]
+TOS.exe+171F30: D9 46 0C     - fld dword ptr [esi+0C]
+TOS.exe+171F33: D8 43 0C     - fadd dword ptr [ebx+0C]
+TOS.exe+171F36: D9 5B 48     - fstp dword ptr [ebx+48]
+TOS.exe+171F39: 8D 43 40     - lea eax,[ebx+40]
+TOS.exe+171F3C: 8D 4B 34     - lea ecx,[ebx+34]
+}
+</AssemblerScript>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1133</ID>
                   <Description>"X"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>+0</Address>
+                  <Address>coordsPTR</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1135</ID>
                   <Description>"Y"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>+4</Address>
+                  <Address>coordsPTR</Address>
+                  <Offsets>
+                    <Offset>4</Offset>
+                  </Offsets>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1134</ID>
                   <Description>"Z"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
-                  <Address>+8</Address>
+                  <Address>coordsPTR</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                  </Offsets>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -3660,9 +3793,95 @@ unregisterSymbol("encounterArea")
               <Address>TOS.exe+484000</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>1172</ID>
+              <ID>1173</ID>
+              <Description>"Small/Big"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>TOS.exe+6D4682</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1222</ID>
+              <Description>"Muramasa SLA stat"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>TOS.exe+4D23F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1950</ID>
               <Description>"Area Load shenanigans"</Description>
-              <DropDownList DisplayValueAsItem="1">:Thanks to Karibil_Watar on Reddit
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2024-02-19
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(areaLoadAOB,TOS.exe,80 B9 98 01 00 00 06) // should be unique
+alloc(newmem,$1000)
+alloc(areaLoadPTR,8)
+
+label(code)
+label(return)
+
+newmem:
+  mov [areaLoadPTR],ecx
+code:
+  cmp byte ptr [ecx+00000198],06
+  jmp return
+
+areaLoadAOB:
+  jmp newmem
+  nop 2
+return:
+registersymbol(areaLoadAOB)
+registersymbol(areaLoadPTR)
+[DISABLE]
+
+areaLoadAOB:
+  db 80 B9 98 01 00 00 06
+
+unregistersymbol(areaLoadAOB)
+unregistersymbol(areaLoadPTR)
+dealloc(newmem)
+dealloc(areaLoadPTR)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+165E3E
+
+TOS.exe+165E1E: 8A 56 0C              - mov dl,[esi+0C]
+TOS.exe+165E21: F6 DA                 - neg dl
+TOS.exe+165E23: 02 D2                 - add dl,dl
+TOS.exe+165E25: 02 D2                 - add dl,dl
+TOS.exe+165E27: 32 D1                 - xor dl,cl
+TOS.exe+165E29: 80 E2 1C              - and dl,1C
+TOS.exe+165E2C: 32 D1                 - xor dl,cl
+TOS.exe+165E2E: 88 56 03              - mov [esi+03],dl
+TOS.exe+165E31: C7 46 0C 00 00 00 00  - mov [esi+0C],00000000
+TOS.exe+165E38: 8B 0D 68 3F AD 00     - mov ecx,[TOS.exe+6D3F68]
+// ---------- INJECTING HERE ----------
+TOS.exe+165E3E: 80 B9 98 01 00 00 06  - cmp byte ptr [ecx+00000198],06
+// ---------- DONE INJECTING  ----------
+TOS.exe+165E45: 72 60                 - jb TOS.exe+165EA7
+TOS.exe+165E47: 8B 46 0C              - mov eax,[esi+0C]
+TOS.exe+165E4A: 89 45 FC              - mov [ebp-04],eax
+TOS.exe+165E4D: 3D C8 00 00 00        - cmp eax,000000C8
+TOS.exe+165E52: 7C 53                 - jl TOS.exe+165EA7
+TOS.exe+165E54: 0F B6 81 98 01 00 00  - movzx eax,byte ptr [ecx+00000198]
+TOS.exe+165E5B: 0F AF 05 84 86 B1 00  - imul eax,[TOS.exe+718684]
+TOS.exe+165E62: 89 45 08              - mov [ebp+08],eax
+TOS.exe+165E65: DB 45 08              - fild dword ptr [ebp+08]
+TOS.exe+165E68: DD 05 80 2A 88 00     - fld qword ptr [TOS.exe+482A80]
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1172</ID>
+                  <Description>"Current Area"</Description>
+                  <DropDownList DisplayValueAsItem="1">:Thanks to Karibil_Watar on Reddit
 06 00:Thoda Geyser
 07 00:Thoda Water Seal Cave
 08 00:Thoda Water Seal Cave 2
@@ -4014,27 +4233,16 @@ FF 01:Gaoracchia Forest Entrance
 28 02:_test04
 29 02:_test05
 </DropDownList>
-              <ShowAsHex>1</ShowAsHex>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>Array of byte</VariableType>
-              <ByteLength>2</ByteLength>
-              <Address>TOS.exe+6D3F68</Address>
-              <Offsets>
-                <Offset>+1180</Offset>
-              </Offsets>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>1173</ID>
-              <Description>"Small/Big"</Description>
-              <VariableType>Byte</VariableType>
-              <Address>TOS.exe+6D4682</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>1222</ID>
-              <Description>"Muramasa SLA stat"</Description>
-              <ShowAsSigned>1</ShowAsSigned>
-              <VariableType>2 Bytes</VariableType>
-              <Address>TOS.exe+4D23F8</Address>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>2</ByteLength>
+                  <Address>areaLoadPTR</Address>
+                  <Offsets>
+                    <Offset>+1180</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
               <ID>1307</ID>
@@ -4300,7 +4508,16 @@ FF 01:Gaoracchia Forest Entrance
 </DropDownList>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
-              <Address>+D8</Address>
+              <Address>basePTRLoc</Address>
+              <Offsets>
+                <Offset>378+D8</Offset>
+                <Offset>4</Offset>
+                <Offset>4</Offset>
+                <Offset>40</Offset>
+                <Offset>D0</Offset>
+                <Offset>4</Offset>
+                <Offset>2C</Offset>
+              </Offsets>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1308</ID>
@@ -6105,7 +6322,16 @@ TOS.exe+84E33: 80 7E 08 00           - cmp byte ptr [esi+08],00
 </DropDownList>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>-117</Address>
+              <Address>basePTRLoc</Address>
+              <Offsets>
+                <Offset>378-117</Offset>
+                <Offset>4</Offset>
+                <Offset>4</Offset>
+                <Offset>40</Offset>
+                <Offset>D0</Offset>
+                <Offset>4</Offset>
+                <Offset>2C</Offset>
+              </Offsets>
             </CheatEntry>
             <CheatEntry>
               <ID>1433</ID>
@@ -6890,16 +7116,7 @@ unregistersymbol(itemStealShown)
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>TSFixBG</Name>
-      <Address>02860000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>artePropPTR</Name>
-      <Address>021C0000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
   <Structures StructVersion="2">
     <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
       <Elements>
