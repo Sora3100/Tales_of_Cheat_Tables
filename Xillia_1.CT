@@ -8315,6 +8315,27 @@ unregistersymbol(gradeShop)
                   <Address>-2A</Address>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>69812</ID>
+                  <Description>"Save"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Enabled
+1:Disabled
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>2</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>-C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>69814</ID>
+                      <Description>"You have to slow down the game to use this!"</Description>
+                      <Color>0000FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>69697</ID>
                   <Description>"World Map"</Description>
                   <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
@@ -8349,6 +8370,17 @@ unregistersymbol(gradeShop)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>69744</ID>
+                  <Description>"Milla nerfed"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>2</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91350</ID>
                   <Description>"Overlimit Gauge"</Description>
                   <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -8359,25 +8391,15 @@ unregistersymbol(gradeShop)
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>69812</ID>
-                  <Description>"Save"</Description>
-                  <DropDownList DisplayValueAsItem="1">0:Enabled
-1:Disabled
-</DropDownList>
+                  <ID>91351</ID>
+                  <Description>"Milla Magic Stance"</Description>
+                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Binary</VariableType>
-                  <BitStart>2</BitStart>
+                  <BitStart>6</BitStart>
                   <BitLength>1</BitLength>
                   <ShowAsBinary>0</ShowAsBinary>
-                  <Address>-C</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>69814</ID>
-                      <Description>"You have to slow down the game to use this!"</Description>
-                      <Color>0000FF</Color>
-                      <GroupHeader>1</GroupHeader>
-                    </CheatEntry>
-                  </CheatEntries>
+                  <Address>+A</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -25362,8 +25384,7 @@ function mainloop()
             local habitatOffset = getAddressList().getMemoryRecordByID("90604")
             local modelEnmBookOffset = getAddressList().getMemoryRecordByID("90605")
             local weaponMdlEnmBookOffset = getAddressList().getMemoryRecordByID("90606")
-            local unkOffset = getAddressList().getMemoryRecordByID("90611")
-            local unkAmountMemRec = getAddressList().getMemoryRecordByID("90612")
+            local voiceDataOffset = getAddressList().getMemoryRecordByID("90611")
             local nameOffset = getAddressList().getMemoryRecordByID("90613")
             local descOffset = getAddressList().getMemoryRecordByID("90614")
 
@@ -25386,7 +25407,7 @@ function mainloop()
                writeQword("enmDataEdit+0x80", tonumber(getAddress(habitatOffset.Address)) + swapEndian(readInteger(getAddress(habitatOffset.Address))))
                writeQword("enmDataEdit+0x88", tonumber(getAddress(modelEnmBookOffset.Address)) + swapEndian(readInteger(getAddress(modelEnmBookOffset.Address))))
                writeQword("enmDataEdit+0x90", tonumber(getAddress(weaponMdlEnmBookOffset.Address)) + swapEndian(readInteger(getAddress(weaponMdlEnmBookOffset.Address))))
-               writeQword("enmDataEdit+0x98", tonumber(getAddress(unkOffset.Address)) + swapEndian(readInteger(getAddress(unkOffset.Address))))
+               writeQword("enmDataEdit+0x98", tonumber(getAddress(voiceDataOffset.Address)) + swapEndian(readInteger(getAddress(voiceDataOffset.Address))))
                writeQword("enmDataEdit+0xA0", tonumber(getAddress(nameOffset.Address)) + swapEndian(readInteger(getAddress(nameOffset.Address))))
                writeQword("enmDataEdit+0xA8", tonumber(getAddress(descOffset.Address)) + swapEndian(readInteger(getAddress(descOffset.Address))))
 
@@ -25421,12 +25442,142 @@ function mainloop()
                       newrec.DropDownLinked = true
                       newrec.setDescription("Dropped Item "..(i+1))
                       newrec.ShowAsHex = true
+                      newrec.DontSave = true
                       newrec.appendToEntry(droppedItemOffset)
 
                       offset = offset + 0x4
                    end
                end
             end
+
+            --weaknesses
+            local weaknessAmountMemRec = getAddressList().getMemoryRecordByID("90572")
+            local weaknessAmount = swapEndian(readInteger(getAddress(weaknessAmountMemRec.Address)))
+            local offset = weaknessOffset.Count*0x4
+
+            if not (weaknessOffset.Count == weaknessAmount) then
+               --remove
+               if (weaknessOffset.Count &gt; weaknessAmount) then
+                  for i = weaknessOffset.Count, weaknessAmount+1, -1 do
+                      weaknessOffset.Child[i-1].destroy()
+                  end
+               --add
+               elseif (weaknessOffset.Count &lt; weaknessAmount) then
+                   for i = weaknessOffset.Count, weaknessAmount-1 do
+                      if (i &gt; 100) then
+                         break --inf loop
+                      end
+                      local newrec = getAddressList().createMemoryRecord()
+
+                      newrec.Type = 13
+                      newrec.CustomTypeName = "Float Big Endian"
+                      newrec.setAddress("enmDataEdit+70")
+                      newrec.setOffsetCount("1")
+                      newrec.setOffset(0, offset)
+                      if (i == 0) then
+                         newrec.setDescription("Fire")
+                      elseif (i == 1) then
+                             newrec.setDescription("Ice")
+                      elseif (i == 2) then
+                             newrec.setDescription("Wind")
+                      elseif (i == 3) then
+                             newrec.setDescription("Earth")
+                      elseif (i == 4) then
+                             newrec.setDescription("Light")
+                      elseif (i == 5) then
+                             newrec.setDescription("Darkness")
+                      else
+                          newrec.setDescription("Unknown (should never appear)")
+                      end
+
+                      newrec.DontSave = true
+                      newrec.appendToEntry(weaknessOffset)
+
+                      offset = offset + 0x4
+                   end
+               end
+            end
+
+            --voice data
+            local voiceAmountMemRec = getAddressList().getMemoryRecordByID("90612")
+            local voiceAmount = swapEndian(readInteger(getAddress(voiceAmountMemRec.Address)))
+            local offset = voiceDataOffset.Count*0xC
+
+            if not (voiceDataOffset.Count == voiceAmount) then
+               --remove
+               if (voiceDataOffset.Count &gt; voiceAmount) then
+                  for i = voiceDataOffset.Count, voiceAmount+1, -1 do
+                      voiceDataOffset.Child[i-1].destroy()
+                  end
+               --add
+               elseif (voiceDataOffset.Count &lt; voiceAmount) then
+                   for i = voiceDataOffset.Count, voiceAmount-1 do
+                      if (i &gt; 100) then
+                         break --inf loop
+                      end
+                      local header = getAddressList().createMemoryRecord()
+
+                      header.IsGroupHeader = true
+                      header.setDescription("Voice "..(i+1))
+                      header.DontSave = true
+                      header.Options = "[moHideChildren,moAllowManualCollapseAndExpand,moManualExpandCollapse]"
+                      header.appendToEntry(voiceDataOffset)
+
+                      local newrec = getAddressList().createMemoryRecord()
+
+                      newrec.Type = 8
+                      newrec.Aob.Size = 4
+                      newrec.ShowAsHex = true
+                      newrec.setDescription("Start condition")
+                      newrec.setAddress("enmDataEdit+98")
+                      newrec.setOffsetCount("1")
+                      newrec.setOffset(0, offset)
+                      newrec.appendToEntry(header)
+
+                      offset = offset + 0x4
+
+                      local newrec = getAddressList().createMemoryRecord()
+
+                      newrec.Type = 8
+                      newrec.Aob.Size = 4
+                      newrec.ShowAsHex = true
+                      newrec.setDescription("End condition")
+                      newrec.setAddress("enmDataEdit+98")
+                      newrec.setOffsetCount("1")
+                      newrec.setOffset(0, offset)
+                      newrec.appendToEntry(header)
+
+                      offset = offset + 0x4
+
+                      local voiceOffsetHeader = getAddressList().createMemoryRecord()
+
+                      voiceOffsetHeader.Type = 13
+                      voiceOffsetHeader.CustomTypeName = "4 Byte Big Endian"
+                      voiceOffsetHeader.ShowAsHex = true
+                      voiceOffsetHeader.setDescription("Voice offset")
+                      voiceOffsetHeader.setAddress("enmDataEdit+98")
+                      voiceOffsetHeader.setOffsetCount("1")
+                      voiceOffsetHeader.setOffset(0, offset)
+                      voiceOffsetHeader.Options = "[moAllowManualCollapseAndExpand,moManualExpandCollapse]"
+                      voiceOffsetHeader.appendToEntry(header)
+
+                      local newrec = getAddressList().createMemoryRecord()
+                      local value = swapEndian(readInteger(readPointer(voiceOffsetHeader.Address)+offset))
+                      --local value = string.format("%x", value)
+
+                      newrec.Type = 6
+                      newrec.String.Size = 60
+                      newrec.setDescription("Voice")
+                      newrec.setAddress("enmDataEdit+98")
+                      newrec.setOffsetCount("1")
+                      newrec.setOffset(0, offset+value)
+                      newrec.appendToEntry(voiceOffsetHeader)
+
+                      offset = offset + 0x4
+                   end
+               end
+            end
+
          end
 end
 
@@ -26639,77 +26790,17 @@ dealloc(enmDataEdit)
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+104</Address>
-                          <CheatEntries>
-                            <CheatEntry>
-                              <ID>90997</ID>
-                              <Description>"Fire weakness"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>Float Big Endian</CustomType>
-                              <Address>enmDataEdit+70</Address>
-                              <Offsets>
-                                <Offset>0</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                            <CheatEntry>
-                              <ID>91002</ID>
-                              <Description>"Water weakness"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>Float Big Endian</CustomType>
-                              <Address>enmDataEdit+70</Address>
-                              <Offsets>
-                                <Offset>4</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                            <CheatEntry>
-                              <ID>91001</ID>
-                              <Description>"Wind weakness"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>Float Big Endian</CustomType>
-                              <Address>enmDataEdit+70</Address>
-                              <Offsets>
-                                <Offset>8</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                            <CheatEntry>
-                              <ID>91000</ID>
-                              <Description>"Earth weakness"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>Float Big Endian</CustomType>
-                              <Address>enmDataEdit+70</Address>
-                              <Offsets>
-                                <Offset>C</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                            <CheatEntry>
-                              <ID>90999</ID>
-                              <Description>"Light weakness"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>Float Big Endian</CustomType>
-                              <Address>enmDataEdit+70</Address>
-                              <Offsets>
-                                <Offset>10</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                            <CheatEntry>
-                              <ID>90998</ID>
-                              <Description>"Darkness weakness"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>Float Big Endian</CustomType>
-                              <Address>enmDataEdit+70</Address>
-                              <Offsets>
-                                <Offset>14</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90572</ID>
+                          <Description>"Amount of weaknesses"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Custom</VariableType>
+                          <CustomType>4 Byte Big Endian</CustomType>
+                          <Address>enmData-104+1AC*[enmDataEdit]+108</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>91349</ID>
                           <Description>"How often to get status inflicted"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
@@ -26733,32 +26824,6 @@ dealloc(enmDataEdit)
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+114</Address>
-                          <CheatEntries>
-                            <CheatEntry>
-                              <ID>91335</ID>
-                              <Description>"Dropped item 1"</Description>
-                              <DropDownListLink>dropdown: Items</DropDownListLink>
-                              <ShowAsHex>1</ShowAsHex>
-                              <VariableType>Array of byte</VariableType>
-                              <ByteLength>4</ByteLength>
-                              <Address>enmDataEdit+78</Address>
-                              <Offsets>
-                                <Offset>0</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                            <CheatEntry>
-                              <ID>91336</ID>
-                              <Description>"Dropped item 2"</Description>
-                              <DropDownListLink>dropdown: Items</DropDownListLink>
-                              <ShowAsHex>1</ShowAsHex>
-                              <VariableType>Array of byte</VariableType>
-                              <ByteLength>4</ByteLength>
-                              <Address>enmDataEdit+78</Address>
-                              <Offsets>
-                                <Offset>4</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90575</ID>
@@ -27110,31 +27175,17 @@ dealloc(enmDataEdit)
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90611</ID>
-                          <Description>"??? offset"</Description>
+                          <Description>"Voice data offset"</Description>
                           <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
                           <Address>enmData-104+1AC*[enmDataEdit]+19C</Address>
-                          <CheatEntries>
-                            <CheatEntry>
-                              <ID>91010</ID>
-                              <Description>"???"</Description>
-                              <ShowAsHex>1</ShowAsHex>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <VariableType>Custom</VariableType>
-                              <CustomType>4 Byte Big Endian</CustomType>
-                              <Address>enmDataEdit+98</Address>
-                              <Offsets>
-                                <Offset>0</Offset>
-                              </Offsets>
-                            </CheatEntry>
-                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>90612</ID>
-                          <Description>"Amount of ???"</Description>
+                          <Description>"Amount of voices"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
@@ -27170,6 +27221,7 @@ dealloc(enmDataEdit)
                           <ID>90614</ID>
                           <Description>"Description offset"</Description>
                           <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                          <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Custom</VariableType>
                           <CustomType>4 Byte Big Endian</CustomType>
@@ -27577,6 +27629,7 @@ function mainloop()
                           statusEffrec.DropDownLinked = true
                           statusEffrec.setDescription("Status Effect "..(i+1))
                           statusEffrec.Options = "[moAllowManualCollapseAndExpand,moManualExpandCollapse]"
+                          statusEffrec.DontSave = true
                           statusEffrec.appendToEntry(statusEffectOffset)
 
                           offset = offset + 0x4
@@ -27643,7 +27696,7 @@ dealloc(attackStatusNum)
               <CheatEntries>
                 <CheatEntry>
                   <ID>89128</ID>
-                  <Description>"Attack Number (edit this)"</Description>
+                  <Description>"Edit"</Description>
                   <DropDownList DisplayValueAsItem="1">38:Jude Demon Fist projectile
 :List ends at 1892
 </DropDownList>
@@ -27653,7 +27706,7 @@ dealloc(attackStatusNum)
                   <CheatEntries>
                     <CheatEntry>
                       <ID>89129</ID>
-                      <Description>"ID?"</Description>
+                      <Description>"ID"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
@@ -27661,7 +27714,7 @@ dealloc(attackStatusNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89233</ID>
-                      <Description>"Target?"</Description>
+                      <Description>"Target"</Description>
                       <DropDownList DisplayValueAsItem="1">0:Enemy
 1:Party
 </DropDownList>
@@ -27696,7 +27749,7 @@ dealloc(attackStatusNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89237</ID>
-                      <Description>"?"</Description>
+                      <Description>"Knockback on guarding enemies"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
@@ -27704,7 +27757,7 @@ dealloc(attackStatusNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89238</ID>
-                      <Description>"?"</Description>
+                      <Description>"Launcher on guarding enemies"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
@@ -27726,7 +27779,7 @@ dealloc(attackStatusNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89240</ID>
-                      <Description>"Damage multiplier? (hit count?)"</Description>
+                      <Description>"Damage multiplier"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
@@ -27886,7 +27939,8 @@ dealloc(attackStatusNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89281</ID>
-                      <Description>"?"</Description>
+                      <Description>"Ignore weight?"</Description>
+                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>attackStatusEdit+8+8C*[attackStatusNum]+5D</Address>
@@ -27919,14 +27973,81 @@ dealloc(attackStatusNum)
                       <Description>"?"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
-                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+64</Address>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+61</Address>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>89276</ID>
+                      <ID>91339</ID>
                       <Description>"?"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+62</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91338</ID>
+                      <Description>"Restands?"</Description>
+                      <DropDownListLink>dropdown: No/Yes</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+63</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91337</ID>
+                      <Description>"Guaranteed Guard Break?"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+64</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91342</ID>
+                      <Description>"Guaranteed Critical?"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+65</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91341</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+66</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91340</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+67</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89276</ID>
+                      <Description>"Pierce?"</Description>
+                      <DropDownListLink>dropdown: Enabled/Disabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
                       <Address>attackStatusEdit+8+8C*[attackStatusNum]+68</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91343</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+69</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91345</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+6A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91344</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+6B</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89275</ID>
@@ -27934,6 +28055,27 @@ dealloc(attackStatusNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>attackStatusEdit+8+8C*[attackStatusNum]+6C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91346</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+6D</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91348</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+6E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91347</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>attackStatusEdit+8+8C*[attackStatusNum]+6F</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>89260</ID>
@@ -40513,6 +40655,7 @@ function mainloop()
                           linkedArteRec.DropDownLinked = true
                           linkedArteRec.setDescription("Linked with this Arte "..(i+1))
                           linkedArteRec.Options = "[moAllowManualCollapseAndExpand,moManualExpandCollapse]"
+                          linkedArteRec.DontSave = true
                           linkedArteRec.appendToEntry(linkedArteOffset)
 
                           linkArteOffset = linkArteOffset - 0x4
@@ -41717,48 +41860,12 @@ unregistersymbol(arteNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64649</ID>
-                      <Description>"(DON'T CHANGE THIS) Arte being currently edited"</Description>
+                      <Description>"Arte ID (DON'T CHANGE)"</Description>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
                       <Address>arteEdit+20+60*[arteNum]</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64658</ID>
-                      <Description>"Most healing Artes/Spells have this at 1, Recover/Dispel at 2, Resurrection at 3, Revive at 4, Quickness/Haste at 7, Lemon Gel at 11"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <Color>0000FF</Color>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+40+60*[arteNum]</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64657</ID>
-                      <Description>"Some offensive spells have this at 1"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <Color>0000FF</Color>
-                      <VariableType>Byte</VariableType>
-                      <Address>arteEdit+44+60*[arteNum]</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64654</ID>
-                      <Description>"???"</Description>
-                      <ShowAsHex>1</ShowAsHex>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <Color>0000FF</Color>
-                      <VariableType>Array of byte</VariableType>
-                      <ByteLength>2</ByteLength>
-                      <Address>arteEdit+46+60*[arteNum]</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>64676</ID>
-                      <Description>"???"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <Color>0000FF</Color>
-                      <VariableType>Custom</VariableType>
-                      <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+54+60*[arteNum]</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64650</ID>
@@ -41768,7 +41875,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+24+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+4</Address>
                       <CheatEntries>
                         <CheatEntry>
                           <ID>90978</ID>
@@ -41807,7 +41914,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+28+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+8</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64663</ID>
@@ -41819,7 +41926,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+2C+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+C</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64662</ID>
@@ -41831,7 +41938,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+30+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+10</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64661</ID>
@@ -41839,7 +41946,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+34+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+14</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64660</ID>
@@ -41858,7 +41965,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+38+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+18</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64659</ID>
@@ -41874,7 +41981,37 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+3C+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64658</ID>
+                      <Description>"Unknown"</Description>
+                      <DropDownList DisplayValueAsItem="1">0:Nothing?
+1:Healing?
+2:Recovery?
+3:KO Recovery?
+4:Revive?
+5:ATK Buff?
+6:DEF Buff?
+7:AGI Buff?
+8:Elemental Impulse?
+9:OVL?
+10:Summon mobs?
+11:Item use?
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>0000FF</Color>
+                      <VariableType>Custom</VariableType>
+                      <CustomType>4 Byte Big Endian</CustomType>
+                      <Address>arteEdit+20+60*[arteNum]+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64657</ID>
+                      <Description>"Milla spells have this at 1"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>0000FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteEdit+20+60*[arteNum]+24</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64655</ID>
@@ -41884,7 +42021,17 @@ unregistersymbol(arteNum)
 </DropDownList>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
-                      <Address>arteEdit+45+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+25</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64654</ID>
+                      <Description>"Unused"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>0000FF</Color>
+                      <VariableType>Array of byte</VariableType>
+                      <ByteLength>2</ByteLength>
+                      <Address>arteEdit+20+60*[arteNum]+26</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64653</ID>
@@ -41892,7 +42039,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+48+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+28</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64652</ID>
@@ -41900,7 +42047,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
-                      <Address>arteEdit+4C+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+2C</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64664</ID>
@@ -41908,7 +42055,25 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
-                      <Address>arteEdit+50+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>64676</ID>
+                      <Description>"Enemy MAs have this at 1 + Aerial Step/Dash/Touch Down/OVL/Auto Magic Guard/Jude Restore/Focus Mode, Alvin Charge/Uncharged, possibly related to AI"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>0000FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteEdit+20+60*[arteNum]+34</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91356</ID>
+                      <Description>"Unused"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>0000FF</Color>
+                      <VariableType>Array of byte</VariableType>
+                      <ByteLength>3</ByteLength>
+                      <Address>arteEdit+20+60*[arteNum]+35</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64675</ID>
@@ -41916,7 +42081,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
-                      <Address>arteEdit+58+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+38</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64674</ID>
@@ -41924,7 +42089,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
-                      <Address>arteEdit+5C+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+3C</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64673</ID>
@@ -41940,7 +42105,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+60+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+40</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64672</ID>
@@ -41948,7 +42113,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
-                      <Address>arteEdit+64+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+44</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64671</ID>
@@ -41956,7 +42121,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>Float Big Endian</CustomType>
-                      <Address>arteEdit+68+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+48</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64670</ID>
@@ -41966,7 +42131,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+6C+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+4C</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64669</ID>
@@ -41974,7 +42139,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+70+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+50</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>64668</ID>
@@ -41984,7 +42149,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+74+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+54</Address>
                       <CheatEntries>
                         <CheatEntry>
                           <ID>90983</ID>
@@ -42010,7 +42175,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+78+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+58</Address>
                       <CheatEntries>
                         <CheatEntry>
                           <ID>90980</ID>
@@ -42036,7 +42201,7 @@ unregistersymbol(arteNum)
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Custom</VariableType>
                       <CustomType>4 Byte Big Endian</CustomType>
-                      <Address>arteEdit+7C+60*[arteNum]</Address>
+                      <Address>arteEdit+20+60*[arteNum]+5C</Address>
                       <CheatEntries>
                         <CheatEntry>
                           <ID>90979</ID>
