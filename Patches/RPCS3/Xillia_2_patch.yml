@@ -4,15 +4,21 @@ Anchors:
   tox2_no_link_req_exd_expl: &tox2_no_link_req_exd_expl
         "Allows characters to deal more than 1 damage without being linked in the Illusionary Darkness dungeon."
 
-  tox2_no_link_req_exd_nonjp: &tox2_no_link_req_exd_nonjp
-      - [ be32, 0x8A554, 0x4BFFEB6C ]
-
+  tox2_disable_party_checks_expl: &tox2_disable_party_checks_expl
+        "Allows events to trigger regardless of party composition."
+        
   tox2_disable_party_checks_eu: &tox2_disable_party_checks_eu
       - [ be32, 0x2035C8, 0x38600001 ]
       - [ be32, 0x2035CC, 0x4E800020 ]
         
+  tox2_disable_hitstop_expl: &tox2_disable_hitstop_expl
+        "Forces the game to never slow down when any attack hits."
+        
   tox2_disable_hitstop: &tox2_disable_hitstop
       - [ be32, 0x88FE4, 0xFC421028 ]
+
+  tox2_no_link_req_exd_nonjp: &tox2_no_link_req_exd_nonjp
+      - [ be32, 0x8A554, 0x4BFFEB6C ]    
       
   tox2_enable_ludger_voice: &tox2_enable_ludger_voice
       - [ be32, 0x454CF0, 0x38000001 ]
@@ -26,7 +32,10 @@ Anchors:
   tox2_world_map_always_fill: &tox2_world_map_always_fill
       - [ be32, 0x47D244, 0x480000F4 ] #group header entries
       - [ be32, 0x2AE214, 0x3BA02B67 ] #sub entries
-      
+
+  tox2_no_ovl_mystic_arte_expl: &tox2_no_ovl_mystic_arte_expl
+        "Affects the party and enemies alike.\nAlso allows infinite link arte chaining."
+
   tox2_no_ovl_mystic_arte: &tox2_no_ovl_mystic_arte
       - [ be32, 0x4941C, 0x4800004C ]
       
@@ -211,7 +220,7 @@ PPU-d96e838f10e9730d8ba21659e02663b44488670f: #BLUS31397/NPUB31443
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_party_checks_expl
+    Notes: *tox2_disable_party_checks_expl
     Patch:
       - [ be32, 0x203590, 0x38600001 ]
       - [ be32, 0x203594, 0x4E800020 ]
@@ -223,7 +232,7 @@ PPU-d96e838f10e9730d8ba21659e02663b44488670f: #BLUS31397/NPUB31443
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_hitstop_expl
+    Notes: *tox2_disable_hitstop_expl
     Patch:
       - [ load, *tox2_disable_hitstop ]
   "Always have the ability to turn on/off Ludger's Voice":
@@ -268,7 +277,7 @@ PPU-d96e838f10e9730d8ba21659e02663b44488670f: #BLUS31397/NPUB31443
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_no_ovl_mystic_arte_expl
+    Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
       - [ load, *tox2_no_ovl_mystic_arte ]
   "Return Xillia 1 character switch mechanic":
@@ -454,7 +463,7 @@ PPU-a7d11f549ba784d539148688ef512a6a1907e63e: #BLES01962
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_party_checks_expl
+    Notes: *tox2_disable_party_checks_expl
     Patch:
       - [ load, *tox2_disable_party_checks_eu ]
   "Disable hitstop":
@@ -464,7 +473,7 @@ PPU-a7d11f549ba784d539148688ef512a6a1907e63e: #BLES01962
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_hitstop_expl
+    Notes: *tox2_disable_hitstop_expl
     Patch:
       - [ load, *tox2_disable_hitstop ]
   "Always have the ability to turn on/off Ludger's Voice":
@@ -504,7 +513,7 @@ PPU-a7d11f549ba784d539148688ef512a6a1907e63e: #BLES01962
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_no_ovl_mystic_arte_expl
+    Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
       - [ load, *tox2_no_ovl_mystic_arte ]
 
@@ -538,7 +547,7 @@ PPU-c83d91c3be29b1460777f8a5d7fa5a111b1237b0: #NPEB01858
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_party_checks_expl
+    Notes: *tox2_disable_party_checks_expl
     Patch:
       - [ load, *tox2_disable_party_checks_eu ]
   "Disable hitstop":
@@ -548,7 +557,7 @@ PPU-c83d91c3be29b1460777f8a5d7fa5a111b1237b0: #NPEB01858
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_hitstop_expl
+    Notes: *tox2_disable_hitstop_expl
     Patch:
       - [ load, *tox2_disable_hitstop ]
   "Always have the ability to turn on/off Ludger's Voice":
@@ -588,7 +597,7 @@ PPU-c83d91c3be29b1460777f8a5d7fa5a111b1237b0: #NPEB01858
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_no_ovl_mystic_arte_expl
+    Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
       - [ load, *tox2_no_ovl_mystic_arte ]
   "Return Xillia 1 character switch mechanic":
@@ -620,7 +629,7 @@ PPU-c8cfdd45c319ebbb747f070c80436c3472e28181: #BLJS10188 01.00
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_party_checks_expl
+    Notes: *tox2_disable_party_checks_expl
     Patch:
       - [ be32, 0x1FAF98, 0x38600001 ]
       - [ be32, 0x1FAF9C, 0x4E800020 ]
@@ -631,7 +640,7 @@ PPU-c8cfdd45c319ebbb747f070c80436c3472e28181: #BLJS10188 01.00
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_hitstop_expl
+    Notes: *tox2_disable_hitstop_expl
     Patch:
       - [ be32, 0x89680, 0xFC421028 ]
   "Always have the ability to turn on/off Ludger's Voice":
@@ -672,7 +681,7 @@ PPU-c8cfdd45c319ebbb747f070c80436c3472e28181: #BLJS10188 01.00
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_no_ovl_mystic_arte_expl
+    Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
       - [ be32, 0x49414, 0x4800004C ]
   "Return Xillia 1 character switch mechanic":
@@ -858,7 +867,7 @@ PPU-b04f05aaf687e0f9b26887c7d277d571079efcc5: #BLJS10188 01.01
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_party_checks_expl
+    Notes: *tox2_disable_party_checks_expl
     Patch:
       - [ be32, 0x1FB468, 0x38600001 ]
       - [ be32, 0x1FB46C, 0x4E800020 ]
@@ -869,7 +878,7 @@ PPU-b04f05aaf687e0f9b26887c7d277d571079efcc5: #BLJS10188 01.01
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_disable_hitstop_expl
+    Notes: *tox2_disable_hitstop_expl
     Patch:
       - [ be32, 0x88FD4, 0xFC421028 ]
   "Always have the ability to turn on/off Ludger's Voice":
@@ -910,7 +919,7 @@ PPU-b04f05aaf687e0f9b26887c7d277d571079efcc5: #BLJS10188 01.01
     Author: "Sora3100"
     Patch Version: 1.0
     Group: ""
-    Notes: *tox_no_ovl_mystic_arte_expl
+    Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
       - [ be32, 0x49404, 0x4800004C ]
   "Return Xillia 1 character switch mechanic":
