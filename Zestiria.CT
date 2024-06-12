@@ -1534,7 +1534,7 @@ dealloc(data_entryNO)
                   <ID>10097</ID>
                   <Description>"?"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
+                  <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                   <Offsets>
                     <Offset>[data_entryNO]+5C</Offset>
@@ -1899,7 +1899,7 @@ dealloc(data_entryNO)
                   <ID>10112</ID>
                   <Description>"?"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
+                  <VariableType>4 Bytes</VariableType>
                   <Address>+0</Address>
                   <Offsets>
                     <Offset>[data_entryNO]+A8</Offset>
@@ -2096,7 +2096,7 @@ dealloc(data_entryNO)
             </CheatEntry>
             <CheatEntry>
               <ID>10117</ID>
-              <Description>"?"</Description>
+              <Description>"Number of Enemy Weaknesses"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>data_entryNO</Address>
@@ -3255,8 +3255,184 @@ dealloc(itemNum)
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>10291</ID>
+          <Description>"Char load bool"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Tales of Zestiria.exe+1D3030B</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10280</ID>
+          <Description>"Control allowed bool"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Tales of Zestiria.exe+1D3030F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10292</ID>
+          <Description>"Movement allowed bool"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>Tales of Zestiria.exe+1D30327</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10274</ID>
+          <Description>"DEBUG STATE(?)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Tales of Zestiria.exe+1D3034C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10284</ID>
+          <Description>"Disable falling map reload (Seraphim message)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2024-05-28
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(mapRestartFall,Tales of Zestiria.exe,83 C4 0C 84 C0 75 29) // should be unique
+
+mapRestartFall+5:
+  db EB
+
+registersymbol(mapRestartFall)
+
+[DISABLE]
+
+mapRestartFall+5:
+  db 75 29
+
+unregistersymbol(mapRestartFall)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Zestiria.exe+2857CB
+
+Tales of Zestiria.exe+2857AD: 8D 4D F4           - lea ecx,[ebp-0C]
+Tales of Zestiria.exe+2857B0: D9 5D F8           - fstp dword ptr [ebp-08]
+Tales of Zestiria.exe+2857B3: 8D 55 F8           - lea edx,[ebp-08]
+Tales of Zestiria.exe+2857B6: D9 05 D8 80 D9 00  - fld dword ptr ["Tales of Zestiria.exe"+9980D8]
+Tales of Zestiria.exe+2857BC: 89 45 FC           - mov [ebp-04],eax
+Tales of Zestiria.exe+2857BF: D9 1C 24           - fstp dword ptr [esp]
+Tales of Zestiria.exe+2857C2: 51                 - push ecx
+Tales of Zestiria.exe+2857C3: 52                 - push edx
+Tales of Zestiria.exe+2857C4: 33 C9              - xor ecx,ecx
+Tales of Zestiria.exe+2857C6: E8 65 63 11 00     - call "Tales of Zestiria.exe"+39BB30
+// ---------- INJECTING HERE ----------
+Tales of Zestiria.exe+2857CB: 83 C4 0C           - add esp,0C
+// ---------- DONE INJECTING  ----------
+Tales of Zestiria.exe+2857CE: 84 C0              - test al,al
+Tales of Zestiria.exe+2857D0: 75 29              - jne "Tales of Zestiria.exe"+2857FB
+Tales of Zestiria.exe+2857D2: D9 05 EC 2E 13 02  - fld dword ptr ["Tales of Zestiria.exe"+1D32EEC]
+Tales of Zestiria.exe+2857D8: 51                 - push ecx
+Tales of Zestiria.exe+2857D9: D9 1C 24           - fstp dword ptr [esp]
+Tales of Zestiria.exe+2857DC: 68 E0 2E 13 02     - push "Tales of Zestiria.exe"+1D32EE0
+Tales of Zestiria.exe+2857E1: 68 A0 2E 13 02     - push "Tales of Zestiria.exe"+1D32EA0
+Tales of Zestiria.exe+2857E6: 6A 03              - push 03
+Tales of Zestiria.exe+2857E8: E8 B3 16 FB FF     - call "Tales of Zestiria.exe"+236EA0
+Tales of Zestiria.exe+2857ED: A1 D8 C9 13 02     - mov eax,["Tales of Zestiria.exe"+1D3C9D8]
+}
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Enemy load 1</Description>
+      <AddressString>Tales of Zestiria.exe+8833D</AddressString>
+      <Before>
+        <Byte>FE</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>03</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>A1</Byte>
+        <Byte>E4</Byte>
+        <Byte>02</Byte>
+        <Byte>13</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Enemy load 2</Description>
+      <AddressString>Tales of Zestiria.exe+C873E</AddressString>
+      <Before>
+        <Byte>3B</Byte>
+        <Byte>11</Byte>
+        <Byte>75</Byte>
+        <Byte>01</Byte>
+        <Byte>4F</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>31</Byte>
+      </Actual>
+      <After>
+        <Byte>A1</Byte>
+        <Byte>E4</Byte>
+        <Byte>02</Byte>
+        <Byte>13</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Enemy load 3</Description>
+      <AddressString>Tales of Zestiria.exe+B9514</AddressString>
+      <Before>
+        <Byte>03</Byte>
+        <Byte>C1</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>3B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>F9</Byte>
+        <Byte>0A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Enemy load 4</Description>
+      <AddressString>Tales of Zestiria.exe+92AC4</AddressString>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>17</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>EC</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols/>
 </CheatTable>

@@ -9851,7 +9851,7 @@ but note that it may break fights.
 80:Dycroft Enemies
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Byte</VariableType>
+          <VariableType>2 Bytes</VariableType>
           <Address>baseElfAddr+1C49C8</Address>
         </CheatEntry>
         <CheatEntry>
@@ -22552,8 +22552,22 @@ Use the Inventory if you want more items.
               <Address>baseElfAddr</Address>
             </CheatEntry>
             <CheatEntry>
+              <ID>20916</ID>
+              <Description>"Max Combo Hits"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+3220E4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20915</ID>
+              <Description>"Current Combo Hits"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+3220D8</Address>
+            </CheatEntry>
+            <CheatEntry>
               <ID>20497</ID>
-              <Description>"Coordinates"</Description>
+              <Description>"Map Coordinates"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
@@ -22575,6 +22589,37 @@ Use the Inventory if you want more items.
                 </CheatEntry>
                 <CheatEntry>
                   <ID>20500</ID>
+                  <Description>"Z"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20931</ID>
+              <Description>"World Coordinates"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseElfAddr+33F004</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20932</ID>
+                  <Description>"X"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20933</ID>
+                  <Description>"Y"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20934</ID>
                   <Description>"Z"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
