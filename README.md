@@ -379,6 +379,8 @@ Available for:
 
 Features:
  - Save Anywhere
+ - Have all difficulties
+ - No Encounters
  
  ## Xillia 1 (PS3)
  Available for:
@@ -393,6 +395,8 @@ Features:
  - Disable party checks
  - Disable party changes
  - Disable hitstop
+ - Have all difficulties
+ - Disable OVL requirement for Mystic Artes
  
  ## Xillia 2 (PS3)
  Available for:
@@ -406,9 +410,16 @@ Features:
  - No linking requirement in EX Dungeon
  - Disable party checks
  - Disable hitstop
+ - Ludger's Voice always changable
+ - Have all difficulties
+ - World Map always filled
+ - Disable OVL requirement for Mystic Artes
+ - Return Xillia 1 character switch in fights
  
  ## Symphonia - Dawn of the New World (PS3)
- Available for NPUB31194.
+ Available for:
+ - NPUB31194
+ - BLUS31172
  
 Features:
  - Unlock Lloyd & Co. for leveling

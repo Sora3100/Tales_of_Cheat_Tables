@@ -1,0 +1,31 @@
+Version: 1.2
+
+Anchors:
+  tov_save_anywhere: &tov_save_anywhere
+      - [ be32, 0x385BE4, 0x48000040 ]
+      - [ be32, 0x385BD8, 0x48000008 ]
+      
+#Tales of Vesperia
+PPU-259260de890d71ed8e6cb59e5c0a199e56d3e384: #BLJS10053
+  "Save Anywhere":
+    Games:
+      "Tales of Vesperia":
+        BLJS10053: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tov_save_anywhere ]
+      
+PPU-19c24a1aefd3e8119f38874121e06c1f530d2c41: #BLJS10053 UNDUB
+  "Save Anywhere (UNDUB)":
+    Games:
+      "Tales of Vesperia":
+        BLJS10053: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tov_save_anywhere ]
