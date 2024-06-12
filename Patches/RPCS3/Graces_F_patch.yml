@@ -1,0 +1,237 @@
+Version: 1.2
+
+Anchors:
+  togf_non_eu_disable_tap_dash: &togf_non_eu_disable_tap_dash
+      - [ be32, 0x2482c, 0x4800060c ]  
+      
+  togf_eu_disable_tap_dash: &togf_eu_disable_tap_dash
+      - [ be32, 0x24834, 0x4800060c ]  
+      
+  togf_eu_save_anywhere: &togf_eu_save_anywhere
+      - [ be32, 0x1DC260, 0x48000008 ]
+      - [ be32, 0x1DD5F4, 0x48000008 ]
+     
+  togf_no_encounter_expl: &togf_no_encounter_expl
+        "Disables non forced encounters"
+     
+  togf_us_no_encounter: &togf_us_no_encounter
+      #00896BA0 NPUB/BLUS
+      #00897840 BLJS
+      #00896820 NPEB/BLES
+      - [ be32, 0x469EB8, 0x60000000 ]
+      - [ calloc, 0x469EB8, 10]
+      - [ be32, 0x0, 0xA1C40008 ] #lhz r14, 0x8(r4)
+      - [ be32, 0x0, 0x2C0E0089 ] #cmpwi r14, 0x89
+      - [ be32, 0x0, 0x40820018 ] #bne 0x18
+      - [ be32, 0x0, 0xA1C4000A ] #lhz r14, 0xA(r4)
+      - [ be32, 0x0, 0x2C0E6BA0 ] #cmpwi r14, 0x6ba0
+      - [ be32, 0x0, 0x4082000C ] #bne 0xC
+      - [ be32, 0x0, 0x90840000 ] #stw r4, 0(r4)
+      - [ be32, 0x0, 0x48000008 ] #b 0x8
+      - [ be32, 0x0, 0x7C76A92E ] #original code
+      - [ be32, 0x0, 0x39C00000 ] #li r14, 0
+      #- [ be32, 0x0, 0x4BA79E94 ] #hack to fix calloc crash in interpreter
+      
+  togf_eu_have_all_difficulties: &togf_eu_have_all_difficulties
+      - [ be32, 0x1BCF78, 0x38600005 ]
+      - [ be32, 0x1BCE74, 0x4800005C ]
+      
+#Tales of Graces f
+PPU-3e9032a3f7857057ef783810bd8f34a439baaa59: #BLUS30903
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        BLUS30903: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1D8C0C, 0x48000008 ]
+      - [ be32, 0x1D9F94, 0x48000008 ]
+  "No Encounters":
+    Games:
+      "Tales of Graces f":
+        BLUS30903: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *togf_no_encounter_expl
+    Patch:
+      - [ load, *togf_us_no_encounter ]
+  "Have all difficulties":
+    Games:
+      "Tales of Graces f":
+        BLUS30903: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1B9934, 0x38600005 ]
+      - [ be32, 0x1B9830, 0x4800005C ]
+
+PPU-b8943beb705272fcbd97057092caf91d2e51989f: #NPUB31133
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        NPUB31133: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1D8C04, 0x48000008 ]
+      - [ be32, 0x1D9F8C, 0x48000008 ]
+  "No Encounters":
+    Games:
+      "Tales of Graces f":
+        NPUB31133: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *togf_no_encounter_expl
+    Patch:
+      - [ load, *togf_us_no_encounter ]
+  "Have all difficulties":
+    Games:
+      "Tales of Graces f":
+        NPUB31133: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1B992C, 0x38600005 ]
+      - [ be32, 0x1B9828, 0x4800005C ]
+
+PPU-084ac5536f65a5bffef014af9fc4389c5be6c8f9: #BLES01617
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        BLES01617: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *togf_eu_save_anywhere ]
+  "No Encounters":
+    Games:
+      "Tales of Graces f":
+        BLES01617: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *togf_no_encounter_expl
+    Patch:
+      - [ be32, 0x46E6D0, 0x60000000 ]
+      - [ calloc, 0x46E6D0, 10]
+      - [ be32, 0x0, 0xA1C40008 ]
+      - [ be32, 0x0, 0x2C0E0089 ]
+      - [ be32, 0x0, 0x40820018 ]
+      - [ be32, 0x0, 0xA1C4000A ]
+      - [ be32, 0x0, 0x2C0E6820 ]
+      - [ be32, 0x0, 0x4082000C ]
+      - [ be32, 0x0, 0x90840000 ]
+      - [ be32, 0x0, 0x48000008 ]
+      - [ be32, 0x0, 0x7C76A92E ]
+      - [ be32, 0x0, 0x39C00000 ]
+  "Have all difficulties":
+    Games:
+      "Tales of Graces f":
+        BLES01617: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *togf_eu_have_all_difficulties ]
+
+PPU-3fe1d2a2a5375eb2e9e04cede28a561851f4e282: #NPEB01288
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        NPEB01288: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *togf_eu_save_anywhere ]
+  "No Encounters":
+    Games:
+      "Tales of Graces f":
+        NPEB01288: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *togf_no_encounter_expl
+    Patch:
+      - [ be32, 0x46E6BC, 0x60000000 ]
+      - [ calloc, 0x46E6BC, 10]
+      - [ be32, 0x0, 0xA1C40008 ]
+      - [ be32, 0x0, 0x2C0E0089 ]
+      - [ be32, 0x0, 0x40820018 ]
+      - [ be32, 0x0, 0xA1C4000A ]
+      - [ be32, 0x0, 0x2C0E6820 ]
+      - [ be32, 0x0, 0x4082000C ]
+      - [ be32, 0x0, 0x90840000 ]
+      - [ be32, 0x0, 0x48000008 ]
+      - [ be32, 0x0, 0x7C76A92E ]
+      - [ be32, 0x0, 0x39C00000 ]
+  "Have all difficulties":
+    Games:
+      "Tales of Graces f":
+        NPEB01288: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *togf_eu_have_all_difficulties ]
+
+PPU-579f304de30005038ae57bbc922539442104fad6: #BLJS10093
+  "Save Anywhere":
+    Games:
+      "Tales of Graces f":
+        BLJS10093: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1DBE28, 0x48000008 ]
+      - [ be32, 0x1DD1B0, 0x48000008 ]
+  "No Encounters":
+    Games:
+      "Tales of Graces f":
+        BLJS10093: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *togf_no_encounter_expl
+    Patch:
+      - [ be32, 0x46A57C, 0x60000000 ]
+      - [ calloc, 0x46A57C, 10]
+      - [ be32, 0x0, 0xA1C40008 ]
+      - [ be32, 0x0, 0x2C0E0089 ]
+      - [ be32, 0x0, 0x40820018 ]
+      - [ be32, 0x0, 0xA1C4000A ]
+      - [ be32, 0x0, 0x2C0E7840 ]
+      - [ be32, 0x0, 0x4082000C ]
+      - [ be32, 0x0, 0x90840000 ]
+      - [ be32, 0x0, 0x48000008 ]
+      - [ be32, 0x0, 0x7C76A92E ]
+      - [ be32, 0x0, 0x39C00000 ]
+  "Have all difficulties":
+    Games:
+      "Tales of Graces f":
+        BLJS10093: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1BCB84, 0x38600005 ]
+      - [ be32, 0x1BCA80, 0x4800005C ]

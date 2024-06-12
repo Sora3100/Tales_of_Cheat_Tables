@@ -1,0 +1,37 @@
+Version: 1.2
+
+#Tales of Symphonia: Dawn of the New World
+PPU-1e824ae4a38b69e8e5a9a92e1179040e07b6ec69: #NPUB31194
+  "Unlock Lloyd & Co. for leveling":
+    Games:
+      "Tales of Symphonia Dawn of the New World":
+        NPUB31194: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Original Wii code by dcx2."
+    Patch:
+      - [ be32, 0xBFFBC, 0x60000000 ]
+      - [ calloc, 0xBFFBC, 4 ]
+      - [ be32, 0x0, 0x2C030000 ] #cmpwi r3, 0
+      - [ be32, 0x0, 0x40820008 ] #bne 0xC
+      - [ be32, 0x0, 0x38600001 ] #li r3, 1
+      - [ be32, 0x0, 0xE8010090 ] #ld r0, 0x90(r1)
+      - [ be32, 0xC00B4, 0x38800001 ] #li r4,1
+PRX-0mhYrfYxx5PpqQa0Zv6cnL2LM7UY-0: #BLUS31172
+  "Unlock Lloyd & Co. for leveling":
+    Games:
+      "Tales of Symphonia: Dawn of the New World":
+        BLUS31172: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Original Wii code by dcx2."
+    Patch:
+       - [ be32, 0xAFEF4, 0x60000000 ] #afef4 in ghidra
+       - [ calloc, 0xAFEF4, 4 ]
+       - [ be32, 0x0, 0x2C030000 ] #cmpwi r3, 0
+       - [ be32, 0x0, 0x40820008 ] #bne 0x8
+       - [ be32, 0x0, 0x38600001 ] #li r3, 1
+       - [ be32, 0x0, 0xE8010090 ] #ld r0, 0x90(r1)
+       - [ be32, 0xAFFE4, 0x38800001 ] #li r4,1

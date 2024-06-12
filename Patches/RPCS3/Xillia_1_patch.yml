@@ -1,0 +1,201 @@
+Version: 1.2
+
+Anchors:
+  tox_no_party_lock_expl: &tox_no_party_lock_expl
+        "Allows injured Milla and Elize to participate earlier in battles."
+      
+  tox_no_party_lock: &tox_no_party_lock
+      - [ be32, 0x219B90, 0x38E00000 ]
+      - [ be32, 0x219B70, 0x38C00000 ]
+      
+  tox_disable_party_checks_expl: &tox_disable_party_checks_expl
+        "Allows field events to trigger regardless of party composition."
+
+  tox_disable_party_checks: &tox_disable_party_checks
+      - [ be32, 0x1E1838, 0x38600001 ]
+      - [ be32, 0x1E183C, 0x4E800020 ]
+      
+  tox_disable_hitstop_expl: &tox_disable_hitstop_expl
+        "Forces the game to never slow down when any attack hits."
+
+  tox_disable_hitstop: &tox_disable_hitstop
+      - [ be32, 0x8D350, 0xFC421028 ]
+      
+  tox_have_all_difficulties: &tox_have_all_difficulties
+      - [ be32, 0x2032D4, 0x38600002 ]
+      
+  tox_no_ovl_mystic_arte_expl: &tox_no_ovl_mystic_arte_expl
+        "Affects the party and enemies alike.\nAlso allows infinite link arte chaining."
+      
+  tox_no_ovl_mystic_arte: &tox_no_ovl_mystic_arte
+      - [ be32, 0x46B6C, 0x4800004C ]
+      
+#Tales of Xillia
+PPU-a7f26bbbcb13fd5f554d0612f490861feec78e8f: #BLUS31006/NPUB31136
+  "No party lock":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_party_lock_expl
+    Patch:
+      - [ load, *tox_no_party_lock ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ load, *tox_disable_party_checks ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox_disable_hitstop ]
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tox_have_all_difficulties ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia":
+        BLUS31006: [ All ]
+        NPUB31136: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_ovl_mystic_arte_expl
+    Patch:
+      - [ load, *tox_no_ovl_mystic_arte ]
+      
+PPU-62b0f370c487523166efb0d4b4a24e627acc3488: #BLES01815/NPEB01310
+  "No party lock":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_party_lock_expl
+    Patch:
+      - [ load, *tox_no_party_lock ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ load, *tox_disable_party_checks ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ load, *tox_disable_hitstop ]
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tox_have_all_difficulties ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia":
+        BLES01815: [ All ]
+        NPEB01310: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_ovl_mystic_arte_expl
+    Patch:
+      - [ load, *tox_no_ovl_mystic_arte ]
+      
+PPU-f7f6881ea84c3196f294e437d766e7fb2c5b8d0c: #BLJS10120
+  "No party lock":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_party_lock_expl
+    Patch:
+      - [ be32, 0x214920, 0x38E00000 ]
+      - [ be32, 0x214900, 0x38C00000 ]
+      
+  "Disable party checks":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x1DC420, 0x38600001 ]
+      - [ be32, 0x1DC424, 0x4E800020 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_disable_hitstop_expl
+    Patch:
+      - [ be32, 0xA0C08, 0xFC421028 ]
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x1FDEE4, 0x38600002 ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia":
+        BLJS10120: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox_no_ovl_mystic_arte_expl
+    Patch:
+      - [ be32, 0x46DF0, 0x4800004C ]
