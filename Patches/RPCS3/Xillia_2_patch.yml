@@ -1,0 +1,1088 @@
+Version: 1.2
+
+Anchors:
+  tox2_no_link_req_exd_expl: &tox2_no_link_req_exd_expl
+        "Allows characters to deal more than 1 damage without being linked in the Illusionary Darkness dungeon."
+
+  tox2_disable_party_checks_expl: &tox2_disable_party_checks_expl
+        "Allows events to trigger regardless of party composition."
+        
+  tox2_disable_party_checks_eu: &tox2_disable_party_checks_eu
+      - [ be32, 0x2035C8, 0x38600001 ]
+      - [ be32, 0x2035CC, 0x4E800020 ]
+        
+  tox2_disable_hitstop_expl: &tox2_disable_hitstop_expl
+        "Forces the game to never slow down when any attack hits."
+        
+  tox2_disable_hitstop: &tox2_disable_hitstop
+      - [ be32, 0x88FE4, 0xFC421028 ]
+
+  tox2_no_link_req_exd_nonjp: &tox2_no_link_req_exd_nonjp
+      - [ be32, 0x8A554, 0x4BFFEB6C ]    
+      
+  tox2_enable_ludger_voice: &tox2_enable_ludger_voice
+      - [ be32, 0x454CF0, 0x38000001 ]
+
+  tox2_have_all_difficulties: &tox2_have_all_difficulties
+      - [ be32, 0x21CF58, 0x38600002 ]
+
+  tox2_world_map_always_fill_expl: &tox2_world_map_always_fill_expl
+        "Unlocks the ability to warp to areas you haven't walked to yet."
+
+  tox2_world_map_always_fill: &tox2_world_map_always_fill
+      - [ be32, 0x47D244, 0x480000F4 ] #group header entries
+      - [ be32, 0x2AE214, 0x3BA02B67 ] #sub entries
+
+  tox2_no_ovl_mystic_arte_expl: &tox2_no_ovl_mystic_arte_expl
+        "Affects the party and enemies alike.\nAlso allows infinite link arte chaining."
+
+  tox2_no_ovl_mystic_arte: &tox2_no_ovl_mystic_arte
+      - [ be32, 0x4941C, 0x4800004C ]
+      
+  tox2_x1_party_switch_expl: &tox2_x1_party_switch_expl
+        "Brings back the mid-battle character switch mechanic from Xillia 1.\nSlot 9 is not supported."
+        
+  tox2_x1_party_switch: &tox2_x1_party_switch
+      - [ be32, 0xE54E0, 0x60000000 ]
+      - [ calloc, 0xE54E0, 120 ] #0x11F0000
+      
+      #check for Chromatus
+      - [ jumpl, 0x0, 0xD9E4C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #Chromatus state check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01CC ] #branch out if not equal to 0 (branch out if Chromatus is on)
+      
+      #check for controls allowed
+      - [ be32, 0x0, 0x801B0094 ] #get address, Xillia 1: 0xE3FE8
+      - [ be32, 0x0, 0x541D06F6 ] #check
+      - [ be32, 0x0, 0x2E1D0000 ]
+      - [ be32, 0x0, 0x409201BC ] #branch out if not equal to 0 (branch out if controls not allowed)
+      
+      #check for party switch UI
+      - [ be32, 0x0, 0x807B0068 ] #Xillia 1: 0xE51A0
+      - [ jumpl, 0x0, 0xF096C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01A4 ] #branch out if not equal to 0 (branch out if UI is up) fixme
+
+      #player 1 controls
+      - [ be32, 0x0, 0x807A0000 ] #Xillia 1: 0xE51B8
+      - [ be32, 0x0, 0x38800000 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E003C ] #branch to next pad if equal to 0 (branch if not this pad)
+      - [ be32, 0x0, 0x38600000 ] #pad slot
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test, Xillia 1: 0xE51E4
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x5477063E ] #check result
+      - [ be32, 0x0, 0x2C170000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ] #Xillia 1: 0xE5C18
+      - [ be32, 0x0, 0x38800000 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 2 controls
+      - [ be32, 0x0, 0x807A0000 ] #Xillia 1: 0xE51F8
+      - [ be32, 0x0, 0x38800001 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check if current pad
+      - [ be32, 0x0, 0x4186005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600001 ] #pad slot
+      - [ jumpl, 0x0, 0x2638C0 ] #get address, Xillia 1: 0xE5214
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x2638F8 ] #get address, Xillia 1: 0xE5220
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600001 ] #player
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547C063E ] #check result
+      - [ be32, 0x0, 0x2E1C0000 ]
+      - [ be32, 0x0, 0x41920014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ] #Xillia 1: 0xE5C18
+      - [ be32, 0x0, 0x38800001 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 3 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800002 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600002 ] #pad slot
+      - [ jumpl, 0x0, 0x2638C0 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x2638F8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check
+      - [ be32, 0x0, 0x4186003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600002 ] #player
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547E063E ] #check result
+      - [ be32, 0x0, 0x2C1E0000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800002 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+
+      #player 4 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800003 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2E030000 ] #check if current pad
+      - [ be32, 0x0, 0x4192005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600003 ] #pad slot
+      - [ jumpl, 0x0, 0x2638C0 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x2638F8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600003 ] #player
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547F063E ] #check result
+      - [ be32, 0x0, 0x2F9F0000 ]
+      - [ be32, 0x0, 0x419E0014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800003 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #branch out
+      - [ be32, 0x0, 0x811B0094 ] #original code
+      
+#Tales of Xillia 2   
+PPU-d96e838f10e9730d8ba21659e02663b44488670f: #BLUS31397/NPUB31443
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ load, *tox2_no_link_req_exd_nonjp ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x203590, 0x38600001 ]
+      - [ be32, 0x203594, 0x4E800020 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_hitstop_expl
+    Patch:
+      - [ load, *tox2_disable_hitstop ]
+  "Always have the ability to turn on/off Ludger's Voice":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x454CB0, 0x38000001 ]
+  "World Map always filled":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_world_map_always_fill_expl
+    Patch:
+      - [ be32, 0x47D204, 0x480000F4 ] #group header entries
+      - [ be32, 0x2AE1D4, 0x3BA02B67 ] #sub entries
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x21CF20, 0x38600002 ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_ovl_mystic_arte_expl
+    Patch:
+      - [ load, *tox2_no_ovl_mystic_arte ]
+  "Return Xillia 1 character switch mechanic":
+    Games:
+      "Tales of Xillia 2":
+        BLUS31397: [ All ]
+        NPUB31443: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_x1_party_switch_expl
+    Patch:
+      - [ be32, 0xE54E0, 0x60000000 ]
+      - [ calloc, 0xE54E0, 120 ]
+      
+      #check for Chromatus
+      - [ jumpl, 0x0, 0xD9E4C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #Chromatus state check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01CC ] #branch out if not equal to 0 (branch out if Chromatus is on)
+      
+      #check for controls allowed
+      - [ be32, 0x0, 0x801B0094 ] #get address
+      - [ be32, 0x0, 0x541D06F6 ] #check
+      - [ be32, 0x0, 0x2E1D0000 ]
+      - [ be32, 0x0, 0x409201BC ] #branch out if not equal to 0 (branch out if controls not allowed)
+      
+      #check for party switch UI
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ jumpl, 0x0, 0xF096C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01A4 ] #branch out if not equal to 0 (branch out if UI is up)
+
+      #player 1 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800000 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E003C ] #branch to next pad if equal to 0 (branch if not this pad)
+      - [ be32, 0x0, 0x38600000 ] #pad slot
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x5477063E ] #check result
+      - [ be32, 0x0, 0x2C170000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800000 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 2 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800001 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check if current pad
+      - [ be32, 0x0, 0x4186005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600001 ] #pad slot
+      - [ jumpl, 0x0, 0x263888 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x2638C0 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600001 ] #player
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547C063E ] #check result
+      - [ be32, 0x0, 0x2E1C0000 ]
+      - [ be32, 0x0, 0x41920014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800001 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 3 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800002 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600002 ] #pad slot
+      - [ jumpl, 0x0, 0x263888 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x2638C0 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check
+      - [ be32, 0x0, 0x4186003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600002 ] #player
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547E063E ] #check result
+      - [ be32, 0x0, 0x2C1E0000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800002 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+
+      #player 4 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800003 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE2C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2E030000 ] #check if current pad
+      - [ be32, 0x0, 0x4192005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600003 ] #pad slot
+      - [ jumpl, 0x0, 0x263888 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x2638C0 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600003 ] #player
+      - [ jumpl, 0x0, 0x1F6BE8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1F7A40 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547F063E ] #check result
+      - [ be32, 0x0, 0x2F9F0000 ]
+      - [ be32, 0x0, 0x419E0014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800003 ] #pad
+      - [ jumpl, 0x0, 0xF0C00 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #branch out
+      - [ be32, 0x0, 0x811B0094 ] #original code
+PPU-a7d11f549ba784d539148688ef512a6a1907e63e: #BLES01962
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ load, *tox2_no_link_req_exd_nonjp ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_checks_expl
+    Patch:
+      - [ load, *tox2_disable_party_checks_eu ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_hitstop_expl
+    Patch:
+      - [ load, *tox2_disable_hitstop ]
+  "Always have the ability to turn on/off Ludger's Voice":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tox2_enable_ludger_voice ]
+  "World Map always filled":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_world_map_always_fill_expl
+    Patch:
+      - [ load, *tox2_world_map_always_fill ]
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tox2_have_all_difficulties ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_ovl_mystic_arte_expl
+    Patch:
+      - [ load, *tox2_no_ovl_mystic_arte ]
+
+      
+  "Return Xillia 1 character switch mechanic":
+    Games:
+      "Tales of Xillia 2":
+        BLES01962: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_x1_party_switch_expl
+    Patch:
+      - [ load, *tox2_x1_party_switch ]
+
+PPU-c83d91c3be29b1460777f8a5d7fa5a111b1237b0: #NPEB01858
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ load, *tox2_no_link_req_exd_nonjp ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_checks_expl
+    Patch:
+      - [ load, *tox2_disable_party_checks_eu ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_hitstop_expl
+    Patch:
+      - [ load, *tox2_disable_hitstop ]
+  "Always have the ability to turn on/off Ludger's Voice":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tox2_enable_ludger_voice ]
+  "World Map always filled":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_world_map_always_fill_expl
+    Patch:
+      - [ load, *tox2_world_map_always_fill ]
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ load, *tox2_have_all_difficulties ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_ovl_mystic_arte_expl
+    Patch:
+      - [ load, *tox2_no_ovl_mystic_arte ]
+  "Return Xillia 1 character switch mechanic":
+    Games:
+      "Tales of Xillia 2":
+        NPEB01858: [ All ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_x1_party_switch_expl
+    Patch:
+      - [ load, *tox2_x1_party_switch ]
+
+PPU-c8cfdd45c319ebbb747f070c80436c3472e28181: #BLJS10188 01.00
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ be32, 0x8ABE8, 0x4BFFEB6C ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x1FAF98, 0x38600001 ]
+      - [ be32, 0x1FAF9C, 0x4E800020 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_hitstop_expl
+    Patch:
+      - [ be32, 0x89680, 0xFC421028 ]
+  "Always have the ability to turn on/off Ludger's Voice":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x44B0C0, 0x38000001 ]
+  "World Map always filled":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_world_map_always_fill_expl
+    Patch:
+      - [ be32, 0x473564, 0x480000F4 ] #group header entries
+      - [ be32, 0x2A64EC, 0x3BA02B67 ] #sub entries
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x214928, 0x38600002 ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_ovl_mystic_arte_expl
+    Patch:
+      - [ be32, 0x49414, 0x4800004C ]
+  "Return Xillia 1 character switch mechanic":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.00 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_x1_party_switch_expl
+    Patch:
+      - [ be32, 0xE5008, 0x60000000 ]
+      - [ calloc, 0xE5008, 120 ]
+      
+      #check for Chromatus
+      - [ jumpl, 0x0, 0xD9974 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #Chromatus state check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01CC ] #branch out if not equal to 0 (branch out if Chromatus is on)
+      
+      #check for controls allowed
+      - [ be32, 0x0, 0x801B0094 ] #get address
+      - [ be32, 0x0, 0x541D06F6 ] #check
+      - [ be32, 0x0, 0x2E1D0000 ]
+      - [ be32, 0x0, 0x409201BC ] #branch out if not equal to 0 (branch out if controls not allowed)
+      
+      #check for party switch UI
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ jumpl, 0x0, 0xF0494 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01A4 ] #branch out if not equal to 0 (branch out if UI is up)
+
+      #player 1 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800000 ] #pad slot
+      - [ jumpl, 0x0, 0xCB954 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E003C ] #branch to next pad if equal to 0 (branch if not this pad)
+      - [ be32, 0x0, 0x38600000 ] #pad slot
+      - [ jumpl, 0x0, 0x1EED50 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFA30 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x5477063E ] #check result
+      - [ be32, 0x0, 0x2C170000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800000 ] #pad
+      - [ jumpl, 0x0, 0xF0728 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 2 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800001 ] #pad slot
+      - [ jumpl, 0x0, 0xCB954 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check if current pad
+      - [ be32, 0x0, 0x4186005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600001 ] #pad slot
+      - [ jumpl, 0x0, 0x25B290 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x25B2C8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600001 ] #player
+      - [ jumpl, 0x0, 0x1EED50 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFA30 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547C063E ] #check result
+      - [ be32, 0x0, 0x2E1C0000 ]
+      - [ be32, 0x0, 0x41920014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800001 ] #pad
+      - [ jumpl, 0x0, 0xF0728 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 3 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800002 ] #pad slot
+      - [ jumpl, 0x0, 0xCB954 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600002 ] #pad slot
+      - [ jumpl, 0x0, 0x25B290 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x25B2C8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check
+      - [ be32, 0x0, 0x4186003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600002 ] #player
+      - [ jumpl, 0x0, 0x1EED50 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFA30 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547E063E ] #check result
+      - [ be32, 0x0, 0x2C1E0000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800002 ] #pad
+      - [ jumpl, 0x0, 0xF0728 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+
+      #player 4 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800003 ] #pad slot
+      - [ jumpl, 0x0, 0xCB954 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2E030000 ] #check if current pad
+      - [ be32, 0x0, 0x4192005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600003 ] #pad slot
+      - [ jumpl, 0x0, 0x25B290 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x25B2C8 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600003 ] #player
+      - [ jumpl, 0x0, 0x1EED50 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFA30 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547F063E ] #check result
+      - [ be32, 0x0, 0x2F9F0000 ]
+      - [ be32, 0x0, 0x419E0014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800003 ] #pad
+      - [ jumpl, 0x0, 0xF0728 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+
+      #branch out
+      - [ be32, 0x0, 0x811B0094 ] #original code
+
+PPU-b04f05aaf687e0f9b26887c7d277d571079efcc5: #BLJS10188 01.01
+  "No linking requirement in EX Dungeon":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_link_req_exd_expl
+    Patch:
+      - [ be32, 0x8A53C, 0x4BFFEB6C ]
+  "Disable party checks":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_party_checks_expl
+    Patch:
+      - [ be32, 0x1FB468, 0x38600001 ]
+      - [ be32, 0x1FB46C, 0x4E800020 ]
+  "Disable hitstop":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_disable_hitstop_expl
+    Patch:
+      - [ be32, 0x88FD4, 0xFC421028 ]
+  "Always have the ability to turn on/off Ludger's Voice":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x4497B8, 0x38000001 ]
+  "World Map always filled":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_world_map_always_fill_expl
+    Patch:
+      - [ be32, 0x471C54, 0x480000F4 ] #group header entries
+      - [ be32, 0x2A4BC4, 0x3BA02B67 ] #sub entries
+  "Have all difficulties":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: ""
+    Patch:
+      - [ be32, 0x214DF8, 0x38600002 ]
+  "Allow using Mystic Artes without Overlimit":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_no_ovl_mystic_arte_expl
+    Patch:
+      - [ be32, 0x49404, 0x4800004C ]
+  "Return Xillia 1 character switch mechanic":
+    Games:
+      "Tales of Xillia 2":
+        BLJS10188: [ 01.01 ]
+    Author: "Sora3100"
+    Patch Version: 1.0
+    Group: ""
+    Notes: *tox2_x1_party_switch_expl
+    Patch:
+      #- [ be32, 0xE54D8, 0x60000000 ]
+      - [ calloc, 0xE54D8, 120 ]
+      
+      #check for Chromatus
+      - [ jumpl, 0x0, 0xD9E44 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #Chromatus state check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01CC ] #branch out if not equal to 0 (branch out if Chromatus is on)
+      
+      #check for controls allowed
+      - [ be32, 0x0, 0x801B0094 ] #get address
+      - [ be32, 0x0, 0x541D06F6 ] #check
+      - [ be32, 0x0, 0x2E1D0000 ]
+      - [ be32, 0x0, 0x409201BC ] #branch out if not equal to 0 (branch out if controls not allowed)
+      
+      #check for party switch UI
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ jumpl, 0x0, 0xF0964 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x546C063E ] #check
+      - [ be32, 0x0, 0x2F0C0000 ]
+      - [ be32, 0x0, 0x409A01A4 ] #branch out if not equal to 0 (branch out if UI is up)
+
+      #player 1 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800000 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE1C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E003C ] #branch to next pad if equal to 0 (branch if not this pad)
+      - [ be32, 0x0, 0x38600000 ] #pad slot
+      - [ jumpl, 0x0, 0x1EF220 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFF00 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x5477063E ] #check result
+      - [ be32, 0x0, 0x2C170000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800000 ] #pad
+      - [ jumpl, 0x0, 0xF0BF8 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 2 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800001 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE1C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check if current pad
+      - [ be32, 0x0, 0x4186005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600001 ] #pad slot
+      - [ jumpl, 0x0, 0x25B760 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x25B798 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600001 ] #player
+      - [ jumpl, 0x0, 0x1EF220 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFF00 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547C063E ] #check result
+      - [ be32, 0x0, 0x2E1C0000 ]
+      - [ be32, 0x0, 0x41920014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800001 ] #pad
+      - [ jumpl, 0x0, 0xF0BF8 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #player 3 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800002 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE1C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F830000 ] #check if current pad
+      - [ be32, 0x0, 0x419E005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600002 ] #pad slot
+      - [ jumpl, 0x0, 0x25B760 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x25B798 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2C830000 ] #check
+      - [ be32, 0x0, 0x4186003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600002 ] #player
+      - [ jumpl, 0x0, 0x1EF220 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFF00 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547E063E ] #check result
+      - [ be32, 0x0, 0x2C1E0000 ]
+      - [ be32, 0x0, 0x41820014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800002 ] #pad
+      - [ jumpl, 0x0, 0xF0BF8 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+
+      #player 4 controls
+      - [ be32, 0x0, 0x807A0000 ]
+      - [ be32, 0x0, 0x38800003 ] #pad slot
+      - [ jumpl, 0x0, 0xCBE1C ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2E030000 ] #check if current pad
+      - [ be32, 0x0, 0x4192005C ] #branch to next pad if equal to 0 (branch if not this pad)
+      
+      #player 2+ only check
+      - [ be32, 0x0, 0x38600003 ] #pad slot
+      - [ jumpl, 0x0, 0x25B760 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x25B798 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x2F030000 ] #check
+      - [ be32, 0x0, 0x419A003C ] #branch to next pad if equal to 0 (branch if control mode set to auto)
+
+      - [ be32, 0x0, 0x38600003 ] #player
+      - [ jumpl, 0x0, 0x1EF220 ] #get address
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x38800028 ] #button
+      - [ be32, 0x0, 0x78630020 ]
+      - [ jumpl, 0x0, 0x1EFF00 ] #input test
+      - [ be32, 0x0, 0x60000000 ]
+      - [ be32, 0x0, 0x547F063E ] #check result
+      - [ be32, 0x0, 0x2F9F0000 ]
+      - [ be32, 0x0, 0x419E0014 ] #branch to next pad if equal to 0 (branch if button not held)
+
+      #call party switch
+      - [ be32, 0x0, 0x807B0068 ]
+      - [ be32, 0x0, 0x38800003 ] #pad
+      - [ jumpl, 0x0, 0xF0BF8 ] #call
+      - [ be32, 0x0, 0x60000000 ]
+      
+      #branch out
+      - [ be32, 0x0, 0x811B0094 ] #original code

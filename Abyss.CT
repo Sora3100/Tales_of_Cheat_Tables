@@ -1185,6 +1185,7 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>275</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -1203,6 +1204,7 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>280</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -1221,6 +1223,7 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>278</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -1239,6 +1242,7 @@ unregistersymbol(baseElfAddr)
                 <CheatEntry>
                   <ID>276</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -1254,10 +1258,128 @@ unregistersymbol(baseElfAddr)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1527</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1528</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1529</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1530</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1531</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1532</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1533</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1534</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1535</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1538</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1539</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1536</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1537</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>282</ID>
+              <ID>1540</ID>
               <Description>"Tear"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -1265,7 +1387,7 @@ unregistersymbol(baseElfAddr)
               <Address>+350</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>283</ID>
+                  <ID>1541</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1273,7 +1395,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>284</ID>
+                  <ID>1542</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1281,7 +1403,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>285</ID>
+                  <ID>1543</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1289,7 +1411,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>286</ID>
+                  <ID>1544</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1297,15 +1419,16 @@ unregistersymbol(baseElfAddr)
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>287</ID>
+                  <ID>1545</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>288</ID>
+                      <ID>1546</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1315,15 +1438,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>289</ID>
+                  <ID>1547</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>290</ID>
+                      <ID>1548</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1333,15 +1457,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>291</ID>
+                  <ID>1549</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>292</ID>
+                      <ID>1550</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1351,15 +1476,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>293</ID>
+                  <ID>1551</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>294</ID>
+                      <ID>1552</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1368,10 +1494,128 @@ unregistersymbol(baseElfAddr)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1553</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1554</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1555</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1556</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1557</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1558</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1559</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1560</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1561</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1562</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1563</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1564</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1565</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>295</ID>
+              <ID>1644</ID>
               <Description>"Jade"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -1379,7 +1623,7 @@ unregistersymbol(baseElfAddr)
               <Address>+350*2</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>296</ID>
+                  <ID>1645</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1387,7 +1631,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>297</ID>
+                  <ID>1646</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1395,7 +1639,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>298</ID>
+                  <ID>1647</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1403,7 +1647,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>299</ID>
+                  <ID>1648</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1411,15 +1655,16 @@ unregistersymbol(baseElfAddr)
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>300</ID>
+                  <ID>1649</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>301</ID>
+                      <ID>1650</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1429,15 +1674,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>302</ID>
+                  <ID>1651</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>303</ID>
+                      <ID>1652</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1447,15 +1693,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>304</ID>
+                  <ID>1653</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>305</ID>
+                      <ID>1654</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1465,15 +1712,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>306</ID>
+                  <ID>1655</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>307</ID>
+                      <ID>1656</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1482,10 +1730,128 @@ unregistersymbol(baseElfAddr)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1657</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1658</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1659</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1660</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1661</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1662</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1663</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1664</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1665</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1666</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1667</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1668</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1669</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>308</ID>
+              <ID>1618</ID>
               <Description>"Anise"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -1493,7 +1859,7 @@ unregistersymbol(baseElfAddr)
               <Address>+350*3</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>309</ID>
+                  <ID>1619</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1501,7 +1867,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>310</ID>
+                  <ID>1620</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1509,7 +1875,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>311</ID>
+                  <ID>1621</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1517,7 +1883,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>312</ID>
+                  <ID>1622</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1525,15 +1891,16 @@ unregistersymbol(baseElfAddr)
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>313</ID>
+                  <ID>1623</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>314</ID>
+                      <ID>1624</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1543,15 +1910,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>315</ID>
+                  <ID>1625</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>316</ID>
+                      <ID>1626</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1561,15 +1929,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>317</ID>
+                  <ID>1627</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>318</ID>
+                      <ID>1628</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1579,15 +1948,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>319</ID>
+                  <ID>1629</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>320</ID>
+                      <ID>1630</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1596,10 +1966,128 @@ unregistersymbol(baseElfAddr)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1631</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1632</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1633</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1634</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1635</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1636</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1637</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1638</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1639</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1640</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1641</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1642</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1643</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>321</ID>
+              <ID>1592</ID>
               <Description>"Guy"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -1607,7 +2095,7 @@ unregistersymbol(baseElfAddr)
               <Address>+350*4</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>322</ID>
+                  <ID>1593</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1615,7 +2103,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>323</ID>
+                  <ID>1594</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1623,7 +2111,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>324</ID>
+                  <ID>1595</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1631,7 +2119,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>325</ID>
+                  <ID>1596</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1639,15 +2127,16 @@ unregistersymbol(baseElfAddr)
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>326</ID>
+                  <ID>1597</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>327</ID>
+                      <ID>1598</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1657,15 +2146,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>328</ID>
+                  <ID>1599</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>329</ID>
+                      <ID>1600</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1675,15 +2165,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>330</ID>
+                  <ID>1601</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>331</ID>
+                      <ID>1602</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1693,15 +2184,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>332</ID>
+                  <ID>1603</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>333</ID>
+                      <ID>1604</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1710,10 +2202,128 @@ unregistersymbol(baseElfAddr)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1605</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1606</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1607</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1608</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1609</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1610</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1611</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1612</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1613</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1614</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1615</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1616</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1617</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>334</ID>
+              <ID>1566</ID>
               <Description>"Natalia"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -1721,7 +2331,7 @@ unregistersymbol(baseElfAddr)
               <Address>+350*5</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>335</ID>
+                  <ID>1567</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1729,7 +2339,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>336</ID>
+                  <ID>1568</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1737,7 +2347,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>337</ID>
+                  <ID>1569</ID>
                   <Description>"Slot 3"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1745,7 +2355,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>338</ID>
+                  <ID>1570</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1753,15 +2363,16 @@ unregistersymbol(baseElfAddr)
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>339</ID>
+                  <ID>1571</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>340</ID>
+                      <ID>1572</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1771,15 +2382,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>341</ID>
+                  <ID>1573</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>342</ID>
+                      <ID>1574</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1789,15 +2401,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>343</ID>
+                  <ID>1575</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>344</ID>
+                      <ID>1576</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1807,15 +2420,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>345</ID>
+                  <ID>1577</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>346</ID>
+                      <ID>1578</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1824,10 +2438,128 @@ unregistersymbol(baseElfAddr)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1579</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1580</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1581</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1582</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1583</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1584</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1585</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1586</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1587</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1588</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1589</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1590</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1591</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>347</ID>
+              <ID>1670</ID>
               <Description>"Asch"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -1835,7 +2567,7 @@ unregistersymbol(baseElfAddr)
               <Address>+350*6</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>348</ID>
+                  <ID>1671</ID>
                   <Description>"Slot 1"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1843,7 +2575,7 @@ unregistersymbol(baseElfAddr)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>349</ID>
+                  <ID>1672</ID>
                   <Description>"Slot 2"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1851,15 +2583,15 @@ unregistersymbol(baseElfAddr)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>350</ID>
-                  <Description>"Slot 3"</Description>
+                  <ID>1673</ID>
+                  <Description>"Slot "</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>351</ID>
+                  <ID>1674</ID>
                   <Description>"Slot 4"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -1867,15 +2599,16 @@ unregistersymbol(baseElfAddr)
                   <Address>+6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>352</ID>
+                  <ID>1675</ID>
                   <Description>"Slot 5"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+5E</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>353</ID>
+                      <ID>1676</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1885,15 +2618,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>354</ID>
+                  <ID>1677</ID>
                   <Description>"Slot 6"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+62</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>355</ID>
+                      <ID>1678</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1903,15 +2637,16 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>356</ID>
+                  <ID>1679</ID>
                   <Description>"Slot 7"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+66</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>357</ID>
+                      <ID>1680</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -1921,20 +2656,139 @@ unregistersymbol(baseElfAddr)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>358</ID>
+                  <ID>1681</ID>
                   <Description>"Slot 8"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+6A</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>359</ID>
+                      <ID>1682</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>-2</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1683</ID>
+                  <Description>"Extra artes patch only"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+1D8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1684</ID>
+                      <Description>"Slot 9"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1685</ID>
+                      <Description>"Slot 10"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1686</ID>
+                      <Description>"Slot 11"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1687</ID>
+                      <Description>"Slot 12"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1688</ID>
+                      <Description>"Slot 13"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1689</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1690</ID>
+                      <Description>"Slot 14"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1691</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1692</ID>
+                      <Description>"Slot 15"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1693</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1694</ID>
+                      <Description>"Slot 16"</Description>
+                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1695</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-2</Address>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>

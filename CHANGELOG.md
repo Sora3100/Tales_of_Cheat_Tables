@@ -1,5 +1,17 @@
 ### Changelog
 
+#### 2024/06/12
+
+-	Added changes suggested by CeruleanSky
+-	Added Graces arte slots for u4ick's extra artes patch
+-	Added Abyss arte slots for u4ick's extra artes patch
+
+-	Added "Have all difficulties" patch for Xillia 1 and Xillia 2 and Graces F
+-	Added "No encounters" patch for Graces F
+-	Ported "Unlock Lloyd & Co. for leveling" patch to another version of Symphonia - Dawn of the New World
+-	Added "Return Xillia 1 character switch in fights" patch for Xillia 2
+-	Added "Disable OVL requirement for Mystic Artes" patch for Xillia 1 and Xillia 2
+
 #### 2024/03/27
 
 -	Fixed game functions not working properly sometimes in Xillia 1
