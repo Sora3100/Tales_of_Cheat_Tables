@@ -1,5 +1,14 @@
 ### Changelog
 
+#### 2024/08/07
+
+-	Updated "Allow using Mystic Artes without Overlimit" patch to remove side effects for Xillia 1 and Xillia 2
+-	Added Weapons/Armor to the Gem Editor in the Rebirth table.
+-	Added Grade Shop options to the Rebirth table.
+-	Added Grade to the Rebirth table.
+-	Added Encounter, Background, Time until encounter to the Legendia table.
+-	Updated frubam's Chloe fight editor to allow editing more than just that fight in the Legendia table.
+
 #### 2024/06/12
 
 -	Added changes suggested by CeruleanSky

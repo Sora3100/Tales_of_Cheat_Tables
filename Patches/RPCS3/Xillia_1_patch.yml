@@ -25,10 +25,10 @@ Anchors:
       - [ be32, 0x2032D4, 0x38600002 ]
       
   tox_no_ovl_mystic_arte_expl: &tox_no_ovl_mystic_arte_expl
-        "Affects the party and enemies alike.\nAlso allows infinite link arte chaining."
+        "Affects the party and enemies alike."
       
   tox_no_ovl_mystic_arte: &tox_no_ovl_mystic_arte
-      - [ be32, 0x46B6C, 0x4800004C ]
+      - [ be32, 0x9FE60, 0x480002A4 ]
       
 #Tales of Xillia
 PPU-a7f26bbbcb13fd5f554d0612f490861feec78e8f: #BLUS31006/NPUB31136
@@ -82,7 +82,7 @@ PPU-a7f26bbbcb13fd5f554d0612f490861feec78e8f: #BLUS31006/NPUB31136
         BLUS31006: [ All ]
         NPUB31136: [ All ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox_no_ovl_mystic_arte_expl
     Patch:
@@ -139,7 +139,7 @@ PPU-62b0f370c487523166efb0d4b4a24e627acc3488: #BLES01815/NPEB01310
         BLES01815: [ All ]
         NPEB01310: [ All ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox_no_ovl_mystic_arte_expl
     Patch:
@@ -194,8 +194,8 @@ PPU-f7f6881ea84c3196f294e437d766e7fb2c5b8d0c: #BLJS10120
       "Tales of Xillia":
         BLJS10120: [ All ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox_no_ovl_mystic_arte_expl
     Patch:
-      - [ be32, 0x46DF0, 0x4800004C ]
+      - [ be32, 0x95074, 0x480002A4 ]
