@@ -34,10 +34,10 @@ Anchors:
       - [ be32, 0x2AE214, 0x3BA02B67 ] #sub entries
 
   tox2_no_ovl_mystic_arte_expl: &tox2_no_ovl_mystic_arte_expl
-        "Affects the party and enemies alike.\nAlso allows infinite link arte chaining."
+        "Affects the party and enemies alike."
 
   tox2_no_ovl_mystic_arte: &tox2_no_ovl_mystic_arte
-      - [ be32, 0x4941C, 0x4800004C ]
+      - [ be32, 0x7FA14, 0x480009FC ]
       
   tox2_x1_party_switch_expl: &tox2_x1_party_switch_expl
         "Brings back the mid-battle character switch mechanic from Xillia 1.\nSlot 9 is not supported."
@@ -275,7 +275,7 @@ PPU-d96e838f10e9730d8ba21659e02663b44488670f: #BLUS31397/NPUB31443
         BLUS31397: [ All ]
         NPUB31443: [ All ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
@@ -445,6 +445,7 @@ PPU-d96e838f10e9730d8ba21659e02663b44488670f: #BLUS31397/NPUB31443
       
       #branch out
       - [ be32, 0x0, 0x811B0094 ] #original code
+      
 PPU-a7d11f549ba784d539148688ef512a6a1907e63e: #BLES01962
   "No linking requirement in EX Dungeon":
     Games:
@@ -511,13 +512,11 @@ PPU-a7d11f549ba784d539148688ef512a6a1907e63e: #BLES01962
       "Tales of Xillia 2":
         BLES01962: [ All ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
       - [ load, *tox2_no_ovl_mystic_arte ]
-
-      
   "Return Xillia 1 character switch mechanic":
     Games:
       "Tales of Xillia 2":
@@ -595,7 +594,7 @@ PPU-c83d91c3be29b1460777f8a5d7fa5a111b1237b0: #NPEB01858
       "Tales of Xillia 2":
         NPEB01858: [ All ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
@@ -679,11 +678,11 @@ PPU-c8cfdd45c319ebbb747f070c80436c3472e28181: #BLJS10188 01.00
       "Tales of Xillia 2":
         BLJS10188: [ 01.00 ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
-      - [ be32, 0x49414, 0x4800004C ]
+      - [ be32, 0x8E194, 0x480009FC ]
   "Return Xillia 1 character switch mechanic":
     Games:
       "Tales of Xillia 2":
@@ -917,11 +916,11 @@ PPU-b04f05aaf687e0f9b26887c7d277d571079efcc5: #BLJS10188 01.01
       "Tales of Xillia 2":
         BLJS10188: [ 01.01 ]
     Author: "Sora3100"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Group: ""
     Notes: *tox2_no_ovl_mystic_arte_expl
     Patch:
-      - [ be32, 0x49404, 0x4800004C ]
+      - [ be32, 0x7FA04, 0x480009FC ]
   "Return Xillia 1 character switch mechanic":
     Games:
       "Tales of Xillia 2":

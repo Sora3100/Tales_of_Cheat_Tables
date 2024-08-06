@@ -1812,6 +1812,178 @@ unregistersymbol(baseElfAddr)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>68461</ID>
+          <Description>"Encounter Editor"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+globalalloc(encountEdit,1000)
+
+[DISABLE]
+dealloc(encountEdit)
+unregistersymbol(encountEdit)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>68462</ID>
+              <Description>"Edit"</Description>
+              <DropDownListLink>dropdown: Encounters</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>encountEdit</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>68463</ID>
+                  <Description>"1st player battle start position"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Far left side
+10:Middle(default)
+22:Far right side
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68464</ID>
+                  <Description>"Item use in battle"</Description>
+                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:No item use
+1:Can use items
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68465</ID>
+                  <Description>"Can Run Away?"</Description>
+                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>6</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68466</ID>
+                  <Description>"First Enemy"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68467</ID>
+                  <Description>"Second Enemy"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68468</ID>
+                  <Description>"Third Enemy"</Description>
+                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68469</ID>
+                  <Description>"Enemy A placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68470</ID>
+                  <Description>"Enemy B placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68471</ID>
+                  <Description>"Enemy C placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68472</ID>
+                  <Description>"Enemy D placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68473</ID>
+                  <Description>"Enemy E placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68474</ID>
+                  <Description>"Enemy F placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68475</ID>
+                  <Description>"Enemy G placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68476</ID>
+                  <Description>"Enemy H placement"</Description>
+                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseElfAddr+145C822+10*[encountEdit]+F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>68480</ID>
+          <Description>"Time until next encounter"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>baseElfAddr+3A7D88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>68482</ID>
+          <Description>"Encounter"</Description>
+          <DropDownListLink>dropdown: Encounters</DropDownListLink>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>baseElfAddr+3E9156</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>68479</ID>
+          <Description>"Background"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>baseElfAddr+3E92CE</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>58</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -1913,6 +2085,9 @@ unregistersymbol(baseElfAddr)
 83:Blue Ogre(HP 44586)
 84:Plain Ere(HP 842)
 85:Plain Ere(HP 23988)
+:
+369:Healing Zephyr
+423:Nagas Gaet
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
@@ -1927,6 +2102,13 @@ unregistersymbol(baseElfAddr)
 132:Third enemy value; far left
 163:Third enemy value; middle
 192:No enemy
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>68483</ID>
+                  <Description>"dropdown: Encounters"</Description>
+                  <DropDownList DisplayValueAsItem="1">78:Chloe Chapter 1
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
@@ -2095,141 +2277,6 @@ unregistersymbol(baseElfAddr)
           <Description>"By frubam"</Description>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry>
-              <ID>294</ID>
-              <Description>"Chloe Chapter 1 fight"</Description>
-              <Options moHideChildren="1"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <GroupHeader>1</GroupHeader>
-              <Address>baseElfAddr+145CD02</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>295</ID>
-                  <Description>"1st player battle start position"</Description>
-                  <DropDownList DisplayValueAsItem="1">0:Far left side
-10:Middle(default)
-22:Far right side
-</DropDownList>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+0</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>296</ID>
-                  <Description>"Item use in battle"</Description>
-                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:No item use
-1:Can use items
-</DropDownList>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Binary</VariableType>
-                  <BitStart>7</BitStart>
-                  <BitLength>1</BitLength>
-                  <ShowAsBinary>0</ShowAsBinary>
-                  <Address>+1</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>297</ID>
-                  <Description>"Can Run Away?"</Description>
-                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:No
-1:Yes
-</DropDownList>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Binary</VariableType>
-                  <BitStart>6</BitStart>
-                  <BitLength>1</BitLength>
-                  <ShowAsBinary>0</ShowAsBinary>
-                  <Address>+1</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>298</ID>
-                  <Description>"First Enemy"</Description>
-                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
-                  <Address>+2</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>299</ID>
-                  <Description>"Second Enemy"</Description>
-                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
-                  <Address>+4</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>300</ID>
-                  <Description>"Third Enemy"</Description>
-                  <DropDownListLink>dropdown: Enemy List</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
-                  <Address>+6</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>301</ID>
-                  <Description>"Enemy A placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+8</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>302</ID>
-                  <Description>"Enemy B placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+9</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>303</ID>
-                  <Description>"Enemy C placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+A</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>304</ID>
-                  <Description>"Enemy D placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+B</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>305</ID>
-                  <Description>"Enemy E placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+C</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>306</ID>
-                  <Description>"Enemy F placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+D</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>307</ID>
-                  <Description>"Enemy G placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+E</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>308</ID>
-                  <Description>"Enemy H placement"</Description>
-                  <DropDownListLink>dropdown: Enemy Placement</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+F</Address>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
             <CheatEntry>
               <ID>293</ID>
               <Description>"All Base/Arcane Artes / Spells for All Characters"</Description>
