@@ -469,8 +469,10 @@ artePropDescPTR:
   db 8B 48 20 48 83 C4 28 E9 9B 44 0C 00 CC CC CC CC
 
 unregistersymbol(artePropDescPTR)
+unregistersymbol(artePropPTR)
 dealloc(newmem)
 dealloc(artePropDescPTR)
+dealloc(artePropPTR)
 
 {
 // ORIGINAL CODE - INJECTION POINT: TOV_DE.exe+3C2649
@@ -593,6 +595,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
         <CheatEntry>
           <ID>79053</ID>
           <Description>"Arte name ID"</Description>
+          <ShowAsHex>1</ShowAsHex>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>artePropPTR</Address>
@@ -6175,6 +6178,428 @@ TOV_DE.exe+53C5FA: E8 D1 E3 08 00                 - call TOV_DE.exe+5CA9D0
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
+      <ID>85043</ID>
+      <Description>"Arte Sphere Plus"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TOV_DE.exe
+  Version:
+  Date   : 2024-12-03
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(arte_call,TOV_DE.exe,48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0) // should be unique
+aobscanmodule(free_run_check,TOV_DE.exe,? ? ? ? ? ? 00 02 00 00 74 03 32 C0 C3) // should be unique
+alloc(newmem,$1000,arte_call)
+
+label(original_code)
+label(code)
+label(exit)
+label(return)
+
+newmem:
+original_code:
+  //mov rcx,[rdi+000040E8]
+  mov r8d,ebp //l1 state
+  movzx edx,al //stick state
+code:
+  mov rcx,rdi //set rcx as btl char pointer for function
+  call free_run_check //returns 1 in eax if free run is active
+  test eax,eax
+  je exit
+  inc rax
+  add r8d,rax
+  @@:
+  //imul rax,4 //multiply it by 4 for next address if free run is active
+  //mov r8d,rax
+  //add r8d,rax
+exit:
+  mov rcx,[rdi+40E8] //restore char pointer
+  jmp return
+
+arte_call:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+
+//------------------------------------------------------------------------------
+
+define(newmem2,newmem+500)
+
+label(original_code2)
+label(code2)
+label(exit2)
+label(return2)
+
+newmem2:
+original_code2:
+  //mov rcx,[rdi+000040E8]
+  mov r8d,ebp //l1 state
+  mov edx,ebx //stick state
+code2:
+  mov rcx,rdi //set rcx as btl char pointer for function
+  call free_run_check //returns 1 in eax if free run is active
+  test eax,eax
+  je exit2
+  inc rax
+  add r8d,rax
+  @@:
+  //imul rax,4 //multiply it by 4 for next address if free run is active
+  //mov r8d,rax
+  //add r8d,rax
+exit2:
+  mov rcx,[rdi+40E8] //restore char pointer
+  jmp return2
+
+arte_call+70:
+  jmp newmem2
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+return2:
+
+registersymbol(arte_call)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+aobscanmodule(free_run_arte_use_check,TOV_DE.exe,84 C0 74 08 33 C0 48 83 C4 30) // should be unique
+
+free_run_arte_use_check+2:
+  db EB
+
+registersymbol(free_run_arte_use_check)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+
+aobscanmodule(arte_menu_set_change,TOV_DE.exe,83 F8 02 0F 4D C1) // should be unique
+
+arte_menu_set_change:
+  db 83 F8 04
+
+registersymbol(arte_menu_set_change)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+aobscanmodule(arte_menu_left_stick_display,TOV_DE.exe,04 00 48 C7 85 98 00 00 00 0F 00 00 00) // should be unique
+alloc(arte_menu_display_newmem,$1000,arte_menu_left_stick_display)
+
+label(code3)
+label(return3)
+define(ls_stringloc,arte_menu_display_newmem+300)
+
+//rax is address to string
+//rdi is current arte slot
+//rsi + 340 is current page
+
+arte_menu_display_newmem+300: //ls_stringloc
+  db 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+arte_menu_left_stick_display-149: //number above artes
+  db 04
+
+arte_menu_display_newmem:
+  push rcx
+  push rdx
+  mov rax,[RSI+340] //current page
+  shl rax,7 //multiply by 128 (0x80)
+  mov rcx,rdi //current slot
+  shl rcx,5 //multiply by 32 (0x20)
+  add rax,rcx
+  mov rcx,ls_stringloc
+  add rax,rcx
+  pop rdx
+  pop rcx
+code3:
+  mov qword ptr [rbp+00000098],0000000F
+  jmp return3
+
+arte_menu_left_stick_display+02:
+  jmp arte_menu_display_newmem
+  nop 6
+return3:
+registersymbol(arte_menu_left_stick_display)
+registersymbol(arte_menu_display_newmem)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+aobscanmodule(arte_menu_right_stick_display,TOV_DE.exe,04 00 48 C7 85 B8 00 00 00 0F 00 00 00) // should be unique
+alloc(arte_menu_rs_display_newmem,$1000,arte_menu_right_stick_display)
+
+label(code4)
+label(return4)
+define(rs_stringloc,arte_menu_rs_display_newmem+300)
+
+//rax is address to string
+//r14 is current arte slot
+//rdi + 340 is current page
+
+arte_menu_rs_display_newmem+300: //rs_stringloc
+  db 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+arte_menu_right_stick_display-1D0: //number above artes
+  db 04
+
+arte_menu_rs_display_newmem:
+  push rcx
+  push rdx
+  mov rax,[RDI+340] //current page
+  shl rax,7 //multiply by 128 (0x80)
+  mov rcx,r14 //current slot
+  shl rcx,5 //multiply by 32 (0x20)
+  add rax,rcx
+  mov rcx,rs_stringloc
+  add rax,rcx
+  pop rdx
+  pop rcx
+code4:
+  mov qword ptr [rbp+000000B8],0000000F
+  jmp return4
+
+arte_menu_right_stick_display+02:
+  jmp arte_menu_rs_display_newmem
+  nop 6
+return4:
+registersymbol(arte_menu_right_stick_display)
+registersymbol(arte_menu_rs_display_newmem)
+
+[DISABLE]
+
+arte_call:
+  db 48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0
+
+arte_call+70:
+  db 48 8B 8F E8 40 00 00 44 8B C5 8B D3 E8
+
+unregistersymbol(arte_call)
+dealloc(arte_menu_rs_display_newmem)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+free_run_arte_use_check:
+  db 84 C0 74 08 33 C0
+
+unregistersymbol(free_run_arte_use_check)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+arte_menu_set_change:
+  db 83 F8 02 0F 4D C1
+
+unregistersymbol(arte_menu_set_change)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+arte_menu_left_stick_display+02:
+  db 48 C7 85 98 00 00 00 0F 00 00 00
+
+arte_menu_left_stick_display-149: //number above artes
+  db 02
+
+unregistersymbol(arte_menu_left_stick_display)
+unregistersymbol(arte_menu_display_newmem)
+dealloc(arte_menu_display_newmem)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+arte_menu_right_stick_display+02:
+  db 48 C7 85 B8 00 00 00 0F 00 00 00
+
+arte_menu_right_stick_display-1D0:
+  db 02
+
+unregistersymbol(arte_menu_right_stick_display)
+unregistersymbol(arte_menu_rs_display_newmem)
+dealloc(arte_menu_rs_display_newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF752709FDF
+
+7FF752709FC8: 75 04                 - jne 7FF752709FCE
+7FF752709FCA: B0 02                 - mov al,02
+7FF752709FCC: EB 11                 - jmp 7FF752709FDF
+7FF752709FCE: 0F B6 44 24 38        - movzx eax,byte ptr [rsp+38]
+7FF752709FD3: EB 0A                 - jmp 7FF752709FDF
+7FF752709FD5: B0 03                 - mov al,03
+7FF752709FD7: EB 06                 - jmp 7FF752709FDF
+7FF752709FD9: B0 01                 - mov al,01
+7FF752709FDB: EB 02                 - jmp 7FF752709FDF
+7FF752709FDD: 32 C0                 - xor al,al
+// ---------- INJECTING HERE ----------
+7FF752709FDF: 48 8B 8F E8 40 00 00  - mov rcx,[rdi+000040E8]
+// ---------- DONE INJECTING  ----------
+7FF752709FE6: 44 8B C5              - mov r8d,ebp
+7FF752709FE9: 0F B6 D0              - movzx edx,al
+7FF752709FEC: E8 2F 2D 07 00        - call 7FF75277CD20
+7FF752709FF1: EB 71                 - jmp 7FF75270A064
+7FF752709FF3: 8D 43 EC              - lea eax,[rbx-14]
+7FF752709FF6: 83 F8 03              - cmp eax,03
+7FF752709FF9: 77 67                 - ja 7FF75270A062
+7FF752709FFB: 83 EB 14              - sub ebx,14
+7FF752709FFE: 74 22                 - je 7FF75270A022
+7FF75270A000: 83 EB 01              - sub ebx,01
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF72E10E0E5
+
+7FF72E10E0CB: CC                    - int 3
+7FF72E10E0CC: CC                    - int 3
+7FF72E10E0CD: CC                    - int 3
+7FF72E10E0CE: CC                    - int 3
+7FF72E10E0CF: CC                    - int 3
+7FF72E10E0D0: 40 57                 - push rdi
+7FF72E10E0D2: 48 83 EC 30           - sub rsp,30
+7FF72E10E0D6: 48 8B F9              - mov rdi,rcx
+7FF72E10E0D9: 48 81 C1 90 07 00 00  - add rcx,00000790
+7FF72E10E0E0: E8 7B 8C 02 00        - call 7FF72E136D60
+// ---------- INJECTING HERE ----------
+7FF72E10E0E5: 84 C0                 - test al,al
+// ---------- DONE INJECTING  ----------
+7FF72E10E0E7: 74 08                 - je 7FF72E10E0F1
+7FF72E10E0E9: 33 C0                 - xor eax,eax
+7FF72E10E0EB: 48 83 C4 30           - add rsp,30
+7FF72E10E0EF: 5F                    - pop rdi
+7FF72E10E0F0: C3                    - ret
+7FF72E10E0F1: 48 89 5C 24 40        - mov [rsp+40],rbx
+7FF72E10E0F6: 48 8B CF              - mov rcx,rdi
+7FF72E10E0F9: 48 8B 1D 90 EE 64 01  - mov rbx,[7FF72F75CF90]
+7FF72E10E100: E8 2B B4 01 00        - call 7FF72E129530
+7FF72E10E105: 33 C9                 - xor ecx,ecx
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF72E011215
+
+7FF72E0111F0: 40 53              - push rbx
+7FF72E0111F2: 48 83 EC 20        - sub rsp,20
+7FF72E0111F6: 48 8B D9           - mov rbx,rcx
+7FF72E0111F9: B9 DD 06 00 00     - mov ecx,000006DD
+7FF72E0111FE: E8 7D 29 F9 FF     - call 7FF72DFA3B80
+7FF72E011203: 85 C0              - test eax,eax
+7FF72E011205: 7E 1A              - jle 7FF72E011221
+7FF72E011207: FF 83 40 03 00 00  - inc [rbx+00000340]
+7FF72E01120D: 33 C9              - xor ecx,ecx
+7FF72E01120F: 8B 83 40 03 00 00  - mov eax,[rbx+00000340]
+// ---------- INJECTING HERE ----------
+7FF72E011215: 83 F8 02           - cmp eax,02
+// ---------- DONE INJECTING  ----------
+7FF72E011218: 0F 4D C1           - cmovge eax,ecx
+7FF72E01121B: 89 83 40 03 00 00  - mov [rbx+00000340],eax
+7FF72E011221: 48 83 C4 20        - add rsp,20
+7FF72E011225: 5B                 - pop rbx
+7FF72E011226: C3                 - ret
+7FF72E011227: CC                 - int 3
+7FF72E011228: CC                 - int 3
+7FF72E011229: CC                 - int 3
+7FF72E01122A: CC                 - int 3
+7FF72E01122B: CC                 - int 3
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF72E018B25
+
+7FF72E018AEC: 89 44 24 70                       - mov [rsp+70],eax
+7FF72E018AF0: 48 8D 8D 30 01 00 00              - lea rcx,[rbp+00000130]
+7FF72E018AF7: E8 44 6B F9 FF                    - call 7FF72DFAF640
+7FF72E018AFC: 90                                - nop
+7FF72E018AFD: C7 85 DC 05 00 00 02 00 00 00     - mov [rbp+000005DC],00000002
+7FF72E018B07: C7 85 2C 06 00 00 01 00 00 00     - mov [rbp+0000062C],00000001
+7FF72E018B11: 8B 8E 40 03 00 00                 - mov ecx,[rsi+00000340]
+7FF72E018B17: 8D 0C 8D 56 77 00 00              - lea ecx,[rcx*4+00007756]
+7FF72E018B1E: 03 CF                             - add ecx,edi
+7FF72E018B20: E8 CB DF 04 00                    - call 7FF72E066AF0
+// ---------- INJECTING HERE ----------
+7FF72E018B25: 48 C7 85 98 00 00 00 0F 00 00 00  - mov qword ptr [rbp+00000098],0000000F
+// ---------- DONE INJECTING  ----------
+7FF72E018B30: 4C 89 B5 90 00 00 00              - mov [rbp+00000090],r14
+7FF72E018B37: C6 85 80 00 00 00 00              - mov byte ptr [rbp+00000080],00
+7FF72E018B3E: 80 38 00                          - cmp byte ptr [rax],00
+7FF72E018B41: 75 05                             - jne 7FF72E018B48
+7FF72E018B43: 4D 8B C6                          - mov r8,r14
+7FF72E018B46: EB 12                             - jmp 7FF72E018B5A
+7FF72E018B48: 49 83 C8 FF                       - or r8,-01
+7FF72E018B4C: 0F 1F 40 00                       - nop dword ptr [rax+00]
+7FF72E018B50: 49 FF C0                          - inc r8
+7FF72E018B53: 42 80 3C 00 00                    - cmp byte ptr [rax+r8],00
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF72E019F3A
+
+7FF72E019F0D: E8 3E 05 D6 FF                    - call 7FF72DD7A450
+7FF72E019F12: 90                                - nop
+7FF72E019F13: BA 78 00 00 00                    - mov edx,00000078
+7FF72E019F18: 48 8D 8D C0 00 00 00              - lea rcx,[rbp+000000C0]
+7FF72E019F1F: E8 FC B7 F9 FF                    - call 7FF72DFB5720
+7FF72E019F24: 90                                - nop
+7FF72E019F25: 8B 87 40 03 00 00                 - mov eax,[rdi+00000340]
+7FF72E019F2B: 8D 0C 85 5E 77 00 00              - lea ecx,[rax*4+0000775E]
+7FF72E019F32: 41 03 CE                          - add ecx,r14d
+7FF72E019F35: E8 B6 CB 04 00                    - call 7FF72E066AF0
+// ---------- INJECTING HERE ----------
+7FF72E019F3A: 48 C7 85 B8 00 00 00 0F 00 00 00  - mov qword ptr [rbp+000000B8],0000000F
+// ---------- DONE INJECTING  ----------
+7FF72E019F45: 48 C7 85 B0 00 00 00 00 00 00 00  - mov qword ptr [rbp+000000B0],00000000
+7FF72E019F50: C6 85 A0 00 00 00 00              - mov byte ptr [rbp+000000A0],00
+7FF72E019F57: 80 38 00                          - cmp byte ptr [rax],00
+7FF72E019F5A: 75 05                             - jne 7FF72E019F61
+7FF72E019F5C: 45 33 C0                          - xor r8d,r8d
+7FF72E019F5F: EB 0E                             - jmp 7FF72E019F6F
+7FF72E019F61: 49 83 C8 FF                       - or r8,-01
+7FF72E019F65: 49 FF C0                          - inc r8
+7FF72E019F68: 42 80 3C 00 00                    - cmp byte ptr [rax+r8],00
+7FF72E019F6D: 75 F6                             - jne 7FF72E019F65
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
       <ID>63628</ID>
       <Description>"UNSUPPORTED"</Description>
       <Options moHideChildren="1"/>
@@ -9313,6 +9738,28 @@ dealloc(PSX_3)
 </DropDownList>
               <GroupHeader>1</GroupHeader>
             </CheatEntry>
+            <CheatEntry>
+              <ID>84923</ID>
+              <Description>"dropdown: T8BTEMGP"</Description>
+              <DropDownList DisplayValueAsItem="1">109:Gattuso
+635:Alexei
+735:Duke 1
+736:Duke 2
+737:Radiant Winged One
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84924</ID>
+              <Description>"dropdown: T8BTEMEG"</Description>
+              <DropDownList DisplayValueAsItem="1">44:Gattuso
+250:Alexei
+287:Duke
+288:Duke 2
+289:Radiant Winged One
+</DropDownList>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
@@ -9334,6 +9781,7 @@ globalalloc(attackNum,8)
 registersymbol(attackStatus)
 [DISABLE]
 unregistersymbol(attackStatus)
+unregistersymbol(attackNum)
 dealloc(attackNum)
 </AssemblerScript>
               <CheatEntries>
@@ -15577,11 +16025,7 @@ unregistersymbol(T8BTEMGPEdit)
             <CheatEntry>
               <ID>84834</ID>
               <Description>"Edit"</Description>
-              <DropDownList DisplayValueAsItem="1">109:Gattuso
-735:Duke 1
-736:Duke 2
-737:Radiant Winged One
-</DropDownList>
+              <DropDownListLink>dropdown: T8BTEMGP</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>8 Bytes</VariableType>
               <Address>T8BTEMGPEdit</Address>
@@ -15596,6 +16040,7 @@ unregistersymbol(T8BTEMGPEdit)
                 <CheatEntry>
                   <ID>84841</ID>
                   <Description>"Entry"</Description>
+                  <DropDownListLink>dropdown: T8BTEMGP</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+4</Address>
@@ -15641,7 +16086,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84842</ID>
-                  <Description>"Enemy model 1"</Description>
+                  <Description>"Enemy 1"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15649,7 +16094,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84848</ID>
-                  <Description>"Enemy model 2"</Description>
+                  <Description>"Enemy 2"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15657,7 +16102,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84855</ID>
-                  <Description>"Enemy model 3"</Description>
+                  <Description>"Enemy 3"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15665,7 +16110,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84854</ID>
-                  <Description>"Enemy model 4"</Description>
+                  <Description>"Enemy 4"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15673,7 +16118,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84853</ID>
-                  <Description>"Enemy model 5"</Description>
+                  <Description>"Enemy 5"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15681,7 +16126,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84852</ID>
-                  <Description>"Enemy model 6"</Description>
+                  <Description>"Enemy 6"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15689,7 +16134,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84851</ID>
-                  <Description>"Enemy model 7"</Description>
+                  <Description>"Enemy 7"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15697,7 +16142,7 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84850</ID>
-                  <Description>"Enemy model 8"</Description>
+                  <Description>"Enemy 8"</Description>
                   <DropDownListLink>dropdown: Enemy List</DropDownListLink>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
@@ -15705,56 +16150,56 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84856</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 1 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84865</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 2 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84864</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 3 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84863</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 4 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84862</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 5 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84861</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 6 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84860</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 7 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84859</ID>
-                  <Description>"~1"</Description>
+                  <Description>"Enemy 8 ~1"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+54</Address>
@@ -15929,63 +16374,63 @@ unregistersymbol(T8BTEMGPEdit)
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84890</ID>
-                  <Description>"?"</Description>
+                  <Description>"Flag"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+B8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84889</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 1 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+BC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84888</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 2 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84887</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 3 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84886</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 4 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+C8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84885</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 5 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+CC</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84884</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 6 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+D0</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84883</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 7 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+D4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>84896</ID>
-                  <Description>"~5"</Description>
+                  <Description>"Enemy 8 ~5"</Description>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMGP+10+DC*[T8BTEMGPEdit]+D8</Address>
@@ -16013,11 +16458,7 @@ unregistersymbol(T8BTEMEGEdit)
             <CheatEntry>
               <ID>84897</ID>
               <Description>"Edit"</Description>
-              <DropDownList DisplayValueAsItem="1">44:Gattuso
-287:Duke
-288:Duke 2
-289:Radiant Winged One
-</DropDownList>
+              <DropDownListLink>dropdown: T8BTEMEG</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>8 Bytes</VariableType>
               <Address>T8BTEMEGEdit</Address>
@@ -16032,6 +16473,7 @@ unregistersymbol(T8BTEMEGEdit)
                 <CheatEntry>
                   <ID>84898</ID>
                   <Description>"Entry"</Description>
+                  <DropDownListLink>dropdown: T8BTEMEG</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>T8BTEMEG+10+40*[T8BTEMEGEdit]+4</Address>
@@ -16452,11 +16894,17 @@ unregistersymbol(T8BTEMEGEdit)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>84913</ID>
-          <Description>"Encounter editor"</Description>
+          <ID>84925</ID>
+          <Description>"Encounter related"</Description>
           <Options moHideChildren="1"/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : TOV_DE.exe
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>84913</ID>
+              <Description>"Encounter editor"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
   Date   : 2024-04-18
   Author : thing
@@ -16524,23 +16972,43 @@ TOV_DE.exe+50CC3B: 83 F8 FF           - cmp eax,-01
 TOV_DE.exe+50CC3E: 74 0D              - je TOV_DE.exe+50CC4D
 }
 </AssemblerScript>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>84830</ID>
-              <Description>"Encounter (edit this)"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>4 Bytes</VariableType>
-              <Address>encounter</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>84830</ID>
+                  <Description>"Encounter (edit this)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>encounter</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>84914</ID>
-              <Description>"Encounter that the game set"</Description>
+              <ID>84928</ID>
+              <Description>"Encounter Group (ENG) that the game set"</Description>
               <VariableType>4 Bytes</VariableType>
               <Address>TOV_DE.exe+11B0274</Address>
             </CheatEntry>
             <CheatEntry>
+              <ID>84917</ID>
+              <Description>"Background that the game set"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TOV_DE.exe+11B0278</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84930</ID>
+              <Description>"Event that the game set"</Description>
+              <DropDownList DisplayValueAsItem="1">0:None
+12:Estellize
+14:Alexei
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TOV_DE.exe+11B027C</Address>
+            </CheatEntry>
+            <CheatEntry>
               <ID>84915</ID>
-              <Description>"Enemy Group that the game set"</Description>
+              <Description>"Enemy Group (EG) that the game set"</Description>
               <VariableType>4 Bytes</VariableType>
               <Address>TOV_DE.exe+11B0300</Address>
             </CheatEntry>
@@ -19979,6 +20447,240 @@ unregistersymbol(yuriArteWhitelist)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>84931</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>84932</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84933</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84934</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84935</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84936</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84937</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84938</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84939</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84940</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84941</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84942</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84943</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>84952</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>84953</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84954</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84955</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84956</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84957</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84958</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84959</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84960</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84961</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84962</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84963</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>84964</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -20213,6 +20915,240 @@ unregistersymbol(yuriArteWhitelist)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>79433</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89497</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89498</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89499</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89500</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89501</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89502</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89503</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89504</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89505</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89506</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89507</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89508</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89509</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89510</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89511</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89512</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89513</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89514</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89515</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89516</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89517</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89518</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89519</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89520</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89521</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89522</ID>
                           <Description>"Character"</Description>
                           <DropDownListLink>Party Formation</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -20467,6 +21403,240 @@ unregistersymbol(yuriArteWhitelist)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>89523</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89524</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89525</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89526</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89527</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89528</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89529</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89530</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89531</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89532</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89533</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89534</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89535</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89536</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89537</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89538</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89539</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89540</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89541</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89542</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89543</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89544</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89545</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89546</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89547</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89548</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -20701,6 +21871,240 @@ unregistersymbol(yuriArteWhitelist)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>79649</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89549</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89550</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89551</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89552</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89553</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89554</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89555</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89556</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89557</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89558</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89559</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89560</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89561</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89562</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89563</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89564</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89565</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89566</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89567</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89568</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89569</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89570</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89571</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89572</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89573</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89574</ID>
                           <Description>"Character"</Description>
                           <DropDownListLink>Party Formation</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -20955,6 +22359,240 @@ unregistersymbol(yuriArteWhitelist)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>89575</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89576</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89577</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89578</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89579</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89580</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89581</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89582</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89583</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89584</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89585</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89586</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89587</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89588</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89589</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89590</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89591</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89592</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89593</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89594</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89595</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89596</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89597</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89598</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89599</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89600</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -21189,6 +22827,240 @@ unregistersymbol(yuriArteWhitelist)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>79595</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89601</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89602</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89603</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89604</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89605</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89606</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89607</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89608</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89609</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89610</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89611</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89612</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89613</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89614</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89615</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89616</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89617</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89618</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89619</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89620</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89621</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89622</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89623</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89624</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89625</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89626</ID>
                           <Description>"Character"</Description>
                           <DropDownListLink>Party Formation</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -21443,6 +23315,240 @@ unregistersymbol(yuriArteWhitelist)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>89627</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89628</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89629</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89630</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89631</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89632</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89633</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89634</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89635</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89636</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89637</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89638</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89639</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89640</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89641</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89642</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89643</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89644</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89645</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89646</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89647</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89648</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89649</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89650</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89651</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89652</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -21687,6 +23793,240 @@ unregistersymbol(yuriArteWhitelist)
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>89653</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89654</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89655</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89656</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89657</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89658</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89659</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89660</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89661</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89662</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89663</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89664</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89665</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89666</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89667</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89668</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89669</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89670</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89671</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89672</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89673</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89674</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89675</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89676</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89677</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89678</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -21921,6 +24261,240 @@ unregistersymbol(yuriArteWhitelist)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>79514</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89679</ID>
+                  <Description>"Set 3 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+8</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89680</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89681</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89682</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89683</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89684</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89685</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89686</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89687</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89688</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89689</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89690</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89691</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89692</ID>
+                  <Description>"Set 4 (patch only)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+C</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>89693</ID>
+                      <Description>"Neutral"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89694</ID>
+                      <Description>"Up"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89695</ID>
+                      <Description>"Down"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89696</ID>
+                      <Description>"Left/Right"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89697</ID>
+                      <Description>"RS Up/F1"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+80</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89698</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89699</ID>
+                      <Description>"RS Down/F2"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+90</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89700</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89701</ID>
+                      <Description>"RS Left/F3"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+A0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89702</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-40</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89703</ID>
+                      <Description>"RS Right/F4"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+B0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89704</ID>
                           <Description>"Character"</Description>
                           <DropDownListLink>Party Formation</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
@@ -24018,27 +26592,111 @@ dealloc(arteNameDispstorage)
         <Byte>B4</Byte>
       </After>
     </CodeEntry>
+    <CodeEntry>
+      <Description>FREE RUN CHECK</Description>
+      <AddressString>TOV_DE.exe+52E0E7</AddressString>
+      <Before>
+        <Byte>8C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>EB</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>menu arte page</Description>
+      <AddressString>TOV_DE.exe+43985F</AddressString>
+      <Before>
+        <Byte>96</Byte>
+        <Byte>60</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>8D</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>55</Byte>
+        <Byte>8C</Byte>
+        <Byte>F8</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>normal set icons</Description>
+      <AddressString>TOV_DE.exe+438B53</AddressString>
+      <Before>
+        <Byte>40</Byte>
+        <Byte>00</Byte>
+        <Byte>49</Byte>
+        <Byte>FF</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>42</Byte>
+        <Byte>80</Byte>
+        <Byte>3C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>F6</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>rstick set icons</Description>
+      <AddressString>TOV_DE.exe+439F68</AddressString>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>FF</Byte>
+        <Byte>49</Byte>
+        <Byte>FF</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>42</Byte>
+        <Byte>80</Byte>
+        <Byte>3C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>F6</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
   </CheatCodes>
   <UserdefinedSymbols/>
   <Comments>Unfinished enemy list (in decimal)
 It seems that if you try to load a model that's not supposed to be in the fight, it will crash the game. Otherwise, the animation will also not function, but it doesn't crash the game.
 </Comments>
   <DisassemblerComments>
-    <DisassemblerComment>
-      <Address>62F16D4E</Address>
-      <Comment>60
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D58</Address>
-      <Comment>71
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D64</Address>
-      <Comment>90
-</Comment>
-    </DisassemblerComment>
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+4A272D</Address>
       <Comment>multiplier (70)
@@ -24057,6 +26715,26 @@ It seems that if you try to load a model that's not supposed to be in the fight,
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+5555BC</Address>
       <Comment>fs3
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"TOV_DE.exe"+6AD8BD</Address>
+      <Comment>background
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
 </Comment>
     </DisassemblerComment>
   </DisassemblerComments>

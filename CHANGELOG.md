@@ -1,5 +1,89 @@
 ### Changelog
 
+#### 2024/12/20
+
+-	Fixed Xillia 1 and Xillia 2 tables not working properly for other regions
+-	Added suggestions from CeruleanSky to the Destiny DC table
+-	Minor fixes to arte names in Xillia 2 and Abyss
+-	Fixed arte usage being wrong for Heatwave in Xillia 2
+-	Added the ability to unlock extra arte slots early in Hearts R
+-	Ported Symphonia - Dawn of the New World table to the Wii version
+-	Recreated Arte Usage to be able to use with narikiri characters in the following script
+-	Implemented an automated script to easily add new characters to Xillia 1
+	-	Supported characters:
+		-	Jude (narikiri)
+		-	Milla (narikiri)
+		-	Alvin (narikiri)
+		-	Elize (narikiri)
+		-	Rowen (narikiri)
+		-	Leia (narikiri)
+		-	Gaius
+		-	Muzét
+		-	Wingul
+		-	Nachtigal
+		-	Gilland
+		-	Agria
+		-	Presa
+		-	Jiao
+		-	Ivar
+		-	Maxwell
+		-	Celsius
+		-	Volt
+		-	Golden Mage Knight - Scholar
+		-	Golden Mage Knight - Creator
+		-	Golden Mage Knight - Mercenary
+		-	Golden Mage Knight - Puppeteer
+		-	Golden Mage Knight - Conductor
+		-	Golden Mage Knight - Duelist
+		-	Bacura
+	-	Limitations: - Jude and Milla's dual Mystic Arte is not supported as narikiris.
+					 - Some characters cannot switch in or use items.
+					 - Some characters cannot properly initiate linked artes. Try using them with the other character instead.
+
+-	Recreated Arte Usage to be able to use with narikiri characters in the following script
+-	Implemented an automated script to easily add new characters to Xillia 2
+	-	Supported characters:
+		-	Jude (narikiri)
+		-	Milla (narikiri)
+		-	Alvin (narikiri)
+		-	Elize (narikiri)
+		-	Rowen (narikiri)
+		-	Leia (narikiri)
+		-	Gaius (narikiri)
+		-	Muzét (narikiri)
+		-	Ludger (narikiri)
+		-	Wingul
+		-	Nachtigal
+		-	Gilland (no artes)
+		-	Agria
+		-	Presa
+		-	Jiao
+		-	Ivar
+		-	Maxwell
+		-	Celsius
+		-	Volt
+		-	Golden Mage Knight (no artes)
+		-	Bacura
+		-	Victor
+		-	Julius
+		-	Bisley
+		-	Chronos
+		-	Rideaux
+		-	Stahn
+		-	Cress
+		-	Rutee
+		-	Mint
+	-	Limitations: - Common Linked Artes are not supported. Do not use them as you have a high chance of softlocking yourself.
+					 - Mystic Artes are not supported. Do not use them as you have a high chance of softlocking yourself.
+					 - Some characters cannot use items.
+					 - Requires you to remove weapons for non-narikiri/Victor characters. (or remove the model itself), or add their weapons if using narikiri. (don't forget the Lance of Kresnik for Chromatus in case of Ludger/Victor)
+					 - Some characters cannot properly initiate linked artes. Try using them with the other character instead.
+					 - Chromatus gauge is tied to Ludger, it will not increase or show up on the HUD if he's not in party, but narikiris/Victor can activate Chromatus.
+	-	Some notes about Victor/Julius: they were given their own version of artes that they use or are unused. If they weren't given an arte, but they work, they were given Ludger's version.
+	-	If for some reason you still require the old "CHR script V2" version, you can find it under "Notes".
+-	Implemented "Artes Sphere Plus" script for Vesperia, giving the player 4 arte pages to work with, allowing the use of up to 32 artes in battle!
+-	Added a patch for Rebirth (PS2) that increases field run speed.
+
 #### 2024/08/07
 
 -	Updated "Allow using Mystic Artes without Overlimit" patch to remove side effects for Xillia 1 and Xillia 2

@@ -1,0 +1,32 @@
+//Tales of Rebirth
+[Debug Info]
+author=SymphoniaLauren
+description=Enables debug text on field
+
+//Enable 2D map debug
+patch=1,EE,D0237070,extended,04000005 //Checks if game is in 2dMap
+patch=1,EE,202ef814,extended,080BBD97 //Jumps to new instruction
+patch=1,EE,202EF65C,extended,0C0CF670 //DebugInit
+patch=1,EE,202EF664,extended,0C0CE97E //DebugMessage
+patch=1,EE,202EF66C,extended,080BBE06 //Jump back to main loop
+patch=1,EE,D0242643,extended,020100F3 //Checks if L1+R1 is pressed
+patch=1,EE,D0389B94,extended,01100001 //Checks if mapdebug!=True
+patch=1,EE,20389B94,extended,00000001 //set map debug to true
+patch=1,EE,D0242643,extended,020100FC //Checks if L2+R2 is pressed
+patch=1,EE,D0389B94,extended,01100000 //Checks if mapdebug!=False
+patch=1,EE,20389B94,extended,00000000 //set map debug to False
+patch=1,EE,D0242643,extended,0201007B //Checks if L1+Square is pressed
+patch=1,EE,D036FD08,extended,01110090 //Checks value
+patch=1,EE,0036FD08,extended,00000090 //Changes value to make line hit false
+patch=1,EE,D0242643,extended,02010077 //Checks if L1+Square is pressed
+patch=1,EE,D036FD08,extended,01110080 //Checks value
+patch=1,EE,0036FD08,extended,00000080 //Changes value to make line hit true
+
+[Increased field run speed]
+author=Sora3100
+description=Increases field run speed while holding R1, affects NPCs as well.
+
+patch=1,EE,D0237070,extended,03010005 //Checks if game is in 2dMap
+patch=1,EE,20322144,extended,00021303 //Vanilla game code
+patch=1,EE,D0242643,extended,01410008 //Checks if R1
+patch=1,EE,20322144,extended,00021283

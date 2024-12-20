@@ -12,6 +12,7 @@ if syntaxcheck then return end
 if (string.lower(process):match("pcsx2")) then
    if not (getAddressSafe("EEmem") == nil) and not (getAddressSafe("EEmem") == 0) then
         registerSymbol("baseElfAddr",readPointer(getAddress("EEmem"))+0x10007C)
+        registerSymbol("baseEEMem", readPointer(getAddress("EEmem")))
    else
         print("Using fallback... this may take a few seconds")
         r,error=autoAssemble([[aobscan(baseElfAddr,11 00 00 00 11 00 00 70 13 00 00 00 13 00 00 70 00 00 19 04) // should be unique
@@ -19,6 +20,7 @@ registersymbol(baseElfAddr)]])
         if (r==false) then
            error(print(error .. "\nMake sure the game is running!"))
         end
+        registerSymbol("baseEEMem", getAddress("baseElfAddr")-0x10007C)
    end
 else
    error(print("Not attached to PCSX2"))
@@ -27,6 +29,7 @@ end
 {$asm}
 [DISABLE]
 unregistersymbol(baseElfAddr)
+unregistersymbol(baseEEMem)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -2052,6 +2055,16 @@ but note that it may break fights.
                   <VariableType>Float</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>21135</ID>
+                  <Description>"KO Status"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:Dead
+6:Alive
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+116</Address>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -2096,6 +2109,16 @@ but note that it may break fights.
                   <Description>"Max ???"</Description>
                   <VariableType>Float</VariableType>
                   <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21136</ID>
+                  <Description>"KO Status"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:Dead
+6:Alive
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+116</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2142,6 +2165,16 @@ but note that it may break fights.
                   <VariableType>Float</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>21137</ID>
+                  <Description>"KO Status"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:Dead
+6:Alive
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+116</Address>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -2186,6 +2219,115 @@ but note that it may break fights.
                   <Description>"Max ???"</Description>
                   <VariableType>Float</VariableType>
                   <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21138</ID>
+                  <Description>"KO Status"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:Dead
+6:Alive
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+116</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21155</ID>
+              <Description>"Current Combo Hits"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+3220D8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21156</ID>
+              <Description>"Max Combo Hits"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseElfAddr+3220E4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20983</ID>
+              <Description>"Support Skill Activation Countdown"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>+14C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20945</ID>
+              <Description>"Enemy HP"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20936</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20937</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20939</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20940</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20941</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20942</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20943</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20944</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20985</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20986</ID>
+                  <Description>"Enemy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+800*D</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -20682,6 +20824,1218 @@ Use the Inventory if you want more items.
           <Address>baseElfAddr+1C3C90</Address>
         </CheatEntry>
         <CheatEntry>
+          <ID>21154</ID>
+          <Description>"From CeruleanSky"</Description>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>21139</ID>
+              <Description>"Bird Count"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseEEMem+02FF070</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21140</ID>
+              <Description>"Neutralizer Effect Timer"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>baseEEMem+02FF00C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21141</ID>
+              <Description>"Food"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>20992</ID>
+                  <Description>"Food Strap Ownership"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">1:Own
+0:Don' Own
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseEEMem+02C3076</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>20993</ID>
+                      <Description>"Rice Balls"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>20994</ID>
+                      <Description>"Sandwich"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>20995</ID>
+                      <Description>"Hamburger"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>20996</ID>
+                      <Description>"Hotdog"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>20997</ID>
+                      <Description>"Burrito"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>20998</ID>
+                      <Description>"Kebab"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>20999</ID>
+                      <Description>"Inarizushi"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21000</ID>
+                      <Description>"Pickled Vegetables"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+7</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21001</ID>
+                      <Description>"Ochazuke"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21002</ID>
+                      <Description>"Fried Rice"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+9</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21003</ID>
+                      <Description>"Omelette Rice"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21004</ID>
+                      <Description>"Curry Rice"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+B</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21005</ID>
+                      <Description>"Omelette"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21006</ID>
+                      <Description>"Paella"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+D</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21007</ID>
+                      <Description>"Oriental Rice"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21008</ID>
+                      <Description>"Muffin"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+F</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21009</ID>
+                      <Description>"Kimichi"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21010</ID>
+                      <Description>"Meat Bun"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+11</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21011</ID>
+                      <Description>"Loco Moco"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21012</ID>
+                      <Description>"Beef Bowl"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+13</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21013</ID>
+                      <Description>"Oyakodon"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21014</ID>
+                      <Description>"Sezfood Bowl"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+15</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21015</ID>
+                      <Description>"Clam Chowder"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+16</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21016</ID>
+                      <Description>"Risotto"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+17</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21017</ID>
+                      <Description>"Beef Stroganoff"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21018</ID>
+                      <Description>"Meat Sauce"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+19</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21019</ID>
+                      <Description>"Gratin"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21020</ID>
+                      <Description>"Spaghetti Gratin"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1B</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21021</ID>
+                      <Description>"Hamburger Steak"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21022</ID>
+                      <Description>"Steak"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1D</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21023</ID>
+                      <Description>"Okonomiyaki"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21024</ID>
+                      <Description>"Sukiyaki"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1F</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21025</ID>
+                      <Description>"Sashimi"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21026</ID>
+                      <Description>"Suhi Boat"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+21</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21027</ID>
+                      <Description>"Fruit Parfait"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+22</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21028</ID>
+                      <Description>"Fruit Cheese"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+23</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21029</ID>
+                      <Description>"Fruit Tofu"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+24</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21030</ID>
+                      <Description>"Hot Pot"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+25</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21031</ID>
+                      <Description>"Fish Hot Pot"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+26</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21032</ID>
+                      <Description>"Sunfhish Skewers"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+27</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21033</ID>
+                      <Description>"Miso Oden"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+28</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21034</ID>
+                      <Description>"Mabo Curry"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+29</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21035</ID>
+                      <Description>"Crunchy Riceball"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21036</ID>
+                      <Description>"Dry Sandwich"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2B</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21037</ID>
+                      <Description>"Squashed Burger"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21038</ID>
+                      <Description>"Burned Dog"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2D</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21039</ID>
+                      <Description>"Soggy Burrito"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21040</ID>
+                      <Description>"Half-baked Kebab"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2F</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21041</ID>
+                      <Description>"Dark Bowl"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21042</ID>
+                      <Description>"Dark Pot"</Description>
+                      <DropDownListLink>Food Strap Ownership</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+31</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21078</ID>
+                  <Description>"Food Usage"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>baseEEMem+02C3DF0</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>21079</ID>
+                      <Description>"Rice Balls"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21080</ID>
+                      <Description>"Sandwich"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21081</ID>
+                      <Description>"Hamburger"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21082</ID>
+                      <Description>"Hotdog"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21083</ID>
+                      <Description>"Burrito"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21084</ID>
+                      <Description>"Kebab"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21085</ID>
+                      <Description>"Inarizushi"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21086</ID>
+                      <Description>"Pickled Vegetables"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21087</ID>
+                      <Description>"Ochazuke"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21088</ID>
+                      <Description>"Fried Rice"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21089</ID>
+                      <Description>"Omelette Rice"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21090</ID>
+                      <Description>"Curry Rice"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+16</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21091</ID>
+                      <Description>"Omelette"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21092</ID>
+                      <Description>"Paella"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+1A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21093</ID>
+                      <Description>"Oriental Rice"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21094</ID>
+                      <Description>"Muffin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+1E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21095</ID>
+                      <Description>"Kimichi"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+20</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21096</ID>
+                      <Description>"Meat Bun"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+22</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21097</ID>
+                      <Description>"Loco Moco"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+24</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21098</ID>
+                      <Description>"Beef Bowl"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+26</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21099</ID>
+                      <Description>"Oyakodon"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+28</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21100</ID>
+                      <Description>"Sezfood Bowl"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21101</ID>
+                      <Description>"Clam Chowder"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21102</ID>
+                      <Description>"Risotto"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+2E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21103</ID>
+                      <Description>"Beef Stroganoff"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21104</ID>
+                      <Description>"Meat Sauce"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+32</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21105</ID>
+                      <Description>"Gratin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21106</ID>
+                      <Description>"Spaghetti Gratin"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+36</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21107</ID>
+                      <Description>"Hamburger Steak"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+38</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21108</ID>
+                      <Description>"Steak"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+3A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21109</ID>
+                      <Description>"Okonomiyaki"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+3C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21110</ID>
+                      <Description>"Sukiyaki"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+3E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21111</ID>
+                      <Description>"Sashimi"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+40</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21112</ID>
+                      <Description>"Suhi Boat"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+42</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21113</ID>
+                      <Description>"Fruit Parfait"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+44</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21114</ID>
+                      <Description>"Fruit Cheese"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+46</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21115</ID>
+                      <Description>"Fruit Tofu"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+48</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21116</ID>
+                      <Description>"Hot Pot"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21117</ID>
+                      <Description>"Fish Hot Pot"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21118</ID>
+                      <Description>"Sunfhish Skewers"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+4E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21119</ID>
+                      <Description>"Miso Oden"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+50</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21120</ID>
+                      <Description>"Mabo Curry"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+52</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21121</ID>
+                      <Description>"Crunchy Riceball"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+54</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21122</ID>
+                      <Description>"Dry Sandwich"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+56</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21123</ID>
+                      <Description>"Squashed Burger"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+58</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21124</ID>
+                      <Description>"Burned Dog"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+5A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21125</ID>
+                      <Description>"Soggy Burrito"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+5C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21126</ID>
+                      <Description>"Half-baked Kebab"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+5E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21127</ID>
+                      <Description>"Dark Bowl"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+60</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21128</ID>
+                      <Description>"Dark Pot"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+62</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21044</ID>
+                  <Description>"Food Strap Slot"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">1:Rice Balls
+2:Sandwich
+3:Hamburger
+4:Hotdog
+5:Burrito
+6:Kebab
+7:Inarizushi
+8:Pickled Vegetables
+9:Ochazuke
+10:Fried Rice
+11:Omelette Rice
+12:Curry Rice
+13:Omelette
+14:Paella
+15:Oriental Rice
+16:Muffin
+17:Kimichi
+18:Meat Bun
+19:Loco Moco
+20:Beef Bowl
+21:Oyakodon
+22:Sezfood Bowl
+23:Clam Chowder
+24:Risotto
+25:Beef Stroganoff
+26:Meat Sauce
+27:Gratin
+28:Spaghetti Gratin
+29:Hamburger Steak
+30:Steak
+31:Okonomiyaki
+32:Sukiyaki
+33:Sashimi
+34:Suhi Boat
+35:Fruit Parfait
+36:Fruit Cheese
+37:Fruit Tofu
+38:Hot Pot
+39:Fish Hot Pot
+40:Sunfhish Skewers
+41:Miso Oden
+42:Mabo Curry
+43:Crunchy Riceball
+44:Dry Sandwich
+45:Squashed Burger
+46:Burned Dog
+47:Soggy Burrito
+48:Half-baked Kebab
+49:Dark Bowl
+50:Dark Pot
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseEEMem+02C3E62</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>21045</ID>
+                      <Description>"1"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21046</ID>
+                      <Description>"2"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21047</ID>
+                      <Description>"3"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21048</ID>
+                      <Description>"4"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21049</ID>
+                      <Description>"5"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21050</ID>
+                      <Description>"6"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21051</ID>
+                      <Description>"7"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21052</ID>
+                      <Description>"8"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21053</ID>
+                      <Description>"9"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21054</ID>
+                      <Description>"10"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21055</ID>
+                      <Description>"11"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21056</ID>
+                      <Description>"12"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+16</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21057</ID>
+                      <Description>"13"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21058</ID>
+                      <Description>"14"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21059</ID>
+                      <Description>"15"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21060</ID>
+                      <Description>"16"</Description>
+                      <DropDownListLink>Food Strap Slot</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1E</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21061</ID>
+                  <Description>"Food Strap Slot Enabled"</Description>
+                  <Options moHideChildren="1"/>
+                  <DropDownList DisplayValueAsItem="1">0:Disable
+5:Enable
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>baseEEMem+02C3E63</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>21062</ID>
+                      <Description>"1"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21063</ID>
+                      <Description>"2"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21064</ID>
+                      <Description>"3"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21065</ID>
+                      <Description>"4"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21066</ID>
+                      <Description>"5"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21067</ID>
+                      <Description>"6"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21068</ID>
+                      <Description>"7"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21069</ID>
+                      <Description>"8"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21070</ID>
+                      <Description>"9"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21071</ID>
+                      <Description>"10"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+12</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21072</ID>
+                      <Description>"11"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21073</ID>
+                      <Description>"12"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+16</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21074</ID>
+                      <Description>"13"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21075</ID>
+                      <Description>"14"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21076</ID>
+                      <Description>"15"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>21077</ID>
+                      <Description>"16"</Description>
+                      <DropDownListLink>Food Strap Slot Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+1E</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21143</ID>
+              <Description>"Ex Dungeon Party Choices Remaining"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>baseEEMem+02FF02C</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>21144</ID>
+                  <Description>"Stahn"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21145</ID>
+                  <Description>"Rutee"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21146</ID>
+                  <Description>"Philia"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21147</ID>
+                  <Description>"Woodrow"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21148</ID>
+                  <Description>"Leon"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21149</ID>
+                  <Description>"Mary"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21150</ID>
+                  <Description>"Chelsea"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21151</ID>
+                  <Description>"Johnny"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21152</ID>
+                  <Description>"Kongman"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21153</ID>
+                  <Description>"Lilith"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>4130</ID>
           <Description>"Other"</Description>
           <Options moHideChildren="1"/>
@@ -22542,7 +23896,7 @@ Use the Inventory if you want more items.
               <Description>"Base EE memory"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
-              <Address>baseElfAddr-10007C</Address>
+              <Address>baseEEMem</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>20434</ID>
