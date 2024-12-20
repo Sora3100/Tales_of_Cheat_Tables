@@ -3549,6 +3549,703 @@ Tales of Berseria.exe+155A8F5: E8 E6 FA FF FF                    - call "Tales o
 }
 </AssemblerScript>
         </CheatEntry>
+        <CheatEntry>
+          <ID>12959</ID>
+          <Description>"EGP editor"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(BATTLEEVENTENCOUNTGROUPDATABASE,1000000000000000b100000000000000) // should be unique
+alloc(BATTLEEVENTENCOUNTGROUPDATABASE_EDIT,8)
+
+registersymbol(BATTLEEVENTENCOUNTGROUPDATABASE)
+registersymbol(BATTLEEVENTENCOUNTGROUPDATABASE_EDIT)
+
+[DISABLE]
+
+unregistersymbol(BATTLEEVENTENCOUNTGROUPDATABASE)
+unregistersymbol(BATTLEEVENTENCOUNTGROUPDATABASE_EDIT)
+dealloc(BATTLEEVENTENCOUNTGROUPDATABASE_EDIT)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12960</ID>
+              <Description>"Edit"</Description>
+              <DropDownList DisplayValueAsItem="1">77:Artorious/Innominat
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>BATTLEEVENTENCOUNTGROUPDATABASE_EDIT</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13013</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12962</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12963</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12964</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12965</ID>
+                  <Description>"ID?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12966</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12967</ID>
+                  <Description>"EGP offset"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+18</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>12979</ID>
+                      <Description>"EGP"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+18</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12969</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12970</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12971</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12972</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12973</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12974</ID>
+                  <Description>"flags"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12975</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12976</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12977</ID>
+                  <Description>"Enemies offset"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+40</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>12980</ID>
+                      <Description>"Enemy"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+40</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12982</ID>
+                  <Description>"enemy count"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12983</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12984</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12985</ID>
+                  <Description>"Map size"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12986</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12987</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12988</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12989</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12990</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12992</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12993</ID>
+                  <Description>"Event offset?"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+70</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>12991</ID>
+                      <Description>"Event?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+70</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12995</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12996</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12997</ID>
+                  <Description>"? offset"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+80</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>13003</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+80</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12999</ID>
+                  <Description>"Area name offset?"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+88</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>13002</ID>
+                      <Description>"Area name?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>BATTLEEVENTENCOUNTGROUPDATABASE+90*[BATTLEEVENTENCOUNTGROUPDATABASE_EDIT]+88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13018</ID>
+          <Description>"BATTLEMAPENCOUNTINFODATA editor"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(BATTLEMAPENCOUNTINFODATA,10000000000000009d01000000000000) // should be unique
+alloc(BATTLEMAPENCOUNTINFODATA_EDIT,8)
+
+registersymbol(BATTLEMAPENCOUNTINFODATA)
+registersymbol(BATTLEMAPENCOUNTINFODATA_EDIT)
+
+[DISABLE]
+
+unregistersymbol(BATTLEMAPENCOUNTINFODATA)
+unregistersymbol(BATTLEMAPENCOUNTINFODATA_EDIT)
+dealloc(BATTLEMAPENCOUNTINFODATA_EDIT)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13019</ID>
+              <Description>"Edit"</Description>
+              <DropDownList DisplayValueAsItem="1">77:Artorious/Innominat
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>BATTLEMAPENCOUNTINFODATA_EDIT</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13036</ID>
+                  <Description>"Map offset"</Description>
+                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+4</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>13042</ID>
+                      <Description>"Map"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>String</VariableType>
+                      <Length>60</Length>
+                      <Unicode>0</Unicode>
+                      <CodePage>0</CodePage>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+4</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13032</ID>
+                  <Description>"Enemy count to populate?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13031</ID>
+                  <Description>"Area width to populate?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13030</ID>
+                  <Description>"Area size to populate?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13029</ID>
+                  <Description>"Arena size"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13028</ID>
+                  <Description>"800"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13027</ID>
+                  <Description>"3000"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13026</ID>
+                  <Description>"1000"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13025</ID>
+                  <Description>"Extra enemies to spawn in"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13024</ID>
+                  <Description>"Spawn type"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13023</ID>
+                  <Description>"0"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13038</ID>
+                  <Description>"Spawn y?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13041</ID>
+                  <Description>"Spawn z?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13040</ID>
+                  <Description>"-2005"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13039</ID>
+                  <Description>"564"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13022</ID>
+                  <Description>"0"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13035</ID>
+                  <Description>"4106"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13034</ID>
+                  <Description>"0"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>BATTLEMAPENCOUNTINFODATA+C+48*[BATTLEMAPENCOUNTINFODATA_EDIT]+48</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13016</ID>
+          <Description>"Expand battle arena size"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2024-12-12
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(btl_arena_size,Tales of Berseria.exe,48 8B 4D B0 48 31 E1 E8 ? ? ? ? 4C 8D 9C 24 80 00 00 00) // should be unique
+alloc(newmem,$1000,btl_arena_size)
+
+label(code)
+label(return)
+
+newmem:
+  mov [rsi+540],(float)90000
+code:
+  mov rcx,[rbp-50]
+  xor rcx,rsp
+  jmp return
+
+btl_arena_size:
+  jmp newmem
+  nop 2
+return:
+registersymbol(btl_arena_size)
+
+[DISABLE]
+
+btl_arena_size:
+  db 48 8B 4D B0 48 31 E1
+
+unregistersymbol(btl_arena_size)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1412D336D
+
+1412D3341: 48 8B 12                 - mov rdx,[rdx]
+1412D3344: 48 8D 4D A0              - lea rcx,[rbp-60]
+1412D3348: E8 A3 76 16 00           - call 14143A9F0
+1412D334D: 48 8B 45 A0              - mov rax,[rbp-60]
+1412D3351: 48 3B 05 90 6F D3 FF     - cmp rax,[14100A2E8]
+1412D3358: 74 13                    - je 1412D336D
+1412D335A: 48 8B 08                 - mov rcx,[rax]
+1412D335D: 66 0F 6E 41 14           - movd xmm0,[rcx+14]
+1412D3362: 0F 5B C0                 - cvtdq2ps xmm0,xmm0
+1412D3365: F3 0F 11 86 40 05 00 00  - movss [rsi+00000540],xmm0
+// ---------- INJECTING HERE ----------
+1412D336D: 48 8B 4D B0              - mov rcx,[rbp-50]
+// ---------- DONE INJECTING  ----------
+1412D3371: 48 31 E1                 - xor rcx,rsp
+1412D3374: E8 57 0A 84 00           - call 141B13DD0
+1412D3379: 4C 8D 9C 24 80 00 00 00  - lea r11,[rsp+00000080]
+1412D3381: 49 8B 5B 20              - mov rbx,[r11+20]
+1412D3385: 49 8B 73 28              - mov rsi,[r11+28]
+1412D3389: 0F 28 74 24 70           - movaps xmm6,[rsp+70]
+1412D338E: 0F 28 7C 24 60           - movaps xmm7,[rsp+60]
+1412D3393: 45 0F 28 4B C0           - movaps xmm9,[r11-40]
+1412D3398: 4C 89 DC                 - mov rsp,r11
+1412D339B: 5D                       - pop rbp
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13017</ID>
+          <Description>"Disable battle y pos reset"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2024-12-12
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(btl_y_pos_reset,Tales of Berseria.exe,F3 0F 10 40 04 F3 0F 5C 45) // should be unique
+
+btl_y_pos_reset+E:
+  db EB
+
+registersymbol(btl_y_pos_reset)
+
+[DISABLE]
+
+btl_y_pos_reset+E:
+  db 76
+
+unregistersymbol(btl_y_pos_reset)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 141368C4B
+
+141368C1C: 8B 81 F8 00 00 00              - mov eax,[rcx+000000F8]
+141368C22: E9 91 FE FF FF                 - jmp 141368AB8
+141368C27: 8E 8B 43 08 39 01              - mov cs,[rbx+01390843]
+141368C2D: 0F 85 35 FF FF FF              - jne 141368B68
+141368C33: 48 8B 73 10                    - mov rsi,[rbx+10]
+141368C37: E9 2F FF FF FF                 - jmp 141368B6B
+141368C3C: 1A 69 48                       - sbb ch,byte ptr [rcx+48]
+141368C3F: 8D 46 5C                       - lea eax,[rsi+5C]
+141368C42: 80 BE 79 07 00 00 00           - cmp byte ptr [rsi+00000779],00
+141368C49: 74 3F                          - je 141368C8A
+// ---------- INJECTING HERE ----------
+141368C4B: F3 0F 10 40 04                 - movss xmm0,[rax+04]
+// ---------- DONE INJECTING  ----------
+141368C50: F3 0F 5C 45 04                 - subss xmm0,[rbp+04]
+141368C55: 44 0F 2F D0                    - comiss xmm10,xmm0
+141368C59: 76 2F                          - jna 141368C8A
+141368C5B: 48 8B 15 B6 DF C9 FF           - mov rdx,[141006C18]
+141368C62: 48 8B 4E 40                    - mov rcx,[rsi+40]
+141368C66: 48 81 C2 1C 05 00 00           - add rdx,0000051C
+141368C6D: E8 7E B9 0B 00                 - call 1414245F0
+141368C72: 48 8B 46 40                    - mov rax,[rsi+40]
+141368C76: C7 80 F4 02 00 00 01 00 00 00  - mov [rax+000002F4],00000001
+141368C80: C7 80 F8 02 00 00 00 00 00 3F  - mov [rax+000002F8],3F000000
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13043</ID>
+          <Description>"Don't move multiplayer fights to different areas"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2024-12-12
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(btl_multiplayer_move_area,Tales of Berseria.exe,74 46 48 8B 08 44) // should be unique
+
+btl_multiplayer_move_area:
+  db EB
+
+registersymbol(btl_multiplayer_move_area)
+
+[DISABLE]
+
+btl_multiplayer_move_area:
+  db 74 46 48 8B 08
+
+unregistersymbol(btl_multiplayer_move_area)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1412EEB9E
+
+1412EEB76: 31 C0                 - xor eax,eax
+1412EEB78: 48 83 C2 30           - add rdx,30
+1412EEB7C: 48 89 45 D7           - mov [rbp-29],rax
+1412EEB80: 48 83 7A 18 10        - cmp qword ptr [rdx+18],10
+1412EEB85: 72 03                 - jb 1412EEB8A
+1412EEB87: 48 8B 12              - mov rdx,[rdx]
+1412EEB8A: 48 8D 4D D7           - lea rcx,[rbp-29]
+1412EEB8E: E8 5D BE 14 00        - call 14143A9F0
+1412EEB93: 48 8B 45 D7           - mov rax,[rbp-29]
+1412EEB97: 48 3B 05 4A B7 D1 FF  - cmp rax,[14100A2E8]
+// ---------- INJECTING HERE ----------
+1412EEB9E: 74 46                 - je 1412EEBE6
+// ---------- DONE INJECTING  ----------
+1412EEBA0: 48 8B 08              - mov rcx,[rax]
+1412EEBA3: 44 38 61 28           - cmp [rcx+28],r12b
+1412EEBA7: 74 3D                 - je 1412EEBE6
+1412EEBA9: F3 0F 10 41 34        - movss xmm0,[rcx+34]
+1412EEBAE: F3 0F 10 49 30        - movss xmm1,[rcx+30]
+1412EEBB3: 30 DB                 - xor bl,bl
+1412EEBB5: F3 0F 11 45 DF        - movss [rbp-21],xmm0
+1412EEBBA: F3 0F 10 41 2C        - movss xmm0,[rcx+2C]
+1412EEBBF: 8B 7D DF              - mov edi,[rbp-21]
+1412EEBC2: 0F 14 C1              - unpcklps xmm0,xmm1
+}
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
