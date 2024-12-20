@@ -252,10 +252,14 @@ Features:
  - Walk through walls
  - Rheiards usable any time
 
- ## Symphonia - Dawn of the New World (PS3)
+ ## Symphonia - Dawn of the New World (PS3, Wii)
 Based on the BLUS31172 version of the game.
 
-Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
+Emulators used:
+
+PS3: rpcs3 0.0.12-10883-92d65ff3 Alpha
+
+Wii: Dolphin 2409 (rev 3c4d4fcd09173ea070dc812ab5d64ca3a3af5f29)
 
 Features: 
  - Party Formation Editor
@@ -288,6 +292,7 @@ Features:
  - Arte Properties Editor
  - Enemy Data Editor
  - Arte Canceller
+ - Arte Sphere Plus (4 arte sets instead of the vanilla 2)
  
  This table has some notes regarding changing encounters that I never figured out.
  
@@ -314,7 +319,8 @@ Features:
  - Turn on/off Grade Shop options at any time
  - Change field movement speed
  - Inventory Editor
- - Change Arte Usage
+ - Modify Arte Usage
+ - The ability to play as bosses, or more of the same character (narikiri)
 
  ## Xillia 2 (PS3)
 Based on the BLUS31397 version of the game.
@@ -349,14 +355,14 @@ Features:
  - Change Chronos (Canaan) Encounter
  - Change Rideaux & Ivar Encounter
  - Change Elite Tag and Party Encounter
- - Change Arte Usage by Cultevel81
+ - Modify Arte Usage
  - Turn on/off Grade Shop options at any time
  - Arte Editor
  - Enable or Disable any arte/spell
  - Enable or Disable any skill
  - Change field movement speed
  - Inventory Editor
- - The ability to play as bosses
+ - The ability to play as bosses, or more of the same character (narikiri)
 
  ## Zestiria (PC)
 Based on the 2015/12/04 (1.4) update.
@@ -368,6 +374,13 @@ Features:
  - Show all entries in Enemy Book
  
  # Patches
+ 
+ ## Rebirth (PS2)
+Available for:
+ - SLPS25450
+ 
+Features:
+ - Increased field run speed
  
  ## Graces f (PS3)
 Available for:
