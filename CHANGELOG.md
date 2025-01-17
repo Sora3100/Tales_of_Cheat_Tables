@@ -1,5 +1,17 @@
 ### Changelog
 
+#### 2025/01/17
+
+-	Added Graces F (PC) table and retired PS3 version
+-	Added Eternia PSP table
+-	Added Narikiri Dungeon X patches:
+	-	Walk through walls
+	-	(A mostly useless) Debug menu
+	-	An unfinished 60 fps mod
+-	Added Rebirth patches:
+	-	Hitstop disabled in solo
+	-	Hitstop enabled in multiplayer
+
 #### 2024/12/20
 
 -	Fixed Xillia 1 and Xillia 2 tables not working properly for other regions

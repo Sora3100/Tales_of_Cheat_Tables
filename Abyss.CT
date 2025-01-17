@@ -10995,6 +10995,19 @@ A1 A3 02 80:Short
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>92050</ID>
+                  <Description>"dropdown: Elements"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:Earth
+2:Water
+3:Fire
+4:Wind
+5:Light
+6:Dark
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -11070,6 +11083,2470 @@ A1 A3 02 80:Short
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>2 Bytes</VariableType>
               <Address>baseElfAddr+11C750</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>68461</ID>
+              <Description>"Arte properties editor"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(arteProps, baseElfAddr, baseElfAddr+2000000, 323030362f30382f33312031303a32313a3231)
+globalalloc(artePropEdit,8)
+
+registersymbol(arteProps)
+[DISABLE]
+dealloc(artePropEdit)
+unregistersymbol(arteProps)
+unregistersymbol(artePropEdit)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>68462</ID>
+                  <Description>"Edit"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>artePropEdit</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>92020</ID>
+                      <Description>"Pointer to name"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92021</ID>
+                      <Description>"Level learned at"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92022</ID>
+                      <Description>"Condition? unsure"</Description>
+                      <DropDownList DisplayValueAsItem="1">0:Arte usage + level?
+1:Level?
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+5</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92023</ID>
+                      <Description>"ID"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+6</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92024</ID>
+                      <Description>"Arte 1 required to use to learn"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92053</ID>
+                      <Description>"Arte 1 usage required"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+A</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92025</ID>
+                      <Description>"Arte 2 required to use to learn"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92054</ID>
+                      <Description>"Arte 2 usage required"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92026</ID>
+                      <Description>"TP cost"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92027</ID>
+                      <Description>"?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+11</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92028</ID>
+                      <Description>"Element"</Description>
+                      <DropDownListLink>dropdown: Elements</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+12</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92029</ID>
+                      <Description>"Element to FOF"</Description>
+                      <DropDownListLink>dropdown: Elements</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+13</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92030</ID>
+                      <Description>"Arte effect"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+14</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92031</ID>
+                      <Description>"FOF arte"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92032</ID>
+                      <Description>"Type (FOF)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92033</ID>
+                      <Description>"Type (?)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>1</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92034</ID>
+                      <Description>"Type (Arte)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>2</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92035</ID>
+                      <Description>"Type (Doll Arte)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>3</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92036</ID>
+                      <Description>"Type (Arcane)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92037</ID>
+                      <Description>"Type (Mystic Arte)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>5</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92038</ID>
+                      <Description>"Type (?)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92039</ID>
+                      <Description>"Type (Spell)"</Description>
+                      <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>7</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>arteProps+20+3C*[artePropEdit]+1C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92271</ID>
+                      <Description>"Potentially flags"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>92055</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92056</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92057</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92058</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92059</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92060</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92061</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92062</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92063</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92064</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92065</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92066</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92067</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92068</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92069</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92070</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92071</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92072</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92073</ID>
+                          <Description>"Light/Dark FOF allowed?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92074</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92075</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92076</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92077</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92078</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+1F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92079</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92080</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92081</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92082</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92083</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92084</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92085</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92086</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+20</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92087</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92088</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92089</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92090</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92091</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92092</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92093</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92094</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+21</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92095</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92096</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92097</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92098</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92099</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92100</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92101</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92102</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+22</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92103</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92104</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92105</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92106</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92107</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92108</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92109</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92110</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+23</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92111</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92112</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92113</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92114</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92115</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92116</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92117</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92118</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+24</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92119</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92120</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92121</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92122</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92123</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92124</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92125</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92126</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+25</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92127</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92128</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92129</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92130</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92131</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92132</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92133</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92134</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+26</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92135</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92136</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92137</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92138</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92139</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92140</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92141</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92142</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+27</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92143</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92144</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92145</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92146</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92147</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92148</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92149</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92150</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92151</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92152</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92153</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92154</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92155</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92156</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92157</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92158</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+29</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92159</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92160</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92161</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92162</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92163</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92164</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92165</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92166</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92167</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92168</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92169</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92170</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92171</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92172</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92173</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92174</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2b</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92175</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92176</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92177</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92178</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92179</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92180</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92181</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92182</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92183</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92184</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92185</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92186</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92187</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92188</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92189</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92190</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2d</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92191</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92192</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92193</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92194</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92195</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92196</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92197</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92198</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2e</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92199</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92200</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92201</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92202</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92203</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92204</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92205</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92206</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+2f</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92207</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92208</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92209</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92210</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92211</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92212</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92213</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92214</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92215</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92216</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92217</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92218</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92219</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92220</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92221</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92222</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+31</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92223</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92224</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92225</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92226</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92227</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92228</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92229</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92230</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92231</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92232</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92233</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92234</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92235</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92236</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92237</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92238</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+33</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92239</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92240</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92241</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92242</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92243</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92244</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92245</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92246</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92247</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92248</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92249</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92250</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92251</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92252</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92253</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92254</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+35</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92255</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92256</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92257</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92258</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92259</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92260</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92261</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92262</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92263</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92264</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>1</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92265</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>2</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92266</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>3</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92267</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92268</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>5</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92269</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>6</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>92270</ID>
+                          <Description>"?"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>7</BitStart>
+                          <BitLength>1</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>arteProps+20+3C*[artePropEdit]+37</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92049</ID>
+                      <Description>"Pointer to description"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>arteProps+20+3C*[artePropEdit]+38</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
