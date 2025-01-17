@@ -7,3 +7,12 @@ patch=1,EE,D0237070,extended,03010005 //Checks if game is in 2dMap
 patch=1,EE,20322144,extended,00021303 //Vanilla game code
 patch=1,EE,D0242643,extended,01410008 //Checks if R1
 patch=1,EE,20322144,extended,00021283
+
+[Hitstop disabled in solo]
+author=Sora3100
+patch=1,EE,20145540,extended,20020000
+
+[Hitstop enabled in multiplayer]
+author=Sora3100
+patch=1,EE,20145540,extended,10000001
+patch=1,EE,20145544,extended,00000000
