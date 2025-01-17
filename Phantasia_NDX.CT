@@ -13908,6 +13908,443 @@ end
 
 </AssemblerScript>
             </CheatEntry>
+            <CheatEntry>
+              <ID>85036</ID>
+              <Description>"Debug menu"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>DataStart+2233C2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>85037</ID>
+              <Description>"60 fps debugging"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>85038</ID>
+                  <Description>"EMU BASE"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>DataStart-8804000</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>85128</ID>
+                      <Description>"story flags?"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0x08B07E44</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85129</ID>
+                      <Description>"timeline?"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0x08B07E4C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85130</ID>
+                      <Description>"1bit flag"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0x08B07D18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85131</ID>
+                      <Description>"game clear flag?"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0x08B07B8C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85119</ID>
+                      <Description>"SHADOW"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+08A1272C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85040</ID>
+                      <Description>"btl load"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+8846044</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85044</ID>
+                      <Description>"free mem"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+08B4B000</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85051</ID>
+                      <Description>"fps var"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+08af23dc</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85113</ID>
+                      <Description>"fps var BASE"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+08af23dc-4ac</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85039</ID>
+                      <Description>"char speed"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8FABE98</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85047</ID>
+                      <Description>"test"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0885A810</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85049</ID>
+                      <Description>"test2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+08859AF0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85091</ID>
+                      <Description>"8b2a610"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8b2a610</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85080</ID>
+                      <Description>"ENEMYBASE"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+8FB3110</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>85082</ID>
+                          <Description>"+43"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+43</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85112</ID>
+                          <Description>"+108 speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+108</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85085</ID>
+                          <Description>"+268 X coord 3.364706039"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+268</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85106</ID>
+                          <Description>"+26C Y coord 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+26C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85108</ID>
+                          <Description>"+270 Z coord"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+270</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85092</ID>
+                          <Description>"+3e8 vertical"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3E8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85089</ID>
+                          <Description>"+3ec horizontal? res? mult"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3ec</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85090</ID>
+                          <Description>"+3f0 halv"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3f0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85093</ID>
+                          <Description>"+3f4"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3F4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85081</ID>
+                          <Description>"+470 X velocity"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+470</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85116</ID>
+                          <Description>"+474 X ???"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+474</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85094</ID>
+                          <Description>"+478 X accel?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+478</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85117</ID>
+                          <Description>"+47C Y velocity?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+47c</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85083</ID>
+                          <Description>"+664"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+664</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85114</ID>
+                          <Description>"+670 HP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+670</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85088</ID>
+                          <Description>"+778"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+778</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85118</ID>
+                          <Description>"+77c"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+77C</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85095</ID>
+                      <Description>"CRESSBASE"</Description>
+                      <Options moManualExpandCollapse="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+8FAE410</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>85096</ID>
+                          <Description>"+108 speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+108</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85109</ID>
+                          <Description>"+268 X coord 7"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+268</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85110</ID>
+                          <Description>"+26C Y coord 0.40"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+26C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85111</ID>
+                          <Description>"+270 Z coord"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+270</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85098</ID>
+                          <Description>"+3e8 vertical"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3E8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85099</ID>
+                          <Description>"+3ec horizontal? res? mult"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3ec</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85100</ID>
+                          <Description>"+3f0 halv"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3f0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85101</ID>
+                          <Description>"+3f4"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+3F4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85102</ID>
+                          <Description>"+470 velocity"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+470</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85103</ID>
+                          <Description>"+478"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+478</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85104</ID>
+                          <Description>"+664"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+664</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85115</ID>
+                          <Description>"+670 HP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+670</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85105</ID>
+                          <Description>"+778"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+778</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85064</ID>
+                      <Description>"No description"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8FAE800</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85061</ID>
+                      <Description>"No description"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8FAE804</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85062</ID>
+                      <Description>"No description"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8FAE808</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85071</ID>
+                      <Description>"instr"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+8846418</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85084</ID>
+                      <Description>"TEST"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+08b2a610</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>85041</ID>
+                  <Description>"CWCHEAT BASE"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>DataStart-4000</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>85043</ID>
+                      <Description>"btl load"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+46044</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85046</ID>
+                      <Description>"free mem"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+34B000</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85048</ID>
+                      <Description>"test"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+5A810</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85050</ID>
+                      <Description>"test2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+59AF0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85058</ID>
+                      <Description>"No description"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+34B328</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85072</ID>
+                      <Description>"instr"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+46418</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>

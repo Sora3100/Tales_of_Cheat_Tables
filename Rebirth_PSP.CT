@@ -4498,6 +4498,79 @@ unregistersymbol(gemNum)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>91601</ID>
+          <Description>"Time till encounter"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>baseElfAddr+2415BE</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91600</ID>
+          <Description>"Mystic Arte counter"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>baseElfAddr+240C40+AC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91590</ID>
+          <Description>"Number of Battles"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>baseElfAddr+23E8C0-E2E+132</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>91591</ID>
+              <Description>"Veigue"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91592</ID>
+              <Description>"Mao"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+198</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91593</ID>
+              <Description>"Eugene"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+198*2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91594</ID>
+              <Description>"Annie"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+198*3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91595</ID>
+              <Description>"Tytree"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+198*4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91596</ID>
+              <Description>"Hilda"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+198*5</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91589</ID>
+          <Description>"Finality Break Value"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>baseElfAddr+240C40+AC-68</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>1916</ID>
           <Description>" --- Everything below is from SymphoniaLauren --- "</Description>
           <GroupHeader>1</GroupHeader>

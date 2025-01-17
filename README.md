@@ -97,10 +97,15 @@ Features:
  - Arte Usage Editor
  - Equipment Editor
 
- ## Eternia (PS1)
-Based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
- 
-Emulator used: DuckStation 0.1-5485-gc6a57273 (dev)
+ ## Eternia (PS1, PSP)
+For the PS1, the table is based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
+For the PSP, the table is based on the ULES00176 version of the game.
+
+Emulators used: 
+
+PS1: DuckStation 0.1-5485-gc6a57273 (dev)
+
+PSP: PPSSPP v1.11.2-366-g4d02d64fd
 
 Features:
  - Party Formation Editor
@@ -114,20 +119,18 @@ Features:
  - Disable encounters
  - Change Arte Usage
 
- ## Graces F (PS3)
-Based on the BLUS30903 version of the game.
-
-Emulator used: rpcs3 0.0.12-10883-92d65ff3 Alpha
+ ## Graces F (PC)
+Based on the initial release (buildID 16329669) version of the game.
 
 Features: 
  - Party Formation Editor
  - Stats Editor
- - In-Battle Stats Editor
  - Change field movement speed
  - Change difficulty values
- - Change battle BGM
  - Arte List Editor
  - Grade Shop options
+ - Arte usage multiplier
+ - Shard/Weapon/Armor/Gem editor
 
  ## Hearts (NDS)
 Based on the NTR-CTUJ-JPN version of the game.
@@ -376,11 +379,12 @@ Features:
  # Patches
  
  ## Rebirth (PS2)
-Available for:
- - SLPS25450
+Available for SLPS25450.
  
 Features:
  - Increased field run speed
+ - Hitstop disabled in solo
+ - Hitstop enabled in multiplayer
  
  ## Graces f (PS3)
 Available for:
@@ -448,3 +452,11 @@ Available for ULJS00209.
 
 Features:
  - Freeze battle timer
+
+ ## Narikiri Dungeon X (PSP)
+Available for ULJS00293.
+
+Features:
+ - Walk through walls
+ - Debug menu
+ - An unfinished 60 fps mod
