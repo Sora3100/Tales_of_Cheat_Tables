@@ -11,7 +11,7 @@
 	-	No hitstop
 	-	Disable Asbel's Sword Draw and Sheathe mechanic
 	-	Manual control of Asbel's B arte alterations
-        - Hold **SPACE**/**[]**/**X** (Guard) to use the altered versions.<br/>
+        - Hold **SPACE**/**[]**/**X** (Guard) to use the altered versions.
 	-	Enemies don't attack
 	-	Arte Sphere
         - **CAUTION!** If you have used Narikiri Dolls prior to the Arte Sphere script, you will need to change costume once after enabling the script!
