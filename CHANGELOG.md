@@ -1,5 +1,23 @@
 ### Changelog
 
+#### 2025/03/07
+
+-	Improved Graces F enable script to work more reliably
+-	Fixed Arte List in Graces F table
+-	Improved shard and gem hover in Shard/Weapon/Armor/Gem editor
+-	Added the following features to Graces F:
+	-	Save Anywhere
+	-	Disable double-tap dodging
+	-	No hitstop
+	-	Disable Asbel's Sword Draw and Sheathe mechanic
+	-	Manual control of Asbel's B arte alterations
+        - Hold **SPACE**/**[]**/**X** (Guard) to use the altered versions.<br/>
+	-	Enemies don't attack
+	-	Arte Sphere
+        - **CAUTION!** If you have used Narikiri Dolls prior to the Arte Sphere script, you will need to change costume once after enabling the script!
+        - You can use **SHIFT**/**L2**/**LT** (Free Run) to swap pages, and to use them in battle.
+	-	Show all entries in Enemy Book
+
 #### 2025/01/17
 
 -	Added Graces F (PC) table and retired PS3 version
