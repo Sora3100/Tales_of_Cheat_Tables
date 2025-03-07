@@ -120,7 +120,7 @@ Features:
  - Change Arte Usage
 
  ## Graces F (PC)
-Based on the initial release (buildID 16329669) version of the game.
+Based on the 1.0.1 (buildID 17223464/17276117) version of the game.
 
 Features: 
  - Party Formation Editor
@@ -131,6 +131,16 @@ Features:
  - Grade Shop options
  - Arte usage multiplier
  - Shard/Weapon/Armor/Gem editor
+  - Save Anywhere
+  - Disable double-tap dodging
+  - No hitstop
+  - Disable Asbel's Sword Draw and Sheathe mechanic
+  - Manual control of Asbel's B arte alterations
+    - Hold **SPACE**/**[]**/**X** (Guard) to use the altered versions.<br/>
+  - Enemies don't attack
+  - Arte Sphere
+    - **CAUTION!** If you have used Narikiri Dolls prior to the Arte Sphere script, you will need to change costume once after enabling the script!
+    - You can use **SHIFT**/**L2**/**LT** (Free Run) to swap pages, and to use them in battle.
 
  ## Hearts (NDS)
 Based on the NTR-CTUJ-JPN version of the game.
@@ -256,7 +266,7 @@ Features:
  - Rheiards usable any time
 
  ## Symphonia - Dawn of the New World (PS3, Wii)
-Based on the BLUS31172 version of the game.
+Based on the BLUS31172 and RT4EAF versions of the game, respectively.
 
 Emulators used:
 
@@ -385,7 +395,7 @@ Features:
  - Increased field run speed
  - Hitstop disabled in solo
  - Hitstop enabled in multiplayer
- 
+
  ## Graces f (PS3)
 Available for:
  - BLUS30903
