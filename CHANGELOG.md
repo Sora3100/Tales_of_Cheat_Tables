@@ -1,5 +1,20 @@
 ### Changelog
 
+#### 2025/05/06
+
+-	Added "Arte Canceller" to Graces F table
+-	Added "Shuttle always available" to Graces F table
+-	Added "All Shuttle locations unlocked" to Graces F table
+-	Added "All learned artes equipable" to Graces F table
+-	Added "No encounters" to Vesperia table
+	-	Accompanied by an "Enemies don't follow" script
+-	Updated "Arte Canceller" for Vesperia to be more reliable
+-	Updated "Every arte is aerial usable for Players" for Vesperia to be more reliable
+-	Backend changes for Symphonia, Vesperia, Zestiria and Berseria tables
+-	Improved Gem editor to be more reliable in Graces F table
+-	Moved Shard/Gem/Weapon/Armor Editor and Difficulty values to Pointers in Graces F table
+-	Reorganized Vesperia table to be more in line with Graces F
+
 #### 2025/03/07
 
 -	Improved Graces F enable script to work more reliably

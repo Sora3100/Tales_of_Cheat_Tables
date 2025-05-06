@@ -120,7 +120,7 @@ Features:
  - Change Arte Usage
 
  ## Graces F (PC)
-Based on the 1.0.1 (buildID 17223464/17276117) version of the game.
+Based on the 1.0.2 (buildID 17447501) version of the game.
 
 Features: 
  - Party Formation Editor
@@ -141,6 +141,10 @@ Features:
   - Arte Sphere
     - **CAUTION!** If you have used Narikiri Dolls prior to the Arte Sphere script, you will need to change costume once after enabling the script!
     - You can use **SHIFT**/**L2**/**LT** (Free Run) to swap pages, and to use them in battle.
+  - Arte Canceller
+  - Shuttle always available
+  - All Shuttle locations unlocked
+  - All learned artes equipable
 
  ## Hearts (NDS)
 Based on the NTR-CTUJ-JPN version of the game.
