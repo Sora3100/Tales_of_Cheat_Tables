@@ -1,5 +1,9 @@
 ### Changelog
 
+#### 2025/05/30
+
+-	Fixed Vesperia "Arte Sphere Plus" issues
+
 #### 2025/05/06
 
 -	Added "Arte Canceller" to Graces F table
