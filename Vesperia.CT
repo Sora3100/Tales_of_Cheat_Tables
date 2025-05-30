@@ -28053,19 +28053,25 @@ dealloc(newmem)
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>92075</ID>
-                  <Description>"Arte Sphere Plus debug"</Description>
-                  <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
-[DISABLE]
-</AssemblerScript>
+                  <ID>92076</ID>
+                  <Description>"Arte Sphere Plus"</Description>
+                  <Options moHideChildren="1"/>
+                  <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>85042</ID>
-                      <Description>"free_run_test with rs (btl)"</Description>
+                      <ID>92075</ID>
+                      <Description>"Scripts"</Description>
+                      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : TOV_DE.exe
+                      <AssemblerScript>[ENABLE]
+[DISABLE]
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>85042</ID>
+                          <Description>"free_run_test with rs (btl)"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
   Date   : 2024-12-03
   Author : thing
@@ -28197,12 +28203,12 @@ dealloc(newmem)
 7FF75270A000: 83 EB 01              - sub ebx,01
 }
 </AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>84965</ID>
-                      <Description>"free run arte use check (arte usable in free run)"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : TOV_DE.exe
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>84965</ID>
+                          <Description>"free run arte use check (arte usable in free run)"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
   Date   : 2024-12-08
   Author : thing
@@ -28254,12 +28260,12 @@ unregistersymbol(free_run_arte_use_check)
 7FF72E10E105: 33 C9                 - xor ecx,ecx
 }
 </AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>84969</ID>
-                      <Description>"arte menu set change"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : TOV_DE.exe
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>84969</ID>
+                          <Description>"arte menu set change"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
   Date   : 2024-12-08
   Author : thing
@@ -28311,12 +28317,12 @@ unregistersymbol(arte_menu_set_change)
 7FF72E01122B: CC                 - int 3 
 }
 </AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>84974</ID>
-                      <Description>"lstick menu display"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : TOV_DE.exe
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>84974</ID>
+                          <Description>"lstick menu display"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
   Date   : 2024-12-08
   Author : thing
@@ -28338,7 +28344,7 @@ define(ls_stringloc,arte_menu_display_newmem+300)
 //rsi + 340 is current page
 
 arte_menu_display_newmem+300: //ls_stringloc
-  db 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  db 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 4E 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 4C 54 48 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 arte_menu_left_stick_display-149: //number above artes
   db 04
@@ -28406,12 +28412,12 @@ dealloc(arte_menu_display_newmem)
 7FF72E018B53: 42 80 3C 00 00                    - cmp byte ptr [rax+r8],00
 }
 </AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>84997</ID>
-                      <Description>"rstick menu display"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : TOV_DE.exe
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>84997</ID>
+                          <Description>"rstick menu display"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
   Date   : 2024-12-08
   Author : thing
@@ -28433,7 +28439,7 @@ define(rs_stringloc,arte_menu_rs_display_newmem+300)
 //rdi + 340 is current page
 
 arte_menu_rs_display_newmem+300: //rs_stringloc
-  db 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 32 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 4C 32 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  db 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 43 42 4C 32 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 55 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 44 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 4C 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 28 4C 31 29 06 28 43 42 4C 32 29 06 28 52 54 52 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 arte_menu_right_stick_display-1D0: //number above artes
   db 04
@@ -28471,7 +28477,7 @@ arte_menu_right_stick_display-1D0:
 
 unregistersymbol(arte_menu_right_stick_display)
 unregistersymbol(arte_menu_rs_display_newmem)
-dealloc(newmem)
+dealloc(arte_menu_rs_display_newmem)
 
 {
 // ORIGINAL CODE - INJECTION POINT: 7FF72E019F3A
@@ -28501,113 +28507,14 @@ dealloc(newmem)
 7FF72E019F6D: 75 F6                             - jne 7FF72E019F65
 }
 </AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>92074</ID>
-                      <Description>"no_toggle"</Description>
-                      <Options moHideChildren="1"/>
-                      <GroupHeader>1</GroupHeader>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>89496</ID>
-                          <Description>"keyboard or controller"</Description>
-                          <VariableType>Byte</VariableType>
-                          <Address>TOV_DE.exe+DDF5F8</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>84966</ID>
-                          <Description>"free_run_test 2 (btl)"</Description>
-                          <VariableType>Auto Assembler Script</VariableType>
-                          <AssemblerScript>{ Game   : TOV_DE.exe
-  Version: 
-  Date   : 2024-12-03
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(arte_call,TOV_DE.exe,48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0) // should be unique
-aobscanmodule(free_run_check,TOV_DE.exe,? ? ? ? ? ? 00 02 00 00 74 03 32 C0 C3) // should be unique
-alloc(newmem,$1000,arte_call)
-
-label(original_code)
-label(code)
-label(exit)
-label(return)
-
-newmem:
-original_code:
-  //mov rcx,[rdi+000040E8]
-  mov r8d,ebp //l1 state
-  movzx edx,al //stick state
-code:
-  mov rcx,rdi //set rcx as btl char pointer for function
-  call free_run_check //returns 1 in eax if free run is active
-  test eax,eax
-  je exit
-  inc rax
-  add r8d,rax
-  @@:
-  //imul rax,4 //multiply it by 4 for next address if free run is active
-  //mov r8d,rax
-  //add r8d,rax
-exit:
-  mov rcx,[rdi+40E8] //restore char pointer
-  jmp return
-
-arte_call:
-  jmp newmem
-  nop
-  nop
-  nop
-  nop
-  nop
-  nop
-  nop
-  nop
-return:
-registersymbol(arte_call)
-
-[DISABLE]
-
-arte_call:
-  db 48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0
-
-unregistersymbol(arte_call)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 7FF752709FDF
-
-7FF752709FC8: 75 04                 - jne 7FF752709FCE
-7FF752709FCA: B0 02                 - mov al,02
-7FF752709FCC: EB 11                 - jmp 7FF752709FDF
-7FF752709FCE: 0F B6 44 24 38        - movzx eax,byte ptr [rsp+38]
-7FF752709FD3: EB 0A                 - jmp 7FF752709FDF
-7FF752709FD5: B0 03                 - mov al,03
-7FF752709FD7: EB 06                 - jmp 7FF752709FDF
-7FF752709FD9: B0 01                 - mov al,01
-7FF752709FDB: EB 02                 - jmp 7FF752709FDF
-7FF752709FDD: 32 C0                 - xor al,al
-// ---------- INJECTING HERE ----------
-7FF752709FDF: 48 8B 8F E8 40 00 00  - mov rcx,[rdi+000040E8]
-// ---------- DONE INJECTING  ----------
-7FF752709FE6: 44 8B C5              - mov r8d,ebp
-7FF752709FE9: 0F B6 D0              - movzx edx,al
-7FF752709FEC: E8 2F 2D 07 00        - call 7FF75277CD20
-7FF752709FF1: EB 71                 - jmp 7FF75270A064
-7FF752709FF3: 8D 43 EC              - lea eax,[rbx-14]
-7FF752709FF6: 83 F8 03              - cmp eax,03
-7FF752709FF9: 77 67                 - ja 7FF75270A062
-7FF752709FFB: 83 EB 14              - sub ebx,14
-7FF752709FFE: 74 22                 - je 7FF75270A022
-7FF75270A000: 83 EB 01              - sub ebx,01
-}
-</AssemblerScript>
                         </CheatEntry>
                       </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89496</ID>
+                      <Description>"keyboard or controller"</Description>
+                      <VariableType>Byte</VariableType>
+                      <Address>TOV_DE.exe+DDF5F8</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
