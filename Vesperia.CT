@@ -6269,12 +6269,12 @@ TOV_DE.exe+53C5FA: E8 D1 E3 08 00                 - call TOV_DE.exe+5CA9D0
               <AssemblerScript>[ENABLE]
 {$lua}
 if syntaxcheck then return end
-getAddressList().getMemoryRecordByID("85044").Active = true
+getAddressList().getMemoryRecordByID("92075").Active = true
 {$asm}
 [DISABLE]
 {$lua}
 if syntaxcheck then return end
-getAddressList().getMemoryRecordByID("85044").Active = false
+getAddressList().getMemoryRecordByID("92075").Active = false
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
@@ -28053,107 +28053,17 @@ dealloc(newmem)
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>85044</ID>
+                  <ID>92075</ID>
                   <Description>"Arte Sphere Plus debug"</Description>
                   <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-                  <GroupHeader>1</GroupHeader>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+[DISABLE]
+</AssemblerScript>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>84966</ID>
-                      <Description>"free_run_test 2"</Description>
-                      <VariableType>Auto Assembler Script</VariableType>
-                      <AssemblerScript>{ Game   : TOV_DE.exe
-  Version: 
-  Date   : 2024-12-03
-  Author : thing
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(arte_call,TOV_DE.exe,48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0) // should be unique
-aobscanmodule(free_run_check,TOV_DE.exe,? ? ? ? ? ? 00 02 00 00 74 03 32 C0 C3) // should be unique
-alloc(newmem,$1000,arte_call)
-
-label(original_code)
-label(code)
-label(exit)
-label(return)
-
-newmem:
-original_code:
-  //mov rcx,[rdi+000040E8]
-  mov r8d,ebp //l1 state
-  movzx edx,al //stick state
-code:
-  mov rcx,rdi //set rcx as btl char pointer for function
-  call free_run_check //returns 1 in eax if free run is active
-  test eax,eax
-  je exit
-  inc rax
-  add r8d,rax
-  @@:
-  //imul rax,4 //multiply it by 4 for next address if free run is active
-  //mov r8d,rax
-  //add r8d,rax
-exit:
-  mov rcx,[rdi+40E8] //restore char pointer
-  jmp return
-
-arte_call:
-  jmp newmem
-  nop
-  nop
-  nop
-  nop
-  nop
-  nop
-  nop
-  nop
-return:
-registersymbol(arte_call)
-
-[DISABLE]
-
-arte_call:
-  db 48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0
-
-unregistersymbol(arte_call)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 7FF752709FDF
-
-7FF752709FC8: 75 04                 - jne 7FF752709FCE
-7FF752709FCA: B0 02                 - mov al,02
-7FF752709FCC: EB 11                 - jmp 7FF752709FDF
-7FF752709FCE: 0F B6 44 24 38        - movzx eax,byte ptr [rsp+38]
-7FF752709FD3: EB 0A                 - jmp 7FF752709FDF
-7FF752709FD5: B0 03                 - mov al,03
-7FF752709FD7: EB 06                 - jmp 7FF752709FDF
-7FF752709FD9: B0 01                 - mov al,01
-7FF752709FDB: EB 02                 - jmp 7FF752709FDF
-7FF752709FDD: 32 C0                 - xor al,al
-// ---------- INJECTING HERE ----------
-7FF752709FDF: 48 8B 8F E8 40 00 00  - mov rcx,[rdi+000040E8]
-// ---------- DONE INJECTING  ----------
-7FF752709FE6: 44 8B C5              - mov r8d,ebp
-7FF752709FE9: 0F B6 D0              - movzx edx,al
-7FF752709FEC: E8 2F 2D 07 00        - call 7FF75277CD20
-7FF752709FF1: EB 71                 - jmp 7FF75270A064
-7FF752709FF3: 8D 43 EC              - lea eax,[rbx-14]
-7FF752709FF6: 83 F8 03              - cmp eax,03
-7FF752709FF9: 77 67                 - ja 7FF75270A062
-7FF752709FFB: 83 EB 14              - sub ebx,14
-7FF752709FFE: 74 22                 - je 7FF75270A022
-7FF75270A000: 83 EB 01              - sub ebx,01
-}
-</AssemblerScript>
-                    </CheatEntry>
-                    <CheatEntry>
                       <ID>85042</ID>
-                      <Description>"free_run_test rs"</Description>
+                      <Description>"free_run_test with rs (btl)"</Description>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
@@ -28290,7 +28200,7 @@ dealloc(newmem)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>84965</ID>
-                      <Description>"free run arte use check"</Description>
+                      <Description>"free run arte use check (arte usable in free run)"</Description>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{ Game   : TOV_DE.exe
   Version: 
@@ -28593,10 +28503,111 @@ dealloc(newmem)
 </AssemblerScript>
                     </CheatEntry>
                     <CheatEntry>
-                      <ID>89496</ID>
-                      <Description>"keyboard or controller"</Description>
-                      <VariableType>Byte</VariableType>
-                      <Address>TOV_DE.exe+DDF5F8</Address>
+                      <ID>92074</ID>
+                      <Description>"no_toggle"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>89496</ID>
+                          <Description>"keyboard or controller"</Description>
+                          <VariableType>Byte</VariableType>
+                          <Address>TOV_DE.exe+DDF5F8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>84966</ID>
+                          <Description>"free_run_test 2 (btl)"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{ Game   : TOV_DE.exe
+  Version: 
+  Date   : 2024-12-03
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(arte_call,TOV_DE.exe,48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0) // should be unique
+aobscanmodule(free_run_check,TOV_DE.exe,? ? ? ? ? ? 00 02 00 00 74 03 32 C0 C3) // should be unique
+alloc(newmem,$1000,arte_call)
+
+label(original_code)
+label(code)
+label(exit)
+label(return)
+
+newmem:
+original_code:
+  //mov rcx,[rdi+000040E8]
+  mov r8d,ebp //l1 state
+  movzx edx,al //stick state
+code:
+  mov rcx,rdi //set rcx as btl char pointer for function
+  call free_run_check //returns 1 in eax if free run is active
+  test eax,eax
+  je exit
+  inc rax
+  add r8d,rax
+  @@:
+  //imul rax,4 //multiply it by 4 for next address if free run is active
+  //mov r8d,rax
+  //add r8d,rax
+exit:
+  mov rcx,[rdi+40E8] //restore char pointer
+  jmp return
+
+arte_call:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(arte_call)
+
+[DISABLE]
+
+arte_call:
+  db 48 8B 8F E8 40 00 00 44 8B C5 0F B6 D0
+
+unregistersymbol(arte_call)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FF752709FDF
+
+7FF752709FC8: 75 04                 - jne 7FF752709FCE
+7FF752709FCA: B0 02                 - mov al,02
+7FF752709FCC: EB 11                 - jmp 7FF752709FDF
+7FF752709FCE: 0F B6 44 24 38        - movzx eax,byte ptr [rsp+38]
+7FF752709FD3: EB 0A                 - jmp 7FF752709FDF
+7FF752709FD5: B0 03                 - mov al,03
+7FF752709FD7: EB 06                 - jmp 7FF752709FDF
+7FF752709FD9: B0 01                 - mov al,01
+7FF752709FDB: EB 02                 - jmp 7FF752709FDF
+7FF752709FDD: 32 C0                 - xor al,al
+// ---------- INJECTING HERE ----------
+7FF752709FDF: 48 8B 8F E8 40 00 00  - mov rcx,[rdi+000040E8]
+// ---------- DONE INJECTING  ----------
+7FF752709FE6: 44 8B C5              - mov r8d,ebp
+7FF752709FE9: 0F B6 D0              - movzx edx,al
+7FF752709FEC: E8 2F 2D 07 00        - call 7FF75277CD20
+7FF752709FF1: EB 71                 - jmp 7FF75270A064
+7FF752709FF3: 8D 43 EC              - lea eax,[rbx-14]
+7FF752709FF6: 83 F8 03              - cmp eax,03
+7FF752709FF9: 77 67                 - ja 7FF75270A062
+7FF752709FFB: 83 EB 14              - sub ebx,14
+7FF752709FFE: 74 22                 - je 7FF75270A022
+7FF75270A000: 83 EB 01              - sub ebx,01
+}
+</AssemblerScript>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -29706,6 +29717,21 @@ unregistersymbol(char_check_9)
 </Comments>
   <DisassemblerComments>
     <DisassemblerComment>
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
       <Address>"TOV_DE.exe"+4A272D</Address>
       <Comment>multiplier (70)
 </Comment>
@@ -29728,21 +29754,6 @@ unregistersymbol(char_check_9)
     <DisassemblerComment>
       <Address>"TOV_DE.exe"+6AD8BD</Address>
       <Comment>background
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D4E</Address>
-      <Comment>60
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D58</Address>
-      <Comment>71
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D64</Address>
-      <Comment>90
 </Comment>
     </DisassemblerComment>
   </DisassemblerComments>
