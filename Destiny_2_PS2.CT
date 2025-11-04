@@ -6,12 +6,20 @@
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+
+function toHex(str)
+         return string.format("%X", str)
+end
+{$asm}
+[ENABLE]
 {$lua}
 if syntaxcheck then return end
 if (string.lower(process):match("pcsx2")) then
    if not (getAddressSafe("EEmem") == nil) and not (getAddressSafe("EEmem") == 0) then
         registerSymbol("baseElfAddr",readPointer(getAddress("EEmem"))+0x100000)
+        registerSymbol("baseEEmem",readPointer(getAddress("EEmem")))
    else
         print("Using fallback... this may take a few seconds")
         r,error=autoAssemble([[aobscan(baseElfAddr,00 00 00 00 00 00 00 00 23 00 02 3C 30 00 03 3C 80 43 42 24 00 31 63 24 00 00 40 7C 00 00 00 00) // should be unique
@@ -19,6 +27,13 @@ registersymbol(baseElfAddr)]])
         if (r==false) then
            error(print(error .. "\nMake sure the game is running!"))
         end
+        registerSymbol("baseEEmem",getAddress("baseElfAddr")-0x10007C)
+   end
+
+   local mf = getMainForm()
+   if (mf.FromAddress.Text == "0000000000000000") and (mf.ToAddress.Text == "00007fffffffffff") then
+      mf.FromAddress.Text = "baseEEmem"
+      mf.ToAddress.Text = "baseEEmem+"..toHex(0x20000000)
    end
 else
    error(print("Not attached to PCSX2"))
@@ -27,6 +42,7 @@ end
 {$asm}
 [DISABLE]
 unregistersymbol(baseElfAddr)
+unregistersymbol(baseEEmem)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -5039,6 +5055,76 @@ unregistersymbol(baseElfAddr)
 1:Enabled
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>77731</ID>
+              <Description>"Arte properties (edit this)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseEEmem+1B65AC+C4*0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>77734</ID>
+                  <Description>"Pointer to name"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>77736</ID>
+                  <Description>"Pointer to alt name"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>77737</ID>
+                  <Description>"Pointer to description"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>77735</ID>
+                  <Description>"TP cost"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>77738</ID>
+                  <Description>"?"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>77739</ID>
+                  <Description>"Element"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:None
+1:Earth
+2:Water
+3:Fire
+4:Wind
+5:Light
+6:Dark
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>77740</ID>
+                  <Description>"Arte effect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>

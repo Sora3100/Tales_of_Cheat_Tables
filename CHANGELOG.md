@@ -1,5 +1,23 @@
 ### Changelog
 
+#### 2025/11/05
+
+-	Ported over most of the Xillia 1 table to PC
+-	Added "Freeze Battle Arena timer" to Vesperia
+-	Added "Arte unlocks" and "Craymel unlocks" to Eternia
+-	Added "Arte unlocks" to Phantasia
+-	Fixed Vesperia "Item Properties Editor" being broken
+-	Vesperia "No encounters" now disables enemies following and enemy collision by default.
+-	Added the following to Innocence DS (by Zeke/Samu):
+	-	Equipment Editor
+	-	Styles/skills
+	-	Inventory
+	-	Arte Proficiency
+-	Added "Arte List" to Innocence DS (dropdown by Zeke)
+-	Completely remade BTSK for Abyss
+	-	It now lists every character and arte data (spells not included)
+	-	It also now includes every possible hit for the selected character/arte
+
 #### 2025/05/30
 
 -	Fixed Vesperia "Arte Sphere Plus" issues
