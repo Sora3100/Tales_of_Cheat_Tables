@@ -313,31 +313,24 @@ Features:
  
  This table has some notes regarding changing encounters that I never figured out.
  
- ## Xillia (PS3)
-Based on the NPUB31136 version of the game.
+ ## Xillia 1 (PC)
+Based on the 1.0.2 (buildID 20582652) version of the game.
 
-Emulator used: rpcs3 0.0.25-14515-02f3583 Alpha
-
-Features: 
+Features:
  - Party Formation Editor
  - Stats Editor
  - Equipment Editor
  - Arte List Editor
- - Gald Editor
- - Difficulty Modifier
- - Enable or Disable Overlimit
- - Enable or Disable menu functions
- - Change World Map (fast travel menu) version
  - Multiplayer Linking
  - Arte Editor
- - Change Gaius/Muzét Final Boss Encounter
  - Enable or Disable any arte/spell
  - Enable or Disable any skill
- - Turn on/off Grade Shop options at any time
- - Change field movement speed
- - Inventory Editor
  - Modify Arte Usage
- - The ability to play as bosses, or more of the same character (narikiri)
+ - Disable hitstop
+ - Disable guest party members (members in party but cannot participate)
+ - Disable party checks
+ - Disallow counter-attacks
+ - Disable tap dash
 
  ## Xillia 2 (PS3)
 Based on the BLUS31397 version of the game.

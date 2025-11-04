@@ -6,12 +6,22 @@
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+
+function toHex(str)
+         return string.format("%X", str)
+end
+
+--tbl_data is at 0x0
+{$asm}
+[ENABLE]
 {$lua}
 if syntaxcheck then return end
 if (string.lower(process):match("pcsx2")) then
    if not (getAddressSafe("EEmem") == nil) and not (getAddressSafe("EEmem") == 0) then
         registerSymbol("baseElfAddr",readPointer(getAddress("EEmem"))+0x10007C)
+        registerSymbol("baseEEmem",readPointer(getAddress("EEmem")))
    else
         print("Using fallback... this may take a few seconds")
         r,error=autoAssemble([[aobscan(baseElfAddr,11 00 00 00 11 00 00 70 13 00 00 00 13 00 00 70 00 00 19 04) // should be unique
@@ -19,14 +29,26 @@ registersymbol(baseElfAddr)]])
         if (r==false) then
            error(print(error .. "\nMake sure the game is running!"))
         end
+        registerSymbol("baseEEmem",getAddress("baseElfAddr")-0x10007C)
+   end
+
+   local mf = getMainForm()
+   if (mf.FromAddress.Text == "0000000000000000") and (mf.ToAddress.Text == "00007fffffffffff") then
+      mf.FromAddress.Text = "baseEEmem"
+      mf.ToAddress.Text = "baseEEmem+"..toHex(0x20000000)
    end
 else
    error(print("Not attached to PCSX2"))
    return
 end
 {$asm}
+alloc(tbl_data,$1000)
+registersymbol(tbl_data)
 [DISABLE]
 unregistersymbol(baseElfAddr)
+unregistersymbol(baseEEmem)
+dealloc(tbl_data)
+unregistersymbol(tbl_data)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -2053,35 +2075,35 @@ unregistersymbol(baseElfAddr)
           <Description>"Arte List"</Description>
           <Options moHideChildren="1"/>
           <DropDownList DisplayValueAsItem="1">0:Nothing
-1:Zehhyoujin
-2:Shunrenjin
-3:Reppashou
-4:Zessyouzan
-5:Genryuuzan
-6:Mueishou
-7:Majinken
-8:Fuujinken
-9:Kogahazan
-10:Senkoushou
-11:Kuushuuken
-12:Muhyoushou
-13:Zetsu Muhyousou
-14:Zetsu Shuneijin
-15:Renjin Rehhyougeki
-16:Hyouga Shoureppa
-17:Zekkuu Rehhyougeki
-18:Touga Ryuueijin
-19:Touga Mueiken
-20:Shouha Rengashou
-21:Renjin Zanshouken
-22:Renjin Ryuueijin
-23:Genma Rengashou
-24:Zekkuu Shoureppa
-25:Houryuu Shoureppa
-26:Genma Shoureppa
-27:Zekkuu Ryuueijin
-28:Genma Zanshouken
-29:Houryuu Mueiken
+1:Bonechill Blade
+2:Glimmerdust
+3:Rending Wave
+4:Soaring Slash
+5:Mystic Dragon
+6:Shadow Shock
+7:Demon Fang
+8:Hurricane Thrust
+9:Tiger Blade
+10:Force Spear
+11:Flying Dragon
+12:Frost Fall
+13:Frigid Stance
+14:Blizzard Stance
+15:Splintering Shards
+16:Frigid Blast
+17:Soaring Shards
+18:Frigid Dragon
+19:Frigid Shock
+20:Rending Burst
+21:Splintering Slash
+22:Splintering Dragon
+23:Shadow Burst
+24:Soaring Blast
+25:Dragonfang Blast
+26:Shadow Blast
+27:Soaring Dragon
+28:Shadow Slash
+29:Dragonfang Shock
 30:Wind Edge
 31:Flare Shot
 32:Arch Shade
@@ -2096,29 +2118,29 @@ unregistersymbol(baseElfAddr)
 41:Fearful Storm
 42:Blazing Hearts
 43:Disaster Roar
-44:Senpuusou
-45:Rekkusou
-46:Gouhasou
-47:Shunjinsou
-48:Tenraisou
-49:Messhousou
-50:Ren Koutaisou
-51:Ren Kyoumeidan
-52:Reppuu Jinsoushou
-53:Goubaku Senpuuga
-54:Reppuu Shunjinsatsu
-55:Reppuu Bakuraijin
-56:Messatsu Senpuuga
-57:Goubaku Jinsoushou
-58:Shunsatsu Jinsoushou
-59:Ressou Bakuraijin
-60:Ressou Tenshougeki
-61:Shunsatsu Goushougeki
-62:Jinrai Goushougeki
-63:Goubaku Tenshougeki
-64:Jinrai Shunjinsatsu
-65:Shunsatsu Tenshougeki
-66:Jinrai Tenshougeki
+44:Storm Thrust
+45:Skewering Spear
+46:Roaring Spear
+47:Sonic Spear
+48:Thunder Lance
+49:Falling Lance
+50:Iron Stance
+51:Mirror Stance
+52:Cyclone Surge
+53:Roaring Storm
+54:Cyclone Gale
+55:Cyclone Thunder
+56:Falling Storm
+57:Roaring Surge
+58:Fatal Surge
+59:Goring Thunder
+60:Goring Descent
+61:Fatal Roar
+62:Thunder Roar
+63:Roaring Descent
+64:Thunder Gale
+65:Fatal Descent
+66:Thunder Descent
 67:Power Kraft
 68:Guard Wasser
 69:Mind Geist
@@ -2126,9 +2148,9 @@ unregistersymbol(baseElfAddr)
 71:Life Materie
 72:Charge Wind
 73:Drag Leben
-74:Rise Elixiew
+74:Rise Elixier
 75:Reduce Regen
-76:Shape Regen
+76:Shave Regen
 77:Blast Regen
 78:Gambit Regen
 79:Pain Regen
@@ -2139,29 +2161,29 @@ unregistersymbol(baseElfAddr)
 84:Fast Regen
 85:Artes Regen
 86:Break Regen
-87:Shourenkyaku
-88:Goureppa
-89:Garengeki
-90:Shikkuha
-91:Juhousen
-92:Senshousen
-93:Geki Jusouheki
-94:Geki Shunsatsuren
-95:Hiren Goushouga
-96:Guren Rentenkyaku
-97:Hiren Zankuukyaku
-98:Hiren Tsuirensen
-99:Shouha Rentenkyaku
-100:Gouretsu Rengadan
-101:Gouretsu Zankuukyaku
-102:Hiou Goushouga
-103:Gouretsu Soushousen
-104:Guren Zankuukyaku
-105:Guren Tuirensen
-106:Guren Soushousen
-107:Kuuha Tsuirensen
-108:Kuuha Soushousen
-109:Souha Tsuirensen
+87:Soaring Kick
+88:Shockwave Blow
+89:Fang Blitz
+90:Sliding Kick
+91:Uproot Shot
+92:Downpour Shot
+93:Ingrain Stance
+94:Cyclone Stance
+95:Flying Strike
+96:Relentless Dance
+97:Flying Kick
+98:Flying Cannon
+99:Torrential Dance
+100:Roaring Storm
+101:Roaring Kick
+102:Blossom Strike
+103:Roaring Torrent
+104:Relentless Kick
+105:Relentless Cannon
+106:Relentless Torrent
+107:Rising Cannon
+108:Rising Torrent
+109:Torrential Cannon
 110:Rock Barrage
 111:Splasher
 112:Thunder Spear
@@ -2176,16 +2198,16 @@ unregistersymbol(baseElfAddr)
 121:Ground Dasher
 122:Frigid Coffin
 123:Divine Saber
-124:Test Magic
-125:Steiffe Brise
+124:Test
+125:Steife Brise
 126:Magnetic Gazer
 127:Walto Magic
-128:Spectre Field
+128:Spectral Field
 129:Drift Wave
 130:Flame Wall
 131:Cross Winger
 132:Gravity Prison
-133:Periferi
+133:Perifelightning
 134:Soul Play
 135:Aquarius Sphere
 136:Prismic Stars
@@ -2199,7 +2221,7 @@ unregistersymbol(baseElfAddr)
 144:Shade Moon Rebellion
 145:Severity Overlord
 146:Fidelity Testament
-147:Enemy Formation
+147:Enemy Field
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
@@ -4622,23 +4644,213 @@ unregistersymbol(gemNum)
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>91671</ID>
+                  <Description>"dropdown: Enemies"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Veigue
+2:Mao
+3:Eugene
+4:Annie
+5:Tytree
+6:Hilda
+7:Claire
+8:Agarte
+9:Annie (npc)
+10:Blazing Boar
+11:Rogue Apro
+12:Sail Thief
+13:Mercenary
+14:Ginnar
+15:Royal Shield Soldier
+16:Royal Shield Sorcerer
+17:Frost Crow
+18:Kailash Beetle
+19:Haunt Horse
+20:Rock Scorpion
+21:Salty Penguin
+22:Drombe
+23:Yucia
+24:Tohma
+25:Saleh
+26:Walto
+27:Militsa
+28:Gregant
+29:Molgator
+30:Ankhrosaur
+31:Scabee
+32:Durock
+33:Erinazzo
+34:Bedusa
+35:Succi
+36:Running Carcass
+37:Gran Pasque
+38:Sword Soldier
+39:Moldy Plant
+40:Creeping Bones
+41:Vissak Shield
+42:Trisnake
+43:Frost Flowne
+44:Drasteele
+45:Regrit
+46:Laue Crow
+47:Cockoo
+48:Goober Actinia
+49:Arme Deep
+50:Barkshee
+51:Anger Shrimp
+52:Bolipede
+53:Fes Keino
+54:Gill
+55:Lownail
+56:Calryx
+57:Gatortoise
+58:Beneleon
+59:Galeton
+60:Nightshade
+61:Craeg Tod
+62:Blade Soldier
+63:Branowl
+64:Hack Armor
+65:Berrage
+66:Byueye
+67:Sword Knight
+68:Phiotolas
+69:Paciflower
+70:Reomole
+71:Manip Doll
+72:Musnap
+73:Lance Soldier
+74:Baroo
+75:Banseal
+76:Laue Fly
+77:Lum Soul
+78:Inceulce
+79:Unfungus
+80:Quoicock
+81:Vescon
+82:Arbox
+83:Tripent
+84:Swapplion
+85:Legtite
+86:Shina Craneo
+87:Pandfang
+88:Double Fanger
+89:Ice Skeleton
+90:Blade Knight
+91:Donel
+92:Shaorune
+93:Eephon
+94:Geyorkias
+95:Noct Falc
+96:Stearer Falc
+97:Gilbird
+98:Rubinus Metal
+99:Blackopede
+100:Pohunn
+101:Farost
+102:Scoarbor
+103:Default
+104:Grittowle
+105:Pholibel
+106:Bolk Frog
+107:Marlon Ape
+108:Delivarl
+109:Levimuck
+110:Told Ivy
+111:Galembryon
+112:Skelitch
+113:Gaity Flower
+114:Milhaust
+115:Zilva
+116:Yuris
+117:Geyorkias
+118:Yuris Eye
+119:Glace Blur
+120:Rosecles
+121:Needlehog
+122:Osteroch
+123:Militsa
+124:Lum Embryon
+125:Flying Embryon
+126:Mountain Thief
+127:High Mountain Thief
+128:Lance Knight
+129:Spear Soldier
+130:Spear Knight
+131:Stelle Colb
+132:Nett Scorpian
+133:Banishrune
+134:Bog Runner
+135:Vulpen Edge
+136:Puddler
+137:Alabast
+138:Vis Scheld
+139:Sourmite
+140:Echs Gas
+141:Avengher
+142:Livgaro
+143:Caskott
+144:Senrheumer
+145:Gloom Reptile
+146:Bangaroo
+147:Leaping Penguin
+148:Graifer
+149:Khamus
+150:Strutsur
+151:Vabils
+152:Acranazzo
+153:Ladycabel
+154:Quartzorb
+155:Decayver
+156:Ripe Fructus
+157:Heliplan
+158:Lemmedusa
+159:Negohmo
+160:Clawmer
+161:Hercinsect
+162:Vowler
+163:Frolick
+164:Allkepter
+165:Ossiton
+166:Moltave
+167:Tembler
+168:Gleam Anim
+169:Lysom
+170:Powmie
+171:Elactinia
+172:Galeptic
+173:Vespa
+174:Raszaurus
+175:Ginnar
+176:Hilda
+177:Drombe
+178:Yucia
+179:Bandit Chief
+180:Bandit
+181:Crownell
+182:Delist
+183:Larva Cradle
+184:Haw Larva
+185:Fly Larva
+186:Mao
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
               <ID>1924</ID>
               <Description>"Monster Book Current Enemy"</Description>
-              <DropDownList DisplayValueAsItem="1">24:boss
-10:bull
-17:ice hawk
-69:plant
-</DropDownList>
+              <DropDownListLink>dropdown: Enemies</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>2 Bytes</VariableType>
+              <VariableType>Byte</VariableType>
               <Address>baseElfAddr+1ECB11+4B</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>1925</ID>
               <Description>"Encounter 30 (Shadow Hilda) enemy"</Description>
+              <DropDownListLink>dropdown: Enemies</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>2 Bytes</VariableType>
               <Address>baseElfAddr+4E09E6</Address>
@@ -4887,7 +5099,7 @@ unregistersymbol(gemNum)
                   <Options moHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <GroupHeader>1</GroupHeader>
-                  <Address>baseElfAddr-100007C+10FFB90+34*21</Address>
+                  <Address>baseElfAddr-100007C+10FFB90+34*1</Address>
                   <CheatEntries>
                     <CheatEntry>
                       <ID>91626</ID>
@@ -4943,7 +5155,171 @@ unregistersymbol(gemNum)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>91634</ID>
-                      <Description>"?"</Description>
+                      <Description>"Arte effect"</Description>
+                      <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Cluster Raid
+2:Stone Break
+3:Ground Dasher
+4:Gusty Nail
+5:Gale Slash
+6:Fearful Storm
+7:Burn Strike
+8:Aiming Heat
+9:Blazing Hearts
+10:Aqua Stream
+11:Freeze Lancer
+12:Frigid Coffin
+13:Shining Ray
+14:Flash Tear
+15:Divine Saber
+16:Bloody Cross
+17:Negative Gate
+18:Disaster Roar
+19:Test
+20:Steife Brise
+21:Magnetic Gazer
+22:Walto Magic
+23:Spectral Field
+24:Drag Leben
+25:Rise Elixier
+26:?
+27:Aquarius Sphere
+28:Prismic Stars
+29:Brightest Gate
+30:Explosion Nova
+31:Maxwell Roar
+32:Dimensional Material
+33:Blue Earth
+34:Drift Wave
+35:Flame Wall
+36:Cross Winger
+37:Gravity Prison
+38:Perifelightning
+39:Soul Play
+40:?
+41:?
+42:?
+43:?
+44:?
+45:?
+46:?
+47:?
+48:?
+49:Spread Blue
+50:Punishment
+51:Shade Moon Rebellion
+52:Severity Overlord
+53:Fidelity Testament
+101:Bonechill Blade
+102:Glimmerdust
+103:Rending Wave
+104:Soaring Slash
+105:Mystic Dragon
+106:Shadow Shock
+107:Frigid Stance
+108:Blizzard Stance
+109:Wind Edge
+110:Flare Shot
+111:Arch Shade
+112:Force Flame
+113:Flame Enchant
+114:Storm Thrust
+115:Skewering Spear
+116:Roaring Spear
+117:Sonic Spear
+118:Thunder Lance
+119:Falling Lance
+120:Iron Stance
+121:Mirror Stance
+122:Power Kraft
+123:Guard Wasser
+124:Mind Geist
+125:Resist Wille
+126:Life Materie
+127:Charge Wind
+128:Enemy Field
+129:Soaring Kick
+130:Shockwave Blow
+131:Fang Blitz
+132:Sliding Kick
+133:Uproot Shot
+134:Downpour Shot
+135:Ingrain Stance
+136:Cyclone Stance
+137:Rock Barrage
+138:Splasher
+139:Thunder Spear
+140:Lightning Robe
+141:Limited Sorcery
+142:Splintering Shards
+143:Frigid Blast
+144:Soaring Shards
+145:Frigid Dragon
+146:Frigid Shock
+147:Rending Burst
+148:Splintering Slash
+149:Splintering Dragon
+150:Shadow Burst
+151:Soaring Blast
+152:Dragonfang Blast
+153:Shadow Blast
+154:Soaring Dragon
+155:Shadow Slash
+156:Dragonfang Shock
+157:Cyclone Surge
+158:Roaring Storm
+159:Cyclone Gale
+160:Cyclone Thunder
+161:Falling Storm
+162:Roaring Surge
+163:Fatal Surge
+164:Goring Thunder
+165:Goring Descent
+166:Fatal Roar
+167:Thunder Roar
+168:Roaring Descent
+169:Thunder Gale
+170:Fatal Descent
+171:Thunder Descent
+172:Flying Strike
+173:Relentless Dance
+174:Flying Kick
+175:Flying Cannon
+176:Torrential Dance
+177:Roaring Storm
+178:Roaring Kick
+179:Blossom Strike
+180:Roaring Torrent
+181:Relentless Kick
+182:Relentless Cannon
+183:Relentless Torrent
+184:Rising Cannon
+185:Rising Torrent
+186:Torrential Cannon
+187:?
+188:?
+189:?
+190:?
+191:Demon Fang
+192:Hurricane Thrust
+193:Tiger Blade
+194:Force Spear
+195:Flying Dragon
+196:Frost Fall
+197:Reduce Regen
+198:Shave Regen
+199:Blast Regen
+200:Gambit Regen
+201:Pain Regen
+202:Burst Regen
+203:Stun Regen
+204:Heal Regen
+205:Flash Regen
+206:Fast Regen
+207:Artes Regen
+208:Break Regen
+209:? Regen
+</DropDownList>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
                       <Address>+10</Address>
@@ -5201,6 +5577,86 @@ unregistersymbol(gemNum)
                   <Address>baseElfAddr-100007C+10FFC42</Address>
                 </CheatEntry>
               </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91672</ID>
+              <Description>"EFFE"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseEEmem+330140</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>91673</ID>
+                  <Description>"offset 1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91680</ID>
+                  <Description>"offset 2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+23E8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91679</ID>
+                  <Description>"offset 3"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+33E4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91678</ID>
+                  <Description>"offset 4"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+3F94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91677</ID>
+                  <Description>"offset 5"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+42F4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91676</ID>
+                  <Description>"offset 6"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+7E4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91675</ID>
+                  <Description>"offset 7"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+12B36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91674</ID>
+                  <Description>"state machine"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+13130</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>91681</ID>
+                  <Description>"end of EFFE"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+142BC</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91682</ID>
+              <Description>"Battle struct"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>baseEEmem</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
