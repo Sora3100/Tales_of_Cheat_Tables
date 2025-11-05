@@ -15,7 +15,7 @@ Features:
  - Arte List Editor
  - Grade Shop options
  
- ## Xillia (PS3)
+ ## Xillia 1 (PS3)
 Based on the NPUB31136 version of the game.
 
 Emulator used: rpcs3 0.0.25-14515-02f3583 Alpha
@@ -39,4 +39,5 @@ Features:
  - Change field movement speed
  - Inventory Editor
  - Modify Arte Usage
+
  - The ability to play as bosses, or more of the same character (narikiri)
