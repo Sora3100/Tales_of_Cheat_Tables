@@ -160,6 +160,150 @@ Tales of Berseria.exe+14BB9B5: 48 01 D0              - add rax,rdx
 </AssemblerScript>
         </CheatEntry>
         <CheatEntry>
+          <ID>13568</ID>
+          <Description>"UI display"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2025-07-31
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(ui_display,Tales of Berseria.exe,80 79 30 00 48 89 CF 0F 84 6C) // should be unique
+alloc(ui_disp_newmem,$1000,ui_display)
+
+label(code)
+label(return)
+
+ui_disp_newmem:
+  mov rdi,ui_disp_newmem+500
+  mov [rdi],rcx
+code:
+  cmp byte ptr [rcx+30],00
+  mov rdi,rcx
+  jmp return
+
+ui_display:
+  jmp ui_disp_newmem
+  nop 2
+return:
+registersymbol(ui_display)
+registersymbol(ui_disp_newmem)
+
+[DISABLE]
+
+ui_display:
+  db 80 79 30 00 48 89 CF
+
+unregistersymbol(ui_display)
+dealloc(ui_disp_newmem)
+unregistersymbol(ui_disp_newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1413001FC
+
+1413001E7: CC                 - int 3 
+1413001E8: CC                 - int 3 
+1413001E9: CC                 - int 3 
+1413001EA: CC                 - int 3 
+1413001EB: 0F 1F 44 00 00     - nop dword ptr [rax+rax+00]
+1413001F0: 48 89 E0           - mov rax,rsp
+1413001F3: 55                 - push rbp
+1413001F4: 57                 - push rdi
+1413001F5: 48 89 E5           - mov rbp,rsp
+1413001F8: 48 83 EC 68        - sub rsp,68
+// ---------- INJECTING HERE ----------
+1413001FC: 80 79 30 00        - cmp byte ptr [rcx+30],00
+// ---------- DONE INJECTING  ----------
+141300200: 48 89 CF           - mov rdi,rcx
+141300203: 0F 84 6C 02 00 00  - je 141300475
+141300209: 48 89 70 18        - mov [rax+18],rsi
+14130020D: 4C 89 70 20        - mov [rax+20],r14
+141300211: 4C 89 78 E8        - mov [rax-18],r15
+141300215: 8B 05 4D 88 D6 FF  - mov eax,[141068A68]
+14130021B: 31 F6              - xor esi,esi
+14130021D: A8 01              - test al,01
+14130021F: 0F 85 86 00 00 00  - jne 1413002AB
+141300225: 83 C8 01           - or eax,01
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13569</ID>
+              <Description>"UI display"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ui_disp_newmem+500</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13575</ID>
+          <Description>"No spell limit"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2025-07-31
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(MagicCount,Tales of Berseria.exe,83 78 28 03 7D 32) // should be unique
+
+MagicCount+4:
+  nop 2
+
+registersymbol(MagicCount)
+
+[DISABLE]
+
+MagicCount:
+  db 83 78 28 03 7D 32
+
+unregistersymbol(MagicCount)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 141373B6A
+
+141373B30: F3 0F 10 40 08                 - movss xmm0,[rax+08]
+141373B35: F3 0F 11 4D FB                 - movss [rbp-05],xmm1
+141373B3A: F3 41 0F 58 C1                 - addss xmm0,xmm9
+141373B3F: F3 0F 11 45 FF                 - movss [rbp-01],xmm0
+141373B44: E8 C7 1D 34 00                 - call 1416B5910
+141373B49: 44 0F 2F 8F C8 00 00 00        - comiss xmm9,[rdi+000000C8]
+141373B51: 0F 82 7F 02 00 00              - jb 141373DD6
+141373B57: F7 87 94 04 00 00 00 00 02 00  - test [rdi+00000494],00020000
+141373B61: 75 3F                          - jne 141373BA2
+141373B63: 48 8B 05 8E 95 BA FF           - mov rax,[140F1D0F8]
+// ---------- INJECTING HERE ----------
+141373B6A: 83 78 28 03                    - cmp dword ptr [rax+28],03
+// ---------- DONE INJECTING  ----------
+141373B6E: 7D 32                          - jnl 141373BA2
+141373B70: 48 8B 8F 90 06 00 00           - mov rcx,[rdi+00000690]
+141373B77: 48 8B 49 10                    - mov rcx,[rcx+10]
+141373B7B: E8 F0 1A 48 00                 - call 1417F5670
+141373B80: 83 7F 20 FF                    - cmp dword ptr [rdi+20],-01
+141373B84: 0F 85 4C 02 00 00              - jne 141373DD6
+141373B8A: C7 47 20 11 00 00 00           - mov [rdi+20],00000011
+141373B91: 44 88 77 2D                    - mov [rdi+2D],r14b
+141373B95: E9 3C 02 00 00                 - jmp 141373DD6
+141373B9A: A2 C6 B4 00 00 00 00 00 8B     - mov [8B0000000000B4C6],al
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
           <ID>6</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -491,6 +635,14 @@ Tales of Berseria.exe+14BB9B5: 48 01 D0              - add rax,rdx
 4:Eleanor
 5:Magilou
 6:Eizen
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13570</ID>
+                  <Description>"dropdown: Disabled/Enabled"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Disabled
+1:Enabled
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>

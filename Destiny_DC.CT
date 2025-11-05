@@ -22,6 +22,12 @@ registersymbol(baseElfAddr)]])
         end
         registerSymbol("baseEEMem", getAddress("baseElfAddr")-0x10007C)
    end
+
+   local mf = getMainForm()
+   if (mf.FromAddress.Text == "0000000000000000") and (mf.ToAddress.Text == "00007fffffffffff") then
+      mf.FromAddress.Text = "baseEEmem"
+      mf.ToAddress.Text = "baseEEmem+"..toHex(0x20000000)
+   end
 else
    error(print("Not attached to PCSX2"))
    return
@@ -10005,10 +10011,10 @@ but note that it may break fights.
         </CheatEntry>
         <CheatEntry>
           <ID>20274</ID>
-          <Description>"Encounters"</Description>
+          <Description>"Encounters on/off"</Description>
           <DropDownListLink>Grade Shop options</DropDownListLink>
           <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
+          <VariableType>Byte</VariableType>
           <Address>baseElfAddr+1C3EB0</Address>
         </CheatEntry>
         <CheatEntry>
@@ -20714,9 +20720,6 @@ Use the Inventory if you want more items.
           <ID>20263</ID>
           <Description>"Grade Shop options"</Description>
           <Options moHideChildren="1"/>
-          <DropDownList DisplayValueAsItem="1">0:Disabled
-1:Enabled
-</DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
           <Address>baseElfAddr+1C346E</Address>
@@ -20724,7 +20727,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20264</ID>
               <Description>"Chain Combo Extension"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>0</BitStart>
@@ -20735,7 +20738,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20271</ID>
               <Description>"Free Movement"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>1</BitStart>
@@ -20746,7 +20749,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20270</ID>
               <Description>"Low Gravity"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>2</BitStart>
@@ -20757,7 +20760,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20269</ID>
               <Description>"Single Player Mode"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>3</BitStart>
@@ -20768,7 +20771,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20268</ID>
               <Description>"Selector Mode"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>4</BitStart>
@@ -20779,7 +20782,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20267</ID>
               <Description>"Survival Mode"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>5</BitStart>
@@ -20790,7 +20793,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20266</ID>
               <Description>"Inherit Artes"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>6</BitStart>
@@ -20801,7 +20804,7 @@ Use the Inventory if you want more items.
             <CheatEntry>
               <ID>20265</ID>
               <Description>"Inherit Food Straps"</Description>
-              <DropDownListLink>Grade Shop options</DropDownListLink>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Binary</VariableType>
               <BitStart>7</BitStart>

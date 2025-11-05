@@ -4701,18 +4701,207 @@ unregistersymbol(gemNum)
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>91671</ID>
+                  <Description>"dropdown: Enemies"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Veigue
+2:Mao
+3:Eugene
+4:Annie
+5:Tytree
+6:Hilda
+7:Claire
+8:Agarte
+9:Annie (npc)
+10:Blazing Boar
+11:Rogue Apro
+12:Sail Thief
+13:Mercenary
+14:Ginnar
+15:Royal Shield Soldier
+16:Royal Shield Sorcerer
+17:Frost Crow
+18:Kailash Beetle
+19:Haunt Horse
+20:Rock Scorpion
+21:Salty Penguin
+22:Drombe
+23:Yucia
+24:Tohma
+25:Saleh
+26:Walto
+27:Militsa
+28:Gregant
+29:Molgator
+30:Ankhrosaur
+31:Scabee
+32:Durock
+33:Erinazzo
+34:Bedusa
+35:Succi
+36:Running Carcass
+37:Gran Pasque
+38:Sword Soldier
+39:Moldy Plant
+40:Creeping Bones
+41:Vissak Shield
+42:Trisnake
+43:Frost Flowne
+44:Drasteele
+45:Regrit
+46:Laue Crow
+47:Cockoo
+48:Goober Actinia
+49:Arme Deep
+50:Barkshee
+51:Anger Shrimp
+52:Bolipede
+53:Fes Keino
+54:Gill
+55:Lownail
+56:Calryx
+57:Gatortoise
+58:Beneleon
+59:Galeton
+60:Nightshade
+61:Craeg Tod
+62:Blade Soldier
+63:Branowl
+64:Hack Armor
+65:Berrage
+66:Byueye
+67:Sword Knight
+68:Phiotolas
+69:Paciflower
+70:Reomole
+71:Manip Doll
+72:Musnap
+73:Lance Soldier
+74:Baroo
+75:Banseal
+76:Laue Fly
+77:Lum Soul
+78:Inceulce
+79:Unfungus
+80:Quoicock
+81:Vescon
+82:Arbox
+83:Tripent
+84:Swapplion
+85:Legtite
+86:Shina Craneo
+87:Pandfang
+88:Double Fanger
+89:Ice Skeleton
+90:Blade Knight
+91:Donel
+92:Shaorune
+93:Eephon
+94:Geyorkias
+95:Noct Falc
+96:Stearer Falc
+97:Gilbird
+98:Rubinus Metal
+99:Blackopede
+100:Pohunn
+101:Farost
+102:Scoarbor
+103:Default
+104:Grittowle
+105:Pholibel
+106:Bolk Frog
+107:Marlon Ape
+108:Delivarl
+109:Levimuck
+110:Told Ivy
+111:Galembryon
+112:Skelitch
+113:Gaity Flower
+114:Milhaust
+115:Zilva
+116:Yuris
+117:Geyorkias
+118:Yuris Eye
+119:Glace Blur
+120:Rosecles
+121:Needlehog
+122:Osteroch
+123:Militsa
+124:Lum Embryon
+125:Flying Embryon
+126:Mountain Thief
+127:High Mountain Thief
+128:Lance Knight
+129:Spear Soldier
+130:Spear Knight
+131:Stelle Colb
+132:Nett Scorpian
+133:Banishrune
+134:Bog Runner
+135:Vulpen Edge
+136:Puddler
+137:Alabast
+138:Vis Scheld
+139:Sourmite
+140:Echs Gas
+141:Avengher
+142:Livgaro
+143:Caskott
+144:Senrheumer
+145:Gloom Reptile
+146:Bangaroo
+147:Leaping Penguin
+148:Graifer
+149:Khamus
+150:Strutsur
+151:Vabils
+152:Acranazzo
+153:Ladycabel
+154:Quartzorb
+155:Decayver
+156:Ripe Fructus
+157:Heliplan
+158:Lemmedusa
+159:Negohmo
+160:Clawmer
+161:Hercinsect
+162:Vowler
+163:Frolick
+164:Allkepter
+165:Ossiton
+166:Moltave
+167:Tembler
+168:Gleam Anim
+169:Lysom
+170:Powmie
+171:Elactinia
+172:Galeptic
+173:Vespa
+174:Raszaurus
+175:Ginnar
+176:Hilda
+177:Drombe
+178:Yucia
+179:Bandit Chief
+180:Bandit
+181:Crownell
+182:Delist
+183:Larva Cradle
+184:Haw Larva
+185:Fly Larva
+186:Mao
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
               <ID>1924</ID>
               <Description>"Monster Book Current Enemy"</Description>
-              <DropDownList DisplayValueAsItem="1">24:boss
-10:bull
-17:ice hawk
-69:plant
-</DropDownList>
+              <DropDownListLink>dropdown: Enemies</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>2 Bytes</VariableType>
+              <VariableType>Byte</VariableType>
               <Address>baseElfAddr+3BC360</Address>
             </CheatEntry>
             <CheatEntry>

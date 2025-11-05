@@ -2,55 +2,47 @@
 <CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
-      <ID>204</ID>
+      <ID>16500</ID>
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{$lua}
--- By "25094" on GitHub
-function GetEmuBase()
-local command = 0xB118
-local emuHWND = findWindow("PPSSPPWnd")
-
-local pointer = {}
-
-local result = sendMessage(emuHWND, command, 0, 0)
-pointer[1] = tonumber(result)
-
-result = sendMessage(emuHWND, command, 0, 1)
-pointer[2] = tonumber(result)
-
-local lower = pointer[1]
-local upper = pointer[2]
-local combinedPointer = (upper * 0x100000000) + lower
-
-return tonumber(combinedPointer)
+function fallbackScan()
+   print("Using fallback... this may take a few seconds")
+   r,error=autoAssemble([[aobscan(baseRAMAddr,? ? ? ? 80 0C 5A 27 08 00 40 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00) // should be unique
+   registersymbol(baseRAMAddr)]])
+   if (r==false) then
+     error(print(error .. "\nMake sure the game is running!"))
+   end
+   return
 end
 {$asm}
 [ENABLE]
 {$lua}
 if syntaxcheck then return end
-
-if (string.lower(process):match("ppsspp")) then
-   local ptr = GetEmuBase()
-
-   if not (ptr == nil) and not (ptr == 0) then
-        registerSymbol("baseElfAddr",ptr+0x8804000)
-   else
-        print("Using fallback... this may take a few seconds")
-        r,error=autoAssemble([[aobscan(baseElfAddr,E0 FF BD 27 14 00 BF AF 32 10 20 0E 00 00 00 00) // should be unique
-registersymbol(baseElfAddr)]])
-        if (r==false) then
-           error(print(error .. "\nMake sure the game is running!"))
-        end
-   end
+if not (process == nil) then
+  if (string.lower(process):match("duckstation")) then
+    if not (getAddressSafe("RAM") == nil) and not (getAddressSafe("RAM") == 0) then
+       --For some reason, the above statement is true even if it is actually 0
+       if not (readPointer("RAM") == nil) and not (readPointer("RAM") == 0) then
+          registerSymbol("baseRAMAddr",readPointer(getAddress("RAM")))
+          return
+       else
+          fallbackScan()
+       end
+    else
+        fallbackScan()
+    end
+  else
+     fallbackScan()
+  end
 else
-   error(print("Not attached to PPSSPP"))
-   return
+  error(print("Not attached to anything"))
+  return
 end
 {$asm}
 [DISABLE]
-unregistersymbol(baseElfAddr)
+unregistersymbol(baseRAMAddr)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -72,7 +64,7 @@ unregistersymbol(baseElfAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D64974</Address>
+          <Address>baseRAMAddr+134F94</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16502</ID>
@@ -130,7 +122,7 @@ unregistersymbol(baseElfAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D64090</Address>
+          <Address>baseRAMAddr+1346B0</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16509</ID>
@@ -1801,7 +1793,7 @@ unregistersymbol(baseElfAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+F0111C</Address>
+          <Address>baseRAMAddr+100184</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16730</ID>
@@ -2270,7 +2262,7 @@ unregistersymbol(baseElfAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D640EE</Address>
+          <Address>baseRAMAddr+13470E</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16743</ID>
@@ -2918,7 +2910,7 @@ unregistersymbol(baseElfAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D64CAE</Address>
+          <Address>baseRAMAddr+1352CE</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16821</ID>
@@ -3362,7 +3354,7 @@ unregistersymbol(baseElfAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D6411E</Address>
+          <Address>baseRAMAddr+13473E</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16863</ID>
@@ -3373,38 +3365,186 @@ unregistersymbol(baseElfAddr)
               <Address>+883</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>16865</ID>
-                  <Description>"L+X"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ID>16864</ID>
+                  <Description>"Slot 1"</Description>
+                  <Options moHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
+                  <GroupHeader>1</GroupHeader>
                   <Address>+0</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>16866</ID>
-                      <Description>"Character"</Description>
-                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ID>16865</ID>
+                      <Description>"L2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
-                      <Address>-1</Address>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16866</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16867</ID>
+                      <Description>"R2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16868</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>16867</ID>
-                  <Description>"L+()"</Description>
-                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ID>16869</ID>
+                  <Description>"Slot 2"</Description>
+                  <Options moHideChildren="1"/>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+2</Address>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>16868</ID>
-                      <Description>"Character"</Description>
-                      <DropDownListLink>Party Formation</DropDownListLink>
+                      <ID>16870</ID>
+                      <Description>"L2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
-                      <Address>-1</Address>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16871</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16872</ID>
+                      <Description>"R2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16873</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16874</ID>
+                  <Description>"Slot 3"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4*2</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>16875</ID>
+                      <Description>"L2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16876</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16877</ID>
+                      <Description>"R2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16878</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16879</ID>
+                  <Description>"Slot 4"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+4*3</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>16880</ID>
+                      <Description>"L2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16881</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16882</ID>
+                      <Description>"R2"</Description>
+                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16883</ID>
+                          <Description>"Character"</Description>
+                          <DropDownListLink>Party Formation</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>-1</Address>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -3879,7 +4019,7 @@ unregistersymbol(baseElfAddr)
           <Description>"Gald"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>baseElfAddr+D649B0</Address>
+          <Address>baseRAMAddr+134FD0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16940</ID>
@@ -3887,7 +4027,7 @@ unregistersymbol(baseElfAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+F02B3C</Address>
+          <Address>baseRAMAddr+101BA4</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16941</ID>
@@ -3902,6 +4042,13 @@ unregistersymbol(baseElfAddr)
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>2 Bytes</VariableType>
               <Address>+90</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16943</ID>
+              <Description>"Loaded max value at start (change this)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>+3370A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>16944</ID>
@@ -3920,14 +4067,14 @@ unregistersymbol(baseElfAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseElfAddr+D65F1A</Address>
+          <Address>baseRAMAddr+0C7D26</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16946</ID>
           <Description>"Encounter"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseElfAddr+D64C2A</Address>
+          <Address>baseRAMAddr+13524A</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16947</ID>
@@ -3937,7 +4084,7 @@ unregistersymbol(baseElfAddr)
 </DropDownList>
           <ShowAsSigned>1</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseElfAddr+D64C22</Address>
+          <Address>baseRAMAddr+135242</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16948</ID>
@@ -3947,7 +4094,7 @@ unregistersymbol(baseElfAddr)
 </DropDownList>
           <ShowAsSigned>1</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseElfAddr+D64C20</Address>
+          <Address>baseRAMAddr+135240</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16971</ID>
@@ -3955,7 +4102,7 @@ unregistersymbol(baseElfAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D640FE</Address>
+          <Address>baseRAMAddr+13471E</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16972</ID>
@@ -6891,7 +7038,7 @@ unregistersymbol(baseElfAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseElfAddr+D64C3C</Address>
+          <Address>baseRAMAddr+13525C</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16957</ID>
@@ -7000,10 +7147,10 @@ unregistersymbol(baseElfAddr)
             </CheatEntry>
             <CheatEntry>
               <ID>16951</ID>
-              <Description>"Base User Memory"</Description>
+              <Description>"Base RAM Address"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
-              <Address>baseElfAddr-4000</Address>
+              <Address>BaseRAMAddr</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -7013,8 +7160,18 @@ unregistersymbol(baseElfAddr)
   <UserdefinedSymbols/>
   <DisassemblerComments>
     <DisassemblerComment>
-      <Address>"DMCVTrainer.exe"+10E70</Address>
-      <Comment>Jump if unsupported version
+      <Address>62F16D4E</Address>
+      <Comment>60
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D58</Address>
+      <Comment>71
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>62F16D64</Address>
+      <Comment>90
 </Comment>
     </DisassemblerComment>
   </DisassemblerComments>

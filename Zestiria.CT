@@ -623,10 +623,19 @@ enmBookFixedStringworkaround+1EE0:
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>10191</ID>
+          <ID>91475</ID>
           <Description>"Alisha can armatize"</Description>
+          <Options moAlwaysHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+          <AssemblerScript>[ENABLE]
+[DISABLE]
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10191</ID>
+              <Description>"Alisha can armatize check"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Zestiria.exe
   Version:
   Date   : 2023-07-02
   Author : thing
@@ -677,6 +686,228 @@ Tales of Zestiria.exe+A1EBB: 38 83 0C 43 00 00     - cmp [ebx+0000430C],al
 }
 
 </AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91463</ID>
+              <Description>"armatization model"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2025-08-21
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(armatization_model,Tales of Zestiria.exe,85 C0 74 02 8B C8) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  cmp edx,8
+  jne code
+  mov eax,00070064
+code:
+  test eax,eax
+  reassemble(armatization_model+2)
+  //je 0051AFB5
+  mov ecx,eax
+  jmp return
+
+armatization_model:
+  jmp newmem
+  nop
+return:
+registersymbol(armatization_model)
+
+[DISABLE]
+
+armatization_model:
+  db 85 C0 74 02 8B C8
+
+unregistersymbol(armatization_model)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 0051AFAF
+
+0051AF90: 55                    - push ebp
+0051AF91: 8B EC                 - mov ebp,esp
+0051AF93: 8B 00                 - mov eax,[eax]
+0051AF95: 8B 88 BC 01 00 00     - mov ecx,[eax+000001BC]
+0051AF9B: 83 EC 0C              - sub esp,0C
+0051AF9E: 80 7D 14 00           - cmp byte ptr [ebp+14],00
+0051AFA2: 56                    - push esi
+0051AFA3: 74 10                 - je 0051AFB5
+0051AFA5: 8B 50 04              - mov edx,[eax+04]
+0051AFA8: 8B 04 95 B4 F7 E5 00  - mov eax,[edx*4+00E5F7B4]
+// ---------- INJECTING HERE ----------
+0051AFAF: 85 C0                 - test eax,eax
+// ---------- DONE INJECTING  ----------
+0051AFB1: 74 02                 - je 0051AFB5
+0051AFB3: 8B C8                 - mov ecx,eax
+0051AFB5: 8B 55 0C              - mov edx,[ebp+0C]
+0051AFB8: 51                    - push ecx
+0051AFB9: 8B 4D 08              - mov ecx,[ebp+08]
+0051AFBC: 83 EC 0C              - sub esp,0C
+0051AFBF: 8B C4                 - mov eax,esp
+0051AFC1: 89 08                 - mov [eax],ecx
+0051AFC3: 8B 4D 10              - mov ecx,[ebp+10]
+0051AFC6: 89 50 04              - mov [eax+04],edx
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91465</ID>
+              <Description>"armatization hair"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2025-08-21
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(armatization_hair,Tales of Zestiria.exe,33 DB 3B C3 75 07 B8 14 8F D5 00 EB 1E) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  cmp edx,8
+  jne code
+  mov eax,00070062
+code:
+  xor ebx,ebx
+  cmp eax,ebx
+  reassemble(armatization_hair+4)
+  //jne 0051B0B0
+  jmp return
+
+armatization_hair:
+  jmp newmem
+  nop
+return:
+registersymbol(armatization_hair)
+
+[DISABLE]
+
+armatization_hair:
+  db 33 DB 3B C3 75 07
+
+unregistersymbol(armatization_hair)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 0051B0A3
+
+0051B078: 64 A3 00 00 00 00        - mov fs:[00000000],eax
+0051B07E: 80 7D 18 00              - cmp byte ptr [ebp+18],00
+0051B082: 8B 45 14                 - mov eax,[ebp+14]
+0051B085: 8B 08                    - mov ecx,[eax]
+0051B087: 8B 81 C0 01 00 00        - mov eax,[ecx+000001C0]
+0051B08D: 74 14                    - je 0051B0A3
+0051B08F: 8B 49 04                 - mov ecx,[ecx+04]
+0051B092: 83 3C 8D D8 F7 E5 00 00  - cmp dword ptr [ecx*4+00E5F7D8],00
+0051B09A: 74 07                    - je 0051B0A3
+0051B09C: 8B 04 8D D8 F7 E5 00     - mov eax,[ecx*4+00E5F7D8]
+// ---------- INJECTING HERE ----------
+0051B0A3: 33 DB                    - xor ebx,ebx
+// ---------- DONE INJECTING  ----------
+0051B0A5: 3B C3                    - cmp eax,ebx
+0051B0A7: 75 07                    - jne 0051B0B0
+0051B0A9: B8 14 8F D5 00           - mov eax,00D58F14
+0051B0AE: EB 1E                    - jmp 0051B0CE
+0051B0B0: BF 12 00 00 00           - mov edi,00000012
+0051B0B5: E8 36 06 03 00           - call 0054B6F0
+0051B0BA: 3B C3                    - cmp eax,ebx
+0051B0BC: 75 07                    - jne 0051B0C5
+0051B0BE: B8 14 8F D5 00           - mov eax,00D58F14
+0051B0C3: EB 09                    - jmp 0051B0CE
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91470</ID>
+              <Description>"armatization_weapon check fix"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2025-08-21
+  Author : thing
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(armatization_weapon,Tales of Zestiria.exe,3B DE 74 11 8B FE) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  cmp eax,8
+  jne code
+  jmp return
+code:
+  reassemble(armatization_weapon-19)
+  reassemble(armatization_weapon-12)
+  jmp return
+
+armatization_weapon-12:
+  jmp newmem
+  nop
+return:
+registersymbol(armatization_weapon)
+
+[DISABLE]
+
+armatization_weapon-12:
+  db 0F 84 68 01 00 00
+
+unregistersymbol(armatization_weapon)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 0051B921
+
+0051B8ED: 0F 82 7A FD FF FF     - jb 0051B66D
+0051B8F3: 80 7D 10 00           - cmp byte ptr [ebp+10],00
+0051B8F7: 0F 84 80 01 00 00     - je 0051BA7D
+0051B8FD: 8B 85 04 FF FF FF     - mov eax,[ebp-000000FC]
+0051B903: 8B 08                 - mov ecx,[eax]
+0051B905: 8B 41 04              - mov eax,[ecx+04]
+0051B908: 39 34 85 B4 F7 E5 00  - cmp [eax*4+00E5F7B4],esi
+0051B90F: 0F 84 68 01 00 00     - je 0051BA7D
+0051B915: 8B 9D E0 FE FF FF     - mov ebx,[ebp-00000120]
+0051B91B: 8B B5 E4 FE FF FF     - mov esi,[ebp-0000011C]
+// ---------- INJECTING HERE ----------
+0051B921: 3B DE                 - cmp ebx,esi
+// ---------- DONE INJECTING  ----------
+0051B923: 74 11                 - je 0051B936
+0051B925: 8B FE                 - mov edi,esi
+0051B927: 8B C3                 - mov eax,ebx
+0051B929: E8 F2 5A F6 FF        - call 00481420
+0051B92E: 8B F3                 - mov esi,ebx
+0051B930: 89 B5 E4 FE FF FF     - mov [ebp-0000011C],esi
+0051B936: 8B 95 04 FF FF FF     - mov edx,[ebp-000000FC]
+0051B93C: 8B 02                 - mov eax,[edx]
+0051B93E: 8B 88 78 01 00 00     - mov ecx,[eax+00000178]
+0051B944: 8B 04 8D FC F7 E5 00  - mov eax,[ecx*4+00E5F7FC]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
           <ID>197</ID>
@@ -4586,7 +4817,6 @@ dealloc(newmem2)
 00418C75: 8B 56 18           - mov edx,[esi+18]
 }
 </AssemblerScript>
-                  <CheatEntries/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4934</ID>
