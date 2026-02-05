@@ -71,11 +71,11 @@ end
 [ENABLE]
 {$lua}
 if syntaxcheck then return end
-if process and readInteger(process) ~= 0 then
+--[[if process and readInteger(process) ~= 0 then
    if (monopipe ~= nil) and (monopipe.ProcessID ~= getOpenedProcessID()) then
       monopipe.Destroy()
       monopipe = nil
-   end
+   end]]
    if (monopipe == nil) then
       LaunchMonoDataCollector()
       --wait for mono
@@ -83,7 +83,7 @@ if process and readInteger(process) ~= 0 then
             checkSynchronize(50)
       end
    end
-end
+--end
 
 if (script_tbl == nil) then
     script_tbl = {}
@@ -22515,8 +22515,9 @@ define(bytes,48 89 5C 24 08 48 89 74 24 18 57 48 83 EC 60 48 63 DA 48 8B F1)
 [ENABLE]
 {$lua}
 if syntaxcheck then return end
-local method, instance = get_mono_method("Assembly-CSharp.dll", "BTL", "TO11BtlDatabase", "GetMagicArts")
-local edit_memrec = getAddressList().getMemoryRecordByID("116535")
+--local method, instance = get_mono_method("Assembly-CSharp.dll", "BTL", "TO11BtlDatabase", "GetMagicArts")
+local method = mono_findMethod("BTL", "TO11BtlDatabase", "GetMagicArts")
+local edit_memrec = getAddressList().getMemoryRecordByID("118025")
 
 --print("Method: "..toHex(method)..", instance: "..toHex(instance))
 
@@ -22567,7 +22568,7 @@ registersymbol(arte_prop_ptr_original_bytes)
 [DISABLE]
 {$lua}
 if syntaxcheck then return end
-local edit_memrec = getAddressList().getMemoryRecordByID("116535")
+local edit_memrec = getAddressList().getMemoryRecordByID("118025")
 edit_memrec.OnValueChanged = nil
 {$asm}
 
@@ -25409,16 +25410,76 @@ BTL.TO11BtlScript.Script_GetParam+463: //maximum
               <AssemblerScript>{$STRICT}
 define(bytes, 83 78 40 00 7E 30 F3 0F 10 8B 1C 05 00 00 45 33 C0 48 8B C8)
 [ENABLE]
-assert(BTL.CUnit.InputStep+449, bytes)
+assert(BTL.CUnit.InputStep+47C, bytes)
 
-BTL.CUnit.InputStep+44D:
+BTL.CUnit.InputStep+480:
   db EB
 
 [DISABLE]
 
-BTL.CUnit.InputStep+44D:
+BTL.CUnit.InputStep+480:
   db 7E
 </AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>118760</ID>
+              <Description>"Field run speed multiplier"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$STRICT}
+define(bytes, 33 D2 B9 08 00 00 05 E8)
+[ENABLE]
+assert(MoveMySelf.MoveMyself+5BC, bytes)
+alloc(newmem,$1000)
+alloc(MoveMySelf_original_bytes,$1000)
+
+label(code)
+label(return)
+
+MoveMySelf_original_bytes:
+  readMem(MoveMySelf.MoveMyself+5DE, 15)
+
+newmem:
+  sub rsp,16
+  movdqu [rsp], xmm0
+  mov rcx,tbl_data
+  movss xmm0, [rcx+88]
+  mulss xmm7, xmm0
+  movdqu xmm0, [rsp]
+  add rsp,16
+code:
+  reassemble(MoveMySelf.MoveMyself+5DE)
+  reassemble(MoveMySelf.MoveMyself+5E5)
+  test rax,rax
+  jmp return
+
+MoveMySelf.MoveMyself+5DE:
+  jmp newmem
+  nop
+
+return:
+
+tbl_data+88:
+  dq (float)2
+
+registersymbol(MoveMySelf_original_bytes)
+[DISABLE]
+
+MoveMySelf.MoveMyself+5DE:
+  readMem(MoveMySelf_original_bytes, 15)
+
+unregistersymbol(MoveMySelf_original_bytes)
+dealloc(newmem MoveMySelf_original_bytes)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>118761</ID>
+                  <Description>"Multiplier"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>tbl_data+88</Address>
+                </CheatEntry>
+              </CheatEntries>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -27602,12 +27663,12 @@ BTL.CUnit.InputStep+44D:
 0600002C:Sample Material Set
 0600002D:Adventurer's Nest Egg
 0600002E:Cooking set for travelers
-0600002F:Level Up +5 (1)
-06000030:Level Up +5 (2)
-06000031:Level Up +5 (3)
-06000032:Level Up +5 (4)
-06000033:Level Up +10 (1)
-06000034:Level Up +10 (2)
+0600002F:Lv. Up +5 (1)
+06000030:Lv. Up +5 (2)
+06000031:Lv. Up +5 (3)
+06000032:Lv. Up +5 (4)
+06000033:Lv. Up +10 (1)
+06000034:Lv. Up +10 (2)
 06000035:300,000 Gald (1)
 06000036:300,000 Gald (2)
 06000037:300,000 Gald (3)
@@ -31056,7 +31117,8 @@ edit_memrec.OnValueChanged = nil
               <AssemblerScript>[ENABLE]
 {$lua}
 if syntaxcheck then return end
-local method, instance = get_mono_method("Assembly-CSharp.dll", "BTL", "TO11BtlDatabase", "GetEncounterGroupByIndex")
+--local method, instance = get_mono_method("Assembly-CSharp.dll", "BTL", "TO11BtlDatabase", "GetEncounterGroupByIndex")
+local method = mono_findMethod("BTL","TO11BtlDatabase","GetEncounterGroupByIndex")
 local edit_memrec = getAddressList().getMemoryRecordByID("118185")
 local old_member_size = 0
 
@@ -31081,18 +31143,51 @@ edit_memrec.OnValueChanged = function(memrec, oldValue, newValue)
 
                            if (new_member_size &gt; 100) then goto _break end
 
+                           --[[print("Old size: "..old_member_size..", new size: "..new_member_size..", memrec count: "..member_memrec.Count)
+                           print("memrec count floored: "..math.floor(member_memrec.Count / 2))
+                           if (old_member_size &gt; new_member_size) then
+                              print("should delete "..old_member_size - new_member_size.." times")
+                           elseif (old_member_size &lt; new_member_size) then
+                                  print("should create "..new_member_size - old_member_size.." times")
+                           end]]
+
                            if (old_member_size &gt; new_member_size) then
                               --delete
                               --print("New: "..new_member_size..", old: "..old_member_size)
 
-                              for i = member_memrec.Count - 1, new_member_size, -1 do
+                              for i = member_memrec.Count - 1, new_member_size * 2, -2 do
                                   --print(member_memrec.Child[i].Description.." destroyed")
                                   --no idea why this causes access violation still
-                                  member_memrec.Child[i].Destroy()
+                                  --print("i "..member_memrec.Child[i].Description)
+                                  --print("i-1 "..member_memrec.Child[i - 1].Description)
+                                  --member_memrec.Child[i].destroy() --group
+                                  --member_memrec.Child[i - 1].destroy() --member
+
+                                  local rec = member_memrec.Child[i] --group
+
+                                  if rec then
+                                     local t = createTimer(nil)
+                                     t.Interval = 1
+                                     t.OnTimer = function(timer)
+                                               timer.Destroy()
+                                               rec.Destroy()
+                                     end
+                                  end
+
+                                  local rec = member_memrec.Child[i - 1] --member
+
+                                  if rec then
+                                     local t = createTimer(nil)
+                                     t.Interval = 1
+                                     t.OnTimer = function(timer)
+                                               timer.Destroy()
+                                               rec.Destroy()
+                                     end
+                                  end
                               end
                            elseif (old_member_size &lt; new_member_size) then
                                   --create
-                                  for i = member_memrec.Count, new_member_size - 1, 1 do
+                                  for i = math.floor(member_memrec.Count / 2), new_member_size - 1, 1 do
                                       --print("Creating memrec "..(i + 1))
                                       local memrec = getAddressList().createMemoryRecord()
 
@@ -31101,11 +31196,25 @@ edit_memrec.OnValueChanged = function(memrec, oldValue, newValue)
                                       memrec.Address = "+0"
                                       memrec.OffsetCount = 3
                                       memrec.Offset[0] = 0x10
-                                      memrec.Offset[1] = 0x20 + 0x8 * toHex(i)
+                                      memrec.Offset[1] = 0x20 + 0x8 * i
                                       memrec.Offset[2] = 0x10
                                       memrec.Type = vtDword
                                       memrec.DropDownLinkedMemrec = "dropdown: Enemy List"
                                       memrec.DropDownLinked = true
+                                      memrec.DontSave = true
+                                      memrec.appendToEntry(member_memrec)
+                                      memrec.endEdit()
+
+                                      local memrec = getAddressList().createMemoryRecord()
+
+                                      memrec.beginEdit()
+                                      memrec.Description = "Member "..(i + 1).." group"
+                                      memrec.Address = "+0"
+                                      memrec.OffsetCount = 3
+                                      memrec.Offset[0] = 0x14
+                                      memrec.Offset[1] = 0x20 + 0x8 * i
+                                      memrec.Offset[2] = 0x10
+                                      memrec.Type = vtDword
                                       memrec.DontSave = true
                                       memrec.appendToEntry(member_memrec)
                                       memrec.endEdit()
@@ -31327,64 +31436,65 @@ edit_memrec.OnValueChanged = nil
             </CheatEntry>
             <CheatEntry>
               <ID>118166</ID>
-              <Description>"Skill properties editor (does not work)"</Description>
+              <Description>"Skill properties editor"</Description>
               <Options moHideChildren="1"/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>{$lua}
 if syntaxcheck then return end
-return
-local method, instance = get_mono_method("Assembly-CSharp.dll", "SkillDatabase", "", "SSSkillData")
+local method, instance = get_mono_method("Assembly-CSharp.dll", "", "SkillDatabase", "Get")
 local edit_memrec = getAddressList().getMemoryRecordByID("118168")
 
-local args = {}
-args[1] = {}
-args[1].type = vtDword
+if (method ~= 0) and (instance ~= 0) then
+  local args = {}
+  args[1] = {}
+  args[1].type = vtDword
 
-edit_memrec.OnValueChanged = function(memrec, oldValue, newValue)
+  edit_memrec.OnValueChanged = function(memrec, oldValue, newValue)
                            args[1].value = tonumber(newValue)
-                           local result = mono_invoke_method(nil, method, nil, args)
+                           local result = mono_invoke_method(nil, method, instance, args)
                            writeQword("tbl_data+60", result)
+  end
 end
 {$asm}
 {$STRICT}
-define(bytes, 0F 57 C0 33 C0 0F 11 44 24 40 48 89 44 24 50 83 FB FF)
+define(bytes, 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20)
 [ENABLE]
-
-assert(MonsterDetailList.SetViewMonsterData+11F, bytes)
-
+assert(SkillDatabase.GetSP, bytes)
 alloc(newmem,$1000)
 
 label(code)
 label(return)
 
-tbl_data+30: //enable hover
-  dq 1
-
 newmem:
+  push rax
   mov rax,tbl_data
-  cmp [rax+30],0 //hover check
-  je code
-  mov [rax+28],rbx
+  cmp [rax+50],0 //hover check
+  je @f
+  mov [rax+58],rdx //write to edit
+@@:
+  pop rax
 code:
-  xorps xmm0,xmm0
-  xor eax,eax
-  movups [rsp+40],xmm0
-  mov [rsp+50],rax
+  db bytes
   jmp return
 
-MonsterDetailList.SetViewMonsterData+11F:
+SkillDatabase.GetSP:
   jmp newmem
   nop
-
 return:
+
+tbl_data+50: //enable hover
+  dq 1
+
+tbl_data+58: //set to skill 1 for s mall qol
+  dq 1
+
 [DISABLE]
 {$lua}
 if syntaxcheck then return end
 local edit_memrec = getAddressList().getMemoryRecordByID("118168")
 edit_memrec = nil
 {$asm}
-
-MonsterDetailList.SetViewMonsterData+11f:
+SkillDatabase.GetSP:
   db bytes
 
 dealloc(newmem)
@@ -31454,7 +31564,7 @@ dealloc(newmem)
                       <VariableType>8 Bytes</VariableType>
                       <Address>tbl_data+60</Address>
                       <Offsets>
-                        <Offset>1C</Offset>
+                        <Offset>20</Offset>
                       </Offsets>
                       <CheatEntries>
                         <CheatEntry>
@@ -31486,6 +31596,12 @@ dealloc(newmem)
                     <CheatEntry>
                       <ID>118173</ID>
                       <Description>"Type"</Description>
+                      <DropDownList DisplayValueAsItem="1">0:None
+1:Parameter
+2:Action
+3:Link
+4:Support
+</DropDownList>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
                       <Address>tbl_data+60</Address>
@@ -31506,13 +31622,43 @@ dealloc(newmem)
                       </Offsets>
                       <CheatEntries>
                         <CheatEntry>
-                          <ID>118182</ID>
-                          <Description>"?"</Description>
+                          <ID>118565</ID>
+                          <Description>"Parameter 1"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>+0</Address>
                           <Offsets>
-                            <Offset>0</Offset>
+                            <Offset>20</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118566</ID>
+                          <Description>"Parameter 2"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>24</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118567</ID>
+                          <Description>"Parameter 3"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>28</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118568</ID>
+                          <Description>"Parameter 4"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>2C</Offset>
                           </Offsets>
                         </CheatEntry>
                       </CheatEntries>
@@ -31531,12 +31677,182 @@ dealloc(newmem)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>118180</ID>
-                          <Description>"?"</Description>
+                          <Description>"Attack (Jude)"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>+0</Address>
                           <Offsets>
-                            <Offset>0</Offset>
+                            <Offset>20</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118569</ID>
+                          <Description>"Defense (Jude)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>24</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118570</ID>
+                          <Description>"Balanced (Jude)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>28</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118571</ID>
+                          <Description>"Attack (Milla)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>2C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118572</ID>
+                          <Description>"Defense (Milla)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>30</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118573</ID>
+                          <Description>"Balanced (Milla)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>34</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118574</ID>
+                          <Description>"Attack (Alvin)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>38</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118575</ID>
+                          <Description>"Defense (Alvin)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>3C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118576</ID>
+                          <Description>"Balanced (Alvin)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>40</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118577</ID>
+                          <Description>"Attack (Elize)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>44</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118578</ID>
+                          <Description>"Defense (Elize)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>48</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118579</ID>
+                          <Description>"Balanced (Elize)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>4C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118580</ID>
+                          <Description>"Attack (Rowen)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>50</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118581</ID>
+                          <Description>"Defense (Rowen)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>54</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118582</ID>
+                          <Description>"Balanced (Rowen)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>58</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118583</ID>
+                          <Description>"Balanced (Leia)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>5C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118584</ID>
+                          <Description>"Defense (Leia)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>60</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118585</ID>
+                          <Description>"Balanced (Leia)"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>64</Offset>
                           </Offsets>
                         </CheatEntry>
                       </CheatEntries>
@@ -31555,12 +31871,68 @@ dealloc(newmem)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>118181</ID>
-                          <Description>"?"</Description>
+                          <Description>"Jude"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>4 Bytes</VariableType>
+                          <VariableType>Byte</VariableType>
                           <Address>+0</Address>
                           <Offsets>
-                            <Offset>0</Offset>
+                            <Offset>20</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118560</ID>
+                          <Description>"Milla"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>21</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118561</ID>
+                          <Description>"Alvin"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>22</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118562</ID>
+                          <Description>"Elize"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>23</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118563</ID>
+                          <Description>"Rowen"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>24</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118564</ID>
+                          <Description>"Leia"</Description>
+                          <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                          <Offsets>
+                            <Offset>25</Offset>
                           </Offsets>
                         </CheatEntry>
                       </CheatEntries>
@@ -31611,6 +31983,8 @@ edit_memrec.OnValueChanged = function(memrec, oldValue, newValue)
                            if (result == nil) then goto _stop end
                            --print("Result: "..toHex(result))
                            writeQword("tbl_data+78", result)
+
+                           if (result == 0) then goto _stop end
 
                            -----------------------------------------------------------------------------
                            local new_arte_size = readInteger(readPointer(result + 0x18) + 0x18)
@@ -31820,6 +32194,7 @@ edit_memrec.OnValueChanged = nil
                       <Offsets>
                         <Offset>18</Offset>
                       </Offsets>
+                      <CheatEntries/>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>118208</ID>
@@ -32079,35 +32454,721 @@ unregisterSymbol("wingul_fight_edit_mem")
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
+            <CheatEntry>
+              <ID>118606</ID>
+              <Description>"Coordinates"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Xillia Remastered.exe
+  Version: 
+  Date   : 2025-11-13
+  Author : thing
+
+  This script does blah blah blah
+}
+{$STRICT}
+define(bytes, F2 41 0F 10 58 38 0F 28 C1 F3 41 0F 10 50 3C)
+[ENABLE]
+assert(CoordinateHandle.GetVelocity+13, bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+  push rax
+  mov rax,tbl_data
+  mov [rax+68],r8
+  pop rax
+code:
+  movsd xmm3,[r8+38]
+  movaps xmm0,xmm1
+  movss xmm2,[r8+3C]
+  jmp return
+
+CoordinateHandle.GetVelocity+13:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+CoordinateHandle.GetVelocity+13:
+  db bytes
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FFFABC50DA3
+
+7FFFABC50D81: 0F 11 49 30        - movups [rcx+30],xmm1
+7FFFABC50D85: 48 83 C4 28        - add rsp,28
+7FFFABC50D89: C3                 - ret 
+7FFFABC50D8A: E8 01 54 CF FF     - call 7FFFAB946190
+7FFFABC50D8F: CC                 - int 3 
+CoordinateHandle.GetVelocity: 48 83 EC 38        - sub rsp,38
+7FFFABC50D94: 4C 8B 41 10        - mov r8,[rcx+10]
+7FFFABC50D98: 4D 85 C0           - test r8,r8
+7FFFABC50D9B: 74 3E              - je 7FFFABC50DDB
+7FFFABC50D9D: F2 41 0F 10 48 2C  - movsd xmm1,[r8+2C]
+// ---------- INJECTING HERE ----------
+7FFFABC50DA3: F2 41 0F 10 58 38  - movsd xmm3,[r8+38]
+// ---------- DONE INJECTING  ----------
+7FFFABC50DA9: 0F 28 C1           - movaps xmm0,xmm1
+7FFFABC50DAC: F3 41 0F 10 50 3C  - movss xmm2,[r8+3C]
+7FFFABC50DB2: F3 0F 5C D9        - subss xmm3,xmm1
+7FFFABC50DB6: F3 41 0F 10 48 40  - movss xmm1,[r8+40]
+7FFFABC50DBC: F3 41 0F 5C 48 34  - subss xmm1,[r8+34]
+7FFFABC50DC2: 0F C6 C0 55        - shufps xmm0,xmm0,55
+7FFFABC50DC6: F3 0F 5C D0        - subss xmm2,xmm0
+7FFFABC50DCA: 0F 14 DA           - unpcklps xmm3,xmm2
+7FFFABC50DCD: F2 0F 11 1A        - movsd [rdx],xmm3
+7FFFABC50DD1: F3 0F 11 4A 08     - movss [rdx+08],xmm1
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>118607</ID>
+                  <Description>"X"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>tbl_data+68</Address>
+                  <Offsets>
+                    <Offset>38</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>118608</ID>
+                  <Description>"Y"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>tbl_data+68</Address>
+                  <Offsets>
+                    <Offset>3C</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>118609</ID>
+                  <Description>"Z"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>tbl_data+68</Address>
+                  <Offsets>
+                    <Offset>40</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>118611</ID>
+                  <Description>"Jank walk through walls"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$STRICT}
+define(bytes, 40 84 ED 74 3B)
+[ENABLE]
+assert(CoordinateHandle.SetPosition+C4, bytes)
+
+CoordinateHandle.SetPosition+C7:
+  nop 2
+
+[DISABLE]
+
+CoordinateHandle.SetPosition+C7:
+  db 74 3B
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>118612</ID>
+              <Description>"Arte Canceller v0"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$STRICT}
+define(bytes, F3 0F 10 38 48 8B 43 28 8B 40 0C 89 02)
+//define(bytes2, 48 8B 90 B8 00 00 00 F3 0F 10 32 33 D2)
+[ENABLE]
+assert(BTL.TO11BtlScript.Script_SetCancelPoint+91, bytes)
+//assert(BTL.TO11BtlScript.Script_SetCancelPoint+A5, bytes2)
+
+BTL.TO11BtlScript.Script_SetCancelPoint+91: //beginFrame
+  xorps xmm7,xmm7
+  nop
+
+//BTL.TO11BtlScript.Script_SetCancelPoint+AC: //endFrame
+//  xorps xmm6,xmm6
+//  nop
+
+[DISABLE]
+
+BTL.TO11BtlScript.Script_SetCancelPoint+91: //beginFrame
+  db F3 0F 10 38
+
+//BTL.TO11BtlScript.Script_SetCancelPoint+AC: //endFrame
+//  db F3 0F 10 32
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>118624</ID>
+              <Description>"Difficutly values"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$STRICT}
+define(bonus_exp_bytes, 00 00 00 3F 00 00 80 3F 00 00 C0 3F 00 00 00 40 00 00 80 40)
+[ENABLE]
+aobscan(diff_values_stats, 33 33 33 3F 00 00 80 3F 9A 99 99 3F 00 00 C0 3F 00 00 00 40 00 00 20 40 ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 33 33 33 3F 00 00 80 3F 9A 99 99 3F 00 00 C0 3F 00 00 00 40 00 00 20 40) // should be unique
+aobscan(diff_values_bon_exp, bonus_exp_bytes)
+
+registersymbol(diff_values_stats diff_values_bon_exp)
+
+[DISABLE]
+
+diff_values_stats:
+  db 33 33 33 3F 00 00 80 3F 9A 99 99 3F 00 00 C0 3F 00 00 00 40 00 00 20 40
+
+diff_values_stats+40:
+  db 33 33 33 3F 00 00 80 3F 9A 99 99 3F 00 00 C0 3F 00 00 00 40 00 00 20 40
+
+diff_values_bon_exp:
+  db bonus_exp_bytes
+
+unregistersymbol(diff_values_stats diff_values_bon_exp)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>118689</ID>
+                  <Description>"Stats"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>diff_values_stats</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>118690</ID>
+                      <Description>"HP"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*8</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118691</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118692</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118693</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118694</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118695</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118696</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118697</ID>
+                      <Description>"TP"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*7</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118698</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118699</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118700</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118701</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118702</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118703</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118704</ID>
+                      <Description>"AC"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*6</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118705</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118706</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118707</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118708</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118709</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118710</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118711</ID>
+                      <Description>"STR"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*5</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118712</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118713</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118714</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118715</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118716</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118717</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118718</ID>
+                      <Description>"INT"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*4</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118719</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118720</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118721</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118722</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118723</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118724</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118725</ID>
+                      <Description>"VIT"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*3</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118726</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118727</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118728</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118729</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118730</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118731</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118732</ID>
+                      <Description>"DEX"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40*2</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118733</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118734</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118735</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118736</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118737</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118738</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118739</ID>
+                      <Description>"AGI"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+40</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118740</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118741</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118742</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118743</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118744</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118745</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118746</ID>
+                      <Description>"PSY"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>118747</ID>
+                          <Description>"Easy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118748</ID>
+                          <Description>"Normal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118749</ID>
+                          <Description>"Moderate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118750</ID>
+                          <Description>"Hard"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118751</ID>
+                          <Description>"Unknown"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118752</ID>
+                          <Description>"Max"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>118753</ID>
+                  <Description>"Bonus EXP"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>diff_values_bon_exp</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>118754</ID>
+                      <Description>"Easy"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118755</ID>
+                      <Description>"Normal"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118756</ID>
+                      <Description>"Moderate"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118757</ID>
+                      <Description>"Hard"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118758</ID>
+                      <Description>"Unknown"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>118759</ID>
+                      <Description>"Max"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+14</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <CheatCodes>
-    <CodeEntry>
-      <Description>Change of nop 2</Description>
-      <AddressString>GameAssembly.dll+57EA9D</AddressString>
-      <Before>
-        <Byte>C0</Byte>
-        <Byte>01</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Before>
-      <Actual>
-        <Byte>66</Byte>
-        <Byte>90</Byte>
-      </Actual>
-      <After>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>0D</Byte>
-        <Byte>42</Byte>
-        <Byte>DC</Byte>
-      </After>
-    </CodeEntry>
-  </CheatCodes>
   <UserdefinedSymbols/>
   <Structures StructVersion="2">
     <Structure Name="String" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">

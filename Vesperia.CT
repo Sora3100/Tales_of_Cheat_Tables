@@ -728,7 +728,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>79081</ID>
                           <Description>"Parameter"</Description>
-                          <Options moAlwaysHideChildren="1"/>
+                          <DropDownListLink>Arte List</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -764,7 +764,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>79082</ID>
                           <Description>"Parameter"</Description>
-                          <Options moAlwaysHideChildren="1"/>
+                          <DropDownListLink>Arte List</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -800,7 +800,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>84809</ID>
                           <Description>"Parameter"</Description>
-                          <Options moAlwaysHideChildren="1"/>
+                          <DropDownListLink>Arte List</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -836,7 +836,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>84811</ID>
                           <Description>"Parameter"</Description>
-                          <Options moAlwaysHideChildren="1"/>
+                          <DropDownListLink>Arte List</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -872,7 +872,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>84813</ID>
                           <Description>"Parameter"</Description>
-                          <Options moAlwaysHideChildren="1"/>
+                          <DropDownListLink>Arte List</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -908,7 +908,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>84815</ID>
                           <Description>"Parameter"</Description>
-                          <Options moAlwaysHideChildren="1"/>
+                          <DropDownListLink>Arte List</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -931,66 +931,6 @@ TOV_DE.exe+3C265C: CC                    - int 3
                       </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>92410</ID>
-                  <Description>"?"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>90</Offset>
-                  </Offsets>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>92409</ID>
-                  <Description>"?"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>94</Offset>
-                  </Offsets>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>92408</ID>
-                  <Description>"?"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>98</Offset>
-                  </Offsets>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>92406</ID>
-                  <Description>"?"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>9C</Offset>
-                  </Offsets>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>92405</ID>
-                  <Description>"?"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>A0</Offset>
-                  </Offsets>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>79097</ID>
-                  <Description>"?"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>artePropPTR</Address>
-                  <Offsets>
-                    <Offset>A4</Offset>
-                  </Offsets>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>92404</ID>
@@ -1473,6 +1413,7 @@ TOV_DE.exe+3C265C: CC                    - int 3
                         <CheatEntry>
                           <ID>79152</ID>
                           <Description>"Parameter"</Description>
+                          <DropDownListLink>dropdown: Skills</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>artePropPTR</Address>
@@ -9764,7 +9705,7 @@ dealloc(PSX_3)
                   <DropDownList DisplayValueAsItem="1">0:None
 1:Level
 2:Arte usage
-3:Skill unlock
+3:Skill equipped
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
