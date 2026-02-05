@@ -1,5 +1,11 @@
 ### Changelog
 
+#### 2026/02/05
+
+-	Simplified Xillia 1 enable script, should break Mono less
+-	Fixed Arte properties editor not working in Xillia 1
+-	Updated Xillia 1 "Disable tap-dash" to the latest update
+
 #### 2025/11/05
 
 -	Ported over most of the Xillia 1 table to PC

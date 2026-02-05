@@ -39,7 +39,7 @@ Features:
  - Change Run/Swim Speed
 
  ## Berseria (PC)
-Based on the 2017/02/03 update.
+Based on the 2017/02/03 update. (original release from 2017, not Remastered)
 
 Features:
  - Show all entries in Enemy Book
@@ -314,7 +314,7 @@ Features:
  This table has some notes regarding changing encounters that I never figured out.
  
  ## Xillia 1 (PC)
-Based on the 1.0.2 (buildID 20582652) version of the game.
+Based on the 1.0.3 (buildID 20945273) version of the game.
 
 Features:
  - Party Formation Editor
