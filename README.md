@@ -208,7 +208,7 @@ Based on the SLPS91210 version of the game.
 
 Emulator used: DuckStation 0.1-5485-gc6a57273 (dev)
 
-Features: 
+Features:
  - Party Formation Editor
  - Stats Editor
  - In-Battle Stats Editor
@@ -218,6 +218,20 @@ Features:
  - Enable or Disable Combo Command Modes
  - Difficulty Modifier
  - Automatic Manual Control Mode, Dash Mode and Combo Command Mode + Auto Death Cam script
+
+ ## Phantasia X (PSP)
+Based on the ULJS00293 (1.01) version of the game.
+
+Emulator used: PPSSPP v1.20.3
+
+Features: 
+ - Party Formation Editor
+ - Stats Editor
+ - In-Battle Stats Editor
+ - Equipment Editor
+ - Change BGM
+ - Change encounter
+ - Change encounter background
 
  ## Phantasia: Narikiri Dungeon X (PSP)
 Based on the ULJS00293 (1.01) version of the game.
@@ -331,6 +345,9 @@ Features:
  - Disable party checks
  - Disallow counter-attacks
  - Disable tap dash
+ - Wingul fight editor
+ - Play as bosses, or become a different ally (narikiri)
+ - Fix flick/tap dash (2nd player bug too)
 
  ## Xillia 2 (PS3)
 Based on the BLUS31397 version of the game.

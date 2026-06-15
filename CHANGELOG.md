@@ -1,5 +1,21 @@
 ### Changelog
 
+#### 2026/06/15
+
+-	Recreated the "Wingul fight editor" script for the PC Remaster version (NOTE: Requires Cheat Engine 7.6.6 or later)
+-	Recreated the "Play as <character>" script for the PC Remaster version (NOTE: Requires Cheat Engine 7.6.6 or later)
+	-	Added and updated some of the quality of life features for the script:
+		-	The base character header will now become collapsible once activated.
+		-	Equipped artes will no longer be universally removed. Instead, they will be checked against the character you want to play as, if they can use it.
+		-	The characters now more closely behave to how they are in their boss fight, if they are set to auto.
+-	Added "All owned attacks equippable" script. (does not apply to linked artes)
+	-	Will change arte names to their ID if their default name is empty
+-	Added "Fix flick/tap dash (2nd player bug too)" script. (NOTE: disabling tap dash already accomplishes this, only use this if you like tap dash!)
+-	Added "Disable enemy AI" script.
+-	Added "Allow infinite enemies" script.
+
+-	Added Phantasia X table
+
 #### 2026/02/05
 
 -	Simplified Xillia 1 enable script, should break Mono less

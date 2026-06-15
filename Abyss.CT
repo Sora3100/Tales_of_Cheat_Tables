@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>69</ID>
@@ -34,7 +34,7 @@ registersymbol(baseElfAddr)]])
    end
 
    local mf = getMainForm()
-   if (mf.FromAddress.Text == "0000000000000000") and (mf.ToAddress.Text == "00007fffffffffff") then
+   if (mf.FromAddress.Text == "0000000000000000") and (mf.ToAddress.Text == "00007fffffffffff") or (mf.ToAddress.Text == "7fffffffffffffff") then
       mf.FromAddress.Text = "baseEEmem"
       mf.ToAddress.Text = "baseEEmem+"..toHex(0x20000000)
    end
@@ -8558,7 +8558,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>275</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8577,7 +8577,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>280</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8596,7 +8596,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>278</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8615,7 +8615,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>276</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8674,7 +8674,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1532</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8693,7 +8693,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1534</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8712,7 +8712,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1538</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8731,7 +8731,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1536</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8794,7 +8794,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1545</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8813,7 +8813,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1547</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8832,7 +8832,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1549</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8851,7 +8851,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1551</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -8910,7 +8910,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1558</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8929,7 +8929,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1560</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8948,7 +8948,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1562</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -8967,7 +8967,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1564</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9030,7 +9030,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1649</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9049,7 +9049,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1651</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9068,7 +9068,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1653</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9087,7 +9087,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1655</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9146,7 +9146,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1662</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9165,7 +9165,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1664</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9184,7 +9184,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1666</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9203,7 +9203,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1668</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9266,7 +9266,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1623</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9285,7 +9285,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1625</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9304,7 +9304,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1627</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9323,7 +9323,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1629</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9382,7 +9382,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1636</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9401,7 +9401,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1638</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9420,7 +9420,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1640</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9439,7 +9439,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1642</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9502,7 +9502,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1597</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9521,7 +9521,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1599</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9540,7 +9540,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1601</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9559,7 +9559,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1603</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9618,7 +9618,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1610</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9637,7 +9637,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1612</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9656,7 +9656,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1614</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9675,7 +9675,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1616</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9738,7 +9738,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1571</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9757,7 +9757,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1573</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9776,7 +9776,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1575</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9795,7 +9795,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1577</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9854,7 +9854,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1584</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9873,7 +9873,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1586</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9892,7 +9892,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1588</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9911,7 +9911,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1590</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -9974,7 +9974,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1675</ID>
                   <Description>"Slot 5"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -9993,7 +9993,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1677</ID>
                   <Description>"Slot 6"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -10012,7 +10012,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1679</ID>
                   <Description>"Slot 7"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -10031,7 +10031,7 @@ unregistersymbol(tbl_data)
                 <CheatEntry>
                   <ID>1681</ID>
                   <Description>"Slot 8"</Description>
-                  <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
@@ -10090,7 +10090,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1688</ID>
                       <Description>"Slot 13"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -10109,7 +10109,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1690</ID>
                       <Description>"Slot 14"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -10128,7 +10128,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1692</ID>
                       <Description>"Slot 15"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -10147,7 +10147,7 @@ unregistersymbol(tbl_data)
                     <CheatEntry>
                       <ID>1694</ID>
                       <Description>"Slot 16"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <DropDownListLink>Arte List</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
@@ -16034,7 +16034,7 @@ unregistersymbol(artePropEdit)
                     <CheatEntry>
                       <ID>92906</ID>
                       <Description>"Pointer to name"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -18477,7 +18477,7 @@ unregistersymbol(artePropEdit)
                     <CheatEntry>
                       <ID>93139</ID>
                       <Description>"Pointer to description"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -18530,7 +18530,7 @@ unregistersymbol(skill_prop_ptr)
                     <CheatEntry>
                       <ID>92883</ID>
                       <Description>"Pointer to name"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -18552,7 +18552,7 @@ unregistersymbol(skill_prop_ptr)
                     <CheatEntry>
                       <ID>92888</ID>
                       <Description>"Pointer to description"</Description>
-                      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <Options moDefaultCollapsed="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
