@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>135</ID>
@@ -37,31 +37,95 @@ local combinedPointer = (upper * 0x100000000) + lower
 
 return tonumber(combinedPointer)
 end
+
+function toHex(str)
+         return string.format("%X", str)
+end
 {$asm}
 [ENABLE]
 {$lua}
 if syntaxcheck then return end
 
-if (string.lower(process):match("ppsspp")) then
+local function mainloop()
+               if (getOpenedProcessID() ~= 0) and not (readInteger(process) == nil) and
+               (getAddressSafe("CWCheat_base") ~= nil) and (readInteger("CWCheat_base") ~= nil) then
+                  --execute scripts
+                  for i in pairs(script_tbl) do
+                      _G[script_tbl[i]]()
+                  end
+               else
+                   script_tbl = {}
+                   timer.Enabled = false
+                   timer.Destroy()
+                   timer = nil
+               end
+end
+
+if process and readInteger(process) and (string.lower(process):match("ppsspp")) then
    local ptr = GetEmuBase()
 
    if not (ptr == nil) and not (ptr == 0) then
       registerSymbol("DataStart",ptr+0x8804000)
+      registerSymbol("PSP_base",ptr)
+      registerSymbol("CWCheat_base",ptr+0x8800000)
    else
       print("Using fallback... this may take a few seconds")
       r,error=autoAssemble([[aobscan(DataStart,? ? ? 68 98 08 04 3C)
-      registersymbol(DataStart)]])
+      registersymbol(DataStart)
+      define(PSP_base, DataStart-0x8804000)
+      define(CWCheat_base, DataStart-0x4000)
+      registersymbol(PSP_base)
+      registersymbol(CWCheat_base)]])
+
       if (r==false) then
-         error(print(error .. "\nMake sure the game is running!"))
+         local errormsg = "Make sure the game is running!"
+
+         showMessage(errormsg)
+         error(errormsg)
       end
    end
+
+   local mf = getMainForm()
+   if (mf.FromAddress.Text == "0000000000000000") and (mf.ToAddress.Text == "00007fffffffffff") or (mf.ToAddress.Text == "7fffffffffffffff") then
+      mf.FromAddress.Text = "PSP_base"
+      mf.ToAddress.Text = "PSP_base+"..toHex(0x03FFFFFF)
+   end
 else
-   error(print("Not attached to PPSSPP"))
-   return
+    local errormsg = "Not attached to PPSSPP"
+
+    showMessage(errormsg)
+    error(errormsg)
+    return
 end
+
+if (script_tbl == nil) then
+    script_tbl = {}
+end
+
+if not timer then
+   timer = createTimer(nil)
+   timer.OnTimer = function(timer)
+                   mainloop()
+                   end
+   timer.Interval = 1000
+   timer.Enabled = true
+else
+   timer.Enabled = true
+end
+
 {$asm}
 [DISABLE]
+{$lua}
+if syntaxcheck then return end
+if (timer) then
+   timer.Enabled = false
+   timer.Destroy()
+   timer = nil
+end
+{$asm}
 unregistersymbol(DataStart)
+unregistersymbol(PSP_base)
+unregistersymbol(CWCheat_base)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -624,6 +688,13 @@ unregistersymbol(DataStart)
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>-11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86283</ID>
+                  <Description>"Monster Type"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>-24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>286</ID>
@@ -2746,17 +2817,17 @@ unregistersymbol(DataStart)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>607</ID>
+          <ID>85862</ID>
           <Description>"Arte List"</Description>
           <Options moHideChildren="1"/>
           <DropDownList DisplayValueAsItem="1">0:Nothing
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>DataStart+2EF38C</Address>
+          <Address>PSP_base+8AF338C</Address>
           <CheatEntries>
             <CheatEntry>
-              <ID>608</ID>
+              <ID>85863</ID>
               <Description>"Dio"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -2764,7 +2835,7 @@ unregistersymbol(DataStart)
               <Address>+0</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>609</ID>
+                  <ID>85864</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2772,7 +2843,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>612</ID>
+                  <ID>85865</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2780,7 +2851,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>611</ID>
+                  <ID>85866</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2788,7 +2859,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>610</ID>
+                  <ID>85867</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2796,7 +2867,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63064</ID>
+                  <ID>85868</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2804,7 +2875,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63067</ID>
+                  <ID>85869</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2812,7 +2883,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63066</ID>
+                  <ID>85870</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2820,7 +2891,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63065</ID>
+                  <ID>85871</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2828,7 +2899,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>616</ID>
+                  <ID>85872</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2836,7 +2907,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>619</ID>
+                      <ID>85873</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -2846,7 +2917,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>615</ID>
+                  <ID>85874</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2854,7 +2925,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>622</ID>
+                      <ID>85875</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -2864,7 +2935,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>614</ID>
+                  <ID>85876</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2872,7 +2943,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>621</ID>
+                      <ID>85877</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -2882,7 +2953,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>613</ID>
+                  <ID>85878</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2890,7 +2961,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>620</ID>
+                      <ID>85879</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -2902,7 +2973,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>623</ID>
+              <ID>85880</ID>
               <Description>"Mell"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -2910,7 +2981,7 @@ unregistersymbol(DataStart)
               <Address>+2D8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63068</ID>
+                  <ID>85881</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2918,7 +2989,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63069</ID>
+                  <ID>85882</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2926,7 +2997,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63070</ID>
+                  <ID>85883</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2934,7 +3005,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63071</ID>
+                  <ID>85884</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2942,7 +3013,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63072</ID>
+                  <ID>85885</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2950,7 +3021,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63073</ID>
+                  <ID>85886</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2958,7 +3029,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63074</ID>
+                  <ID>85887</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2966,7 +3037,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63075</ID>
+                  <ID>85888</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2974,7 +3045,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>628</ID>
+                  <ID>85889</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -2982,7 +3053,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>629</ID>
+                      <ID>85890</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -2992,7 +3063,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>630</ID>
+                  <ID>85891</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3000,7 +3071,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>631</ID>
+                      <ID>85892</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3010,7 +3081,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>632</ID>
+                  <ID>85893</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3018,7 +3089,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>633</ID>
+                      <ID>85894</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3028,7 +3099,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>634</ID>
+                  <ID>85895</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3036,7 +3107,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>635</ID>
+                      <ID>85896</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3048,7 +3119,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>636</ID>
+              <ID>85897</ID>
               <Description>"Couleur"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3056,7 +3127,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*2</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63076</ID>
+                  <ID>85898</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3064,7 +3135,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63077</ID>
+                  <ID>85899</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3072,7 +3143,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63078</ID>
+                  <ID>85900</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3080,7 +3151,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63079</ID>
+                  <ID>85901</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3088,7 +3159,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63080</ID>
+                  <ID>85902</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3096,7 +3167,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63081</ID>
+                  <ID>85903</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3104,7 +3175,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63082</ID>
+                  <ID>85904</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3112,7 +3183,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63083</ID>
+                  <ID>85905</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3120,7 +3191,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>641</ID>
+                  <ID>85906</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3128,7 +3199,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>642</ID>
+                      <ID>85907</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3138,7 +3209,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>643</ID>
+                  <ID>85908</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3146,7 +3217,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>644</ID>
+                      <ID>85909</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3156,7 +3227,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>645</ID>
+                  <ID>85910</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3164,7 +3235,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>646</ID>
+                      <ID>85911</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3174,7 +3245,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>647</ID>
+                  <ID>85912</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3182,7 +3253,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>648</ID>
+                      <ID>85913</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3194,7 +3265,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>766</ID>
+              <ID>85914</ID>
               <Description>"Cress"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3202,7 +3273,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*3</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63084</ID>
+                  <ID>85915</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3210,7 +3281,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63085</ID>
+                  <ID>85916</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3218,7 +3289,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63086</ID>
+                  <ID>85917</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3226,7 +3297,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63087</ID>
+                  <ID>85918</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3234,7 +3305,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63088</ID>
+                  <ID>85919</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3242,7 +3313,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63089</ID>
+                  <ID>85920</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3250,7 +3321,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63090</ID>
+                  <ID>85921</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3258,7 +3329,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63091</ID>
+                  <ID>85922</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3266,7 +3337,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>771</ID>
+                  <ID>85923</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3274,7 +3345,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>772</ID>
+                      <ID>85924</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3284,7 +3355,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>773</ID>
+                  <ID>85925</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3292,7 +3363,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>774</ID>
+                      <ID>85926</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3302,7 +3373,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>775</ID>
+                  <ID>85927</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3310,7 +3381,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>776</ID>
+                      <ID>85928</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3320,7 +3391,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>777</ID>
+                  <ID>85929</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3328,7 +3399,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>778</ID>
+                      <ID>85930</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3340,7 +3411,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>753</ID>
+              <ID>85931</ID>
               <Description>"Mint"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3348,7 +3419,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*4</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63140</ID>
+                  <ID>85932</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3356,7 +3427,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63141</ID>
+                  <ID>85933</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3364,7 +3435,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63142</ID>
+                  <ID>85934</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3372,7 +3443,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63143</ID>
+                  <ID>85935</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3380,7 +3451,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63144</ID>
+                  <ID>85936</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3388,7 +3459,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63145</ID>
+                  <ID>85937</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3396,7 +3467,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63146</ID>
+                  <ID>85938</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3404,7 +3475,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63147</ID>
+                  <ID>85939</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3412,7 +3483,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>758</ID>
+                  <ID>85940</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3420,7 +3491,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>759</ID>
+                      <ID>85941</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3430,7 +3501,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>760</ID>
+                  <ID>85942</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3438,7 +3509,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>761</ID>
+                      <ID>85943</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3448,7 +3519,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>762</ID>
+                  <ID>85944</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3456,7 +3527,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>763</ID>
+                      <ID>85945</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3466,7 +3537,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>764</ID>
+                  <ID>85946</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3474,7 +3545,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>765</ID>
+                      <ID>85947</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3486,7 +3557,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>740</ID>
+              <ID>85948</ID>
               <Description>"Chester"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3494,7 +3565,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*5</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63132</ID>
+                  <ID>85949</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3502,7 +3573,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63133</ID>
+                  <ID>85950</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3510,7 +3581,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63134</ID>
+                  <ID>85951</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3518,7 +3589,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63135</ID>
+                  <ID>85952</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3526,7 +3597,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63136</ID>
+                  <ID>85953</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3534,7 +3605,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63137</ID>
+                  <ID>85954</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3542,7 +3613,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63138</ID>
+                  <ID>85955</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3550,7 +3621,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63139</ID>
+                  <ID>85956</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3558,7 +3629,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>745</ID>
+                  <ID>85957</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3566,7 +3637,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>746</ID>
+                      <ID>85958</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3576,7 +3647,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>747</ID>
+                  <ID>85959</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3584,7 +3655,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>748</ID>
+                      <ID>85960</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3594,7 +3665,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>749</ID>
+                  <ID>85961</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3602,7 +3673,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>750</ID>
+                      <ID>85962</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3612,7 +3683,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>751</ID>
+                  <ID>85963</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3620,7 +3691,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>752</ID>
+                      <ID>85964</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3632,7 +3703,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>727</ID>
+              <ID>85965</ID>
               <Description>"Arche"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3640,7 +3711,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*6</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63124</ID>
+                  <ID>85966</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3648,7 +3719,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63125</ID>
+                  <ID>85967</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3656,7 +3727,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63126</ID>
+                  <ID>85968</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3664,7 +3735,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63127</ID>
+                  <ID>85969</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3672,7 +3743,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63128</ID>
+                  <ID>85970</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3680,7 +3751,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63129</ID>
+                  <ID>85971</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3688,7 +3759,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63130</ID>
+                  <ID>85972</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3696,7 +3767,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63131</ID>
+                  <ID>85973</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3704,7 +3775,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>732</ID>
+                  <ID>85974</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3712,7 +3783,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>733</ID>
+                      <ID>85975</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3722,7 +3793,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>734</ID>
+                  <ID>85976</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3730,7 +3801,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>735</ID>
+                      <ID>85977</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3740,7 +3811,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>736</ID>
+                  <ID>85978</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3748,7 +3819,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>737</ID>
+                      <ID>85979</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3758,7 +3829,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>738</ID>
+                  <ID>85980</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3766,7 +3837,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>739</ID>
+                      <ID>85981</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3778,7 +3849,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>714</ID>
+              <ID>85982</ID>
               <Description>"Klarth"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3786,7 +3857,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*7</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63116</ID>
+                  <ID>85983</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3794,7 +3865,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63117</ID>
+                  <ID>85984</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3802,7 +3873,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63118</ID>
+                  <ID>85985</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3810,7 +3881,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63119</ID>
+                  <ID>85986</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3818,7 +3889,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63120</ID>
+                  <ID>85987</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3826,7 +3897,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63121</ID>
+                  <ID>85988</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3834,7 +3905,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63122</ID>
+                  <ID>85989</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3842,7 +3913,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63123</ID>
+                  <ID>85990</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3850,7 +3921,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>719</ID>
+                  <ID>85991</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3858,7 +3929,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>720</ID>
+                      <ID>85992</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3868,7 +3939,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>721</ID>
+                  <ID>85993</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3876,7 +3947,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>722</ID>
+                      <ID>85994</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3886,7 +3957,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>723</ID>
+                  <ID>85995</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3894,7 +3965,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>724</ID>
+                      <ID>85996</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3904,7 +3975,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>725</ID>
+                  <ID>85997</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3912,7 +3983,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>726</ID>
+                      <ID>85998</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -3924,7 +3995,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>701</ID>
+              <ID>85999</ID>
               <Description>"Suzu"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -3932,7 +4003,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*8</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63108</ID>
+                  <ID>86000</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3940,7 +4011,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63109</ID>
+                  <ID>86001</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3948,7 +4019,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63110</ID>
+                  <ID>86002</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3956,7 +4027,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63111</ID>
+                  <ID>86003</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3964,7 +4035,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63112</ID>
+                  <ID>86004</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3972,7 +4043,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63113</ID>
+                  <ID>86005</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3980,7 +4051,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63114</ID>
+                  <ID>86006</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3988,7 +4059,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63115</ID>
+                  <ID>86007</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -3996,7 +4067,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>706</ID>
+                  <ID>86008</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4004,7 +4075,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>707</ID>
+                      <ID>86009</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4014,7 +4085,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>708</ID>
+                  <ID>86010</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4022,7 +4093,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>709</ID>
+                      <ID>86011</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4032,7 +4103,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>710</ID>
+                  <ID>86012</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4040,7 +4111,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>711</ID>
+                      <ID>86013</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4050,7 +4121,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>712</ID>
+                  <ID>86014</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4058,7 +4129,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>713</ID>
+                      <ID>86015</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4070,7 +4141,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>688</ID>
+              <ID>86016</ID>
               <Description>"Rondoline"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -4078,7 +4149,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*9</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63100</ID>
+                  <ID>86017</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4086,7 +4157,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63101</ID>
+                  <ID>86018</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4094,7 +4165,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63102</ID>
+                  <ID>86019</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4102,7 +4173,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63103</ID>
+                  <ID>86020</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4110,7 +4181,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63104</ID>
+                  <ID>86021</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4118,7 +4189,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63105</ID>
+                  <ID>86022</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4126,7 +4197,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63106</ID>
+                  <ID>86023</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4134,7 +4205,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63107</ID>
+                  <ID>86024</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4142,7 +4213,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>693</ID>
+                  <ID>86025</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4150,7 +4221,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>694</ID>
+                      <ID>86026</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4160,7 +4231,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>695</ID>
+                  <ID>86027</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4168,7 +4239,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>696</ID>
+                      <ID>86028</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4178,7 +4249,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>697</ID>
+                  <ID>86029</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4186,7 +4257,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>698</ID>
+                      <ID>86030</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4196,7 +4267,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>699</ID>
+                  <ID>86031</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4204,7 +4275,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>700</ID>
+                      <ID>86032</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4216,7 +4287,7 @@ unregistersymbol(DataStart)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>675</ID>
+              <ID>86033</ID>
               <Description>"Monster"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -4224,7 +4295,7 @@ unregistersymbol(DataStart)
               <Address>+2D8*A</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>63092</ID>
+                  <ID>86034</ID>
                   <Description>"Neutral (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4232,7 +4303,7 @@ unregistersymbol(DataStart)
                   <Address>+0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63093</ID>
+                  <ID>86035</ID>
                   <Description>"Up (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4240,7 +4311,7 @@ unregistersymbol(DataStart)
                   <Address>+2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63094</ID>
+                  <ID>86036</ID>
                   <Description>"Down (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4248,7 +4319,7 @@ unregistersymbol(DataStart)
                   <Address>+2*2</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63095</ID>
+                  <ID>86037</ID>
                   <Description>"Side (O)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4256,7 +4327,7 @@ unregistersymbol(DataStart)
                   <Address>+2*3</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63096</ID>
+                  <ID>86038</ID>
                   <Description>"Neutral (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4264,7 +4335,7 @@ unregistersymbol(DataStart)
                   <Address>+2*4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63097</ID>
+                  <ID>86039</ID>
                   <Description>"Up (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4272,7 +4343,7 @@ unregistersymbol(DataStart)
                   <Address>+2*5</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63098</ID>
+                  <ID>86040</ID>
                   <Description>"Down (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4280,7 +4351,7 @@ unregistersymbol(DataStart)
                   <Address>+2*6</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>63099</ID>
+                  <ID>86041</ID>
                   <Description>"Side (X)"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4288,7 +4359,7 @@ unregistersymbol(DataStart)
                   <Address>+2*7</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>680</ID>
+                  <ID>86042</ID>
                   <Description>"Up Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4296,7 +4367,7 @@ unregistersymbol(DataStart)
                   <Address>+10</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>681</ID>
+                      <ID>86043</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4306,7 +4377,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>682</ID>
+                  <ID>86044</ID>
                   <Description>"Right Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4314,7 +4385,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>683</ID>
+                      <ID>86045</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4324,7 +4395,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>684</ID>
+                  <ID>86046</ID>
                   <Description>"Down Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4332,7 +4403,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>685</ID>
+                      <ID>86047</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4342,7 +4413,7 @@ unregistersymbol(DataStart)
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>686</ID>
+                  <ID>86048</ID>
                   <Description>"Left Analog"</Description>
                   <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
@@ -4350,7 +4421,7 @@ unregistersymbol(DataStart)
                   <Address>+10+2*3</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>687</ID>
+                      <ID>86049</ID>
                       <Description>"Character"</Description>
                       <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
@@ -4364,19 +4435,17 @@ unregistersymbol(DataStart)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>782</ID>
+          <ID>85861</ID>
           <Description>"Control Modes"</Description>
           <Options moHideChildren="1"/>
           <DropDownList DisplayValueAsItem="1">0:Auto
 1:Semi-Auto
 2:Manual
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>DataStart+7A7DC5</Address>
           <CheatEntries>
             <CheatEntry>
-              <ID>63062</ID>
+              <ID>85675</ID>
               <Description>"READ THIS"</Description>
               <Color>0000FF</Color>
               <VariableType>Auto Assembler Script</VariableType>
@@ -4389,7 +4458,7 @@ hard crash.
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
-              <ID>799</ID>
+              <ID>85676</ID>
               <Description>"Currently Controlling Slot"</Description>
               <DropDownList DisplayValueAsItem="1">0:Slot 1
 1:Slot 2
@@ -4405,126 +4474,68 @@ hard crash.
               <Address>DataStart+2EE528</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>781</ID>
+              <ID>85677</ID>
               <Description>"Slot 1"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+0</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 0]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>791</ID>
+              <ID>85678</ID>
               <Description>"Slot 2"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 4]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>798</ID>
+              <ID>85679</ID>
               <Description>"Slot 3"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340*2</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 8]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>797</ID>
+              <ID>85680</ID>
               <Description>"Slot 4"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340*3</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + C]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>796</ID>
+              <ID>85681</ID>
               <Description>"Slot 5"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340*4</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 10]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>795</ID>
+              <ID>85682</ID>
               <Description>"Slot 6"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340*5</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 14]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>794</ID>
+              <ID>85683</ID>
               <Description>"Slot 7"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340*6</Address>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 18]+35</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>793</ID>
+              <ID>85684</ID>
               <Description>"Slot 8"</Description>
               <DropDownListLink>Control Modes</DropDownListLink>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
-              <Address>+1340*7</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63951</ID>
-              <Description>"Arena?"</Description>
-              <Options moHideChildren="1"/>
-              <ShowAsSigned>0</ShowAsSigned>
-              <GroupHeader>1</GroupHeader>
-              <Address>DataStart+2EE502</Address>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>63910</ID>
-                  <Description>"???"</Description>
-                  <DropDownListLink>Control Modes</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>DataStart+8112C5</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63953</ID>
-                  <Description>"???"</Description>
-                  <DropDownListLink>Control Modes</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>DataStart+8112C5+1030</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63970</ID>
-                  <Description>"???"</Description>
-                  <DropDownListLink>Control Modes</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>DataStart+8112C5+1030*2</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63969</ID>
-                  <Description>"???"</Description>
-                  <DropDownListLink>Control Modes</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>DataStart+8112C5+1030*3</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63968</ID>
-                  <Description>"???"</Description>
-                  <DropDownListLink>Control Modes</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>DataStart+8112C5+1030*4+310</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>63967</ID>
-                  <Description>"???"</Description>
-                  <DropDownListLink>Control Modes</DropDownListLink>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>DataStart+8112C5+1030*4+310*2+30</Address>
-                </CheatEntry>
-              </CheatEntries>
+              <Address>PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + 1C]+35</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -13709,6 +13720,489 @@ dealloc(skillEdit)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>86533</ID>
+          <Description>"Grade Shop options"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>PSP_base+08B07B94</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>91357</ID>
+              <Description>"99 max items"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91364</ID>
+              <Description>"Inherit items"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91363</ID>
+              <Description>"Inherit gald"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91362</ID>
+              <Description>"Inherit titles"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91361</ID>
+              <Description>"Inherit Collector's Book"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91360</ID>
+              <Description>"Inherit Monster Book"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91359</ID>
+              <Description>"Inherit cooking"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91365</ID>
+              <Description>"Inherit records"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91370</ID>
+              <Description>"EBG 0.5x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91371</ID>
+              <Description>"EBG 1.2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91372</ID>
+              <Description>"EBG 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91373</ID>
+              <Description>"EXP 0.5x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91374</ID>
+              <Description>"EXP 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91375</ID>
+              <Description>"EXP 10x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91376</ID>
+              <Description>"Technical battle"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91377</ID>
+              <Description>"Increase max HP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91378</ID>
+              <Description>"Decrease max HP"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91379</ID>
+              <Description>"Overbrave unlocked"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91380</ID>
+              <Description>"Overbrave prohibited"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91381</ID>
+              <Description>"Gald 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91382</ID>
+              <Description>"EBG 1.2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91383</ID>
+              <Description>"EXP 0.5x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91384</ID>
+              <Description>"EXP 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91385</ID>
+              <Description>"EXP 10x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91386</ID>
+              <Description>"GRADE 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91387</ID>
+              <Description>"CP 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91388</ID>
+              <Description>"Item drop rate 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91389</ID>
+              <Description>"Technical battle"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91391</ID>
+              <Description>"Skits fully unlocked"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91393</ID>
+              <Description>"Inherit monsters"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91396</ID>
+              <Description>"Inherit costumes"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91399</ID>
+              <Description>"EBG 0.5x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91400</ID>
+              <Description>"EBG 2x"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91401</ID>
+              <Description>"Special flag"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91402</ID>
+              <Description>"Partner free"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91403</ID>
+              <Description>"Collector's Book fully filled out"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>6</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91404</ID>
+              <Description>"Monster Book fully filled out"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>7</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91405</ID>
+              <Description>"All in"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91406</ID>
+              <Description>"Instant death"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91407</ID>
+              <Description>"Free Chain Partner"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>2</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91408</ID>
+              <Description>"Inherit levels"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>3</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91409</ID>
+              <Description>"Inherit party"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>4</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91410</ID>
+              <Description>"8 slot system unlocked"</Description>
+              <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Binary</VariableType>
+              <BitStart>5</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>+6</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>63063</ID>
           <Description>"Other"</Description>
           <Options moHideChildren="1"/>
@@ -13754,13 +14248,6 @@ dealloc(skillEdit)
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
               </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>63913</ID>
-              <Description>"DataStart"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>2 Bytes</VariableType>
-              <Address>DataStart</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>1017</ID>
@@ -13843,46 +14330,6 @@ dealloc(skillEdit)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
-              <ID>83748</ID>
-              <Description>"Lua generate massive amount of binary addresses"</Description>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-return --Script is disabled
-
-local address = 0
-local x = 0
-local y = 0
-local tempHexstorage
-
-while (x &lt; 100) do
-print(address)
-while (y &lt; 8) do
-local list = getAddressList()
-rec = list.createMemoryRecord()
-rec.Type = 9
-tempHexstorage = string.format('%x', address)
-rec.setAddress("DataStart+2EEE74+" .. tempHexstorage .. "+68*[skillEdit]+2D8*[skillEdit+8]")
-rec.setDescription("?")
-
-rec.Binary.Startbit = y
-rec.Binary.Size = 1
-y = y + 1
-end
-y = 0
-
-address = address + 1
-x = x + 1
-end
-
-
-{$asm}
-[DISABLE]
-
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
               <ID>85036</ID>
               <Description>"Debug menu"</Description>
               <ShowAsSigned>0</ShowAsSigned>
@@ -13890,8 +14337,630 @@ end
               <Address>DataStart+2233C2</Address>
             </CheatEntry>
             <CheatEntry>
+              <ID>85132</ID>
+              <Description>"Base PSP address"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>PSP_base</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>85133</ID>
+                  <Description>"Battle main pointer"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+08AF1F30</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>85404</ID>
+                      <Description>"Couleur mimic related"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+0</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>85415</ID>
+                          <Description>"Mimic activated this battle"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+5c4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>91659</ID>
+                          <Description>"Mimic max use"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+5c6</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85399</ID>
+                          <Description>"Mimic currently active"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+627</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85402</ID>
+                          <Description>"Slot of caster"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+629</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85403</ID>
+                          <Description>"Slot that will mimic caster"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+62a</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85401</ID>
+                          <Description>"+648 use secondary char /is this even related????"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+648</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85400</ID>
+                          <Description>"+64A secondary char slot id /is this even related?"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+64A</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85673</ID>
+                      <Description>"Framerate variable"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+4AC</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85157</ID>
+                      <Description>"Number of allies"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5F4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85156</ID>
+                      <Description>"Number of enemies"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5F5</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85155</ID>
+                      <Description>"Number of allies alive"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+60C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85158</ID>
+                      <Description>"Number of enemies alive"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+60E</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91908</ID>
+                      <Description>"Active character"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+5F8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85445</ID>
+                      <Description>"Battle character structs"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>85446</ID>
+                          <Description>"Enable"</Description>
+                          <Options moHideChildren="1"/>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local script_name = "btl_char_struct_data"
+
+local function copyMemRecRecursive(header, currTemplate)
+      for i = 0, currTemplate.Count - 1, 1 do
+          local memoryrecord = getAddressList().createMemoryRecord()
+
+          memoryrecord.beginEdit()
+
+          memoryrecord.Description = currTemplate.Child[i].Description
+
+          if (currTemplate.Child[i].IsAddressGroupHeader == false) and (currTemplate.Child[i].IsGroupHeader == true) then
+             memoryrecord.IsGroupHeader = true
+          elseif (currTemplate.Child[i].IsAddressGroupHeader == true) and (currTemplate.Child[i].IsGroupHeader == true) then
+               memoryrecord.IsGroupHeader = true
+               memoryrecord.IsAddressGroupHeader = true
+          else
+              memoryrecord.Type = currTemplate.Child[i].Type
+
+              if (currTemplate.Child[i].Type == vtByte) or
+              (currTemplate.Child[i].Type == vtWord) or
+              (currTemplate.Child[i].Type == vtDword) or
+              (currTemplate.Child[i].Type == vtQword) or
+              (currTemplate.Child[i].Type == vtSingle) or
+              (currTemplate.Child[i].Type == vtDouble) then
+                 memoryrecord.ShowAsHex = currTemplate.Child[i].ShowAsHex
+                 memoryrecord.ShowAsSigned = currTemplate.Child[i].ShowAsSigned
+              elseif (currTemplate.Child[i].Type == vtString) then
+                     memoryrecord.String.Size = currTemplate.Child[i].String.Size
+                     memoryrecord.String.Unicode = currTemplate.Child[i].String.Unicode
+                     memoryrecord.String.Codepage = currTemplate.Child[i].String.Codepage
+              elseif (currTemplate.Child[i].Type == vtByteArray) then
+                     memoryrecord.Aob.Size = currTemplate.Child[i].Aob.Size
+                     memoryrecord.ShowAsHex = currTemplate.Child[i].ShowAsHex
+              elseif (currTemplate.Child[i].Type == vtBinary) then
+                     memoryrecord.Binary.Startbit = currTemplate.Child[i].Binary.Startbit
+                     memoryrecord.Binary.Size = currTemplate.Child[i].Binary.Size
+              elseif (currTemplate.Child[i].Type == vtAutoAssembler) then
+                     memoryrecord.Script = currTemplate.Child[i].Script
+              elseif (currTemplate.Child[i].Type == vtCustom) then
+                     memoryrecord.CustomTypeName = currTemplate.Child[i].CustomTypeName
+                     memoryrecord.ShowAsHex = currTemplate.Child[i].ShowAsHex
+                     memoryrecord.ShowAsSigned = currTemplate.Child[i].ShowAsSigned
+              end
+
+              if (currTemplate.Child[i].DropDownLinked == false) and (currTemplate.Child[i].DropDownLinkedMemrec == "") then
+                  memoryrecord.DropDownList.Text = currTemplate.Child[i].DropDownList.Text
+                  memoryrecord.DisplayAsDropDownListItem = currTemplate.Child[i].DisplayAsDropDownListItem
+              else
+                  memoryrecord.DropDownLinkedMemrec = currTemplate.Child[i].DropDownLinkedMemrec
+                  memoryrecord.DropDownLinked = true
+              end
+          end
+
+          memoryrecord.Address = currTemplate.Child[i].Address
+
+          if (currTemplate.Child[i].OffsetCount &gt; 0) then
+             memoryrecord.OffsetCount = currTemplate.Child[i].OffsetCount
+
+             for j = 0, currTemplate.Child[i].OffsetCount - 1, 1 do
+                 memoryrecord.Offset[j] = currTemplate.Child[i].Offset[j]
+             end
+          end
+
+          memoryrecord.Options = currTemplate.Child[i].Options
+          memoryrecord.Color = currTemplate.Child[i].Color
+          memoryrecord.DontSave = true
+          memoryrecord.appendToEntry(header)
+
+          if (currTemplate.Child[i].Count &gt; 0) then
+             copyMemRecRecursive(memoryrecord, currTemplate.Child[i])
+          end
+
+          memoryrecord.endEdit()
+      end
+end
+
+local template = getAddressList().getMemoryRecordByID("85416")
+
+_G[script_name] = function()
+                   local base = getAddress("PSP_base")
+                   base = base + 0x8AF1F30
+
+                   btlCharCount = 0
+                   local num_of_allies = readBytes(base + 0x5F4, 1, false)
+                   local num_of_enemies = readBytes(base + 0x5F5, 1, false)
+                   btlCharCount = num_of_allies + num_of_enemies
+
+                   if (currBtlCharCount == nil) then
+                      currBtlCharCount = -1
+                   end
+
+                   if not (btlCharCount == currBtlCharCount) and (btlCharCount ~= nil) then
+                      if (memrec.Count &gt; btlCharCount) then
+                         for i = memrec.Count, btlCharCount + 1, -1 do
+                             memoryrecord_delete(memrec.Child[i - 1])
+                         end
+                      elseif (memrec.Count &lt; btlCharCount) then
+                             for i = memrec.Count + 1, btlCharCount, 1 do
+                                 if (i &gt; 20) then
+                                    break
+                                 end
+
+                                 --HEADER
+                                 local charHeader = getAddressList().createMemoryRecord()
+
+                                 charHeader.beginEdit()
+                                 charHeader.IsAddressGroupHeader = true
+                                 charHeader.Description = "Character "..i
+                                 charHeader.Address = "PSP_base + (DWORD)[PSP_base + 0x8AF1F30 + 0xFC0 + " .. toHex((i - 1) * 0x4) .. "]"
+                                 charHeader.Options = "[moHideChildren]"
+                                 charHeader.DontSave = true
+                                 charHeader.appendToEntry(memrec)
+
+                                 copyMemRecRecursive(charHeader, template)
+                                 charHeader.endEdit()
+                             end
+                      end
+
+                   currBtlCharCount = btlCharCount
+                   end
+end
+
+script_tbl[memrec.ID] = script_name
+
+{$asm}
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+local script_name = "btl_char_struct_data"
+
+script_tbl[memrec.ID] = nil
+
+--delete old characters
+for i = memrec.Count, 1, -1 do
+   memoryrecord_delete(memrec.Child[i - 1])
+end
+
+btlCharCount = 0
+currBtlCharCount = -1
+
+{$asm}
+</AssemblerScript>
+                          <CheatEntries/>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85416</ID>
+                          <Description>"Template"</Description>
+                          <Options moHideChildren="1"/>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>85417</ID>
+                              <Description>"Kind"</Description>
+                              <DropDownList DisplayValueAsItem="1">0:Human
+1:Monster
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+0</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85418</ID>
+                              <Description>"Slot ID"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+5</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85419</ID>
+                              <Description>"Team"</Description>
+                              <DropDownList DisplayValueAsItem="1">0:Ally
+1:Enemy
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+7</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85420</ID>
+                              <Description>"Weapon model"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+9</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85421</ID>
+                              <Description>"Target (slot based)"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+31</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85422</ID>
+                              <Description>"Control mode"</Description>
+                              <DropDownListLink>Control Modes</DropDownListLink>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+35</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85423</ID>
+                              <Description>"Debuff"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+58</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85424</ID>
+                              <Description>"Element buff"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+59</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85425</ID>
+                              <Description>"Buff"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+5A</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85426</ID>
+                              <Description>"Overbrave"</Description>
+                              <DropDownList DisplayValueAsItem="1">0:Off
+1:Activating?
+2:Active
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+69</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85427</ID>
+                              <Description>"Overbrave eligibility?"</Description>
+                              <DropDownList>0:Not eligible
+1:Eligible
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+6A</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>86526</ID>
+                              <Description>"Character"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>2 Bytes</VariableType>
+                              <Address>+A4</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85428</ID>
+                              <Description>"Flags"</Description>
+                              <Options moHideChildren="1"/>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <GroupHeader>1</GroupHeader>
+                              <Address>+194</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>86281</ID>
+                                  <Description>"Untargetable"</Description>
+                                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Binary</VariableType>
+                                  <BitStart>2</BitStart>
+                                  <BitLength>1</BitLength>
+                                  <ShowAsBinary>0</ShowAsBinary>
+                                  <Address>+0</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85429</ID>
+                                  <Description>"Dead"</Description>
+                                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Binary</VariableType>
+                                  <BitStart>3</BitStart>
+                                  <BitLength>1</BitLength>
+                                  <ShowAsBinary>0</ShowAsBinary>
+                                  <Address>+0</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>86282</ID>
+                                  <Description>"Invulnerable"</Description>
+                                  <DropDownListLink>dropdown: Disabled/Enabled</DropDownListLink>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Binary</VariableType>
+                                  <BitStart>4</BitStart>
+                                  <BitLength>1</BitLength>
+                                  <ShowAsBinary>0</ShowAsBinary>
+                                  <Address>+0</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85430</ID>
+                              <Description>"Debuff duration"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Float</VariableType>
+                              <Address>+1D4</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85431</ID>
+                              <Description>"Element buff duration"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Float</VariableType>
+                              <Address>+1D8</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85432</ID>
+                              <Description>"Buff duration"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Float</VariableType>
+                              <Address>+1DC</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85433</ID>
+                              <Description>"Current EBG"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Float</VariableType>
+                              <Address>+664</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85434</ID>
+                              <Description>"Current HP"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Float</VariableType>
+                              <Address>+670</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>85435</ID>
+                              <Description>"60 fps stuff"</Description>
+                              <Options moHideChildren="1"/>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <GroupHeader>1</GroupHeader>
+                              <Address>+0</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>85436</ID>
+                                  <Description>"Speed"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+108</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85437</ID>
+                                  <Description>"X coordinate"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+268</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85438</ID>
+                                  <Description>"Y coordinate"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+26C</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85439</ID>
+                                  <Description>"Z coordinate"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+270</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85440</ID>
+                                  <Description>"X velocity"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+470</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85441</ID>
+                                  <Description>"X ???"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+474</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85442</ID>
+                                  <Description>"X accel?"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+478</Address>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>85443</ID>
+                                  <Description>"Y velocity?"</Description>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Float</VariableType>
+                                  <Address>+47c</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>85384</ID>
+                  <Description>"Big pointer"</Description>
+                  <Options moHideChildren="1"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <GroupHeader>1</GroupHeader>
+                  <Address>+08B00000</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>86528</ID>
+                      <Description>"Game clears"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0x7B8C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>86532</ID>
+                      <Description>"Grade"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0x7B64</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>86530</ID>
+                      <Description>"Story flags?"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0x7E44</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>86531</ID>
+                      <Description>"1bit flag"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>+0x7D18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>86529</ID>
+                      <Description>"Timeline"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0x7E4C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85379</ID>
+                      <Description>"Menu control modes"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>+69C4</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>85380</ID>
+                          <Description>"Slot 1"</Description>
+                          <DropDownListLink>Control Modes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85381</ID>
+                          <Description>"Slot 2"</Description>
+                          <DropDownListLink>Control Modes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85382</ID>
+                          <Description>"Slot 3"</Description>
+                          <DropDownListLink>Control Modes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>85383</ID>
+                          <Description>"Slot 4"</Description>
+                          <DropDownListLink>Control Modes</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+3</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
               <ID>85037</ID>
-              <Description>"60 fps debugging"</Description>
+              <Description>"Some variables OLD"</Description>
               <Options moHideChildren="1"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
@@ -13903,36 +14972,6 @@ end
                   <VariableType>4 Bytes</VariableType>
                   <Address>DataStart-8804000</Address>
                   <CheatEntries>
-                    <CheatEntry>
-                      <ID>85128</ID>
-                      <Description>"story flags?"</Description>
-                      <ShowAsHex>1</ShowAsHex>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+0x08B07E44</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85129</ID>
-                      <Description>"timeline?"</Description>
-                      <ShowAsHex>1</ShowAsHex>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+0x08B07E4C</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85130</ID>
-                      <Description>"1bit flag"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+0x08B07D18</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85131</ID>
-                      <Description>"game clear flag?"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+0x08B07B8C</Address>
-                    </CheatEntry>
                     <CheatEntry>
                       <ID>85119</ID>
                       <Description>"SHADOW"</Description>
@@ -13954,366 +14993,6 @@ end
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
                       <Address>+08B4B000</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85051</ID>
-                      <Description>"fps var"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+08af23dc</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85113</ID>
-                      <Description>"fps var BASE"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+08af23dc-4ac</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85039</ID>
-                      <Description>"char speed"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+8FABE98</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85047</ID>
-                      <Description>"test"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+0885A810</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85049</ID>
-                      <Description>"test2"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+08859AF0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85091</ID>
-                      <Description>"8b2a610"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+8b2a610</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85080</ID>
-                      <Description>"ENEMYBASE"</Description>
-                      <Options moManualExpandCollapse="1"/>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+8FB3110</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>85082</ID>
-                          <Description>"+43"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>+43</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85112</ID>
-                          <Description>"+108 speed"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+108</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85085</ID>
-                          <Description>"+268 X coord 3.364706039"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+268</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85106</ID>
-                          <Description>"+26C Y coord 1"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+26C</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85108</ID>
-                          <Description>"+270 Z coord"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+270</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85092</ID>
-                          <Description>"+3e8 vertical"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3E8</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85089</ID>
-                          <Description>"+3ec horizontal? res? mult"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3ec</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85090</ID>
-                          <Description>"+3f0 halv"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3f0</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85093</ID>
-                          <Description>"+3f4"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3F4</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85081</ID>
-                          <Description>"+470 X velocity"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+470</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85116</ID>
-                          <Description>"+474 X ???"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+474</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85094</ID>
-                          <Description>"+478 X accel?"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+478</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85117</ID>
-                          <Description>"+47C Y velocity?"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+47c</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85083</ID>
-                          <Description>"+664"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+664</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85114</ID>
-                          <Description>"+670 HP"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+670</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85088</ID>
-                          <Description>"+778"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+778</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85118</ID>
-                          <Description>"+77c"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+77C</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85095</ID>
-                      <Description>"CRESSBASE"</Description>
-                      <Options moManualExpandCollapse="1"/>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+8FAE410</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>85096</ID>
-                          <Description>"+108 speed"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+108</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85109</ID>
-                          <Description>"+268 X coord 7"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+268</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85110</ID>
-                          <Description>"+26C Y coord 0.40"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+26C</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85111</ID>
-                          <Description>"+270 Z coord"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+270</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85098</ID>
-                          <Description>"+3e8 vertical"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3E8</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85099</ID>
-                          <Description>"+3ec horizontal? res? mult"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3ec</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85100</ID>
-                          <Description>"+3f0 halv"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3f0</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85101</ID>
-                          <Description>"+3f4"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+3F4</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85102</ID>
-                          <Description>"+470 velocity"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+470</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85103</ID>
-                          <Description>"+478"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+478</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85104</ID>
-                          <Description>"+664"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+664</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85115</ID>
-                          <Description>"+670 HP"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+670</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>85105</ID>
-                          <Description>"+778"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Float</VariableType>
-                          <Address>+778</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85064</ID>
-                      <Description>"No description"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+8FAE800</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85061</ID>
-                      <Description>"No description"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+8FAE804</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85062</ID>
-                      <Description>"No description"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+8FAE808</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85071</ID>
-                      <Description>"instr"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+8846418</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85084</ID>
-                      <Description>"TEST"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+08b2a610</Address>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>85041</ID>
-                  <Description>"CWCHEAT BASE"</Description>
-                  <Options moManualExpandCollapse="1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>DataStart-4000</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>85043</ID>
-                      <Description>"btl load"</Description>
-                      <ShowAsHex>1</ShowAsHex>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+46044</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85046</ID>
-                      <Description>"free mem"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+34B000</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85048</ID>
-                      <Description>"test"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+5A810</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85050</ID>
-                      <Description>"test2"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+59AF0</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85058</ID>
-                      <Description>"No description"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Float</VariableType>
-                      <Address>+34B328</Address>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>85072</ID>
-                      <Description>"instr"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>4 Bytes</VariableType>
-                      <Address>+46418</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
