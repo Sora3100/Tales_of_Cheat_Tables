@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>1948</ID>
       <Description>"Enable"</Description>
-      <Options moHideChildren="1"/>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>//latest is tbl_data+8
 {$lua}
@@ -24,13 +24,13 @@ if (script_tbl == nil) then
 end
 
 local function mainloop()
-               if (getOpenedProcessID() ~= 0) and not (readInteger(process) == nil) then
+               if (getOpenedProcessID() ~= 0) and process and (readInteger(process) ~= nil) then
                   --execute scripts
                   for i in pairs(script_tbl) do
                       _G[script_tbl[i]]()
                   end
                else
-                   script_tbl = {}
+                   script_tbl = nil
                    timer.Enabled = false
                    timer.Destroy()
                    timer = nil
@@ -2256,7 +2256,7 @@ unregistersymbol(rheiardCheck)
         <CheatEntry>
           <ID>173</ID>
           <Description>"Notes"</Description>
-          <Options moHideChildren="1"/>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
@@ -3530,7 +3530,7 @@ unregistersymbol(rheiardCheck)
             <CheatEntry>
               <ID>2027</ID>
               <Description>"Pointers"</Description>
-              <Options moHideChildren="1"/>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -6684,23 +6684,23 @@ dealloc(newmem)
                   <Description>"atk_tbl"</Description>
                   <Options moHideChildren="1"/>
                   <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
+                  <AssemblerScript>{$lua}
+local script_name = "btl_atk_tbl"
+{$asm}
+[ENABLE]
 {$lua}
 if syntaxcheck then return end
 
-local script_name = "btl_char_data"
-
-script_tbl[memrec.ID] = script_name
-
 local dropdownList = createStringlist()
 
-local partyFormation = getAddressList().getMemoryRecordByID("1315")
+local partyFormation = getAddressList().getMemoryRecordByID("1028")
 local address = nil
 
 --normals
 for charID = 0, 9, 1 do
-    address = (charID * 12) + 0x8E9770
+    address = (charID * 12) + 0x8E9770-- + getAddress(process)
     address = readInteger(address)
+
     if (charID ~= 0) then
        dropdownList.add(string.format("%08X", address)..":"..partyFormation.DropDownDescription[charID].." normals")
     else
@@ -6751,12 +6751,15 @@ _G[script_name] = function()
                 end
 end
 --]]
+
+script_tbl[memrec.ID] = script_name
+
 {$asm}
 
 [DISABLE]
 {$lua}
 if syntaxcheck then return end
---script_tbl[memrec.ID] = nil
+script_tbl[memrec.ID] = nil
 {$asm}
 
 </AssemblerScript>
@@ -6764,6 +6767,685 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>3374</ID>
                       <Description>"Edit"</Description>
+                      <DropDownList DisplayValueAsItem="1">008E94A0:Unknown
+008E7084:Lloyd normals
+008E7500:Colette normals
+008E792C:Genis normals
+008E7D6C:Raine normals
+008E8210:Sheena normals
+008E8690:Zelos normals
+008E8A4C:Presea normals
+008E8E94:Regal normals
+008E92DC:Kratos normals
+2566A280:Demon Fang
+2566A29C:Demon Fang
+2566A2B8:Demon Fang
+2566A2D4:Demon Fang
+2566A4C0:Double Demon Fang
+2566A4DC:Double Demon Fang
+2566A4F8:Double Demon Fang
+2566A514:Double Demon Fang
+2566A7C0:Demonic Chaos
+2566A7DC:Demonic Chaos
+2566A7F8:Demonic Chaos
+2566A814:Demonic Chaos
+2566A980:Fierce Demon Fang
+2566A99C:Fierce Demon Fang
+2566A9B8:Fierce Demon Fang
+2566A9D4:Fierce Demon Fang
+2566ABC0:Demonic Circle
+2566ABDC:Demonic Circle
+2566ABF8:Demonic Circle
+2566AC14:Demonic Circle
+2566AD80:Tiger Blade
+2566AD9C:Tiger Blade
+2566ADB8:Tiger Blade
+2566ADD4:Tiger Blade
+2566B000:Tiger Rage
+2566B01C:Tiger Rage
+2566B038:Tiger Rage
+2566B054:Tiger Rage
+2566B200:Heavy Tiger Blade
+2566B21C:Heavy Tiger Blade
+2566B238:Heavy Tiger Blade
+2566B254:Heavy Tiger Blade
+2566B380:Twin Tiger Blade
+2566B39C:Twin Tiger Blade
+2566B3B8:Twin Tiger Blade
+2566B3D4:Twin Tiger Blade
+2566B580:Sonic Thrust
+2566B59C:Sonic Thrust
+2566B5B8:Sonic Thrust
+2566B5D4:Sonic Thrust
+2566B840:Hurricane Thrust
+2566B85C:Hurricane Thrust
+2566B878:Hurricane Thrust
+2566B894:Hurricane Thrust
+2566BA80:Super Sonic Thrust
+2566BA9C:Super Sonic Thrust
+2566BAB8:Super Sonic Thrust
+2566BAD4:Super Sonic Thrust
+2566BCC0:Sword Rain
+2566BCDC:Sword Rain
+2566BCF8:Sword Rain
+2566BD14:Sword Rain
+2566BF00:Sword Rain: Alpha
+2566BF1C:Sword Rain: Alpha
+2566BF38:Sword Rain: Alpha
+2566BF54:Sword Rain: Alpha
+2566C240:Sword Rain: Beta
+2566C25C:Sword Rain: Beta
+2566C278:Sword Rain: Beta
+2566C294:Sword Rain: Beta
+2566C5C0:Sonic Sword Rain
+2566C5DC:Sonic Sword Rain
+2566C5F8:Sonic Sword Rain
+2566C614:Sonic Sword Rain
+2566C880:Tempest
+2566C89C:Tempest
+2566C8B8:Tempest
+2566C8D4:Tempest
+2566CB80:Omega Tempest
+2566CB9C:Omega Tempest
+2566CBB8:Omega Tempest
+2566CBD4:Omega Tempest
+2566CE40:Psi Tempest
+2566CE5C:Psi Tempest
+2566CE78:Psi Tempest
+2566CE94:Psi Tempest
+2566D080:Beast
+2566D09C:Beast
+2566D0B8:Beast
+2566D0D4:Beast
+2566D200:Raging Beast
+2566D21C:Raging Beast
+2566D238:Raging Beast
+2566D254:Raging Beast
+2566D3C0:Hunting Beast
+2566D3DC:Hunting Beast
+2566D3F8:Hunting Beast
+2566D414:Hunting Beast
+2566D580:Demonic Tiger Blade
+2566D59C:Demonic Tiger Blade
+2566D5B8:Demonic Tiger Blade
+2566D5D4:Demonic Tiger Blade
+2566D740:Demonic Thrust
+2566D75C:Demonic Thrust
+2566D778:Demonic Thrust
+2566D794:Demonic Thrust
+2566D8C0:Raining Tiger Blade
+2566D8DC:Raining Tiger Blade
+2566D8F8:Raining Tiger Blade
+2566D914:Raining Tiger Blade
+2566DC80:Tempest Thrust
+2566DC9C:Tempest Thrust
+2566DCB8:Tempest Thrust
+2566DCD4:Tempest Thrust
+2566DEC0:Tempest Beast
+2566DEDC:Tempest Beast
+2566DEF8:Tempest Beast
+2566DF14:Tempest Beast
+2566E100:Beast Sword Rain
+2566E11C:Beast Sword Rain
+2566E138:Beast Sword Rain
+2566E154:Beast Sword Rain
+2566E440:Rising Falcon
+2566E45C:Rising Falcon
+2566E478:Rising Falcon
+2566E494:Rising Falcon
+2566E7C0:Guardian
+2566E7DC:Guardian
+2566E7F8:Guardian
+2566E814:Guardian
+2566E8C0:Ray Thrust
+2566E8DC:Ray Thrust
+2566E8F8:Ray Thrust
+2566E914:Ray Thrust
+2566EA00:Dual Ray Thrust
+2566EA1C:Dual Ray Thrust
+2566EA38:Dual Ray Thrust
+2566EA54:Dual Ray Thrust
+2566EB80:Triple Ray Thrust
+2566EB9C:Triple Ray Thrust
+2566EBB8:Triple Ray Thrust
+2566EBD4:Triple Ray Thrust
+2566EC80:Ray Satellite
+2566EC9C:Ray Satellite
+2566ECB8:Ray Satellite
+2566ECD4:Ray Satellite
+2566EDC0:Triple Ray Satellite
+2566EDDC:Triple Ray Satellite
+2566EDF8:Triple Ray Satellite
+2566EE14:Triple Ray Satellite
+2566EEC0:Pow Hammer
+2566EEDC:Pow Hammer
+2566EEF8:Pow Hammer
+2566EF14:Pow Hammer
+2566F0C0:Pow Pow Hammer
+2566F0DC:Pow Pow Hammer
+2566F0F8:Pow Pow Hammer
+2566F114:Pow Pow Hammer
+2566F200:Hammer Rain
+2566F21C:Hammer Rain
+2566F238:Hammer Rain
+2566F254:Hammer Rain
+2566F380:Para Ball
+2566F39C:Para Ball
+2566F3B8:Para Ball
+2566F3D4:Para Ball
+2566F580:Torrential Para Ball
+2566F59C:Torrential Para Ball
+2566F5B8:Torrential Para Ball
+2566F5D4:Torrential Para Ball
+2566F780:Ring Whirlwind
+2566F79C:Ring Whirlwind
+2566F7B8:Ring Whirlwind
+2566F7D4:Ring Whirlwind
+2566F940:Ring Cyclone
+2566F95C:Ring Cyclone
+2566F978:Ring Cyclone
+2566F994:Ring Cyclone
+2566FB40:Whirlwind Rush
+2566FB5C:Whirlwind Rush
+2566FB78:Whirlwind Rush
+2566FB94:Whirlwind Rush
+2566FD80:Grand Chariot
+2566FD9C:Grand Chariot
+2566FDB8:Grand Chariot
+2566FDD4:Grand Chariot
+2566FEC0:(no name)
+2566FEDC:(no name)
+2566FEF8:(no name)
+2566FF14:(no name)
+2566FFC0:Stardust Cross
+2566FFDC:Stardust Cross
+2566FFF8:Stardust Cross
+25670014:Stardust Cross
+25670100:Aqua Edge
+2567011C:Aqua Edge
+25670138:Aqua Edge
+25670154:Aqua Edge
+25670240:Spread
+2567025C:Spread
+25670278:Spread
+25670294:Spread
+25670380:Tidal Wave
+2567039C:Tidal Wave
+256703B8:Tidal Wave
+256703D4:Tidal Wave
+256704C0:Aqua Laser
+256704DC:Aqua Laser
+256704F8:Aqua Laser
+25670514:Aqua Laser
+25670600:Fire Ball
+2567061C:Fire Ball
+25670638:Fire Ball
+25670654:Fire Ball
+25670740:Eruption
+2567075C:Eruption
+25670778:Eruption
+25670794:Eruption
+25670880:Explosion
+2567089C:Explosion
+256708B8:Explosion
+256708D4:Explosion
+256709C0:Flame Lance
+256709DC:Flame Lance
+256709F8:Flame Lance
+25670A14:Flame Lance
+25670B00:Wind Blade
+25670B1C:Wind Blade
+25670B38:Wind Blade
+25670B54:Wind Blade
+25670C40:Air Thrust
+25670C5C:Air Thrust
+25670C78:Air Thrust
+25670C94:Air Thrust
+25670D80:Cyclone
+25670D9C:Cyclone
+25670DB8:Cyclone
+25670DD4:Cyclone
+25670EC0:Air Blade
+25670EDC:Air Blade
+25670EF8:Air Blade
+25670F14:Air Blade
+25671000:Grave
+2567101C:Grave
+25671038:Grave
+25671054:Grave
+25671100:Lightning
+2567111C:Lightning
+25671138:Lightning
+25671154:Lightning
+25671240:Indignation
+2567125C:Indignation
+25671278:Indignation
+25671294:Indignation
+25671380:Thunder Blade
+2567139C:Thunder Blade
+256713B8:Thunder Blade
+256713D4:Thunder Blade
+256717C0:Icicle
+256717DC:Icicle
+256717F8:Icicle
+25671814:Icicle
+25671AC0:Ice Tornado
+25671ADC:Ice Tornado
+25671AF8:Ice Tornado
+25671B14:Ice Tornado
+25671E40:Freeze Lancer
+25671E5C:Freeze Lancer
+25671E78:Freeze Lancer
+25671E94:Freeze Lancer
+25672100:Raging Mist
+2567211C:Raging Mist
+25672138:Raging Mist
+25672154:Raging Mist
+256722C0:Dreaded Wave
+256722DC:Dreaded Wave
+256722F8:Dreaded Wave
+25672314:Dreaded Wave
+25672640:(no name)
+2567265C:(no name)
+25672678:(no name)
+25672694:(no name)
+25672800:Gravity Well
+2567281C:Gravity Well
+25672838:Gravity Well
+25672854:Gravity Well
+25672980:Atlas
+2567299C:Atlas
+256729B8:Atlas
+256729D4:Atlas
+25672B00:Absolute
+25672B1C:Absolute
+25672B38:Absolute
+25672B54:Absolute
+25672CC0:Earth Bite
+25672CDC:Earth Bite
+25672CF8:Earth Bite
+25672D14:Earth Bite
+25672E80:Meteor Storm
+25672E9C:Meteor Storm
+25672EB8:Meteor Storm
+25672ED4:Meteor Storm
+25673040:Indignation Judg.
+2567305C:Indignation Judg.
+25673078:Indignation Judg.
+25673094:Indignation Judg.
+256731C0:(no name)
+256731DC:(no name)
+256731F8:(no name)
+25673214:(no name)
+256733C0:First Aid
+256733DC:First Aid
+256733F8:First Aid
+25673414:First Aid
+25673580:Nurse
+2567359C:Nurse
+256735B8:Nurse
+256735D4:Nurse
+256736C0:Heal
+256736DC:Heal
+256736F8:Heal
+25673714:Heal
+25673880:Recover
+2567389C:Recover
+256738B8:Recover
+256738D4:Recover
+25673A00:Restore
+25673A1C:Restore
+25673A38:Restore
+25673A54:Restore
+25673C40:Dispel
+25673C5C:Dispel
+25673C78:Dispel
+25673C94:Dispel
+25673E00:Nullify
+25673E1C:Nullify
+25673E38:Nullify
+25673E54:Nullify
+25673F80:Anti-Magic
+25673F9C:Anti-Magic
+25673FB8:Anti-Magic
+25673FD4:Anti-Magic
+25674200:Sharpness
+2567421C:Sharpness
+25674238:Sharpness
+25674254:Sharpness
+25674480:Acuteness
+2567449C:Acuteness
+256744B8:Acuteness
+256744D4:Acuteness
+25674600:Keenness
+2567461C:Keenness
+25674638:Keenness
+25674654:Keenness
+25674880:Field Barrier
+2567489C:Field Barrier
+256748B8:Field Barrier
+256748D4:Field Barrier
+25674A40:Permaguard
+25674A5C:Permaguard
+25674A78:Permaguard
+25674A94:Permaguard
+25674B80:Photon
+25674B9C:Photon
+25674BB8:Photon
+25674BD4:Photon
+25674D40:Ray
+25674D5C:Ray
+25674D78:Ray
+25674D94:Ray
+25674F00:Holy Lance
+25674F1C:Holy Lance
+25674F38:Holy Lance
+25674F54:Holy Lance
+25675140:Charge
+2567515C:Charge
+25675178:Charge
+25675194:Charge
+25675300:Healing Stream
+2567531C:Healing Stream
+25675338:Healing Stream
+25675354:Healing Stream
+25675540:Healing Wind
+2567555C:Healing Wind
+25675578:Healing Wind
+25675594:Healing Wind
+25675680:Cure
+2567569C:Cure
+256756B8:Cure
+256756D4:Cure
+25675AC0:Healing Circle
+25675ADC:Healing Circle
+25675AF8:Healing Circle
+25675B14:Healing Circle
+25675CC0:Resurrection
+25675CDC:Resurrection
+25675CF8:Resurrection
+25675D14:Resurrection
+25675E00:Revitalize
+25675E1C:Revitalize
+25675E38:Revitalize
+25675E54:Revitalize
+25675FC0:Revive
+25675FDC:Revive
+25675FF8:Revive
+25676014:Revive
+25676140:Judgment
+2567615C:Judgment
+25676178:Judgment
+25676194:Judgment
+25676280:Pyre Seal
+2567629C:Pyre Seal
+256762B8:Pyre Seal
+256762D4:Pyre Seal
+25676400:Power Seal
+2567641C:Power Seal
+25676438:Power Seal
+25676454:Power Seal
+25676580:Power Seal Pinion
+2567659C:Power Seal Pinion
+256765B8:Power Seal Pinion
+256765D4:Power Seal Pinion
+256766C0:S. Seal Absolute
+256766DC:S. Seal Absolute
+256766F8:S. Seal Absolute
+25676714:S. Seal Absolute
+256768C0:Mirage Seal
+256768DC:Mirage Seal
+256768F8:Mirage Seal
+25676914:Mirage Seal
+25676A00:Mirage Seal Pinion
+25676A1C:Mirage Seal Pinion
+25676A38:Mirage Seal Pinion
+25676A54:Mirage Seal Pinion
+25676C00:M. Seal Absolute
+25676C1C:M. Seal Absolute
+25676C38:M. Seal Absolute
+25676C54:M. Seal Absolute
+25676E40:Life Seal
+25676E5C:Life Seal
+25676E78:Life Seal
+25676E94:Life Seal
+256770C0:S. Seal: Fire
+256770DC:S. Seal: Fire
+256770F8:S. Seal: Fire
+25677114:S. Seal: Fire
+25677200:T. Seal: Earth
+2567721C:T. Seal: Earth
+25677238:T. Seal: Earth
+25677254:T. Seal: Earth
+25677340:Summon: Corrine
+2567735C:Summon: Corrine
+25677378:Summon: Corrine
+25677394:Summon: Corrine
+256774C0:Force Seal
+256774DC:Force Seal
+256774F8:Force Seal
+25677514:Force Seal
+A5677680:Demon Seal
+A567769C:Demon Seal
+A56776B8:Demon Seal
+A56776D4:Demon Seal
+A5677880:Purgatory Seal
+A567789C:Purgatory Seal
+A56778B8:Purgatory Seal
+A56778D4:Purgatory Seal
+A5677A40:Cyclone Seal
+A5677A5C:Cyclone Seal
+A5677A78:Cyclone Seal
+A5677A94:Cyclone Seal
+A5677C00:(no name)
+A5677C1C:(no name)
+A5677C38:(no name)
+A5677C54:(no name)
+A5677E80:Light Spear
+A5677E9C:Light Spear
+A5677EB8:Light Spear
+A5677ED4:Light Spear
+256780C0:Victory Light Spear
+256780DC:Victory Light Spear
+256780F8:Victory Light Spear
+25678114:Victory Light Spear
+25678280:Light Spear Cannon
+2567829C:Light Spear Cannon
+256782B8:Light Spear Cannon
+256782D4:Light Spear Cannon
+25678540:Hell Pyre
+2567855C:Hell Pyre
+25678578:Hell Pyre
+25678594:Hell Pyre
+25678700:Lightning Blade
+2567871C:Lightning Blade
+25678738:Lightning Blade
+25678754:Lightning Blade
+25678A00:Demon Spear
+25678A1C:Demon Spear
+25678A38:Demon Spear
+25678A54:Demon Spear
+25678B40:S. Lightning Blade
+25678B5C:S. Lightning Blade
+25678B78:S. Lightning Blade
+25678B94:S. Lightning Blade
+25678D00:Guardian Field
+25678D1C:Guardian Field
+25678D38:Guardian Field
+25678D54:Guardian Field
+25679200:Holy Binds
+2567921C:Holy Binds
+25679238:Holy Binds
+25679254:Holy Binds
+2567957C:Infinite Destruction
+25679598:Infinite Destruction
+256795B4:Infinite Destruction
+256795D0:Infinite Destruction
+416795A0:Punishment
+416795BC:Punishment
+416795D8:Punishment
+416795F4:Punishment
+2567967C:Dual Punishment
+25679698:Dual Punishment
+256796B4:Dual Punishment
+256796D0:Dual Punishment
+416796A0:Rising Punishment
+416796BC:Rising Punishment
+416796D8:Rising Punishment
+416796F4:Rising Punishment
+416796E0:Finality Punishment
+416796FC:Finality Punishment
+41679718:Finality Punishment
+41679734:Finality Punishment
+41679720:Infliction
+4167973C:Infliction
+41679758:Infliction
+41679774:Infliction
+256797FC:Dual Infliction
+25679818:Dual Infliction
+25679834:Dual Infliction
+25679850:Dual Infliction
+41679820:Devastation
+4167983C:Devastation
+41679858:Devastation
+41679874:Devastation
+256798FC:Finite Devastation
+25679918:Finite Devastation
+25679934:Finite Devastation
+25679950:Finite Devastation
+41679920:Mass Devastation
+4167993C:Mass Devastation
+41679958:Mass Devastation
+41679974:Mass Devastation
+25679A3C:Beast
+25679A58:Beast
+25679A74:Beast
+25679A90:Beast
+43699C9C:Endless Infliction
+43699CB8:Endless Infliction
+43699CD4:Endless Infliction
+43699CF0:Endless Infliction
+41679AA0:Eternal Devastation
+41679ABC:Eternal Devastation
+41679AD8:Eternal Devastation
+41679AF4:Eternal Devastation
+25679BD8:Crescent Moon
+25679BF4:Crescent Moon
+25679C10:Crescent Moon
+25679C2C:Crescent Moon
+41679BE0:Spin Kick
+41679BFC:Spin Kick
+41679C18:Spin Kick
+41679C34:Spin Kick
+41679C20:Triple Kick
+41679C3C:Triple Kick
+41679C58:Triple Kick
+41679C74:Triple Kick
+25679CE0:Healer
+25679CFC:Healer
+25679D18:Healer
+25679D34:Healer
+41679CE0:Chi Healer
+41679CFC:Chi Healer
+41679D18:Chi Healer
+41679D34:Chi Healer
+41679D20:Grand Healer
+41679D3C:Grand Healer
+41679D58:Grand Healer
+41679D74:Grand Healer
+25679DE0:Triple Rage Kick
+25679DFC:Triple Rage Kick
+25679E18:Triple Rage Kick
+25679E34:Triple Rage Kick
+41679DE0:Force
+41679DFC:Force
+41679E18:Force
+41679E34:Force
+41679E20:Crescent Dark Moon
+41679E3C:Crescent Dark Moon
+41679E58:Crescent Dark Moon
+41679E74:Crescent Dark Moon
+25679EE0:Heaven Rising
+25679EFC:Heaven Rising
+25679F18:Heaven Rising
+25679F34:Heaven Rising
+41679EE0:Dragon's Talon
+41679EFC:Dragon's Talon
+41679F18:Dragon's Talon
+41679F34:Dragon's Talon
+41679F20:Fanged Finality
+41679F3C:Fanged Finality
+41679F58:Fanged Finality
+41679F74:Fanged Finality
+25679FE0:Mirage
+25679FFC:Mirage
+2567A018:Mirage
+2567A034:Mirage
+41679FE0:Damage Guard
+41679FFC:Damage Guard
+4167A018:Damage Guard
+4167A034:Damage Guard
+4167A020:Force Field
+4167A03C:Force Field
+4167A058:Force Field
+4167A074:Force Field
+2567A0E0:Guardian Seal
+2567A0FC:Guardian Seal
+2567A118:Guardian Seal
+2567A134:Guardian Seal
+4167A0E0:Earthly Protection
+4167A0FC:Earthly Protection
+4167A118:Earthly Protection
+4167A134:Earthly Protection
+4369AC10:Bastion
+4369AC2C:Bastion
+4369AC48:Bastion
+4369AC64:Bastion
+4167A160:Fierce Demon Fang
+4167A17C:Fierce Demon Fang
+4167A198:Fierce Demon Fang
+4167A1B4:Fierce Demon Fang
+2567A260:Sonic Thrust
+2567A27C:Sonic Thrust
+2567A298:Sonic Thrust
+2567A2B4:Sonic Thrust
+4167A260:Wind Blade
+4167A27C:Wind Blade
+4167A298:Wind Blade
+4167A2B4:Wind Blade
+2567A320:Thunder Blade
+2567A33C:Thunder Blade
+2567A358:Thunder Blade
+2567A374:Thunder Blade
+4167A320:Sacred Light
+4167A33C:Sacred Light
+4167A358:Sacred Light
+4167A374:Sacred Light
+4167A360:Item Rover
+4167A37C:Item Rover
+4167A398:Item Rover
+4167A3B4:Item Rover
+2567A420:S. Seal: Water
+2567A43C:S. Seal: Water
+2567A458:S. Seal: Water
+2567A474:S. Seal: Water
+2567A4A0:S. Seal: Wind
+2567A4BC:S. Seal: Wind
+2567A4D8:S. Seal: Wind
+2567A4F4:S. Seal: Wind
+2567A520:S. Seal: Light
+2567A53C:S. Seal: Light
+2567A558:S. Seal: Light
+2567A574:S. Seal: Light
+2567A5A0:T. Seal: Ice
+2567A5BC:T. Seal: Ice
+2567A5D8:T. Seal: Ice
+2567A5F4:T. Seal: Ice
+2567A620:T. Seal: Lightning
+2567A63C:T. Seal: Lightning
+2567A658:T. Seal: Lightning
+2567A674:T. Seal: Lightning
+</DropDownList>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -7114,7 +7796,7 @@ if syntaxcheck then return end
             <CheatEntry>
               <ID>2026</ID>
               <Description>"Scripts"</Description>
-              <Options moHideChildren="1"/>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
