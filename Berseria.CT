@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>13045</ID>
@@ -300,6 +300,65 @@ unregistersymbol(MagicCount)
 141373B91: 44 88 77 2D                    - mov [rdi+2D],r14b
 141373B95: E9 3C 02 00 00                 - jmp 141373DD6
 141373B9A: A2 C6 B4 00 00 00 00 00 8B     - mov [8B0000000000B4C6],al
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13576</ID>
+          <Description>"Disable encounters"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Berseria.exe
+  Version: 
+  Date   : 2026-10-11
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+aobscanmodule(encounter_collision_battle_start,Tales of Berseria.exe,55 56 48 8D 6C 24 F8 48 81 EC 08 01 00 00) // should be unique
+
+encounter_collision_battle_start:
+  xor al,al
+  ret
+
+registersymbol(encounter_collision_battle_start)
+
+[DISABLE]
+
+encounter_collision_battle_start:
+  db 55 56 48 8D 6C 24 F8
+
+unregistersymbol(encounter_collision_battle_start)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Berseria.exe+13C2300
+
+Tales of Berseria.exe+13C22EB: CC                                   - int 3 
+Tales of Berseria.exe+13C22EC: CC                                   - int 3 
+Tales of Berseria.exe+13C22ED: CC                                   - int 3 
+Tales of Berseria.exe+13C22EE: CC                                   - int 3 
+Tales of Berseria.exe+13C22EF: CC                                   - int 3 
+Tales of Berseria.exe+13C22F0: CC                                   - int 3 
+Tales of Berseria.exe+13C22F1: CC                                   - int 3 
+Tales of Berseria.exe+13C22F2: CC                                   - int 3 
+Tales of Berseria.exe+13C22F3: CC                                   - int 3 
+Tales of Berseria.exe+13C22F4: 66 66 66 2E 0F 1F 84 00 00 00 00 00  - nop word ptr cs:[rax+rax+00000000]
+// ---------- INJECTING HERE ----------
+Tales of Berseria.exe+13C2300: 55                                   - push rbp
+// ---------- DONE INJECTING  ----------
+Tales of Berseria.exe+13C2301: 56                                   - push rsi
+Tales of Berseria.exe+13C2302: 48 8D 6C 24 F8                       - lea rbp,[rsp-08]
+Tales of Berseria.exe+13C2307: 48 81 EC 08 01 00 00                 - sub rsp,00000108
+Tales of Berseria.exe+13C230E: 48 8B 05 CB F3 7B FF                 - mov rax,["Tales of Berseria.exe"+B816E0]
+Tales of Berseria.exe+13C2315: 48 31 E0                             - xor rax,rsp
+Tales of Berseria.exe+13C2318: 48 89 45 D0                          - mov [rbp-30],rax
+Tales of Berseria.exe+13C231C: 8B 41 18                             - mov eax,[rcx+18]
+Tales of Berseria.exe+13C231F: 48 89 CE                             - mov rsi,rcx
+Tales of Berseria.exe+13C2322: 83 F8 03                             - cmp eax,03
+Tales of Berseria.exe+13C2325: 7D 07                                - jnl "Tales of Berseria.exe"+13C232E
 }
 </AssemblerScript>
         </CheatEntry>
