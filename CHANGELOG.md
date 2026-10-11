@@ -1,5 +1,12 @@
 ### Changelog
 
+#### 2026/10/11
+
+-	Added "Disable encounters" to Symphonia.
+-	Added "Disable encounters" to Zestiria.
+-	Added "Disable encounters" to Arise.
+-	Added "Disable encounters" to Berseria.
+
 #### 2026/06/15
 
 -	Recreated the "Wingul fight editor" script for the PC Remaster version (NOTE: Requires Cheat Engine 7.6.6 or later)
