@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>13096</ID>
@@ -908,6 +908,64 @@ dealloc(newmem)
 </AssemblerScript>
             </CheatEntry>
           </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91476</ID>
+          <Description>"Disable random encounters"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Tales of Zestiria.exe
+  Version: 
+  Date   : 2026-10-09
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+[ENABLE]
+
+aobscanmodule(encounter_init,Tales of Zestiria.exe,55 8B EC 83 E4 F8 83 EC 10 83 7F 10 03) // should be unique
+
+encounter_init:
+  xor eax,eax
+  ret 4
+
+registersymbol(encounter_init)
+
+[DISABLE]
+
+encounter_init:
+  db 55 8B EC 83 E4 F8 83 EC 10 83 7F 10 03 53 56
+
+unregistersymbol(encounter_init)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Zestiria.exe+23F7B0
+
+Tales of Zestiria.exe+23F7A5: F5                    - cmc 
+Tales of Zestiria.exe+23F7A6: 63 00                 - arpl [eax],ax
+Tales of Zestiria.exe+23F7A8: CC                    - int 3 
+Tales of Zestiria.exe+23F7A9: CC                    - int 3 
+Tales of Zestiria.exe+23F7AA: CC                    - int 3 
+Tales of Zestiria.exe+23F7AB: CC                    - int 3 
+Tales of Zestiria.exe+23F7AC: CC                    - int 3 
+Tales of Zestiria.exe+23F7AD: CC                    - int 3 
+Tales of Zestiria.exe+23F7AE: CC                    - int 3 
+Tales of Zestiria.exe+23F7AF: CC                    - int 3 
+// ---------- INJECTING HERE ----------
+Tales of Zestiria.exe+23F7B0: 55                    - push ebp
+// ---------- DONE INJECTING  ----------
+Tales of Zestiria.exe+23F7B1: 8B EC                 - mov ebp,esp
+Tales of Zestiria.exe+23F7B3: 83 E4 F8              - and esp,-08
+Tales of Zestiria.exe+23F7B6: 83 EC 10              - sub esp,10
+Tales of Zestiria.exe+23F7B9: 83 7F 10 03           - cmp dword ptr [edi+10],03
+Tales of Zestiria.exe+23F7BD: 53                    - push ebx
+Tales of Zestiria.exe+23F7BE: 56                    - push esi
+Tales of Zestiria.exe+23F7BF: 0F 8C EC 00 00 00     - jl "Tales of Zestiria.exe"+23F8B1
+Tales of Zestiria.exe+23F7C5: 80 3D 73 02 13 02 00  - cmp byte ptr ["Tales of Zestiria.exe"+1D30273],00
+Tales of Zestiria.exe+23F7CC: 0F 85 DF 00 00 00     - jne "Tales of Zestiria.exe"+23F8B1
+Tales of Zestiria.exe+23F7D2: 8B 47 28              - mov eax,[edi+28]
+}
+</AssemblerScript>
         </CheatEntry>
         <CheatEntry>
           <ID>197</ID>

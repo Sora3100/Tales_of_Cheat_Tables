@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>37</ID>
@@ -17068,6 +17068,84 @@ Tales of Arise.exe+722C00: 83 C0 02                 - add eax,02
           </Offsets>
         </CheatEntry>
       </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Disable encounters"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Tales of Arise.exe
+  Version: 
+  Date   : 2026-10-11
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+aobscanmodule(field_encounter_start_collision,Tales of Arise.exe,0F B6 02 48 8D 52 01 48 FF C3 40 0A 3C 08 49 3B D8 75 ** E8 ** ** ** ** 48 8B C8) // should be unique
+alloc(newmem,$1000,field_encounter_start_collision)
+
+label(code)
+label(skip)
+label(return)
+
+newmem:
+  cmp rax,19
+  jne code
+  cmp r8,B
+  jne code
+  or dil,1
+  jmp skip
+code:
+  or dil,[rax+rcx]
+skip:
+  cmp rbx,r8
+  jmp return
+
+field_encounter_start_collision+0A:
+  jmp newmem
+  nop 2
+return:
+registersymbol(field_encounter_start_collision)
+
+[DISABLE]
+
+field_encounter_start_collision+0A:
+  db 40 0A 3C 08 49 3B D8
+
+unregistersymbol(field_encounter_start_collision)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Tales of Arise.exe+11960BA
+
+Tales of Arise.exe+119609B: 49 8D 0C 10           - lea rcx,[r8+rdx]
+Tales of Arise.exe+119609F: 48 3B D1              - cmp rdx,rcx
+Tales of Arise.exe+11960A2: 4C 0F 47 C3           - cmova r8,rbx
+Tales of Arise.exe+11960A6: 4D 85 C0              - test r8,r8
+Tales of Arise.exe+11960A9: 74 18                 - je "Tales of Arise.exe"+11960C3
+Tales of Arise.exe+11960AB: 48 8B 48 28           - mov rcx,[rax+28]
+Tales of Arise.exe+11960AF: 90                    - nop 
+Tales of Arise.exe+11960B0: 0F B6 02              - movzx eax,byte ptr [rdx]
+Tales of Arise.exe+11960B3: 48 8D 52 01           - lea rdx,[rdx+01]
+Tales of Arise.exe+11960B7: 48 FF C3              - inc rbx
+// ---------- INJECTING HERE ----------
+Tales of Arise.exe+11960BA: 40 0A 3C 08           - or dil,[rax+rcx]
+// ---------- DONE INJECTING  ----------
+Tales of Arise.exe+11960BE: 49 3B D8              - cmp rbx,r8
+Tales of Arise.exe+11960C1: 75 ED                 - jne "Tales of Arise.exe"+11960B0
+Tales of Arise.exe+11960C3: E8 48 0B C7 FF        - call "Tales of Arise.exe"+E06C10
+Tales of Arise.exe+11960C8: 48 8B C8              - mov rcx,rax
+Tales of Arise.exe+11960CB: 48 85 C0              - test rax,rax
+Tales of Arise.exe+11960CE: 74 10                 - je "Tales of Arise.exe"+11960E0
+Tales of Arise.exe+11960D0: 0F B6 80 96 03 00 00  - movzx eax,byte ptr [rax+00000396]
+Tales of Arise.exe+11960D7: 0A 81 94 03 00 00     - or al,[rcx+00000394]
+Tales of Arise.exe+11960DD: 40 0A F8              - or dil,al
+Tales of Arise.exe+11960E0: 48 8B 4C 24 20        - mov rcx,[rsp+20]
+}
+</AssemblerScript>
     </CheatEntry>
     <CheatEntry>
       <ID>46</ID>

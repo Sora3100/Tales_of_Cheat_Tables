@@ -37,12 +37,14 @@ Features:
  - Unlock/Lock any title
  - Arte Usage/Unlock Editor
  - Change Run/Swim Speed
+ - Disable encounters
 
  ## Berseria (PC)
 Based on the 2017/02/03 update. (original release from 2017, not Remastered)
 
 Features:
  - Show all entries in Enemy Book
+ - Disable encounters
 
  ## Destiny (PS1)
 Based on the SLUS00626 version of the game.
@@ -282,6 +284,7 @@ Features:
  - Minimum Damage
  - Walk through walls
  - Rheiards usable any time
+ - Disable encounters
 
  ## Symphonia - Dawn of the New World (PS3, Wii)
 Based on the BLUS31172 and RT4EAF versions of the game, respectively.
@@ -399,6 +402,7 @@ Features:
  - Change Camera Height
  - Alisha can armatize
  - Show all entries in Enemy Book
+ - Disable encounters
  
  # Patches
  
