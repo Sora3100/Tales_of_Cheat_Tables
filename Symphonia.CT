@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>1948</ID>
@@ -2250,6 +2250,213 @@ unregistersymbol(rheiardCheck)
 004B9AC5: 80 BF 08 F9 09 00 00  - cmp byte ptr [edi+0009F908],00
 004B9ACC: 0F 85 28 01 00 00     - jne 004B9BFA
 004B9AD2: 83 8F FC F8 09 00 08  - or dword ptr [edi+0009F8FC],08
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91612</ID>
+          <Description>"Disable encounters"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : TOS.exe
+  Version: 
+  Date   : 2026-10-10
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+aobscanmodule(world_map_encounter_battle_start,TOS.exe,A1 ** ** ** ** 80 B8 ** ** ** ** 00 0F 85 ** ** ** ** 80 3D ** ** ** ** 00 0F 84 ** ** ** ** 53 56) // should be unique
+
+world_map_encounter_battle_start:
+  xor eax,eax
+  ret
+
+registersymbol(world_map_encounter_battle_start)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(world_map_encounter_collision,TOS.exe,55 8B EC 83 EC 10 53 8B 5D 0C 57 8B 3D ** ** ** **) // should be unique
+
+world_map_encounter_collision:
+  ret
+
+registersymbol(world_map_encounter_collision)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(field_encounter_collision,TOS.exe,75 1A 8B C6 E8 ? ? ? ? 50 8B C7) // should be unique
+
+field_encounter_collision:
+  db EB
+
+registersymbol(field_encounter_collision)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(field_encounter_battle_start,TOS.exe,0F 85 ** ** ** ** 8D 4B 04 B8 ** ** ** ** E8 ** ** ** ** 51 D9 1C 24 E8 ** ** ** ** D9 83 A4 00 00 00) // should be unique
+
+field_encounter_battle_start:
+  db E9 1F 01 00 00 90
+
+registersymbol(field_encounter_battle_start)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(field_encounter_disable_ai,TOS.exe,74 ** D9 EE D9 53 2C D9 53 30 D9 5B 28) // should be unique
+
+field_encounter_disable_ai:
+  nop 2
+
+registersymbol(field_encounter_disable_ai)
+
+[DISABLE]
+
+world_map_encounter_battle_start:
+  db A1 FC F9 8D 00
+
+unregistersymbol(world_map_encounter_battle_start)
+
+///////////////////////////////////////////////////////////////////////////////
+
+world_map_encounter_collision:
+  push ebp
+
+unregistersymbol(world_map_encounter_collision)
+
+///////////////////////////////////////////////////////////////////////////////
+
+field_encounter_collision:
+  db 75
+
+unregistersymbol(field_encounter_collision)
+
+///////////////////////////////////////////////////////////////////////////////
+
+field_encounter_battle_start:
+  db 0F 85 1E 01 00 00
+
+unregistersymbol(field_encounter_battle_start)
+
+///////////////////////////////////////////////////////////////////////////////
+
+field_encounter_disable_ai:
+  db 74 0B
+
+unregistersymbol(field_encounter_disable_ai)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+B22E0
+
+TOS.exe+B22D6: 5E                    - pop esi
+TOS.exe+B22D7: C3                    - ret
+TOS.exe+B22D8: CC                    - int 3
+TOS.exe+B22D9: CC                    - int 3
+TOS.exe+B22DA: CC                    - int 3
+TOS.exe+B22DB: CC                    - int 3
+TOS.exe+B22DC: CC                    - int 3
+TOS.exe+B22DD: CC                    - int 3
+TOS.exe+B22DE: CC                    - int 3
+TOS.exe+B22DF: CC                    - int 3
+// ---------- INJECTING HERE ----------
+TOS.exe+B22E0: A1 FC F9 8D 00        - mov eax,[TOS.exe+4DF9FC]
+// ---------- DONE INJECTING  ----------
+TOS.exe+B22E5: 80 B8 1A F9 09 00 00  - cmp byte ptr [eax+0009F91A],00
+TOS.exe+B22EC: 0F 85 B8 00 00 00     - jne TOS.exe+B23AA
+TOS.exe+B22F2: 80 3D AE D7 8A 00 00  - cmp byte ptr [TOS.exe+4AD7AE],00
+TOS.exe+B22F9: 0F 84 AB 00 00 00     - je TOS.exe+B23AA
+TOS.exe+B22FF: 53                    - push ebx
+TOS.exe+B2300: 56                    - push esi
+TOS.exe+B2301: 8B 70 2C              - mov esi,[eax+2C]
+TOS.exe+B2304: E8 C7 F5 FF FF        - call TOS.exe+B18D0
+TOS.exe+B2309: 8A D8                 - mov bl,al
+TOS.exe+B230B: 88 1D 11 3F AD 00     - mov [TOS.exe+6D3F11],bl
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+C7FBF
+
+TOS.exe+C7FA3: 74 46                 - je TOS.exe+C7FEB
+TOS.exe+C7FA5: 8B F9                 - mov edi,ecx
+TOS.exe+C7FA7: 3B F7                 - cmp esi,edi
+TOS.exe+C7FA9: 74 30                 - je TOS.exe+C7FDB
+TOS.exe+C7FAB: 8B 07                 - mov eax,[edi]
+TOS.exe+C7FAD: 85 C0                 - test eax,eax
+TOS.exe+C7FAF: 74 2A                 - je TOS.exe+C7FDB
+TOS.exe+C7FB1: 3D 00 5F 4D 00        - cmp eax,TOS.exe+D5F00
+TOS.exe+C7FB6: 75 09                 - jne TOS.exe+C7FC1
+TOS.exe+C7FB8: 80 3D 2B 3E AD 00 00  - cmp byte ptr [TOS.exe+6D3E2B],00
+// ---------- INJECTING HERE ----------
+TOS.exe+C7FBF: 75 1A                 - jne TOS.exe+C7FDB
+// ---------- DONE INJECTING  ----------
+TOS.exe+C7FC1: 8B C6                 - mov eax,esi
+TOS.exe+C7FC3: E8 28 5B 00 00        - call TOS.exe+CDAF0
+TOS.exe+C7FC8: 50                    - push eax
+TOS.exe+C7FC9: 8B C7                 - mov eax,edi
+TOS.exe+C7FCB: 8B CE                 - mov ecx,esi
+TOS.exe+C7FCD: E8 9E 00 00 00        - call TOS.exe+C8070
+TOS.exe+C7FD2: 8B 0D 28 65 AD 00     - mov ecx,[TOS.exe+6D6528]
+TOS.exe+C7FD8: 83 C4 04              - add esp,04
+TOS.exe+C7FDB: 43                    - inc ebx
+TOS.exe+C7FDC: 8B FB                 - mov edi,ebx
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+D657F
+
+TOS.exe+D654D: D9 5E 30              - fstp dword ptr [esi+30]
+TOS.exe+D6550: 0F 85 3A FF FF FF     - jne TOS.exe+D6490
+TOS.exe+D6556: 8B 74 24 28           - mov esi,[esp+28]
+TOS.exe+D655A: E9 64 01 00 00        - jmp TOS.exe+D66C3
+TOS.exe+D655F: 66 8B 93 96 00 00 00  - mov dx,[ebx+00000096]
+TOS.exe+D6566: B8 FF 3F 00 00        - mov eax,00003FFF
+TOS.exe+D656B: 66 23 D0              - and dx,ax
+TOS.exe+D656E: 66 83 FA 06           - cmp dx,06
+TOS.exe+D6572: 0F 84 2B 01 00 00     - je TOS.exe+D66A3
+TOS.exe+D6578: 80 3D 2B 3E AD 00 00  - cmp byte ptr [TOS.exe+6D3E2B],00
+// ---------- INJECTING HERE ----------
+TOS.exe+D657F: 0F 85 1E 01 00 00     - jne TOS.exe+D66A3
+// ---------- DONE INJECTING  ----------
+TOS.exe+D6585: 8D 4B 04              - lea ecx,[ebx+04]
+TOS.exe+D6588: B8 F4 5A D5 01        - mov eax,TOS.exe+1955AF4
+TOS.exe+D658D: E8 1E AB 0A 00        - call TOS.exe+1810B0
+TOS.exe+D6592: 51                    - push ecx
+TOS.exe+D6593: D9 1C 24              - fstp dword ptr [esp]
+TOS.exe+D6596: E8 25 61 00 00        - call TOS.exe+DC6C0
+TOS.exe+D659B: D9 83 A4 00 00 00     - fld dword ptr [ebx+000000A4]
+TOS.exe+D65A1: 83 C4 04              - add esp,04
+TOS.exe+D65A4: DC C0                 - fadd st(0),st(0)
+TOS.exe+D65A6: D8 05 94 5B D5 01     - fadd dword ptr [TOS.exe+1955B94]
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: TOS.exe+D6936
+
+TOS.exe+D690B: 50                       - push eax
+TOS.exe+D690C: 6A 01                    - push 01
+TOS.exe+D690E: 8B C3                    - mov eax,ebx
+TOS.exe+D6910: B9 34 33 B1 00           - mov ecx,TOS.exe+713334
+TOS.exe+D6915: E8 B6 5B 01 00           - call TOS.exe+EC4D0
+TOS.exe+D691A: 8B 0D 34 33 B1 00        - mov ecx,[TOS.exe+713334]
+TOS.exe+D6920: 8B 3D D4 33 70 00        - mov edi,[TOS.exe+3033D4]
+TOS.exe+D6926: 83 C4 0C                 - add esp,0C
+TOS.exe+D6929: 89 8B AC 00 00 00        - mov [ebx+000000AC],ecx
+TOS.exe+D692F: 80 3D 2B 3E AD 00 00     - cmp byte ptr [TOS.exe+6D3E2B],00
+// ---------- INJECTING HERE ----------
+TOS.exe+D6936: 74 0B                    - je TOS.exe+D6943
+// ---------- DONE INJECTING  ----------
+TOS.exe+D6938: D9 EE                    - fldz 
+TOS.exe+D693A: D9 53 2C                 - fst dword ptr [ebx+2C]
+TOS.exe+D693D: D9 53 30                 - fst dword ptr [ebx+30]
+TOS.exe+D6940: D9 5B 28                 - fstp dword ptr [ebx+28]
+TOS.exe+D6943: F6 83 9B 00 00 00 80     - test byte ptr [ebx+0000009B],-80
+TOS.exe+D694A: D9 43 28                 - fld dword ptr [ebx+28]
+TOS.exe+D694D: D8 43 04                 - fadd dword ptr [ebx+04]
+TOS.exe+D6950: 8D 43 04                 - lea eax,[ebx+04]
+TOS.exe+D6953: C7 44 24 1C 01 00 00 00  - mov [esp+1C],00000001
+TOS.exe+D695B: D9 18                    - fstp dword ptr [eax]
 }
 </AssemblerScript>
         </CheatEntry>
@@ -9203,6 +9410,28 @@ dealloc(lv3_arte_aerial_chain_og_bytes)
         <Byte>44</Byte>
         <Byte>EB</Byte>
         <Byte>37</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jmp TOS.exe+C7FDB</Description>
+      <AddressString>TOS.exe+C7FBF</AddressString>
+      <Before>
+        <Byte>2B</Byte>
+        <Byte>3E</Byte>
+        <Byte>AD</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>EB</Byte>
+        <Byte>1A</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>E8</Byte>
+        <Byte>28</Byte>
+        <Byte>5B</Byte>
       </After>
     </CodeEntry>
   </CheatCodes>
