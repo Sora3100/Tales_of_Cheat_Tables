@@ -270,6 +270,7 @@ Features:
  - Encounter Editor
  - Difficulty Modifier
  - Gald Editor
+ - Grade Shop options
 
  ## Symphonia (PC)
 Based on the 2016/09/27 update.
