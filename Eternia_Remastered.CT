@@ -1,0 +1,2782 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable UsesMono="1" CheatEngineTableVersion="52">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16509</ID>
+      <Description>"Enable"</Description>
+      <Options moHideChildren="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
+  Version: 
+  Date   : 2026-10-16
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+{$ifndef base_party_formation}
+aobscanmodule(base_party_formation,GameNative.dll,49 0F BF 00 49 83 C0 02 48 69 C8 D0 00 00 00) // should be unique
+alloc(base_party_formation_pointer,$1000,base_party_formation)
+
+label(code)
+label(return)
+
+base_party_formation_pointer:
+  mov rax,base_party_formation_pointer
+  cmp [rax+500],0
+  jne code
+  mov [rax+500],r8
+code:
+  movsx rax,word ptr [r8]
+  add r8,02
+  jmp return
+
+base_party_formation:
+  jmp base_party_formation_pointer
+  nop 3
+return:
+registersymbol(base_party_formation base_party_formation_pointer)
+{$endif}
+
+{$ifndef tbl_data}
+alloc(tbl_data, $1000)
+
+tbl_data: //select character
+  dq 1
+
+registersymbol(tbl_data)
+{$endif}
+
+[DISABLE]
+
+base_party_formation:
+  db 49 0F BF 00 49 83 C0 02
+
+unregistersymbol(base_party_formation base_party_formation_pointer tbl_data)
+dealloc(base_party_formation_pointer tbl_data)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+12AFF5
+
+GameNative.dll+12AFCC: 45 32 C9                 - xor r9b,r9b
+GameNative.dll+12AFCF: 0F BF FA                 - movsx edi,dx
+GameNative.dll+12AFD2: 0F BF D9                 - movsx ebx,cx
+GameNative.dll+12AFD5: 66 45 85 D2              - test r10w,r10w
+GameNative.dll+12AFD9: 74 4F                    - je GameNative.dll+12B02A
+GameNative.dll+12AFDB: 4C 8D 05 2E FD 09 01     - lea r8,[GameNative.dll+11CAD10]
+GameNative.dll+12AFE2: 4C 8D 1D 33 FD 09 01     - lea r11,[GameNative.dll+11CAD1C]
+GameNative.dll+12AFE9: 48 8D 35 8B F4 09 01     - lea rsi,[GameNative.dll+11CA47B]
+GameNative.dll+12AFF0: 4D 3B C3                 - cmp r8,r11
+GameNative.dll+12AFF3: 7D 35                    - jnl GameNative.dll+12B02A
+// ---------- INJECTING HERE ----------
+GameNative.dll+12AFF5: 49 0F BF 00              - movsx rax,word ptr [r8]
+// ---------- DONE INJECTING  ----------
+GameNative.dll+12AFF9: 49 83 C0 02              - add r8,02
+GameNative.dll+12AFFD: 48 69 C8 D0 00 00 00     - imul rcx,rax,000000D0
+GameNative.dll+12B004: 0F B6 84 31 30 FF FF FF  - movzx eax,byte ptr [rcx+rsi-000000D0]
+GameNative.dll+12B00C: 0F B6 D0                 - movzx edx,al
+GameNative.dll+12B00F: 41 0A C1                 - or al,r9b
+GameNative.dll+12B012: 0F B6 C8                 - movzx ecx,al
+GameNative.dll+12B015: F6 C2 08                 - test dl,08
+GameNative.dll+12B018: 41 0F B6 C1              - movzx eax,r9b
+GameNative.dll+12B01C: 0F 45 C8                 - cmovne ecx,eax
+GameNative.dll+12B01F: 66 41 83 38 00           - cmp word ptr [r8],00
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16511</ID>
+          <Description>"Pointers"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16501</ID>
+              <Description>"Party Formation"</Description>
+              <Options moHideChildren="1"/>
+              <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Reid
+2:Farah
+3:Keele
+4:Meredy
+5:Ras
+6:Chat
+7:Max
+8:EggBear
+9:Keele (kid)
+10:Meredy (kid)
+11:Shizel
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16502</ID>
+                  <Description>"Slot 1"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16503</ID>
+                  <Description>"Slot 2"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16504</ID>
+                  <Description>"Slot 3"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16505</ID>
+                  <Description>"Slot 4"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16506</ID>
+                  <Description>"Slot 5"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16507</ID>
+                  <Description>"Slot 6"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16516</ID>
+              <Description>"Character related"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16962</ID>
+                  <Description>"Select character"</Description>
+                  <DropDownListLink>Party Formation</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>16961</ID>
+                      <Description>"Stats"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>base_party_formation_pointer+500</Address>
+                      <Offsets>
+                        <Offset>-8E4-D0+D0*[tbl_data]</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16510</ID>
+                          <Description>"Lv"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>-A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16968</ID>
+                          <Description>"Exp"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16512</ID>
+                          <Description>"Next"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>-4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16969</ID>
+                          <Description>"Name 1"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16970</ID>
+                          <Description>"Name 2"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16971</ID>
+                          <Description>"On-Battle-End max HP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+28</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16972</ID>
+                          <Description>"Max HP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16517</ID>
+                          <Description>"Current HP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16518</ID>
+                          <Description>"On-Battle-End max TP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16519</ID>
+                          <Description>"Max TP"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+30</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16520</ID>
+                          <Description>"Current TP"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+32</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16521</ID>
+                          <Description>"Strength"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+34</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16522</ID>
+                          <Description>"Slash/Punch/Attack"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+36</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16523</ID>
+                          <Description>"Stab/Kick"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+38</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16524</ID>
+                          <Description>"Intelligence"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+3C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16525</ID>
+                          <Description>"Defense"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+40</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16526</ID>
+                          <Description>"Luck"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+44</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16527</ID>
+                          <Description>"Agility"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+48</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16528</ID>
+                          <Description>"Accuracy"</Description>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+4C</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16963</ID>
+                      <Description>"Equipment"</Description>
+                      <Options moHideChildren="1"/>
+                      <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Apple Gel
+2:Orange Gel
+3:Melange Gel
+4:Lemon Gel
+5:Pine Gel
+6:Miracle Gel
+7:Elixir
+8:Savory
+9:Sage
+10:Lavender
+11:Bellebane
+12:Red Savory
+13:Red Sage
+14:Red Lavender
+15:Red Bellebane
+16:Panacea Bottle
+17:Life Bottle
+18:Flare Bottle
+19:Syrup Bottle
+20:Charm Bottle
+21:Miracle Charm
+22:Holy Bottle
+23:Dark Bottle
+24:Rune Bottle
+25:Spectacles
+26:Hourglass
+27:Monster Collection
+28:Collector’s Book
+29:Inferia's Map
+30:Talisman
+31:Blue Talisman
+32:Stun Charm
+33:WakeUp Charm
+34:Poison Charm
+35:Rabbit’s Foot
+36:Warrior Symbol
+37:Holy Symbol
+38:Mystic Symbol
+39:Demon’s Seal
+40:Emerald Ring
+41:Faerie Ring
+42:Mental Ring
+43:Protect Ring
+44:Force Ring
+45:Resist Ring
+46:Reflect Ring
+47:Black Onyx
+48:Magic Mist
+49:Moon Crystal
+50:Elven Boots
+51:Jet Boots
+52:Persha Boots
+53:Watercloud
+54:Cape
+55:Leather Cape
+56:Thief’s Cape
+57:Elven Cape
+58:Flare Cape
+59:Aqua Cape
+60:Thunder Cape
+61:Reverse Doll
+62:Sephira
+63:Long Sword
+64:Saber
+65:Rapier
+66:Knight Saber
+67:Bastard Sword
+68:Shamsel
+69:Nimble Rapier
+70:Dao Blade
+71:Flamberge
+72:Saw Saber
+73:Earth Blade
+74:Destroyer
+75:Ice Coffin
+76:Ogre Sword
+77:Voltic Sword
+78:Flame Sword
+79:Excalibur
+80:Vorpal Sword
+81:Ninja Sword
+82:Eternal Sword
+83:Short Spear
+84:Long Spear
+85:Ranseur
+86:Short Lance
+87:Partisan
+88:Arc Wind
+89:Trident
+90:Ogre Lance
+91:Demon Javelin
+92:Dragger Lance
+93:Flame Spear
+94:Long Spear
+95:Pole Axe
+96:Heavy Grave
+97:Halberd
+98:War Hammer
+99:Merenol
+100:Saint Halberd
+101:Deck Brush
+102:Francesca
+103:Battle Axe
+104:Crescent Axe
+105:Bardis
+106:Battle Pick
+107:Strike Axe
+108:Gaia Cleaver
+109:Hand Axe
+110:Short Sword
+111:Hydra Dagger
+112:Assault Dagger
+113:Gladius
+114:Gnome Pick
+115:Katar
+116:Crystal Dagger
+117:Steel Sword
+118:Great Sword
+119:Soul Eater
+120:Dragon Vein
+121:Hero Cane
+122:Mystic Sword
+123:Lid Shield
+124:Wooden Shield
+125:Buckler
+126:Apple Shield
+127:Storm Shield
+128:Round Shield
+129:Square Shield
+130:Kite Shield
+131:Omega Shield
+132:Fine Shield
+133:Red Shield
+134:Order Shield
+135:Rare Shield
+136:Star Shield
+137:Chaos Shield
+138:Beam Shield
+139:Blue Shield
+140:Leather Arms
+141:Power Arms
+142:Chain Arms
+143:Poison Thorn
+144:Iron Arms
+145:Needle Glove
+146:Venom
+147:Silver Knuckles
+148:Bone Knuckles
+149:Bear Claw
+150:Ghost Shell
+151:Crystal Shell
+152:Dragon Fang
+153:Mythril Arms
+154:Flare Arms
+155:Diamond Fist
+156:Kaiser Fist
+157:Omni Weapon
+158:Rod
+159:Mace
+160:Gem Rod
+161:Ruby Wand
+162:Skull Staff
+163:Holy Staff
+164:Star Mace
+165:Crystal Rod
+166:Whistle
+167:Chirp Whistle
+168:Bird Whistle
+169:Pretty Whistle
+170:Memory Whistle
+171:Trumpet
+172:Twinkle Flute
+173:Eternia Melody
+174:Assault Shot
+175:Plasma Cannon
+176:Grand Magnum
+177:Impulse Cannon
+178:Photon Ray
+179:Mega Launcher
+180:Chat Bag
+181:Tote Bag
+182:Big Bag
+183:Luck Bag
+184:Wonder Bag
+185:Soft Leather
+186:Hard Leather
+187:Protector
+188:Chain Mail
+189:Ring Mail
+190:Splint Mail
+191:Plate Mail
+192:Battlesuit
+193:Silver Plate
+194:Mythril Plate
+195:Reflect
+196:Rare Plate
+197:Mumbane
+198:Golden Armor
+199:Cloak
+200:White Cloak
+201:Silk Cloak
+202:Silver Cloak
+203:Amber Cloak
+204:Holy Cloak
+205:Mythril Mesh
+206:Star Cloak
+207:Robe
+208:Misty Robe
+209:Feather Robe
+210:Crystal Robe
+211:Bloody Robe
+212:Scale Robe
+213:Moon Robe
+214:Spirit Robe
+215:Leather Helm
+216:Iron Helm
+217:Ahmet Helm
+218:Cross Helm
+219:Duel Helm
+220:Mythril Helm
+221:Rare Helm
+222:Golden Helm
+223:Star Helm
+224:Circlet
+225:Gold Circlet
+226:Mythril Circlet
+227:Holy Circlet
+228:Star Circlet
+229:Aifread’s Hat
+230:Pirate’s Hat
+231:Captain’s Hat
+232:Ribbon
+233:Blue Ribbon
+234:Striped Ribbon
+235:Tartan Ribbon
+236:Pretty Ribbon
+237:Magical Ribbon
+238:Wristband
+239:Iron Wrist
+240:Bracelet
+241:Gold Bracelet
+242:Diamond Armlet
+243:Mythril Bracelet
+244:Star Bracelet
+245:Lapis Bracelet
+246:Angel Bracelet
+247:Bread
+248:Pasta
+249:Rice
+250:Panyan
+251:Bear Meat
+252:Squid
+253:Shrimp
+254:Cheese
+255:Egg
+256:Milk
+257:Tusk Meat
+258:Tuna
+259:Lettuce
+260:Cabbage
+261:Potato
+262:Cucumber
+263:Carrot
+264:Onion
+265:Tomato
+266:Beet
+267:Radish
+268:Kirima
+269:Lemon
+270:Strawberry
+271:Banana
+272:Kiwi
+273:Amango
+274:Tofu
+275:Konia
+276:Red Satay
+277:White Satay
+278:Black Satay
+279:Purple Satay
+280:Drain Charm
+281:Freeze Charm
+282:Step Ring
+283:Combo Command
+284:Heal Bracelet
+285:Mental Bracelet
+286:Smash Cape
+287:Pico Revenge
+288:Canceler
+289:Technical Ring
+290:Water Shard
+291:Fire Shard
+292:Earth Shard
+293:Wind Shard
+294:Snow Shard
+295:Volt Shard
+296:Light Shard
+297:Shadow Shard
+298:Water Crystal
+299:Fire Crystal
+300:Earth Crystal
+301:Wind Crystal
+302:Snow Crystal
+303:Volt Crystal
+304:Light Crystal
+305:Shadow Crystal
+306:Last Fencer
+307:All Divide
+308:Reviverser
+309:Saint Rapier
+310:Kitchen Mitten
+311:Pretty Mitten
+312:Lovely Mitten
+313:Cute Mitten
+314:Goat Horn
+315:Tuna Gel
+316:Firewood Bug
+317:Orz Earring
+318:Manual
+319:Sorcerer's Ring
+320:Freeze Ring
+321:Celestia Map
+322:Etapoke1
+323:Etapoke2
+324:Etapoke3
+325:Etapoke4
+326:Boarding Pass
+327:Train Cage
+328:WHIS game
+329:Miacis Badge
+330:Seyfert Key
+331:GPS
+332:Celestia Sea Map
+333:Inferia Sea Map
+334:Silver Cage
+335:Galaxy Stone
+336:Resume Ring
+337:Bush Baby
+338:Colain’s Pot
+339:S.D.
+340:Hyper Gauntlet
+341:Banrea
+342:Dried Peels
+343:Snow Tomato
+344:Derris Emblem
+345:Inferi Cape
+346:Celesti Cape
+347:Extreme
+348:Krona Symbol
+349:Wind Bell
+350:Losagna’s Dress
+351:Button
+352:Donies Potpourri
+353:Golden Choker
+354:Crib Sheet
+355:Drama Script
+356:Face Powder
+357:Uchiwa
+358:Cress’ Bandana
+359:Archie Ribbon
+360:Light Sphere
+361:Dark Sphere
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>base_party_formation_pointer+500</Address>
+                      <Offsets>
+                        <Offset>-886-D0+D0*[tbl_data]</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16744</ID>
+                          <Description>"Weapon"</Description>
+                          <DropDownListLink>Equipment</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16745</ID>
+                          <Description>"Body"</Description>
+                          <DropDownListLink>Equipment</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16746</ID>
+                          <Description>"Shield/Arm"</Description>
+                          <DropDownListLink>Equipment</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16747</ID>
+                          <Description>"Head"</Description>
+                          <DropDownListLink>Equipment</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+6</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16748</ID>
+                          <Description>"Accessory 1"</Description>
+                          <DropDownListLink>Equipment</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16749</ID>
+                          <Description>"Accessory 2"</Description>
+                          <DropDownListLink>Equipment</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+A</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16964</ID>
+                      <Description>"Arte usage"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>base_party_formation_pointer+500</Address>
+                      <Offsets>
+                        <Offset>33A-D0+D0*[tbl_data]</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16822</ID>
+                          <Description>"Sonic Blade/Palm Strike"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16823</ID>
+                          <Description>"Lightning Blade/Triple Blossom"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16824</ID>
+                          <Description>"Swarm/Sonic Fist"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16825</ID>
+                          <Description>"Demon Hammer/Swallow Dance"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*3</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16826</ID>
+                          <Description>"Spiral Attack/Eagle Dive"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16827</ID>
+                          <Description>"Tempest Strike/Rising Dragon Strike"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*5</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16828</ID>
+                          <Description>"Twin Sonic Blade/Twin Palm Strike"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*6</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16829</ID>
+                          <Description>"Super Lightning Blade/Death Blossom"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*7</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16830</ID>
+                          <Description>"Neo Swarm/Super Sonic Fist"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16831</ID>
+                          <Description>"Demon Twist/Super Swallow Dance"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*9</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16832</ID>
+                          <Description>"Double Spiral Attack/Eagle Rage"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16833</ID>
+                          <Description>"Omega Tempest Strike/Mirage"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*B</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16834</ID>
+                          <Description>"Demon Lightning Hammer/Chi"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16835</ID>
+                          <Description>"Neosonic Swarm/Fatal Fury"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16836</ID>
+                          <Description>"Megasonic Thrust/Deadly Force"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16837</ID>
+                          <Description>"Sonic Chaos"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16838</ID>
+                          <Description>"Neo Tempest Swarm"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16839</ID>
+                          <Description>"Demon Spiral Hammer"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*11</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16840</ID>
+                          <Description>"Omega Demon Chaos"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*12</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16841</ID>
+                          <Description>"Rising Phoenix"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*13</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16842</ID>
+                          <Description>"Omega Seal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*14</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16843</ID>
+                          <Description>"Aurora Wall"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*15</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16844</ID>
+                          <Description>"Aurora Sword"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*16</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16845</ID>
+                          <Description>"Aurora Wave"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>+2*17</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16965</ID>
+                      <Description>"Arte list"</Description>
+                      <Options moHideChildren="1"/>
+                      <DropDownList DisplayValueAsItem="1">0:Nothing
+1:Sonic Blade
+2:Lightning Blade
+3:Swarm
+4:Demon Hammer
+5:Spiral Attack
+6:Tempest Strike
+7:Twin Sonic Blade
+8:Super Lightning Blade
+9:Neo Swarm
+10:Demon Twist
+11:Double Spiral Attack
+12:Omega Tempest Strike
+13:Demon Lightning Hammer
+14:Neosonic Swarm
+15:Megasonic Thrust
+16:Sonic Chaos
+17:Neo Tempest Storm
+18:Demon Spiral Hammer
+19:Omega Demon Chaos
+20:Rising Pheonix
+21:Omega Seal
+22:Aurora Wall
+23:Aurora Sword
+24:Aurora Wave
+25:Palm Strike
+26:Triple Blossom
+27:Sonic Fist
+28:Swallow Dance
+29:Eagle Dive
+30:Rising Dragon Strike
+31:Twin Palm Strike
+32:Death Blossom
+33:Super Sonic Fist
+34:Super Swallow Fance
+35:Eagle Rage
+36:Mirage
+37:Chi
+38:Fatal Fury
+39:Healer
+40:Detoxify
+41:Life
+42:Deadly Force
+43:Undine
+44:Sylph
+45:Efreet
+46:Gnome
+47:Celsius
+48:Volt
+49:Rem
+50:Shadow
+51:Maxwell
+52:Sekundes
+53:Destiny
+54:Heal
+55:Nurse
+56:Cure
+57:Restore
+58:Resurrection
+59:Recover
+60:Charge
+61:Deep Mist
+62:Acid Rain
+63:Sharpness
+64:Resist
+65:Concentrate
+66:Barrier
+67:Holy Bliss
+68:Stagnation
+69:Delay
+70:Aqua Edge
+71:Spread
+72:Wind Blade
+73:Air Thrust
+74:Cyclone
+75:Fireball
+76:Eruption
+77:Flame Wall
+78:Explode
+79:Grave
+80:Stalagmite
+81:Ground Dasher
+82:Ice Needles
+83:Freeze Lancer
+84:Blizzard
+85:Absolute
+86:Lightning
+87:Thunder Blade
+88:Indignation
+89:Ray
+90:Holy Lance
+91:Dark Force
+92:Bloody Howl
+93:Metor Swarm
+94:Shooting Star
+95:Distortion
+96:Burning Force
+97:Air Blade
+98:Aqua Spiral
+99:Rage Laser
+100:Dark Laser
+101:Elemental Master
+102:Super Lightning Blade
+103:Neo Swarm
+104:Dragon Swarm
+105:Dragon Flash
+106:Pow Hammer
+107:Toss Hammer
+108:Ice Hammer
+109:Rover Tool
+110:Para Ball
+111:Eternal Hammer
+112:Spark Wave
+113:Prism Sword
+114:+Mental Charge
+115:+Medical Plus
+116:+Life Up
+117:+Mental Up
+118:+Item Plus
+119:+Life Rescue
+120:+Mental Supply
+121:+Poision Guard
+122:+Stun Guard
+123:+Freeze Guard
+124:+Drain Guard
+125:+Health
+:
+::Other stuff
+126:Consume TP (Earth Divide)
+127:Focus Attack (Finality DeadEnd)
+128:Quick Attack (crash)
+151:Summon Demon
+157:Earth Divide
+158:Dual the Sol
+161:Dragon Demon Chaos
+164:Dual the Sol
+166:Earth Divide
+167:Dual the Sol
+170:Dragon Demon Chaos
+173:Dual the Sol
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>base_party_formation_pointer+500</Address>
+                      <Offsets>
+                        <Offset>-856-D0+D0*[tbl_data]</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16885</ID>
+                          <Description>"Slot 1"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16886</ID>
+                          <Description>"Slot 2"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16887</ID>
+                          <Description>"Slot 3"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16888</ID>
+                          <Description>"Slot 4"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+3</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16863</ID>
+                          <Description>"Shortcuts"</Description>
+                          <Options moHideChildren="1"/>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <GroupHeader>1</GroupHeader>
+                          <Address>+883</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>16865</ID>
+                              <Description>"Slot 5"</Description>
+                              <DropDownListLink>Arte list</DropDownListLink>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+0</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>16866</ID>
+                                  <Description>"Character"</Description>
+                                  <DropDownListLink>Party Formation</DropDownListLink>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>-1</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>16867</ID>
+                              <Description>"Slot 6"</Description>
+                              <DropDownListLink>Arte list</DropDownListLink>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Byte</VariableType>
+                              <Address>+2</Address>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>16868</ID>
+                                  <Description>"Character"</Description>
+                                  <DropDownListLink>Party Formation</DropDownListLink>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <VariableType>Byte</VariableType>
+                                  <Address>-1</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>16967</ID>
+                      <Description>"Arte unlocks"</Description>
+                      <Options moHideChildren="1"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <GroupHeader>1</GroupHeader>
+                      <Address>base_party_formation_pointer+500</Address>
+                      <Offsets>
+                        <Offset>-876-D0+D0*[tbl_data]</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>16973</ID>
+                          <Description>"Arte 1"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16974</ID>
+                          <Description>"Arte 2"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16975</ID>
+                          <Description>"Arte 3"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+2</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16976</ID>
+                          <Description>"Arte 4"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+3</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16977</ID>
+                          <Description>"Arte 5"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+4</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16978</ID>
+                          <Description>"Arte 6"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+5</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16979</ID>
+                          <Description>"Arte 7"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+6</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16980</ID>
+                          <Description>"Arte 8"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+7</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16981</ID>
+                          <Description>"Arte 9"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+8</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16982</ID>
+                          <Description>"Arte 10"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+9</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16983</ID>
+                          <Description>"Arte 11"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16984</ID>
+                          <Description>"Arte 12"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+B</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16985</ID>
+                          <Description>"Arte 13"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16986</ID>
+                          <Description>"Arte 14"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16987</ID>
+                          <Description>"Arte 15"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16988</ID>
+                          <Description>"Arte 16"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+F</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16989</ID>
+                          <Description>"Arte 17"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+10</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16990</ID>
+                          <Description>"Arte 18"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+11</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16991</ID>
+                          <Description>"Arte 19"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+12</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16992</ID>
+                          <Description>"Arte 20"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+13</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16993</ID>
+                          <Description>"Arte 21"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+14</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16994</ID>
+                          <Description>"Arte 22"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+15</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16995</ID>
+                          <Description>"Arte 23"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+16</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16996</ID>
+                          <Description>"Arte 24"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+17</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16997</ID>
+                          <Description>"Arte 25"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+18</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16998</ID>
+                          <Description>"Arte 26"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+19</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>16999</ID>
+                          <Description>"Arte 27"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>17000</ID>
+                          <Description>"Arte 28"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1B</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>17001</ID>
+                          <Description>"Arte 29"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>17002</ID>
+                          <Description>"Arte 30"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1D</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>17003</ID>
+                          <Description>"Arte 31"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1E</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>17004</ID>
+                          <Description>"Arte 32"</Description>
+                          <DropDownListLink>Arte list</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Byte</VariableType>
+                          <Address>+1F</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16515</ID>
+              <Description>"Gald"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17006</ID>
+              <Description>"Encounter rate"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>+2AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17008</ID>
+              <Description>"Time till encounter"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>+2AE</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17007</ID>
+              <Description>"Encounter Group"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>+2B6</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16955</ID>
+              <Description>"Craymel unlocks"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>+2C8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16957</ID>
+                  <Description>"Undine"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16958</ID>
+                  <Description>"Sylph"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17009</ID>
+                  <Description>"Efreet"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17010</ID>
+                  <Description>"Gnome"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17011</ID>
+                  <Description>"Celsius"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17012</ID>
+                  <Description>"Volt"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17013</ID>
+                  <Description>"Rem"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16966</ID>
+                  <Description>"Shadow"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17014</ID>
+                  <Description>"Maxwell"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17015</ID>
+                  <Description>"Sekundes"</Description>
+                  <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16945</ID>
+              <Description>"Unknown unlocked?"</Description>
+              <DropDownList DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>base_party_formation_pointer+500</Address>
+              <Offsets>
+                <Offset>+1846</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16514</ID>
+          <Description>"Scripts"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>17031</ID>
+              <Description>"Extend battle zoom"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
+  Version: 
+  Date   : 2026-10-16
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+aobscanmodule(extend_max_btl_zoom,GameNative.dll,B9 9C 02 00 00 66) // should be unique
+
+extend_max_btl_zoom:
+  db B9 9C 06 00 00
+
+registersymbol(extend_max_btl_zoom)
+
+[DISABLE]
+
+extend_max_btl_zoom:
+  db B9 9C 02 00 00
+
+unregistersymbol(extend_max_btl_zoom)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+10F8C2
+
+GameNative.dll+10F89A: 74 0B                       - je GameNative.dll+10F8A7
+GameNative.dll+10F89C: 66 83 C0 FC                 - add ax,-04
+GameNative.dll+10F8A0: 66 89 05 D1 F2 1B 01        - mov [GameNative.dll+12CEB78],ax
+GameNative.dll+10F8A7: 41 F6 84 1E A0 EB 2C 01 05  - test byte ptr [r14+rbx+012CEBA0],05
+GameNative.dll+10F8B0: 74 24                       - je GameNative.dll+10F8D6
+GameNative.dll+10F8B2: 66 3B C2                    - cmp ax,dx
+GameNative.dll+10F8B5: 7D 0B                       - jnl GameNative.dll+10F8C2
+GameNative.dll+10F8B7: 8B C2                       - mov eax,edx
+GameNative.dll+10F8B9: 66 89 15 B8 F2 1B 01        - mov [GameNative.dll+12CEB78],dx
+GameNative.dll+10F8C0: EB 14                       - jmp GameNative.dll+10F8D6
+// ---------- INJECTING HERE ----------
+GameNative.dll+10F8C2: B9 9C 02 00 00              - mov ecx,0000029C
+// ---------- DONE INJECTING  ----------
+GameNative.dll+10F8C7: 66 3B C1                    - cmp ax,cx
+GameNative.dll+10F8CA: 7E 0A                       - jle GameNative.dll+10F8D6
+GameNative.dll+10F8CC: 0F B7 C1                    - movzx eax,cx
+GameNative.dll+10F8CF: 66 89 0D A2 F2 1B 01        - mov [GameNative.dll+12CEB78],cx
+GameNative.dll+10F8D6: 66 89 05 DF F1 1B 01        - mov [GameNative.dll+12CEABC],ax
+GameNative.dll+10F8DD: 66 89 05 B8 F1 1B 01        - mov [GameNative.dll+12CEA9C],ax
+GameNative.dll+10F8E4: 0F B7 05 C5 F1 1B 01        - movzx eax,word ptr [GameNative.dll+12CEAB0]
+GameNative.dll+10F8EB: 66 89 05 9E F1 1B 01        - mov [GameNative.dll+12CEA90],ax
+GameNative.dll+10F8F2: B8 08 00 00 00              - mov eax,00000008
+GameNative.dll+10F8F7: E9 4C 01 00 00              - jmp GameNative.dll+10FA48
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17038</ID>
+              <Description>"Auto movie skip"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
+  Version: 
+  Date   : 2026-10-16
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+aobscanmodule(auto_movie_skip,GameNative.dll,48 8B 05 ** ** ** ** 48 85 C0 0F 84 ** ** ** ** 44 38 60 10 0F 84 ** ** ** **) // should be unique
+
+auto_movie_skip+14:
+  nop 6
+
+registersymbol(auto_movie_skip)
+
+[DISABLE]
+
+auto_movie_skip+14:
+  db 0F 84 EA 00 00 00
+
+unregistersymbol(auto_movie_skip)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+1B0A2
+
+GameNative.dll+1B07A: 75 3E                 - jne GameNative.dll+1B0BA
+GameNative.dll+1B07C: 48 8B 05 4D ED 1A 01  - mov rax,[GameNative.dll+11C9DD0]
+GameNative.dll+1B083: 48 85 C0              - test rax,rax
+GameNative.dll+1B086: 74 06                 - je GameNative.dll+1B08E
+GameNative.dll+1B088: 44 39 60 0C           - cmp [rax+0C],r12d
+GameNative.dll+1B08C: 74 1A                 - je GameNative.dll+1B0A8
+GameNative.dll+1B08E: 48 8B 05 33 ED 1A 01  - mov rax,[GameNative.dll+11C9DC8]
+GameNative.dll+1B095: 48 85 C0              - test rax,rax
+GameNative.dll+1B098: 0F 84 F4 00 00 00     - je GameNative.dll+1B192
+GameNative.dll+1B09E: 44 38 60 10           - cmp [rax+10],r12b
+// ---------- INJECTING HERE ----------
+GameNative.dll+1B0A2: 0F 84 EA 00 00 00     - je GameNative.dll+1B192
+// ---------- DONE INJECTING  ----------
+GameNative.dll+1B0A8: FF 15 0A 4F 84 00     - call qword ptr [GameNative.dll+85FFB8]
+GameNative.dll+1B0AE: 44 89 66 04           - mov [rsi+04],r12d
+GameNative.dll+1B0B2: 88 5E 08              - mov [rsi+08],bl
+GameNative.dll+1B0B5: E9 D8 00 00 00        - jmp GameNative.dll+1B192
+GameNative.dll+1B0BA: F3 0F 10 46 04        - movss xmm0,[rsi+04]
+GameNative.dll+1B0BF: F3 0F 58 C6           - addss xmm0,xmm6
+GameNative.dll+1B0C3: 0F 2F C7              - comiss xmm0,xmm7
+GameNative.dll+1B0C6: F3 0F 11 46 04        - movss [rsi+04],xmm0
+GameNative.dll+1B0CB: 0F 86 C1 00 00 00     - jbe GameNative.dll+1B192
+GameNative.dll+1B0D1: 48 8B 05 F8 EC 1A 01  - mov rax,[GameNative.dll+11C9DD0]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16513</ID>
+          <Description>"Notes"</Description>
+          <Options moHideChildren="1"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16959</ID>
+              <Description>"Dropdowns"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16960</ID>
+                  <Description>"dropdown: Locked/Unlocked"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Locked
+3:Unlocked
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"Get debug (only on title screen)"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
+  Version: 
+  Date   : 2026-10-16
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+{$ifndef get_debug}
+aobscanmodule(get_debug,GameNative.dll,48 8B 0D ** ** ** ** 41 BB 03 00 00 00 41 83 FD 10) // should be unique
+alloc(get_debug_ptr,$1000,get_debug)
+alloc(get_debug_original_bytes,$1000)
+
+get_debug_original_bytes:
+  readMem(get_debug, 7)
+
+registersymbol(get_debug_original_bytes)
+
+label(code)
+label(return)
+
+get_debug_ptr:
+  movsxd r11,dword ptr [get_debug_original_bytes+3]
+
+  mov rcx,get_debug
+  add rcx,7
+  add rcx,r11
+
+  mov r11,get_debug_ptr
+  mov [r11+500],rcx
+code:
+  reassemble(get_debug)
+  //mov rcx,[GameNative.dll+11CC540]
+  jmp return
+
+get_debug:
+  jmp get_debug_ptr
+  nop 2
+return:
+registersymbol(get_debug)
+registersymbol(get_debug_ptr)
+{$endif}
+
+[DISABLE]
+
+get_debug:
+  readMem(get_debug_original_bytes, 7)
+
+unregistersymbol(get_debug)
+dealloc(get_debug_ptr)
+unregistersymbol(get_debug_ptr)
+unregistersymbol(get_debug_original_bytes)
+dealloc(get_debug_original_bytes)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+1B92C5
+
+GameNative.dll+1B9290: B9 3C 02 00 00           - mov ecx,0000023C
+GameNative.dll+1B9295: E8 06 BF FF FF           - call GameNative.dll+1B51A0
+GameNative.dll+1B929A: 39 1D 70 6B 5A 00        - cmp [GameNative.dll+75FE10],ebx
+GameNative.dll+1B92A0: 8B C3                    - mov eax,ebx
+GameNative.dll+1B92A2: 89 1D A8 8B F2 00        - mov [GameNative.dll+10E1E50],ebx
+GameNative.dll+1B92A8: 0F 94 C0                 - sete al
+GameNative.dll+1B92AB: 89 1D 8F 8B F2 00        - mov [GameNative.dll+10E1E40],ebx
+GameNative.dll+1B92B1: 89 05 59 6B 5A 00        - mov [GameNative.dll+75FE10],eax
+GameNative.dll+1B92B7: 44 0F B7 05 7D 8A F2 00  - movzx r8d,word ptr [GameNative.dll+10E1D3C]
+GameNative.dll+1B92BF: 41 BA 02 00 00 00        - mov r10d,00000002
+// ---------- INJECTING HERE ----------
+GameNative.dll+1B92C5: 48 8B 0D 74 32 01 01     - mov rcx,[GameNative.dll+11CC540]
+// ---------- DONE INJECTING  ----------
+GameNative.dll+1B92CC: 41 BB 03 00 00 00        - mov r11d,00000003
+GameNative.dll+1B92D2: 41 83 FD 10              - cmp r13d,10
+GameNative.dll+1B92D6: 0F 85 A5 00 00 00        - jne GameNative.dll+1B9381
+GameNative.dll+1B92DC: 0F B7 15 81 89 9F 00     - movzx edx,word ptr [GameNative.dll+BB1C64]
+GameNative.dll+1B92E3: 66 FF CA                 - dec dx
+GameNative.dll+1B92E6: 66 89 15 77 89 9F 00     - mov [GameNative.dll+BB1C64],dx
+GameNative.dll+1B92ED: 41 83 F8 0A              - cmp r8d,0A
+GameNative.dll+1B92F1: 75 19                    - jne GameNative.dll+1B930C
+GameNative.dll+1B92F3: 66 3B D5                 - cmp dx,bp
+GameNative.dll+1B92F6: 7D 14                    - jnl GameNative.dll+1B930C
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Debug? set to 2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>get_debug_ptr+500</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17050</ID>
+              <Description>"Auto cutscene skip v2 (buggy)"</Description>
+              <Options moAlwaysHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
+  Version: 
+  Date   : 2026-10-17
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+aobscanmodule(auto_cutscene_skip,GameNative.dll,44 38 78 10 0F 84 ** ** ** **) // should be unique
+alloc(newmem,$1000,auto_cutscene_skip)
+alloc(auto_cutscene_skip_original_bytes,$1000)
+
+auto_cutscene_skip_original_bytes:
+  readMem(auto_cutscene_skip, 10)
+
+label(code)
+label(return)
+
+newmem:
+  push rcx
+
+  mov rcx,tbl_data
+  test rcx,rcx
+  je code
+
+  cmp qword ptr [rcx+8],0
+  je code
+  cmp qword ptr [rcx+10],0
+  je code
+  cmp qword ptr [rcx+18],0
+  je code
+
+  mov rcx,[tbl_data+8]
+  //mov rcx,[rcx]
+  cmp word ptr [rcx],10 //game mode (cutscene viewer)
+  je code
+  mov rcx,[tbl_data+10] //BorderGlobalParamsManager
+  mov rcx,[rcx]
+  test rcx, rcx
+  je code
+  cmp byte ptr [rcx+9],0 //skippable flag (set by FUN_1801A9FF0)
+  je code
+  mov rcx,[tbl_data+18]
+  cmp word ptr [rcx],0 //no fade/transition running
+  jne code
+do_skip:
+  pop rdx
+  jmp return
+code:
+  pop rdx
+  cmp [rax+10],r15b //original code
+  reassemble(auto_cutscene_skip+4)
+  //je GameNative.dll+255C82
+  jmp return
+
+auto_cutscene_skip:
+  jmp newmem
+  nop 5
+return:
+registersymbol(auto_cutscene_skip auto_cutscene_skip_original_bytes)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(game_mode,GameNative.dll,0F ? ? ? ? ? ? B9 FB FF 00 00 FF ? ? ? ? ? 66 83 E8 02) // should be unique
+alloc(newmem2,$1000,game_mode)
+
+auto_cutscene_skip_original_bytes+50:
+  readMem(game_mode, 12)
+
+label(code2)
+label(return2)
+
+newmem2:
+  push rax
+
+  mov rax,[tbl_data+8] //skip if its not a pointer
+  test rax,rax
+  jne finish2
+
+  push rbx
+  mov rbx,auto_cutscene_skip_original_bytes
+  mov ebx,[rbx+50+3]
+  add rbx,7
+  mov rax,game_mode
+  add rbx,rax
+
+  mov rax,tbl_data
+  mov [rax+8],rbx
+  pop rbx
+
+finish2:
+  pop rax
+code2:
+  reassemble(game_mode)
+  //movzx eax,word ptr [GameNative.dll+119EA28]
+  jmp return2
+
+game_mode:
+  jmp newmem2
+  nop 2
+return2:
+registersymbol(game_mode)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(BorderGlobalParamsManager,GameNative.dll,48 ? ? ? ? ? ? 80 78 28 00 74 0D 48 ? ? ? ? ? ? 80 78 1F 00)  // should be unique in this function
+alloc(newmem3,$1000,BorderGlobalParamsManager)
+
+auto_cutscene_skip_original_bytes+100:
+  readMem(BorderGlobalParamsManager, 7)
+
+label(code3)
+label(return3)
+
+newmem3:
+  push rax
+
+  mov rax,[tbl_data+10] //skip if its not a pointer
+  test rax,rax
+  jne finish3
+
+  push rbx
+  mov rbx,auto_cutscene_skip_original_bytes
+  mov ebx,[rbx+100+3]
+  add rbx,7
+  mov rax,BorderGlobalParamsManager
+  add rbx,rax
+
+  mov rax,tbl_data
+  mov [rax+10],rbx
+  pop rbx
+
+finish3:
+  pop rax
+code3:
+  reassemble(BorderGlobalParamsManager)
+  //mov rax,[GameNative.dll+644A48]
+  jmp return3
+
+BorderGlobalParamsManager:
+  jmp newmem3
+  nop 2
+return3:
+registersymbol(BorderGlobalParamsManager)
+
+///////////////////////////////////////////////////////////////////////////////
+
+aobscanmodule(transition_fade,GameNative.dll,0F BF 1D ** ** ** ** 48 85 C9 74 ** 0F B7 69 08 EB **) // should be unique
+alloc(newmem4,$1000,transition_fade)
+
+auto_cutscene_skip_original_bytes+150:
+  readMem(transition_fade, 7)
+
+label(code4)
+label(return4)
+
+newmem4:
+  push rax
+
+  mov rax,[tbl_data+18] //skip if its not a pointer
+  test rax,rax
+  jne finish4
+
+  push rbx
+  mov rbx,auto_cutscene_skip_original_bytes
+  mov ebx,[rbx+150+3]
+  add rbx,7
+  mov rax,transition_fade
+  add rbx,rax
+
+  mov rax,tbl_data
+  mov [rax+18],rbx
+  pop rbx
+
+finish4:
+  pop rax
+code4:
+  reassemble(transition_fade)
+  //movsx ebx,word ptr [GameNative.dll+62AE30]
+  jmp return4
+
+transition_fade:
+  jmp newmem4
+  nop 2
+return4:
+registersymbol(transition_fade)
+
+[DISABLE]
+
+auto_cutscene_skip:
+  readMem(auto_cutscene_skip_original_bytes, 10)
+
+game_mode:
+  readMem(auto_cutscene_skip_original_bytes+50, 12)
+
+tbl_data+8:
+  dq 0
+
+BorderGlobalParamsManager:
+  readMem(auto_cutscene_skip_original_bytes+100, 7)
+
+tbl_data+10:
+  dq 0
+
+transition_fade:
+  readMem(auto_cutscene_skip_original_bytes+150, 7)
+
+tbl_data+18:
+  dq 0
+
+unregistersymbol(auto_cutscene_skip game_mode BorderGlobalParamsManager transition_fade auto_cutscene_skip_original_bytes)
+dealloc(newmem newmem2 newmem3 newmem4 auto_cutscene_skip_original_bytes)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+255A5A
+
+GameNative.dll+255A2C: E8 4F 09 F6 FF        - call GameNative.dll+1B6380
+GameNative.dll+255A31: 44 89 3D 88 40 EE 00  - mov [GameNative.dll+1139AC0],r15d
+GameNative.dll+255A38: 48 8B 05 91 43 F7 00  - mov rax,[GameNative.dll+11C9DD0]
+GameNative.dll+255A3F: 48 85 C0              - test rax,rax
+GameNative.dll+255A42: 74 06                 - je GameNative.dll+255A4A
+GameNative.dll+255A44: 44 39 78 0C           - cmp [rax+0C],r15d
+GameNative.dll+255A48: 74 1A                 - je GameNative.dll+255A64
+GameNative.dll+255A4A: 48 8B 05 77 43 F7 00  - mov rax,[GameNative.dll+11C9DC8]
+GameNative.dll+255A51: 48 85 C0              - test rax,rax
+GameNative.dll+255A54: 0F 84 28 02 00 00     - je GameNative.dll+255C82
+// ---------- INJECTING HERE ----------
+GameNative.dll+255A5A: 44 38 78 10           - cmp [rax+10],r15b
+// ---------- DONE INJECTING  ----------
+GameNative.dll+255A5E: 0F 84 1E 02 00 00     - je GameNative.dll+255C82
+GameNative.dll+255A64: 48 8B 1D 75 43 F7 00  - mov rbx,[GameNative.dll+11C9DE0]
+GameNative.dll+255A6B: 45 8B C4              - mov r8d,r12d
+GameNative.dll+255A6E: 41 8B CD              - mov ecx,r13d
+GameNative.dll+255A71: 8B 53 08              - mov edx,[rbx+08]
+GameNative.dll+255A74: FF 15 AE A5 60 00     - call qword ptr [GameNative.dll+860028]
+GameNative.dll+255A7A: 44 88 63 14           - mov [rbx+14],r12b
+GameNative.dll+255A7E: 44 88 25 15 C0 60 00  - mov [GameNative.dll+861A9A],r12b
+GameNative.dll+255A85: 44 89 25 34 40 EE 00  - mov [GameNative.dll+1139AC0],r12d
+GameNative.dll+255A8C: 44 89 3D 6D 80 F4 00  - mov [GameNative.dll+119DB00],r15d
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+258E10
+
+GameNative.dll+258DFA: 49 8B 6B 18           - mov rbp,[r11+18]
+GameNative.dll+258DFE: 49 8B 73 20           - mov rsi,[r11+20]
+GameNative.dll+258E02: 49 8B 7B 28           - mov rdi,[r11+28]
+GameNative.dll+258E06: 49 8B E3              - mov rsp,r11
+GameNative.dll+258E09: 41 5E                 - pop r14
+GameNative.dll+258E0B: C3                    - ret
+GameNative.dll+258E0C: CC                    - int 3
+GameNative.dll+258E0D: CC                    - int 3
+GameNative.dll+258E0E: CC                    - int 3
+GameNative.dll+258E0F: CC                    - int 3
+// ---------- INJECTING HERE ----------
+GameNative.dll+258E10: 0F B7 05 11 5C F4 00  - movzx eax,word ptr [GameNative.dll+119EA28]
+// ---------- DONE INJECTING  ----------
+GameNative.dll+258E17: B9 FB FF 00 00        - mov ecx,0000FFFB
+GameNative.dll+258E1C: FF 05 2E 1F F7 00     - inc [GameNative.dll+11CAD50]
+GameNative.dll+258E22: 66 83 E8 02           - sub ax,02
+GameNative.dll+258E26: FF 05 F4 36 F7 00     - inc [GameNative.dll+11CC520]
+GameNative.dll+258E2C: FF 05 5E 26 F7 00     - inc [GameNative.dll+11CB490]
+GameNative.dll+258E32: 66 85 C1              - test cx,ax
+GameNative.dll+258E35: 75 06                 - jne GameNative.dll+258E3D
+GameNative.dll+258E37: FF 05 93 21 F7 00     - inc [GameNative.dll+11CAFD0]
+GameNative.dll+258E3D: C3                    - ret
+GameNative.dll+258E3E: CC                    - int 3
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.UgxGameNative_SetSkipUpdate+B993
+
+GameNative.UgxGameNative_SetSkipUpdate+B96F: BA 03 00 00 00        - mov edx,00000003
+GameNative.UgxGameNative_SetSkipUpdate+B974: E8 47 B5 FB FF        - call GameNative.DebugInfoFunctions_GetSeCallLogSeInfoStr+EEA0
+GameNative.UgxGameNative_SetSkipUpdate+B979: 84 C0                 - test al,al
+GameNative.UgxGameNative_SetSkipUpdate+B97B: 74 04                 - je GameNative.UgxGameNative_SetSkipUpdate+B981
+GameNative.UgxGameNative_SetSkipUpdate+B97D: 83 4B 08 08           - or dword ptr [rbx+08],08
+GameNative.UgxGameNative_SetSkipUpdate+B981: BA 04 00 00 00        - mov edx,00000004
+GameNative.UgxGameNative_SetSkipUpdate+B986: E8 35 B5 FB FF        - call GameNative.DebugInfoFunctions_GetSeCallLogSeInfoStr+EEA0
+GameNative.UgxGameNative_SetSkipUpdate+B98B: 84 C0                 - test al,al
+GameNative.UgxGameNative_SetSkipUpdate+B98D: 74 04                 - je GameNative.UgxGameNative_SetSkipUpdate+B993
+GameNative.UgxGameNative_SetSkipUpdate+B98F: 83 4B 08 10           - or dword ptr [rbx+08],10
+// ---------- INJECTING HERE ----------
+GameNative.UgxGameNative_SetSkipUpdate+B993: 48 8B 05 7E 73 5E 00  - mov rax,[GameNative.dll+644A48]
+// ---------- DONE INJECTING  ----------
+GameNative.UgxGameNative_SetSkipUpdate+B99A: 80 78 28 00           - cmp byte ptr [rax+28],00
+GameNative.UgxGameNative_SetSkipUpdate+B99E: 74 0D                 - je GameNative.UgxGameNative_SetSkipUpdate+B9AD
+GameNative.UgxGameNative_SetSkipUpdate+B9A0: 48 8B 05 09 73 5E 00  - mov rax,[GameNative.dll+6449E0]
+GameNative.UgxGameNative_SetSkipUpdate+B9A7: 80 78 1F 00           - cmp byte ptr [rax+1F],00
+GameNative.UgxGameNative_SetSkipUpdate+B9AB: EB 0C                 - jmp GameNative.UgxGameNative_SetSkipUpdate+B9B9
+GameNative.UgxGameNative_SetSkipUpdate+B9AD: BA 05 00 00 00        - mov edx,00000005
+GameNative.UgxGameNative_SetSkipUpdate+B9B2: E8 09 B5 FB FF        - call GameNative.DebugInfoFunctions_GetSeCallLogSeInfoStr+EEA0
+GameNative.UgxGameNative_SetSkipUpdate+B9B7: 84 C0                 - test al,al
+GameNative.UgxGameNative_SetSkipUpdate+B9B9: 74 04                 - je GameNative.UgxGameNative_SetSkipUpdate+B9BF
+GameNative.UgxGameNative_SetSkipUpdate+B9BB: 83 4B 08 20           - or dword ptr [rbx+08],20
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+255321
+
+GameNative.dll+2552E8: E8 B3 99 FF FF           - call GameNative.dll+24ECA0
+GameNative.dll+2552ED: EB 2B                    - jmp GameNative.dll+25531A
+GameNative.dll+2552EF: 44 38 3D D8 F7 3E 00     - cmp [GameNative.dll+644ACE],r15b
+GameNative.dll+2552F6: 74 22                    - je GameNative.dll+25531A
+GameNative.dll+2552F8: 66 89 05 2B 97 F4 00     - mov [GameNative.dll+119EA2A],ax
+GameNative.dll+2552FF: BE 1D 00 00 00           - mov esi,0000001D
+GameNative.dll+255304: 66 44 89 3D 24 5B 3D 00  - mov [GameNative.dll+62AE30],r15w
+GameNative.dll+25530C: 44 89 3D 21 5B 3D 00     - mov [GameNative.dll+62AE34],r15d
+GameNative.dll+255313: 44 88 2D 19 5B 3D 00     - mov [GameNative.dll+62AE33],r13b
+GameNative.dll+25531A: 48 8B 0D F7 4B F7 00     - mov rcx,[GameNative.dll+11C9F18]
+// ---------- INJECTING HERE ----------
+GameNative.dll+255321: 0F BF 1D 08 5B 3D 00     - movsx ebx,word ptr [GameNative.dll+62AE30]
+// ---------- DONE INJECTING  ----------
+GameNative.dll+255328: 48 85 C9                 - test rcx,rcx
+GameNative.dll+25532B: 74 06                    - je GameNative.dll+255333
+GameNative.dll+25532D: 0F B7 69 08              - movzx ebp,word ptr [rcx+08]
+GameNative.dll+255331: EB 03                    - jmp GameNative.dll+255336
+GameNative.dll+255333: 41 8B EF                 - mov ebp,r15d
+GameNative.dll+255336: 66 41 2B EE              - sub bp,r14w
+GameNative.dll+25533A: 66 41 3B EC              - cmp bp,r12w
+GameNative.dll+25533E: 7E 06                    - jle GameNative.dll+255346
+GameNative.dll+255340: 66 41 3B ED              - cmp bp,r13w
+GameNative.dll+255344: 7E 04                    - jle GameNative.dll+25534A
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17051</ID>
+                  <Description>"game_mode"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17053</ID>
+                  <Description>"BorderGlobalParamsManager"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17055</ID>
+                  <Description>"Transition/Fade"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data+18</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>17059</ID>
+                      <Description>"No description"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of je GameNative.dll+1BAC28</Description>
+      <AddressString>GameNative.dll+1BA9FB</AddressString>
+      <Before>
+        <Byte>5B</Byte>
+        <Byte>6A</Byte>
+        <Byte>00</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>27</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>3D</Byte>
+        <Byte>B7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je GameNative.dll+1B9E2C</Description>
+      <AddressString>GameNative.dll+1B9D55</AddressString>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>BB</Byte>
+        <Byte>AC</Byte>
+        <Byte>48</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>D1</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+        <Byte>74</Byte>
+        <Byte>64</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je GameNative.dll+1B9E95</Description>
+      <AddressString>GameNative.dll+1B9E2F</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jne GameNative.dll+1BAA5D</Description>
+      <AddressString>GameNative.dll+1BAA53</AddressString>
+      <Before>
+        <Byte>D8</Byte>
+        <Byte>66</Byte>
+        <Byte>83</Byte>
+        <Byte>F9</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>75</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>ED</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>9A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jae GameNative.UgxGameNative_ShowControllerSuportAppletSwitch+5752</Description>
+      <AddressString>GameNative.dll+41774</AddressString>
+      <Before>
+        <Byte>5C</Byte>
+        <Byte>CE</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>73</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>CF</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jne GameNative.dll+4DB7C</Description>
+      <AddressString>GameNative.dll+4DB69</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>A3</Byte>
+        <Byte>6D</Byte>
+        <Byte>4D</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>75</Byte>
+        <Byte>11</Byte>
+      </Actual>
+      <After>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>01</Byte>
+        <Byte>C7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je GameNative.dll+4DB95</Description>
+      <AddressString>GameNative.dll+4DB3F</AddressString>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>44</Byte>
+        <Byte>38</Byte>
+        <Byte>73</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>54</Byte>
+      </Actual>
+      <After>
+        <Byte>F7</Byte>
+        <Byte>05</Byte>
+        <Byte>35</Byte>
+        <Byte>B6</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je GameNative.dll+255C82</Description>
+      <AddressString>GameNative.dll+255A5E</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>44</Byte>
+        <Byte>38</Byte>
+        <Byte>78</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>1E</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>1D</Byte>
+        <Byte>75</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jne GameNative.dll+4DB5D</Description>
+      <AddressString>GameNative.dll+4DB4B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>75</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>73</Byte>
+        <Byte>0C</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call GameNative.dll+1B5CA0</Description>
+      <AddressString>GameNative.dll+4DBA7</AddressString>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>33</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>F4</Byte>
+        <Byte>80</Byte>
+        <Byte>16</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>73</Byte>
+        <Byte>14</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je GameNative.dll+1B192</Description>
+      <AddressString>GameNative.dll+1B0A2</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>44</Byte>
+        <Byte>38</Byte>
+        <Byte>60</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>EA</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>15</Byte>
+        <Byte>0A</Byte>
+        <Byte>4F</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+14],r12b</Description>
+      <AddressString>GameNative.dll+255A7A</AddressString>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>AE</Byte>
+        <Byte>A5</Byte>
+        <Byte>60</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>63</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>25</Byte>
+        <Byte>15</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [GameNative.dll+861A9A],r12b</Description>
+      <AddressString>GameNative.dll+255A7E</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>25</Byte>
+        <Byte>15</Byte>
+        <Byte>C0</Byte>
+        <Byte>60</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>25</Byte>
+        <Byte>34</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [GameNative.dll+1139AC0],r12d</Description>
+      <AddressString>GameNative.dll+255A85</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>25</Byte>
+        <Byte>34</Byte>
+        <Byte>40</Byte>
+        <Byte>EE</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>3D</Byte>
+        <Byte>6D</Byte>
+        <Byte>80</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [GameNative.dll+119DB00],r15d</Description>
+      <AddressString>GameNative.dll+255A8C</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>3D</Byte>
+        <Byte>6D</Byte>
+        <Byte>80</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>25</Byte>
+        <Byte>3B</Byte>
+        <Byte>D3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [GameNative.dll+862DD5],r12b</Description>
+      <AddressString>GameNative.dll+255A93</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>25</Byte>
+        <Byte>3B</Byte>
+        <Byte>D3</Byte>
+        <Byte>60</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>1C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call qword ptr [GameNative.dll+860028]</Description>
+      <AddressString>GameNative.dll+255A74</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>CD</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>15</Byte>
+        <Byte>AE</Byte>
+        <Byte>A5</Byte>
+        <Byte>60</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax+0C],r15d</Description>
+      <AddressString>GameNative.dll+25575D</AddressString>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>CD</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>78</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>78</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax+10],r15b</Description>
+      <AddressString>GameNative.dll+255761</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>78</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>78</Byte>
+        <Byte>14</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax+14],r15d</Description>
+      <AddressString>GameNative.dll+255765</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>78</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>88</Byte>
+        <Byte>78</Byte>
+        <Byte>08</Byte>
+        <Byte>E9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax+08],dil</Description>
+      <AddressString>GameNative.dll+255769</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>40</Byte>
+        <Byte>88</Byte>
+        <Byte>78</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+0C],r14d</Description>
+      <AddressString>GameNative.dll+4DB4D</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>75</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>73</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>73</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je GameNative.UgxGameNative_ShowControllerSuportAppletSwitch+58F4</Description>
+      <AddressString>GameNative.dll+415E8</AddressString>
+      <Before>
+        <Byte>FE</Byte>
+        <Byte>40</Byte>
+        <Byte>38</Byte>
+        <Byte>7B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>36</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>AC</Byte>
+        <Byte>24</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
