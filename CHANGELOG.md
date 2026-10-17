@@ -1,5 +1,10 @@
 ### Changelog
 
+#### 2026/10/17
+
+-	Added table for Eternia Remastered.
+-	Moved Eternia PSP table to legacy.
+
 #### 2026/10/11
 
 -	Added "Disable encounters" to Symphonia.

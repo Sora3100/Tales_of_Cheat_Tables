@@ -99,15 +99,11 @@ Features:
  - Arte Usage Editor
  - Equipment Editor
 
- ## Eternia (PS1, PSP)
+ ## Eternia (PS1, PC)
 For the PS1, the table is based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
-For the PSP, the table is based on the ULES00176 version of the game.
+For PC, the table is based on the 2.0.0 (buildID 25190541) version of the game.
 
-Emulators used: 
-
-PS1: DuckStation 0.1-5485-gc6a57273 (dev)
-
-PSP: PPSSPP v1.11.2-366-g4d02d64fd
+Emulator used for PS1: DuckStation 0.1-5485-gc6a57273 (dev)
 
 Features:
  - Party Formation Editor
@@ -117,7 +113,7 @@ Features:
  - Arte List Editor
  - Gald Editor
  - Battle camera zoom Editor (useful for co-op)
- - Unlock Hardcore difficulty
+ - Unlock Hardcore/Unknown difficulty
  - Disable encounters
  - Change Arte Usage
 
