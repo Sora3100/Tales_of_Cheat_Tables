@@ -1,5 +1,22 @@
 Older versions of tables that are no longer supported, but kept here for archival reasons.
  
+ ## Eternia (PSP)
+Based on the ULES00176 version of the game.
+
+Emulator used: PPSSPP v1.11.2-366-g4d02d64fd
+
+Features:
+ - Party Formation Editor
+ - Stats Editor
+ - In-Battle Stats Editor
+ - Equipment Editor
+ - Arte List Editor
+ - Gald Editor
+ - Battle camera zoom Editor (useful for co-op)
+ - Unlock Hardcore difficulty
+ - Disable encounters
+ - Change Arte Usage
+ 
  ## Graces F (PS3)
 Based on the BLUS30903 version of the game.
 
@@ -39,5 +56,4 @@ Features:
  - Change field movement speed
  - Inventory Editor
  - Modify Arte Usage
-
  - The ability to play as bosses, or more of the same character (narikiri)

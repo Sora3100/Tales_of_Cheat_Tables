@@ -2,47 +2,55 @@
 <CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
-      <ID>16500</ID>
+      <ID>204</ID>
       <Description>"Enable"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{$lua}
-function fallbackScan()
-   print("Using fallback... this may take a few seconds")
-   r,error=autoAssemble([[aobscan(baseRAMAddr,? ? ? ? 80 0C 5A 27 08 00 40 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00) // should be unique
-   registersymbol(baseRAMAddr)]])
-   if (r==false) then
-     error(print(error .. "\nMake sure the game is running!"))
-   end
-   return
+-- By "25094" on GitHub
+function GetEmuBase()
+local command = 0xB118
+local emuHWND = findWindow("PPSSPPWnd")
+
+local pointer = {}
+
+local result = sendMessage(emuHWND, command, 0, 0)
+pointer[1] = tonumber(result)
+
+result = sendMessage(emuHWND, command, 0, 1)
+pointer[2] = tonumber(result)
+
+local lower = pointer[1]
+local upper = pointer[2]
+local combinedPointer = (upper * 0x100000000) + lower
+
+return tonumber(combinedPointer)
 end
 {$asm}
 [ENABLE]
 {$lua}
 if syntaxcheck then return end
-if not (process == nil) then
-  if (string.lower(process):match("duckstation")) then
-    if not (getAddressSafe("RAM") == nil) and not (getAddressSafe("RAM") == 0) then
-       --For some reason, the above statement is true even if it is actually 0
-       if not (readPointer("RAM") == nil) and not (readPointer("RAM") == 0) then
-          registerSymbol("baseRAMAddr",readPointer(getAddress("RAM")))
-          return
-       else
-          fallbackScan()
-       end
-    else
-        fallbackScan()
-    end
-  else
-     fallbackScan()
-  end
+
+if (string.lower(process):match("ppsspp")) then
+   local ptr = GetEmuBase()
+
+   if not (ptr == nil) and not (ptr == 0) then
+        registerSymbol("baseElfAddr",ptr+0x8804000)
+   else
+        print("Using fallback... this may take a few seconds")
+        r,error=autoAssemble([[aobscan(baseElfAddr,E0 FF BD 27 14 00 BF AF 32 10 20 0E 00 00 00 00) // should be unique
+registersymbol(baseElfAddr)]])
+        if (r==false) then
+           error(print(error .. "\nMake sure the game is running!"))
+        end
+   end
 else
-  error(print("Not attached to anything"))
-  return
+   error(print("Not attached to PPSSPP"))
+   return
 end
 {$asm}
 [DISABLE]
-unregistersymbol(baseRAMAddr)
+unregistersymbol(baseElfAddr)
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
@@ -64,7 +72,7 @@ unregistersymbol(baseRAMAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+134F94</Address>
+          <Address>baseElfAddr+D64974</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16502</ID>
@@ -122,7 +130,7 @@ unregistersymbol(baseRAMAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+1346B0</Address>
+          <Address>baseElfAddr+D64090</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16509</ID>
@@ -1793,7 +1801,7 @@ unregistersymbol(baseRAMAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+100184</Address>
+          <Address>baseElfAddr+F0111C</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16730</ID>
@@ -2262,7 +2270,7 @@ unregistersymbol(baseRAMAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+13470E</Address>
+          <Address>baseElfAddr+D640EE</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16743</ID>
@@ -2910,7 +2918,7 @@ unregistersymbol(baseRAMAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+1352CE</Address>
+          <Address>baseElfAddr+D64CAE</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16821</ID>
@@ -3354,7 +3362,7 @@ unregistersymbol(baseRAMAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+13473E</Address>
+          <Address>baseElfAddr+D6411E</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16863</ID>
@@ -3365,186 +3373,38 @@ unregistersymbol(baseRAMAddr)
               <Address>+883</Address>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>16864</ID>
-                  <Description>"Slot 1"</Description>
-                  <Options moHideChildren="1"/>
+                  <ID>16865</ID>
+                  <Description>"L+X"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
+                  <VariableType>Byte</VariableType>
                   <Address>+0</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>16865</ID>
-                      <Description>"L2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ID>16866</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
-                      <Address>+0</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16866</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>16867</ID>
-                      <Description>"R2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+2</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16868</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
+                      <Address>-1</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>16869</ID>
-                  <Description>"Slot 2"</Description>
-                  <Options moHideChildren="1"/>
+                  <ID>16867</ID>
+                  <Description>"L+()"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
                   <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
-                  <Address>+4</Address>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
                   <CheatEntries>
                     <CheatEntry>
-                      <ID>16870</ID>
-                      <Description>"L2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
+                      <ID>16868</ID>
+                      <Description>"Character"</Description>
+                      <DropDownListLink>Party Formation</DropDownListLink>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Byte</VariableType>
-                      <Address>+0</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16871</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>16872</ID>
-                      <Description>"R2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+2</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16873</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>16874</ID>
-                  <Description>"Slot 3"</Description>
-                  <Options moHideChildren="1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
-                  <Address>+4*2</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>16875</ID>
-                      <Description>"L2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+0</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16876</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>16877</ID>
-                      <Description>"R2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+2</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16878</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                  </CheatEntries>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>16879</ID>
-                  <Description>"Slot 4"</Description>
-                  <Options moHideChildren="1"/>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <GroupHeader>1</GroupHeader>
-                  <Address>+4*3</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>16880</ID>
-                      <Description>"L2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+0</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16881</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
-                    </CheatEntry>
-                    <CheatEntry>
-                      <ID>16882</ID>
-                      <Description>"R2"</Description>
-                      <DropDownListLink>Arte List</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>Byte</VariableType>
-                      <Address>+2</Address>
-                      <CheatEntries>
-                        <CheatEntry>
-                          <ID>16883</ID>
-                          <Description>"Character"</Description>
-                          <DropDownListLink>Party Formation</DropDownListLink>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Byte</VariableType>
-                          <Address>-1</Address>
-                        </CheatEntry>
-                      </CheatEntries>
+                      <Address>-1</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -4019,7 +3879,7 @@ unregistersymbol(baseRAMAddr)
           <Description>"Gald"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>baseRAMAddr+134FD0</Address>
+          <Address>baseElfAddr+D649B0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16940</ID>
@@ -4027,7 +3887,7 @@ unregistersymbol(baseRAMAddr)
           <Options moHideChildren="1"/>
           <ShowAsSigned>0</ShowAsSigned>
           <GroupHeader>1</GroupHeader>
-          <Address>baseRAMAddr+101BA4</Address>
+          <Address>baseElfAddr+F02B3C</Address>
           <CheatEntries>
             <CheatEntry>
               <ID>16941</ID>
@@ -4042,13 +3902,6 @@ unregistersymbol(baseRAMAddr)
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>2 Bytes</VariableType>
               <Address>+90</Address>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>16943</ID>
-              <Description>"Loaded max value at start (change this)"</Description>
-              <ShowAsSigned>0</ShowAsSigned>
-              <VariableType>2 Bytes</VariableType>
-              <Address>+3370A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>16944</ID>
@@ -4067,14 +3920,14 @@ unregistersymbol(baseRAMAddr)
 </DropDownList>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseRAMAddr+0C7D26</Address>
+          <Address>baseElfAddr+D65F1A</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16946</ID>
           <Description>"Encounter"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseRAMAddr+13524A</Address>
+          <Address>baseElfAddr+D64C2A</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16947</ID>
@@ -4084,7 +3937,7 @@ unregistersymbol(baseRAMAddr)
 </DropDownList>
           <ShowAsSigned>1</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseRAMAddr+135242</Address>
+          <Address>baseElfAddr+D64C22</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>16948</ID>
@@ -4094,7 +3947,3033 @@ unregistersymbol(baseRAMAddr)
 </DropDownList>
           <ShowAsSigned>1</ShowAsSigned>
           <VariableType>2 Bytes</VariableType>
-          <Address>baseRAMAddr+135240</Address>
+          <Address>baseElfAddr+D64C20</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16971</ID>
+          <Description>"Arte unlocks"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>baseElfAddr+D640FE</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16972</ID>
+              <Description>"Reid"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16970</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16974</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16975</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16976</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16977</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16978</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16979</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16980</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16981</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16982</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16983</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16984</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16985</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16986</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16987</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16988</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16989</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16990</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16991</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16992</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16993</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16994</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16995</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16996</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16997</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16998</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16999</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17000</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17001</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17002</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17003</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17004</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17009</ID>
+              <Description>"Farah"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17010</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17011</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17012</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17013</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17014</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17015</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17016</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17017</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17018</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17019</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17020</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17021</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17022</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17023</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17024</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17025</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17026</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17027</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17028</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17029</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17030</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17031</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17032</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17033</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17034</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17035</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17036</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17037</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17038</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17039</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17040</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17041</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17194</ID>
+              <Description>"Keele"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17195</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17196</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17197</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17198</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17199</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17200</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17201</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17202</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17203</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17204</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17205</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17206</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17207</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17208</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17209</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17210</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17211</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17212</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17213</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17214</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17215</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17216</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17217</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17218</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17219</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17220</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17221</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17222</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17223</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17224</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17225</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17226</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17157</ID>
+              <Description>"Meredy"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17158</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17159</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17160</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17161</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17162</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17163</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17164</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17165</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17166</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17167</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17168</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17169</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17170</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17171</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17172</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17173</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17174</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17175</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17176</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17177</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17178</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17179</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17180</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17181</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17182</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17183</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17184</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17185</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17186</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17187</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17188</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17189</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17120</ID>
+              <Description>"Ras"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17121</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17122</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17123</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17124</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17125</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17126</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17127</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17128</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17129</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17130</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17131</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17132</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17133</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17134</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17135</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17136</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17137</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17138</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17139</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17140</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17141</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17142</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17143</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17144</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17145</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17146</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17147</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17148</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17149</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17150</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17151</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17152</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17083</ID>
+              <Description>"Chat"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*5</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17084</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17085</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17086</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17087</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17088</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17089</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17090</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17091</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17092</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17093</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17094</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17095</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17096</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17097</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17098</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17099</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17100</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17101</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17102</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17103</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17104</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17105</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17106</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17107</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17108</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17109</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17110</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17111</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17112</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17113</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17114</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17115</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17046</ID>
+              <Description>"Max"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*6</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17047</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17048</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17049</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17050</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17051</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17052</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17053</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17054</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17055</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17056</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17057</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17058</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17059</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17060</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17061</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17062</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17063</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17064</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17065</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17066</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17067</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17068</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17069</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17070</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17071</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17072</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17073</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17074</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17075</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17076</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17077</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17078</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17231</ID>
+              <Description>"EggBear"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*7</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17232</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17233</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17234</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17235</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17236</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17237</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17238</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17239</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17240</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17241</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17242</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17243</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17244</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17245</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17246</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17247</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17248</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17249</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17250</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17251</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17252</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17253</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17254</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17255</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17256</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17257</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17258</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17259</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17260</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17261</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17262</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17263</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17342</ID>
+              <Description>"Keele (kid)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*8</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17343</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17344</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17345</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17346</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17347</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17348</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17349</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17350</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17351</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17352</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17353</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17354</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17355</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17356</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17357</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17358</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17359</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17360</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17361</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17362</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17363</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17364</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17365</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17366</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17367</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17368</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17369</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17370</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17371</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17372</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17373</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17374</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17305</ID>
+              <Description>"Meredy (kid)"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*9</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17306</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17307</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17308</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17309</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17310</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17311</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17312</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17313</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17314</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17315</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17316</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17317</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17318</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17319</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17320</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17321</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17322</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17323</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17324</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17325</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17326</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17327</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17328</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17329</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17330</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17331</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17332</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17333</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17334</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17335</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17336</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17337</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17268</ID>
+              <Description>"Shizel"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+D0*A</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17269</ID>
+                  <Description>"Arte 1"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17270</ID>
+                  <Description>"Arte 2"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17271</ID>
+                  <Description>"Arte 3"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17272</ID>
+                  <Description>"Arte 4"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17273</ID>
+                  <Description>"Arte 5"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17274</ID>
+                  <Description>"Arte 6"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17275</ID>
+                  <Description>"Arte 7"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17276</ID>
+                  <Description>"Arte 8"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+7</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17277</ID>
+                  <Description>"Arte 9"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17278</ID>
+                  <Description>"Arte 10"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+9</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17279</ID>
+                  <Description>"Arte 11"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17280</ID>
+                  <Description>"Arte 12"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17281</ID>
+                  <Description>"Arte 13"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17282</ID>
+                  <Description>"Arte 14"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17283</ID>
+                  <Description>"Arte 15"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17284</ID>
+                  <Description>"Arte 16"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17285</ID>
+                  <Description>"Arte 17"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17286</ID>
+                  <Description>"Arte 18"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+11</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17287</ID>
+                  <Description>"Arte 19"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+12</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17288</ID>
+                  <Description>"Arte 20"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+13</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17289</ID>
+                  <Description>"Arte 21"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17290</ID>
+                  <Description>"Arte 22"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+15</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17291</ID>
+                  <Description>"Arte 23"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+16</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17292</ID>
+                  <Description>"Arte 24"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+17</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17293</ID>
+                  <Description>"Arte 25"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17294</ID>
+                  <Description>"Arte 26"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+19</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17295</ID>
+                  <Description>"Arte 27"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17296</ID>
+                  <Description>"Arte 28"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17297</ID>
+                  <Description>"Arte 29"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17298</ID>
+                  <Description>"Arte 30"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17299</ID>
+                  <Description>"Arte 31"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17300</ID>
+                  <Description>"Arte 32"</Description>
+                  <DropDownListLink>Arte List</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+1F</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16955</ID>
+          <Description>"Craymel unlocks"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>baseElfAddr+D64C3C</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16957</ID>
+              <Description>"Undine"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16958</ID>
+              <Description>"Sylph"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16961</ID>
+              <Description>"Efreet"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+10</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16962</ID>
+              <Description>"Gnome"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+18</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16963</ID>
+              <Description>"Celsius"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+20</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16964</ID>
+              <Description>"Volt"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+28</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16965</ID>
+              <Description>"Rem"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+30</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16966</ID>
+              <Description>"Shadow"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+38</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16967</ID>
+              <Description>"Maxwell"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+40</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16968</ID>
+              <Description>"Sekundes"</Description>
+              <DropDownListLink>dropdown: Locked/Unlocked</DropDownListLink>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>+48</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
           <ID>16949</ID>
@@ -4104,11 +6983,27 @@ unregistersymbol(baseRAMAddr)
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
+              <ID>16959</ID>
+              <Description>"Dropdowns"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16960</ID>
+                  <Description>"dropdown: Locked/Unlocked"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Locked
+3:Unlocked
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
               <ID>16951</ID>
-              <Description>"Base RAM Address"</Description>
+              <Description>"Base User Memory"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
-              <Address>BaseRAMAddr</Address>
+              <Address>baseElfAddr-4000</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -4118,18 +7013,8 @@ unregistersymbol(baseRAMAddr)
   <UserdefinedSymbols/>
   <DisassemblerComments>
     <DisassemblerComment>
-      <Address>62F16D4E</Address>
-      <Comment>60
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D58</Address>
-      <Comment>71
-</Comment>
-    </DisassemblerComment>
-    <DisassemblerComment>
-      <Address>62F16D64</Address>
-      <Comment>90
+      <Address>"DMCVTrainer.exe"+10E70</Address>
+      <Comment>Jump if unsupported version
 </Comment>
     </DisassemblerComment>
   </DisassemblerComments>
