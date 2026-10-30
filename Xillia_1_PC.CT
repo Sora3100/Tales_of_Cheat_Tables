@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="51">
+<CheatTable UsesMono="1" CheatEngineTableVersion="52">
   <Forms>
-    <UDF1 Class="TCEForm" Encoding="Ascii85">RgYgz!axv+hqiQE^F7*+eDeqm7/(M@)D2Yil2(}#bP5{nE=EYHub#m{c?,:Pce^m{?H9J[nQwpJp$Cx7.}}rVG+*]!yiDSelVC}qZ[k}fSgpza0XtJ$]wRMSqM(utUyYX{K9H-5w33YR;9i0uVm#lHP=g)aF1Zv})Ldzk+msORS5j#w3]4k^sQp4;v?c84Sonju0SCu/UDt3o(vkQozU2*Pp1h+onGe{h?E8n)As7+prHj/MShpt=;*x1H4:0gt?W*cDs!aoD9[75LsJ$#-JnI6r1x_)sayyonqD)2+WI2BGOt4zf,JYOiG!qq;*NN=SmNJt0@8IX-)x+h]mb+yF0s#I1</UDF1>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">RgTY2gFq06r$AZoU!pPb/_7z.-}q{O)nAxQfbqPA0XA-Tn^^gR;NEIIzKRdPU7+FJr/uub:9^ma0OafRk;xx_joo[Bi+*9#up.,(.xAFw4Y?zy:4R*9!SqFz*O7RZyde3G,-R}!F}+amlr(;p;[^5z510$CBx=GHoFC=qG37:X;qSunR_}V;D2)?2g%-;3EbYJ#hrDfDxLpg_U7l[Q(]bA!$M:J]b92.o=s^wI^wVzo.atgDZ#xhRNbs)r4RW!0vL#vvyc_EsA6Y=$DkEXZ?xrcMp^{WM.JRO0N:=1tAjnvuVkL@#lPIH4h0L$sVxvj][yY</UDF1>
   </Forms>
   <CheatEntries>
     <CheatEntry>
@@ -25897,7 +25897,6 @@ end
                   <Offsets>
                     <Offset>38</Offset>
                   </Offsets>
-                  <CheatEntries/>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -27675,6 +27674,26 @@ BTL.CScene.InitEnemyUnit+CB4:
 [DISABLE]
 
 BTL.CScene.InitEnemyUnit+CB4:
+  db bytes
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>127950</ID>
+              <Description>"Fix framerate based projectile speed"</Description>
+              <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$STRICT}
+define(bytes, F3 0F 10 80 2C 01 00 00 66 0F 7E C0)
+[ENABLE]
+assert(TO11Script.GetFramerate+9F, bytes)
+
+TO11Script.GetFramerate+9F:
+  mov eax,(float)1
+  nop 7
+
+[DISABLE]
+
+TO11Script.GetFramerate+9F:
   db bytes
 </AssemblerScript>
             </CheatEntry>
@@ -52674,6 +52693,30 @@ BTL.CUnit.InputStep+480:
         <Byte>35</Byte>
         <Byte>1A</Byte>
         <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movd eax,xmm0</Description>
+      <AddressString>GameAssembly.dll+82C107</AddressString>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7E</Byte>
+        <Byte>C0</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5B</Byte>
       </After>
     </CodeEntry>
   </CheatCodes>
