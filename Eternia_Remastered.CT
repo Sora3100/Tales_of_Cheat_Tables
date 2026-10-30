@@ -7,15 +7,21 @@
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
-  Version: 
+  Version:
   Date   : 2026-10-16
   Author : thing
-  Description : 
+  Description :
 
   &lt;Optional info&gt;
 }
 
 [ENABLE]
+{$ifndef base_party_formation_original_bytes}
+alloc(base_party_formation_original_bytes,$1000)
+
+registersymbol(base_party_formation_original_bytes)
+{$endif}
+
 {$ifndef base_party_formation}
 aobscanmodule(base_party_formation,GameNative.dll,49 0F BF 00 49 83 C0 02 48 69 C8 D0 00 00 00) // should be unique
 alloc(base_party_formation_pointer,$1000,base_party_formation)
@@ -40,6 +46,43 @@ return:
 registersymbol(base_party_formation base_party_formation_pointer)
 {$endif}
 
+{$ifndef base_party_formation_base_2}
+aobscanmodule(party_formation_base_2,GameNative.dll,4D 0F BF 8C 43 ** ** ** ** 49 69 C9 D0 00 00 00 66 44 89 4C 24 6C) // should be unique
+alloc(newmem2,$1000,party_formation_base_2)
+
+base_party_formation_original_bytes:
+  readMem(party_formation_base_2, 9)
+
+label(code2)
+label(return2)
+
+newmem2:
+  push rax
+
+  mov rax,base_party_formation_pointer
+  cmp [rax+500],0
+  jne code2
+
+  push rbx
+  mov rbx,base_party_formation_original_bytes
+  mov ebx,[rbx+5]
+  add rbx,r11
+  mov [rax+500],rbx
+  pop rbx
+
+code2:
+  pop rax
+  reassemble(party_formation_base_2)
+  //movsx r9,word ptr [r11+rax*2+011CAD10]
+  jmp return2
+
+party_formation_base_2:
+  jmp newmem2
+  nop 4
+return2:
+registersymbol(party_formation_base_2)
+{$endif}
+
 {$ifndef tbl_data}
 alloc(tbl_data, $1000)
 
@@ -54,8 +97,11 @@ registersymbol(tbl_data)
 base_party_formation:
   db 49 0F BF 00 49 83 C0 02
 
-unregistersymbol(base_party_formation base_party_formation_pointer tbl_data)
-dealloc(base_party_formation_pointer tbl_data)
+party_formation_base_2:
+  readMem(base_party_formation_original_bytes, 9)
+
+unregistersymbol(base_party_formation base_party_formation_pointer tbl_data party_formation_base_2 base_party_formation_original_bytes)
+dealloc(base_party_formation_pointer tbl_data newmem2 base_party_formation_original_bytes)
 
 {
 // ORIGINAL CODE - INJECTION POINT: GameNative.dll+12AFF5
@@ -83,6 +129,34 @@ GameNative.dll+12B015: F6 C2 08                 - test dl,08
 GameNative.dll+12B018: 41 0F B6 C1              - movzx eax,r9b
 GameNative.dll+12B01C: 0F 45 C8                 - cmovne ecx,eax
 GameNative.dll+12B01F: 66 41 83 38 00           - cmp word ptr [r8],00
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameNative.dll+249745
+
+GameNative.dll+249721: 41 C1 E7 18                 - shl r15d,18
+GameNative.dll+249725: 44 2B F3                    - sub r14d,ebx
+GameNative.dll+249728: 89 4C 24 64                 - mov [rsp+64],ecx
+GameNative.dll+24972C: 0F 1F 40 00                 - nop dword ptr [rax+00]
+GameNative.dll+249730: 0F BF 05 C9 0E ED 00        - movsx eax,word ptr [GameNative.dll+111A600]
+GameNative.dll+249737: 66 85 D2                    - test dx,dx
+GameNative.dll+24973A: 7E 02                       - jle GameNative.dll+24973E
+GameNative.dll+24973C: FF C8                       - dec eax
+GameNative.dll+24973E: 44 8D 04 08                 - lea r8d,[rax+rcx]
+GameNative.dll+249742: 49 63 C0                    - movsxd  rax,r8d
+// ---------- INJECTING HERE ----------
+GameNative.dll+249745: 4D 0F BF 8C 43 10 AD 1C 01  - movsx r9,word ptr [r11+rax*2+011CAD10]
+// ---------- DONE INJECTING  ----------
+GameNative.dll+24974E: 49 69 C9 D0 00 00 00        - imul rcx,r9,000000D0
+GameNative.dll+249755: 66 44 89 4C 24 6C           - mov [rsp+6C],r9w
+GameNative.dll+24975B: 48 8D B1 50 A3 1C 01        - lea rsi,[rcx+011CA350]
+GameNative.dll+249762: 49 03 F3                    - add rsi,r11
+GameNative.dll+249765: 66 45 85 C9                 - test r9w,r9w
+GameNative.dll+249769: 0F 84 FE 06 00 00           - je GameNative.dll+249E6D
+GameNative.dll+24976F: 8B 05 07 2E F8 00           - mov eax,[GameNative.dll+11CC57C]
+GameNative.dll+249775: 89 45 9C                    - mov [rbp-64],eax
+GameNative.dll+249778: 41 83 F8 04                 - cmp r8d,04
+GameNative.dll+24977C: 7C 0B                       - jl GameNative.dll+249789
 }
 </AssemblerScript>
       <CheatEntries>
@@ -1706,6 +1780,124 @@ GameNative.dll+1B0D1: 48 8B 05 F8 EC 1A 01  - mov rax,[GameNative.dll+11C9DD0]
 }
 </AssemblerScript>
             </CheatEntry>
+            <CheatEntry>
+              <ID>17065</ID>
+              <Description>"Auto cutscene skip"</Description>
+              <Options moAlwaysHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
+  Version: 
+  Date   : 2026-10-26
+  Author : thing
+  Description : 
+
+  &lt;Optional info&gt;
+}
+
+[ENABLE]
+
+
+aobscanmodule(auto_cutscene_skip,GameNative.dll,3D 00 10 00 00 75 ** 45 38 78 09 74 ** 40 84 D7) // should be unique
+alloc(newmem,$1000,auto_cutscene_skip)
+
+label(code)
+label(return)
+
+newmem:
+  cmp byte ptr [r8+09],0 //scene is skippable
+  je auto_cutscene_skip+37
+  cmp byte ptr [r8+08],0 //not already skipped
+  jne auto_cutscene_skip+37
+code:
+  jmp return
+
+auto_cutscene_skip:
+  jmp newmem
+  nop 8
+return:
+registersymbol(auto_cutscene_skip)
+
+auto_cutscene_skip+26:
+  db 40 88 78 10
+
+[DISABLE]
+
+auto_cutscene_skip:
+  db 3D 00 10 00 00 75 30 45 38 78 09 74 2A
+
+auto_cutscene_skip+26:
+  db 44 88 78 10
+
+unregistersymbol(auto_cutscene_skip)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 7FFB5E04573B
+
+7FFB5E04570F: 0F 84 15 01 00 00     - je 7FFB5E04582A
+7FFB5E045715: 44 88 78 08           - mov [rax+08],r15b
+7FFB5E045719: C7 40 0C FF FF FF FF  - mov [rax+0C],FFFFFFFF
+7FFB5E045720: 44 89 78 10           - mov [rax+10],r15d
+7FFB5E045724: E9 01 01 00 00        - jmp 7FFB5E04582A
+7FFB5E045729: 48 8B 0D A0 46 F7 00  - mov rcx,[7FFB5EFB9DD0]
+7FFB5E045730: 48 85 C9              - test rcx,rcx
+7FFB5E045733: 74 06                 - je 7FFB5E04573B
+7FFB5E045735: 44 38 79 08           - cmp [rcx+08],r15b
+7FFB5E045739: 75 37                 - jne 7FFB5E045772
+// ---------- INJECTING HERE ----------
+7FFB5E04573B: 3D 00 10 00 00        - cmp eax,00001000
+// ---------- DONE INJECTING  ----------
+7FFB5E045740: 75 30                 - jne 7FFB5E045772
+7FFB5E045742: 45 38 78 09           - cmp [r8+09],r15b
+7FFB5E045746: 74 2A                 - je 7FFB5E045772
+7FFB5E045748: 40 84 D7              - test dil,dl
+7FFB5E04574B: 75 25                 - jne 7FFB5E045772
+7FFB5E04574D: 48 8B 05 74 46 F7 00  - mov rax,[7FFB5EFB9DC8]
+7FFB5E045754: 48 85 C0              - test rax,rax
+7FFB5E045757: 0F 84 CD 00 00 00     - je 7FFB5E04582A
+7FFB5E04575D: 44 89 78 0C           - mov [rax+0C],r15d
+7FFB5E045761: 44 88 78 10           - mov [rax+10],r15b
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>17066</ID>
+                  <Description>"game_mode"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17067</ID>
+                  <Description>"BorderGlobalParamsManager"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17068</ID>
+                  <Description>"Transition/Fade"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>tbl_data+18</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>17069</ID>
+                      <Description>"No description"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>+0</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
@@ -1831,378 +2023,6 @@ GameNative.dll+1B92F6: 7D 14                    - jnl GameNative.dll+1B930C
                   <Offsets>
                     <Offset>0</Offset>
                   </Offsets>
-                </CheatEntry>
-              </CheatEntries>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>17050</ID>
-              <Description>"Auto cutscene skip v2 (buggy)"</Description>
-              <Options moAlwaysHideChildren="1"/>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tales of Eternia Remastered.exe
-  Version: 
-  Date   : 2026-10-17
-  Author : thing
-  Description : 
-
-  &lt;Optional info&gt;
-}
-
-[ENABLE]
-
-aobscanmodule(auto_cutscene_skip,GameNative.dll,44 38 78 10 0F 84 ** ** ** **) // should be unique
-alloc(newmem,$1000,auto_cutscene_skip)
-alloc(auto_cutscene_skip_original_bytes,$1000)
-
-auto_cutscene_skip_original_bytes:
-  readMem(auto_cutscene_skip, 10)
-
-label(code)
-label(return)
-
-newmem:
-  push rcx
-
-  mov rcx,tbl_data
-  test rcx,rcx
-  je code
-
-  cmp qword ptr [rcx+8],0
-  je code
-  cmp qword ptr [rcx+10],0
-  je code
-  cmp qword ptr [rcx+18],0
-  je code
-
-  mov rcx,[tbl_data+8]
-  //mov rcx,[rcx]
-  cmp word ptr [rcx],10 //game mode (cutscene viewer)
-  je code
-  mov rcx,[tbl_data+10] //BorderGlobalParamsManager
-  mov rcx,[rcx]
-  test rcx, rcx
-  je code
-  cmp byte ptr [rcx+9],0 //skippable flag (set by FUN_1801A9FF0)
-  je code
-  mov rcx,[tbl_data+18]
-  cmp word ptr [rcx],0 //no fade/transition running
-  jne code
-do_skip:
-  pop rdx
-  jmp return
-code:
-  pop rdx
-  cmp [rax+10],r15b //original code
-  reassemble(auto_cutscene_skip+4)
-  //je GameNative.dll+255C82
-  jmp return
-
-auto_cutscene_skip:
-  jmp newmem
-  nop 5
-return:
-registersymbol(auto_cutscene_skip auto_cutscene_skip_original_bytes)
-
-///////////////////////////////////////////////////////////////////////////////
-
-aobscanmodule(game_mode,GameNative.dll,0F ? ? ? ? ? ? B9 FB FF 00 00 FF ? ? ? ? ? 66 83 E8 02) // should be unique
-alloc(newmem2,$1000,game_mode)
-
-auto_cutscene_skip_original_bytes+50:
-  readMem(game_mode, 12)
-
-label(code2)
-label(return2)
-
-newmem2:
-  push rax
-
-  mov rax,[tbl_data+8] //skip if its not a pointer
-  test rax,rax
-  jne finish2
-
-  push rbx
-  mov rbx,auto_cutscene_skip_original_bytes
-  mov ebx,[rbx+50+3]
-  add rbx,7
-  mov rax,game_mode
-  add rbx,rax
-
-  mov rax,tbl_data
-  mov [rax+8],rbx
-  pop rbx
-
-finish2:
-  pop rax
-code2:
-  reassemble(game_mode)
-  //movzx eax,word ptr [GameNative.dll+119EA28]
-  jmp return2
-
-game_mode:
-  jmp newmem2
-  nop 2
-return2:
-registersymbol(game_mode)
-
-///////////////////////////////////////////////////////////////////////////////
-
-aobscanmodule(BorderGlobalParamsManager,GameNative.dll,48 ? ? ? ? ? ? 80 78 28 00 74 0D 48 ? ? ? ? ? ? 80 78 1F 00)  // should be unique in this function
-alloc(newmem3,$1000,BorderGlobalParamsManager)
-
-auto_cutscene_skip_original_bytes+100:
-  readMem(BorderGlobalParamsManager, 7)
-
-label(code3)
-label(return3)
-
-newmem3:
-  push rax
-
-  mov rax,[tbl_data+10] //skip if its not a pointer
-  test rax,rax
-  jne finish3
-
-  push rbx
-  mov rbx,auto_cutscene_skip_original_bytes
-  mov ebx,[rbx+100+3]
-  add rbx,7
-  mov rax,BorderGlobalParamsManager
-  add rbx,rax
-
-  mov rax,tbl_data
-  mov [rax+10],rbx
-  pop rbx
-
-finish3:
-  pop rax
-code3:
-  reassemble(BorderGlobalParamsManager)
-  //mov rax,[GameNative.dll+644A48]
-  jmp return3
-
-BorderGlobalParamsManager:
-  jmp newmem3
-  nop 2
-return3:
-registersymbol(BorderGlobalParamsManager)
-
-///////////////////////////////////////////////////////////////////////////////
-
-aobscanmodule(transition_fade,GameNative.dll,0F BF 1D ** ** ** ** 48 85 C9 74 ** 0F B7 69 08 EB **) // should be unique
-alloc(newmem4,$1000,transition_fade)
-
-auto_cutscene_skip_original_bytes+150:
-  readMem(transition_fade, 7)
-
-label(code4)
-label(return4)
-
-newmem4:
-  push rax
-
-  mov rax,[tbl_data+18] //skip if its not a pointer
-  test rax,rax
-  jne finish4
-
-  push rbx
-  mov rbx,auto_cutscene_skip_original_bytes
-  mov ebx,[rbx+150+3]
-  add rbx,7
-  mov rax,transition_fade
-  add rbx,rax
-
-  mov rax,tbl_data
-  mov [rax+18],rbx
-  pop rbx
-
-finish4:
-  pop rax
-code4:
-  reassemble(transition_fade)
-  //movsx ebx,word ptr [GameNative.dll+62AE30]
-  jmp return4
-
-transition_fade:
-  jmp newmem4
-  nop 2
-return4:
-registersymbol(transition_fade)
-
-[DISABLE]
-
-auto_cutscene_skip:
-  readMem(auto_cutscene_skip_original_bytes, 10)
-
-game_mode:
-  readMem(auto_cutscene_skip_original_bytes+50, 12)
-
-tbl_data+8:
-  dq 0
-
-BorderGlobalParamsManager:
-  readMem(auto_cutscene_skip_original_bytes+100, 7)
-
-tbl_data+10:
-  dq 0
-
-transition_fade:
-  readMem(auto_cutscene_skip_original_bytes+150, 7)
-
-tbl_data+18:
-  dq 0
-
-unregistersymbol(auto_cutscene_skip game_mode BorderGlobalParamsManager transition_fade auto_cutscene_skip_original_bytes)
-dealloc(newmem newmem2 newmem3 newmem4 auto_cutscene_skip_original_bytes)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameNative.dll+255A5A
-
-GameNative.dll+255A2C: E8 4F 09 F6 FF        - call GameNative.dll+1B6380
-GameNative.dll+255A31: 44 89 3D 88 40 EE 00  - mov [GameNative.dll+1139AC0],r15d
-GameNative.dll+255A38: 48 8B 05 91 43 F7 00  - mov rax,[GameNative.dll+11C9DD0]
-GameNative.dll+255A3F: 48 85 C0              - test rax,rax
-GameNative.dll+255A42: 74 06                 - je GameNative.dll+255A4A
-GameNative.dll+255A44: 44 39 78 0C           - cmp [rax+0C],r15d
-GameNative.dll+255A48: 74 1A                 - je GameNative.dll+255A64
-GameNative.dll+255A4A: 48 8B 05 77 43 F7 00  - mov rax,[GameNative.dll+11C9DC8]
-GameNative.dll+255A51: 48 85 C0              - test rax,rax
-GameNative.dll+255A54: 0F 84 28 02 00 00     - je GameNative.dll+255C82
-// ---------- INJECTING HERE ----------
-GameNative.dll+255A5A: 44 38 78 10           - cmp [rax+10],r15b
-// ---------- DONE INJECTING  ----------
-GameNative.dll+255A5E: 0F 84 1E 02 00 00     - je GameNative.dll+255C82
-GameNative.dll+255A64: 48 8B 1D 75 43 F7 00  - mov rbx,[GameNative.dll+11C9DE0]
-GameNative.dll+255A6B: 45 8B C4              - mov r8d,r12d
-GameNative.dll+255A6E: 41 8B CD              - mov ecx,r13d
-GameNative.dll+255A71: 8B 53 08              - mov edx,[rbx+08]
-GameNative.dll+255A74: FF 15 AE A5 60 00     - call qword ptr [GameNative.dll+860028]
-GameNative.dll+255A7A: 44 88 63 14           - mov [rbx+14],r12b
-GameNative.dll+255A7E: 44 88 25 15 C0 60 00  - mov [GameNative.dll+861A9A],r12b
-GameNative.dll+255A85: 44 89 25 34 40 EE 00  - mov [GameNative.dll+1139AC0],r12d
-GameNative.dll+255A8C: 44 89 3D 6D 80 F4 00  - mov [GameNative.dll+119DB00],r15d
-}
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameNative.dll+258E10
-
-GameNative.dll+258DFA: 49 8B 6B 18           - mov rbp,[r11+18]
-GameNative.dll+258DFE: 49 8B 73 20           - mov rsi,[r11+20]
-GameNative.dll+258E02: 49 8B 7B 28           - mov rdi,[r11+28]
-GameNative.dll+258E06: 49 8B E3              - mov rsp,r11
-GameNative.dll+258E09: 41 5E                 - pop r14
-GameNative.dll+258E0B: C3                    - ret
-GameNative.dll+258E0C: CC                    - int 3
-GameNative.dll+258E0D: CC                    - int 3
-GameNative.dll+258E0E: CC                    - int 3
-GameNative.dll+258E0F: CC                    - int 3
-// ---------- INJECTING HERE ----------
-GameNative.dll+258E10: 0F B7 05 11 5C F4 00  - movzx eax,word ptr [GameNative.dll+119EA28]
-// ---------- DONE INJECTING  ----------
-GameNative.dll+258E17: B9 FB FF 00 00        - mov ecx,0000FFFB
-GameNative.dll+258E1C: FF 05 2E 1F F7 00     - inc [GameNative.dll+11CAD50]
-GameNative.dll+258E22: 66 83 E8 02           - sub ax,02
-GameNative.dll+258E26: FF 05 F4 36 F7 00     - inc [GameNative.dll+11CC520]
-GameNative.dll+258E2C: FF 05 5E 26 F7 00     - inc [GameNative.dll+11CB490]
-GameNative.dll+258E32: 66 85 C1              - test cx,ax
-GameNative.dll+258E35: 75 06                 - jne GameNative.dll+258E3D
-GameNative.dll+258E37: FF 05 93 21 F7 00     - inc [GameNative.dll+11CAFD0]
-GameNative.dll+258E3D: C3                    - ret
-GameNative.dll+258E3E: CC                    - int 3
-}
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameNative.UgxGameNative_SetSkipUpdate+B993
-
-GameNative.UgxGameNative_SetSkipUpdate+B96F: BA 03 00 00 00        - mov edx,00000003
-GameNative.UgxGameNative_SetSkipUpdate+B974: E8 47 B5 FB FF        - call GameNative.DebugInfoFunctions_GetSeCallLogSeInfoStr+EEA0
-GameNative.UgxGameNative_SetSkipUpdate+B979: 84 C0                 - test al,al
-GameNative.UgxGameNative_SetSkipUpdate+B97B: 74 04                 - je GameNative.UgxGameNative_SetSkipUpdate+B981
-GameNative.UgxGameNative_SetSkipUpdate+B97D: 83 4B 08 08           - or dword ptr [rbx+08],08
-GameNative.UgxGameNative_SetSkipUpdate+B981: BA 04 00 00 00        - mov edx,00000004
-GameNative.UgxGameNative_SetSkipUpdate+B986: E8 35 B5 FB FF        - call GameNative.DebugInfoFunctions_GetSeCallLogSeInfoStr+EEA0
-GameNative.UgxGameNative_SetSkipUpdate+B98B: 84 C0                 - test al,al
-GameNative.UgxGameNative_SetSkipUpdate+B98D: 74 04                 - je GameNative.UgxGameNative_SetSkipUpdate+B993
-GameNative.UgxGameNative_SetSkipUpdate+B98F: 83 4B 08 10           - or dword ptr [rbx+08],10
-// ---------- INJECTING HERE ----------
-GameNative.UgxGameNative_SetSkipUpdate+B993: 48 8B 05 7E 73 5E 00  - mov rax,[GameNative.dll+644A48]
-// ---------- DONE INJECTING  ----------
-GameNative.UgxGameNative_SetSkipUpdate+B99A: 80 78 28 00           - cmp byte ptr [rax+28],00
-GameNative.UgxGameNative_SetSkipUpdate+B99E: 74 0D                 - je GameNative.UgxGameNative_SetSkipUpdate+B9AD
-GameNative.UgxGameNative_SetSkipUpdate+B9A0: 48 8B 05 09 73 5E 00  - mov rax,[GameNative.dll+6449E0]
-GameNative.UgxGameNative_SetSkipUpdate+B9A7: 80 78 1F 00           - cmp byte ptr [rax+1F],00
-GameNative.UgxGameNative_SetSkipUpdate+B9AB: EB 0C                 - jmp GameNative.UgxGameNative_SetSkipUpdate+B9B9
-GameNative.UgxGameNative_SetSkipUpdate+B9AD: BA 05 00 00 00        - mov edx,00000005
-GameNative.UgxGameNative_SetSkipUpdate+B9B2: E8 09 B5 FB FF        - call GameNative.DebugInfoFunctions_GetSeCallLogSeInfoStr+EEA0
-GameNative.UgxGameNative_SetSkipUpdate+B9B7: 84 C0                 - test al,al
-GameNative.UgxGameNative_SetSkipUpdate+B9B9: 74 04                 - je GameNative.UgxGameNative_SetSkipUpdate+B9BF
-GameNative.UgxGameNative_SetSkipUpdate+B9BB: 83 4B 08 20           - or dword ptr [rbx+08],20
-}
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameNative.dll+255321
-
-GameNative.dll+2552E8: E8 B3 99 FF FF           - call GameNative.dll+24ECA0
-GameNative.dll+2552ED: EB 2B                    - jmp GameNative.dll+25531A
-GameNative.dll+2552EF: 44 38 3D D8 F7 3E 00     - cmp [GameNative.dll+644ACE],r15b
-GameNative.dll+2552F6: 74 22                    - je GameNative.dll+25531A
-GameNative.dll+2552F8: 66 89 05 2B 97 F4 00     - mov [GameNative.dll+119EA2A],ax
-GameNative.dll+2552FF: BE 1D 00 00 00           - mov esi,0000001D
-GameNative.dll+255304: 66 44 89 3D 24 5B 3D 00  - mov [GameNative.dll+62AE30],r15w
-GameNative.dll+25530C: 44 89 3D 21 5B 3D 00     - mov [GameNative.dll+62AE34],r15d
-GameNative.dll+255313: 44 88 2D 19 5B 3D 00     - mov [GameNative.dll+62AE33],r13b
-GameNative.dll+25531A: 48 8B 0D F7 4B F7 00     - mov rcx,[GameNative.dll+11C9F18]
-// ---------- INJECTING HERE ----------
-GameNative.dll+255321: 0F BF 1D 08 5B 3D 00     - movsx ebx,word ptr [GameNative.dll+62AE30]
-// ---------- DONE INJECTING  ----------
-GameNative.dll+255328: 48 85 C9                 - test rcx,rcx
-GameNative.dll+25532B: 74 06                    - je GameNative.dll+255333
-GameNative.dll+25532D: 0F B7 69 08              - movzx ebp,word ptr [rcx+08]
-GameNative.dll+255331: EB 03                    - jmp GameNative.dll+255336
-GameNative.dll+255333: 41 8B EF                 - mov ebp,r15d
-GameNative.dll+255336: 66 41 2B EE              - sub bp,r14w
-GameNative.dll+25533A: 66 41 3B EC              - cmp bp,r12w
-GameNative.dll+25533E: 7E 06                    - jle GameNative.dll+255346
-GameNative.dll+255340: 66 41 3B ED              - cmp bp,r13w
-GameNative.dll+255344: 7E 04                    - jle GameNative.dll+25534A
-}
-</AssemblerScript>
-              <CheatEntries>
-                <CheatEntry>
-                  <ID>17051</ID>
-                  <Description>"game_mode"</Description>
-                  <ShowAsHex>1</ShowAsHex>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>8 Bytes</VariableType>
-                  <Address>tbl_data+8</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>17053</ID>
-                  <Description>"BorderGlobalParamsManager"</Description>
-                  <ShowAsHex>1</ShowAsHex>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>8 Bytes</VariableType>
-                  <Address>tbl_data+10</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>17055</ID>
-                  <Description>"Transition/Fade"</Description>
-                  <ShowAsHex>1</ShowAsHex>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>8 Bytes</VariableType>
-                  <Address>tbl_data+18</Address>
-                  <CheatEntries>
-                    <CheatEntry>
-                      <ID>17059</ID>
-                      <Description>"No description"</Description>
-                      <ShowAsSigned>0</ShowAsSigned>
-                      <VariableType>2 Bytes</VariableType>
-                      <Address>+0</Address>
-                      <Offsets>
-                        <Offset>0</Offset>
-                      </Offsets>
-                    </CheatEntry>
-                  </CheatEntries>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
@@ -2779,4 +2599,6 @@ GameNative.dll+255344: 7E 04                    - jle GameNative.dll+25534A
     </CodeEntry>
   </CheatCodes>
   <UserdefinedSymbols/>
+  <LuaScript>
+</LuaScript>
 </CheatTable>

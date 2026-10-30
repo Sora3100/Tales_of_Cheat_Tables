@@ -1,5 +1,12 @@
 ### Changelog
 
+#### 2026/10/30
+
+-	Made it so that opening the menu will grab data in the Eternia Remastered table.
+	-	In the past, it used to only work while in town or dungeons.
+
+-	Added a script to fix projectile speed in Xillia 1.
+
 #### 2026/10/17
 
 -	Added table for Eternia Remastered.
