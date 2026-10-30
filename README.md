@@ -2,6 +2,7 @@
 
 These tables were originally meant to be for myself, but I am releasing all of them here. 
 Note that unless you use the exact version of the game and emulator, certain things might not work.
+This does **NOT** mean you need the emulators or version listed. Please test the latest first.
 
 Having trouble? See the [troubleshooting](https://github.com/Sora3100/Tales_of_Cheat_Tables/blob/master/TROUBLESHOOTING.md) page.
 
@@ -99,22 +100,17 @@ Features:
  - Arte Usage Editor
  - Equipment Editor
 
- ## Eternia (PS1, PC)
-For the PS1, the table is based on the SLUS01355 (Disc 1), SLUS01367 (Disc 2) and SLUS01368 (Disc 3) version of the game.
-For PC, the table is based on the 2.0.0 (buildID 25190541) version of the game.
-
-Emulator used for PS1: DuckStation 0.1-5485-gc6a57273 (dev)
+ ## Eternia (PC)
+Based on the 2.0.0 (buildID 25190541) version of the game.
 
 Features:
  - Party Formation Editor
  - Stats Editor
- - In-Battle Stats Editor
  - Equipment Editor
  - Arte List Editor
  - Gald Editor
  - Battle camera zoom Editor (useful for co-op)
- - Unlock Hardcore/Unknown difficulty
- - Disable encounters
+ - Unlock Unknown difficulty
  - Change Arte Usage
 
  ## Graces F (PC)
