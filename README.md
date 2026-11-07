@@ -487,7 +487,7 @@ Available for PCSG00009.
 
 Features:
  - Difficulty value modifiers
- - Guard counter volume modifier (intended for co-op, but can be used without)
+ - Guard counter volume modifier (intended for co-op, but can be used without, co-op also does not require using this)
  - Multiplayer patch (up to 4 players)
  
  ### Installation guide for the VitaCheat database files:
@@ -546,7 +546,7 @@ Available for PCSE00429.
 
 Features:
  - Difficulty value modifiers
- - Guard counter volume modifier (intended for co-op, but can be used without)
+ - Guard counter volume modifier (intended for co-op, but can be used without, co-op also does not require using this)
  
  ### Installation guide for the VitaCheat database files:
     Edit the file according to your needs. The file shows which lines and what to edit.
