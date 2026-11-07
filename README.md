@@ -498,6 +498,7 @@ Features:
    - Camera takes focus of every non auto character (and stops focusing if they are dead)
    - Audio is now played from every non auto character
    - Each player gets their own target indicator
+   - Stage edge is displayed for every non auto character
    
  
  ### Installation guide for the VitaCheat database files:
