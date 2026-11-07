@@ -101,7 +101,7 @@ Features:
  - Equipment Editor
 
  ## Eternia (PC)
-Based on the 2.0.0 (buildID 25190541) version of the game.
+Based on the 2.1.0 (buildID 26274855) version of the game.
 
 Features:
  - Party Formation Editor
@@ -480,4 +480,84 @@ Available for ULJS00293.
 Features:
  - Walk through walls
  - Debug menu
- - An unfinished 60 fps mod
+ - An unfinished 60 fps mod (this is obsolete now, use the one [here](https://github.com/guidocella/tales-patches) instead)
+ 
+ ## Innocence R
+Available for PCSG00009.
+
+Features:
+ - Difficulty value modifiers
+ - Guard counter volume modifier (intended for co-op, but can be used without)
+ - Multiplayer patch (up to 4 players)
+ 
+ ### Installation guide for the VitaCheat database files:
+    Edit the file according to your needs. The file shows which lines and what to edit.
+
+  **Vita and Vita TV**:
+    
+	  Install and setup VitaCheat (https://github.com/r0ah/vitacheat/wiki/Quick-Start)
+      Place the files into ux0:vitacheat/db/
+      Enable it on the overlay (or edit _V0 to _V1)
+  
+  **Vita3K**:
+    
+	  Place the files into Vita3K/cheats/
+      Enable it in Manage -> Cheats (or edit _V0 to _V1)
+
+ ### Installation guide for the multiplayer patch:
+  **Vita, Vita TV and Vita3K**:
+  
+    Place the files into ux0:tai/
+  
+  **Vita**:
+  
+    Install and setup MiniVitaTV (https://github.com/TheOfficialFloW/MiniVitaTV) and pair your controllers.
+	
+  **Vita3K**:
+  
+    Enable PS TV mode.
+  
+  **Vita and Vita TV**:
+  
+    Edit the config.txt in ux0:tai/ with the following: (create it if it doesn't exist)
+    ux0:tai/toir_hr_ctrl.skrpx goes below *KERNEL
+	
+	*This is required because otherwise controller 2 won't work.
+  
+  **Vita, Vita TV and Vita3K**:
+  
+    Edit the config.txt in ux0:tai/ with the following: (create it if it doesn't exist)
+    ux0:tai/toir_coop.suprx goes below *PCSG00009. (if it's not in the config, add it)
+	
+  **Vita, Vita TV**:
+    
+	Reboot the system.
+  
+ #### Troubleshooting:
+   If all controllers control slot 1, MiniVitaTV hasn't been setup properly or PS TV mode hasn't been enabled.
+   
+   If the button hint doesn't appear in the arte menu, the patch isn't loaded. Check if you put the patch in the correct place, and if you setup your config.txt properly.
+
+
+Thanks to Kevan for testing the multiplayer patch on a real PS Vita.
+
+ ## Hearts R
+Available for PCSE00429.
+
+Features:
+ - Difficulty value modifiers
+ - Guard counter volume modifier (intended for co-op, but can be used without)
+ 
+ ### Installation guide for the VitaCheat database files:
+    Edit the file according to your needs. The file shows which lines and what to edit.
+
+  **Vita and Vita TV**:
+    
+	  Install and setup VitaCheat (https://github.com/r0ah/vitacheat/wiki/Quick-Start)
+      Place the files into ux0:vitacheat/db/
+      Enable it on the overlay (or edit _V0 to _V1)
+  
+  **Vita3K**:
+    
+	  Place the files into Vita3K/cheats/
+      Enable it in Manage -> Cheats (or edit _V0 to _V1)
