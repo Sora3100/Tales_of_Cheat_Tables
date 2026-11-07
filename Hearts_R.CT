@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="45">
+<CheatTable CheatEngineTableVersion="52">
   <CheatEntries>
     <CheatEntry>
       <ID>53</ID>
@@ -6804,6 +6804,416 @@ unregistersymbol(baseElfAddr)
           <Address>baseElfAddr+2948F2</Address>
         </CheatEntry>
         <CheatEntry>
+          <ID>2147</ID>
+          <Description>"Difficulty values"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>baseElfAddr+286A0C</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2148</ID>
+              <Description>"Easy"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2149</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2150</ID>
+                  <Description>"Stagger/break threshold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2151</ID>
+                  <Description>"Break pool"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2152</ID>
+                  <Description>"Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2153</ID>
+                  <Description>"P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2154</ID>
+                  <Description>"P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2155</ID>
+                  <Description>"A. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2156</ID>
+                  <Description>"A. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2157</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2158</ID>
+                  <Description>"Gald"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2159</ID>
+              <Description>"Normal"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+28</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2160</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2161</ID>
+                  <Description>"Stagger/break threshold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2162</ID>
+                  <Description>"Break pool"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2163</ID>
+                  <Description>"Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2164</ID>
+                  <Description>"P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2165</ID>
+                  <Description>"P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2166</ID>
+                  <Description>"A. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2167</ID>
+                  <Description>"A. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2168</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2169</ID>
+                  <Description>"Gald"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2170</ID>
+              <Description>"Hard"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+28*2</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2171</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2172</ID>
+                  <Description>"Stagger/break threshold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2173</ID>
+                  <Description>"Break pool"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2174</ID>
+                  <Description>"Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2175</ID>
+                  <Description>"P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2176</ID>
+                  <Description>"P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2177</ID>
+                  <Description>"A. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2178</ID>
+                  <Description>"A. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2179</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2180</ID>
+                  <Description>"Gald"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2181</ID>
+              <Description>"Maniac"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+28*3</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2182</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2183</ID>
+                  <Description>"Stagger/break threshold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2184</ID>
+                  <Description>"Break pool"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2185</ID>
+                  <Description>"Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2186</ID>
+                  <Description>"P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2187</ID>
+                  <Description>"P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2188</ID>
+                  <Description>"A. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2189</ID>
+                  <Description>"A. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2190</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2191</ID>
+                  <Description>"Gald"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2192</ID>
+              <Description>"Unknown"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>+28*4</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2193</ID>
+                  <Description>"Level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2194</ID>
+                  <Description>"Stagger/break threshold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2195</ID>
+                  <Description>"Break pool"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2196</ID>
+                  <Description>"Max HP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2197</ID>
+                  <Description>"P. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2198</ID>
+                  <Description>"P. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2199</ID>
+                  <Description>"A. ATK"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2200</ID>
+                  <Description>"A. DEF"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2201</ID>
+                  <Description>"EXP"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2202</ID>
+                  <Description>"Gald"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>62</ID>
           <Description>"Notes"</Description>
           <Options moHideChildren="1"/>
@@ -9220,18 +9630,5 @@ dealloc(enmNum)
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>skillEdit</Name>
-      <Address>1EA34A70000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>ptrtohp</Name>
-      <Address>23E23580000</Address>
-    </SymbolEntry>
-    <SymbolEntry>
-      <Name>enmNum</Name>
-      <Address>162435B0000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
 </CheatTable>
