@@ -1,5 +1,21 @@
 ### Changelog
 
+#### 2026/11/05
+
+-	Added difficulty values to Hearts R table
+
+-	Added Innocence R VitaCheat file
+	-	Features:
+		-	Difficulty value modifiers
+		-	Guard counter volume modifier (intended for co-op, but can be used without)
+		
+-	Added Innocence R co-op patch
+
+-	Added Hearts R VitaCheat file
+	-	Features:
+		-	Difficulty value modifiers
+		-	Guard counter volume modifier (intended for co-op, but can be used without)
+
 #### 2026/10/30
 
 -	Made it so that opening the menu will grab data in the Eternia Remastered table.
