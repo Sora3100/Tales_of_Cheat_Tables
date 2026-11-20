@@ -1,0 +1,101 @@
+# Title: Tales of Hearts R (EU)
+# ID: PCSB00550
+# Edit the value on any line that has a comment (here or in VitaCheat), then activate the cheat.
+#
+# DIFFICULTY MULTIPLIERS (the game's own table): one cheat, values editable in this file (last column of the
+#   lines with a comment). One line per stat and difficulty (Easy, Normal, Hard, Maniac, Unknown).
+#   Multipliers are 32-bit floats: 0.5=3F000000 0.75=3F400000 0.8=3F4CCCCD 1.0=3F800000
+#   1.1=3F8CCCCD 1.2=3F99999A 1.5=3FC00000 2.0=40000000 2.5=40200000 3.0=40400000
+#   4.0=40800000 5.0=40A00000 10.0=41200000
+#   Level bonus = whole levels added to every enemy (hex, 16-bit: 000A = 10, 0014 = 20, 0028 = 40).
+#   All values below are the game's defaults.
+#
+# GUARD COUNTER WARNING VOLUME: the sound of an enemy glowing red is played louder.
+#   Edit the last two digits of the marked line: 01 normal, 02 2x (default), 04 4x, 08 8x, 10 16x.
+#   The game caps a sound at twice its full volume: at the maximum SE volume setting, 4x+ sounds like 2x.
+
+_V0 Difficulty multipliers
+$0100 81286A0C 00000000 # Level bonus - Easy +0 levels
+$0100 81286A34 00000000 # Level bonus - Normal +0 levels
+$0100 81286A5C 0000000A # Level bonus - Hard +10 levels
+$0100 81286A84 00000014 # Level bonus - Maniac +20 levels
+$0100 81286AAC 00000028 # Level bonus - Unknown +40 levels
+$0200 81286A18 3F4CCCCD # Max HP - Easy x0.8
+$0200 81286A40 3F800000 # Max HP - Normal x1
+$0200 81286A68 3FC00000 # Max HP - Hard x1.5
+$0200 81286A90 40400000 # Max HP - Maniac x3
+$0200 81286AB8 40800000 # Max HP - Unknown x4
+$0200 81286A1C 3F4CCCCD # P.ATK - Easy x0.8
+$0200 81286A44 3F800000 # P.ATK - Normal x1
+$0200 81286A6C 3F99999A # P.ATK - Hard x1.2
+$0200 81286A94 40000000 # P.ATK - Maniac x2
+$0200 81286ABC 40400000 # P.ATK - Unknown x3
+$0200 81286A24 3F4CCCCD # A.ATK - Easy x0.8
+$0200 81286A4C 3F800000 # A.ATK - Normal x1
+$0200 81286A74 3F99999A # A.ATK - Hard x1.2
+$0200 81286A9C 40000000 # A.ATK - Maniac x2
+$0200 81286AC4 40400000 # A.ATK - Unknown x3
+$0200 81286A20 3F4CCCCD # P.DEF - Easy x0.8
+$0200 81286A48 3F800000 # P.DEF - Normal x1
+$0200 81286A70 3F99999A # P.DEF - Hard x1.2
+$0200 81286A98 40000000 # P.DEF - Maniac x2
+$0200 81286AC0 40400000 # P.DEF - Unknown x3
+$0200 81286A28 3F4CCCCD # A.DEF - Easy x0.8
+$0200 81286A50 3F800000 # A.DEF - Normal x1
+$0200 81286A78 3F99999A # A.DEF - Hard x1.2
+$0200 81286AA0 40000000 # A.DEF - Maniac x2
+$0200 81286AC8 40400000 # A.DEF - Unknown x3
+$0200 81286A10 3F4CCCCD # Stagger/break threshold - Easy x0.8
+$0200 81286A38 3F800000 # Stagger/break threshold - Normal x1
+$0200 81286A60 3F99999A # Stagger/break threshold - Hard x1.2
+$0200 81286A88 40000000 # Stagger/break threshold - Maniac x2
+$0200 81286AB0 40200000 # Stagger/break threshold - Unknown x2.5
+$0200 81286A14 3F4CCCCD # Break pool - Easy x0.8
+$0200 81286A3C 3F800000 # Break pool - Normal x1
+$0200 81286A64 3F99999A # Break pool - Hard x1.2
+$0200 81286A8C 40000000 # Break pool - Maniac x2
+$0200 81286AB4 40200000 # Break pool - Unknown x2.5
+$0200 81286A2C 3F800000 # EXP reward - Easy x1
+$0200 81286A54 3F800000 # EXP reward - Normal x1
+$0200 81286A7C 3F8CCCCD # EXP reward - Hard x1.1
+$0200 81286AA4 3F99999A # EXP reward - Maniac x1.2
+$0200 81286ACC 3FC00000 # EXP reward - Unknown x1.5
+$0200 81286A30 3F800000 # Gald reward - Easy x1
+$0200 81286A58 3F800000 # Gald reward - Normal x1
+$0200 81286A80 3F8CCCCD # Gald reward - Hard x1.1
+$0200 81286AA8 3F99999A # Gald reward - Maniac x1.2
+$0200 81286AD0 3FC00000 # Gald reward - Unknown x1.5
+
+_V0 Guard counter warning volume (edit the multiplier)
+$A200 811217A8 D1312A10
+$A200 811217AC C032F8B8
+$A200 811217B0 0F01F1BC
+$A200 811217B4 B410D12C
+$A200 811217B8 542CF240
+$A200 811217BC ED944404
+$A200 811217C0 F8DF1A00
+$A200 811217C4 F89CC050
+$A200 811217C8 EE01C000
+$A200 811217CC EEF8CA90
+$A200 811217D0 EE211A61
+$A200 811217D4 EDD41A21
+$A200 811217D8 EE021A01
+$A200 811217DC EEB83A10
+$A200 811217E0 EE222A42
+$A200 811217E4 EEB52A21
+$A200 811217E8 EEF12A40
+$A200 811217EC D00CFA10
+$A200 811217F0 C024F8DF
+$A200 811217F4 CA90EE02
+$A200 811217F8 2A82EEC2
+$A200 811217FC 1A62EEB4
+$A200 81121800 FA10EEF1
+$A200 81121804 EEB0DD01
+$A200 81121808 ED841A62
+$A200 8112180C BC101A00
+$A200 81121810 B84BF716
+$A200 81121814 81121A78
+$A200 81121818 437F0000
+$A200 81121A78 1C211C02 #<-- EDIT last 2 digits: volume multiplier
+$A200 810CE094 F0530020
+$A200 810CE098 F889FB87
