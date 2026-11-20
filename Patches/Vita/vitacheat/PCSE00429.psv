@@ -1,8 +1,9 @@
 # Title: Tales of Hearts R
 # ID: PCSE00429
-# Edit the value on any line marked "<-- EDIT" (here or in VitaCheat), then activate the cheat.
+# Edit the value on any line that has a comment (here or in VitaCheat), then activate the cheat.
 #
-# DIFFICULTY MULTIPLIERS (the game's own table): one cheat per stat, one line per difficulty.
+# DIFFICULTY MULTIPLIERS (the game's own table): one cheat, values editable in this file (last column of the
+#   lines with a comment). One line per stat and difficulty (Easy, Normal, Hard, Maniac, Unknown).
 #   Multipliers are 32-bit floats: 0.5=3F000000 0.75=3F400000 0.8=3F4CCCCD 1.0=3F800000
 #   1.1=3F8CCCCD 1.2=3F99999A 1.5=3FC00000 2.0=40000000 2.5=40200000 3.0=40400000
 #   4.0=40800000 5.0=40A00000 10.0=41200000
@@ -13,75 +14,57 @@
 #   Edit the last two digits of the marked line: 01 normal, 02 2x (default), 04 4x, 08 8x, 10 16x.
 #   The game caps a sound at twice its full volume: at the maximum SE volume setting, 4x+ sounds like 2x.
 
-_V0 Difficulty: Level bonus
-$0100 81286A0C 00000000 #<-- EDIT Easy: +0 levels
-$0100 81286A34 00000000 #<-- EDIT Normal: +0 levels
-$0100 81286A5C 0000000A #<-- EDIT Hard: +10 levels
-$0100 81286A84 00000014 #<-- EDIT Maniac: +20 levels
-$0100 81286AAC 00000028 #<-- EDIT Unknown: +40 levels
-
-_V0 Difficulty: Max HP
-$0200 81286A18 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A40 3F800000 #<-- EDIT Normal: x1
-$0200 81286A68 3FC00000 #<-- EDIT Hard: x1.5
-$0200 81286A90 40400000 #<-- EDIT Maniac: x3
-$0200 81286AB8 40800000 #<-- EDIT Unknown: x4
-
-_V0 Difficulty: P.ATK
-$0200 81286A1C 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A44 3F800000 #<-- EDIT Normal: x1
-$0200 81286A6C 3F99999A #<-- EDIT Hard: x1.2
-$0200 81286A94 40000000 #<-- EDIT Maniac: x2
-$0200 81286ABC 40400000 #<-- EDIT Unknown: x3
-
-_V0 Difficulty: A.ATK
-$0200 81286A24 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A4C 3F800000 #<-- EDIT Normal: x1
-$0200 81286A74 3F99999A #<-- EDIT Hard: x1.2
-$0200 81286A9C 40000000 #<-- EDIT Maniac: x2
-$0200 81286AC4 40400000 #<-- EDIT Unknown: x3
-
-_V0 Difficulty: P.DEF
-$0200 81286A20 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A48 3F800000 #<-- EDIT Normal: x1
-$0200 81286A70 3F99999A #<-- EDIT Hard: x1.2
-$0200 81286A98 40000000 #<-- EDIT Maniac: x2
-$0200 81286AC0 40400000 #<-- EDIT Unknown: x3
-
-_V0 Difficulty: A.DEF
-$0200 81286A28 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A50 3F800000 #<-- EDIT Normal: x1
-$0200 81286A78 3F99999A #<-- EDIT Hard: x1.2
-$0200 81286AA0 40000000 #<-- EDIT Maniac: x2
-$0200 81286AC8 40400000 #<-- EDIT Unknown: x3
-
-_V0 Difficulty: Stagger/break threshold
-$0200 81286A10 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A38 3F800000 #<-- EDIT Normal: x1
-$0200 81286A60 3F99999A #<-- EDIT Hard: x1.2
-$0200 81286A88 40000000 #<-- EDIT Maniac: x2
-$0200 81286AB0 40200000 #<-- EDIT Unknown: x2.5
-
-_V0 Difficulty: Break pool
-$0200 81286A14 3F4CCCCD #<-- EDIT Easy: x0.8
-$0200 81286A3C 3F800000 #<-- EDIT Normal: x1
-$0200 81286A64 3F99999A #<-- EDIT Hard: x1.2
-$0200 81286A8C 40000000 #<-- EDIT Maniac: x2
-$0200 81286AB4 40200000 #<-- EDIT Unknown: x2.5
-
-_V0 Difficulty: EXP reward
-$0200 81286A2C 3F800000 #<-- EDIT Easy: x1
-$0200 81286A54 3F800000 #<-- EDIT Normal: x1
-$0200 81286A7C 3F8CCCCD #<-- EDIT Hard: x1.1
-$0200 81286AA4 3F99999A #<-- EDIT Maniac: x1.2
-$0200 81286ACC 3FC00000 #<-- EDIT Unknown: x1.5
-
-_V0 Difficulty: Gald reward
-$0200 81286A30 3F800000 #<-- EDIT Easy: x1
-$0200 81286A58 3F800000 #<-- EDIT Normal: x1
-$0200 81286A80 3F8CCCCD #<-- EDIT Hard: x1.1
-$0200 81286AA8 3F99999A #<-- EDIT Maniac: x1.2
-$0200 81286AD0 3FC00000 #<-- EDIT Unknown: x1.5
+_V0 Difficulty multipliers
+$0100 81286A0C 00000000 # Level bonus - Easy +0 levels
+$0100 81286A34 00000000 # Level bonus - Normal +0 levels
+$0100 81286A5C 0000000A # Level bonus - Hard +10 levels
+$0100 81286A84 00000014 # Level bonus - Maniac +20 levels
+$0100 81286AAC 00000028 # Level bonus - Unknown +40 levels
+$0200 81286A18 3F4CCCCD # Max HP - Easy x0.8
+$0200 81286A40 3F800000 # Max HP - Normal x1
+$0200 81286A68 3FC00000 # Max HP - Hard x1.5
+$0200 81286A90 40400000 # Max HP - Maniac x3
+$0200 81286AB8 40800000 # Max HP - Unknown x4
+$0200 81286A1C 3F4CCCCD # P.ATK - Easy x0.8
+$0200 81286A44 3F800000 # P.ATK - Normal x1
+$0200 81286A6C 3F99999A # P.ATK - Hard x1.2
+$0200 81286A94 40000000 # P.ATK - Maniac x2
+$0200 81286ABC 40400000 # P.ATK - Unknown x3
+$0200 81286A24 3F4CCCCD # A.ATK - Easy x0.8
+$0200 81286A4C 3F800000 # A.ATK - Normal x1
+$0200 81286A74 3F99999A # A.ATK - Hard x1.2
+$0200 81286A9C 40000000 # A.ATK - Maniac x2
+$0200 81286AC4 40400000 # A.ATK - Unknown x3
+$0200 81286A20 3F4CCCCD # P.DEF - Easy x0.8
+$0200 81286A48 3F800000 # P.DEF - Normal x1
+$0200 81286A70 3F99999A # P.DEF - Hard x1.2
+$0200 81286A98 40000000 # P.DEF - Maniac x2
+$0200 81286AC0 40400000 # P.DEF - Unknown x3
+$0200 81286A28 3F4CCCCD # A.DEF - Easy x0.8
+$0200 81286A50 3F800000 # A.DEF - Normal x1
+$0200 81286A78 3F99999A # A.DEF - Hard x1.2
+$0200 81286AA0 40000000 # A.DEF - Maniac x2
+$0200 81286AC8 40400000 # A.DEF - Unknown x3
+$0200 81286A10 3F4CCCCD # Stagger/break threshold - Easy x0.8
+$0200 81286A38 3F800000 # Stagger/break threshold - Normal x1
+$0200 81286A60 3F99999A # Stagger/break threshold - Hard x1.2
+$0200 81286A88 40000000 # Stagger/break threshold - Maniac x2
+$0200 81286AB0 40200000 # Stagger/break threshold - Unknown x2.5
+$0200 81286A14 3F4CCCCD # Break pool - Easy x0.8
+$0200 81286A3C 3F800000 # Break pool - Normal x1
+$0200 81286A64 3F99999A # Break pool - Hard x1.2
+$0200 81286A8C 40000000 # Break pool - Maniac x2
+$0200 81286AB4 40200000 # Break pool - Unknown x2.5
+$0200 81286A2C 3F800000 # EXP reward - Easy x1
+$0200 81286A54 3F800000 # EXP reward - Normal x1
+$0200 81286A7C 3F8CCCCD # EXP reward - Hard x1.1
+$0200 81286AA4 3F99999A # EXP reward - Maniac x1.2
+$0200 81286ACC 3FC00000 # EXP reward - Unknown x1.5
+$0200 81286A30 3F800000 # Gald reward - Easy x1
+$0200 81286A58 3F800000 # Gald reward - Normal x1
+$0200 81286A80 3F8CCCCD # Gald reward - Hard x1.1
+$0200 81286AA8 3F99999A # Gald reward - Maniac x1.2
+$0200 81286AD0 3FC00000 # Gald reward - Unknown x1.5
 
 _V0 Guard counter warning volume (edit the multiplier)
 $A200 811217B0 D1312A10
