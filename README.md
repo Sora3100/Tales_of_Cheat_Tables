@@ -612,7 +612,7 @@ Features:
   **Vita, Vita TV and Vita3K**:
   
     Edit the config.txt in ux0:tai/ with the following: (create it if it doesn't exist)
-    ux0:tai/toir_hr_coop.suprx goes below *PCSG00009. (if it's not in the config, add it)
+    ux0:tai/toir_hr_coop.suprx goes below your game region's code \*PCSG00125, \*PCSE00429 (US), \*PCSB00550 (EU). (if it's not in the config, add it)
 	
   **Vita, Vita TV**:
     
