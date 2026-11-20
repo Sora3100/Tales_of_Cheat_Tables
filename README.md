@@ -555,25 +555,25 @@ Once in-game, player 2-4 can either change their control mode from the field art
 Thanks to Kevan for testing the multiplayer patch on a real PS Vita.
 
  ## Hearts R
-Available for PCSE00429.
+Available for PCSG00125 (JP), PCSE00429 (US) and PCSB00550 (EU).
 
 Features:
  - Difficulty value modifiers
  - Guard counter volume modifier (intended for co-op, but can be used without, co-op also does not require using this)
  - Multiplayer patch (up to 4 players)
-  - Player 2-4 can open the field menu and control it
-  - Each player gets to control a character in battle, with every mechanic fully functional
-  - Player 2-4 can also open and control the battle menu, while locking out other players
-  - Player 1 can press Triangle + START while another player opened the battle menu to take back control
-  - The arte menu now has the ability to change control mode
-  - Character cycling in battle takes into consideration whether a character is auto or not
-  - Camera takes focus of every non auto character (and stops focusing if they are dead)
-  - Audio is now played from every non auto character
-  - Each player gets their own target indicator
-  - Stage edge is displayed for every non auto character
-  - When more than 1 player is active, Chase Link stops and camera changes disabled to make it a smoother experience
-  - Cross Chase Charge is now bound to a button combo, Chase Link is still required to execute
-  - A character's HUD elements will now go semi-transparent if a player would be occluded behind them
+   - Player 2-4 can open the field menu and control it
+   - Each player gets to control a character in battle, with every mechanic fully functional
+   - Player 2-4 can also open and control the battle menu, while locking out other players
+   - Player 1 can press Triangle + START while another player opened the battle menu to take back control
+   - The arte menu now has the ability to change control mode
+   - Character cycling in battle takes into consideration whether a character is auto or not
+   - Camera takes focus of every non auto character (and stops focusing if they are dead)
+   - Audio is now played from every non auto character
+   - Each player gets their own target indicator
+   - Stage edge is displayed for every non auto character
+   - When more than 1 player is active, Chase Link stops and camera changes disabled to make it a smoother experience
+   - Cross Chase Charge is now bound to a button combo, Chase Link is still required to execute
+   - A character's HUD elements will now go semi-transparent if a player would be occluded behind them
  
  ### Installation guide for the VitaCheat database files:
     Edit the file according to your needs. The file shows which lines and what to edit.
