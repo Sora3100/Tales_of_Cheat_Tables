@@ -571,7 +571,7 @@ Features:
    - Audio is now played from every non auto character
    - Each player gets their own target indicator
    - Stage edge is displayed for every non auto character
-   - When more than 1 player is active, Chase Link stops and camera changes disabled to make it a smoother experience
+   - When more than 1 player is active, Chase Link stops and camera changes are disabled to make it a smoother experience
    - Cross Chase Charge is now bound to a button combo, Chase Link is still required to execute
    - A character's HUD elements will now go semi-transparent if a player would be occluded behind them
  
@@ -589,7 +589,7 @@ Features:
 	  Place the files into Vita3K/cheats/
       Enable it in Manage -> Cheats (or edit _V0 to _V1)
 	  
-	   ### Installation guide for the multiplayer patch:
+ ### Installation guide for the multiplayer patch:
   **Vita, Vita TV and Vita3K**:
   
     Place the files into ux0:tai/
