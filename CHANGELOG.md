@@ -1,5 +1,24 @@
 ### Changelog
 
+#### 2026/11/20
+
+-	Fixed sword drawing/sheathing sometimes triggering in the "Asbel no sword draw/sheathe" script.
+
+-	Improved Innocence R co-op mod:
+	-	Made the camera rotate less by not keeping side view unless only 1 player is alive/active
+		and not letting player 1's free run angle it down.
+	-	Control mode now gets saved to the save file and they no longer get saved from battle, like player 1.
+	-	The menus in battle no longer update to the cycled characters, as the unmodified game does not do it.
+	-	Fixed a potential event character swap bug.
+	-	Hitstop now gets disabled in multiplayer.
+	-	Petrify is now also taken into consideration for the camera.
+	-	The target indicator numbers are now scaled
+	-	The camera will now keep a dead player in focus, if a revive skill procs.
+	-	Made the camera keep focus on the enemy while targeting an ally if more than 1 player is active.
+	-	Made the camera try to keep up with characters high in the air and on the ground.
+	-	Made the character HUD elements semi-transparent if a non-auto character were to get occluded.
+	-	Control mode can now be changed by anyone in the battle menu.
+
 #### 2026/11/05
 
 -	Added difficulty values to Hearts R table

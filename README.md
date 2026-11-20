@@ -499,6 +499,7 @@ Features:
    - Audio is now played from every non auto character
    - Each player gets their own target indicator
    - Stage edge is displayed for every non auto character
+   - A character's HUD elements will now go semi-transparent if a player would be occluded behind them
    
  
  ### Installation guide for the VitaCheat database files:
@@ -538,7 +539,7 @@ Features:
   **Vita, Vita TV and Vita3K**:
   
     Edit the config.txt in ux0:tai/ with the following: (create it if it doesn't exist)
-    ux0:tai/toir_coop.suprx goes below *PCSG00009. (if it's not in the config, add it)
+    ux0:tai/toir_hr_coop.suprx goes below *PCSG00009. (if it's not in the config, add it)
 	
   **Vita, Vita TV**:
     
@@ -559,6 +560,20 @@ Available for PCSE00429.
 Features:
  - Difficulty value modifiers
  - Guard counter volume modifier (intended for co-op, but can be used without, co-op also does not require using this)
+ - Multiplayer patch (up to 4 players)
+  - Player 2-4 can open the field menu and control it
+  - Each player gets to control a character in battle, with every mechanic fully functional
+  - Player 2-4 can also open and control the battle menu, while locking out other players
+  - Player 1 can press Triangle + START while another player opened the battle menu to take back control
+  - The arte menu now has the ability to change control mode
+  - Character cycling in battle takes into consideration whether a character is auto or not
+  - Camera takes focus of every non auto character (and stops focusing if they are dead)
+  - Audio is now played from every non auto character
+  - Each player gets their own target indicator
+  - Stage edge is displayed for every non auto character
+  - When more than 1 player is active, Chase Link stops and camera changes disabled to make it a smoother experience
+  - Cross Chase Charge is now bound to a button combo, Chase Link is still required to execute
+  - A character's HUD elements will now go semi-transparent if a player would be occluded behind them
  
  ### Installation guide for the VitaCheat database files:
     Edit the file according to your needs. The file shows which lines and what to edit.
@@ -573,3 +588,41 @@ Features:
     
 	  Place the files into Vita3K/cheats/
       Enable it in Manage -> Cheats (or edit _V0 to _V1)
+	  
+	   ### Installation guide for the multiplayer patch:
+  **Vita, Vita TV and Vita3K**:
+  
+    Place the files into ux0:tai/
+  
+  **Vita**:
+  
+    Install and setup MiniVitaTV (https://github.com/TheOfficialFloW/MiniVitaTV) and pair your controllers.
+	
+  **Vita3K**:
+  
+    Enable PS TV mode.
+  
+  **Vita and Vita TV**:
+  
+    Edit the config.txt in ux0:tai/ with the following: (create it if it doesn't exist)
+    ux0:tai/toir_hr_ctrl.skrpx goes below *KERNEL
+	
+	*This is required because otherwise controller 2 won't work.
+  
+  **Vita, Vita TV and Vita3K**:
+  
+    Edit the config.txt in ux0:tai/ with the following: (create it if it doesn't exist)
+    ux0:tai/toir_hr_coop.suprx goes below *PCSG00009. (if it's not in the config, add it)
+	
+  **Vita, Vita TV**:
+    
+	Reboot the system.
+	
+Once in-game, player 2-4 can either change their control mode from the field arte menu, or in battle with select.
+  
+ #### Troubleshooting:
+   If all controllers control slot 1, MiniVitaTV hasn't been setup properly or PS TV mode hasn't been enabled.
+   
+   If the button hint doesn't appear in the arte menu, the patch isn't loaded. Check if you put the patch in the correct place, and if you setup your config.txt properly.
+
+Thanks to Kevan for testing the multiplayer patch on a real PS Vita.
